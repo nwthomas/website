@@ -43,13 +43,27 @@ const Home: NextPage = () => {
             <div>
               <h2>Currently</h2>
               <TwitterLogo>
-                <img src="twitter-logo.png" alt="Twitter logo" />
+                <a
+                  href="https://twitter.com/nwthomas_"
+                  aria-label="Link to Twitter profile"
+                  rel="noopener noreferrer"
+                  target="_target"
+                >
+                  <img src="twitter-logo.png" alt="Twitter logo" />
+                </a>
               </TwitterLogo>
             </div>
             <div>
               <h2>Previously</h2>
               <LambdaLogo>
-                <img src="lambda-logo.png" alt="Twitter logo" />
+                <a
+                  href="https://lambdaschool.com/"
+                  aria-label="Link to Lambda School website"
+                  rel="noopener noreferrer"
+                  target="_target"
+                >
+                  <img src="lambda-logo.png" alt="Twitter logo" />
+                </a>
               </LambdaLogo>
             </div>
           </section>
@@ -118,11 +132,25 @@ const RootStyles = styled.div`
 `;
 
 const TwitterLogo = styled.div`
+  transition: transform ${({ theme }) => theme.transitions.medium} ease-in-out,
+    opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
   width: 190px;
+
+  &:hover {
+    opacity: ${({ theme }) => theme.opacity.opacity90};
+    transform: translateY(-3px);
+  }
 `;
 
 const LambdaLogo = styled.div`
+  transition: transform ${({ theme }) => theme.transitions.medium} ease-in-out,
+    opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
   width: 100%;
+
+  &:hover {
+    opacity: ${({ theme }) => theme.opacity.opacity90};
+    transform: translateY(-3px);
+  }
 `;
 
 export default Home;
