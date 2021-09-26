@@ -13,7 +13,7 @@ function Navbar(props: Props) {
         </div>
         <nav>
           <div>
-            <p>Work</p>
+            <p>Writing</p>
           </div>
           <div>
             <p>About</p>
@@ -28,12 +28,13 @@ function Navbar(props: Props) {
 }
 
 const RootStyles = styled.div`
+  display: flex;
   background: ${({ theme }) => theme.colors.bodyBackground};
   height: ${({ theme }) => theme.appDimensions.navbarHeight};
   left: 0;
-  max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
   padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
   position: absolute;
+  justify-content: center;
   right: 0;
   top: 0;
   width: 100%;
@@ -44,6 +45,8 @@ const RootStyles = styled.div`
     display: flex;
     height: ${({ theme }) => theme.appDimensions.navbarHeight};
     justify-content: space-between;
+    max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
+    width: 100%;
 
     > div,
     nav {
