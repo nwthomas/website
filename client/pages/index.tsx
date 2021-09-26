@@ -18,9 +18,15 @@ const Home: NextPage = () => {
           <section>
             <div>
               <h2>Currently</h2>
+              <TwitterLogo>
+                <img src="twitter-logo.png" alt="Twitter logo" />
+              </TwitterLogo>
             </div>
             <div>
               <h2>Previously</h2>
+              <LambdaLogo>
+                <img src="lambda-logo.png" alt="Twitter logo" />
+              </LambdaLogo>
             </div>
           </section>
         </main>
@@ -45,7 +51,14 @@ const RootStyles = styled.div`
       margin: ${({ theme }) => theme.spaces.jumbo} 0;
 
       > div {
-        width: 35%;
+        width: 600px;
+
+        > h2 {
+          margin-bottom: ${({ theme }) => theme.spaces.xLarge};
+        }
+      }
+      > div:nth-child(1) {
+        width: 400px;
       }
 
       > h1 {
@@ -67,6 +80,14 @@ const RootStyles = styled.div`
       }
     }
   }
+`;
+
+const TwitterLogo = styled.div`
+  width: 190px;
+`;
+
+const LambdaLogo = styled.div`
+  width: 100%;
 `;
 
 export default Home;
