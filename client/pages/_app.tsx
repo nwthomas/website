@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import { ThemeProvider } from "styled-components";
 import { useGetPreferredTheme } from "../hooks/useGetPreferredTheme";
 import GlobalStyle, { makeMainTheme } from "../styles";
+import Navbar from "../components/Navbar";
 import "../styles/libs/fonts.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -14,9 +15,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeProvider theme={mainTheme}>
+      <Navbar />
       <GlobalStyle theme={mainTheme} />
       <Component {...pageProps} />
     </ThemeProvider>
   );
 }
+
 export default MyApp;
