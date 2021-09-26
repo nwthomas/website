@@ -1,9 +1,13 @@
-import type { NextPage } from 'next'
+import type { NextPage } from "next";
+import Layout from "../components/Layout";
+import Navbar from "../components/Navbar";
 
 const Home: NextPage = () => {
   return (
-    <div></div>
-  )
-}
+    <Layout pageName="Home">
+      <Navbar />
+    </Layout>
+  );
+};
 
-export default Home
+export default Home;

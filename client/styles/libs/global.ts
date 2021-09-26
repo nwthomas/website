@@ -13,11 +13,7 @@ const GlobalStyle = css`
   html,
   body {
     background-color: ${({ theme }) => theme.colors.bodyBackground};
-  }
-
-  html,
-  body {
-    font-family: "Object Sans", Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
@@ -78,18 +74,13 @@ const GlobalStyle = css`
     font-size: 1.6rem;
     line-height: 1.4;
     overflow: break-word;
-    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, Segoe UI,
-      Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
-      "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: "ObjectSans", Object Sans, Helvetica, sans-serif;
 
     &::placeholder {
       color: ${({ theme }) => theme.colors.text};
       opacity: ${({ theme }) => theme.opacity.opacity80};
       font-size: 1.6rem;
-      line-height: 1.4;
-      font-family: "Work Sans", -apple-system, BlinkMacSystemFont, Segoe UI,
-        Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
-        "Segoe UI Emoji", "Segoe UI Symbol";
+      font-family: "ObjectSans", Object Sans, Helvetica, sans-serif;
     }
   }
 
