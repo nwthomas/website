@@ -13,6 +13,11 @@ const GlobalStyle = css`
   html,
   body {
     background-color: ${({ theme }) => theme.colors.bodyBackground};
+  }
+
+  body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
   }
 
@@ -41,6 +46,7 @@ const GlobalStyle = css`
   h5 {
     color: ${({ theme }) => theme.colors.text};
     font-display: swap;
+    letter-spacing: -1px;
     line-height: 1.4;
   }
 
@@ -71,7 +77,8 @@ const GlobalStyle = css`
   textarea {
     color: ${({ theme }) => theme.colors.text};
     font-display: swap;
-    font-size: 1.6rem;
+    font-size: 2.6rem;
+    letter-spacing: -0.5px;
     line-height: 1.4;
     overflow: break-word;
     font-family: "ObjectSans", Object Sans, Helvetica, sans-serif;

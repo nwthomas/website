@@ -31,8 +31,8 @@ const RootStyles = styled.div`
   display: flex;
   justify-content: center;
   padding-bottom: ${({ theme }) => theme.appDimensions.footerHeight};
+  max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
   min-height: ${({ theme }) => theme.appDimensions.appMinHeight};
-  max-width: ${({ theme }) => theme.appDimensions.appMaxWidt};
   padding: ${({ theme }) =>
     `${theme.appDimensions.navbarHeight} 0 calc(${theme.appDimensions.mobileFooterHeight} + ${theme.spaces.large})`};
   position: relative;

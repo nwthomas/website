@@ -3,13 +3,21 @@ export type ThemeEnum = "dark" | "light";
 // ===================================== Color Assignment Variables
 // All color names pulled directly from http://chir.ag/projects/name-that-color/
 interface Colors {
+  eastSide: string;
+  justRight: string;
   mineShaft: string;
+  portage: string;
+  sinbad: string;
   transparent: string;
   white: string;
   woodsmoke: string;
 }
 export const colors: Colors = {
+  eastSide: "#AC9DD1",
+  justRight: "#F1D3C2",
   mineShaft: "#333333",
+  portage: "#8CA6EB",
+  sinbad: "#a9d4d4",
   transparent: "transparent",
   white: "#ffffff",
   woodsmoke: "#161618",
@@ -36,15 +44,17 @@ interface AppDimensions {
   articleMaxWidth: string;
   footerHeight: string;
   navbarHeight: string;
+  navbarLinkWidth: string;
 }
 export const appDimensions: AppDimensions = {
   appHorizontalGutters: "6%",
-  appMaxWidth: "1400px",
+  appMaxWidth: "1800px",
   appMinHeight: "100vh",
   articleHeroImageMaxWidth: "1200px",
   articleMaxWidth: "600px",
   footerHeight: "200px",
   navbarHeight: "200px",
+  navbarLinkWidth: "120px",
 };
 
 interface BorderRadii {
