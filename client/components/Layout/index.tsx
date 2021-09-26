@@ -25,11 +25,10 @@ function Layout({ children, pageName }: Props) {
 }
 const RootStyles = styled.div`
   display: flex;
-  justify-content: center;
   background: ${({ theme }) => theme.colors.bodyBackground};
+  justify-content: center;
   padding: ${({ theme }) =>
     `${theme.appDimensions.navbarHeight} 0 ${theme.appDimensions.footerHeight}`};
-  max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
   min-height: ${({ theme }) => theme.appDimensions.appMinHeight};
   position: relative;
   width: 100%;
