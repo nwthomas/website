@@ -1,23 +1,35 @@
 import type { NextPage } from "next";
 import styled from "styled-components";
 import Layout from "../components/Layout";
-import Navbar from "../components/Navbar";
 
 const Home: NextPage = () => {
   return (
-    <RootStyles>
-      <Layout pageName="Home">
-        <Navbar />
-      </Layout>
-    </RootStyles>
+    <Layout pageName="Home">
+      <RootStyles>
+        <main>
+          <section>
+            <h1>
+              Hey, I'm Nathan. I'm a full stack software engineer, writer, and
+              runner. I also build stuff with Bitcoin and Ethereum in my spare
+              time.
+            </h1>
+          </section>
+        </main>
+      </RootStyles>
+    </Layout>
   );
 };
 
 const RootStyles = styled.div`
   align-items: center;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
   width: 100%;
+
+  > main > section {
+    margin-top: ${({ theme }) => theme.spaces.xLarge};
+  }
 `;
 
 export default Home;

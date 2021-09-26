@@ -28,9 +28,16 @@ function Navbar(props: Props) {
 }
 
 const RootStyles = styled.div`
+  background: ${({ theme }) => theme.colors.bodyBackground};
   height: ${({ theme }) => theme.appDimensions.navbarHeight};
+  left: 0;
+  max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
   padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
+  position: absolute;
+  right: 0;
+  top: 0;
   width: 100%;
+  z-index: 1;
 
   > header {
     align-items: center;

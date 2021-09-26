@@ -18,23 +18,19 @@ function Layout({ children, pageName }: Props) {
       <Head>
         <title>{currentPageName}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
-      <RootStyles>
-        {children}
-        <BabyYoda />
-      </RootStyles>
+      <RootStyles>{children}</RootStyles>
     </>
   );
 }
 const RootStyles = styled.div`
   display: flex;
   justify-content: center;
-  padding-bottom: ${({ theme }) => theme.appDimensions.footerHeight};
+  background: ${({ theme }) => theme.colors.bodyBackground};
+  padding: ${({ theme }) =>
+    `${theme.appDimensions.navbarHeight} 0 ${theme.appDimensions.footerHeight}`};
   max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
   min-height: ${({ theme }) => theme.appDimensions.appMinHeight};
-  padding: ${({ theme }) =>
-    `${theme.appDimensions.navbarHeight} 0 calc(${theme.appDimensions.mobileFooterHeight} + ${theme.spaces.large})`};
   position: relative;
   width: 100%;
 `;
