@@ -101,6 +101,7 @@ export default class MyDocument extends Document {
             src="https://platform.twitter.com/widgets.js"
             charSet="utf-8"
           ></script>
+          <style>@ fontface {}</style>
         </body>
       </Html>
     );
