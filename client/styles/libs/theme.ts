@@ -38,7 +38,7 @@ interface AppDimensions {
   navbarHeight: string;
 }
 export const appDimensions: AppDimensions = {
-  appHorizontalGutters: "5%",
+  appHorizontalGutters: "6%",
   appMaxWidth: "1400px",
   appMinHeight: "100vh",
   articleHeroImageMaxWidth: "1200px",
@@ -129,23 +129,25 @@ interface Transitions {
   short: string;
   medium: string;
   long: string;
+  xLong: string;
 }
 const transitions: Transitions = {
   short: "0.03s",
   medium: "0.05s",
   long: "0.1s",
+  xLong: "0.5s",
 };
 
 export interface Theme {
-  appDimensions: typeof appDimensions;
-  breakpoints: typeof breakpoints;
-  borderRadii: typeof borderRadii;
-  colors: typeof themeColorValues;
-  colorsHex: typeof colors;
+  appDimensions: AppDimensions;
+  breakpoints: Breakpoints;
+  borderRadii: BorderRadii;
+  colors: ThemeColorValues;
+  colorsHex: Colors;
   currentTheme: ThemeEnum;
-  opacity: typeof opacity;
-  spaces: typeof spaces;
-  transitions: typeof transitions;
+  opacity: Opacity;
+  spaces: Spaces;
+  transitions: Transitions;
 }
 
 // ===================================== Main Theme
