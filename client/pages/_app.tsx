@@ -10,9 +10,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [currentTheme, setCurrentTheme] = useGetPreferredTheme();
 
   const mainTheme = React.useMemo(() => {
-    return makeMainTheme(currentTheme || DARK_THEME);
+    return makeMainTheme(currentTheme);
   }, [currentTheme]);
-  console.log(mainTheme);
+
   return (
     <>
       <GlobalStyle theme={mainTheme} />

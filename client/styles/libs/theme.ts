@@ -1,93 +1,94 @@
-export type ThemeEnum = 'dark' | 'light';
+export type ThemeEnum = "dark" | "light";
 
 // ===================================== Color Assignment Variables
 // All color names pulled directly from http://chir.ag/projects/name-that-color/
 interface Colors {
-  mineShaft: string,
-  transparent: string,
-  white: string,
+  mineShaft: string;
+  transparent: string;
+  white: string;
+  woodsmoke: string;
 }
 export const colors: Colors = {
-  mineShaft: '#333333',
-  transparent: 'transparent',
-  white: '#ffffff',
+  mineShaft: "#333333",
+  transparent: "transparent",
+  white: "#ffffff",
+  woodsmoke: "#161618",
 };
 
 // ===================================== Color Theme
 interface ThemeColorValues {
-  bodyBackground: string,
-  text: string,
-  transparent: string,
+  bodyBackground: string;
+  text: string;
+  transparent: string;
 }
 export const themeColorValues: ThemeColorValues = {
-  bodyBackground: 'var(--body-bg)',
-  text: 'var(--text)',
-  transparent: 'var(--transparent)',
+  bodyBackground: "var(--body-bg)",
+  text: "var(--text)",
+  transparent: "var(--transparent)",
 };
 
 // ===================================== Space Variables
 interface AppDimensions {
-  appHorizontalGutters: string,
-  appMaxWidth: string,
-  appMinHeight: string,
-  articleHeroImageMaxWidth: string,
-  articleMaxWidth: string,
-  footerHeight: string,
-  navbarHeight: string,
+  appHorizontalGutters: string;
+  appMaxWidth: string;
+  appMinHeight: string;
+  articleHeroImageMaxWidth: string;
+  articleMaxWidth: string;
+  footerHeight: string;
+  navbarHeight: string;
 }
 export const appDimensions: AppDimensions = {
-  appHorizontalGutters: '5%',
-  appMaxWidth: '1400px',
-  appMinHeight: '100vh',
-  articleHeroImageMaxWidth: '1200px',
-  articleMaxWidth: '600px',
-  footerHeight: '200px',
-  navbarHeight: '200px',
+  appHorizontalGutters: "5%",
+  appMaxWidth: "1400px",
+  appMinHeight: "100vh",
+  articleHeroImageMaxWidth: "1200px",
+  articleMaxWidth: "600px",
+  footerHeight: "200px",
+  navbarHeight: "200px",
 };
 
-
 interface BorderRadii {
-  nano: string,
-  micro: string,
-  small: string,
-  medium: string,
-  large: string,
-  xLarge: string,
-  infinity: string,
+  nano: string;
+  micro: string;
+  small: string;
+  medium: string;
+  large: string;
+  xLarge: string;
+  infinity: string;
 }
 const borderRadii: BorderRadii = {
-  nano: '2px',
-  micro: '3px',
-  small: '5px',
-  medium: '8px',
-  large: '10px',
-  xLarge: '15px',
-  infinity: '9999px',
+  nano: "2px",
+  micro: "3px",
+  small: "5px",
+  medium: "8px",
+  large: "10px",
+  xLarge: "15px",
+  infinity: "9999px",
 };
 
 interface Breakpoints {
-  mobile: string,
-  desktop: string,
-  ultraWide: string,
+  mobile: string;
+  desktop: string;
+  ultraWide: string;
 }
 const breakpoints: Breakpoints = {
-  mobile: '600px',
-  desktop: '1000px',
-  ultraWide: '1200px',
+  mobile: "600px",
+  desktop: "1000px",
+  ultraWide: "1200px",
 };
 
 interface Opacity {
-  opacity00: number,
-  opacity10: number,
-  opacity20: number,
-  opacity30: number,
-  opacity40: number,
-  opacity50: number,
-  opacity60: number,
-  opacity70: number,
-  opacity80: number,
-  opacity90: number,
-  opacity100: number,
+  opacity00: number;
+  opacity10: number;
+  opacity20: number;
+  opacity30: number;
+  opacity40: number;
+  opacity50: number;
+  opacity60: number;
+  opacity70: number;
+  opacity80: number;
+  opacity90: number;
+  opacity100: number;
 }
 const opacity: Opacity = {
   opacity00: 0,
@@ -104,35 +105,35 @@ const opacity: Opacity = {
 };
 
 interface Spaces {
-  nano: string,
-  micro: string,
-  small: string,
-  medium: string,
-  large: string,
-  xLarge: string,
-  xxLarge: string,
-  jumbo: string,
+  nano: string;
+  micro: string;
+  small: string;
+  medium: string;
+  large: string;
+  xLarge: string;
+  xxLarge: string;
+  jumbo: string;
 }
 const spaces: Spaces = {
-  nano: '2px',
-  micro: '5px',
-  small: '10px',
-  medium: '30px',
-  large: '40px',
-  xLarge: '50px',
-  xxLarge: '70px',
-  jumbo: '100px',
+  nano: "2px",
+  micro: "5px",
+  small: "10px",
+  medium: "30px",
+  large: "40px",
+  xLarge: "50px",
+  xxLarge: "70px",
+  jumbo: "100px",
 };
 
 interface Transitions {
-  short: string,
-  medium: string,
-  long: string,
+  short: string;
+  medium: string;
+  long: string;
 }
 const transitions: Transitions = {
-  short: '0.03s',
-  medium: '0.05s',
-  long: '0.1s',
+  short: "0.03s",
+  medium: "0.05s",
+  long: "0.1s",
 };
 
 export interface Theme {

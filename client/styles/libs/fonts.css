@@ -2,16 +2,16 @@
 
 /* These two @font-face rules stack thanks to truetype format and can both be accessed by 'Work Sans' */
 @font-face {
-  font-family: 'Work Sans';
+  font-family: "Object Sans";
   font-style: normal;
   font-display: swap;
   font-weight: 400;
-  src: url(/fonts/WorkSans400.woff2) format('truetype');
+  src: url(/fonts/ObjectSans400.woff2) format("truetype");
 }
 @font-face {
-  font-family: 'Work Sans';
+  font-family: "Object Sans";
   font-style: normal;
   font-display: swap;
   font-weight: 700;
-  src: url(/fonts/WorkSans700.woff2) format('truetype');
+  src: url(/fonts/ObjectSans700.woff2) format("truetype");
 }

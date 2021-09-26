@@ -1,5 +1,5 @@
-import { css } from 'styled-components';
-import { colors } from './theme';
+import { css } from "styled-components";
+import { colors } from "./theme";
 
 const GlobalStyle = css`
   * {
@@ -17,9 +17,7 @@ const GlobalStyle = css`
 
   html,
   body {
-    font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, Segoe UI,
-      Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
-      'Segoe UI Emoji', 'Segoe UI Symbol';
+    font-family: "Object Sans", Helvetica, Arial, sans-serif;
   }
 
   body {
@@ -30,9 +28,8 @@ const GlobalStyle = css`
 
   /* To change the colors in the colors object, go to styles/libs/theme.ts */
   body.dark {
-    --body-bg: ${colors.mineShaft};
+    --body-bg: ${colors.woodsmoke};
     --text: ${colors.white};
-    --text-on-color: ${colors.mineShaft};
     --transparent: ${colors.transparent};
   }
   body.light {
@@ -81,18 +78,18 @@ const GlobalStyle = css`
     font-size: 1.6rem;
     line-height: 1.4;
     overflow: break-word;
-    font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, Segoe UI,
-      Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
-      'Segoe UI Emoji', 'Segoe UI Symbol';
+    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, Segoe UI,
+      Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol";
 
     &::placeholder {
       color: ${({ theme }) => theme.colors.text};
       opacity: ${({ theme }) => theme.opacity.opacity80};
       font-size: 1.6rem;
       line-height: 1.4;
-      font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, Segoe UI,
-        Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
-        'Segoe UI Emoji', 'Segoe UI Symbol';
+      font-family: "Work Sans", -apple-system, BlinkMacSystemFont, Segoe UI,
+        Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
+        "Segoe UI Emoji", "Segoe UI Symbol";
     }
   }
 
