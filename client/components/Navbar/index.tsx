@@ -7,15 +7,22 @@ interface Props {
 function Navbar(props: Props) {
   return (
     <RootStyles>
-      <div>
+      <header>
         <div>
           <p>Nathan Thomas</p>
         </div>
         <nav>
-          <p>Link 1</p>
-          <p>Link 2</p>
+          <div>
+            <p>Work</p>
+          </div>
+          <div>
+            <p>About</p>
+          </div>
+          <div>
+            <p>Contact</p>
+          </div>
         </nav>
-      </div>
+      </header>
     </RootStyles>
   );
 }
@@ -25,7 +32,7 @@ const RootStyles = styled.div`
   padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
   width: 100%;
 
-  > div {
+  > header {
     align-items: center;
     display: flex;
     height: ${({ theme }) => theme.appDimensions.navbarHeight};
@@ -36,10 +43,13 @@ const RootStyles = styled.div`
       align-items: center;
       display: flex;
       height: ${({ theme }) => theme.appDimensions.navbarHeight};
+    }
 
-      > p {
-        font-size: 2.6rem;
-      }
+    > nav > div {
+      align-items: center;
+      display: flex;
+      margin-left: ${({ theme }) => theme.spaces.medium};
+      justify-content: center;
     }
   }
 `;
