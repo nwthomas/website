@@ -10,9 +10,33 @@ const Home: NextPage = () => {
           <section>
             <h1>
               Hey, I'm Nathan. 👋🏻 I'm a{" "}
-              <span>full stack software engineer</span>, <span>writer</span>,
-              and <span>teacher</span>. I also build stuff with Bitcoin and
-              Ethereum in my spare time.
+              <a
+                href="https://github.com/nwthomas"
+                aria-label="Link to GitHub"
+                rel="noopener noreferrer"
+                target="_target"
+              >
+                full stack software engineer
+              </a>
+              ,{" "}
+              <a
+                href=""
+                aria-label="Link to writing"
+                rel="noopener noreferrer"
+                target="_target"
+              >
+                writer
+              </a>
+              , and{" "}
+              <a
+                href="https://www.youtube.com/watch?v=GNrQTbIFsG4&t=2909s"
+                aria-label="Link to presentation on YouTube"
+                rel="noopener noreferrer"
+                target="_target"
+              >
+                teacher
+              </a>
+              . I also build stuff with Bitcoin and Ethereum in my spare time.
             </h1>
           </section>
           <section>
@@ -48,7 +72,7 @@ const RootStyles = styled.div`
 
     > section {
       display: flex;
-      margin: ${({ theme }) => theme.spaces.jumbo} 0;
+      margin-top: ${({ theme }) => theme.spaces.jumbo};
 
       > div {
         width: 600px;
@@ -62,22 +86,33 @@ const RootStyles = styled.div`
       }
 
       > h1 {
-        > span {
+        > a {
           font-size: inherit;
+          transition: opacity ${({ theme }) => theme.transitions.medium}
+            ease-in-out;
+
+          &:hover {
+            opacity: ${({ theme }) => theme.opacity.opacity90};
+          }
         }
 
-        > span:nth-child(1) {
+        > a:nth-child(1) {
           color: ${({ theme }) => theme.colorsHex.eastSide};
         }
 
-        > span:nth-child(2) {
+        > a:nth-child(2) {
           color: ${({ theme }) => theme.colorsHex.justRight};
         }
 
-        > span:nth-child(3) {
+        > a:nth-child(3) {
           color: ${({ theme }) => theme.colorsHex.sinbad};
         }
       }
+    }
+
+    > section:nth-child(1) {
+      margin-bottom: ${({ theme }) =>
+        `calc(${theme.spaces.xxLarge} + ${theme.appDimensions.navbarHeight} / 2)`};
     }
   }
 `;
