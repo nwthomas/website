@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
-import type { ThemeEnum } from '../styles/libs/theme';
+import { useEffect, useState } from "react";
+import type { ThemeEnum } from "../styles/libs/theme";
 
-export const DARK_THEME = 'dark';
-export const LIGHT_THEME = 'light';
-export const LOCAL_STORAGE_KEY = 'theme';
+export const DARK_THEME = "dark";
+export const LIGHT_THEME = "light";
+export const LOCAL_STORAGE_KEY = "theme";
 
 // This extends the global Window object with custom values from _document.tsx
 declare global {
@@ -13,15 +13,16 @@ declare global {
   }
 }
 // Updates the theme using the JavaScript code defined in the _document.tsx file
-export function useGetPreferredTheme(): [ThemeEnum | null, () => void] {
-  const [userPreferredTheme, setUserPreferredTheme] = useState<ThemeEnum | null>(null);
+export function useGetPreferredTheme(): [ThemeEnum, () => void] {
+  const [userPreferredTheme, setUserPreferredTheme] =
+    useState<ThemeEnum>(DARK_THEME);
 
   useEffect(() => {
     // We must check for typeof window !== "undefined" instead of window !== undefined
     // because typeof does not evaluate window but only get its type
     // https://dev.to/vvo/how-to-solve-window-is-not-defined-errors-in-react-and-next-js-5f97
     if (
-      typeof window !== 'undefined' &&
+      typeof window !== "undefined" &&
       window.__theme &&
       (window.__theme === DARK_THEME || window.__theme === LIGHT_THEME)
     ) {
@@ -31,7 +32,7 @@ export function useGetPreferredTheme(): [ThemeEnum | null, () => void] {
 
   function updatePreferredTheme() {
     if (
-      typeof window !== 'undefined' &&
+      typeof window !== "undefined" &&
       window.__theme &&
       window.__setPreferredTheme
     ) {
