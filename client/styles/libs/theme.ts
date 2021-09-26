@@ -136,16 +136,12 @@ const spaces: Spaces = {
 };
 
 interface Transitions {
-  short: string;
   medium: string;
   long: string;
-  xLong: string;
 }
 const transitions: Transitions = {
-  short: "0.03s",
-  medium: "0.05s",
-  long: "0.1s",
-  xLong: "0.5s",
+  medium: "0.1s",
+  long: "0.5s",
 };
 
 export interface Theme {
