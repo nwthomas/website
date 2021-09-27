@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import { SettingsIcon } from "../icons";
 
 interface Props {
@@ -6,6 +8,26 @@ interface Props {
 }
 
 function ContactForm(props: Props) {
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      message: "",
+      name: "",
+
+      // This is a honeypot field. The server will reject the message if this field
+      // has length when the server receives the request.
+      fax: "",
+    },
+    validationSchema: Yup.object({
+      email: Yup.string().required("Required"),
+      name: Yup.string().required("Required"),
+      message: Yup.string().required("Required"),
+    }),
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
+
   return (
     <RootStyles>
       <div>
@@ -14,10 +36,57 @@ function ContactForm(props: Props) {
           <SettingsIcon color="white" />
         </div>
       </div>
-      <form>
-        <input placeholder="What's your name?"></input>
-        <input placeholder="How can I get back to you?"></input>
-        <textarea placeholder="What's happening?"></textarea>
+      <form onSubmit={formik.handleSubmit}>
+        <div>
+          {formik.touched.name && formik.errors.name ? (
+            <p>{formik.errors.name}</p>
+          ) : null}
+          <input
+            name="name"
+            onBlur={formik.handleBlur}
+            onChange={formik.handleChange}
+            placeholder="What's your name?"
+            type="text"
+            value={formik.values.name}
+          ></input>
+        </div>
+        <div>
+          {formik.touched.email && formik.errors.email ? (
+            <p>{formik.errors.email}</p>
+          ) : null}
+          <input
+            name="email"
+            onBlur={formik.handleBlur}
+            onChange={formik.handleChange}
+            placeholder="How can I get back to you?"
+            type="text"
+            value={formik.values.email}
+          ></input>
+        </div>
+        <div>
+          {formik.touched.message && formik.errors.message ? (
+            <p>{formik.errors.message}</p>
+          ) : null}
+          <textarea
+            autoComplete="off"
+            name="message"
+            onBlur={formik.handleBlur}
+            onChange={formik.handleChange}
+            placeholder="What's happening?"
+            value={formik.values.message}
+          ></textarea>
+        </div>
+        <div>
+          <input
+            autoComplete="off"
+            name="fax"
+            onBlur={formik.handleBlur}
+            onChange={formik.handleChange}
+            type="text"
+            tabIndex={-1}
+            value={formik.values.fax}
+          ></input>
+        </div>
         <button type="submit">Submit</button>
       </form>
     </RootStyles>
@@ -56,26 +125,59 @@ const RootStyles = styled.div`
     display: flex;
     flex-direction: column;
 
-    > textarea {
-      background: ${({ theme }) => theme.colors.bodyBackground};
-      border: 1px solid ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
-      border-top-left-radius: ${({ theme }) => theme.borderRadii.large};
-      border-bottom-left-radius: ${({ theme }) => theme.borderRadii.large};
-      border-top-right-radius: ${({ theme }) => theme.borderRadii.large};
-      height: ${({ theme }) => theme.spaces.xxLarge};
-      height: ${({ theme }) => theme.spaces.xxLarge};
-      margin-bottom: ${({ theme }) => theme.spaces.micro};
-      padding: ${({ theme }) => theme.spaces.medium};
-      resize: vertical;
-    }
-
-    > input {
+    > div {
       background: ${({ theme }) => theme.colors.bodyBackground};
       border: 1px solid ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
       border-radius: ${({ theme }) => theme.borderRadii.large};
-      min-height: ${({ theme }) => theme.spaces.xxLarge};
       margin-bottom: ${({ theme }) => theme.spaces.micro};
-      padding: ${({ theme }) => theme.spaces.medium};
+      min-height: ${({ theme }) => theme.spaces.xxLarge};
+      position: relative;
+      width: 100%;
+
+      > input {
+        background: ${({ theme }) => theme.colorsHex.transparent};
+        border: none;
+        border-radius: ${({ theme }) => theme.borderRadii.large};
+        min-height: ${({ theme }) => theme.spaces.xxLarge};
+        padding: ${({ theme }) => theme.spaces.medium};
+        width: 100%;
+      }
+
+      > textarea {
+        background: ${({ theme }) => theme.colors.bodyBackground};
+        border: none;
+        border-top-left-radius: ${({ theme }) => theme.borderRadii.large};
+        border-bottom-left-radius: ${({ theme }) => theme.borderRadii.large};
+        border-top-right-radius: ${({ theme }) => theme.borderRadii.large};
+        min-height: ${({ theme }) => theme.spaces.xxLarge};
+        padding: ${({ theme }) => theme.spaces.medium};
+        resize: vertical;
+        width: 100%;
+      }
+
+      &:nth-of-type(3) {
+        border-bottom-right-radius: 0;
+        margin-bottom: ${({ theme }) => theme.spaces.micro};
+      }
+
+      &:last-of-type {
+        display: none;
+      }
+
+      > p {
+        align-items: center;
+        bottom: 0;
+        color: ${({ theme }) => theme.colors.error};
+        display: flex;
+        font-size: 1.6rem;
+        height: ${({ theme }) => theme.spaces.xxLarge};
+        margin-right: ${({ theme }) => theme.spaces.micro};
+        padding: 0 ${({ theme }) => theme.spaces.small};
+        position: absolute;
+        right: 0;
+        user-select: none;
+        top: 0;
+      }
     }
 
     > button {

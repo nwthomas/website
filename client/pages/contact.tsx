@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Layout from "../../components/Layout";
-import ContactForm from "../../components/ContactForm";
+import Layout from "../components/Layout";
+import ContactForm from "../components/ContactForm";
 
 const PAGE_NAME = "Contact";
 
@@ -20,7 +20,7 @@ function Contact() {
               >
                 Twitter DMs
               </a>{" "}
-              or my contact form here:
+              ✨ or my contact form here:
             </h1>
           </section>
           <section>

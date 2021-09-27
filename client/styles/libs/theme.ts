@@ -8,6 +8,7 @@ interface Colors {
   mineShaft: string;
   transparent: string;
   royalBlue: string;
+  scarlet: string;
   white: string;
   woodsmoke: string;
 }
@@ -17,6 +18,7 @@ export const colors: Colors = {
   mineShaft: "#333333",
   transparent: "transparent",
   royalBlue: "#3870E0",
+  scarlet: "#FF3700",
   white: "#ffffff",
   woodsmoke: "#161618",
 };
@@ -26,6 +28,7 @@ interface ThemeColorValues {
   bodyBackground: string;
   bodyBackgroundAccentOne: string;
   bodyBackgroundAccentTwo: string;
+  error: string;
   text: string;
   transparent: string;
 }
@@ -33,6 +36,7 @@ export const themeColorValues: ThemeColorValues = {
   bodyBackground: "var(--body-bg)",
   bodyBackgroundAccentOne: "var(--body-bg-accent-one)",
   bodyBackgroundAccentTwo: "var(--body-bg-accent-two)",
+  error: "var(--error)",
   text: "var(--text)",
   transparent: "var(--transparent)",
 };
