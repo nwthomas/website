@@ -13,9 +13,6 @@ function Navbar(props: Props) {
         </div>
         <nav>
           <div>
-            <p>Work</p>
-          </div>
-          <div>
             <p>Writing</p>
           </div>
           <div>
