@@ -69,11 +69,16 @@ const RootStyles = styled.div`
   align-items: center;
   bottom: 0;
   display: flex;
-  height: ${({ theme }) => theme.appDimensions.footerHeight};
+  height: ${({ theme }) => theme.appDimensions.footerMobileHeight};
   justify-content: center;
   position: absolute;
   padding: 0 ${({ theme }) => theme.appDimensions.appHorizontalGutters};
   width: 100%;
+
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.breakpoints.tablet}) {
+    height: ${({ theme }) => theme.appDimensions.footerDesktopHeight};
+  }
 
   > footer {
     display: flex;
@@ -107,6 +112,7 @@ const RootStyles = styled.div`
       > a {
         cursor: pointer;
         margin-bottom: ${({ theme }) => theme.spaces.medium};
+        max-width: 180px;
         transition: opacity ${({ theme }) => theme.transitions.medium}
           ease-in-out;
 

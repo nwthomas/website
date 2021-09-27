@@ -44,7 +44,8 @@ interface AppDimensions {
   appMinHeight: string;
   articleHeroImageMaxWidth: string;
   articleMaxWidth: string;
-  footerHeight: string;
+  footerDesktopHeight: string;
+  footerMobileHeight: string;
   navbarHeight: string;
   navbarLinkWidth: string;
 }
@@ -54,7 +55,8 @@ export const appDimensions: AppDimensions = {
   appMinHeight: "100vh",
   articleHeroImageMaxWidth: "1200px",
   articleMaxWidth: "600px",
-  footerHeight: "200px",
+  footerDesktopHeight: "200px",
+  footerMobileHeight: "220px",
   navbarHeight: "200px",
   navbarLinkWidth: "120px",
 };
