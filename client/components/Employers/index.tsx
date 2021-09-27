@@ -14,7 +14,7 @@ function Employers() {
     currentTheme === DARK_THEME ? "lambda-logo-white.png" : "lambda-logo.png";
 
   return (
-    <section>
+    <RootStyles>
       <div>
         <h2>Currently</h2>
         <TwitterLogo>
@@ -41,14 +41,57 @@ function Employers() {
           </a>
         </LambdaLogo>
       </div>
-    </section>
+    </RootStyles>
   );
 }
+
+const RootStyles = styled.section`
+  display: flex;
+  flex-direction: column;
+
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.breakpoints.desktop}) {
+    flex-direction: row;
+  }
+
+  h2 {
+    margin-bottom: ${({ theme }) => theme.spaces.medium};
+
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.tablet}) {
+      margin-bottom: ${({ theme }) => theme.spaces.large};
+    }
+
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.desktop}) {
+      margin-bottom: ${({ theme }) => theme.spaces.xLarge};
+    }
+  }
+
+  > div:nth-child(1) {
+    margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
+
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.desktop}) {
+      margin-bottom: ${({ theme }) => theme.spaces.jumbo};
+    }
+  }
+`;
 
 const TwitterLogo = styled.div`
   transition: transform ${({ theme }) => theme.transitions.medium} ease-in-out,
     opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
-  width: 185px;
+  width: 130px;
+
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.breakpoints.tablet}) {
+    width: 150px;
+  }
+
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.breakpoints.desktop}) {
+    width: 185px;
+  }
 
   &:hover {
     opacity: ${({ theme }) => theme.opacity.opacity80};
@@ -59,7 +102,17 @@ const TwitterLogo = styled.div`
 const LambdaLogo = styled.div`
   transition: transform ${({ theme }) => theme.transitions.medium} ease-in-out,
     opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
-  width: 100%;
+  width: 350px;
+
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.breakpoints.tablet}) {
+    width: 450px;
+  }
+
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.breakpoints.desktop}) {
+    width: 600px;
+  }
 
   &:hover {
     opacity: ${({ theme }) => theme.opacity.opacity80};
