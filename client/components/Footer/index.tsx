@@ -6,16 +6,56 @@ function Footer() {
     <RootStyles>
       <footer>
         <div>
-          <a href="https://dev.to/nwthomas">Dev.to</a>
-          <a href="https://github.com/nwthomas">Github</a>
+          <a
+            href="https://dev.to/nwthomas"
+            aria-label="Link to Dev.to"
+            rel="noopener noreferrer"
+            target="_target"
+          >
+            Dev.to
+          </a>
+          <a
+            href="https://github.com/nwthomas"
+            aria-label="Link to GitHub"
+            rel="noopener noreferrer"
+            target="_target"
+          >
+            Github
+          </a>
         </div>
         <div>
-          <a href="https://www.instagram.com/nwthomas/">Instagram</a>
-          <a href="https://www.linkedin.com/in/nwthomas-dev/">LinkedIn</a>
+          <a
+            href="https://www.instagram.com/nwthomas/"
+            aria-label="Link to Instagram"
+            rel="noopener noreferrer"
+            target="_target"
+          >
+            Instagram
+          </a>
+          <a
+            href="https://www.linkedin.com/in/nwthomas-dev/"
+            aria-label="Link to LinkedIn"
+            rel="noopener noreferrer"
+            target="_target"
+          >
+            LinkedIn
+          </a>
         </div>
         <div>
-          <a href="https://twitter.com/nwthomas_">Twitter</a>
-          <a href="https://www.youtube.com/channel/UCpBBezCjzvdmSrTxEoSdIcg">
+          <a
+            href="https://twitter.com/nwthomas_"
+            aria-label="Link to Twitter"
+            rel="noopener noreferrer"
+            target="_target"
+          >
+            Twitter
+          </a>
+          <a
+            href="https://www.youtube.com/channel/UCpBBezCjzvdmSrTxEoSdIcg"
+            aria-label="Link to YouTube"
+            rel="noopener noreferrer"
+            target="_target"
+          >
             YouTube
           </a>
         </div>
@@ -55,8 +95,13 @@ const RootStyles = styled.div`
       margin-right: ${({ theme }) => theme.spaces.large};
 
       @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.tablet}) {
+        margin-right: ${({ theme }) => theme.spaces.jumbo};
+      }
+
+      @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.desktop}) {
-        margin-right: ${({ theme }) => `calc(${theme.spaces.jumbo} * 2)`};
+        margin-right: ${({ theme }) => `calc(${theme.spaces.xxLarge} * 3)`};
       }
 
       > a {

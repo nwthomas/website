@@ -26,20 +26,20 @@ const RootStyles = styled.div`
     bottom: 0;
     display: flex;
     height: 150px;
-    left: 0;
+    right: 0;
     overflow: hidden;
     position: absolute;
     width: 150px;
 
     > div {
       transition: ${({ theme }) => theme.transitions.long} ease-in-out;
-      transform: rotate(30deg) translate(0px, 180px);
+      transform: rotate(-30deg) translate(0px, 180px);
       user-select: none;
     }
 
     &:hover {
       > div {
-        transform: rotate(30deg) translate(-6px, 35px);
+        transform: rotate(-30deg) translate(10px, 35px);
       }
     }
   }

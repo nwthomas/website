@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-function Writing() {
+function Work() {
   return <div />;
 }
 
-export default Writing;
+export default Work;
