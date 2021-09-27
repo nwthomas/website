@@ -96,12 +96,16 @@ function ContactForm(props: Props) {
 const RootStyles = styled.div`
   border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
   background: ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
-  max-width: 500px;
   padding: ${({ theme }) => theme.spaces.small};
   width: 100%;
   -webkit-box-shadow: 0px 6px 10px -2px rgba(0, 0, 0, 0.47);
   -moz-box-shadow: 0px 6px 10px -2px rgba(0, 0, 0, 0.47);
   box-shadow: 0px 6px 10px -2px rgba(0, 0, 0, 0.47);
+
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.breakpoints.tablet}) {
+    max-width: 500px;
+  }
 
   > div {
     align-items: center;
@@ -144,7 +148,7 @@ const RootStyles = styled.div`
       }
 
       > textarea {
-        background: ${({ theme }) => theme.colors.bodyBackground};
+        background: ${({ theme }) => theme.colors.transparent};
         border: none;
         border-top-left-radius: ${({ theme }) => theme.borderRadii.large};
         border-bottom-left-radius: ${({ theme }) => theme.borderRadii.large};

@@ -7,11 +7,16 @@ interface Props {
 }
 
 function Navbar(props: Props) {
+  const isIPFSDeployEnabled = process.env.NEXT_PUBLIC_IS_IPFS_DEPLOY;
+  const homeLinkLabel = isIPFSDeployEnabled
+    ? "Nathan Thomas (.eth)"
+    : "Nathan Thomas";
+
   return (
     <RootStyles>
       <header>
         <div>
-          <Link href="/">Nathan Thomas</Link>
+          <Link href="/">{homeLinkLabel}</Link>
         </div>
         <nav>
           <div>
