@@ -7,7 +7,14 @@ function Work() {
   return (
     <Layout pageName={PAGE_NAME}>
       <RootStyles>
-        <div></div>
+        <main>
+          <section>
+            <h1>
+              This is all of the work that I'm <em>really</em> proud of. I hope
+              you enjoy using it. 🏗
+            </h1>
+          </section>
+        </main>
       </RootStyles>
     </Layout>
   );
@@ -23,6 +30,24 @@ const RootStyles = styled.div`
   > main {
     max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
     width: 100%;
+
+    > section:nth-child(1) {
+      display: flex;
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.tablet}) {
+        margin-top: ${({ theme }) => theme.spaces.large};
+      }
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.desktop}) {
+        margin-top: ${({ theme }) => theme.spaces.jumbo};
+      }
+
+      > h1 > em {
+        font-style: italic;
+      }
+    }
   }
 `;
 
