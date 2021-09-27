@@ -10,8 +10,8 @@ function Work() {
         <main>
           <section>
             <h1>
-              This is all of the work that I'm <em>really</em> proud of. I hope
-              you enjoy using it. 🏗
+              This is all the work that I'm <em>really</em> proud of. I hope you
+              enjoy using it. 🏗
             </h1>
           </section>
         </main>
