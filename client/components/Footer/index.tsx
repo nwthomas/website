@@ -6,16 +6,18 @@ function Footer() {
     <RootStyles>
       <footer>
         <div>
-          <a href-="https://twitter.com/nwthomas_">Twitter</a>
-          <a href="https://www.instagram.com/nwthomas/">Instagram</a>
-        </div>
-        <div>
-          <a href="https://github.com/nwthomas">Github</a>
           <a href="https://dev.to/nwthomas">Dev.to</a>
+          <a href="https://github.com/nwthomas">Github</a>
         </div>
         <div>
+          <a href="https://www.instagram.com/nwthomas/">Instagram</a>
           <a href="https://www.linkedin.com/in/nwthomas-dev/">LinkedIn</a>
-          <a href="">Placeholder</a>
+        </div>
+        <div>
+          <a href="https://twitter.com/nwthomas_">Twitter</a>
+          <a href="https://www.youtube.com/channel/UCpBBezCjzvdmSrTxEoSdIcg">
+            YouTube
+          </a>
         </div>
       </footer>
       <BabyYoda />
@@ -28,6 +30,7 @@ const RootStyles = styled.div`
   bottom: 0;
   display: flex;
   height: ${({ theme }) => theme.appDimensions.footerHeight};
+  justify-content: center;
   position: absolute;
   padding: 0 ${({ theme }) => theme.appDimensions.appHorizontalGutters};
   width: 100%;
