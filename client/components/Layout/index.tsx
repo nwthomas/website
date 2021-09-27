@@ -1,8 +1,8 @@
 import React, { ReactNode, useContext } from "react";
 import Head from "next/head";
 import { usePageName } from "../../hooks/usePageName";
-import BabyYoda from "../EasterEggs/BabyYoda";
 import styled, { ThemeContext } from "styled-components";
+import Footer from "../Footer";
 
 interface Props {
   children: ReactNode | Array<ReactNode>;
@@ -19,7 +19,10 @@ function Layout({ children, pageName }: Props) {
         <title>{currentPageName}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <RootStyles>{children}</RootStyles>
+      <RootStyles>
+        {children}
+        <Footer />
+      </RootStyles>
     </>
   );
 }

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
+import ThemeTransitionSwitch from "../ThemeTransitionSwitch";
 
 interface Props {
   // finish
@@ -14,7 +15,7 @@ function Navbar(props: Props) {
         </div>
         <nav>
           <div>
-            <Link href="/writing">Writing</Link>
+            <Link href="/work">Work</Link>
           </div>
           <div>
             <Link href="/contact">Contact</Link>
@@ -68,6 +69,11 @@ const RootStyles = styled.div`
       display: flex;
       margin-left: ${({ theme }) => theme.spaces.small};
       justify-content: center;
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.desktop}) {
+        margin-left: ${({ theme }) => theme.spaces.medium};
+      }
     }
   }
 `;

@@ -70,11 +70,6 @@ const RootStyles = styled.section`
 
   > div:nth-child(1) {
     margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
-
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.desktop}) {
-      margin-bottom: ${({ theme }) => theme.spaces.jumbo};
-    }
   }
 `;
 
