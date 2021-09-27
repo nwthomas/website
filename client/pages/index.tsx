@@ -39,8 +39,7 @@ const Home: NextPage = () => {
               >
                 teacher
               </a>
-              . I love building stuff with Bitcoin and Ethereum in my spare
-              time.
+              . I love building stuff with Bitcoin and Ethereum.
             </h1>
           </section>
           <Employers />

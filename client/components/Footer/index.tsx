@@ -43,20 +43,20 @@ function Footer() {
         </div>
         <div>
           <a
+            href="https://www.polywork.com/nwthomas"
+            aria-label="Link to Polywork"
+            rel="noopener noreferrer"
+            target="_target"
+          >
+            Polywork
+          </a>
+          <a
             href="https://twitter.com/nwthomas_"
             aria-label="Link to Twitter"
             rel="noopener noreferrer"
             target="_target"
           >
             Twitter
-          </a>
-          <a
-            href="https://www.youtube.com/channel/UCpBBezCjzvdmSrTxEoSdIcg"
-            aria-label="Link to YouTube"
-            rel="noopener noreferrer"
-            target="_target"
-          >
-            YouTube
           </a>
         </div>
       </footer>

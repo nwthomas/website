@@ -28,6 +28,7 @@ interface ThemeColorValues {
   bodyBackground: string;
   bodyBackgroundAccentOne: string;
   bodyBackgroundAccentTwo: string;
+  buttonBackground: string;
   error: string;
   text: string;
   transparent: string;
@@ -36,6 +37,7 @@ export const themeColorValues: ThemeColorValues = {
   bodyBackground: "var(--body-bg)",
   bodyBackgroundAccentOne: "var(--body-bg-accent-one)",
   bodyBackgroundAccentTwo: "var(--body-bg-accent-two)",
+  buttonBackground: "var(--button-bg)",
   error: "var(--error)",
   text: "var(--text)",
   transparent: "var(--transparent)",
@@ -55,7 +57,7 @@ interface AppDimensions {
 }
 export const appDimensions: AppDimensions = {
   appHorizontalGutters: "6%",
-  appMaxWidth: "1800px",
+  appMaxWidth: "1600px",
   appMinHeight: "100vh",
   articleHeroImageMaxWidth: "1200px",
   articleMaxWidth: "600px",

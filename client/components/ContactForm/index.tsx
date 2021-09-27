@@ -181,7 +181,7 @@ const RootStyles = styled.div`
     }
 
     > button {
-      background: ${({ theme }) => theme.colorsHex.royalBlue};
+      background: ${({ theme }) => theme.colors.buttonBackground};
       border-radius: ${({ theme }) => theme.borderRadii.large};
       border: 1px solid ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
       cursor: pointer;
