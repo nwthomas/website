@@ -18,7 +18,7 @@ function ContactForm(props: Props) {
         <input placeholder="What's your name?"></input>
         <input placeholder="How can I get back to you?"></input>
         <textarea placeholder="What's happening?"></textarea>
-        <button>Submit</button>
+        <button type="submit">Submit</button>
       </form>
     </RootStyles>
   );
@@ -26,7 +26,7 @@ function ContactForm(props: Props) {
 
 const RootStyles = styled.div`
   border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
-  background: black;
+  background: ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
   max-width: 500px;
   padding: ${({ theme }) => theme.spaces.small};
   width: 100%;
@@ -58,7 +58,7 @@ const RootStyles = styled.div`
 
     > textarea {
       background: ${({ theme }) => theme.colors.bodyBackground};
-      border: 1px solid ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
+      border: 1px solid ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
       border-top-left-radius: ${({ theme }) => theme.borderRadii.large};
       border-bottom-left-radius: ${({ theme }) => theme.borderRadii.large};
       border-top-right-radius: ${({ theme }) => theme.borderRadii.large};
@@ -71,7 +71,7 @@ const RootStyles = styled.div`
 
     > input {
       background: ${({ theme }) => theme.colors.bodyBackground};
-      border: 1px solid ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
+      border: 1px solid ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
       border-radius: ${({ theme }) => theme.borderRadii.large};
       min-height: ${({ theme }) => theme.spaces.xxLarge};
       margin-bottom: ${({ theme }) => theme.spaces.micro};
