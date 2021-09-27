@@ -30,11 +30,13 @@ const GlobalStyle = css`
   /* To change the colors in the colors object, go to styles/libs/theme.ts */
   body.dark {
     --body-bg: ${colors.woodsmoke};
+    --body-bg-accent-one: ${colors.mineShaft};
     --text: ${colors.white};
     --transparent: ${colors.transparent};
   }
   body.light {
     --body-bg: ${colors.white};
+    --body-bg-accent-one: ${colors.alabaster};
     --text: ${colors.woodsmoke};
     --transparent: ${colors.transparent};
   }
@@ -142,11 +144,21 @@ const GlobalStyle = css`
   button {
     color: ${({ theme }) => theme.colors.text};
     font-size: 1.6rem;
+    transition: opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
+
+    &:hover {
+      opacity: ${({ theme }) => theme.opacity.opacity70};
+    }
   }
 
   img {
     height: auto;
     width: 100%;
+  }
+
+  input,
+  textarea {
+    font-size: 1.6rem;
   }
 `;
 
