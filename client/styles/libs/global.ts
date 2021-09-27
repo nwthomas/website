@@ -51,20 +51,31 @@ const GlobalStyle = css`
   }
 
   h1 {
-    font-size: 7rem;
+    font-size: 3rem;
+
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.tablet}) {
+      font-size: 5rem;
+    }
+
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.desktop}) {
+      font-size: 7rem;
+    }
   }
 
   h2 {
-    font-size: 3rem;
-  }
-
-  h3 {
-    color: ${({ theme }) => theme.colors.text};
     font-size: 1.6rem;
-  }
 
-  h4 {
-    font-size: 2rem;
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.tablet}) {
+      font-size: 2rem;
+    }
+
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.desktop}) {
+      font-size: 3rem;
+    }
   }
 
   p,
@@ -77,7 +88,7 @@ const GlobalStyle = css`
   textarea {
     color: ${({ theme }) => theme.colors.text};
     font-display: swap;
-    font-size: 2.6rem;
+    font-size: 1.6rem;
     line-height: 1.4;
     overflow: break-word;
     font-family: "ObjectSans", Object Sans, Helvetica, sans-serif;
@@ -88,6 +99,16 @@ const GlobalStyle = css`
       font-size: 1.6rem;
       font-family: "ObjectSans", Object Sans, Helvetica, sans-serif;
     }
+
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.tablet}) {
+      font-size: 2rem;
+    }
+
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.desktop}) {
+      font-size: 2.6rem;
+    }
   }
 
   li {
@@ -97,8 +118,20 @@ const GlobalStyle = css`
   a {
     color: ${({ theme }) => theme.colors.text};
     font-display: swap;
+    font-family: "ObjectSans", Object Sans, Helvetica, sans-serif;
     font-size: 1.6rem;
+    overflow: break-word;
     text-decoration: none;
+
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.tablet}) {
+      font-size: 2rem;
+    }
+
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.desktop}) {
+      font-size: 2.6rem;
+    }
   }
 
   button {

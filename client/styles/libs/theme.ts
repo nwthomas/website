@@ -77,12 +77,12 @@ const borderRadii: BorderRadii = {
 };
 
 interface Breakpoints {
-  mobile: string;
+  tablet: string;
   desktop: string;
   ultraWide: string;
 }
 const breakpoints: Breakpoints = {
-  mobile: "600px",
+  tablet: "600px",
   desktop: "1000px",
   ultraWide: "1200px",
 };
@@ -128,7 +128,7 @@ const spaces: Spaces = {
   nano: "2px",
   micro: "5px",
   small: "10px",
-  medium: "30px",
+  medium: "20px",
   large: "40px",
   xLarge: "50px",
   xxLarge: "70px",

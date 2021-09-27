@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Link from "next/link";
 
 interface Props {
   // finish
@@ -9,14 +10,14 @@ function Navbar(props: Props) {
     <RootStyles>
       <header>
         <div>
-          <p>Nathan Thomas</p>
+          <Link href="/">Nathan Thomas</Link>
         </div>
         <nav>
           <div>
-            <p>Writing</p>
+            <Link href="/writing">Writing</Link>
           </div>
           <div>
-            <p>Contact</p>
+            <Link href="/contact">Contact</Link>
           </div>
         </nav>
       </header>
@@ -50,12 +51,22 @@ const RootStyles = styled.div`
       align-items: center;
       display: flex;
       height: ${({ theme }) => theme.appDimensions.navbarHeight};
+      justify-content: center;
+
+      a {
+        transition: opacity ${({ theme }) => theme.transitions.medium}
+          ease-in-out;
+
+        &:hover {
+          opacity: ${({ theme }) => theme.opacity.opacity80};
+        }
+      }
     }
 
     > nav > div {
       align-items: center;
       display: flex;
-      margin-left: ${({ theme }) => theme.spaces.medium};
+      margin-left: ${({ theme }) => theme.spaces.small};
       justify-content: center;
     }
   }

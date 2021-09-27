@@ -60,15 +60,17 @@ const RootStyles = styled.div`
 
     > section {
       display: flex;
-      margin-top: ${({ theme }) => theme.spaces.jumbo};
 
-      > div {
-        width: 600px;
-
-        > h2 {
-          margin-bottom: ${({ theme }) => theme.spaces.xLarge};
-        }
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.tablet}) {
+        margin-top: ${({ theme }) => theme.spaces.large};
       }
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.desktop}) {
+        margin-top: ${({ theme }) => theme.spaces.jumbo};
+      }
+
       > div:nth-child(1) {
         width: 400px;
       }
@@ -123,7 +125,19 @@ const RootStyles = styled.div`
 
     > section:nth-child(1) {
       margin-bottom: ${({ theme }) =>
-        `calc(${theme.spaces.xxLarge} + ${theme.appDimensions.navbarHeight} / 2)`};
+        `calc(${theme.appDimensions.navbarHeight} / 2)`};
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.tablet}) {
+        margin-bottom: ${({ theme }) =>
+          `calc(${theme.spaces.large} + ${theme.appDimensions.navbarHeight} / 2)`};
+      }
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.desktop}) {
+        margin-bottom: ${({ theme }) =>
+          `calc(${theme.spaces.jumbo} + ${theme.appDimensions.navbarHeight} / 2)`};
+      }
     }
   }
 `;
