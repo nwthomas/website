@@ -3,21 +3,15 @@ export type ThemeEnum = "dark" | "light";
 // ===================================== Color Assignment Variables
 // All color names pulled directly from http://chir.ag/projects/name-that-color/
 interface Colors {
-  eastSide: string;
-  justRight: string;
+  alabaster: string;
   mineShaft: string;
-  portage: string;
-  sinbad: string;
   transparent: string;
   white: string;
   woodsmoke: string;
 }
 export const colors: Colors = {
-  eastSide: "#AC9DD1",
-  justRight: "#F1D3C2",
+  alabaster: "#f8f8f8f8",
   mineShaft: "#333333",
-  portage: "#8CA6EB",
-  sinbad: "#a9d4d4",
   transparent: "transparent",
   white: "#ffffff",
   woodsmoke: "#161618",

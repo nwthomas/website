@@ -21,8 +21,8 @@ const Home: NextPage = () => {
               </a>
               ,{" "}
               <a
-                href=""
-                aria-label="Link to writing"
+                href="https://dev.to/nwthomas"
+                aria-label="Link to writing on Dev.to"
                 rel="noopener noreferrer"
                 target="_target"
               >
@@ -137,6 +137,13 @@ const RootStyles = styled.div`
           theme.breakpoints.desktop}) {
         margin-bottom: ${({ theme }) =>
           `calc(${theme.spaces.jumbo} + ${theme.appDimensions.navbarHeight} / 2)`};
+      }
+    }
+
+    > section:nth-child(2) {
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.desktop}) {
+        margin-bottom: ${({ theme }) => theme.spaces.jumbo};
       }
     }
   }
