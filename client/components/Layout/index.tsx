@@ -31,10 +31,16 @@ const RootStyles = styled.div`
   background: ${({ theme }) => theme.colors.bodyBackground};
   justify-content: center;
   padding: ${({ theme }) =>
-    `${theme.appDimensions.navbarHeight} 0 ${theme.appDimensions.footerHeight}`};
+    `${theme.appDimensions.navbarHeight} 0 ${theme.appDimensions.footerMobileHeight}`};
   min-height: ${({ theme }) => theme.appDimensions.appMinHeight};
   position: relative;
   width: 100%;
+
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.breakpoints.tablet}) {
+    padding: ${({ theme }) =>
+      `${theme.appDimensions.navbarHeight} 0 ${theme.appDimensions.footerDesktopHeight}`};
+  }
 `;
 
 export default Layout;
