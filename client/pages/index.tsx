@@ -37,7 +37,8 @@ const Home: NextPage = () => {
               >
                 teacher
               </a>
-              . I also build stuff with Bitcoin and Ethereum in my spare time.
+              . I love building stuff with Bitcoin and Ethereum because it's
+              amazing.
             </h1>
           </section>
           <Employers />

@@ -72,7 +72,7 @@ const RootStyles = styled.div`
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.desktop}) {
-        margin-left: ${({ theme }) => theme.spaces.medium};
+        margin-left: ${({ theme }) => theme.spaces.large};
       }
     }
   }
