@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const INTERVAL_AMOUNT = 1000;
 const STATIC_EMOJI_LIST = [..."🦄🌀🍪🤬🦑👻✨🌧🤯👁👄👁"];
 
-export function usePageName(initialPageName: string) {
+export function useGetPageName(initialPageName: string) {
   const [rotatingEmojiList, setRotatingEmojiList] = useState(STATIC_EMOJI_LIST);
   const pageName = initialPageName + " ";
 

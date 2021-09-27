@@ -1,6 +1,6 @@
 import React, { ReactNode, useContext } from "react";
 import Head from "next/head";
-import { usePageName } from "../../hooks/usePageName";
+import { useGetPageName } from "../../hooks/useGetPageName";
 import styled, { ThemeContext } from "styled-components";
 import Footer from "../Footer";
 
@@ -10,8 +10,7 @@ interface Props {
 }
 
 function Layout({ children, pageName }: Props) {
-  const currentPageName = usePageName(pageName);
-  const theme = useContext(ThemeContext);
+  const currentPageName = useGetPageName(pageName);
 
   return (
     <>

@@ -32,6 +32,7 @@ const GlobalStyle = css`
     --body-bg: ${colors.woodsmoke};
     --body-bg-accent-one: ${colors.black};
     --body-bg-accent-two: ${colors.mineShaft};
+    --error: ${colors.scarlet};
     --text: ${colors.white};
     --transparent: ${colors.transparent};
   }
@@ -39,6 +40,7 @@ const GlobalStyle = css`
     --body-bg: ${colors.white};
     --body-bg-accent-one: ${colors.white};
     --body-bg-accent-two: ${colors.alabaster};
+    --error: ${colors.scarlet};
     --text: ${colors.woodsmoke};
     --transparent: ${colors.transparent};
   }
