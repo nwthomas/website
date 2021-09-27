@@ -39,8 +39,8 @@ const Home: NextPage = () => {
               >
                 teacher
               </a>
-              . I love building stuff with Bitcoin and Ethereum because they're
-              amazing.
+              . I love building stuff with Bitcoin and Ethereum in my spare
+              time.
             </h1>
           </section>
           <Employers />
@@ -90,16 +90,11 @@ const RootStyles = styled.div`
         }
 
         > a:nth-child(1) {
-          background-image: linear-gradient(
-            120deg,
-            #e0c3fc 0%,
-            #8ec5fc 50%,
-            #3870e0 100%
-          );
+          background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
         }
 
         > a:nth-child(2) {
-          background-image: linear-gradient(120deg, #3870e0 0%, #7579ff 100%);
+          background-image: linear-gradient(120deg, #8ec5fc 0%, #7579ff 100%);
         }
 
         > a:nth-child(3) {
@@ -130,7 +125,7 @@ const RootStyles = styled.div`
         `calc(${theme.appDimensions.navbarHeight} / 2)`};
 
       @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.dtablet}) {
+          theme.breakpoints.tablet}) {
         margin-bottom: ${({ theme }) =>
           `calc(${theme.spaces.large} + ${theme.appDimensions.navbarHeight} / 2)`};
       }

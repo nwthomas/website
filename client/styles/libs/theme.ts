@@ -4,6 +4,7 @@ export type ThemeEnum = "dark" | "light";
 // All color names pulled directly from http://chir.ag/projects/name-that-color/
 interface Colors {
   alabaster: string;
+  black: string;
   mineShaft: string;
   transparent: string;
   royalBlue: string;
@@ -12,6 +13,7 @@ interface Colors {
 }
 export const colors: Colors = {
   alabaster: "#f8f8f8f8",
+  black: "#000000",
   mineShaft: "#333333",
   transparent: "transparent",
   royalBlue: "#3870E0",
@@ -23,12 +25,14 @@ export const colors: Colors = {
 interface ThemeColorValues {
   bodyBackground: string;
   bodyBackgroundAccentOne: string;
+  bodyBackgroundAccentTwo: string;
   text: string;
   transparent: string;
 }
 export const themeColorValues: ThemeColorValues = {
   bodyBackground: "var(--body-bg)",
   bodyBackgroundAccentOne: "var(--body-bg-accent-one)",
+  bodyBackgroundAccentTwo: "var(--body-bg-accent-two)",
   text: "var(--text)",
   transparent: "var(--transparent)",
 };

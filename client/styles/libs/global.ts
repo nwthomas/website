@@ -30,13 +30,15 @@ const GlobalStyle = css`
   /* To change the colors in the colors object, go to styles/libs/theme.ts */
   body.dark {
     --body-bg: ${colors.woodsmoke};
-    --body-bg-accent-one: ${colors.mineShaft};
+    --body-bg-accent-one: ${colors.black};
+    --body-bg-accent-two: ${colors.mineShaft};
     --text: ${colors.white};
     --transparent: ${colors.transparent};
   }
   body.light {
     --body-bg: ${colors.white};
-    --body-bg-accent-one: ${colors.alabaster};
+    --body-bg-accent-one: ${colors.white};
+    --body-bg-accent-two: ${colors.alabaster};
     --text: ${colors.woodsmoke};
     --transparent: ${colors.transparent};
   }
