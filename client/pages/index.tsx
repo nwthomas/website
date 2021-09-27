@@ -91,28 +91,19 @@ const RootStyles = styled.div`
 
         > a:nth-child(1) {
           background-image: linear-gradient(
-            to right,
-            #ffecd2 0%,
-            #fdd2c4 20%,
-            #fcb69f 45%,
-            #ffa099 70%
+            120deg,
+            #e0c3fc 0%,
+            #8ec5fc 50%,
+            #3870e0 100%
           );
         }
 
         > a:nth-child(2) {
-          background-image: linear-gradient(120deg, #ffa099 0%, #ff8177 100%);
+          background-image: linear-gradient(120deg, #3870e0 0%, #7579ff 100%);
         }
 
         > a:nth-child(3) {
-          background-image: linear-gradient(
-            to right,
-            #ff8177 0%,
-            #ff867a 0%,
-            #ff8c7f 21%,
-            #f99185 52%,
-            #cf556c 78%,
-            #b12a5b 100%
-          );
+          background-image: linear-gradient(120deg, #7579ff 0%, #b224ef 100%);
         }
       }
     }

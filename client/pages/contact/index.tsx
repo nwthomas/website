@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Layout from "../../components/Layout";
+import ContactForm from "../../components/ContactForm";
 
 const PAGE_NAME = "Contact";
 
@@ -19,8 +20,11 @@ function Contact() {
               >
                 Twitter DMs
               </a>{" "}
-              or two different contact forms here:
+              or my contact form here:
             </h1>
+          </section>
+          <section>
+            <ContactForm />
           </section>
         </main>
       </RootStyles>
@@ -39,7 +43,7 @@ const RootStyles = styled.div`
     max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
     width: 100%;
 
-    > section {
+    > section:nth-child(1) {
       display: flex;
 
       @media only screen and (min-width: ${({ theme }) =>
@@ -65,19 +69,11 @@ const RootStyles = styled.div`
     }
 
     > section:nth-child(1) {
-      margin-bottom: ${({ theme }) =>
-        `calc(${theme.appDimensions.navbarHeight} / 2)`};
+      margin-bottom: ${({ theme }) => theme.spaces.large};
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        margin-bottom: ${({ theme }) =>
-          `calc(${theme.spaces.large} + ${theme.appDimensions.navbarHeight} / 2)`};
-      }
-
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.desktop}) {
-        margin-bottom: ${({ theme }) =>
-          `calc(${theme.spaces.jumbo} + ${theme.appDimensions.navbarHeight} / 2)`};
+        margin-bottom: ${({ theme }) => theme.spaces.xLarge};
       }
     }
   }

@@ -6,6 +6,7 @@ interface Colors {
   alabaster: string;
   mineShaft: string;
   transparent: string;
+  royalBlue: string;
   white: string;
   woodsmoke: string;
 }
@@ -13,6 +14,7 @@ export const colors: Colors = {
   alabaster: "#f8f8f8f8",
   mineShaft: "#333333",
   transparent: "transparent",
+  royalBlue: "#3870E0",
   white: "#ffffff",
   woodsmoke: "#161618",
 };
@@ -20,11 +22,13 @@ export const colors: Colors = {
 // ===================================== Color Theme
 interface ThemeColorValues {
   bodyBackground: string;
+  bodyBackgroundAccentOne: string;
   text: string;
   transparent: string;
 }
 export const themeColorValues: ThemeColorValues = {
   bodyBackground: "var(--body-bg)",
+  bodyBackgroundAccentOne: "var(--body-bg-accent-one)",
   text: "var(--text)",
   transparent: "var(--transparent)",
 };
@@ -58,6 +62,7 @@ interface BorderRadii {
   medium: string;
   large: string;
   xLarge: string;
+  xxLarge: string;
   infinity: string;
 }
 const borderRadii: BorderRadii = {
@@ -65,8 +70,9 @@ const borderRadii: BorderRadii = {
   micro: "3px",
   small: "5px",
   medium: "8px",
-  large: "10px",
-  xLarge: "15px",
+  large: "15px",
+  xLarge: "20px",
+  xxLarge: "25px",
   infinity: "9999px",
 };
 
