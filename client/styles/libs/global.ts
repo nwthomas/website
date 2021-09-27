@@ -35,7 +35,7 @@ const GlobalStyle = css`
   }
   body.light {
     --body-bg: ${colors.white};
-    --text: ${colors.mineShaft};
+    --text: ${colors.woodsmoke};
     --transparent: ${colors.transparent};
   }
 
@@ -122,6 +122,7 @@ const GlobalStyle = css`
     font-size: 1.6rem;
     overflow: break-word;
     text-decoration: none;
+    transition: opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
@@ -131,6 +132,10 @@ const GlobalStyle = css`
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.desktop}) {
       font-size: 2.6rem;
+    }
+
+    &:hover {
+      opacity: ${({ theme }) => theme.opacity.opacity70};
     }
   }
 

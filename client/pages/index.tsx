@@ -3,9 +3,11 @@ import styled from "styled-components";
 import Layout from "../components/Layout";
 import Employers from "../components/Employers";
 
+const PAGE_NAME = "Home";
+
 const Home: NextPage = () => {
   return (
-    <Layout pageName="Home">
+    <Layout pageName={PAGE_NAME}>
       <RootStyles>
         <main>
           <section>
@@ -78,31 +80,22 @@ const RootStyles = styled.div`
 
       > h1 {
         > a {
-          font-size: inherit;
-          transition: opacity ${({ theme }) => theme.transitions.medium}
-            ease-in-out;
-
-          &:hover {
-            opacity: ${({ theme }) => theme.opacity.opacity70};
-          }
-        }
-
-        > a {
           background-clip: text;
           background-size: 100%;
           -webkit-background-clip: text;
           -moz-background-clip: text;
           -webkit-text-fill-color: transparent;
           -moz-text-fill-color: transparent;
+          font-size: inherit;
         }
 
         > a:nth-child(1) {
           background-image: linear-gradient(
             to right,
             #ffecd2 0%,
-            #fdd2c4 33%,
-            #fcb69f 66%,
-            #ffa099 100%
+            #fdd2c4 20%,
+            #fcb69f 45%,
+            #ffa099 70%
           );
         }
 
