@@ -89,7 +89,7 @@ const TwitterLogo = styled.div`
   }
 
   &:hover {
-    opacity: ${({ theme }) => theme.opacity.opacity80};
+    opacity: ${({ theme }) => theme.opacity.opacity70};
     transform: translateY(-3px);
   }
 `;

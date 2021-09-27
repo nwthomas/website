@@ -59,7 +59,7 @@ const RootStyles = styled.div`
           ease-in-out;
 
         &:hover {
-          opacity: ${({ theme }) => theme.opacity.opacity80};
+          opacity: ${({ theme }) => theme.opacity.opacity70};
         }
       }
     }
@@ -71,7 +71,7 @@ const RootStyles = styled.div`
       justify-content: center;
 
       @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.desktop}) {
+          theme.breakpoints.tablet}) {
         margin-left: ${({ theme }) => theme.spaces.large};
       }
     }

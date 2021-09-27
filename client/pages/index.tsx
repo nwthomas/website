@@ -37,7 +37,7 @@ const Home: NextPage = () => {
               >
                 teacher
               </a>
-              . I love building stuff with Bitcoin and Ethereum because it's
+              . I love building stuff with Bitcoin and Ethereum because they're
               amazing.
             </h1>
           </section>
@@ -83,7 +83,7 @@ const RootStyles = styled.div`
             ease-in-out;
 
           &:hover {
-            opacity: ${({ theme }) => theme.opacity.opacity80};
+            opacity: ${({ theme }) => theme.opacity.opacity70};
           }
         }
 
@@ -142,6 +142,15 @@ const RootStyles = styled.div`
     }
 
     > section:nth-child(2) {
+      margin-bottom: ${({ theme }) =>
+        `calc(${theme.appDimensions.navbarHeight} / 2)`};
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.dtablet}) {
+        margin-bottom: ${({ theme }) =>
+          `calc(${theme.spaces.large} + ${theme.appDimensions.navbarHeight} / 2)`};
+      }
+
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.desktop}) {
         margin-bottom: ${({ theme }) => theme.spaces.jumbo};
