@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import styled from "styled-components";
 import Layout from "../components/Layout";
+import Employers from "../components/Employers";
 
 const Home: NextPage = () => {
   return (
@@ -39,34 +40,7 @@ const Home: NextPage = () => {
               . I also build stuff with Bitcoin and Ethereum in my spare time.
             </h1>
           </section>
-          <section>
-            <div>
-              <h2>Currently</h2>
-              <TwitterLogo>
-                <a
-                  href="https://twitter.com/nwthomas_"
-                  aria-label="Link to Twitter profile"
-                  rel="noopener noreferrer"
-                  target="_target"
-                >
-                  <img src="twitter-logo.png" alt="Twitter logo" />
-                </a>
-              </TwitterLogo>
-            </div>
-            <div>
-              <h2>Previously</h2>
-              <LambdaLogo>
-                <a
-                  href="https://lambdaschool.com/"
-                  aria-label="Link to Lambda School website"
-                  rel="noopener noreferrer"
-                  target="_target"
-                >
-                  <img src="lambda-logo.png" alt="Twitter logo" />
-                </a>
-              </LambdaLogo>
-            </div>
-          </section>
+          <Employers />
         </main>
       </RootStyles>
     </Layout>
@@ -106,20 +80,43 @@ const RootStyles = styled.div`
             ease-in-out;
 
           &:hover {
-            opacity: ${({ theme }) => theme.opacity.opacity90};
+            opacity: ${({ theme }) => theme.opacity.opacity80};
           }
         }
 
+        > a {
+          background-clip: text;
+          background-size: 100%;
+          -webkit-background-clip: text;
+          -moz-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          -moz-text-fill-color: transparent;
+        }
+
         > a:nth-child(1) {
-          color: ${({ theme }) => theme.colorsHex.eastSide};
+          background-image: linear-gradient(
+            to right,
+            #ffecd2 0%,
+            #fdd2c4 33%,
+            #fcb69f 66%,
+            #ffa099 100%
+          );
         }
 
         > a:nth-child(2) {
-          color: ${({ theme }) => theme.colorsHex.justRight};
+          background-image: linear-gradient(120deg, #ffa099 0%, #ff8177 100%);
         }
 
         > a:nth-child(3) {
-          color: ${({ theme }) => theme.colorsHex.sinbad};
+          background-image: linear-gradient(
+            to right,
+            #ff8177 0%,
+            #ff867a 0%,
+            #ff8c7f 21%,
+            #f99185 52%,
+            #cf556c 78%,
+            #b12a5b 100%
+          );
         }
       }
     }
@@ -128,28 +125,6 @@ const RootStyles = styled.div`
       margin-bottom: ${({ theme }) =>
         `calc(${theme.spaces.xxLarge} + ${theme.appDimensions.navbarHeight} / 2)`};
     }
-  }
-`;
-
-const TwitterLogo = styled.div`
-  transition: transform ${({ theme }) => theme.transitions.medium} ease-in-out,
-    opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
-  width: 190px;
-
-  &:hover {
-    opacity: ${({ theme }) => theme.opacity.opacity90};
-    transform: translateY(-3px);
-  }
-`;
-
-const LambdaLogo = styled.div`
-  transition: transform ${({ theme }) => theme.transitions.medium} ease-in-out,
-    opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
-  width: 100%;
-
-  &:hover {
-    opacity: ${({ theme }) => theme.opacity.opacity90};
-    transform: translateY(-3px);
   }
 `;
 

@@ -136,11 +136,13 @@ const spaces: Spaces = {
 };
 
 interface Transitions {
+  short: string;
   medium: string;
   long: string;
 }
 const transitions: Transitions = {
-  medium: "0.1s",
+  short: "0.1s",
+  medium: "0.3s",
   long: "0.5s",
 };
 
