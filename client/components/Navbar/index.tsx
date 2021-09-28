@@ -7,16 +7,14 @@ interface Props {
 }
 
 function Navbar(props: Props) {
-  const isIPFSDeployEnabled = process.env.NEXT_PUBLIC_IS_IPFS_DEPLOY;
-  const homeLinkLabel = isIPFSDeployEnabled
-    ? "Nathan Thomas (.eth)"
-    : "Nathan Thomas";
+  const isWeb3Deploy = !!process.env.NEXT_PUBLIC_IS_IPFS_DEPLOY;
 
   return (
-    <RootStyles>
+    <RootStyles isWeb3Deploy={isWeb3Deploy}>
       <header>
         <div>
-          <Link href="/">{homeLinkLabel}</Link>
+          <Link href="/">Nathan Thomas</Link>
+          <p>.eth</p>
         </div>
         <nav>
           <div>
@@ -31,7 +29,11 @@ function Navbar(props: Props) {
   );
 }
 
-const RootStyles = styled.div`
+interface StyleProps {
+  isWeb3Deploy: boolean;
+}
+
+const RootStyles = styled.div<StyleProps>`
   display: flex;
   background: ${({ theme }) => theme.colors.bodyBackground};
   height: ${({ theme }) => theme.appDimensions.navbarHeight};
@@ -51,6 +53,32 @@ const RootStyles = styled.div`
     justify-content: space-between;
     max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
     width: 100%;
+
+    > div {
+      > p {
+        margin-left: ${({ theme }) => `calc(${theme.spaces.nano} * 2)`};
+        opacity: 0;
+        transition: opacity ${({ theme }) => theme.transitions.medium}
+          ease-in-out;
+        user-select: none;
+
+        @media only screen and (min-width: ${({ theme }) =>
+            theme.breakpoints.tablet}) {
+          margin-left: ${({ theme }) => `calc(${theme.spaces.nano} * 3)`};
+        }
+
+        @media only screen and (min-width: ${({ theme }) =>
+            theme.breakpoints.desktop}) {
+          margin-left: ${({ theme }) => `calc(${theme.spaces.nano} * 4)`};
+        }
+      }
+
+      &:hover {
+        > p {
+          opacity: ${({ theme }) => theme.opacity.opacity100};
+        }
+      }
+    }
 
     > div,
     nav {

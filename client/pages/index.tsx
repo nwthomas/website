@@ -39,7 +39,25 @@ const Home: NextPage = () => {
               >
                 teacher
               </a>
-              . I love building stuff with Bitcoin and Ethereum.
+              . I love building with Bitcoin{" "}
+              <a
+                href="https://bitcoin.org/bitcoin.pdf"
+                aria-label="Link to Bitcoin whitepaper"
+                rel="noopener noreferrer"
+                target="_target"
+              >
+                <img src="./bitcoin-logo.png" alt="Bitcoin logo" />
+              </a>{" "}
+              and Ethereum{" "}
+              <a
+                href="https://ethereum.org/"
+                aria-label="Link to Ethereum.org"
+                rel="noopener noreferrer"
+                target="_target"
+              >
+                <img src="./eth-icon.png" alt="Ethereum logo" />
+              </a>
+              .
             </h1>
           </section>
           <Employers />
@@ -98,6 +116,17 @@ const RootStyles = styled.div`
 
         > a:nth-child(3) {
           background-image: linear-gradient(120deg, #7579ff 0%, #b224ef 100%);
+        }
+
+        > a:nth-child(4) > img {
+          margin-left: -1px;
+          margin-right: -1px;
+          width: 40px;
+        }
+
+        > a:nth-child(5) > img {
+          margin-left: -3px;
+          width: 35px;
         }
       }
     }

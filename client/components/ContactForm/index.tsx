@@ -28,11 +28,15 @@ function ContactForm(props: Props) {
     },
   });
 
+  const handleSettingsClick = (event) => {
+    console.log(event.target.offsetLeft);
+  };
+
   return (
     <RootStyles>
       <div>
         <h2>Message</h2>
-        <div>
+        <div onClick={handleSettingsClick}>
           <SettingsIcon color="white" />
         </div>
       </div>
