@@ -121,12 +121,32 @@ const RootStyles = styled.div`
         > a:nth-child(4) > img {
           margin-left: -1px;
           margin-right: -1px;
-          width: 40px;
+          width: 18px;
+
+          @media only screen and (min-width: ${({ theme }) =>
+              theme.breakpoints.tablet}) {
+            width: 30px;
+          }
+
+          @media only screen and (min-width: ${({ theme }) =>
+              theme.breakpoints.desktop}) {
+            width: 40px;
+          }
         }
 
         > a:nth-child(5) > img {
           margin-left: -3px;
-          width: 35px;
+          width: 16px;
+
+          @media only screen and (min-width: ${({ theme }) =>
+              theme.breakpoints.tablet}) {
+            width: 25px;
+          }
+
+          @media only screen and (min-width: ${({ theme }) =>
+              theme.breakpoints.desktop}) {
+            width: 35px;
+          }
         }
       }
     }
