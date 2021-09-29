@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { SettingsIcon } from "../icons";
+import DropdownAnchor from "../DropdownAnchor";
 
 interface Props {
   // finish
@@ -34,9 +35,11 @@ function ContactForm(props: Props) {
     <RootStyles>
       <div>
         <h2>Message</h2>
-        <div onClick={handleSettingsClick}>
-          <SettingsIcon color="white" />
-        </div>
+        <DropdownAnchor>
+          <div>
+            <SettingsIcon color="white" />
+          </div>
+        </DropdownAnchor>
       </div>
       <form onSubmit={formik.handleSubmit}>
         <div>
