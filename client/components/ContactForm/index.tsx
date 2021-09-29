@@ -28,9 +28,7 @@ function ContactForm(props: Props) {
     },
   });
 
-  const handleSettingsClick = (event) => {
-    console.log(event.target.offsetLeft);
-  };
+  const handleSettingsClick = () => {};
 
   return (
     <RootStyles>

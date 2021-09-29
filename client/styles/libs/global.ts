@@ -19,12 +19,23 @@ const GlobalStyle = css`
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  body {
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  ::-webkit-scrollbar {
+    width: 15px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    border-left: 1px solid
+      ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
+    border-radius: ${({ theme }) => theme.borderRadii.infinity};
   }
 
   /* To change the colors in the colors object, go to styles/libs/theme.ts */
