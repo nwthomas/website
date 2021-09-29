@@ -43,7 +43,9 @@ const GlobalStyle = css`
     --body-bg: ${colors.woodsmoke};
     --body-bg-accent-one: ${colors.black};
     --body-bg-accent-two: ${colors.mineShaft};
-    --button-bg: ${colors.royalBlue};
+    --body-bg-accent-three: ${colors.shark};
+    --button-primary-bg: ${colors.royalBlue};
+    --button-secondary-bg: ${colors.fireBush};
     --error: ${colors.scarlet};
     --text: ${colors.white};
     --transparent: ${colors.transparent};
@@ -52,7 +54,8 @@ const GlobalStyle = css`
     --body-bg: ${colors.white};
     --body-bg-accent-one: ${colors.white};
     --body-bg-accent-two: ${colors.alabaster};
-    --button-bg: ${colors.royalBlue};
+    --button-primary-bg: ${colors.royalBlue};
+    --button-secondary-bg: ${colors.fireBush};
     --error: ${colors.scarlet};
     --text: ${colors.woodsmoke};
     --transparent: ${colors.transparent};
@@ -161,6 +164,7 @@ const GlobalStyle = css`
   button {
     color: ${({ theme }) => theme.colors.text};
     font-size: 1.6rem;
+    font-weight: bold;
     transition: opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
 
     &:hover {
@@ -176,6 +180,10 @@ const GlobalStyle = css`
   input,
   textarea {
     font-size: 1.6rem;
+  }
+
+  .disable-select {
+    user-select: none;
   }
 `;
 

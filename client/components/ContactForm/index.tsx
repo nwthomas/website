@@ -4,11 +4,14 @@ import * as Yup from "yup";
 import { SettingsIcon } from "../icons";
 import DropdownAnchor from "../DropdownAnchor";
 
-interface Props {
-  // finish
-}
+const web3DropdownContent = {
+  paragraphOne: "You discovered a cool feature. 🎉",
+  paragraphTwo:
+    "This is the Web2 form. Would you like the Web3 version? It requires a crypto wallet.",
+  buttonLabel: "Yes",
+};
 
-function ContactForm(props: Props) {
+function ContactForm() {
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -35,10 +38,12 @@ function ContactForm(props: Props) {
     <RootStyles>
       <div>
         <h2>Message</h2>
-        <DropdownAnchor>
-          <div>
-            <SettingsIcon color="white" />
-          </div>
+        <DropdownAnchor content={web3DropdownContent}>
+          <button>
+            <div>
+              <SettingsIcon color="white" />
+            </div>
+          </button>
         </DropdownAnchor>
       </div>
       <form onSubmit={formik.handleSubmit}>
@@ -124,9 +129,26 @@ const RootStyles = styled.div`
       font-size: 1.6rem;
     }
 
-    > div {
+    > button {
+      align-items: flex-end;
+      background: ${({ theme }) => theme.colors.transparent};
+      border: none;
       cursor: pointer;
-      width: 20px;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+      padding: ${({ theme }) => theme.spaces.nano} 0 0 0;
+
+      > div {
+        transition: transform ${({ theme }) => theme.transitions.medium}
+          ease-in-out;
+        height: 20px;
+        width: 20px;
+
+        &:hover {
+          transform: rotate(45deg);
+        }
+      }
     }
   }
 
@@ -190,11 +212,10 @@ const RootStyles = styled.div`
     }
 
     > button {
-      background: ${({ theme }) => theme.colors.buttonBackground};
+      background: ${({ theme }) => theme.colors.buttonPrimaryBackground};
       border-radius: ${({ theme }) => theme.borderRadii.large};
       border: 1px solid ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
       cursor: pointer;
-      font-weight: bold;
       margin-top: ${({ theme }) => theme.spaces.nano};
       height: ${({ theme }) => theme.spaces.xLarge};
     }
