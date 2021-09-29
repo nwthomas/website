@@ -8,7 +8,7 @@ Also, making this site gave me the opportunity to really stretch out and craft a
 
 Welcome. I hope you enjoy the site as much as I enjoyed making it.
 
-![Website screenshot](./assets/website-screenshot.png)
+![Website screenshot](./assets/website-screenshot-homepage.png)
 
 ## TABLE OF CONTENTS 📚
 
