@@ -1,3 +1,4 @@
+import * as React from "react";
 import type { NextPage } from "next";
 import styled from "styled-components";
 import Layout from "../components/Layout";
@@ -96,14 +97,16 @@ const RootStyles = styled.div`
       }
 
       > h1 {
+        background: ${({ theme }) => theme.colors.transparent};
+
         > a {
           background-clip: text;
-          background-size: 100%;
-          -webkit-background-clip: text;
           -moz-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          -moz-text-fill-color: transparent;
+          -webkit-background-clip: text;
+          background-size: 100%;
           font-size: inherit;
+          -moz-text-fill-color: transparent;
+          -webkit-text-fill-color: transparent;
         }
 
         > a:nth-child(1) {

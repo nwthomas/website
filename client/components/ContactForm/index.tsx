@@ -11,7 +11,17 @@ const web3DropdownContent = {
   buttonLabel: "Yes",
 };
 
-function ContactForm() {
+interface Props {
+  isWalletConnected: boolean;
+  onDropdownButtonClick: () => void;
+  withWeb3: boolean;
+}
+
+function ContactForm({
+  isWalletConnected,
+  onDropdownButtonClick,
+  withWeb3,
+}: Props) {
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -32,19 +42,27 @@ function ContactForm() {
     },
   });
 
-  const handleSettingsClick = () => {};
-
   return (
-    <RootStyles>
+    <RootStyles isWalletConnected={isWalletConnected}>
       <div>
         <h2>Message</h2>
-        <DropdownAnchor content={web3DropdownContent}>
-          <button>
-            <div>
-              <SettingsIcon color="white" />
-            </div>
-          </button>
-        </DropdownAnchor>
+        <div>
+          {withWeb3 ? (
+            <button>
+              {isWalletConnected ? "Switch Wallet Address" : "Connect Wallet"}
+            </button>
+          ) : null}
+          <DropdownAnchor
+            content={web3DropdownContent}
+            onDropdownButtonClick={onDropdownButtonClick}
+          >
+            <button>
+              <div>
+                <SettingsIcon color="white" />
+              </div>
+            </button>
+          </DropdownAnchor>
+        </div>
       </div>
       <form onSubmit={formik.handleSubmit}>
         <div>
@@ -97,24 +115,30 @@ function ContactForm() {
             value={formik.values.fax}
           ></input>
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit">
+          {withWeb3 && !isWalletConnected ? "Connect Wallet" : "Submit"}
+        </button>
       </form>
     </RootStyles>
   );
 }
 
-const RootStyles = styled.div`
+interface StyleProps {
+  isWalletConnected: boolean;
+}
+
+const RootStyles = styled.div<StyleProps>`
   border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
   background: ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
   padding: ${({ theme }) => theme.spaces.small};
-  width: 100%;
-  -webkit-box-shadow: 0px 6px 10px -2px rgba(0, 0, 0, 0.47);
-  -moz-box-shadow: 0px 6px 10px -2px rgba(0, 0, 0, 0.47);
   box-shadow: 0px 6px 10px -2px rgba(0, 0, 0, 0.47);
+  -moz-box-shadow: 0px 6px 10px -2px rgba(0, 0, 0, 0.47);
+  -webkit-box-shadow: 0px 6px 10px -2px rgba(0, 0, 0, 0.47);
+  width: 100%;
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.tablet}) {
-    max-width: 500px;
+    max-width: 550px;
   }
 
   > div {
@@ -129,19 +153,40 @@ const RootStyles = styled.div`
       font-size: 1.6rem;
     }
 
-    > button {
-      align-items: flex-end;
-      background: ${({ theme }) => theme.colors.transparent};
-      border: none;
-      cursor: pointer;
+    > div {
+      align-items: center;
       display: flex;
-      justify-content: center;
-      overflow: hidden;
-      padding: ${({ theme }) => theme.spaces.nano} 0 0 0;
+      height: ${({ theme }) => theme.spaces.medium};
 
-      > div {
-        height: 20px;
-        width: 20px;
+      > div:nth-child(1) {
+        border: 1px solid red;
+      }
+
+      > button:nth-child(1) {
+        background: ${({ theme }) => `${theme.colorsHex.royalBlue}30`};
+        border: 1px solid ${({ theme }) => theme.colors.buttonPrimaryBackground};
+        border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
+        color: ${({ theme }) => theme.colors.buttonPrimaryBackground};
+        cursor: pointer;
+        margin-right: ${({ theme }) => theme.spaces.small};
+        padding: ${({ theme }) =>
+          `${theme.spaces.micro} ${theme.spaces.small}`};
+      }
+
+      > button:nth-child(2) {
+        background: ${({ theme }) => theme.colors.transparent};
+        align-items: flex-end;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        padding: ${({ theme }) => theme.spaces.nano} 0 0 0;
+
+        > div {
+          height: 20px;
+          width: 20px;
+        }
       }
     }
   }

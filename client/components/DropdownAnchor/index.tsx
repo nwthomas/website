@@ -8,6 +8,7 @@ interface Props {
     paragraphTwo?: string;
     buttonLabel: string;
   };
+  onDropdownButtonClick: () => void;
 }
 
 interface DropdownCoordinates {
@@ -22,7 +23,7 @@ const getDropdownCoordinates = (element: HTMLElement): DropdownCoordinates => {
   return { left: currentX, top: currentY };
 };
 
-function DropdownAnchor({ children, content }: Props) {
+function DropdownAnchor({ children, content, onDropdownButtonClick }: Props) {
   const [showDropdown, setShowDropdown] = React.useState(false);
   const [refCoords, setRefCoords] = React.useState<DropdownCoordinates | null>(
     null
@@ -102,7 +103,12 @@ function DropdownAnchor({ children, content }: Props) {
         ref: (element: HTMLElement) => (anchorRef.current = element),
       })}
       {showDropdown && refCoords?.left && refCoords?.top ? (
-        <Dropdown content={content} rootRef={dropdownRef} styles={refCoords} />
+        <Dropdown
+          content={content}
+          onButtonClick={onDropdownButtonClick}
+          rootRef={dropdownRef}
+          styles={refCoords}
+        />
       ) : null}
     </React.Fragment>
   );
