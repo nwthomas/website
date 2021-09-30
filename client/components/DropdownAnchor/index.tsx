@@ -1,5 +1,4 @@
-import React, { MouseEvent, ReactElement, SyntheticEvent } from "react";
-import styled from "styled-components";
+import React, { ReactElement, SyntheticEvent } from "react";
 import Dropdown from "../Dropdown";
 
 interface Props {
@@ -56,10 +55,11 @@ function DropdownAnchor({ children, content }: Props) {
 
   React.useEffect(() => {
     if (typeof window !== "undefined") {
-      const handleClickOutside = (event: MouseEvent) => {
+      const handleClickOutside = (event: Event) => {
         if (
           anchorRef.current &&
           dropdownRef.current &&
+          event.target instanceof Node &&
           !anchorRef.current.contains(event.target) &&
           !dropdownRef.current.contains(event.target)
         ) {
