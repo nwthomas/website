@@ -82,17 +82,11 @@ function DropdownAnchor({ children, content, onDropdownButtonClick }: Props) {
     event.preventDefault();
     event.stopPropagation();
 
-    const body = document.body;
-
     if (anchorRef.current) {
       const dropdownCoordinates = getDropdownCoordinates(anchorRef.current);
 
       setShowDropdown(!showDropdown);
       setRefCoords(dropdownCoordinates);
-
-      showDropdown
-        ? body.classList.add("disable-select")
-        : body.classList.remove("disable-select");
     }
   };
 
