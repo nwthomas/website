@@ -140,14 +140,8 @@ const RootStyles = styled.div`
       padding: ${({ theme }) => theme.spaces.nano} 0 0 0;
 
       > div {
-        transition: transform ${({ theme }) => theme.transitions.medium}
-          ease-in-out;
         height: 20px;
         width: 20px;
-
-        &:hover {
-          transform: rotate(45deg);
-        }
       }
     }
   }
