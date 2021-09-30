@@ -12,6 +12,7 @@ interface Props {
     paragraphTwo?: string;
     buttonLabel: string;
   };
+  onButtonClick: () => void;
   styles: {
     left: number;
     top: number;
@@ -19,14 +20,14 @@ interface Props {
   rootRef: MutableRefObject<HTMLDivElement | null>;
 }
 
-function Dropdown({ content, rootRef, styles }: Props) {
+function Dropdown({ content, onButtonClick, rootRef, styles }: Props) {
   const { left: leftCSSProperty, top: topCSSProperty } = styles;
 
   return (
     <RootStyles ref={rootRef} left={leftCSSProperty} top={topCSSProperty}>
       <p>{content.paragraphOne}</p>
       {content?.paragraphTwo ? <p>{content.paragraphTwo}</p> : null}
-      <button>{content.buttonLabel}</button>
+      <button onClick={onButtonClick}>{content.buttonLabel}</button>
     </RootStyles>
   );
 }
@@ -40,9 +41,9 @@ const RootStyles = styled.div<StyleProps>`
   background-image: linear-gradient(120deg, #8ec5fc 0%, #7579ff 100%);
   border-radius: ${({ theme }) => theme.borderRadii.xLarge};
   cursor: default;
-  -webkit-box-shadow: 0px 6px 10px -2px rgba(0, 0, 0, 0.47);
-  -moz-box-shadow: 0px 6px 10px -2px rgba(0, 0, 0, 0.47);
   box-shadow: 0px 6px 10px -2px rgba(0, 0, 0, 0.47);
+  -moz-box-shadow: 0px 6px 10px -2px rgba(0, 0, 0, 0.47);
+  -webkit-box-shadow: 0px 6px 10px -2px rgba(0, 0, 0, 0.47);
   padding: ${({ theme }) => theme.spaces.medium};
   position: absolute;
   left: ${({ left }) => `${left - DROPDOWN_MAX_WIDTH + ARROW_WIDTH}px`};

@@ -1,3 +1,4 @@
+import * as React from "react";
 import styled from "styled-components";
 import Layout from "../components/Layout";
 import ContactForm from "../components/ContactForm";
@@ -5,6 +6,15 @@ import ContactForm from "../components/ContactForm";
 const PAGE_NAME = "Contact";
 
 function Contact() {
+  const [withWeb3, setWithWeb3] = React.useState(true);
+  const [currentAccount, setCurrentAccount] = React.useState<string>("");
+  const [walletAccounts, setWalletAccounts] = React.useState<Array<string>>([]);
+
+  const handleSetWeb3ContactForm = () => {
+    console.log("running");
+    setWithWeb3(!withWeb3);
+  };
+
   return (
     <Layout pageName={PAGE_NAME}>
       <RootStyles>
@@ -24,7 +34,11 @@ function Contact() {
             </h1>
           </section>
           <section>
-            <ContactForm />
+            <ContactForm
+              isWalletConnected={!currentAccount}
+              onDropdownButtonClick={handleSetWeb3ContactForm}
+              withWeb3={withWeb3}
+            />
           </section>
         </main>
       </RootStyles>
