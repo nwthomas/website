@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import * as React from "react";
+import styled, { ThemeContext } from "styled-components";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { SettingsIcon } from "../icons";
@@ -22,6 +23,8 @@ function ContactForm({
   onDropdownButtonClick,
   withWeb3,
 }: Props) {
+  const { colors } = React.useContext(ThemeContext);
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -58,7 +61,7 @@ function ContactForm({
           >
             <button>
               <div>
-                <SettingsIcon color="white" />
+                <SettingsIcon color={colors.text} />
               </div>
             </button>
           </DropdownAnchor>

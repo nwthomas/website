@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 const DROPDOWN_MAX_WIDTH = 250;
 
-const ARROW_HEIGHT = 5;
-const ARROW_WIDTH = 10;
+const ARROW_HEIGHT = 10;
+const ARROW_WIDTH = 20;
 
 interface Props {
   content: {
@@ -55,7 +55,6 @@ const RootStyles = styled.div<StyleProps>`
   > p {
     font-size: 1.6rem;
     margin-bottom: ${({ theme }) => theme.spaces.medium};
-    user-select: none;
   }
 
   > button {

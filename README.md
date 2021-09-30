@@ -2,15 +2,13 @@
 
 ## GETTING STARTED 💭
 
-This is the Github repository for my personal website. The entire site revolves around the idea of content discoverability, as I built it to allow others to more easily consume content that I create.
-
-Also, making this site gave me the opportunity to really stretch out and craft a site that felt was mine.
+This is the Github repository for my personal website. Making this site gave me the opportunity to really stretch out and craft a site that felt was mine.
 
 Welcome. I hope you enjoy the site as much as I enjoyed making it.
 
 ![Website screenshot](./assets/website-screenshot-homepage.png)
 
-## TABLE OF CONTENTS 📚
+## TABLE OF CONTENTS 🌀
 
 - [Getting Started](#getting-started)
 - [Technology Stack](#technology-stack)
@@ -24,8 +22,10 @@ I tried to use a completely modern tech stack while testing out some new technol
 - Front-End:
   - [Next.js](https://nextjs.org/)
   - [Styled Components](https://styled-components.com/)
+  - [Vercel](https://vercel.com/)
+  - [Fleek (IPFS)](https://fleek.co/)
 - Back-end:
-  - `Coming Soon`
+  - [Golang](https://golang.org/)
 
 ## UNIT TESTING 🧪
 
@@ -36,4 +36,5 @@ I tried to use a completely modern tech stack while testing out some new technol
 - Thanks to my parents for supporting my journey of learning to code. I couldn't have done it without you.
 - Thanks [Lambda School](https://lambdaschool.com/) for teaching me the skills that allow me to build applications just like this one.
 - Thanks to [Zach Cole](http://zcole.me/index.html) for some of the inspiration behind my site.
+- Thanks to [Uniswap](https://uniswap.org/) for the inspiration on my contact form
 - Thanks to [Medium](https://medium.com/) for inspiring my article layout.
