@@ -6,7 +6,7 @@ import ContactForm from "../components/ContactForm";
 const PAGE_NAME = "Contact";
 
 function Contact() {
-  const [withWeb3, setWithWeb3] = React.useState(true);
+  const [withWeb3, setWithWeb3] = React.useState(false);
   const [currentAccount, setCurrentAccount] = React.useState<string>("");
   const [walletAccounts, setWalletAccounts] = React.useState<Array<string>>([]);
 

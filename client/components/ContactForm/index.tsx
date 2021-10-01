@@ -5,14 +5,14 @@ import * as Yup from "yup";
 import { SettingsIcon } from "../icons";
 import DropdownAnchor from "../DropdownAnchor";
 
-const web3DropdownContent = {
+const web2DropdownContent = {
   paragraphOne: "I get it. Sometimes the old ways are better. 🧙🏻‍♂️",
   paragraphTwo:
     "This is the Web3 form. Would you like to switch back to the Web2 version?",
   buttonLabel: "Yes",
 };
 
-const web2DropdownContent = {
+const web3DropdownContent = {
   paragraphOne: "You discovered a cool feature. 🎉",
   paragraphTwo:
     "This is the Web2 form. Would you like the Web3 version? It requires a crypto wallet.",
@@ -64,6 +64,7 @@ function ContactForm({
         <div>
           {withWeb3 ? (
             <div>
+              <div />
               <button>
                 {isWalletConnected ? "Switch Wallet Address" : "Connect Wallet"}
               </button>
@@ -177,9 +178,16 @@ const RootStyles = styled.div<StyleProps>`
       height: ${({ theme }) => theme.spaces.medium};
 
       > div:nth-child(1) {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
         > div {
-          background: ${({ theme }) => theme.colors.error};
+          background: ${({ isWalletConnected, theme }) =>
+            isWalletConnected ? theme.colors.success : theme.colors.error};
+          border-radius: ${({ theme }) => theme.borderRadii.infinity};
           height: ${({ theme }) => theme.spaces.small};
+          margin-right: ${({ theme }) => theme.spaces.small};
           width: ${({ theme }) => theme.spaces.small};
         }
 

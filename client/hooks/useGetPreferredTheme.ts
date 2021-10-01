@@ -12,6 +12,7 @@ declare global {
     __theme: string;
   }
 }
+
 // Updates the theme using the JavaScript code defined in the _document.tsx file
 export function useGetPreferredTheme(): [ThemeEnum, () => void] {
   const [userPreferredTheme, setUserPreferredTheme] =

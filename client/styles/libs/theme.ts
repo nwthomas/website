@@ -6,6 +6,7 @@ interface Colors {
   alabaster: string;
   black: string;
   fireBush: string;
+  forestGreen: string;
   mineShaft: string;
   transparent: string;
   royalBlue: string;
@@ -18,6 +19,7 @@ export const colors: Colors = {
   alabaster: "#f8f8f8f8",
   black: "#000000",
   fireBush: "#eb9c31",
+  forestGreen: "#357d22",
   mineShaft: "#333333",
   transparent: "transparent",
   royalBlue: "#3870E0",
@@ -36,6 +38,7 @@ interface ThemeColorValues {
   buttonPrimaryBackground: string;
   buttonSecondaryBackground: string;
   error: string;
+  success: string;
   text: string;
   transparent: string;
 }
@@ -47,6 +50,7 @@ export const themeColorValues: ThemeColorValues = {
   buttonPrimaryBackground: "var(--button-primary-bg)",
   buttonSecondaryBackground: "var(--button-secondary-bg)",
   error: "var(--error)",
+  success: "var(--success)",
   text: "var(--text)",
   transparent: "var(--transparent)",
 };
