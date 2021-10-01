@@ -35,7 +35,7 @@ function Contact() {
           </section>
           <section>
             <ContactForm
-              isWalletConnected={!currentAccount}
+              isWalletConnected={!!currentAccount}
               onDropdownButtonClick={handleSetWeb3ContactForm}
               withWeb3={withWeb3}
             />
