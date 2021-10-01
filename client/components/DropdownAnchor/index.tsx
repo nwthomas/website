@@ -90,6 +90,11 @@ function DropdownAnchor({ children, content, onDropdownButtonClick }: Props) {
     }
   };
 
+  const handleOnDropdownButtonClick = () => {
+    setShowDropdown(!showDropdown);
+    onDropdownButtonClick();
+  };
+
   return (
     <React.Fragment>
       {React.cloneElement(children, {
@@ -99,7 +104,7 @@ function DropdownAnchor({ children, content, onDropdownButtonClick }: Props) {
       {showDropdown && refCoords?.left && refCoords?.top ? (
         <Dropdown
           content={content}
-          onButtonClick={onDropdownButtonClick}
+          onButtonClick={handleOnDropdownButtonClick}
           rootRef={dropdownRef}
           styles={refCoords}
         />

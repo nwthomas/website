@@ -6,6 +6,13 @@ import { SettingsIcon } from "../icons";
 import DropdownAnchor from "../DropdownAnchor";
 
 const web3DropdownContent = {
+  paragraphOne: "I get it. Sometimes the old ways are better. 🧙🏻‍♂️",
+  paragraphTwo:
+    "This is the Web3 form. Would you like to switch back to the Web2 version?",
+  buttonLabel: "Yes",
+};
+
+const web2DropdownContent = {
   paragraphOne: "You discovered a cool feature. 🎉",
   paragraphTwo:
     "This is the Web2 form. Would you like the Web3 version? It requires a crypto wallet.",
@@ -24,6 +31,8 @@ function ContactForm({
   withWeb3,
 }: Props) {
   const { colors } = React.useContext(ThemeContext);
+
+  const isFormButtonDisabled = withWeb3 && !isWalletConnected;
 
   const formik = useFormik({
     initialValues: {
@@ -46,17 +55,22 @@ function ContactForm({
   });
 
   return (
-    <RootStyles isWalletConnected={isWalletConnected}>
+    <RootStyles
+      isWalletConnected={isWalletConnected}
+      isFormButtonDisabled={isFormButtonDisabled}
+    >
       <div>
         <h2>Message</h2>
         <div>
           {withWeb3 ? (
-            <button>
-              {isWalletConnected ? "Switch Wallet Address" : "Connect Wallet"}
-            </button>
+            <div>
+              <button>
+                {isWalletConnected ? "Switch Wallet Address" : "Connect Wallet"}
+              </button>
+            </div>
           ) : null}
           <DropdownAnchor
-            content={web3DropdownContent}
+            content={withWeb3 ? web2DropdownContent : web3DropdownContent}
             onDropdownButtonClick={onDropdownButtonClick}
           >
             <button>
@@ -118,8 +132,8 @@ function ContactForm({
             value={formik.values.fax}
           ></input>
         </div>
-        <button type="submit">
-          {withWeb3 && !isWalletConnected ? "Connect Wallet" : "Submit"}
+        <button disabled={isFormButtonDisabled} type="submit">
+          Submit
         </button>
       </form>
     </RootStyles>
@@ -127,6 +141,7 @@ function ContactForm({
 }
 
 interface StyleProps {
+  isFormButtonDisabled: boolean;
   isWalletConnected: boolean;
 }
 
@@ -162,21 +177,26 @@ const RootStyles = styled.div<StyleProps>`
       height: ${({ theme }) => theme.spaces.medium};
 
       > div:nth-child(1) {
-        border: 1px solid red;
+        > div {
+          background: ${({ theme }) => theme.colors.error};
+          height: ${({ theme }) => theme.spaces.small};
+          width: ${({ theme }) => theme.spaces.small};
+        }
+
+        > button {
+          background: ${({ theme }) => `${theme.colorsHex.royalBlue}30`};
+          border: 1px solid
+            ${({ theme }) => theme.colors.buttonPrimaryBackground};
+          border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
+          color: ${({ theme }) => theme.colors.buttonPrimaryBackground};
+          cursor: pointer;
+          margin-right: ${({ theme }) => theme.spaces.small};
+          padding: ${({ theme }) =>
+            `${theme.spaces.micro} ${theme.spaces.small}`};
+        }
       }
 
-      > button:nth-child(1) {
-        background: ${({ theme }) => `${theme.colorsHex.royalBlue}30`};
-        border: 1px solid ${({ theme }) => theme.colors.buttonPrimaryBackground};
-        border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
-        color: ${({ theme }) => theme.colors.buttonPrimaryBackground};
-        cursor: pointer;
-        margin-right: ${({ theme }) => theme.spaces.small};
-        padding: ${({ theme }) =>
-          `${theme.spaces.micro} ${theme.spaces.small}`};
-      }
-
-      > button:nth-child(2) {
+      > button {
         background: ${({ theme }) => theme.colors.transparent};
         align-items: flex-end;
         border: none;
@@ -257,9 +277,21 @@ const RootStyles = styled.div<StyleProps>`
       background: ${({ theme }) => theme.colors.buttonPrimaryBackground};
       border-radius: ${({ theme }) => theme.borderRadii.large};
       border: 1px solid ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
-      cursor: pointer;
+      cursor: ${({ isFormButtonDisabled }) =>
+        isFormButtonDisabled ? "default" : "pointer"};
       margin-top: ${({ theme }) => theme.spaces.nano};
+      opacity: ${({ isFormButtonDisabled, theme }) =>
+        isFormButtonDisabled
+          ? theme.opacity.opacity50
+          : theme.opacity.opacity100};
       height: ${({ theme }) => theme.spaces.xLarge};
+
+      &:hover {
+        opacity: ${({ isFormButtonDisabled, theme }) =>
+          isFormButtonDisabled
+            ? theme.opacity.opacity50
+            : theme.opacity.opacity70};
+      }
     }
   }
 `;
