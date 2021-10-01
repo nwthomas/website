@@ -47,6 +47,7 @@ const GlobalStyle = css`
     --button-primary-bg: ${colors.royalBlue};
     --button-secondary-bg: ${colors.fireBush};
     --error: ${colors.scarlet};
+    --success: ${colors.forestGreen};
     --text: ${colors.white};
     --transparent: ${colors.transparent};
   }

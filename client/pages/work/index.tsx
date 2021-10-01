@@ -14,6 +14,20 @@ function Work() {
               enjoy it. 🏗
             </h1>
           </section>
+          <section>
+            <a
+              href="https://github.com/nwthomas/personal-portfolio"
+              aria-label="Link to portfolio site GitHub repository"
+              rel="noopener noreferrer"
+              target="_target"
+            >
+              <img
+                alt="Macbook with screenshot of Nathan's portfolio site on it"
+                src="./portfolio-site.png"
+              />
+              <h2>Portfolio Site</h2>
+            </a>
+          </section>
         </main>
       </RootStyles>
     </Layout>
@@ -31,7 +45,7 @@ const RootStyles = styled.div`
     max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
     width: 100%;
 
-    > section:nth-child(1) {
+    > section {
       display: flex;
 
       @media only screen and (min-width: ${({ theme }) =>
@@ -46,6 +60,65 @@ const RootStyles = styled.div`
 
       > h1 > em {
         font-style: italic;
+      }
+    }
+
+    > section:nth-child(1) {
+      margin-bottom: ${({ theme }) =>
+        `calc(${theme.appDimensions.navbarHeight} / 2)`};
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.tablet}) {
+        margin-bottom: ${({ theme }) =>
+          `calc(${theme.spaces.large} + ${theme.appDimensions.navbarHeight} / 2)`};
+      }
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.desktop}) {
+        margin-bottom: ${({ theme }) =>
+          `calc(${theme.spaces.jumbo} + ${theme.appDimensions.navbarHeight} / 2)`};
+      }
+    }
+
+    > section:nth-child(2) {
+      display: flex;
+      margin-bottom: ${({ theme }) =>
+        `calc(${theme.appDimensions.navbarHeight} / 2)`};
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.tablet}) {
+        margin-bottom: ${({ theme }) =>
+          `calc(${theme.spaces.large} + ${theme.appDimensions.navbarHeight} / 2)`};
+      }
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.desktop}) {
+        margin-bottom: ${({ theme }) => theme.spaces.jumbo};
+      }
+
+      > a {
+        align-items: center;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        transition: transform ${({ theme }) => theme.transitions.medium}
+            ease-in-out,
+          opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
+        width: 100%;
+
+        @media only screen and (min-width: ${({ theme }) =>
+            theme.breakpoints.desktop}) {
+          max-width: 700px;
+        }
+
+        > h2 {
+          margin-top: ${({ theme }) => theme.spaces.medium};
+        }
+
+        &:hover {
+          opacity: ${({ theme }) => theme.opacity.opacity70};
+          transform: translateY(-3px);
+        }
       }
     }
   }
