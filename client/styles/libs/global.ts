@@ -58,7 +58,7 @@ const GlobalStyle = css`
     --button-primary-bg: ${colors.royalBlue};
     --button-secondary-bg: ${colors.fireBush};
     --error: ${colors.scarlet};
-    --text: ${colors.woodsmoke};
+    --text: ${colors.mineShaft};
     --transparent: ${colors.transparent};
   }
 

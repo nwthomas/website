@@ -17,6 +17,7 @@ function Navbar(props: Props) {
           <p>.eth</p>
         </div>
         <nav>
+          <ThemeTransitionSwitch />
           <div>
             <Link href="/work">Work</Link>
           </div>

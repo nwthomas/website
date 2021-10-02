@@ -9,34 +9,102 @@ declare global {
   }
 }
 
-type ReturnValue = Promise<
-  Array<string | Array<string> | ((newCurrentAccount: string) => void)>
->;
+const checkIfWalletIsConnected = async (): Promise<Array<string>> => {
+  const { ethereum } = window;
 
-export async function useConnectWallet(): ReturnValue {
-  const [currentAccount, setCurrentAccount] = React.useState<string>("");
-  const [walletAccounts, setWalletAccounts] = React.useState<Array<string>>([]);
+  if (ethereum) {
+    const accounts = await ethereum.request({ method: "eth_accounts" });
 
-  const updateCurrentAccount = (newCurrentAccount: string) => {
-    if (walletAccounts.indexOf(newCurrentAccount) > -1) {
-      setCurrentAccount(newCurrentAccount);
-    }
-  };
-
-  if (typeof window !== "undefined") {
-    const { ethereum } = window;
-
-    if (ethereum) {
-      const accounts = await ethereum.request({ method: "eth_accounts" });
-
-      if (accounts.length > 0) {
-        setWalletAccounts(accounts);
-        setCurrentAccount(accounts[0]);
-      }
-
-      return [currentAccount, walletAccounts, updateCurrentAccount];
-    }
+    return accounts || [];
   }
 
-  return ["", [], function () {}];
+  return [];
+};
+
+async function connectToWallet(): Promise<{
+  error: boolean;
+  accounts: Array<string>;
+  message: string;
+}> {
+  try {
+    const { ethereum } = window;
+
+    if (!ethereum) {
+      return {
+        error: true,
+        accounts: [],
+        message: "Please install MetaMask",
+      };
+    }
+
+    const accounts = await ethereum.request({
+      method: "eth_requestAccounts",
+    });
+
+    return { error: false, accounts, message: "" };
+  } catch (error) {
+    return {
+      error: true,
+      accounts: [],
+      message: "There was a problem connecting your accounts",
+    };
+  }
+}
+
+type ReturnValue = {
+  accounts: Array<string>;
+  connectToWallet: () => void;
+  currentAccount: string;
+  errorMessage: string;
+  isLoaded: boolean;
+};
+
+export function useConnectWallet(): ReturnValue {
+  const [isLoaded, setIsLoaded] = React.useState<boolean>(false);
+  const [currentAccount, setCurrentAccount] = React.useState<string>("");
+  const [walletAccounts, setWalletAccounts] = React.useState<Array<string>>([]);
+  const [walletErrorMessage, setWalletErrorMessage] =
+    React.useState<string>("");
+
+  React.useEffect(() => {
+    async function handleCheckIfWalletIsConnected() {
+      const accounts = await checkIfWalletIsConnected();
+
+      if (accounts.length) {
+        setCurrentAccount(accounts[0]);
+        setWalletAccounts(accounts);
+      }
+
+      setIsLoaded(true);
+    }
+
+    handleCheckIfWalletIsConnected();
+  }, []);
+
+  function handleStartConnectionAttemptToWallet() {
+    async function handleConnectToWallet() {
+      const result = await connectToWallet();
+
+      if (!result.error && result.accounts.length) {
+        setCurrentAccount(result.accounts[0]);
+        setWalletAccounts(result.accounts);
+      } else {
+        setWalletErrorMessage(
+          result.message || "Your wallet could not be connected"
+        );
+      }
+
+      setIsLoaded(true);
+    }
+
+    handleConnectToWallet();
+  }
+
+  return {
+    accounts: walletAccounts,
+    connectToWallet: handleStartConnectionAttemptToWallet,
+    currentAccount,
+    errorMessage: walletErrorMessage,
+    isLoaded,
+  };
 }

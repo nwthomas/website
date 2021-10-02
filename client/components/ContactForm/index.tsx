@@ -21,12 +21,16 @@ const web3DropdownContent = {
 
 interface Props {
   isWalletConnected: boolean;
+  isWeb3Loaded: boolean;
+  onConnectWalletClick: () => void;
   onDropdownButtonClick: () => void;
   withWeb3: boolean;
 }
 
 function ContactForm({
   isWalletConnected,
+  isWeb3Loaded,
+  onConnectWalletClick,
   onDropdownButtonClick,
   withWeb3,
 }: Props) {
@@ -62,10 +66,10 @@ function ContactForm({
       <div>
         <h2>Message</h2>
         <div>
-          {withWeb3 ? (
+          {withWeb3 && isWeb3Loaded ? (
             <div>
               <div />
-              <button>
+              <button onClick={onConnectWalletClick}>
                 {isWalletConnected ? "Switch Wallet Address" : "Connect Wallet"}
               </button>
             </div>
