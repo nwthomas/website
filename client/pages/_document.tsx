@@ -55,23 +55,35 @@ export default class MyDocument extends Document {
             (function () {
               var DARK_THEME = "dark";
               var LIGHT_THEME = "light";
-              var LOCAL_STORAGE_KEY = "theme";
-              var preferredTheme;
+              var THEME_KEY = "theme";
+              
+              var WEB2_KEY = "web2";
+              var WEB3_KEY = "web3";
+              var FORM_KEY = "preferredForm";
 
-              window.__onThemeChange = function (newTheme) {};
+              var preferredTheme;
+              var preferredForm;
 
               function setTheme(newTheme) {
                 window.__theme = newTheme;
                 preferredTheme = newTheme;
                 document.body.className = newTheme;
-                window.__onThemeChange(newTheme);
+              }
+
+              function setPreferredForm(newFormPreference) {
+                window.__preferredForm = newFormPreference;
+                preferredForm = newFormPreference;
               }
 
               try {
-                var savedPreferredTheme = localStorage.getItem(LOCAL_STORAGE_KEY);
+                var savedPreferredTheme = localStorage.getItem(THEME_KEY);
+                var savedPreferredForm = localStorage.getItem(FORM_KEY);
 
                 if (savedPreferredTheme === DARK_THEME || savedPreferredTheme === LIGHT_THEME) {
                   preferredTheme = savedPreferredTheme;
+                }
+                if (savedPreferredForm === WEB2_KEY || savedPreferredForm === WEB3_KEY) {
+                  preferredForm = savedPreferredForm;
                 }
               } catch (error) {}
 
@@ -79,7 +91,15 @@ export default class MyDocument extends Document {
                 setTheme(newTheme);
 
                 try {
-                  localStorage.setItem(LOCAL_STORAGE_KEY, newTheme);
+                  localStorage.setItem(THEME_KEY, newTheme);
+                } catch (error) {}
+              }
+
+              window.__setPreferredForm = function setPreferredFrom(newFormPreference) {
+                setPreferredForm(newFormPreference);
+
+                try {
+                  localStorage.setItem(FORM_KEY, newFormPreference);
                 } catch (error) {}
               }
 
@@ -89,6 +109,7 @@ export default class MyDocument extends Document {
               });
               
               setTheme(preferredTheme || (userThemePreference.matches ? DARK_THEME : LIGHT_THEME));
+              setPreferredForm(preferredForm || WEB2_KEY);
             })();
             `,
             }}
