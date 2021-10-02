@@ -64,19 +64,11 @@ const RootStyles = styled.div`
     }
 
     > section:nth-child(1) {
-      margin-bottom: ${({ theme }) =>
-        `calc(${theme.appDimensions.navbarHeight} / 2)`};
+      margin-bottom: ${({ theme }) => theme.spaces.large};
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        margin-bottom: ${({ theme }) =>
-          `calc(${theme.spaces.large} + ${theme.appDimensions.navbarHeight} / 2)`};
-      }
-
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.desktop}) {
-        margin-bottom: ${({ theme }) =>
-          `calc(${theme.spaces.jumbo} + ${theme.appDimensions.navbarHeight} / 2)`};
+        margin-bottom: ${({ theme }) => theme.spaces.xLarge};
       }
     }
 
