@@ -11,10 +11,6 @@ function Contact() {
   const [currentAccount, setCurrentAccount] = React.useState<string>("");
   const [walletAccounts, setWalletAccounts] = React.useState<Array<string>>([]);
 
-  const handleSetWeb3ContactForm = () => {
-    setPreferredForm();
-  };
-
   return (
     <Layout pageName={PAGE_NAME}>
       <RootStyles>
@@ -36,7 +32,7 @@ function Contact() {
           <section>
             <ContactForm
               isWalletConnected={!!currentAccount}
-              onDropdownButtonClick={handleSetWeb3ContactForm}
+              onDropdownButtonClick={setPreferredForm}
               withWeb3={preferredForm === WEB3_KEY}
             />
           </section>
