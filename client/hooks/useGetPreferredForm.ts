@@ -33,7 +33,6 @@ export function useGetPreferredForm(): [PreferredFormEnum, () => void] {
   }, []);
 
   function updatePreferredForm() {
-    console.log(window.__preferredForm, window.__setPreferredForm);
     if (
       typeof window !== "undefined" &&
       window.__preferredForm &&

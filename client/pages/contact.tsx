@@ -3,13 +3,14 @@ import styled from "styled-components";
 import Layout from "../components/Layout";
 import ContactForm from "../components/ContactForm";
 import { useGetPreferredForm, WEB3_KEY } from "../hooks/useGetPreferredForm";
+import { useConnectWallet } from "../hooks/useConnectWallet";
 
 const PAGE_NAME = "Contact";
 
 function Contact() {
   const [preferredForm, setPreferredForm] = useGetPreferredForm();
-  const [currentAccount, setCurrentAccount] = React.useState<string>("");
-  const [walletAccounts, setWalletAccounts] = React.useState<Array<string>>([]);
+  const { accounts, currentAccount, connectToWallet, errorMessage, isLoaded } =
+    useConnectWallet();
 
   return (
     <Layout pageName={PAGE_NAME}>
@@ -32,7 +33,9 @@ function Contact() {
           <section>
             <ContactForm
               isWalletConnected={!!currentAccount}
+              isWeb3Loaded={isLoaded}
               onDropdownButtonClick={setPreferredForm}
+              onConnectWalletClick={connectToWallet}
               withWeb3={preferredForm === WEB3_KEY}
             />
           </section>

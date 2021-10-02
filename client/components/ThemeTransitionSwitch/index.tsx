@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import {
   DARK_THEME,
-  LIGHT_THEME,
   useGetPreferredTheme,
 } from "../../hooks/useGetPreferredTheme";
 
@@ -13,15 +12,26 @@ function ThemeTransitionSwitch() {
   };
 
   return (
-    <RootStyles onClick={handleChangeTheme}>
-      <div />
-    </RootStyles>
+    <>
+      {currentTheme ? (
+        <RootStyles
+          isDarkMode={currentTheme === DARK_THEME}
+          onClick={handleChangeTheme}
+        >
+          <div />
+        </RootStyles>
+      ) : null}
+    </>
   );
 }
 
-const RootStyles = styled.button`
-  background: black;
-  border: 1px solid ${({ theme }) => theme.colorsHex.alabaster};
+interface StyleProps {
+  isDarkMode: boolean;
+}
+
+const RootStyles = styled.button<StyleProps>`
+  background: ${({ theme }) => theme.colorsHex.white};
+  border: 1px solid ${({ theme }) => theme.colors.bodyBackgroundOne};
   border-radius: ${({ theme }) => theme.borderRadii.infinity};
   cursor: pointer;
   height: 25px;
@@ -29,14 +39,17 @@ const RootStyles = styled.button`
   width: 50px;
 
   > div {
-    background: white;
-    border: 1px solid ${({ theme }) => theme.colorsHex.alabaster};
+    background: ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
+    border: 1px solid ${({ theme }) => theme.colorsHex.bodyBackgroundAccentOne};
     border-radius: ${({ theme }) => theme.borderRadii.infinity};
-    height: 24px;
+    height: 23px;
     position: absolute;
     left: 0;
+    margin-left: ${({ isDarkMode }) => (isDarkMode ? "0px" : "24px")};
+    transition: margin-left ${({ theme }) => theme.transitions.short}
+      ease-in-out;
     top: 0;
-    width: 24px;
+    width: 23px;
   }
 `;
 
