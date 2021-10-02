@@ -2,17 +2,17 @@ import * as React from "react";
 import styled from "styled-components";
 import Layout from "../components/Layout";
 import ContactForm from "../components/ContactForm";
+import { useGetPreferredForm, WEB3_KEY } from "../hooks/useGetPreferredForm";
 
 const PAGE_NAME = "Contact";
 
 function Contact() {
-  const [withWeb3, setWithWeb3] = React.useState(false);
+  const [preferredForm, setPreferredForm] = useGetPreferredForm();
   const [currentAccount, setCurrentAccount] = React.useState<string>("");
   const [walletAccounts, setWalletAccounts] = React.useState<Array<string>>([]);
 
   const handleSetWeb3ContactForm = () => {
-    console.log("running");
-    setWithWeb3(!withWeb3);
+    setPreferredForm();
   };
 
   return (
@@ -37,7 +37,7 @@ function Contact() {
             <ContactForm
               isWalletConnected={!!currentAccount}
               onDropdownButtonClick={handleSetWeb3ContactForm}
-              withWeb3={withWeb3}
+              withWeb3={preferredForm === WEB3_KEY}
             />
           </section>
         </main>
