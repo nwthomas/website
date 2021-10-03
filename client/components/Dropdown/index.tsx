@@ -41,9 +41,12 @@ const RootStyles = styled.div<StyleProps>`
   background-image: linear-gradient(120deg, #8ec5fc 0%, #7579ff 100%);
   border-radius: ${({ theme }) => theme.borderRadii.xLarge};
   cursor: default;
-  box-shadow: 0px 6px 10px -2px rgba(0, 0, 0, 0.47);
-  -moz-box-shadow: 0px 6px 10px -2px rgba(0, 0, 0, 0.47);
-  -webkit-box-shadow: 0px 6px 10px -2px rgba(0, 0, 0, 0.47);
+  -webkit-box-shadow: rgb(0 0 0 / 1%) 0px 0px 1px, rgb(0 0 0 / 4%) 0px 4px 8px,
+    rgb(0 0 0 / 4%) 0px 16px 24px, rgb(0 0 0 / 1%) 0px 24px 32px;
+  -moz-box-shadow: rgb(0 0 0 / 1%) 0px 0px 1px, rgb(0 0 0 / 4%) 0px 4px 8px,
+    rgb(0 0 0 / 4%) 0px 16px 24px, rgb(0 0 0 / 1%) 0px 24px 32px;
+  box-shadow: rgb(0 0 0 / 1%) 0px 0px 1px, rgb(0 0 0 / 4%) 0px 4px 8px,
+    rgb(0 0 0 / 4%) 0px 16px 24px, rgb(0 0 0 / 1%) 0px 24px 32px;
   padding: ${({ theme }) => theme.spaces.medium};
   position: absolute;
   left: ${({ left }) => `${left - DROPDOWN_MAX_WIDTH + ARROW_WIDTH}px`};
@@ -53,6 +56,7 @@ const RootStyles = styled.div<StyleProps>`
   z-index: 1;
 
   > p {
+    color: ${({ theme }) => theme.colorsHex.white};
     font-size: 1.6rem;
     margin-bottom: ${({ theme }) => theme.spaces.medium};
   }
@@ -61,6 +65,7 @@ const RootStyles = styled.div<StyleProps>`
     border: none;
     background: ${({ theme }) => theme.colors.buttonSecondaryBackground};
     border-radius: ${({ theme }) => theme.borderRadii.large};
+    color: ${({ theme }) => theme.colorsHex.white};
     cursor: pointer;
     height: ${({ theme }) => theme.spaces.large};
     width: 100%;

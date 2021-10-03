@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import Layout from "../../components/Layout";
+import Layout from "../components/Layout";
 
 const PAGE_NAME = "Work";
 
 function Work() {
   return (
-    <Layout pageName={PAGE_NAME}>
+    <Layout pageName={PAGE_NAME} withFooter>
       <RootStyles>
         <main>
           <section>

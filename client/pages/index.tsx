@@ -8,7 +8,7 @@ const PAGE_NAME = "Home";
 
 const Home: NextPage = () => {
   return (
-    <Layout pageName={PAGE_NAME}>
+    <Layout pageName={PAGE_NAME} withFooter>
       <RootStyles>
         <main>
           <section>

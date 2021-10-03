@@ -1,12 +1,14 @@
 import styled from "styled-components";
 import Link from "next/link";
 import ThemeTransitionSwitch from "../ThemeTransitionSwitch";
+import { ThemeEnum } from "../../styles/libs/theme";
 
 interface Props {
-  // finish
+  currentTheme: ThemeEnum;
+  onThemeChangeClick: () => void;
 }
 
-function Navbar(props: Props) {
+function Navbar({ currentTheme, onThemeChangeClick }: Props) {
   const isWeb3Deploy = !!process.env.NEXT_PUBLIC_IS_IPFS_DEPLOY;
 
   return (
@@ -17,7 +19,12 @@ function Navbar(props: Props) {
           <p>.eth</p>
         </div>
         <nav>
-          <ThemeTransitionSwitch />
+          {process.env.NEXT_PUBLIC_WITH_THEME_CHANGE ? (
+            <ThemeTransitionSwitch
+              currentTheme={currentTheme}
+              onThemeChangeClick={onThemeChangeClick}
+            />
+          ) : null}
           <div>
             <Link href="/work">Work</Link>
           </div>

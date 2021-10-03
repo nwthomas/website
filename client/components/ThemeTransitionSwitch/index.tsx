@@ -3,20 +3,20 @@ import {
   DARK_THEME,
   useGetPreferredTheme,
 } from "../../hooks/useGetPreferredTheme";
+import { ThemeEnum } from "../../styles/libs/theme";
 
-function ThemeTransitionSwitch() {
-  const [currentTheme, setCurrentTheme] = useGetPreferredTheme();
+interface Props {
+  currentTheme: ThemeEnum;
+  onThemeChangeClick: () => void;
+}
 
-  const handleChangeTheme = () => {
-    setCurrentTheme();
-  };
-
+function ThemeTransitionSwitch({ currentTheme, onThemeChangeClick }: Props) {
   return (
     <>
       {currentTheme ? (
         <RootStyles
           isDarkMode={currentTheme === DARK_THEME}
-          onClick={handleChangeTheme}
+          onClick={onThemeChangeClick}
         >
           <div />
         </RootStyles>

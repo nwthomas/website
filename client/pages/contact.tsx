@@ -4,6 +4,8 @@ import Layout from "../components/Layout";
 import ContactForm from "../components/ContactForm";
 import { useGetPreferredForm, WEB3_KEY } from "../hooks/useGetPreferredForm";
 import { useConnectWallet } from "../hooks/useConnectWallet";
+import type { MessageValues } from "../components/ContactForm";
+import { sendEmailToServer } from "./api/message";
 
 const PAGE_NAME = "Contact";
 
@@ -12,8 +14,16 @@ function Contact() {
   const { accounts, currentAccount, connectToWallet, errorMessage, isLoaded } =
     useConnectWallet();
 
+  const handleSendMessage = (messageValues: MessageValues) => {
+    if (preferredForm === WEB3_KEY) {
+      // finish for Web3
+    } else {
+      sendEmailToServer(messageValues);
+    }
+  };
+
   return (
-    <Layout pageName={PAGE_NAME}>
+    <Layout pageName={PAGE_NAME} withFooter>
       <RootStyles>
         <main>
           <section>
@@ -36,6 +46,7 @@ function Contact() {
               isWeb3Loaded={isLoaded}
               onDropdownButtonClick={setPreferredForm}
               onConnectWalletClick={connectToWallet}
+              onSendMessageClick={handleSendMessage}
               withWeb3={preferredForm === WEB3_KEY}
             />
           </section>

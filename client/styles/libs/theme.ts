@@ -5,8 +5,10 @@ export type ThemeEnum = "dark" | "light";
 interface Colors {
   alabaster: string;
   black: string;
+  cabaret: string;
   fireBush: string;
   forestGreen: string;
+  mercury: string;
   mineShaft: string;
   transparent: string;
   royalBlue: string;
@@ -18,8 +20,10 @@ interface Colors {
 export const colors: Colors = {
   alabaster: "#f8f8f8f8",
   black: "#000000",
+  cabaret: "#D9406E",
   fireBush: "#eb9c31",
   forestGreen: "#357d22",
+  mercury: "#e2e2e2",
   mineShaft: "#333333",
   transparent: "transparent",
   royalBlue: "#3870E0",

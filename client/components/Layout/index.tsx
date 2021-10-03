@@ -1,15 +1,16 @@
-import React, { ReactNode, useContext } from "react";
+import React, { ReactNode } from "react";
 import Head from "next/head";
 import { useGetPageName } from "../../hooks/useGetPageName";
-import styled, { ThemeContext } from "styled-components";
+import styled from "styled-components";
 import Footer from "../Footer";
 
 interface Props {
   children: ReactNode | Array<ReactNode>;
   pageName: string;
+  withFooter?: boolean;
 }
 
-function Layout({ children, pageName }: Props) {
+function Layout({ children, pageName, withFooter }: Props) {
   const currentPageName = useGetPageName(pageName);
 
   return (
@@ -20,7 +21,7 @@ function Layout({ children, pageName }: Props) {
       </Head>
       <RootStyles>
         {children}
-        <Footer />
+        {withFooter ? <Footer /> : null}
       </RootStyles>
     </>
   );

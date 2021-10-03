@@ -64,6 +64,8 @@ export default class MyDocument extends Document {
               var preferredTheme;
               var preferredForm;
 
+              var handleChangeTheme = function handleChangeTheme() {}
+
               function setTheme(newTheme) {
                 window.__theme = newTheme;
                 preferredTheme = newTheme;
