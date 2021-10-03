@@ -4,6 +4,12 @@ import { colors } from "./theme";
 const GlobalStyle = css`
   * {
     box-sizing: border-box;
+    transition: ${({
+      theme: {
+        transitions: { short },
+      },
+    }) =>
+      `background ${short} ease-in-out, background-color ${short} ease-in-out, color ${short} ease-in-out, fill ${short} ease-in-out, stroke ${short} ease-in-out, border-color ${short} ease-in-out`};
   }
 
   html {
@@ -12,7 +18,7 @@ const GlobalStyle = css`
 
   html,
   body {
-    background-color: ${({ theme }) => theme.colors.bodyBackground};
+    background: ${({ theme }) => theme.colors.bodyBackground};
   }
 
   body {
@@ -54,10 +60,12 @@ const GlobalStyle = css`
   body.light {
     --body-bg: ${colors.white};
     --body-bg-accent-one: ${colors.white};
-    --body-bg-accent-two: ${colors.alabaster};
-    --button-primary-bg: ${colors.royalBlue};
+    --body-bg-accent-two: ${colors.mercury};
+    --body-bg-accent-three: ${colors.alabaster};
+    --button-primary-bg: ${colors.cabaret};
     --button-secondary-bg: ${colors.fireBush};
     --error: ${colors.scarlet};
+    --success: ${colors.forestGreen};
     --text: ${colors.mineShaft};
     --transparent: ${colors.transparent};
   }

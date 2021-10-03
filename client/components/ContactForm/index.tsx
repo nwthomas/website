@@ -4,6 +4,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { SettingsIcon } from "../icons";
 import DropdownAnchor from "../DropdownAnchor";
+import { DARK_THEME } from "../../hooks/useGetPreferredTheme";
 
 const web2DropdownContent = {
   paragraphOne: "I get it. Sometimes the old ways are better. 🧙🏻‍♂️",
@@ -19,11 +20,19 @@ const web3DropdownContent = {
   buttonLabel: "Yes",
 };
 
+export interface MessageValues {
+  email: string;
+  message: string;
+  name: string;
+  fax?: string;
+}
+
 interface Props {
   isWalletConnected: boolean;
   isWeb3Loaded: boolean;
   onConnectWalletClick: () => void;
   onDropdownButtonClick: () => void;
+  onSendMessageClick: (messageValues: MessageValues) => void;
   withWeb3: boolean;
 }
 
@@ -32,6 +41,7 @@ function ContactForm({
   isWeb3Loaded,
   onConnectWalletClick,
   onDropdownButtonClick,
+  onSendMessageClick,
   withWeb3,
 }: Props) {
   const { colors } = React.useContext(ThemeContext);
@@ -53,8 +63,8 @@ function ContactForm({
       name: Yup.string().required("Required"),
       message: Yup.string().required("Required"),
     }),
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: (messageValues: MessageValues) => {
+      onSendMessageClick(messageValues);
     },
   });
 
@@ -66,7 +76,7 @@ function ContactForm({
       <div>
         <h2>Message</h2>
         <div>
-          {withWeb3 && isWeb3Loaded ? (
+          {!!process.env.NEXT_PUBLIC_WITH_WEB3 && withWeb3 && isWeb3Loaded ? (
             <div>
               <div />
               <button onClick={onConnectWalletClick}>
@@ -74,16 +84,18 @@ function ContactForm({
               </button>
             </div>
           ) : null}
-          <DropdownAnchor
-            content={withWeb3 ? web2DropdownContent : web3DropdownContent}
-            onDropdownButtonClick={onDropdownButtonClick}
-          >
-            <button>
-              <div>
-                <SettingsIcon color={colors.text} />
-              </div>
-            </button>
-          </DropdownAnchor>
+          {!!process.env.NEXT_PUBLIC_WITH_WEB3 ? (
+            <DropdownAnchor
+              content={withWeb3 ? web2DropdownContent : web3DropdownContent}
+              onDropdownButtonClick={onDropdownButtonClick}
+            >
+              <button>
+                <div>
+                  <SettingsIcon color={colors.text} />
+                </div>
+              </button>
+            </DropdownAnchor>
+          ) : null}
         </div>
       </div>
       <form onSubmit={formik.handleSubmit}>
@@ -154,9 +166,12 @@ const RootStyles = styled.div<StyleProps>`
   border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
   background: ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
   padding: ${({ theme }) => theme.spaces.small};
-  box-shadow: 0px 6px 10px -2px rgba(0, 0, 0, 0.47);
-  -moz-box-shadow: 0px 6px 10px -2px rgba(0, 0, 0, 0.47);
-  -webkit-box-shadow: 0px 6px 10px -2px rgba(0, 0, 0, 0.47);
+  -webkit-box-shadow: rgb(0 0 0 / 1%) 0px 0px 1px, rgb(0 0 0 / 4%) 0px 4px 8px,
+    rgb(0 0 0 / 4%) 0px 16px 24px, rgb(0 0 0 / 1%) 0px 24px 32px;
+  -moz-box-shadow: rgb(0 0 0 / 1%) 0px 0px 1px, rgb(0 0 0 / 4%) 0px 4px 8px,
+    rgb(0 0 0 / 4%) 0px 16px 24px, rgb(0 0 0 / 1%) 0px 24px 32px;
+  box-shadow: rgb(0 0 0 / 1%) 0px 0px 1px, rgb(0 0 0 / 4%) 0px 4px 8px,
+    rgb(0 0 0 / 4%) 0px 16px 24px, rgb(0 0 0 / 1%) 0px 24px 32px;
   width: 100%;
 
   @media only screen and (min-width: ${({ theme }) =>
@@ -196,7 +211,11 @@ const RootStyles = styled.div<StyleProps>`
         }
 
         > button {
-          background: ${({ theme }) => `${theme.colorsHex.royalBlue}30`};
+          background: ${({ theme }) => {
+            return theme.currentTheme === DARK_THEME
+              ? `${theme.colorsHex.royalBlue}30`
+              : `${theme.colorsHex.cabaret}30`;
+          }};
           border: 1px solid
             ${({ theme }) => theme.colors.buttonPrimaryBackground};
           border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
@@ -231,7 +250,10 @@ const RootStyles = styled.div<StyleProps>`
     flex-direction: column;
 
     > div {
-      background: ${({ theme }) => theme.colors.bodyBackground};
+      background: ${({ theme }) =>
+        theme.currentTheme === DARK_THEME
+          ? theme.colors.bodyBackground
+          : theme.colors.bodyBackgroundAccentThree};
       border: 1px solid ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
       border-radius: ${({ theme }) => theme.borderRadii.large};
       margin-bottom: ${({ theme }) => theme.spaces.micro};
@@ -289,6 +311,7 @@ const RootStyles = styled.div<StyleProps>`
       background: ${({ theme }) => theme.colors.buttonPrimaryBackground};
       border-radius: ${({ theme }) => theme.borderRadii.large};
       border: 1px solid ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
+      color: ${({ theme }) => theme.colorsHex.white};
       cursor: ${({ isFormButtonDisabled }) =>
         isFormButtonDisabled ? "default" : "pointer"};
       margin-top: ${({ theme }) => theme.spaces.nano};

@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import { ThemeProvider } from "styled-components";
 import { useGetPreferredTheme } from "../hooks/useGetPreferredTheme";
 import { QueryClientProvider, QueryClient } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
 import { Hydrate } from "react-query/hydration";
 import GlobalStyle, { makeMainTheme } from "../styles";
 import Navbar from "../components/Navbar";
@@ -13,6 +14,7 @@ import "../styles/libs/fonts.css";
 const oneDayMillis = 60000 * 60 * 24;
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const [currentTheme, setCurrentTheme] = useGetPreferredTheme();
   const [queryClient] = React.useState(
     () =>
       new QueryClient({
@@ -23,7 +25,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         },
       })
   );
-  const [currentTheme] = useGetPreferredTheme();
 
   const mainTheme = React.useMemo(() => {
     return makeMainTheme(currentTheme);
@@ -33,10 +34,16 @@ function MyApp({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>
         <ThemeProvider theme={mainTheme}>
-          <Navbar />
+          <Navbar
+            currentTheme={currentTheme}
+            onThemeChangeClick={setCurrentTheme}
+          />
           <GlobalStyle theme={mainTheme} />
           <Component {...pageProps} />
         </ThemeProvider>
+        {process.env.NEXT_PUBLIC_RUNTIME_ENV === "development" ? (
+          <ReactQueryDevtools />
+        ) : null}
       </Hydrate>
     </QueryClientProvider>
   );
