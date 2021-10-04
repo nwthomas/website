@@ -57,10 +57,6 @@ const RootStyles = styled.div`
           theme.breakpoints.desktop}) {
         margin-top: ${({ theme }) => theme.spaces.jumbo};
       }
-
-      > h1 > em {
-        font-style: italic;
-      }
     }
 
     > section:nth-child(1) {
@@ -99,7 +95,7 @@ const RootStyles = styled.div`
         width: 100%;
 
         @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.desktop}) {
+            theme.breakpoints.ultraWide}) {
           max-width: 700px;
         }
 

@@ -16,7 +16,7 @@ function Navbar({ currentTheme, onThemeChangeClick }: Props) {
       <header>
         <div>
           <Link href="/">Nathan Thomas</Link>
-          <p>.eth</p>
+          {isWeb3Deploy ? <p>.eth</p> : null}
         </div>
         <nav>
           {process.env.NEXT_PUBLIC_WITH_THEME_CHANGE ? (
