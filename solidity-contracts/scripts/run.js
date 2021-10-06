@@ -4,7 +4,7 @@ const main = async () => {
   const messageHubFactory = await hre.ethers.getContractFactory("MessageHub");
   const messageHub = await messageHubFactory.deploy();
   await messageHub.deployed();
-  console.log("Contract deployed to:", nftContract.address);
+  console.log("Contract deployed to:", messageHub.address);
 };
 
 (async function runMain() {
