@@ -11,7 +11,6 @@ const VALID_DOMAIN_LIST = [
 ];
 
 function isValidDomain(req, res, next) {
-  console.log(req.get("host"), VALID_DOMAIN_LIST);
   if (VALID_DOMAIN_LIST.includes(req.get("host"))) {
     next();
   } else {

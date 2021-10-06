@@ -4,6 +4,7 @@
   "description": "The server for Nathan Thomas' portfolio site",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
     "dev": "nodemon",
     "server": "ts-node index.ts",
     "start": "tsc && node dist/index.js"

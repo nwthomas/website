@@ -1,15 +1,28 @@
 import * as React from "react";
 import styled from "styled-components";
+import { useQueryClient, useMutation } from "react-query";
 import Layout from "../components/Layout";
 import ContactForm from "../components/ContactForm";
 import { useGetPreferredForm, WEB3_KEY } from "../hooks/useGetPreferredForm";
 import { useConnectWallet } from "../hooks/useConnectWallet";
 import type { MessageValues } from "../components/ContactForm";
-import { sendEmailToServer } from "./api/message";
+import { sendEmail } from "./api/message";
 
 const PAGE_NAME = "Contact";
 
 function Contact() {
+  const queryClient = useQueryClient();
+  const { mutate, isLoading } = useMutation(sendEmail, {
+    onSuccess: (data) => {
+      console.log(data);
+    },
+    onError: (error) => {
+      console.log(error);
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries("emailResponse");
+    },
+  });
   const [preferredForm, setPreferredForm] = useGetPreferredForm();
   const { accounts, currentAccount, connectToWallet, errorMessage, isLoaded } =
     useConnectWallet();
@@ -18,7 +31,7 @@ function Contact() {
     if (preferredForm === WEB3_KEY) {
       // finish for Web3
     } else {
-      sendEmailToServer(messageValues);
+      mutate(messageValues);
     }
   };
 

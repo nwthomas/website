@@ -9,6 +9,10 @@ export interface EmailType {
   fax?: string;
 }
 
-export async function sendEmailToServer(email: EmailType) {
-  return axios.post(SERVER_URL, email);
+export async function sendEmail(email: EmailType) {
+  try {
+    return axios.post(SERVER_URL, email);
+  } catch (error) {
+    return error;
+  }
 }
