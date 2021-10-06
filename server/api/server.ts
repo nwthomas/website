@@ -7,11 +7,14 @@ const server = express();
 applyMiddleware(server);
 
 server.post("/api/send-email", async (req, res) => {
-  console.log(req.body);
   const { email, fax, message, name } = req.body;
+  console.log(req.get("host"));
 
   if (fax?.length) {
-    return new Error();
+    return res.status(404).send({
+      message: "The message could not be sent.",
+      success: false,
+    });
   }
 
   const transporter = nodemailer.createTransport({
@@ -32,7 +35,18 @@ server.post("/api/send-email", async (req, res) => {
   };
 
   const result = await transporter.sendMail(newEmail);
-  console.log({ result });
+
+  if (result?.accepted?.length) {
+    return res.status(200).send({
+      message: "The message was sent successfully.",
+      success: true,
+    });
+  } else {
+    return res.status(502).send({
+      message: "An error occurred while sending the message.",
+      success: false,
+    });
+  }
 });
 
 export default server;
