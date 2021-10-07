@@ -108,7 +108,7 @@ const RootStyles = styled.div<StyleProps>`
     > nav > div {
       align-items: center;
       display: flex;
-      margin-left: ${({ theme }) => theme.spaces.small};
+      margin-left: ${({ theme }) => theme.spaces.medium};
       justify-content: center;
 
       @media only screen and (min-width: ${({ theme }) =>
