@@ -140,7 +140,7 @@ const RootStyles = styled.div`
         }
 
         > a:nth-child(5) > img {
-          margin-left: -3px;
+          margin-left: -1px;
           width: 16px;
 
           @media only screen and (min-width: ${({ theme }) =>

@@ -111,7 +111,8 @@ const LambdaLogo = styled.div`
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.tablet}) {
-    width: 450px;
+    width: 500px;
+    max-width: none;
   }
 
   @media only screen and (min-width: ${({ theme }) =>
