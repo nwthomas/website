@@ -20,7 +20,7 @@ const Home: NextPage = () => {
                 rel="noopener noreferrer"
                 target="_target"
               >
-                full stack software engineer
+                software engineer
               </a>
               ,{" "}
               <a
