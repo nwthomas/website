@@ -70,13 +70,23 @@ const RootStyles = styled.section`
 
   > div:nth-child(1) {
     margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
+    max-width: 200px;
+
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.desktop}) {
+      max-width: none;
+    }
   }
 `;
 
 const TwitterLogo = styled.div`
   transition: transform ${({ theme }) => theme.transitions.medium} ease-in-out,
     opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
-  width: 130px;
+  width: 100px;
+
+  @media only screen and (min-width: ${({ theme }) => theme.breakpoints.mini}) {
+    width: 130px;
+  }
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.tablet}) {
@@ -97,7 +107,7 @@ const TwitterLogo = styled.div`
 const LambdaLogo = styled.div`
   transition: transform ${({ theme }) => theme.transitions.medium} ease-in-out,
     opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
-  width: 350px;
+  max-width: 430px;
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.tablet}) {
