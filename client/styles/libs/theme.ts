@@ -105,11 +105,13 @@ const borderRadii: BorderRadii = {
 };
 
 interface Breakpoints {
+  mini: string;
   tablet: string;
   desktop: string;
   ultraWide: string;
 }
 const breakpoints: Breakpoints = {
+  mini: "400px",
   tablet: "600px",
   desktop: "1000px",
   ultraWide: "1200px",
