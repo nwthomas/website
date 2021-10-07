@@ -5,6 +5,14 @@ const main = async () => {
   const messageHub = await messageHubFactory.deploy();
   await messageHub.deployed();
   console.log("Contract deployed to:", messageHub.address);
+
+  const txn = await messageHub.sendMessage({
+    name: "test",
+    email: "test@me.com",
+    message: "This is a test",
+    fax: "",
+  });
+  await txn.wait();
 };
 
 (async function runMain() {
