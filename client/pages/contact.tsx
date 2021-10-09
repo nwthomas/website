@@ -29,7 +29,7 @@ function Contact() {
       console.log(data);
     },
     onError: (error) => {
-      console.log(error);
+      // finish
     },
     onSettled: () => {
       queryClient.invalidateQueries("emailResponse");

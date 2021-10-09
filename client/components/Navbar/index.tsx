@@ -22,7 +22,7 @@ function Navbar({ currentTheme, onThemeChangeClick }: Props) {
           {process.env.NEXT_PUBLIC_WITH_THEME_CHANGE ? (
             <ThemeTransitionSwitch
               currentTheme={currentTheme}
-              onThemeChangeClick={onThemeChangeClick}
+              onClick={onThemeChangeClick}
             />
           ) : null}
           <div>

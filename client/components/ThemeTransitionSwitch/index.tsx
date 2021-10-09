@@ -1,56 +1,53 @@
 import styled from "styled-components";
-import {
-  DARK_THEME,
-  useGetPreferredTheme,
-} from "../../hooks/useGetPreferredTheme";
-import { ThemeEnum } from "../../styles/libs/theme";
+import type { ThemeEnum } from "../../styles/libs/theme";
 
 interface Props {
   currentTheme: ThemeEnum;
-  onThemeChangeClick: () => void;
+  onClick: () => void;
 }
 
-function ThemeTransitionSwitch({ currentTheme, onThemeChangeClick }: Props) {
+const MoonIcon = <img alt="Sun icon" src="/moon.png" />;
+const SunIcon = <img alt="Moon icon" src="/sun.png" />;
+
+export default function ThemeTransitionButton({
+  onClick,
+  currentTheme,
+}: Props) {
+  const currentIcon = currentTheme === "dark" ? MoonIcon : SunIcon;
+
   return (
-    <>
-      {currentTheme ? (
-        <RootStyles
-          isDarkMode={currentTheme === DARK_THEME}
-          onClick={onThemeChangeClick}
-        >
-          <div />
-        </RootStyles>
-      ) : null}
-    </>
+    <RootStyles>
+      <button onClick={onClick} role="button" tabIndex={0}>
+        {currentTheme ? currentIcon : null}
+      </button>
+    </RootStyles>
   );
 }
 
-interface StyleProps {
-  isDarkMode: boolean;
-}
-
-const RootStyles = styled.button<StyleProps>`
-  background: ${({ theme }) => theme.colorsHex.white};
-  border: 1px solid ${({ theme }) => theme.colors.bodyBackgroundOne};
-  border-radius: ${({ theme }) => theme.borderRadii.infinity};
+const RootStyles = styled.div`
+  align-items: center;
+  background: ${({ theme }) => theme.colors.transparent};
   cursor: pointer;
-  height: 25px;
-  position: relative;
-  width: 50px;
+  display: flex;
+  height: ${({ theme }) => theme.appDimensions.navbarHeight};
+  justify-content: flex-end;
+  text-decoration: none;
+  transition: opacity ${({ theme }) => theme.transitions.medium} ease-in-out,
+    transform ${({ theme }) => theme.transitions.medium} ease-in-out;
+  width: 100%;
 
-  > div {
-    background: ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
-    border: 1px solid ${({ theme }) => theme.colorsHex.bodyBackgroundAccentOne};
-    border-radius: ${({ theme }) => theme.borderRadii.infinity};
-    height: 23px;
-    position: absolute;
-    left: 0;
-    margin-left: ${({ isDarkMode }) => (isDarkMode ? "0px" : "24px")};
-    transition: margin-left ${({ theme }) => theme.transitions.short}
-      ease-in-out;
-    top: 0;
-    width: 23px;
+  &:hover {
+    opacity: ${({ theme }) => theme.opacity.opacity90};
+  }
+
+  > button {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    height: 40px;
+    padding: 0;
+    width: 30px;
   }
 `;
-
-export default ThemeTransitionSwitch;
