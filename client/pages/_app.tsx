@@ -42,7 +42,7 @@ function MyApp({ Component, pageProps }: AppProps) {
               onThemeChangeClick={setCurrentTheme}
             />
             <GlobalStyle theme={mainTheme} />
-            <Component {...pageProps} />
+            <Component {...pageProps} currentTheme={currentTheme} />
           </ThemeProvider>
           {process.env.NEXT_PUBLIC_RUNTIME_ENV === "development" ? (
             <ReactQueryDevtools />

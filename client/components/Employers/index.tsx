@@ -4,10 +4,13 @@ import {
   DARK_THEME,
   useGetPreferredTheme,
 } from "../../hooks/useGetPreferredTheme";
+import type { ThemeEnum } from "../../styles/libs/theme";
 
-function Employers() {
-  const [currentTheme] = useGetPreferredTheme();
+interface Props {
+  currentTheme: ThemeEnum;
+}
 
+function Employers({ currentTheme }: Props) {
   const twitterUrl =
     currentTheme === DARK_THEME ? "twitter-logo-white.png" : "twitter-logo.png";
   const lambdaUrl =

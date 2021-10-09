@@ -3,10 +3,15 @@ import type { NextPage } from "next";
 import styled from "styled-components";
 import Layout from "../components/Layout";
 import Employers from "../components/Employers";
+import type { ThemeEnum } from "../styles/libs/theme";
 
 const PAGE_NAME = "Home";
 
-const Home: NextPage = () => {
+interface Props {
+  currentTheme: ThemeEnum;
+}
+
+const Home: NextPage<Props> = ({ currentTheme }) => {
   return (
     <Layout pageName={PAGE_NAME} withFooter>
       <RootStyles>
@@ -61,7 +66,7 @@ const Home: NextPage = () => {
               .
             </h1>
           </section>
-          <Employers />
+          <Employers currentTheme={currentTheme} />
         </main>
       </RootStyles>
     </Layout>
