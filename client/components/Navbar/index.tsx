@@ -9,7 +9,7 @@ interface Props {
 }
 
 function Navbar({ currentTheme, onThemeChangeClick }: Props) {
-  const isWeb3Deploy = !!process.env.NEXT_PUBLIC_IS_IPFS_DEPLOY;
+  const isWeb3Deploy = !!process.env.NEXT_PUBLIC_WITH_WEB3;
 
   return (
     <RootStyles isWeb3Deploy={isWeb3Deploy}>

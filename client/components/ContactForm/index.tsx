@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { SettingsIcon } from "../icons";
 import DropdownAnchor from "../DropdownAnchor";
 import { DARK_THEME } from "../../hooks/useGetPreferredTheme";
+import Spinner from "../Spinner";
 
 const web2DropdownContent = {
   paragraphOne: "I get it. Sometimes the old ways are better. 🧙🏻‍♂️",
@@ -34,13 +35,14 @@ interface Props {
     message: string;
     fax: string;
   };
-  isWalletConnected: boolean;
-  isWeb3Loaded: boolean;
+  isWalletConnected?: boolean;
+  isWeb3Loaded?: boolean;
   onConnectWalletClick: () => void;
   onDropdownButtonClick: () => void;
   onFormChange: (key: string, value: string) => void;
   onSendMessageClick: (messageValues: MessageValues) => void;
-  withWeb3: boolean;
+  withSpinner?: boolean;
+  withWeb3?: boolean;
 }
 
 function ContactForm({
@@ -51,6 +53,7 @@ function ContactForm({
   onDropdownButtonClick,
   onFormChange,
   onSendMessageClick,
+  withSpinner,
   withWeb3,
 }: Props) {
   const { colors } = React.useContext(ThemeContext);
@@ -164,7 +167,11 @@ function ContactForm({
           ></input>
         </div>
         <button disabled={isFormButtonDisabled} type="submit">
-          Submit
+          {withSpinner ? (
+            <Spinner color="white" height="40px" width="40px" />
+          ) : (
+            "Submit"
+          )}
         </button>
       </form>
     </RootStyles>
@@ -172,8 +179,8 @@ function ContactForm({
 }
 
 interface StyleProps {
-  isFormButtonDisabled: boolean;
-  isWalletConnected: boolean;
+  isFormButtonDisabled?: boolean;
+  isWalletConnected?: boolean;
 }
 
 const RootStyles = styled.div<StyleProps>`
@@ -322,12 +329,15 @@ const RootStyles = styled.div<StyleProps>`
     }
 
     > button {
+      align-items: center;
       background: ${({ theme }) => theme.colors.buttonPrimaryBackground};
       border-radius: ${({ theme }) => theme.borderRadii.large};
       border: 1px solid ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
       color: ${({ theme }) => theme.colorsHex.white};
       cursor: ${({ isFormButtonDisabled }) =>
         isFormButtonDisabled ? "default" : "pointer"};
+      display: flex;
+      justify-content: center;
       margin-top: ${({ theme }) => theme.spaces.nano};
       opacity: ${({ isFormButtonDisabled, theme }) =>
         isFormButtonDisabled

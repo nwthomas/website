@@ -34,5 +34,5 @@ export const contactSlice = createSlice({
   },
 });
 
-export const { updateMessage, updateWithWeb3 } = contactSlice.actions;
+export const { updateMessage } = contactSlice.actions;
 export default contactSlice.reducer;
