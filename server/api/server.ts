@@ -15,7 +15,6 @@ server.get("/", (_, res) => {
 
 server.post("/api/send-email", async (req, res) => {
   const { email, fax, message, name } = req.body;
-  console.log(req.get("host"));
 
   if (fax?.length) {
     return res.status(404).send({
