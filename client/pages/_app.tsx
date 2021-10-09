@@ -13,7 +13,7 @@ import "../styles/libs/fonts.css";
 
 // We don't care about cache invalidation given the needs of this app, so data isn't stale
 // until >= 1 day
-const oneDayMillis = 60000 * 60 * 24;
+const ONE_DAY_MS = 60000 * 60 * 24;
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [currentTheme, setCurrentTheme] = useGetPreferredTheme();
@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       new QueryClient({
         defaultOptions: {
           queries: {
-            staleTime: oneDayMillis,
+            staleTime: ONE_DAY_MS,
           },
         },
       })

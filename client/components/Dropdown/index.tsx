@@ -38,7 +38,7 @@ interface StyleProps {
 }
 
 const RootStyles = styled.div<StyleProps>`
-  background-image: linear-gradient(120deg, #8ec5fc 0%, #7579ff 100%);
+  background-image: linear-gradient(120deg, #7579ff 0%, #b224ef 100%);
   border-radius: ${({ theme }) => theme.borderRadii.xLarge};
   cursor: default;
   -webkit-box-shadow: rgb(0 0 0 / 1%) 0px 0px 1px, rgb(0 0 0 / 4%) 0px 4px 8px,
