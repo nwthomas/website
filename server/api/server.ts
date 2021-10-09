@@ -6,6 +6,13 @@ const server = express();
 
 applyMiddleware(server);
 
+server.get("/", (_, res) => {
+  res.status(200).send({
+    message: "The server is currently online",
+    success: true,
+  });
+});
+
 server.post("/api/send-email", async (req, res) => {
   const { email, fax, message, name } = req.body;
   console.log(req.get("host"));

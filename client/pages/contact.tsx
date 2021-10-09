@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
+import { useSelector, useDispatch } from "react-redux";
 import { useQueryClient, useMutation } from "react-query";
 import Layout from "../components/Layout";
 import ContactForm from "../components/ContactForm";
@@ -7,10 +8,17 @@ import { useGetPreferredForm, WEB3_KEY } from "../hooks/useGetPreferredForm";
 import { useConnectWallet } from "../hooks/useConnectWallet";
 import type { MessageValues } from "../components/ContactForm";
 import { sendEmail } from "./api/message";
+import { updateMessage } from "../store/contactSlice";
+import { RootState } from "../store";
 
 const PAGE_NAME = "Contact";
 
 function Contact() {
+  const initialMessageValues = useSelector(
+    (state: RootState) => state.contact.message
+  );
+  const dispatch = useDispatch();
+
   const queryClient = useQueryClient();
   const { mutate, isLoading } = useMutation(sendEmail, {
     onSuccess: (data) => {
@@ -35,6 +43,10 @@ function Contact() {
     }
   };
 
+  const handleOnFormChange = (key: string, value: string) => {
+    dispatch(updateMessage({ [key]: value }));
+  };
+
   return (
     <Layout pageName={PAGE_NAME} withFooter>
       <RootStyles>
@@ -55,10 +67,12 @@ function Contact() {
           </section>
           <section>
             <ContactForm
+              initialValues={initialMessageValues}
               isWalletConnected={!!currentAccount}
               isWeb3Loaded={isLoaded}
               onDropdownButtonClick={setPreferredForm}
               onConnectWalletClick={connectToWallet}
+              onFormChange={handleOnFormChange}
               onSendMessageClick={handleSendMessage}
               withWeb3={preferredForm === WEB3_KEY}
             />
