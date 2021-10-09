@@ -7,20 +7,24 @@ import ContactForm from "../components/ContactForm";
 import { useGetPreferredForm, WEB3_KEY } from "../hooks/useGetPreferredForm";
 import { useConnectWallet } from "../hooks/useConnectWallet";
 import type { MessageValues } from "../components/ContactForm";
-import { sendEmail } from "./api/message";
+import { sendMessage } from "./api/message";
 import { updateMessage } from "../store/contactSlice";
 import { RootState } from "../store";
 
 const PAGE_NAME = "Contact";
 
 function Contact() {
+  const [preferredForm, setPreferredForm] = useGetPreferredForm();
+  const { accounts, currentAccount, connectToWallet, errorMessage, isLoaded } =
+    useConnectWallet();
+
+  const dispatch = useDispatch();
   const initialMessageValues = useSelector(
     (state: RootState) => state.contact.message
   );
-  const dispatch = useDispatch();
 
   const queryClient = useQueryClient();
-  const { mutate, isLoading } = useMutation(sendEmail, {
+  const { mutate, isLoading } = useMutation(sendMessage, {
     onSuccess: (data) => {
       console.log(data);
     },
@@ -31,9 +35,6 @@ function Contact() {
       queryClient.invalidateQueries("emailResponse");
     },
   });
-  const [preferredForm, setPreferredForm] = useGetPreferredForm();
-  const { accounts, currentAccount, connectToWallet, errorMessage, isLoaded } =
-    useConnectWallet();
 
   const handleSendMessage = (messageValues: MessageValues) => {
     if (preferredForm === WEB3_KEY) {
@@ -74,6 +75,7 @@ function Contact() {
               onConnectWalletClick={connectToWallet}
               onFormChange={handleOnFormChange}
               onSendMessageClick={handleSendMessage}
+              withSpinner={isLoading}
               withWeb3={preferredForm === WEB3_KEY}
             />
           </section>

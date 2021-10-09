@@ -9,15 +9,14 @@ import Spinner from "../Spinner";
 
 const web2DropdownContent = {
   paragraphOne: "I get it. Sometimes the old ways are better. 🧙🏻‍♂️",
-  paragraphTwo:
-    "This is the Web3 form. Would you like to switch back to the Web2 version?",
-  buttonLabel: "Yes",
+  paragraphTwo: "Would you like to switch back to the Web2 form?",
+  buttonLabel: "Take me back",
 };
 
 const web3DropdownContent = {
   paragraphOne: "You discovered a cool feature. 🎉",
   paragraphTwo:
-    "This is the Web2 form. Would you like the Web3 version? It requires a crypto wallet.",
+    "Would you like the Web3 form? It requires sending messages with an Ethereum wallet.",
   buttonLabel: "Yes",
 };
 
@@ -58,7 +57,7 @@ function ContactForm({
 }: Props) {
   const { colors } = React.useContext(ThemeContext);
 
-  const isFormButtonDisabled = withWeb3 && !isWalletConnected;
+  const isFormButtonDisabled = (withWeb3 && !isWalletConnected) || withSpinner;
 
   const formik = useFormik({
     initialValues: {
