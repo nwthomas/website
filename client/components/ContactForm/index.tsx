@@ -28,19 +28,28 @@ export interface MessageValues {
 }
 
 interface Props {
+  initialValues: {
+    name: string;
+    email: string;
+    message: string;
+    fax: string;
+  };
   isWalletConnected: boolean;
   isWeb3Loaded: boolean;
   onConnectWalletClick: () => void;
   onDropdownButtonClick: () => void;
+  onFormChange: (key: string, value: string) => void;
   onSendMessageClick: (messageValues: MessageValues) => void;
   withWeb3: boolean;
 }
 
 function ContactForm({
+  initialValues,
   isWalletConnected,
   isWeb3Loaded,
   onConnectWalletClick,
   onDropdownButtonClick,
+  onFormChange,
   onSendMessageClick,
   withWeb3,
 }: Props) {
@@ -50,13 +59,13 @@ function ContactForm({
 
   const formik = useFormik({
     initialValues: {
-      email: "",
-      message: "",
-      name: "",
+      email: initialValues.email,
+      message: initialValues.message,
+      name: initialValues.name,
 
       // This is a honeypot field. The server will reject the message if this field
       // has length when the server receives the request.
-      fax: "",
+      fax: initialValues.fax,
     },
     validationSchema: Yup.object({
       email: Yup.string().required("Required"),
@@ -67,6 +76,11 @@ function ContactForm({
       onSendMessageClick(messageValues);
     },
   });
+
+  const handleOnFormChange = (event) => {
+    formik.handleChange(event);
+    onFormChange(event.target.name, event.target.value);
+  };
 
   return (
     <RootStyles
@@ -106,7 +120,7 @@ function ContactForm({
           <input
             name="name"
             onBlur={formik.handleBlur}
-            onChange={formik.handleChange}
+            onChange={handleOnFormChange}
             placeholder="What's your name?"
             type="text"
             value={formik.values.name}
@@ -119,7 +133,7 @@ function ContactForm({
           <input
             name="email"
             onBlur={formik.handleBlur}
-            onChange={formik.handleChange}
+            onChange={handleOnFormChange}
             placeholder="How can I get back to you?"
             type="text"
             value={formik.values.email}
@@ -133,7 +147,7 @@ function ContactForm({
             autoComplete="off"
             name="message"
             onBlur={formik.handleBlur}
-            onChange={formik.handleChange}
+            onChange={handleOnFormChange}
             placeholder="What's happening?"
             value={formik.values.message}
           ></textarea>
@@ -143,7 +157,7 @@ function ContactForm({
             autoComplete="off"
             name="fax"
             onBlur={formik.handleBlur}
-            onChange={formik.handleChange}
+            onChange={handleOnFormChange}
             type="text"
             tabIndex={-1}
             value={formik.values.fax}
