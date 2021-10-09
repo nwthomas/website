@@ -23,6 +23,7 @@
     "yup": "^0.32.9"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^11.1.2",
     "@types/react": "17.0.24",
     "@types/react-redux": "^7.1.18",
     "@types/styled-components": "^5.1.14",

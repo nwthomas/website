@@ -15,8 +15,7 @@ const PAGE_NAME = "Contact";
 
 function Contact() {
   const [preferredForm, setPreferredForm] = useGetPreferredForm();
-  const { accounts, currentAccount, connectToWallet, errorMessage, isLoaded } =
-    useConnectWallet();
+  const { currentAccount, connectToWallet, isLoaded } = useConnectWallet();
 
   const dispatch = useDispatch();
   const initialMessageValues = useSelector(

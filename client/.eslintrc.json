@@ -3,7 +3,7 @@
     "browser": true,
     "es2020": true
   },
-  "extends": ["airbnb-base"],
+  "extends": ["plugin:@next/next/recommended"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 11,
@@ -24,7 +24,8 @@
     "no-confusing-arrow": ["off"],
     "no-use-before-define": ["off"],
     "object-curly-newline": ["off"],
-    "operator-linebreak": ["off"]
+    "operator-linebreak": ["off"],
+    "@next/next/no-img-element": ["off"]
   },
   "overrides": [
     {

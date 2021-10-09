@@ -1,9 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import {
-  DARK_THEME,
-  useGetPreferredTheme,
-} from "../../hooks/useGetPreferredTheme";
+import { DARK_THEME } from "../../hooks/useGetPreferredTheme";
 import type { ThemeEnum } from "../../styles/libs/theme";
 
 interface Props {
