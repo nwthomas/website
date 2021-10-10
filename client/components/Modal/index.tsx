@@ -11,16 +11,11 @@ function Modal() {
   const modalButtonLabel = useSelector(
     (state: RootState) => state.modal.buttonLabel
   );
-  const [lockBodyScroll, unlockBodyScroll] = useLockBodyScroll();
 
-  React.useEffect(() => {
-    // This function from our hook automatically removes the lock on modal unmount
-    lockBodyScroll();
-  }, []);
+  // This hook automatically removes the lock on modal unmount
+  useLockBodyScroll();
 
   const handleDismissClick = () => {
-    unlockBodyScroll();
-
     dispatch(
       updateModalValues({
         message: "",
@@ -45,7 +40,7 @@ const RootStyles = styled.div`
   background-color: ${({ theme }) => `${theme.colorsHex.black}90`};
   display: flex;
   justify-content: center;
-  position: absolute;
+  position: fixed;
   height: 100vh;
   top: 0;
   left: 0;
