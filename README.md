@@ -35,6 +35,10 @@ I tried to use a completely modern tech stack while testing out some new technol
   - [TypeScript](https://www.typescriptlang.org/)
   - [Express](https://expressjs.com/)
   - [Nodemailer](https://github.com/nodemailer/nodemailer)
+  - [Docker](https://www.docker.com/)
+- Smart Contracts:
+  - [Solidity](https://soliditylang.org/)
+  - [Hardhat](https://hardhat.org/)
 
 ## UNIT TESTING 🧪
 

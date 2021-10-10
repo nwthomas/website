@@ -812,6 +812,13 @@
   dependencies:
     "@sentry/cli" "^1.68.0"
 
+"@sentry/webpack-plugin@^1.17.3":
+  version "1.17.3"
+  resolved "https://registry.yarnpkg.com/@sentry/webpack-plugin/-/webpack-plugin-1.17.3.tgz#464a975c5d940d37c83cf1bc38d6491ee3872e9b"
+  integrity sha512-GN99MGt7FfZuE/lqdQOAWCbcoRMLVaHd+ArxT4eQkRY7PkJ+Yv/og0wdPrLBYaBZNpGGNxRH+CYXddG4pyjdUA==
+  dependencies:
+    "@sentry/cli" "^1.68.0"
+
 "@types/hoist-non-react-statics@*", "@types/hoist-non-react-statics@^3.3.0":
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz#1124aafe5118cb591977aeb1ceaaed1070eb039f"

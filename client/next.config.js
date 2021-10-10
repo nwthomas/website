@@ -1,4 +1,5 @@
 const { withSentryConfig } = require("@sentry/nextjs");
+const SentryCliPlugin = require("@sentry/webpack-plugin");
 
 const moduleExports = {
   reactStrictMode: true,
@@ -13,6 +14,14 @@ const SentryWebpackPluginOptions = {
   // For all available options, see:
   // https://github.com/getsentry/sentry-webpack-plugin#options.
   silent: true,
+  plugins: [
+    new SentryCliPlugin({
+      include: ".",
+      ignoreFile: ".sentrycliignore",
+      ignore: ["node_modules", "webpack.config.js"],
+      configFile: "sentry.properties",
+    }),
+  ],
 };
 
 // This must run last before exporting
