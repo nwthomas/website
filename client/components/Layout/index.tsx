@@ -1,8 +1,11 @@
 import React, { ReactNode } from "react";
 import Head from "next/head";
-import { useGetPageName } from "../../hooks/useGetPageName";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 import Footer from "../Footer";
+import Modal from "../Modal";
+import { useGetPageName } from "../../hooks/useGetPageName";
+import { RootState } from "../../store";
 
 interface Props {
   children: ReactNode | Array<ReactNode>;
@@ -12,6 +15,9 @@ interface Props {
 
 function Layout({ children, pageName, withFooter }: Props) {
   const currentPageName = useGetPageName(pageName);
+  const shouldShowModal = useSelector(
+    (state: RootState) => state.modal.shouldShowModal
+  );
 
   return (
     <>
@@ -22,6 +28,7 @@ function Layout({ children, pageName, withFooter }: Props) {
       <RootStyles>
         {children}
         {withFooter ? <Footer /> : null}
+        {shouldShowModal ? <Modal /> : null}
       </RootStyles>
     </>
   );
