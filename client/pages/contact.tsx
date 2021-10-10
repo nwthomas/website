@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
-import { useQueryClient, useMutation } from "react-query";
+import { useMutation } from "react-query";
 import Layout from "../components/Layout";
 import ContactForm from "../components/ContactForm";
 import { useGetPreferredForm, WEB3_KEY } from "../hooks/useGetPreferredForm";
