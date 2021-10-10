@@ -13,7 +13,7 @@ server.get("/", (_, res) => {
   });
 });
 
-server.post("/api/send-email", async (req, res) => {
+server.post("/api/send-message", async (req, res) => {
   const { email, fax, message, name } = req.body;
 
   if (fax?.length) {
