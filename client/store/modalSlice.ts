@@ -9,7 +9,7 @@ export interface ModalState {
 const initialState: ModalState = {
   buttonLabel: "",
   message: "",
-  shouldShowModal: true,
+  shouldShowModal: false,
 };
 
 export const bannerSlice = createSlice({

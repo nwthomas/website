@@ -1,9 +1,14 @@
 import * as React from "react";
 
 export function useLockBodyScroll() {
-  return React.useCallback(() => {
-    const originalStyle = window.getComputedStyle(document.body).overflow;
+  const lockBody = React.useCallback(() => {
     document.body.style.overflow = "hidden";
-    return () => (document.body.style.overflow = originalStyle);
+    return () => (document.body.style.overflow = "visible");
   }, []);
+
+  const unlockBody = React.useCallback(() => {
+    document.body.style.overflow = "visible";
+  }, []);
+
+  return [lockBody, unlockBody];
 }
