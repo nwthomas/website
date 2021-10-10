@@ -10,9 +10,5 @@ export interface EmailType {
 }
 
 export async function sendMessage(email: EmailType) {
-  try {
-    return axios.post(SERVER_URL, email);
-  } catch (error) {
-    return error;
-  }
+  return axios.post(SERVER_URL, email);
 }
