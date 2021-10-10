@@ -5,7 +5,7 @@ import modalReducer from "./modalSlice";
 export const store = configureStore({
   reducer: {
     contact: contactReducer,
-    banner: modalReducer,
+    modal: modalReducer,
   },
 });
 
