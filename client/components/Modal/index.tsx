@@ -2,11 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 import { useLockBodyScroll } from "../../hooks/useLockBodyScroll";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  updateShowModal,
-  updateModalButtonLabel,
-  updateModalMessage,
-} from "../../store/modalSlice";
+import { updateModalValues } from "../../store/modalSlice";
 import { RootState } from "../../store";
 
 function Modal() {
@@ -25,10 +21,13 @@ function Modal() {
   const handleDismissClick = () => {
     unlockBodyScroll();
 
-    // Reset modal for next use and hide it
-    dispatch(updateModalButtonLabel(""));
-    dispatch(updateModalMessage(""));
-    dispatch(updateShowModal(false));
+    dispatch(
+      updateModalValues({
+        message: "",
+        buttonLabel: "",
+        shouldShowModal: false,
+      })
+    );
   };
 
   return (

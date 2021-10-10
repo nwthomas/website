@@ -10,6 +10,7 @@ import type { MessageValues } from "../components/ContactForm";
 import { sendMessage } from "./api/message";
 import { updateMessage } from "../store/contactSlice";
 import { RootState } from "../store";
+import { updateModalValues } from "../store/modalSlice";
 
 const PAGE_NAME = "Contact";
 
@@ -22,16 +23,24 @@ function Contact() {
     (state: RootState) => state.contact.message
   );
 
-  const queryClient = useQueryClient();
   const { mutate, isLoading } = useMutation(sendMessage, {
     onSuccess: (data) => {
-      console.log(data);
+      dispatch(
+        updateModalValues({
+          message: "Message sent",
+          buttonLabel: "Okay",
+          shouldShowModal: true,
+        })
+      );
     },
-    onError: (error) => {
-      // finish
-    },
-    onSettled: () => {
-      queryClient.invalidateQueries("emailResponse");
+    onError: () => {
+      dispatch(
+        updateModalValues({
+          message: "Error sending message",
+          buttonLabel: "Okay",
+          shouldShowModal: true,
+        })
+      );
     },
   });
 

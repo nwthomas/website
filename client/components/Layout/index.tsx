@@ -33,6 +33,7 @@ function Layout({ children, pageName, withFooter }: Props) {
     </>
   );
 }
+
 const RootStyles = styled.div`
   display: flex;
   background: ${({ theme }) => theme.colors.bodyBackground};
