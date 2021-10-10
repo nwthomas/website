@@ -20,12 +20,21 @@ Welcome. I hope you enjoy the site as much as I enjoyed making it.
 I tried to use a completely modern tech stack while testing out some new technologies that I'd never used before. This resulted in a fast, performant, and easily-extensible web app that should be fairly future proof for the coming years. I used:
 
 - Front-End:
+  - [TypeScript](https://www.typescriptlang.org/)
   - [Next.js](https://nextjs.org/)
+  - [Redux](https://redux.js.org/)
   - [Styled Components](https://styled-components.com/)
-  - [Vercel](https://vercel.com/)
-  - [Fleek (IPFS)](https://fleek.co/)
+  - [Ethers](https://docs.ethers.io/v5/)
+  - [Formik](https://formik.org/)
+  - [Yup](https://github.com/jquense/yup)
+  - [Axios](https://axios-http.com/docs/intro)
+  - [Vercel (main deploy)](https://vercel.com/)
+  - [Fleek (IPFS deploy)](https://fleek.co/)
+  - [Sentry](https://sentry.io/welcome/)
 - Back-end:
-  - [Golang](https://golang.org/)
+  - [TypeScript](https://www.typescriptlang.org/)
+  - [Express](https://expressjs.com/)
+  - [Nodemailer](https://github.com/nodemailer/nodemailer)
 
 ## UNIT TESTING 🧪
 
