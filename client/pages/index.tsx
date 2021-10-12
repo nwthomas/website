@@ -120,12 +120,10 @@ const RootStyles = styled.div`
 
         > a:nth-child(2) {
           background-image: linear-gradient(120deg, #8ec5fc 0%, #7579ff 100%);
-          background: -webkit-linear-gradient();
         }
 
         > a:nth-child(3) {
           background-image: linear-gradient(120deg, #7579ff 0%, #b224ef 100%);
-          background: -webkit-linear-gradient();
         }
 
         > a:nth-child(4) > img {
