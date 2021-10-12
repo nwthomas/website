@@ -35,7 +35,7 @@ function Work() {
             >
               <img
                 alt="Macbook with screenshot of Twitter.com video trimmer on it"
-                src="./video-trimmer.png"
+                src="./videotrimmer.png"
               />
               <h2>Twitter Video Trimmer (beta)</h2>
             </a>
