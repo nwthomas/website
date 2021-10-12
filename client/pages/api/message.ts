@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || "";
+const ENDPOINT = `${SERVER_URL}/api/send-message`;
 
 export interface EmailType {
   name: string;
@@ -10,5 +11,5 @@ export interface EmailType {
 }
 
 export async function sendMessage(email: EmailType) {
-  return axios.post(SERVER_URL, email);
+  return axios.post(ENDPOINT, email);
 }
