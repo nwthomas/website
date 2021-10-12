@@ -11,7 +11,7 @@ if (process.env.DEV_ENV === "development") {
 }
 
 function isValidDomain(req, res, next) {
-  console.log(VALID_DOMAIN_LIST);
+  console.log(req.hostname);
   if (VALID_DOMAIN_LIST.includes(req.hostname)) {
     next();
   } else {
