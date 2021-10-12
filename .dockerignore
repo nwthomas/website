@@ -1,4 +1,9 @@
 node_modules/
+assets/
+client/
+solidity-contracts/
+LICENSE
+README.md
 Dockerfile
 .dockerignore
 .git
