@@ -9,10 +9,7 @@ const cors_1 = __importDefault(require("cors"));
 const morgan_1 = __importDefault(require("morgan"));
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
-const VALID_DOMAIN_LIST = [
-    `localhost:${process.env.PORT || 8000}`,
-    "nathanthomas.dev",
-];
+const VALID_DOMAIN_LIST = [`localhost:3000`, "nathanthomas.dev"];
 function isValidDomain(req, res, next) {
     if (VALID_DOMAIN_LIST.includes(req.get("host"))) {
         next();
