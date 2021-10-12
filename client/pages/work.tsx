@@ -96,7 +96,6 @@ const RootStyles = styled.div`
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        flex-direction: row;
         justify-content: space-around;
         margin-bottom: ${({ theme }) =>
           `calc(${theme.spaces.large} + ${theme.appDimensions.navbarDesktopHeight} / 2)`};
@@ -105,6 +104,7 @@ const RootStyles = styled.div`
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.desktop}) {
         margin-bottom: ${({ theme }) => theme.spaces.jumbo};
+        flex-direction: row;
       }
 
       > a {
@@ -119,12 +119,19 @@ const RootStyles = styled.div`
         width: 100%;
 
         @media only screen and (min-width: ${({ theme }) =>
+            theme.breakpoints.desktop}) {
+          margin: ${({ theme }) =>
+            `0 ${theme.spaces.large} ${theme.spaces.xxLarge}`};
+        }
+
+        @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.ultraWide}) {
           max-width: 700px;
         }
 
         > h2 {
           margin-top: ${({ theme }) => theme.spaces.medium};
+          text-align: center;
         }
 
         &:hover {
