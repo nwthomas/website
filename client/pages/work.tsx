@@ -71,12 +71,12 @@ const RootStyles = styled.div`
     > section:nth-child(2) {
       display: flex;
       margin-bottom: ${({ theme }) =>
-        `calc(${theme.appDimensions.navbarHeight} / 2)`};
+        `calc(${theme.appDimensions.navbarMobileHeight} / 2)`};
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
         margin-bottom: ${({ theme }) =>
-          `calc(${theme.spaces.large} + ${theme.appDimensions.navbarHeight} / 2)`};
+          `calc(${theme.spaces.large} + ${theme.appDimensions.navbarDesktopHeight} / 2)`};
       }
 
       @media only screen and (min-width: ${({ theme }) =>
