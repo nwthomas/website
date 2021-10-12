@@ -45,7 +45,25 @@ const Home: NextPage<Props> = ({ currentTheme }) => {
               >
                 teacher
               </a>
-              . I love building with Bitcoin and Ethereum .
+              . I love building with Bitcoin{" "}
+              <a
+                href="https://bitcoin.org/bitcoin.pdf"
+                aria-label="Link to Bitcoin whitepaper"
+                rel="noopener noreferrer"
+                target="_target"
+              >
+                <img src="./bitcoin-logo.png" alt="Bitcoin logo" />
+              </a>{" "}
+              and Ethereum{" "}
+              <a
+                href="https://ethereum.org/"
+                aria-label="Link to Ethereum.org"
+                rel="noopener noreferrer"
+                target="_target"
+              >
+                <img src="./eth-icon.png" alt="Ethereum logo" />
+              </a>
+              .
             </h1>
           </section>
           <Employers currentTheme={currentTheme} />
