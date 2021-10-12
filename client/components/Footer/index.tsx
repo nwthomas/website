@@ -66,7 +66,7 @@ function Footer() {
 }
 
 const RootStyles = styled.div`
-  align-items: center;
+  align-items: flex-start;
   bottom: 0;
   display: flex;
   height: ${({ theme }) => theme.appDimensions.footerMobileHeight};
@@ -77,14 +77,15 @@ const RootStyles = styled.div`
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.tablet}) {
+    align-items: center;
     height: ${({ theme }) => theme.appDimensions.footerDesktopHeight};
   }
 
   > footer {
+    align-items: flex-start;
     display: flex;
     flex-direction: column;
     flex: wrap;
-    justify-content: flex-start;
     max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
     width: 100%;
 
