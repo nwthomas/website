@@ -1,7 +1,0 @@
-services:
-  server:
-    build: .
-    environment:
-      - DEBUG_LEVEL=1
-    env_file:
-      - .env
