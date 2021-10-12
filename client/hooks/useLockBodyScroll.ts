@@ -14,7 +14,7 @@ export function useLockBodyScroll() {
 
       return () => {
         document.body.style.overflow = originalOverflowStyle;
-        document.body.style.display = originalPositionStyle;
+        document.body.style.position = originalPositionStyle;
       };
     }
   }, []);
