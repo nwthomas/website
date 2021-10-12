@@ -80,7 +80,7 @@ export const appDimensions: AppDimensions = {
   articleHeroImageMaxWidth: "1200px",
   articleMaxWidth: "600px",
   footerDesktopHeight: "200px",
-  footerMobileHeight: "220px",
+  footerMobileHeight: "260px",
   modalMaxWidth: "600px",
   navbarDesktopHeight: "200px",
   navbarMobileHeight: "150px",
