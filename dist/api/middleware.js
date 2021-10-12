@@ -9,12 +9,11 @@ const cors_1 = __importDefault(require("cors"));
 const morgan_1 = __importDefault(require("morgan"));
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
-const VALID_DOMAIN_LIST = ["https://nathanthomas.dev"];
+const VALID_DOMAIN_LIST = ["https://www.nathanthomas.dev"];
 if (process.env.DEV_ENV === "development") {
     VALID_DOMAIN_LIST.push("http://localhost:3000");
 }
 function isValidDomain(req, res, next) {
-    console.log(VALID_DOMAIN_LIST, req.get("origin"));
     if (VALID_DOMAIN_LIST.includes(req.get("origin"))) {
         next();
     }

@@ -11,5 +11,5 @@ export interface EmailType {
 }
 
 export async function sendMessage(email: EmailType) {
-  return axios.post(ENDPOINT, email);
+  return axios.post(ENDPOINT, JSON.stringify(email));
 }
