@@ -41,7 +41,7 @@ const RootStyles = styled.div`
   display: flex;
   justify-content: center;
   position: fixed;
-  height: 100vh;
+  height: 100%;
   top: 0;
   left: 0;
   right: 0;

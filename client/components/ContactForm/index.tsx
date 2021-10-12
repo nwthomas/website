@@ -136,7 +136,7 @@ function ContactForm({
             name="email"
             onBlur={formik.handleBlur}
             onChange={handleOnFormChange}
-            placeholder="How can I get back to you?"
+            placeholder="How can I reach you?"
             type="text"
             value={formik.values.email}
           ></input>
