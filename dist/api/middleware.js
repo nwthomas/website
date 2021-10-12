@@ -14,7 +14,7 @@ if (process.env.DEV_ENV === "development") {
     VALID_DOMAIN_LIST.push(`localhost`);
 }
 function isValidDomain(req, res, next) {
-    console.log(VALID_DOMAIN_LIST);
+    console.log(req.hostname);
     if (VALID_DOMAIN_LIST.includes(req.hostname)) {
         next();
     }
