@@ -69,7 +69,8 @@ interface AppDimensions {
   footerDesktopHeight: string;
   footerMobileHeight: string;
   modalMaxWidth: string;
-  navbarHeight: string;
+  navbarDesktopHeight: string;
+  navbarMobileHeight: string;
   navbarLinkWidth: string;
 }
 export const appDimensions: AppDimensions = {
@@ -81,7 +82,8 @@ export const appDimensions: AppDimensions = {
   footerDesktopHeight: "200px",
   footerMobileHeight: "220px",
   modalMaxWidth: "600px",
-  navbarHeight: "200px",
+  navbarDesktopHeight: "200px",
+  navbarMobileHeight: "150px",
   navbarLinkWidth: "120px",
 };
 
