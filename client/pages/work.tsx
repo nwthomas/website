@@ -11,7 +11,7 @@ function Work() {
           <section>
             <h1>
               This is all the work that I'm really proud of. I hope you enjoy
-              it. 🏗
+              it. 🍵
             </h1>
           </section>
           <section>
@@ -35,7 +35,7 @@ function Work() {
             >
               <img
                 alt="Macbook with screenshot of Twitter.com video trimmer on it"
-                src="./videotrimmer.png"
+                src="./video-trimmer.png"
               />
               <h2>Twitter Video Trimmer (beta)</h2>
             </a>

@@ -190,12 +190,9 @@ const RootStyles = styled.div<StyleProps>`
   border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
   background: ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
   padding: ${({ theme }) => theme.spaces.small};
-  -webkit-box-shadow: rgb(0 0 0 / 1%) 0px 0px 1px, rgb(0 0 0 / 4%) 0px 4px 8px,
-    rgb(0 0 0 / 4%) 0px 16px 24px, rgb(0 0 0 / 1%) 0px 24px 32px;
-  -moz-box-shadow: rgb(0 0 0 / 1%) 0px 0px 1px, rgb(0 0 0 / 4%) 0px 4px 8px,
-    rgb(0 0 0 / 4%) 0px 16px 24px, rgb(0 0 0 / 1%) 0px 24px 32px;
-  box-shadow: rgb(0 0 0 / 1%) 0px 0px 1px, rgb(0 0 0 / 4%) 0px 4px 8px,
-    rgb(0 0 0 / 4%) 0px 16px 24px, rgb(0 0 0 / 1%) 0px 24px 32px;
+  -webkit-box-shadow: 0px 6px 19px -2px rgba(0, 0, 0, 0.13);
+  -moz-box-shadow: 0px 6px 19px -2px rgba(0, 0, 0, 0.13);
+  box-shadow: 0px 6px 19px -2px rgba(0, 0, 0, 0.13);
   width: 100%;
 
   @media only screen and (min-width: ${({ theme }) =>
