@@ -39,7 +39,10 @@ interface Props {
   onConnectWalletClick: () => void;
   onDropdownButtonClick: () => void;
   onFormChange: (key: string, value: string) => void;
-  onSendMessageClick: (messageValues: MessageValues) => void;
+  onSendMessageClick: (
+    messageValues: MessageValues,
+    onSuccess: () => void
+  ) => void;
   withSpinner?: boolean;
   withWeb3?: boolean;
 }
@@ -75,7 +78,7 @@ function ContactForm({
       message: Yup.string().required("Required"),
     }),
     onSubmit: (messageValues: MessageValues) => {
-      onSendMessageClick(messageValues);
+      onSendMessageClick(messageValues, formik.resetForm);
     },
   });
 
@@ -133,6 +136,7 @@ function ContactForm({
             <p>{formik.errors.email}</p>
           ) : null}
           <input
+            autoCapitalize="off"
             name="email"
             onBlur={formik.handleBlur}
             onChange={handleOnFormChange}
