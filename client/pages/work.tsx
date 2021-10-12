@@ -22,10 +22,22 @@ function Work() {
               target="_target"
             >
               <img
-                alt="Macbook with screenshot of Nathan's portfolio site on it"
-                src="./portfolio-site.png"
+                alt="Macbook with screenshot of Nathan's personal site on it"
+                src="./personal-site.png"
               />
-              <h2>Portfolio Site</h2>
+              <h2>Personal Site</h2>
+            </a>
+            <a
+              href="https://twitter.com/home"
+              aria-label="Link to Twitter"
+              rel="noopener noreferrer"
+              target="_target"
+            >
+              <img
+                alt="Macbook with screenshot of Twitter.com video trimmer on it"
+                src="./video-trimmer.png"
+              />
+              <h2>Twitter Video Trimmer (beta)</h2>
             </a>
           </section>
         </main>
@@ -60,21 +72,32 @@ const RootStyles = styled.div`
     }
 
     > section:nth-child(1) {
-      margin-bottom: ${({ theme }) => theme.spaces.large};
-
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.tablet}) {
-        margin-bottom: ${({ theme }) => theme.spaces.xLarge};
-      }
-    }
-
-    > section:nth-child(2) {
-      display: flex;
       margin-bottom: ${({ theme }) =>
         `calc(${theme.appDimensions.navbarMobileHeight} / 2)`};
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
+        margin-bottom: ${({ theme }) =>
+          `calc(${theme.spaces.large} + ${theme.appDimensions.navbarDesktopHeight} / 2)`};
+      }
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.desktop}) {
+        margin-bottom: ${({ theme }) =>
+          `calc(${theme.spaces.jumbo} + ${theme.appDimensions.navbarDesktopHeight} / 2)`};
+      }
+    }
+
+    > section:nth-child(2) {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: ${({ theme }) =>
+        `calc(${theme.appDimensions.navbarMobileHeight} / 2)`};
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.tablet}) {
+        flex-direction: row;
+        justify-content: space-around;
         margin-bottom: ${({ theme }) =>
           `calc(${theme.spaces.large} + ${theme.appDimensions.navbarDesktopHeight} / 2)`};
       }
@@ -89,6 +112,7 @@ const RootStyles = styled.div`
         cursor: pointer;
         display: flex;
         flex-direction: column;
+        margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
         transition: transform ${({ theme }) => theme.transitions.medium}
             ease-in-out,
           opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
@@ -107,6 +131,10 @@ const RootStyles = styled.div`
           opacity: ${({ theme }) => theme.opacity.opacity70};
           transform: translateY(-3px);
         }
+      }
+
+      > a:last-of-type {
+        margin-bottom: 0;
       }
     }
   }
