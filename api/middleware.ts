@@ -5,14 +5,14 @@ import morgan from "morgan";
 import dotenv from "dotenv";
 dotenv.config();
 
-const VALID_DOMAIN_LIST = ["nathanthomas.dev"];
+const VALID_DOMAIN_LIST = ["https://nathanthomas.dev"];
 if (process.env.DEV_ENV === "development") {
-  VALID_DOMAIN_LIST.push(`localhost`);
+  VALID_DOMAIN_LIST.push("http://localhost:3000");
 }
 
 function isValidDomain(req, res, next) {
-  console.log(req.hostname);
-  if (VALID_DOMAIN_LIST.includes(req.hostname)) {
+  console.log(VALID_DOMAIN_LIST, req.get("origin"));
+  if (VALID_DOMAIN_LIST.includes(req.get("origin"))) {
     next();
   } else {
     return res.status(421).send({
