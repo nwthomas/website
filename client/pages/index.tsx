@@ -45,25 +45,7 @@ const Home: NextPage<Props> = ({ currentTheme }) => {
               >
                 teacher
               </a>
-              . I love building with Bitcoin{" "}
-              <a
-                href="https://bitcoin.org/bitcoin.pdf"
-                aria-label="Link to Bitcoin whitepaper"
-                rel="noopener noreferrer"
-                target="_target"
-              >
-                <img src="./bitcoin-logo.png" alt="Bitcoin logo" />
-              </a>{" "}
-              and Ethereum{" "}
-              <a
-                href="https://ethereum.org/"
-                aria-label="Link to Ethereum.org"
-                rel="noopener noreferrer"
-                target="_target"
-              >
-                <img src="./eth-icon.png" alt="Ethereum logo" />
-              </a>
-              .
+              . I love building with Bitcoin and Ethereum .
             </h1>
           </section>
           <Employers currentTheme={currentTheme} />
@@ -115,11 +97,11 @@ const RootStyles = styled.div`
         }
 
         > a:nth-child(1) {
-          background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+          background-image: linear-gradient(120deg, #7579ff 0%, #b224ef 100%);
         }
 
         > a:nth-child(2) {
-          background-image: linear-gradient(120deg, #8ec5fc 0%, #7579ff 100%);
+          background-image: linear-gradient(120deg, #7579ff 0%, #b224ef 100%);
         }
 
         > a:nth-child(3) {

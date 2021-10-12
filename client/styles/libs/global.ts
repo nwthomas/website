@@ -62,7 +62,7 @@ const GlobalStyle = css`
     --body-bg-accent-one: ${colors.white};
     --body-bg-accent-two: ${colors.mercury};
     --body-bg-accent-three: ${colors.alabaster};
-    --button-primary-bg: ${colors.cabaret};
+    --button-primary-bg: ${colors.royalBlue};
     --button-secondary-bg: ${colors.fireBush};
     --error: ${colors.scarlet};
     --success: ${colors.forestGreen};
@@ -174,6 +174,7 @@ const GlobalStyle = css`
   }
 
   button {
+    background: linear-gradient(135deg, #6699ff 0%, #ff3366 100%);
     color: ${({ theme }) => theme.colors.text};
     font-size: 1.6rem;
     font-weight: bold;
