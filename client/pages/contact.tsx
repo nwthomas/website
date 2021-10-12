@@ -8,7 +8,7 @@ import { useGetPreferredForm, WEB3_KEY } from "../hooks/useGetPreferredForm";
 import { useConnectWallet } from "../hooks/useConnectWallet";
 import type { MessageValues } from "../components/ContactForm";
 import { sendMessage } from "./api/message";
-import { updateMessage } from "../store/contactSlice";
+import { resetMessageValues, updateMessageValues } from "../store/contactSlice";
 import { RootState } from "../store";
 import { updateModalValues } from "../store/modalSlice";
 
@@ -27,33 +27,37 @@ function Contact() {
     onSuccess: (data) => {
       dispatch(
         updateModalValues({
-          message: "Message sent",
           buttonLabel: "Okay",
+          message: "Message sent",
           shouldShowModal: true,
         })
       );
+      dispatch(resetMessageValues());
     },
     onError: () => {
       dispatch(
         updateModalValues({
-          message: "Error sending message",
           buttonLabel: "Okay",
+          message: "Error sending message",
           shouldShowModal: true,
         })
       );
     },
   });
 
-  const handleSendMessage = (messageValues: MessageValues) => {
+  const handleSendMessage = (
+    messageValues: MessageValues,
+    onSuccess: () => void
+  ) => {
     if (preferredForm === WEB3_KEY) {
       // finish for Web3
     } else {
-      mutate(messageValues);
+      mutate(messageValues, { onSuccess });
     }
   };
 
   const handleOnFormChange = (key: string, value: string) => {
-    dispatch(updateMessage({ [key]: value }));
+    dispatch(updateMessageValues({ [key]: value }));
   };
 
   return (
