@@ -23,7 +23,7 @@ function Work() {
             >
               <img
                 alt="Macbook with screenshot of Nathan's personal site on it"
-                src="./personal-site.png"
+                src="./portfolio-site.png"
               />
               <h2>Personal Site</h2>
             </a>
