@@ -115,15 +115,18 @@ const RootStyles = styled.div`
         }
 
         > a:nth-child(1) {
-          background-image: linear-gradient(120deg, #7579ff 0%, #b224ef 100%);
+          background-image: ${({ theme }) =>
+            `linear-gradient(120deg, ${theme.colorsHex.cornFlowerBlue} 0%, ${theme.colorsHex.electricViolet} 100%)`};
         }
 
         > a:nth-child(2) {
-          background-image: linear-gradient(120deg, #7579ff 0%, #b224ef 100%);
+          background-image: ${({ theme }) =>
+            `linear-gradient(120deg, ${theme.colorsHex.cornFlowerBlue} 0%, ${theme.colorsHex.electricViolet} 100%)`};
         }
 
         > a:nth-child(3) {
-          background-image: linear-gradient(120deg, #7579ff 0%, #b224ef 100%);
+          background-image: ${({ theme }) =>
+            `linear-gradient(120deg, ${theme.colorsHex.cornFlowerBlue} 0%, ${theme.colorsHex.electricViolet} 100%)`};
         }
 
         > a:nth-child(4) > img {

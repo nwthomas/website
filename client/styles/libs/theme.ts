@@ -6,6 +6,8 @@ interface Colors {
   alabaster: string;
   black: string;
   cabaret: string;
+  cornFlowerBlue: string;
+  electricViolet: string;
   fireBush: string;
   forestGreen: string;
   mercury: string;
@@ -21,6 +23,8 @@ export const colors: Colors = {
   alabaster: "#f8f8f8f8",
   black: "#000000",
   cabaret: "#D9406E",
+  cornFlowerBlue: "#7579ff",
+  electricViolet: "#b224ef",
   fireBush: "#eb9c31",
   forestGreen: "#357d22",
   mercury: "#e2e2e2",
@@ -74,7 +78,7 @@ interface AppDimensions {
   navbarLinkWidth: string;
 }
 export const appDimensions: AppDimensions = {
-  appHorizontalGutters: "6%",
+  appHorizontalGutters: "5%",
   appMaxWidth: "1600px",
   appMinHeight: "100vh",
   articleHeroImageMaxWidth: "1200px",
