@@ -28,8 +28,8 @@ function Work() {
               <h2>Personal Site</h2>
             </a>
             <a
-              href="https://twitter.com/home"
-              aria-label="Link to Twitter"
+              href="https://twitter.com/wongmjane/status/1418299633382559748"
+              aria-label="Link to Jane Wong Tweet about the Twitter video trimmer"
               rel="noopener noreferrer"
               target="_target"
             >
