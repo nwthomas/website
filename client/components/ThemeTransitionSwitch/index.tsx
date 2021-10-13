@@ -1,18 +1,24 @@
-import styled from "styled-components";
+import * as React from "react";
+import styled, { ThemeContext } from "styled-components";
 import type { ThemeEnum } from "../../styles/libs/theme";
+import { MoonIcon as Moon, SunIcon as Sun } from "../icons";
 
 interface Props {
   currentTheme: ThemeEnum;
   onClick: () => void;
 }
 
-const MoonIcon = <img alt="Sun icon" src="/moon.png" />;
-const SunIcon = <img alt="Moon icon" src="/sun.png" />;
-
 export default function ThemeTransitionButton({
   onClick,
   currentTheme,
 }: Props) {
+  const theme = React.useContext(ThemeContext);
+  const MoonIcon = (
+    <Moon title="Dark mode icon" color={theme.colorsHex.cornFlowerBlue} />
+  );
+  const SunIcon = (
+    <Sun title="Light mode icon" color={theme.colorsHex.fireBush} />
+  );
   const currentIcon = currentTheme === "dark" ? MoonIcon : SunIcon;
 
   return (
