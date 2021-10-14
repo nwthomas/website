@@ -24,6 +24,8 @@ function Work() {
               <img
                 alt="Macbook with screenshot of Nathan's personal site on it"
                 src="./portfolio-site.png"
+                height={735}
+                width={1258}
               />
               <h2>Personal Site</h2>
             </a>
@@ -36,6 +38,8 @@ function Work() {
               <img
                 alt="Macbook with screenshot of Twitter.com video trimmer on it"
                 src="./video-trimmer.png"
+                height={735}
+                width={1258}
               />
               <h2>Twitter Video Trimmer (beta)</h2>
             </a>

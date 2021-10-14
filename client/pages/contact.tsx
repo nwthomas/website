@@ -69,7 +69,7 @@ function Contact() {
               You can use{" "}
               <a
                 href="https://twitter.com/nwthomas_"
-                aria-label="Link to presentation on Twitter"
+                aria-label="Link to Nathan's Twitter profile"
                 rel="noopener noreferrer"
                 target="_target"
               >
