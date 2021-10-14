@@ -188,6 +188,7 @@ const GlobalStyle = css`
   img {
     height: auto;
     width: 100%;
+    aspect-ratio: attr(width) / attr(height);
   }
 
   input,

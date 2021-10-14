@@ -52,7 +52,12 @@ const Home: NextPage<Props> = ({ currentTheme }) => {
                 rel="noopener noreferrer"
                 target="_target"
               >
-                <img src="./bitcoin-logo.png" alt="Bitcoin logo" />
+                <img
+                  src="./bitcoin-logo.png"
+                  alt="Bitcoin logo"
+                  width={1440}
+                  height={1906}
+                />
               </a>{" "}
               and Ethereum{" "}
               <a
@@ -61,7 +66,12 @@ const Home: NextPage<Props> = ({ currentTheme }) => {
                 rel="noopener noreferrer"
                 target="_target"
               >
-                <img src="./eth-icon.png" alt="Ethereum logo" />
+                <img
+                  src="./eth-icon.png"
+                  alt="Ethereum logo"
+                  width={44}
+                  height={70}
+                />
               </a>
               .
             </h1>

@@ -24,7 +24,12 @@ function Employers({ currentTheme }: Props) {
             rel="noopener noreferrer"
             target="_target"
           >
-            <img src={twitterUrl} alt="Twitter logo" />
+            <img
+              src={twitterUrl}
+              alt="Twitter logo"
+              width={1140}
+              height={927}
+            />
           </a>
         </TwitterLogo>
       </div>
@@ -37,7 +42,7 @@ function Employers({ currentTheme }: Props) {
             rel="noopener noreferrer"
             target="_target"
           >
-            <img src={lambdaUrl} alt="Twitter logo" />
+            <img src={lambdaUrl} alt="Twitter logo" width={1563} height={408} />
           </a>
         </LambdaLogo>
       </div>
