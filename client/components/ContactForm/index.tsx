@@ -232,11 +232,7 @@ const RootStyles = styled.div<StyleProps>`
         }
 
         > button {
-          background: ${({ theme }) => {
-            return theme.currentTheme === DARK_THEME
-              ? `${theme.colorsHex.royalBlue}30`
-              : `${theme.colorsHex.cabaret}30`;
-          }};
+          background: ${({ theme }) => `${theme.colorsHex.royalBlue}20`};
           border: 1px solid
             ${({ theme }) => theme.colors.buttonPrimaryBackground};
           border-radius: ${({ theme }) => theme.borderRadii.xxLarge};

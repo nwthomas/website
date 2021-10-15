@@ -16,15 +16,13 @@ function Navbar({ currentTheme, onThemeChangeClick }: Props) {
       <header>
         <div>
           <Link href="/">Nathan Thomas</Link>
-          {isWeb3Deploy ? <p>.eth</p> : null}
+          <p>.eth</p>
         </div>
         <nav>
-          {process.env.NEXT_PUBLIC_WITH_THEME_CHANGE ? (
-            <ThemeTransitionSwitch
-              currentTheme={currentTheme}
-              onClick={onThemeChangeClick}
-            />
-          ) : null}
+          <ThemeTransitionSwitch
+            currentTheme={currentTheme}
+            onClick={onThemeChangeClick}
+          />
           <div>
             <Link href="/work">Work</Link>
           </div>
@@ -74,6 +72,7 @@ const RootStyles = styled.div<StyleProps>`
 
     > div {
       > p {
+        display: none;
         margin-left: ${({ theme }) => `calc(${theme.spaces.nano} * 2)`};
         opacity: 0;
         transition: opacity ${({ theme }) => theme.transitions.medium}
@@ -82,6 +81,7 @@ const RootStyles = styled.div<StyleProps>`
 
         @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.tablet}) {
+          display: block;
           margin-left: ${({ theme }) => `calc(${theme.spaces.nano} * 3)`};
         }
 
@@ -91,9 +91,12 @@ const RootStyles = styled.div<StyleProps>`
         }
       }
 
-      &:hover {
-        > p {
-          opacity: ${({ theme }) => theme.opacity.opacity100};
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.tablet}) {
+        &:hover {
+          > p {
+            opacity: ${({ theme }) => theme.opacity.opacity100};
+          }
         }
       }
     }
