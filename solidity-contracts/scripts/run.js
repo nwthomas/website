@@ -12,7 +12,10 @@ const main = async () => {
     message: "This is a test",
     fax: "",
   });
-  await txn.wait();
+  const { events } = await txn.wait();
+  console.log(
+    events && events.filter && events.filter((x) => x.event === "NewMessage")
+  );
 };
 
 (async function runMain() {
