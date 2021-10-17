@@ -5,6 +5,7 @@ export type ThemeEnum = "dark" | "light";
 interface Colors {
   alabaster: string;
   black: string;
+  bunker: string;
   cabaret: string;
   cornFlowerBlue: string;
   electricViolet: string;
@@ -22,6 +23,7 @@ interface Colors {
 export const colors: Colors = {
   alabaster: "#f8f8f8f8",
   black: "#000000",
+  bunker: "#0D1117",
   cabaret: "#D9406E",
   cornFlowerBlue: "#7579ff",
   electricViolet: "#b224ef",
