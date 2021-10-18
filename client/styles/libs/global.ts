@@ -152,7 +152,6 @@ const GlobalStyle = css`
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
     color: ${({ theme }) => theme.colors.text};
-    display: inline;
     font-display: swap;
     font-family: "ObjectSans", Object Sans, Helvetica, sans-serif;
     font-size: 1.6rem;

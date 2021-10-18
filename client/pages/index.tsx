@@ -120,6 +120,8 @@ const RootStyles = styled.div`
           -webkit-background-clip: text;
           background-size: 100%;
           font-size: inherit;
+          padding-bottom: ${({ theme }) => theme.spaces.micro};
+          padding-top: ${({ theme }) => theme.spaces.micro};
           -moz-text-fill-color: transparent;
           -webkit-text-fill-color: transparent;
         }
