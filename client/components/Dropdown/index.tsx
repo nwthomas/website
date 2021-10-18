@@ -1,5 +1,7 @@
-import { MutableRefObject } from "react";
-import styled from "styled-components";
+import * as React from "react";
+import styled, { ThemeContext } from "styled-components";
+import { DARK_THEME } from "../../hooks/useGetPreferredTheme";
+import type { ThemeEnum } from "../../styles/libs/theme";
 
 const DROPDOWN_MAX_WIDTH = 250;
 
@@ -17,14 +19,20 @@ interface Props {
     left: number;
     top: number;
   };
-  rootRef: MutableRefObject<HTMLDivElement | null>;
+  rootRef: React.MutableRefObject<HTMLDivElement | null>;
 }
 
 function Dropdown({ content, onButtonClick, rootRef, styles }: Props) {
   const { left: leftCSSProperty, top: topCSSProperty } = styles;
+  const { currentTheme } = React.useContext(ThemeContext);
 
   return (
-    <RootStyles ref={rootRef} left={leftCSSProperty} top={topCSSProperty}>
+    <RootStyles
+      currentTheme={currentTheme}
+      ref={rootRef}
+      left={leftCSSProperty}
+      top={topCSSProperty}
+    >
       <p>{content.paragraphOne}</p>
       {content?.paragraphTwo ? <p>{content.paragraphTwo}</p> : null}
       <button onClick={onButtonClick}>{content.buttonLabel}</button>
@@ -33,6 +41,7 @@ function Dropdown({ content, onButtonClick, rootRef, styles }: Props) {
 }
 
 interface StyleProps {
+  currentTheme: ThemeEnum;
   left: number;
   top: number;
 }
@@ -42,9 +51,18 @@ const RootStyles = styled.div<StyleProps>`
     `linear-gradient(120deg, ${theme.colorsHex.cornFlowerBlue} 0%, ${theme.colorsHex.electricViolet} 100%)`};
   border-radius: ${({ theme }) => theme.borderRadii.xLarge};
   cursor: default;
-  -webkit-box-shadow: 0px 6px 19px -2px rgba(0, 0, 0, 0.13);
-  -moz-box-shadow: 0px 6px 19px -2px rgba(0, 0, 0, 0.13);
-  box-shadow: 0px 6px 19px -2px rgba(0, 0, 0, 0.13);
+  -webkit-box-shadow: ${({ currentTheme }) =>
+    `0px 6px 19px -2px rgba(${
+      currentTheme === DARK_THEME ? "255, 255, 255" : "0, 0, 0"
+    }, 0.13)`};
+  -moz-box-shadow: ${({ currentTheme }) =>
+    `0px 6px 19px -2px rgba(${
+      currentTheme === DARK_THEME ? "255, 255, 255" : "0, 0, 0"
+    }, 0.13)`};
+  box-shadow: ${({ currentTheme }) =>
+    `0px 6px 19px -2px rgba(${
+      currentTheme === DARK_THEME ? "255, 255, 255" : "0, 0, 0"
+    }, 0.13)`};
   padding: ${({ theme }) => theme.spaces.medium};
   position: absolute;
   left: ${({ left }) => `${left - DROPDOWN_MAX_WIDTH + ARROW_WIDTH}px`};
