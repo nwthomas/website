@@ -6,6 +6,7 @@ import { SettingsIcon } from "../icons";
 import DropdownAnchor from "../DropdownAnchor";
 import { DARK_THEME } from "../../hooks/useGetPreferredTheme";
 import Spinner from "../Spinner";
+import type { ThemeEnum } from "../../styles/libs/theme";
 
 const web2DropdownContent = {
   paragraphOne: "I get it. Sometimes the old ways are better. 🧙🏻‍♂️",
@@ -58,7 +59,7 @@ function ContactForm({
   withSpinner,
   withWeb3,
 }: Props) {
-  const { colors } = React.useContext(ThemeContext);
+  const { colors, currentTheme } = React.useContext(ThemeContext);
 
   const isFormButtonDisabled = (withWeb3 && !isWalletConnected) || withSpinner;
 
@@ -86,9 +87,10 @@ function ContactForm({
     formik.handleChange(event);
     onFormChange(event.target.name, event.target.value);
   };
-
+  console.log(currentTheme);
   return (
     <RootStyles
+      currentTheme={currentTheme}
       isWalletConnected={isWalletConnected}
       isFormButtonDisabled={isFormButtonDisabled}
     >
@@ -182,6 +184,7 @@ function ContactForm({
 }
 
 interface StyleProps {
+  currentTheme: ThemeEnum;
   isFormButtonDisabled?: boolean;
   isWalletConnected?: boolean;
 }
@@ -190,9 +193,18 @@ const RootStyles = styled.div<StyleProps>`
   border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
   background: ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
   padding: ${({ theme }) => theme.spaces.small};
-  -webkit-box-shadow: 0px 6px 19px -2px rgba(0, 0, 0, 0.13);
-  -moz-box-shadow: 0px 6px 19px -2px rgba(0, 0, 0, 0.13);
-  box-shadow: 0px 6px 19px -2px rgba(0, 0, 0, 0.13);
+  -webkit-box-shadow: ${({ currentTheme }) =>
+    `0px 6px 19px -2px rgba(${
+      currentTheme === DARK_THEME ? "255, 255, 255" : "0, 0, 0"
+    }, 0.13)`};
+  -moz-box-shadow: ${({ currentTheme }) =>
+    `0px 6px 19px -2px rgba(${
+      currentTheme === DARK_THEME ? "255, 255, 255" : "0, 0, 0"
+    }, 0.13)`};
+  box-shadow: ${({ currentTheme }) =>
+    `0px 6px 19px -2px rgba(${
+      currentTheme === DARK_THEME ? "255, 255, 255" : "0, 0, 0"
+    }, 0.13)`};
   width: 100%;
 
   @media only screen and (min-width: ${({ theme }) =>
