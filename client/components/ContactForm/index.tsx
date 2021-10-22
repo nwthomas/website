@@ -87,7 +87,7 @@ function ContactForm({
     formik.handleChange(event);
     onFormChange(event.target.name, event.target.value);
   };
-  console.log(currentTheme);
+
   return (
     <RootStyles
       currentTheme={currentTheme}
