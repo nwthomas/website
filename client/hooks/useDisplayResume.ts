@@ -23,22 +23,27 @@ const CORRECT_KEY_COMBINATION = [
   ENTER,
 ];
 
+const TIMEOUT_TIME_MS = 3000;
+
 export function useDisplayResume() {
   const router = useRouter();
-  const [nextIndex, setNextIndex] = React.useState(0);
-  const [isInputting, setIsInputting] = React.useState(false);
 
-  const handleTimeoutReset = React.useCallback(() => {
-    // finish
-  }, []);
+  const [nextIndex, setNextIndex] = React.useState(0);
+  const [isActive, setIsActive] = React.useState(false);
 
   React.useEffect(() => {
-    if (isInputting) {
-      // finish
+    let timeoutId: number = 0;
+
+    if (typeof window !== "undefined" && isActive) {
+      clearTimeout(timeoutId);
+      timeoutId = window.setTimeout(function clearInputs() {
+        setNextIndex(0);
+        setIsActive(false);
+      }, TIMEOUT_TIME_MS);
     } else {
-      // finish
+      clearTimeout(timeoutId);
     }
-  }, [isInputting]);
+  }, [isActive, nextIndex]);
 
   React.useEffect(() => {
     if (typeof window !== "undefined") {
@@ -52,10 +57,10 @@ export function useDisplayResume() {
           router.push("/resume");
         } else if (key === CORRECT_KEY_COMBINATION[nextIndex]) {
           setNextIndex(nextIndex + 1);
-          setIsInputting(true);
+          setIsActive(true);
         } else {
           setNextIndex(0);
-          setIsInputting(false);
+          setIsActive(false);
         }
       }
 
