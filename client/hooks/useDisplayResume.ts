@@ -33,6 +33,14 @@ export function useDisplayResume() {
   }, []);
 
   React.useEffect(() => {
+    if (isInputting) {
+      // finish
+    } else {
+      // finish
+    }
+  }, [isInputting]);
+
+  React.useEffect(() => {
     if (typeof window !== "undefined") {
       function handleKeydown(event: KeyboardEvent) {
         const key = event.code;
