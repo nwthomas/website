@@ -98,7 +98,6 @@ const RootStyles = styled.div`
     > div {
       display: flex;
       flex-direction: column;
-      margin-right: ${({ theme }) => theme.spaces.large};
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
@@ -108,6 +107,11 @@ const RootStyles = styled.div`
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.desktop}) {
         margin-right: ${({ theme }) => `calc(${theme.spaces.xxLarge} * 3)`};
+      }
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.ultraWide}) {
+        margin-right: ${({ theme }) => `calc(${theme.spaces.jumbo} * 3)`};
       }
 
       > a {
