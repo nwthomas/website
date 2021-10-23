@@ -1,12 +1,15 @@
 import * as React from "react";
-import styled from "styled-components";
+import styled, { ThemeContext } from "styled-components";
 import { useLockBodyScroll } from "../../hooks/useLockBodyScroll";
 import { useSelector, useDispatch } from "react-redux";
 import { updateModalValues } from "../../store/modalSlice";
 import { RootState } from "../../store";
+import type { ThemeEnum } from "../../styles/libs/theme";
+import { DARK_THEME } from "../../hooks/useGetPreferredTheme";
 
 function Modal() {
   const dispatch = useDispatch();
+  const { currentTheme } = React.useContext(ThemeContext);
   const modalMessage = useSelector((state: RootState) => state.modal.message);
   const modalButtonLabel = useSelector(
     (state: RootState) => state.modal.buttonLabel
@@ -26,7 +29,7 @@ function Modal() {
   };
 
   return (
-    <RootStyles>
+    <RootStyles currentTheme={currentTheme}>
       <div>
         <h1>{modalMessage}</h1>
         <button onClick={handleDismissClick}>{modalButtonLabel}</button>
@@ -35,7 +38,11 @@ function Modal() {
   );
 }
 
-const RootStyles = styled.div`
+interface StyleProps {
+  currentTheme: ThemeEnum;
+}
+
+const RootStyles = styled.div<StyleProps>`
   align-items: center;
   background-color: ${({ theme }) => `${theme.colorsHex.black}90`};
   display: flex;
@@ -59,19 +66,25 @@ const RootStyles = styled.div`
     flex-direction: column;
     height: 100%;
     justify-content: center;
+    padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
     width: 100%;
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
       border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
       background: ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
-      -webkit-box-shadow: rgb(0 0 0 / 1%) 0px 0px 1px,
-        rgb(0 0 0 / 4%) 0px 4px 8px, rgb(0 0 0 / 4%) 0px 16px 24px,
-        rgb(0 0 0 / 1%) 0px 24px 32px;
-      -moz-box-shadow: rgb(0 0 0 / 1%) 0px 0px 1px, rgb(0 0 0 / 4%) 0px 4px 8px,
-        rgb(0 0 0 / 4%) 0px 16px 24px, rgb(0 0 0 / 1%) 0px 24px 32px;
-      box-shadow: rgb(0 0 0 / 1%) 0px 0px 1px, rgb(0 0 0 / 4%) 0px 4px 8px,
-        rgb(0 0 0 / 4%) 0px 16px 24px, rgb(0 0 0 / 1%) 0px 24px 32px;
+      -webkit-box-shadow: ${({ currentTheme }) =>
+        `0px 6px 19px -2px rgba(${
+          currentTheme === DARK_THEME ? "255, 255, 255" : "0, 0, 0"
+        }, 0.13)`};
+      -moz-box-shadow: ${({ currentTheme }) =>
+        `0px 6px 19px -2px rgba(${
+          currentTheme === DARK_THEME ? "255, 255, 255" : "0, 0, 0"
+        }, 0.13)`};
+      box-shadow: ${({ currentTheme }) =>
+        `0px 6px 19px -2px rgba(${
+          currentTheme === DARK_THEME ? "255, 255, 255" : "0, 0, 0"
+        }, 0.13)`};
       height: initial;
       max-width: ${({ theme }) => theme.appDimensions.modalMaxWidth};
       padding: ${({ theme }) => theme.spaces.large};
@@ -107,7 +120,13 @@ const RootStyles = styled.div`
       justify-content: center;
       margin-top: ${({ theme }) => theme.spaces.nano};
       height: ${({ theme }) => theme.spaces.xLarge};
-      width: 70%;
+      width: ${({ theme }) =>
+        `calc(100% - (${theme.appDimensions.appHorizontalGutters} + ${theme.spaces.small}))`};
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.tablet}) {
+        width: 70%;
+      }
 
       &:hover {
         opacity: ${({ theme }) => theme.opacity.opacity70};
