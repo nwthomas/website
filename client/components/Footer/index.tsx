@@ -122,11 +122,6 @@ const RootStyles = styled.div`
           ease-in-out;
 
         @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.tablet}) {
-          font-weight: bold;
-        }
-
-        @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.desktop}) {
           font-size: 3rem;
         }
