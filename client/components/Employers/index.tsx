@@ -79,6 +79,11 @@ const RootStyles = styled.section`
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.desktop}) {
+      max-width: 315px;
+    }
+
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.ultraWide}) {
       max-width: none;
     }
   }
