@@ -265,6 +265,12 @@ const RootStyles = styled.div<StyleProps>`
         justify-content: center;
         overflow: hidden;
         padding: ${({ theme }) => theme.spaces.nano} 0 0 0;
+        transition: opacity ${({ theme }) => theme.transitions.medium}
+          ease-in-out;
+
+        &:hover {
+          opacity: ${({ theme }) => theme.opacity.opacity70};
+        }
 
         > div {
           height: 20px;

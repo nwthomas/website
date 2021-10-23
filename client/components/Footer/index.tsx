@@ -127,7 +127,7 @@ const RootStyles = styled.div`
         }
 
         &:hover {
-          opacity: ${({ theme }) => theme.opacity.opacity80};
+          opacity: ${({ theme }) => theme.opacity.opacity70};
         }
       }
     }
