@@ -38,11 +38,19 @@ I tried to use a completely modern tech stack while testing out some new technol
   - [Docker](https://www.docker.com/)
 - Smart Contracts:
   - [Solidity](https://soliditylang.org/)
+  - [TypeScript](https://www.typescriptlang.org/)
   - [Hardhat](https://hardhat.org/)
+  - [Solhint](https://protofire.github.io/solhint/)
 
 ## UNIT TESTING 🧪
 
-- `COMING SOON`™
+- Front-end:
+  - `COMING SOON`™
+- ## Back-end:
+  - `COMING SOON`™
+- Smart Contracts:
+  - [Chai](https://www.chaijs.com/)
+  - [Hardhat](https://hardhat.org/)
 
 ## ACKNOWLEDGEMENTS 🎉
 
