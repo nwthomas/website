@@ -14,7 +14,7 @@ contract MessageHub is Ownable {
     event NewMessage(Message);
 
     function sendMessage(Message memory _newMessage) external returns (bool) {
-        if (keccak256(abi.encodePacked(_newMessage.fax)) == keccak256("")) {
+        if (keccak256(abi.encodePacked(_newMessage.fax)) != keccak256("")) {
             return false;
         }
 
