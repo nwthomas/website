@@ -42,7 +42,7 @@ I tried to use a completely modern tech stack while testing out some new technol
 
 ## UNIT TESTING 🧪
 
-- `COMING SOON`
+- `COMING SOON`™
 
 ## ACKNOWLEDGEMENTS 🎉
 
