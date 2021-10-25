@@ -21,6 +21,8 @@ const web3DropdownContent = {
   buttonLabel: "Yes",
 };
 
+const CONNECT_WALLET_LABEL = "Connect Wallet";
+
 export interface MessageValues {
   email: string;
   message: string;
@@ -29,13 +31,13 @@ export interface MessageValues {
 }
 
 interface Props {
+  currentAccount?: string;
   initialValues: {
     name: string;
     email: string;
     message: string;
     fax: string;
   };
-  isWalletConnected?: boolean;
   isWeb3Loaded?: boolean;
   onConnectWalletClick: () => void;
   onDropdownButtonClick: () => void;
@@ -49,8 +51,8 @@ interface Props {
 }
 
 function ContactForm({
+  currentAccount,
   initialValues,
-  isWalletConnected,
   isWeb3Loaded,
   onConnectWalletClick,
   onDropdownButtonClick,
@@ -61,7 +63,7 @@ function ContactForm({
 }: Props) {
   const { colors, currentTheme } = React.useContext(ThemeContext);
 
-  const isFormButtonDisabled = (withWeb3 && !isWalletConnected) || withSpinner;
+  const isFormButtonDisabled = (withWeb3 && !currentAccount) || withSpinner;
 
   const formik = useFormik({
     initialValues: {
@@ -91,7 +93,7 @@ function ContactForm({
   return (
     <RootStyles
       currentTheme={currentTheme}
-      isWalletConnected={isWalletConnected}
+      isWalletConnected={!!currentAccount}
       isFormButtonDisabled={isFormButtonDisabled}
     >
       <div>
@@ -101,7 +103,7 @@ function ContactForm({
             <div>
               <div />
               <button onClick={onConnectWalletClick}>
-                {isWalletConnected ? "Switch Wallet Address" : "Connect Wallet"}
+                {currentAccount || CONNECT_WALLET_LABEL}
               </button>
             </div>
           ) : null}

@@ -187,9 +187,9 @@ const GlobalStyle = css`
   }
 
   img {
+    aspect-ratio: attr(width) / attr(height);
     height: auto;
     width: 100%;
-    aspect-ratio: attr(width) / attr(height);
   }
 
   input,

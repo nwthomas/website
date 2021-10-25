@@ -9,7 +9,6 @@ import { Hydrate } from "react-query/hydration";
 import GlobalStyle, { makeMainTheme } from "../styles";
 import Navbar from "../components/Navbar";
 import { store } from "../store";
-import { useDisplayResume } from "../hooks/useDisplayResume";
 import "../styles/libs/fonts.css";
 
 // We don't care about cache invalidation given the needs of this app, so data isn't stale
@@ -28,8 +27,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         },
       })
   );
-
-  useDisplayResume();
 
   const mainTheme = React.useMemo(() => {
     return makeMainTheme(currentTheme);
