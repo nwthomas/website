@@ -50,4 +50,3 @@ I tried to use a completely modern tech stack while testing out some new technol
 - Thanks [Lambda School](https://lambdaschool.com/) for teaching me the skills that allow me to build applications just like this one.
 - Thanks to [Zach Cole](http://zcole.me/index.html) for some of the inspiration behind my site.
 - Thanks to [Uniswap](https://uniswap.org/) for the inspiration on my contact form
-- Thanks to [Medium](https://medium.com/) for inspiring my article layout.

@@ -9,7 +9,7 @@ import "solidity-coverage";
 
 dotenv.config();
 
-// This is a temporary shim since TypeScript isn't happy with these two additional values
+// This is a shim since TypeScript isn't happy with these two additional objects
 type ExtendedHardhatUserConfig = HardhatUserConfig & {
   gasReporter: any;
   etherscan: any;
