@@ -11,5 +11,5 @@
     "forceConsistentCasingInFileNames": true
   },
   "lib": ["es2015"],
-  "exclude": ["node_modules", "client", "assets", "solidity-contract"]
+  "exclude": ["node_modules", "client", "assets", "contracts"]
 }
