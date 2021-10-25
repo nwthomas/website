@@ -5,7 +5,10 @@ import { useMutation } from "react-query";
 import Layout from "../components/Layout";
 import ContactForm from "../components/ContactForm";
 import { useGetPreferredForm, WEB3_KEY } from "../hooks/useGetPreferredForm";
-import { useConnectWallet } from "../hooks/useConnectWallet";
+import {
+  abbreviateWalletAddress,
+  useConnectWallet,
+} from "../hooks/useConnectWallet";
 import type { MessageValues } from "../components/ContactForm";
 import { sendMessage } from "./api/message";
 import { resetMessageValues, updateMessageValues } from "../store/contactSlice";
@@ -16,7 +19,8 @@ const PAGE_NAME = "Contact";
 
 function Contact() {
   const [preferredForm, setPreferredForm] = useGetPreferredForm();
-  const { currentAccount, connectToWallet, isLoaded } = useConnectWallet();
+  const { accounts, currentAccount, connectToWallet, isLoaded } =
+    useConnectWallet();
 
   const dispatch = useDispatch();
   const initialMessageValues = useSelector(
@@ -24,7 +28,7 @@ function Contact() {
   );
 
   const { mutate, isLoading } = useMutation(sendMessage, {
-    onSuccess: (data) => {
+    onSuccess: () => {
       dispatch(
         updateModalValues({
           buttonLabel: "Okay",
@@ -60,6 +64,10 @@ function Contact() {
     dispatch(updateMessageValues({ [key]: value }));
   };
 
+  const abbreviatedCurrentAccountAddress = currentAccount
+    ? abbreviateWalletAddress(currentAccount)
+    : undefined;
+
   return (
     <Layout pageName={PAGE_NAME} withFooter>
       <RootStyles>
@@ -80,8 +88,8 @@ function Contact() {
           </section>
           <section>
             <ContactForm
+              currentAccount={abbreviatedCurrentAccountAddress}
               initialValues={initialMessageValues}
-              isWalletConnected={!!currentAccount}
               isWeb3Loaded={isLoaded}
               onDropdownButtonClick={setPreferredForm}
               onConnectWalletClick={connectToWallet}
