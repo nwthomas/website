@@ -8,7 +8,7 @@
     "lint": "./node_modules/.bin/solhint -f table contracts/**/*.sol",
     "start": "npx hardhat run scripts/run.js",
     "server": "npx hardhat node",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx hardhat test"
   },
   "author": "Nathan Thomas",
   "license": "MIT",
@@ -23,6 +23,7 @@
     "@openzeppelin/contracts": "^4.3.2",
     "@typechain/ethers-v5": "^7.2.0",
     "@typechain/hardhat": "^2.3.1",
+    "@types/mocha": "^9.0.0",
     "chai": "^4.2.0",
     "ethereum-waffle": "^3.0.0",
     "ethers": "^5.0.0",
