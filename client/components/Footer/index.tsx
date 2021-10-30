@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import BabyYoda from "../EasterEggs/BabyYoda";
+import { BabyYoda } from "../EasterEggs";
 
 function Footer() {
   return (
