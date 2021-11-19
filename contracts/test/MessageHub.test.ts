@@ -5,7 +5,6 @@ import { ethers } from "hardhat";
 describe("MessageHub", function () {
   let account1: SignerWithAddress;
   let account2: SignerWithAddress;
-  let account3: SignerWithAddress;
 
   const getDeployedContract = async () => {
     const MessageHubFactory = await ethers.getContractFactory("MessageHub");
@@ -15,11 +14,10 @@ describe("MessageHub", function () {
   };
 
   beforeEach(async () => {
-    const [owner, second, third] = await ethers.getSigners();
+    const [owner, second] = await ethers.getSigners();
 
     account1 = owner;
     account2 = second;
-    account3 = third;
   });
 
   describe("ownership", () => {
