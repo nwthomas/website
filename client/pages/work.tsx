@@ -91,8 +91,7 @@ const RootStyles = styled.div`
 
     > section:nth-child(2) {
       display: grid;
-      grid-row-gap: ${({ theme }) => theme.spaces.xxLarge};
-      grid-template-columns: 1fr;
+      grid-row-gap: ${({ theme }) => theme.spaces.large};
       margin-bottom: ${({ theme }) =>
         `calc(${theme.appDimensions.navbarMobileHeight} / 2)`};
 
@@ -100,13 +99,14 @@ const RootStyles = styled.div`
           theme.breakpoints.tablet}) {
         grid-column-gap: ${({ theme }) => theme.spaces.xxLarge};
         grid-row-gap: ${({ theme }) => theme.spaces.xxLarge};
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         margin-bottom: ${({ theme }) =>
           `calc(${theme.spaces.large} + ${theme.appDimensions.navbarDesktopHeight} / 2)`};
       }
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.desktop}) {
+        grid-template-columns: 1fr 1fr;
         margin-bottom: ${({ theme }) => theme.spaces.jumbo};
       }
     }
