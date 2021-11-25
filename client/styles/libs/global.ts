@@ -140,7 +140,7 @@ const GlobalStyle = css`
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.desktop}) {
-      font-size: 2.6rem;
+      font-size: 3rem;
     }
   }
 
@@ -166,7 +166,7 @@ const GlobalStyle = css`
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.desktop}) {
-      font-size: 2.6rem;
+      font-size: 3rem;
     }
 
     &:hover {

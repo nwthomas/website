@@ -121,11 +121,6 @@ const RootStyles = styled.div`
         transition: opacity ${({ theme }) => theme.transitions.medium}
           ease-in-out;
 
-        @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.desktop}) {
-          font-size: 3rem;
-        }
-
         &:hover {
           opacity: ${({ theme }) => theme.opacity.opacity70};
         }

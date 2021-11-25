@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Layout from "../components/Layout";
+import WorkExample from "../components/WorkExample";
 
 const PAGE_NAME = "Work";
 
@@ -15,34 +16,30 @@ function Work() {
             </h1>
           </section>
           <section>
-            <a
-              href="https://github.com/nwthomas/personal-portfolio"
-              aria-label="Link to portfolio site GitHub repository"
-              rel="noopener noreferrer"
-              target="_target"
-            >
-              <img
-                alt="Macbook with screenshot of Nathan's personal site on it"
-                src="./portfolio-site.png"
-                height={735}
-                width={1258}
-              />
-              <h2>Personal Site</h2>
-            </a>
-            <a
-              href="https://twitter.com/wongmjane/status/1418299633382559748"
-              aria-label="Link to Jane Wong Tweet about the Twitter video trimmer"
-              rel="noopener noreferrer"
-              target="_target"
-            >
-              <img
-                alt="Macbook with screenshot of Twitter.com video trimmer on it"
-                src="./video-trimmer.png"
-                height={735}
-                width={1258}
-              />
-              <h2>Twitter Video Trimmer (beta)</h2>
-            </a>
+            <WorkExample
+              ariaLabel="Link to portfolio site GitHub repository"
+              imageAlt="Macbook with screenshot of Nathan's personal site on it"
+              imageDimensions={{ height: 735, width: 1258 }}
+              imageSrc="./portfolio-site.png"
+              title="Personal Site"
+              url="https://github.com/nwthomas/personal-portfolio"
+            />
+            <WorkExample
+              ariaLabel="Link to Techcrunch article about Twitter Super Follows"
+              imageAlt="Macbook with screenshot of Twitter.com Super Follows on it"
+              imageDimensions={{ height: 735, width: 1258 }}
+              imageSrc="./super-follows.png"
+              title="Twitter Super Follows"
+              url="https://techcrunch.com/2021/09/01/twitter-super-follows-monetization/"
+            />
+            <WorkExample
+              ariaLabel="Link to Jane Wong Tweet about the Twitter video trimmer"
+              imageAlt="Macbook with screenshot of Twitter.com video trimmer on it"
+              imageDimensions={{ height: 735, width: 1258 }}
+              imageSrc="./video-trimmer.png"
+              title="Twitter Video Trimmer (beta)"
+              url="https://twitter.com/wongmjane/status/1418299633382559748"
+            />
           </section>
         </main>
       </RootStyles>
@@ -93,14 +90,17 @@ const RootStyles = styled.div`
     }
 
     > section:nth-child(2) {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-row-gap: ${({ theme }) => theme.spaces.xxLarge};
+      grid-template-columns: 1fr;
       margin-bottom: ${({ theme }) =>
         `calc(${theme.appDimensions.navbarMobileHeight} / 2)`};
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        justify-content: space-around;
+        grid-column-gap: ${({ theme }) => theme.spaces.xxLarge};
+        grid-row-gap: ${({ theme }) => theme.spaces.xxLarge};
+        grid-template-columns: 1fr 1fr;
         margin-bottom: ${({ theme }) =>
           `calc(${theme.spaces.large} + ${theme.appDimensions.navbarDesktopHeight} / 2)`};
       }
@@ -108,44 +108,6 @@ const RootStyles = styled.div`
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.desktop}) {
         margin-bottom: ${({ theme }) => theme.spaces.jumbo};
-        flex-direction: row;
-      }
-
-      > a {
-        align-items: center;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
-        transition: transform ${({ theme }) => theme.transitions.medium}
-            ease-in-out,
-          opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
-        width: 100%;
-
-        @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.desktop}) {
-          margin: ${({ theme }) =>
-            `0 ${theme.spaces.large} ${theme.spaces.xxLarge}`};
-        }
-
-        @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.ultraWide}) {
-          max-width: 700px;
-        }
-
-        > h2 {
-          margin-top: ${({ theme }) => theme.spaces.medium};
-          text-align: center;
-        }
-
-        &:hover {
-          opacity: ${({ theme }) => theme.opacity.opacity70};
-          transform: translateY(-3px);
-        }
-      }
-
-      > a:last-of-type {
-        margin-bottom: 0;
       }
     }
   }
