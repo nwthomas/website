@@ -16,7 +16,7 @@ type ExtendedHardhatUserConfig = HardhatUserConfig & {
 };
 
 const config: ExtendedHardhatUserConfig = {
-  solidity: "0.8.4",
+  solidity: "0.8.9",
   networks: {
     rinkeby: {
       url: process.env.RINKEBY_URL || "",
