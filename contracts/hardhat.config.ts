@@ -13,6 +13,7 @@ dotenv.config();
 type ExtendedHardhatUserConfig = HardhatUserConfig & {
   gasReporter: any;
   etherscan: any;
+  watcher: any;
 };
 
 const config: ExtendedHardhatUserConfig = {
@@ -32,6 +33,26 @@ const config: ExtendedHardhatUserConfig = {
   },
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY,
+  },
+  watcher: {
+    compilation: {
+      tasks: ["compile"],
+      files: ["./contracts"],
+      verbose: true,
+    },
+    ci: {
+      tasks: [
+        "clean",
+        { command: "compile", params: { quiet: true } },
+        {
+          command: "test",
+          params: {
+            noCompile: true,
+            testFiles: ["./test/EthDistributor.test.js"],
+          },
+        },
+      ],
+    },
   },
 };
 
