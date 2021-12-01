@@ -13,22 +13,8 @@ async function main() {
     fax: "",
   };
 
-  const mockInvalidMessage = {
-    name: "Test name field",
-    email: "Test email field",
-    message: "Test message field",
-    fax: "This field should not be filled",
-  };
-
-  let txn = await messageHub.sendMessage(mockValidMessage);
+  const txn = await messageHub.sendMessage(mockValidMessage);
   await txn.wait();
-
-  try {
-    txn = await messageHub.sendMessage(mockInvalidMessage);
-    await txn.wait();
-  } catch (error) {
-    console.log(error);
-  }
 }
 
 main().catch((error) => {

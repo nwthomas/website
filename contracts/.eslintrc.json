@@ -1,7 +1,6 @@
 {
   "env": {
     "browser": false,
-    "es2021": true,
     "mocha": true,
     "node": true
   },
@@ -13,6 +12,7 @@
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
+    "es2021": true,
     "ecmaVersion": 12
   },
   "rules": {
