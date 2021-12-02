@@ -1,6 +1,15 @@
 {
   "name": "client",
-  "version": "0.1.0",
+  "version": "0.0.0-alpha",
+  "author": {
+    "name": "Nathan Thomas",
+    "url": "https://nathanthomas.dev"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nwthomas/personal-portfolio.git"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",

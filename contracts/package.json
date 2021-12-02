@@ -2,7 +2,16 @@
   "name": "solidity-contracts",
   "version": "0.0.0-alpha",
   "description": "Solidity contracts for Nathan Thomas' portfolio site",
-  "main": "index.js",
+  "author": {
+    "name": "Nathan Thomas",
+    "url": "https://nathanthomas.dev"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nwthomas/personal-portfolio.git"
+  },
+  "main": "/contracts",
   "scripts": {
     "compile": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat compile",
     "coverage": "yarn typechain && hardhat coverage --solcoverjs ./.solcover.ts --temp artifacts --testfiles \"./test/**/*.ts\"",
@@ -18,8 +27,6 @@
     "test": "nodemon -x 'npx hardhat test' -w contracts -w test -e ts,sol",
     "typechain": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat typechain"
   },
-  "author": "Nathan Thomas",
-  "license": "MIT",
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",
     "@nomiclabs/hardhat-etherscan": "^2.1.7",
