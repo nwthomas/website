@@ -1,6 +1,15 @@
 {
   "name": "server",
   "version": "0.0.0-alpha",
+  "author": {
+    "name": "Nathan Thomas",
+    "url": "https://nathanthomas.dev"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nwthomas/personal-portfolio.git"
+  },
   "description": "The server for Nathan Thomas' portfolio site",
   "main": "index.js",
   "scripts": {
@@ -9,8 +18,6 @@
     "server": "ts-node index.ts",
     "start": "node dist/index.js"
   },
-  "author": "Nathan Thomas",
-  "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
