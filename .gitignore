@@ -118,3 +118,4 @@ out
 
 # Miscellaneous
 dist/
+.DS_STORE
