@@ -4,7 +4,7 @@ import ThemeTransitionSwitch from "../ThemeTransitionSwitch";
 import { ThemeEnum } from "../../styles/libs/theme";
 
 interface Props {
-  currentTheme: ThemeEnum;
+  currentTheme: ThemeEnum | null;
   onThemeChangeClick: () => void;
 }
 
