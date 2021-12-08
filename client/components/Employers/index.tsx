@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import { LIGHT_THEME } from "../../hooks/useGetPreferredTheme";
+import { DARK_THEME } from "../../hooks/useGetPreferredTheme";
 import type { ThemeEnum } from "../../styles/libs/theme";
 
 interface Props {
@@ -8,18 +8,28 @@ interface Props {
 }
 
 function Employers({ currentTheme }: Props) {
+  const loomUrl =
+    currentTheme === DARK_THEME ? "loom-logo-white.png" : "loom-logo.png";
   const twitterUrl =
-    currentTheme === LIGHT_THEME
-      ? "twitter-logo.png"
-      : "twitter-logo-white.png";
-
-  const lambdaUrl =
-    currentTheme === LIGHT_THEME ? "lambda-logo.png" : "lambda-logo-white.png";
+    currentTheme === DARK_THEME ? "twitter-logo-white.png" : "twitter-logo.png";
 
   return (
     <RootStyles>
       <div>
         <h2>Currently</h2>
+        <LoomLogo>
+          <a
+            href="https://twitter.com/nwthomas_"
+            aria-label="Link to Loom"
+            rel="noopener noreferrer"
+            target="_target"
+          >
+            <img src={loomUrl} alt="Loom logo" width={1140} height={927} />
+          </a>
+        </LoomLogo>
+      </div>
+      <div>
+        <h2>Previously</h2>
         <TwitterLogo>
           <a
             href="https://twitter.com/nwthomas_"
@@ -35,19 +45,6 @@ function Employers({ currentTheme }: Props) {
             />
           </a>
         </TwitterLogo>
-      </div>
-      <div>
-        <h2>Previously</h2>
-        <LambdaLogo>
-          <a
-            href="https://lambdaschool.com/"
-            aria-label="Link to Lambda School website"
-            rel="noopener noreferrer"
-            target="_target"
-          >
-            <img src={lambdaUrl} alt="Twitter logo" width={1563} height={408} />
-          </a>
-        </LambdaLogo>
       </div>
     </RootStyles>
   );
@@ -92,7 +89,7 @@ const RootStyles = styled.section`
   }
 `;
 
-const TwitterLogo = styled.div`
+const LoomLogo = styled.div`
   transition: transform ${({ theme }) => theme.transitions.medium} ease-in-out,
     opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
   width: 100px;
@@ -117,24 +114,27 @@ const TwitterLogo = styled.div`
   }
 `;
 
-const LambdaLogo = styled.div`
+const TwitterLogo = styled.div`
   transition: transform ${({ theme }) => theme.transitions.medium} ease-in-out,
     opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
-  max-width: 430px;
+  width: 100px;
+
+  @media only screen and (min-width: ${({ theme }) => theme.breakpoints.mini}) {
+    width: 130px;
+  }
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.tablet}) {
-    width: 500px;
-    max-width: none;
+    width: 150px;
   }
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.desktop}) {
-    width: 600px;
+    width: 225px;
   }
 
   &:hover {
-    opacity: ${({ theme }) => theme.opacity.opacity80};
+    opacity: ${({ theme }) => theme.opacity.opacity70};
     transform: translateY(-3px);
   }
 `;
