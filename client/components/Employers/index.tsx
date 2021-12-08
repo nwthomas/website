@@ -24,7 +24,7 @@ function Employers({ currentTheme }: Props) {
             rel="noopener noreferrer"
             target="_target"
           >
-            <img src={loomUrl} alt="Loom logo" width={1140} height={927} />
+            <img src={loomUrl} alt="Loom logo" width={1000} height={1000} />
           </a>
         </LoomLogo>
       </div>
