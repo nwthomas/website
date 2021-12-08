@@ -192,14 +192,14 @@ export interface Theme {
   borderRadii: BorderRadii;
   colors: ThemeColorValues;
   colorsHex: Colors;
-  currentTheme: ThemeEnum;
+  currentTheme: ThemeEnum | null;
   opacity: Opacity;
   spaces: Spaces;
   transitions: Transitions;
 }
 
 // ===================================== Main Theme
-function makeMainTheme(currentTheme: ThemeEnum): Theme {
+function makeMainTheme(currentTheme: ThemeEnum | null): Theme {
   return {
     appDimensions,
     breakpoints,

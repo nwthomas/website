@@ -4,7 +4,7 @@ import type { ThemeEnum } from "../../styles/libs/theme";
 import { MoonIcon as Moon, SunIcon as Sun } from "../icons";
 
 interface Props {
-  currentTheme: ThemeEnum;
+  currentTheme: ThemeEnum | null;
   onClick: () => void;
 }
 
@@ -23,9 +23,11 @@ export default function ThemeTransitionButton({
 
   return (
     <RootStyles>
-      <button onClick={onClick} role="button" tabIndex={0}>
-        {currentTheme ? currentIcon : null}
-      </button>
+      {currentTheme !== null ? (
+        <button onClick={onClick} role="button" tabIndex={0}>
+          {currentTheme ? currentIcon : null}
+        </button>
+      ) : null}
     </RootStyles>
   );
 }
