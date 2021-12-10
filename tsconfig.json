@@ -8,7 +8,8 @@
     "outDir": "dist",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true
   },
   "lib": ["es2015"],
   "exclude": ["node_modules", "client", "assets", "contracts"]

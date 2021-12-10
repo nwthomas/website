@@ -22,8 +22,8 @@ const config: ExtendedHardhatUserConfig = {
     rinkeby: {
       url: process.env.RINKEBY_URL || "",
       accounts:
-        process.env.RINKEBY_PRIVATE_KEY !== undefined
-          ? [process.env.RINKEBY_PRIVATE_KEY]
+        process.env.RINKEBY_WALLET_PRIVATE_KEY !== undefined
+          ? [process.env.RINKEBY_WALLET_PRIVATE_KEY]
           : [],
     },
   },
