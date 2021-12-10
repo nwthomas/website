@@ -1,7 +1,7 @@
 import express from "express";
-import nodemailer from "nodemailer";
 import applyMiddleware from "./middleware";
 import { listenForContractMessageEvent } from "../utils/listenForContractMessageEvents";
+import { sendEmail } from "../utils/sendEmail";
 
 const server = express();
 
@@ -26,26 +26,9 @@ server.post("/api/send-message", async (req, res) => {
     });
   }
 
-  const transporter = nodemailer.createTransport({
-    host: process.env.HOST_NAME,
-    port: process.env.EMAIL_PORT,
-    tls: process.env.TLS,
-    auth: {
-      user: process.env.USERNAME,
-      pass: process.env.PASSWORD,
-    },
-  });
+  const result = sendEmail({ name, email, message });
 
-  const newEmail = {
-    from: process.env.PERSONAL_EMAIL,
-    to: process.env.PERSONAL_EMAIL,
-    subject: `From ${name}`,
-    text: `${email}\n\n${message}`,
-  };
-
-  const result = await transporter.sendMail(newEmail);
-
-  if (result?.accepted?.length) {
+  if (result) {
     return res.status(200).send({
       message: "The message was sent successfully.",
       success: true,
