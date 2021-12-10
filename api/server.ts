@@ -1,10 +1,13 @@
 import express from "express";
 import nodemailer from "nodemailer";
 import applyMiddleware from "./middleware";
+import { listenForContractMessageEvent } from "../utils/listenForContractMessageEvents";
 
 const server = express();
 
 applyMiddleware(server);
+
+listenForContractMessageEvent();
 
 server.get("/", (_, res) => {
   res.status(200).send({
