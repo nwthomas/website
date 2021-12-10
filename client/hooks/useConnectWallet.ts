@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useRouter } from "next/router";
 
 // This extends the global Window object with custom values from _document.tsx
 declare global {
@@ -6,7 +7,8 @@ declare global {
     // Type 'any' isn't great, but I don't feel like typing out 'ethereum' from
     // MetaMask at the moment
     ethereum: {
-      on: (eventType: string, callback: () => void) => void;
+      on: (eventType: string, callback: (any) => void) => void;
+      removeListener: (eventType: string, callback: (any) => void) => void;
       request: ({ method: string }) => Promise<Array<string>>;
     };
   }
@@ -63,11 +65,31 @@ type ReturnValue = {
 };
 
 export function useConnectWallet(): ReturnValue {
+  const router = useRouter();
   const [isLoaded, setIsLoaded] = React.useState<boolean>(false);
   const [currentAccount, setCurrentAccount] = React.useState<string>("");
   const [walletAccounts, setWalletAccounts] = React.useState<Array<string>>([]);
   const [walletErrorMessage, setWalletErrorMessage] =
     React.useState<string>("");
+
+  // Set a series of listeners for possible wallet connection state changes
+  React.useEffect(() => {
+    // Set listener to handle account changes and update account state
+    const handleAccountsChanged = (accounts: string[]) => {
+      setCurrentAccount(accounts[0]);
+    };
+    window.ethereum.on("accountsChanged", handleAccountsChanged);
+
+    // Set listener to handle network changes and reload page per recommendation from:
+    // https://docs.metamask.io/guide/ethereum-provider.html#chainchanged
+    const handleChainChanged = () => router.reload();
+    window.ethereum.on("chainChanged", handleChainChanged);
+
+    return () => {
+      window.ethereum.removeListener("accountsChanged", handleAccountsChanged);
+      window.ethereum.removeListener("chainChanged", handleChainChanged);
+    };
+  }, []);
 
   React.useEffect(() => {
     async function handleCheckIfWalletIsConnected() {
