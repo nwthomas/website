@@ -1,25 +1,26 @@
 import { ethers } from "ethers";
-import messageHub from "./messageHub.json";
+import messageHub from "../constants/messageHub.json";
+import { sendEmail } from "../utils/sendEmail";
 
-const NETWORK_TYPE = "rinkeby";
+const NETWORK_TYPE = process.env.NETWORK_TYPE;
 
-export const listenForContractMessageEvent = () => {
+export const listenForContractMessageEvent = async () => {
   const provider = new ethers.providers.AlchemyProvider(
     NETWORK_TYPE,
-    process.env.ALCHEMY_API
+    process.env.ALCHEMY_URL
   );
+
   const messageHubContract = new ethers.Contract(
     process.env.CONTRACT_ADDRESS,
-    messageHub.abi
+    messageHub.abi,
+    provider
   );
 
-  const filter = {
-    address: process.env.CONTRACT_ADDRESS,
-    topics: [ethers.utils.id("Message(string,string,string,string)")],
-  };
-  console.log(filter);
+  const deployedContract = messageHubContract.attach(
+    process.env.CONTRACT_ADDRESS
+  );
 
-  provider.on(filter, (value) => {
-    console.log("Success");
-  });
+  deployedContract.on("NewMessage", (name, email, message) =>
+    sendEmail({ name, email, message }, true)
+  );
 };
