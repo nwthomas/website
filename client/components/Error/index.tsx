@@ -20,15 +20,19 @@ export default function Error({ errorCode }: Props) {
 
 const RootStyles = styled.main`
   align-items: center;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  left: 0;
+  position: absolute;
   padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
+  right: 0;
+  top: 0;
   width: 100%;
 
   > h2 {
-    font-weight: bold;
-    margin-bottom: ${({ theme }) => theme.spaces.medium};
+    margin-bottom: ${({ theme }) => theme.spaces.large};
   }
 
   > div {
