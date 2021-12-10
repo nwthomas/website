@@ -5,10 +5,7 @@ import { sendEmail } from "../utils/sendEmail";
 const NETWORK_TYPE = process.env.NETWORK_TYPE;
 
 export const listenForContractMessageEvent = async () => {
-  const provider = new ethers.providers.AlchemyProvider(
-    NETWORK_TYPE,
-    process.env.ALCHEMY_URL
-  );
+  const provider = new ethers.providers.AlchemyProvider(NETWORK_TYPE);
 
   const messageHubContract = new ethers.Contract(
     process.env.CONTRACT_ADDRESS,
