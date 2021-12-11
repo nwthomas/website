@@ -4,7 +4,9 @@ import { ethers } from "ethers";
 import { CONTRACT_ADDRESS } from "../constants/contracts/address";
 import messageHub from "../constants/contracts/MessageHub.json";
 import type { MessageValues } from "../components/ContactForm";
+import cryptojs from "crypto-js";
 
+const SECRET_KEY = process.env.NEXT_PUBLIC_SECRET_KEY || "";
 const TARGETED_CHAIN = process.env.NEXT_PUBLIC_TARGETED_CHAIN;
 
 type ChainEnum = "mainnet" | "ropsten" | "rinkeby" | "goerli" | "kovan";
@@ -146,6 +148,15 @@ export function useConnectWallet(): UseConnectWalletReturnValues {
     onSuccessCallback: () => void
   ) => {
     const { ethereum } = window || {};
+    const { name, email, message, fax } = newEmail;
+
+    const finalizedEmail = {
+      name: encryptStringValues(name),
+      email: encryptStringValues(email),
+      message: encryptStringValues(message),
+      fax,
+    };
+    console.log(finalizedEmail);
 
     if (ethereum) {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -156,7 +167,9 @@ export function useConnectWallet(): UseConnectWalletReturnValues {
         signer
       );
 
-      const sendMessageTxn = await messageHubContract.sendMessage(newEmail);
+      const sendMessageTxn = await messageHubContract.sendMessage(
+        finalizedEmail
+      );
       await sendMessageTxn.wait();
       onSuccessCallback();
     } else {
@@ -219,6 +232,10 @@ export function useConnectWallet(): UseConnectWalletReturnValues {
     isError,
     sendNewMessage,
   };
+}
+
+function encryptStringValues(value: string) {
+  return cryptojs.AES.encrypt(JSON.stringify(value), SECRET_KEY).toString();
 }
 
 export function abbreviateWalletAddress(address: string) {
