@@ -36,6 +36,7 @@ I tried to use a completely modern tech stack while testing out some new technol
   - [Express](https://expressjs.com/)
   - [Nodemailer](https://github.com/nodemailer/nodemailer)
   - [Docker](https://www.docker.com/)
+  - [Ethers.js](https://docs.ethers.io/v5/)
 - Smart Contracts:
   - [Solidity](https://soliditylang.org/)
   - [TypeScript](https://www.typescriptlang.org/)
@@ -46,10 +47,11 @@ I tried to use a completely modern tech stack while testing out some new technol
 
 - Front-end:
   - `COMING SOON`™
-- ## Back-end:
+- Back-end:
   - `COMING SOON`™
 - Smart Contracts:
   - [Chai](https://www.chaijs.com/)
+  - [Mocha](https://mochajs.org/)
   - [Hardhat](https://hardhat.org/)
 
 ## ACKNOWLEDGEMENTS 🎉

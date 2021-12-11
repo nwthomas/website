@@ -19,7 +19,8 @@ const PAGE_NAME = "Contact";
 
 function Contact() {
   const [preferredForm, setPreferredForm] = useGetPreferredForm();
-  const { currentAccount, connectToWallet, isLoaded } = useConnectWallet();
+  const { currentAccount, connectToWallet, isLoaded, sendNewMessage } =
+    useConnectWallet();
 
   const dispatch = useDispatch();
   const initialMessageValues = useSelector(
@@ -53,7 +54,7 @@ function Contact() {
     onSuccess: () => void
   ) => {
     if (preferredForm === WEB3_KEY) {
-      // finish for Web3
+      sendNewMessage(messageValues, onSuccess);
     } else {
       mutate(messageValues, { onSuccess });
     }
