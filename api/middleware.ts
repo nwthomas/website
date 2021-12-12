@@ -21,6 +21,6 @@ export default (server) => {
   server.use(express.json());
   server.use(cors());
   server.use(helmet());
-  server.use(morgan());
+  server.use(morgan("common"));
   server.use(isValidDomain);
 };

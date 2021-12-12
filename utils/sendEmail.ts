@@ -10,17 +10,13 @@ type NewEmail = {
 };
 
 export const sendEmail = async (newEmail: NewEmail, withWeb3?: boolean) => {
-  const {
-    name: encryptedName,
-    email: encryptedEmail,
-    message: encryptedMessage,
-  } = newEmail;
+  const { name: rawName, email: rawEmail, message: rawMessage } = newEmail;
 
+  let name = rawName;
+  let email = rawEmail;
+  let message = rawMessage;
   // Client-side encodes the values for a bit of extra protection with events being
-  // logged on the Ethereum blockchain, so this merely decrypts them
-  let name = encryptedName;
-  let email = encryptedEmail;
-  let message = encryptedMessage;
+  // logged on the Ethereum blockchain, so this merely decrypts them if necessary
   if (withWeb3) {
     const nameBytes = cryptojs.AES.decrypt(name, SECRET_KEY);
     name = JSON.parse(nameBytes.toString(cryptojs.enc.Utf8));
