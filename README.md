@@ -31,11 +31,14 @@ I tried to use a completely modern tech stack while testing out some new technol
   - [Vercel (main deploy)](https://vercel.com/)
   - [Fleek (IPFS deploy)](https://fleek.co/)
   - [Sentry](https://sentry.io/welcome/)
+  - [CryptoJS](https://github.com/brix/crypto-js)
 - Back-end:
   - [TypeScript](https://www.typescriptlang.org/)
   - [Express](https://expressjs.com/)
   - [Nodemailer](https://github.com/nodemailer/nodemailer)
   - [Docker](https://www.docker.com/)
+  - [Ethers.js](https://docs.ethers.io/v5/)
+  - [CryptoJS](https://github.com/brix/crypto-js)
 - Smart Contracts:
   - [Solidity](https://soliditylang.org/)
   - [TypeScript](https://www.typescriptlang.org/)
@@ -46,10 +49,11 @@ I tried to use a completely modern tech stack while testing out some new technol
 
 - Front-end:
   - `COMING SOON`™
-- ## Back-end:
+- Back-end:
   - `COMING SOON`™
 - Smart Contracts:
   - [Chai](https://www.chaijs.com/)
+  - [Mocha](https://mochajs.org/)
   - [Hardhat](https://hardhat.org/)
 
 ## ACKNOWLEDGEMENTS 🎉
