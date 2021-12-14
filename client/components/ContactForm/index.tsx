@@ -17,7 +17,7 @@ const web2DropdownContent = {
 const web3DropdownContent = {
   paragraphOne: "You discovered a cool feature. 🎉",
   paragraphTwo:
-    "Would you like the Web3 form? It requires sending messages with an Ethereum wallet.",
+    "Would you like the Web3 form? It requires an Ethereum wallet (and Rinkeby Eth, currently).",
   buttonLabel: "Yes",
 };
 
