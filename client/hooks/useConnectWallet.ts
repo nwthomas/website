@@ -82,8 +82,8 @@ export function useConnectWallet(): UseConnectWalletReturnValues {
       return ethereum.request({ method: "eth_accounts" });
     }
 
-    setIsError(true);
     setErrorMessage(errors.NO_METAMASK);
+    setIsError(true);
     return [];
   }, []);
 
@@ -101,8 +101,8 @@ export function useConnectWallet(): UseConnectWalletReturnValues {
         setIsError(true);
       }
     } else {
-      setIsError(true);
       setErrorMessage(errors.NO_METAMASK);
+      setIsError(true);
     }
   }, []);
 
@@ -183,8 +183,8 @@ export function useConnectWallet(): UseConnectWalletReturnValues {
         await sendMessageTxn.wait();
         onSuccessCallback();
       } else {
-        setIsError(true);
         setErrorMessage(errors.NO_METAMASK);
+        setIsError(true);
       }
 
       setIsMining(false);
