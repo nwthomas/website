@@ -1,15 +1,15 @@
 import * as React from "react";
 import { useRouter } from "next/router";
 import { ethers } from "ethers";
+import cryptojs from "crypto-js";
 import { CONTRACT_ADDRESS } from "../constants/contracts/address";
 import messageHub from "../constants/contracts/MessageHub.json";
 import type { MessageValues } from "../components/ContactForm";
-import cryptojs from "crypto-js";
 
 const SECRET_KEY = process.env.NEXT_PUBLIC_SECRET_KEY || "";
-const TARGETED_CHAIN = process.env.NEXT_PUBLIC_TARGETED_CHAIN;
+const TARGETED_CHAIN = process.env.NEXT_PUBLIC_TARGETED_CHAIN || "";
 
-type ChainEnum = "mainnet" | "ropsten" | "rinkeby" | "goerli" | "kovan";
+type ChainEnum = "mainnet" | "ropsten" | "rinkeby" | "goerli" | "kovan" | "";
 const chainIdToNetworkString = Object.freeze({
   "0x1": "mainnet",
   "0x3": "ropsten",
@@ -19,8 +19,11 @@ const chainIdToNetworkString = Object.freeze({
 });
 
 const errors = {
-  LOADING_WALLET: "Error loading wallet",
-  NO_METAMASK: "Please install MetaMask",
+  LOADING_WALLET: () => "Error loading wallet",
+  NO_METAMASK: () => "Please install MetaMask",
+  FALLBACK: () => "Something went wrong",
+  WRONG_CHAIN: (correctChain: string) =>
+    `Please change chain to ${correctChain}`,
 };
 
 function encryptStringValues(value: string) {
@@ -43,7 +46,6 @@ declare global {
 }
 
 type UseConnectWalletReturnValues = {
-  accounts: Array<string>;
   connectToWallet: () => void;
   currentAccount: string;
   currentChain: ChainEnum | null;
@@ -66,8 +68,9 @@ export function useConnectWallet(): UseConnectWalletReturnValues {
   const [currentChain, setCurrentChain] = React.useState<ChainEnum | null>(
     null
   );
-  const [accounts, setAccounts] = React.useState<Array<string>>([]);
-  const [errorMessage, setErrorMessage] = React.useState<string>("");
+  const [errorMessage, setErrorMessage] = React.useState<string>(
+    errors.FALLBACK()
+  );
 
   // Utility functions used inside this custom hook
   const checkIfWalletIsConnected = React.useCallback(async (): Promise<
@@ -89,13 +92,13 @@ export function useConnectWallet(): UseConnectWalletReturnValues {
 
     if (ethereum) {
       const chainId = await ethereum.request({ method: "eth_chainId" });
-      const chainIdString = chainIdToNetworkString[String(chainId)];
+      const chainIdString = chainIdToNetworkString[String(chainId)] || null;
       setCurrentChain(chainIdString);
 
-      if (chainIdString === TARGETED_CHAIN) {
-        // FINISH
-      } else {
-        // FINISH
+      if (chainIdString !== TARGETED_CHAIN) {
+        setCurrentAccount("");
+        setErrorMessage(errors.WRONG_CHAIN(TARGETED_CHAIN));
+        setIsError(true);
       }
     } else {
       setIsError(true);
@@ -115,7 +118,7 @@ export function useConnectWallet(): UseConnectWalletReturnValues {
         return {
           error: true,
           accounts: [],
-          message: errors.NO_METAMASK,
+          message: errors.NO_METAMASK(),
         };
       }
 
@@ -128,7 +131,7 @@ export function useConnectWallet(): UseConnectWalletReturnValues {
       return {
         error: true,
         accounts: [],
-        message: errors.LOADING_WALLET,
+        message: errors.LOADING_WALLET(),
       };
     }
   }, []);
@@ -136,7 +139,6 @@ export function useConnectWallet(): UseConnectWalletReturnValues {
   const handleStartConnectionAttemptToWallet = React.useCallback(() => {
     const handleConnectToWallet = async () => {
       setIsError(false);
-      setAccounts([]);
       setErrorMessage("");
 
       const result = await connectToWallet();
@@ -144,11 +146,9 @@ export function useConnectWallet(): UseConnectWalletReturnValues {
       if (!result.error && result.accounts.length) {
         setCurrentAccount(result.accounts[0]);
         setIsLoaded(true);
-        setAccounts(result.accounts);
       } else {
+        setErrorMessage(result.message);
         setIsError(true);
-        setIsLoaded(false);
-        setErrorMessage(result.message || errors.LOADING_WALLET);
       }
     };
 
@@ -199,7 +199,6 @@ export function useConnectWallet(): UseConnectWalletReturnValues {
 
       if (accounts.length) {
         setCurrentAccount(accounts[0]);
-        setAccounts(accounts);
       }
 
       setIsLoaded(true);
@@ -211,34 +210,33 @@ export function useConnectWallet(): UseConnectWalletReturnValues {
 
   // Set a series of listeners for possible wallet connection state changes
   React.useEffect(() => {
-    // Set listener to handle account changes and update account state
-    const handleAccountsChanged = (accounts: string[]) => {
-      const updatedCurrentAccoumt = accounts.length ? accounts[0] : "";
-      setCurrentAccount(updatedCurrentAccoumt);
-    };
-    window.ethereum.on("accountsChanged", handleAccountsChanged);
+    const { ethereum } = window || {};
 
-    // Set listener to handle network changes and reload page per recommendation from:
-    // https://docs.metamask.io/guide/ethereum-provider.html#chainchanged
-    const handleChainChanged = () => router.reload();
-    window.ethereum.on("chainChanged", handleChainChanged);
+    if (ethereum) {
+      // Set listener to handle account changes and update account state
+      const handleAccountsChanged = (accounts: string[]) => {
+        const updatedCurrentAccoumt = accounts.length ? accounts[0] : "";
+        setCurrentAccount(updatedCurrentAccoumt);
+      };
+      window.ethereum.on("accountsChanged", handleAccountsChanged);
 
-    // Set listener to handle NewMessage events from smart contract
-    const handleNewMessageEvent = () => {
-      // FINISH
-    };
-    window.ethereum.on("NewMessage", handleNewMessageEvent);
+      // Set listener to handle network changes and reload page per recommendation from:
+      // https://docs.metamask.io/guide/ethereum-provider.html#chainchanged
+      const handleChainChanged = () => router.reload();
+      window.ethereum.on("chainChanged", handleChainChanged);
 
-    return () => {
-      window.ethereum.removeListener("accountsChanged", handleAccountsChanged);
-      window.ethereum.removeListener("chainChanged", handleChainChanged);
-      window.ethereum.removeListener("NewMessage", handleNewMessageEvent);
-    };
+      return () => {
+        window.ethereum.removeListener(
+          "accountsChanged",
+          handleAccountsChanged
+        );
+        window.ethereum.removeListener("chainChanged", handleChainChanged);
+      };
+    }
   }, []);
 
   return {
     // State variables
-    accounts,
     currentAccount,
     currentChain,
     errorMessage,

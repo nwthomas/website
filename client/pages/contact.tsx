@@ -22,6 +22,8 @@ function Contact() {
   const {
     currentAccount,
     connectToWallet,
+    errorMessage,
+    isError,
     isLoaded,
     isMining,
     sendNewMessage,
@@ -31,6 +33,18 @@ function Contact() {
   const initialMessageValues = useSelector(
     (state: RootState) => state.contact.message
   );
+
+  React.useEffect(() => {
+    if (isError && preferredForm === WEB3_KEY) {
+      dispatch(
+        updateModalValues({
+          buttonLabel: "Okay",
+          message: errorMessage,
+          shouldShowModal: true,
+        })
+      );
+    }
+  }, [isError]);
 
   const { mutate, isLoading: isSendingEmail } = useMutation(sendMessage, {
     onSuccess: () => {
