@@ -19,14 +19,34 @@ const PAGE_NAME = "Contact";
 
 function Contact() {
   const [preferredForm, setPreferredForm] = useGetPreferredForm();
-  const { currentAccount, connectToWallet, isLoaded } = useConnectWallet();
+  const {
+    currentAccount,
+    connectToWallet,
+    errorMessage,
+    isError,
+    isLoaded,
+    isMining,
+    sendNewMessage,
+  } = useConnectWallet();
 
   const dispatch = useDispatch();
   const initialMessageValues = useSelector(
     (state: RootState) => state.contact.message
   );
 
-  const { mutate, isLoading } = useMutation(sendMessage, {
+  React.useEffect(() => {
+    if (isError && preferredForm === WEB3_KEY) {
+      dispatch(
+        updateModalValues({
+          buttonLabel: "Okay",
+          message: errorMessage,
+          shouldShowModal: true,
+        })
+      );
+    }
+  }, [isError]);
+
+  const { mutate, isLoading: isSendingEmail } = useMutation(sendMessage, {
     onSuccess: () => {
       dispatch(
         updateModalValues({
@@ -52,10 +72,11 @@ function Contact() {
     messageValues: MessageValues,
     onSuccess: () => void
   ) => {
-    if (preferredForm === WEB3_KEY) {
-      // finish for Web3
-    } else {
-      mutate(messageValues, { onSuccess });
+    switch (preferredForm) {
+      case WEB3_KEY:
+        sendNewMessage(messageValues, onSuccess);
+      default:
+        mutate(messageValues, { onSuccess });
     }
   };
 
@@ -94,7 +115,7 @@ function Contact() {
               onConnectWalletClick={connectToWallet}
               onFormChange={handleOnFormChange}
               onSendMessageClick={handleSendMessage}
-              withSpinner={isLoading}
+              withSpinner={isSendingEmail || isMining}
               withWeb3={preferredForm === WEB3_KEY}
             />
           </section>
