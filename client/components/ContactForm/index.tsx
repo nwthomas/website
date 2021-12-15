@@ -76,7 +76,7 @@ function ContactForm({
       fax: initialValues.fax,
     },
     validationSchema: Yup.object({
-      email: Yup.string().required("Required"),
+      email: Yup.string().email("Invalid email").required("Required"),
       name: Yup.string().required("Required"),
       message: Yup.string().required("Required"),
     }),
@@ -144,7 +144,7 @@ function ContactForm({
             name="email"
             onBlur={formik.handleBlur}
             onChange={handleOnFormChange}
-            placeholder="How can I reach you?"
+            placeholder="What's your email?"
             type="text"
             value={formik.values.email}
           ></input>
@@ -330,6 +330,7 @@ const RootStyles = styled.div<StyleProps>`
 
       > p {
         align-items: center;
+        background-color: ${({ theme }) => theme.colors.bodyBackground};
         bottom: 0;
         color: ${({ theme }) => theme.colors.error};
         display: flex;
