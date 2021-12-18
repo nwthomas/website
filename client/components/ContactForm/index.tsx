@@ -331,12 +331,14 @@ const RootStyles = styled.div<StyleProps>`
       > p {
         align-items: center;
         background-color: ${({ theme }) => theme.colors.bodyBackground};
+        border-radius: ${({ theme }) => theme.borderRadii.large};
         bottom: 0;
         color: ${({ theme }) => theme.colors.error};
         display: flex;
         font-size: 1.6rem;
-        height: ${({ theme }) => theme.spaces.xxLarge};
+        height: ${({ theme }) => theme.spaces.xLarge};
         margin-right: ${({ theme }) => theme.spaces.micro};
+        margin-top: ${({ theme }) => theme.spaces.small};
         padding: 0 ${({ theme }) => theme.spaces.small};
         position: absolute;
         right: 0;
