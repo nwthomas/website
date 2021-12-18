@@ -330,7 +330,10 @@ const RootStyles = styled.div<StyleProps>`
 
       > p {
         align-items: center;
-        background-color: ${({ theme }) => theme.colors.bodyBackground};
+        background: ${({ theme }) =>
+          theme.currentTheme === DARK_THEME
+            ? theme.colors.bodyBackground
+            : theme.colors.bodyBackgroundAccentThree};
         border-radius: ${({ theme }) => theme.borderRadii.large};
         bottom: 0;
         color: ${({ theme }) => theme.colors.error};
