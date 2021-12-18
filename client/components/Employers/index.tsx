@@ -19,7 +19,7 @@ function Employers({ currentTheme }: Props) {
         <h2>Soon</h2>
         <LoomLogo>
           <a
-            href="https://twitter.com/nwthomas_"
+            href="https://www.loom.com"
             aria-label="Link to Loom"
             rel="noopener noreferrer"
             target="_target"
