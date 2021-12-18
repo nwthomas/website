@@ -8,16 +8,28 @@ interface Props {
 }
 
 function Employers({ currentTheme }: Props) {
+  const loomUrl =
+    currentTheme === LIGHT_THEME ? "loom-logo.png" : "loom-logo-white.png";
   const twitterUrl =
     currentTheme === LIGHT_THEME
       ? "twitter-logo.png"
       : "twitter-logo-white.png";
 
-  const lambdaUrl =
-    currentTheme === LIGHT_THEME ? "lambda-logo.png" : "lambda-logo-white.png";
-
   return (
     <RootStyles>
+      <div>
+        <h2>Soon</h2>
+        <LoomLogo>
+          <a
+            href="https://www.loom.com"
+            aria-label="Link to Loom"
+            rel="noopener noreferrer"
+            target="_target"
+          >
+            <img src={loomUrl} alt="Loom logo" width={1000} height={1000} />
+          </a>
+        </LoomLogo>
+      </div>
       <div>
         <h2>Currently</h2>
         <TwitterLogo>
@@ -35,19 +47,6 @@ function Employers({ currentTheme }: Props) {
             />
           </a>
         </TwitterLogo>
-      </div>
-      <div>
-        <h2>Previously</h2>
-        <LambdaLogo>
-          <a
-            href="https://lambdaschool.com/"
-            aria-label="Link to Lambda School website"
-            rel="noopener noreferrer"
-            target="_target"
-          >
-            <img src={lambdaUrl} alt="Twitter logo" width={1563} height={408} />
-          </a>
-        </LambdaLogo>
       </div>
     </RootStyles>
   );
@@ -92,7 +91,7 @@ const RootStyles = styled.section`
   }
 `;
 
-const TwitterLogo = styled.div`
+const LoomLogo = styled.div`
   transition: transform ${({ theme }) => theme.transitions.medium} ease-in-out,
     opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
   width: 100px;
@@ -117,24 +116,27 @@ const TwitterLogo = styled.div`
   }
 `;
 
-const LambdaLogo = styled.div`
+const TwitterLogo = styled.div`
   transition: transform ${({ theme }) => theme.transitions.medium} ease-in-out,
     opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
-  max-width: 430px;
+  width: 100px;
+
+  @media only screen and (min-width: ${({ theme }) => theme.breakpoints.mini}) {
+    width: 130px;
+  }
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.tablet}) {
-    width: 500px;
-    max-width: none;
+    width: 150px;
   }
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.desktop}) {
-    width: 600px;
+    width: 225px;
   }
 
   &:hover {
-    opacity: ${({ theme }) => theme.opacity.opacity80};
+    opacity: ${({ theme }) => theme.opacity.opacity70};
     transform: translateY(-3px);
   }
 `;
