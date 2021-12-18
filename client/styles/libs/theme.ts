@@ -32,7 +32,7 @@ export const colors: Colors = {
   mercury: "#e2e2e2",
   mineShaft: "#333333",
   transparent: "transparent",
-  royalBlue: "#3870E0",
+  royalBlue: "#5f63ec",
   scarlet: "#FF3700",
   shark: "#27272A",
   white: "#ffffff",
