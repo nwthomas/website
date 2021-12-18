@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import { DARK_THEME } from "../../hooks/useGetPreferredTheme";
+import { LIGHT_THEME } from "../../hooks/useGetPreferredTheme";
 import type { ThemeEnum } from "../../styles/libs/theme";
 
 interface Props {
@@ -9,9 +9,11 @@ interface Props {
 
 function Employers({ currentTheme }: Props) {
   const loomUrl =
-    currentTheme === DARK_THEME ? "loom-logo-white.png" : "loom-logo.png";
+    currentTheme === LIGHT_THEME ? "loom-logo.png" : "loom-logo-white.png";
   const twitterUrl =
-    currentTheme === DARK_THEME ? "twitter-logo-white.png" : "twitter-logo.png";
+    currentTheme === LIGHT_THEME
+      ? "twitter-logo.png"
+      : "twitter-logo-white.png";
 
   return (
     <RootStyles>
