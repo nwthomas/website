@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Express, Request, Response, Next } from "express";
 import helmet from "helmet";
 import cors from "cors";
 import morgan from "morgan";
@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 import { ALLOWLIST } from "./../constants/allowlist";
 dotenv.config();
 
-function isValidDomain(req, res, next) {
+function isValidDomain(req: Request, res: Response, next: Next) {
   if (ALLOWLIST.includes(req.get("origin"))) {
     next();
   } else {
@@ -17,7 +17,7 @@ function isValidDomain(req, res, next) {
   }
 }
 
-export default (server) => {
+export default (server: Express) => {
   server.use(express.json());
   server.use(cors());
   server.use(helmet());
