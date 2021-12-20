@@ -18,14 +18,14 @@ const Home: NextPage<Props> = ({ currentTheme }) => {
         <main>
           <section>
             <h1>
-              Hey, I'm Nathan. 👋🏻 I'm a{" "}
+              Hi 👋🏻 I'm Nathan, a{" "}
               <a
                 href="https://github.com/nwthomas"
                 aria-label="Link to GitHub"
                 rel="noopener noreferrer"
                 target="_target"
               >
-                full stack software engineer
+                software engineer
               </a>
               ,{" "}
               <a
@@ -45,34 +45,40 @@ const Home: NextPage<Props> = ({ currentTheme }) => {
               >
                 teacher
               </a>
-              . I love building with Bitcoin{" "}
-              <a
-                href="https://bitcoin.org/bitcoin.pdf"
-                aria-label="Link to Bitcoin whitepaper"
-                rel="noopener noreferrer"
-                target="_target"
-              >
-                <img
-                  src="./bitcoin-logo.png"
-                  alt="Bitcoin logo"
-                  width={1440}
-                  height={1906}
-                />
-              </a>{" "}
-              and Ethereum{" "}
-              <a
-                href="https://ethereum.org/"
-                aria-label="Link to Ethereum.org"
-                rel="noopener noreferrer"
-                target="_target"
-              >
-                <img
-                  src="./eth-icon.png"
-                  alt="Ethereum logo"
-                  width={44}
-                  height={70}
-                />
-              </a>
+              . I love building with{" "}
+              <span>
+                Bitcoin{" "}
+                <a
+                  href="https://bitcoin.org/bitcoin.pdf"
+                  aria-label="Link to Bitcoin whitepaper"
+                  rel="noopener noreferrer"
+                  target="_target"
+                >
+                  <img
+                    src="./bitcoin-logo.png"
+                    alt="Bitcoin logo"
+                    width={1440}
+                    height={1906}
+                  />
+                </a>
+              </span>{" "}
+              and{" "}
+              <span>
+                Ethereum{" "}
+                <a
+                  href="https://ethereum.org/"
+                  aria-label="Link to Ethereum.org"
+                  rel="noopener noreferrer"
+                  target="_target"
+                >
+                  <img
+                    src="./eth-icon.png"
+                    alt="Ethereum logo"
+                    width={44}
+                    height={70}
+                  />
+                </a>
+              </span>
               .
             </h1>
           </section>
@@ -92,7 +98,11 @@ const RootStyles = styled.div`
 
   > main {
     max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
-    width: 100%;
+
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.tablet}) {
+      width: 100%;
+    }
 
     > section {
       display: flex;
@@ -114,7 +124,7 @@ const RootStyles = styled.div`
       > h1 {
         background: ${({ theme }) => theme.colors.transparent};
 
-        > a {
+        a {
           background-clip: text;
           -moz-background-clip: text;
           -webkit-background-clip: text;
@@ -141,7 +151,12 @@ const RootStyles = styled.div`
             `linear-gradient(120deg, ${theme.colorsHex.cornFlowerBlue} 0%, ${theme.colorsHex.electricViolet} 100%)`};
         }
 
-        > a:nth-child(4) > img {
+        > span {
+          white-space: nowrap;
+        }
+
+        > span > a:nth-child(1) > img {
+          margin-bottom: -4px;
           margin-left: -1px;
           margin-right: -1px;
           width: 18px;
@@ -157,7 +172,8 @@ const RootStyles = styled.div`
           }
         }
 
-        > a:nth-child(5) > img {
+        > span > a:nth-child(2) > img {
+          margin-bottom: -4px;
           margin-left: -1px;
           width: 16px;
 
