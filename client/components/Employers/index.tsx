@@ -57,7 +57,7 @@ const RootStyles = styled.section`
   flex-direction: column;
 
   @media only screen and (min-width: ${({ theme }) =>
-      theme.breakpoints.desktop}) {
+      theme.breakpoints.tablet}) {
     flex-direction: row;
   }
 
@@ -77,7 +77,7 @@ const RootStyles = styled.section`
 
   > div:nth-child(1) {
     margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
-    max-width: 200px;
+    max-width: 250px;
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.desktop}) {
@@ -127,7 +127,7 @@ const TwitterLogo = styled.div`
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.tablet}) {
-    width: 150px;
+    width: 182px;
   }
 
   @media only screen and (min-width: ${({ theme }) =>

@@ -66,7 +66,6 @@ function Footer() {
 }
 
 const RootStyles = styled.div`
-  align-items: flex-start;
   bottom: 0;
   display: flex;
   height: ${({ theme }) => theme.appDimensions.footerMobileHeight};
@@ -77,7 +76,6 @@ const RootStyles = styled.div`
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.tablet}) {
-    align-items: center;
     height: ${({ theme }) => theme.appDimensions.footerDesktopHeight};
   }
 
@@ -98,6 +96,7 @@ const RootStyles = styled.div`
     > div {
       display: flex;
       flex-direction: column;
+      margin-bottom: ${({ theme }) => theme.spaces.medium};
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
@@ -116,7 +115,6 @@ const RootStyles = styled.div`
 
       > a {
         cursor: pointer;
-        margin-bottom: ${({ theme }) => theme.spaces.medium};
         max-width: 180px;
         transition: opacity ${({ theme }) => theme.transitions.medium}
           ease-in-out;
@@ -124,6 +122,22 @@ const RootStyles = styled.div`
         &:hover {
           opacity: ${({ theme }) => theme.opacity.opacity70};
         }
+
+        @media only screen and (min-width: ${({ theme }) =>
+            theme.breakpoints.tablet}) {
+          margin-bottom: ${({ theme }) => theme.spaces.large};
+        }
+      }
+
+      > a:nth-child(1) {
+        margin-bottom: ${({ theme }) => theme.spaces.medium};
+      }
+    }
+
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.tablet}) {
+      > div {
+        margin-bottom: none;
       }
     }
   }

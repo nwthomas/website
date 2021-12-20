@@ -144,6 +144,10 @@ const GlobalStyle = css`
     }
   }
 
+  span {
+    font-size: inherit;
+  }
+
   li {
     list-style: circle inside;
   }
