@@ -155,10 +155,8 @@ const RootStyles = styled.div`
           white-space: nowrap;
         }
 
-        > span > a:nth-child(1) > img {
-          margin-bottom: -4px;
-          margin-left: -1px;
-          margin-right: -1px;
+        > span > a > img {
+          margin: 0 -1px -4px;
           width: 18px;
 
           @media only screen and (min-width: ${({ theme }) =>
@@ -169,22 +167,6 @@ const RootStyles = styled.div`
           @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.desktop}) {
             width: 40px;
-          }
-        }
-
-        > span > a:nth-child(2) > img {
-          margin-bottom: -4px;
-          margin-left: -1px;
-          width: 16px;
-
-          @media only screen and (min-width: ${({ theme }) =>
-              theme.breakpoints.tablet}) {
-            width: 25px;
-          }
-
-          @media only screen and (min-width: ${({ theme }) =>
-              theme.breakpoints.desktop}) {
-            width: 35px;
           }
         }
       }
