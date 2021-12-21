@@ -82,7 +82,7 @@ const Home: NextPage<Props> = ({ currentTheme }) => {
               .
             </h1>
           </section>
-          <Employers currentTheme={currentTheme} />
+          <Employers />
         </main>
       </RootStyles>
     </Layout>

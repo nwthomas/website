@@ -1,20 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
-import { LIGHT_THEME } from "../../hooks/useGetPreferredTheme";
-import type { ThemeEnum } from "../../styles/libs/theme";
 
-interface Props {
-  currentTheme: ThemeEnum;
-}
-
-function Employers({ currentTheme }: Props) {
-  const loomUrl =
-    currentTheme === LIGHT_THEME ? "loom-logo.png" : "loom-logo-white.png";
-  const twitterUrl =
-    currentTheme === LIGHT_THEME
-      ? "twitter-logo.png"
-      : "twitter-logo-white.png";
-
+function Employers() {
   return (
     <RootStyles>
       <div>
@@ -26,7 +13,12 @@ function Employers({ currentTheme }: Props) {
             rel="noopener noreferrer"
             target="_target"
           >
-            <img src={loomUrl} alt="Loom logo" width={1000} height={1000} />
+            <img
+              src="loom-logo.png"
+              alt="Loom logo"
+              width={1000}
+              height={1000}
+            />
           </a>
         </LoomLogo>
       </div>
@@ -40,7 +32,7 @@ function Employers({ currentTheme }: Props) {
             target="_target"
           >
             <img
-              src={twitterUrl}
+              src="twitter-logo.png"
               alt="Twitter logo"
               width={1140}
               height={927}
