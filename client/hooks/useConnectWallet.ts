@@ -96,8 +96,11 @@ export function useConnectWallet(): UseConnectWalletReturnValues {
       setCurrentChain(chainIdString);
 
       if (chainIdString !== TARGETED_CHAIN) {
+        const capitalizedTargetedChainName = TARGETED_CHAIN.length
+          ? TARGETED_CHAIN.charAt(0).toUpperCase() + TARGETED_CHAIN.slice(1)
+          : "";
         setCurrentAccount("");
-        setErrorMessage(errors.WRONG_CHAIN(TARGETED_CHAIN));
+        setErrorMessage(errors.WRONG_CHAIN(capitalizedTargetedChainName));
         setIsError(true);
       }
     } else {
