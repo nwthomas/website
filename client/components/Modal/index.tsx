@@ -107,6 +107,7 @@ const RootStyles = styled.div<StyleProps>`
 
     > h1 {
       margin-bottom: ${({ theme }) => theme.spaces.medium};
+      text-align: center;
     }
 
     > button {

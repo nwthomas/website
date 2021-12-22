@@ -30,7 +30,7 @@ function Work() {
               imageDimensions={{ height: 735, width: 1258 }}
               imageSrc="./super-follows.png"
               title="Twitter Super Follows"
-              url="https://techcrunch.com/2021/09/01/twitter-super-follows-monetization/"
+              url="https://blog.twitter.com/en_us/topics/product/2021/introducing-super-follows"
             />
             <WorkExample
               ariaLabel="Link to Jane Wong Tweet about the Twitter video trimmer"
