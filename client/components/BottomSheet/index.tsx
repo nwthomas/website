@@ -10,17 +10,18 @@ type Props = {
     paragraphTwo?: string;
     buttonLabel: string;
   };
+  onBackgroundClick: () => void;
   onButtonClick: () => void;
 };
 
-function Sheet({ content, onButtonClick }: Props) {
+function BottomSheet({ content, onBackgroundClick, onButtonClick }: Props) {
   const { currentTheme } = React.useContext(ThemeContext);
 
   // This hook automatically removes the scroll lock on modal unmount
   useLockBodyScroll();
 
   return (
-    <RootStyles currentTheme={currentTheme}>
+    <RootStyles currentTheme={currentTheme} onClick={onBackgroundClick}>
       <div>
         <p>{content.paragraphOne}</p>
         {content?.paragraphTwo ? <p>{content.paragraphTwo}</p> : null}
@@ -84,4 +85,4 @@ const RootStyles = styled.div<StyleProps>`
   }
 `;
 
-export default Sheet;
+export default BottomSheet;
