@@ -15,7 +15,7 @@ function Modal() {
     (state: RootState) => state.modal.buttonLabel
   );
 
-  // This hook automatically removes the lock on modal unmount
+  // This hook automatically removes the scroll lock on modal unmount
   useLockBodyScroll();
 
   const handleDismissClick = () => {
@@ -52,7 +52,7 @@ const RootStyles = styled.div<StyleProps>`
   top: 0;
   left: 0;
   right: 0;
-  z-index: 2;
+  z-index: 999;
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.tablet}) {
