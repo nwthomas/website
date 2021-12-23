@@ -114,18 +114,39 @@ const borderRadii: BorderRadii = {
   infinity: "9999px",
 };
 
+interface BreakpointsInt {
+  mini: number;
+  tablet: number;
+  desktop: number;
+  ultraWide: number;
+}
+const breakpointsInt: BreakpointsInt = {
+  mini: 400,
+  tablet: 600,
+  desktop: 1000,
+  ultraWide: 1200,
+};
 interface Breakpoints {
   mini: string;
   tablet: string;
   desktop: string;
   ultraWide: string;
 }
-const breakpoints: Breakpoints = {
-  mini: "400px",
-  tablet: "600px",
-  desktop: "1000px",
-  ultraWide: "1200px",
-};
+const breakpoints: Breakpoints = (function buildBreakpoints() {
+  // Empty strings here is done to keep TypeScript happy
+  const breakpoints = {
+    mini: "",
+    tablet: "",
+    desktop: "",
+    ultraWide: "",
+  };
+
+  for (const key in breakpointsInt) {
+    breakpoints[key] = `${breakpointsInt[key]}px`;
+  }
+
+  return breakpoints;
+})();
 
 interface Opacity {
   opacity00: number;
@@ -189,6 +210,7 @@ const transitions: Transitions = {
 export interface Theme {
   appDimensions: AppDimensions;
   breakpoints: Breakpoints;
+  breakpointsInt: BreakpointsInt;
   borderRadii: BorderRadii;
   colors: ThemeColorValues;
   colorsHex: Colors;
@@ -203,6 +225,7 @@ function makeMainTheme(currentTheme: ThemeEnum | null): Theme {
   return {
     appDimensions,
     breakpoints,
+    breakpointsInt,
     borderRadii,
     colors: themeColorValues,
     colorsHex: colors,

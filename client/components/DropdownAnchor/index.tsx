@@ -1,9 +1,11 @@
-import React, { ReactElement, SyntheticEvent } from "react";
+import * as React from "react";
+import { ThemeContext } from "styled-components";
 import Dropdown from "../Dropdown";
-// import Sheet from "../Sheet";
+import BottomSheet from "../BottomSheet";
+import { useGetScreenDimensions } from "../../hooks/useGetScreenDimensions";
 
 interface Props {
-  children: ReactElement;
+  children: React.ReactElement;
   content: {
     paragraphOne: string;
     paragraphTwo?: string;
@@ -25,12 +27,16 @@ const getDropdownCoordinates = (element: HTMLElement): DropdownCoordinates => {
 };
 
 function DropdownAnchor({ children, content, onDropdownButtonClick }: Props) {
+  const { breakpointsInt } = React.useContext(ThemeContext);
+  const { width } = useGetScreenDimensions();
   const [showDropdown, setShowDropdown] = React.useState(false);
   const [refCoords, setRefCoords] = React.useState<DropdownCoordinates | null>(
     null
   );
   const anchorRef = React.useRef<HTMLElement | null>(null);
   const dropdownRef = React.useRef<HTMLDivElement | null>(null);
+
+  const isNarrowViewport = !!(width && width < breakpointsInt.tablet);
 
   React.useEffect(() => {
     if (typeof window !== "undefined") {
@@ -79,7 +85,7 @@ function DropdownAnchor({ children, content, onDropdownButtonClick }: Props) {
     }
   }, [showDropdown]);
 
-  const handleChildElementClick = (event: SyntheticEvent) => {
+  const handleChildElementClick = (event: React.SyntheticEvent) => {
     event.preventDefault();
     event.stopPropagation();
 
@@ -96,13 +102,20 @@ function DropdownAnchor({ children, content, onDropdownButtonClick }: Props) {
     onDropdownButtonClick();
   };
 
+  const handleOnBottomSheetBackgroundClick = () => {
+    setShowDropdown(false);
+  };
+
   return (
     <React.Fragment>
       {React.cloneElement(children, {
         onClick: handleChildElementClick,
         ref: (element: HTMLElement) => (anchorRef.current = element),
       })}
-      {showDropdown && refCoords?.left && refCoords?.top ? (
+      {showDropdown &&
+      !isNarrowViewport &&
+      refCoords?.left &&
+      refCoords?.top ? (
         <Dropdown
           content={content}
           onButtonClick={handleOnDropdownButtonClick}
@@ -110,9 +123,13 @@ function DropdownAnchor({ children, content, onDropdownButtonClick }: Props) {
           styles={refCoords}
         />
       ) : null}
-      {/* {showDropdown ? (
-        <Sheet content={content} onButtonClick={handleOnDropdownButtonClick} />
-      ) : null} */}
+      {showDropdown && isNarrowViewport ? (
+        <BottomSheet
+          content={content}
+          onBackgroundClick={handleOnBottomSheetBackgroundClick}
+          onButtonClick={handleOnDropdownButtonClick}
+        />
+      ) : null}
     </React.Fragment>
   );
 }
