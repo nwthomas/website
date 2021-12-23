@@ -83,7 +83,7 @@ const RootStyles = styled.div<StyleProps>`
     border-radius: ${({ theme }) => theme.borderRadii.large};
     color: ${({ theme }) => theme.colorsHex.white};
     cursor: pointer;
-    height: ${({ theme }) => theme.spaces.large};
+    height: ${({ theme }) => theme.spaces.xLarge};
     width: 100%;
   }
 `;

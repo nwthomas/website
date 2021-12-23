@@ -19,16 +19,20 @@ function Navbar({ currentTheme, onThemeChangeClick }: Props) {
           <p>.eth</p>
         </div>
         <nav>
-          <ThemeTransitionSwitch
-            currentTheme={currentTheme}
-            onClick={onThemeChangeClick}
-          />
-          <div>
-            <Link href="/work">Work</Link>
-          </div>
-          <div>
-            <Link href="/contact">Contact</Link>
-          </div>
+          <ul>
+            <li>
+              <ThemeTransitionSwitch
+                currentTheme={currentTheme}
+                onClick={onThemeChangeClick}
+              />
+            </li>
+            <li>
+              <Link href="/work">Work</Link>
+            </li>
+            <li>
+              <Link href="/contact">Contact</Link>
+            </li>
+          </ul>
         </nav>
       </header>
     </RootStyles>
@@ -123,15 +127,20 @@ const RootStyles = styled.div<StyleProps>`
       }
     }
 
-    > nav > div {
-      align-items: center;
+    > nav > ul {
       display: flex;
-      margin-left: ${({ theme }) => theme.spaces.medium};
-      justify-content: center;
 
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.tablet}) {
-        margin-left: ${({ theme }) => theme.spaces.large};
+      > li {
+        align-items: center;
+        display: flex;
+        list-style-type: none;
+        margin-left: ${({ theme }) => theme.spaces.medium};
+        justify-content: center;
+
+        @media only screen and (min-width: ${({ theme }) =>
+            theme.breakpoints.tablet}) {
+          margin-left: ${({ theme }) => theme.spaces.large};
+        }
       }
     }
   }
