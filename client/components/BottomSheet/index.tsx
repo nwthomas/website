@@ -5,11 +5,7 @@ import { DARK_THEME } from "../../hooks/useGetPreferredTheme";
 import { ThemeEnum } from "../../styles/libs/theme";
 
 type Props = {
-  content: {
-    paragraphOne: string;
-    paragraphTwo?: string;
-    buttonLabel: string;
-  };
+  content: (onButtonClick: () => void) => React.ReactElement;
   onBackgroundClick: () => void;
   onButtonClick: () => void;
 };
@@ -22,11 +18,7 @@ function BottomSheet({ content, onBackgroundClick, onButtonClick }: Props) {
 
   return (
     <RootStyles currentTheme={currentTheme} onClick={onBackgroundClick}>
-      <div>
-        <p>{content.paragraphOne}</p>
-        {content?.paragraphTwo ? <p>{content.paragraphTwo}</p> : null}
-        <button onClick={onButtonClick}>{content.buttonLabel}</button>
-      </div>
+      {content(onButtonClick)}
     </RootStyles>
   );
 }
@@ -66,22 +58,6 @@ const RootStyles = styled.div<StyleProps>`
     padding: ${({ theme }) => theme.spaces.medium};
     position: absolute;
     width: 100%;
-
-    > p {
-      color: ${({ theme }) => theme.colorsHex.white};
-      font-size: 1.6rem;
-      margin-bottom: ${({ theme }) => theme.spaces.medium};
-    }
-
-    > button {
-      border: none;
-      background: ${({ theme }) => theme.colors.buttonSecondaryBackground};
-      border-radius: ${({ theme }) => theme.borderRadii.large};
-      color: ${({ theme }) => theme.colorsHex.white};
-      cursor: pointer;
-      height: ${({ theme }) => theme.spaces.xLarge};
-      width: 100%;
-    }
   }
 `;
 

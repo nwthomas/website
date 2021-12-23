@@ -17,7 +17,7 @@ const web2DropdownContent = {
 const web3DropdownContent = {
   paragraphOne: "You discovered a cool feature. 🎉",
   paragraphTwo:
-    "Would you like the Web3 form? It requires an Ethereum wallet (and Rinkeby Eth, currently).",
+    "Would you like the Web3 form? It requires an Ethereum wallet and ether.",
   buttonLabel: "Yes",
 };
 
@@ -90,6 +90,20 @@ function ContactForm({
     onFormChange(event.target.name, event.target.value);
   };
 
+  const ContentNode = React.useCallback(
+    (onButtonClick: () => void) => {
+      const content = withWeb3 ? web2DropdownContent : web3DropdownContent;
+      return (
+        <DropdownContent>
+          <p>{content.paragraphOne}</p>
+          {content?.paragraphTwo ? <p>{content.paragraphTwo}</p> : null}
+          <button onClick={onButtonClick}>{content.buttonLabel}</button>
+        </DropdownContent>
+      );
+    },
+    [withWeb3]
+  );
+
   return (
     <RootStyles
       currentTheme={currentTheme}
@@ -109,7 +123,7 @@ function ContactForm({
           ) : null}
           {!!process.env.NEXT_PUBLIC_WITH_WEB3 ? (
             <DropdownAnchor
-              content={withWeb3 ? web2DropdownContent : web3DropdownContent}
+              content={ContentNode}
               onDropdownButtonClick={onDropdownButtonClick}
             >
               <button>
@@ -374,6 +388,26 @@ const RootStyles = styled.div<StyleProps>`
             : theme.opacity.opacity70};
       }
     }
+  }
+`;
+
+const DropdownContent = styled.div`
+  width: 100%;
+
+  > p {
+    color: ${({ theme }) => theme.colorsHex.white};
+    font-size: 1.6rem;
+    margin-bottom: ${({ theme }) => theme.spaces.medium};
+  }
+
+  > button {
+    border: none;
+    background: ${({ theme }) => theme.colors.buttonSecondaryBackground};
+    border-radius: ${({ theme }) => theme.borderRadii.large};
+    color: ${({ theme }) => theme.colorsHex.white};
+    cursor: pointer;
+    height: ${({ theme }) => theme.spaces.large};
+    width: 100%;
   }
 `;
 

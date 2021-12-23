@@ -6,11 +6,7 @@ import { useGetScreenDimensions } from "../../hooks/useGetScreenDimensions";
 
 interface Props {
   children: React.ReactElement;
-  content: {
-    paragraphOne: string;
-    paragraphTwo?: string;
-    buttonLabel: string;
-  };
+  content: (onButtonClick: () => void) => React.ReactElement;
   onDropdownButtonClick: () => void;
 }
 
