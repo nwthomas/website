@@ -23,7 +23,7 @@ interface StyleProps {
 }
 
 const RootStyles = styled.svg<StyleProps>`
-  stroke: ${({ color }) => color};
+  fill: ${({ color }) => color};
 `;
 
 export default TwitterIcon;
