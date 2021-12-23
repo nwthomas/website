@@ -9,11 +9,7 @@ const ARROW_HEIGHT = 10;
 const ARROW_WIDTH = 20;
 
 interface Props {
-  content: {
-    paragraphOne: string;
-    paragraphTwo?: string;
-    buttonLabel: string;
-  };
+  content: (onButtonClick: () => void) => React.ReactElement;
   onButtonClick: () => void;
   styles: {
     left: number;
@@ -33,9 +29,7 @@ function Dropdown({ content, onButtonClick, rootRef, styles }: Props) {
       left={leftCSSProperty}
       top={topCSSProperty}
     >
-      <p>{content.paragraphOne}</p>
-      {content?.paragraphTwo ? <p>{content.paragraphTwo}</p> : null}
-      <button onClick={onButtonClick}>{content.buttonLabel}</button>
+      {content(onButtonClick)}
     </RootStyles>
   );
 }
@@ -70,22 +64,6 @@ const RootStyles = styled.div<StyleProps>`
   max-width: ${DROPDOWN_MAX_WIDTH}px;
   width: 100%;
   z-index: 1;
-
-  > p {
-    color: ${({ theme }) => theme.colorsHex.white};
-    font-size: 1.6rem;
-    margin-bottom: ${({ theme }) => theme.spaces.medium};
-  }
-
-  > button {
-    border: none;
-    background: ${({ theme }) => theme.colors.buttonSecondaryBackground};
-    border-radius: ${({ theme }) => theme.borderRadii.large};
-    color: ${({ theme }) => theme.colorsHex.white};
-    cursor: pointer;
-    height: ${({ theme }) => theme.spaces.xLarge};
-    width: 100%;
-  }
 `;
 
 export default Dropdown;
