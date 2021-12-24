@@ -4,8 +4,7 @@ import { useLockBodyScroll } from "../../hooks/useLockBodyScroll";
 import { useSelector, useDispatch } from "react-redux";
 import { updateModalValues } from "../../store/modalSlice";
 import { RootState } from "../../store";
-import type { ThemeEnum } from "../../styles/libs/theme";
-import { DARK_THEME } from "../../hooks/useGetPreferredTheme";
+import type { ThemeEnum } from "../../hooks/useGetPreferredTheme";
 
 function Modal() {
   const dispatch = useDispatch();
@@ -73,18 +72,9 @@ const RootStyles = styled.div<StyleProps>`
         theme.breakpoints.tablet}) {
       border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
       background: ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
-      -webkit-box-shadow: ${({ currentTheme }) =>
-        `0px 6px 19px -2px rgba(${
-          currentTheme === DARK_THEME ? "255, 255, 255" : "0, 0, 0"
-        }, 0.13)`};
-      -moz-box-shadow: ${({ currentTheme }) =>
-        `0px 6px 19px -2px rgba(${
-          currentTheme === DARK_THEME ? "255, 255, 255" : "0, 0, 0"
-        }, 0.13)`};
-      box-shadow: ${({ currentTheme }) =>
-        `0px 6px 19px -2px rgba(${
-          currentTheme === DARK_THEME ? "255, 255, 255" : "0, 0, 0"
-        }, 0.13)`};
+      -webkit-box-shadow: ${({ theme }) => theme.dropshadows.small};
+      -moz-box-shadow: ${({ theme }) => theme.dropshadows.small};
+      box-shadow: ${({ theme }) => theme.dropshadows.small};
       height: initial;
       max-width: ${({ theme }) => theme.appDimensions.modalMaxWidth};
       padding: ${({ theme }) => theme.spaces.large};

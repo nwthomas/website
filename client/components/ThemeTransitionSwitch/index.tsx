@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled, { ThemeContext } from "styled-components";
-import type { ThemeEnum } from "../../styles/libs/theme";
+import type { ThemeEnum } from "../../hooks/useGetPreferredTheme";
 import { MoonIcon as Moon, SunIcon as Sun } from "../icons";
 
 interface Props {

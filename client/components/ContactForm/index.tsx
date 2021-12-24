@@ -6,7 +6,7 @@ import { SettingsIcon } from "../icons";
 import DropdownAnchor from "../DropdownAnchor";
 import { DARK_THEME } from "../../hooks/useGetPreferredTheme";
 import Spinner from "../Spinner";
-import type { ThemeEnum } from "../../styles/libs/theme";
+import type { ThemeEnum } from "../../hooks/useGetPreferredTheme";
 
 const web2DropdownContent = {
   paragraphOne: "I get it. Sometimes the old ways are better. 🧙🏻‍♂️",
@@ -209,18 +209,9 @@ const RootStyles = styled.div<StyleProps>`
   border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
   background: ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
   padding: ${({ theme }) => theme.spaces.small};
-  -webkit-box-shadow: ${({ currentTheme }) =>
-    `0px 6px 19px -2px rgba(${
-      currentTheme === DARK_THEME ? "255, 255, 255" : "0, 0, 0"
-    }, 0.13)`};
-  -moz-box-shadow: ${({ currentTheme }) =>
-    `0px 6px 19px -2px rgba(${
-      currentTheme === DARK_THEME ? "255, 255, 255" : "0, 0, 0"
-    }, 0.13)`};
-  box-shadow: ${({ currentTheme }) =>
-    `0px 6px 19px -2px rgba(${
-      currentTheme === DARK_THEME ? "255, 255, 255" : "0, 0, 0"
-    }, 0.13)`};
+  -webkit-box-shadow: ${({ theme }) => theme.dropshadows.small};
+  -moz-box-shadow: ${({ theme }) => theme.dropshadows.small};
+  box-shadow: ${({ theme }) => theme.dropshadows.small};
   width: 100%;
 
   @media only screen and (min-width: ${({ theme }) =>

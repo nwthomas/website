@@ -1,4 +1,4 @@
-export type ThemeEnum = "dark" | "light";
+import { ThemeEnum, DARK_THEME } from "./../../hooks/useGetPreferredTheme";
 
 // ===================================== Color Assignment Variables
 // All color names pulled directly from http://chir.ag/projects/name-that-color/
@@ -148,6 +148,16 @@ const breakpoints: Breakpoints = (function buildBreakpoints() {
   return breakpoints;
 })();
 
+interface Dropshadows {
+  small: string;
+}
+type DropshadowsFunction = (currentTheme: ThemeEnum | null) => Dropshadows;
+const dropshadows: DropshadowsFunction = (currentTheme) => ({
+  small: `0px 6px 19px -2px rgba(${
+    currentTheme === DARK_THEME ? "255, 255, 255" : "0, 0, 0"
+  }, 0.13)`,
+});
+
 interface Opacity {
   opacity00: number;
   opacity10: number;
@@ -215,6 +225,7 @@ export interface Theme {
   colors: ThemeColorValues;
   colorsHex: Colors;
   currentTheme: ThemeEnum | null;
+  dropshadows: Dropshadows;
   opacity: Opacity;
   spaces: Spaces;
   transitions: Transitions;
@@ -230,6 +241,7 @@ function makeMainTheme(currentTheme: ThemeEnum | null): Theme {
     colors: themeColorValues,
     colorsHex: colors,
     currentTheme,
+    dropshadows: dropshadows(currentTheme),
     opacity,
     spaces,
     transitions,
