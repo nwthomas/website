@@ -25,7 +25,7 @@ function Contact() {
     errorMessage,
     isError,
     isLoaded,
-    isMining,
+    isSending: isSendingToSmartContract,
     sendNewMessage,
   } = useConnectWallet();
 
@@ -72,11 +72,10 @@ function Contact() {
     messageValues: MessageValues,
     onSuccess: () => void
   ) => {
-    switch (preferredForm) {
-      case WEB3_KEY:
-        sendNewMessage(messageValues, onSuccess);
-      default:
-        mutate(messageValues, { onSuccess });
+    if (preferredForm === WEB3_KEY) {
+      sendNewMessage(messageValues, onSuccess);
+    } else {
+      mutate(messageValues, { onSuccess });
     }
   };
 
@@ -115,7 +114,7 @@ function Contact() {
               onConnectWalletClick={connectToWallet}
               onFormChange={handleOnFormChange}
               onSendMessageClick={handleSendMessage}
-              withSpinner={isSendingEmail || isMining}
+              withSpinner={isSendingEmail || isSendingToSmartContract}
               withWeb3={preferredForm === WEB3_KEY}
             />
           </section>
