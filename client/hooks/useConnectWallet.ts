@@ -259,7 +259,8 @@ const sendNewMessage =
       const sendMessageTxn = await messageHubContract.sendMessage(
         finalizedEmail
       );
-      await sendMessageTxn.wait().then(onSuccessCallback);
+      await sendMessageTxn.wait();
+      onSuccessCallback();
     } catch (_) {
       onErrorMessage(errors.SENDING_MESSAGE());
       onIsError(true);
