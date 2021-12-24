@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
 import ThemeTransitionSwitch from "../ThemeTransitionSwitch";
-import { ThemeEnum } from "../../styles/libs/theme";
+import { ThemeEnum } from "../../hooks/useGetPreferredTheme";
 
 interface Props {
   currentTheme: ThemeEnum | null;

@@ -1,8 +1,7 @@
 import * as React from "react";
 import styled, { ThemeContext } from "styled-components";
 import { useLockBodyScroll } from "../../hooks/useLockBodyScroll";
-import { DARK_THEME } from "../../hooks/useGetPreferredTheme";
-import { ThemeEnum } from "../../styles/libs/theme";
+import { ThemeEnum } from "../../hooks/useGetPreferredTheme";
 
 type Props = {
   content: (onButtonClick: () => void) => React.ReactElement;
@@ -42,18 +41,9 @@ const RootStyles = styled.div<StyleProps>`
       `linear-gradient(120deg, ${theme.colorsHex.cornFlowerBlue} 0%, ${theme.colorsHex.electricViolet} 100%)`};
     border-top-left-radius: ${({ theme }) => theme.borderRadii.xxLarge};
     border-top-right-radius: ${({ theme }) => theme.borderRadii.xxLarge};
-    -webkit-box-shadow: ${({ currentTheme }) =>
-      `0px 6px 19px -2px rgba(${
-        currentTheme === DARK_THEME ? "255, 255, 255" : "0, 0, 0"
-      }, 0.13)`};
-    -moz-box-shadow: ${({ currentTheme }) =>
-      `0px 6px 19px -2px rgba(${
-        currentTheme === DARK_THEME ? "255, 255, 255" : "0, 0, 0"
-      }, 0.13)`};
-    box-shadow: ${({ currentTheme }) =>
-      `0px 6px 19px -2px rgba(${
-        currentTheme === DARK_THEME ? "255, 255, 255" : "0, 0, 0"
-      }, 0.13)`};
+    -webkit-box-shadow: ${({ theme }) => theme.dropshadows.small};
+    -moz-box-shadow: ${({ theme }) => theme.dropshadows.small};
+    box-shadow: ${({ theme }) => theme.dropshadows.small};
     bottom: 0;
     padding: ${({ theme }) => theme.spaces.medium};
     position: absolute;
