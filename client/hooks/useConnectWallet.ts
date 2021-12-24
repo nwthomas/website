@@ -18,21 +18,14 @@ const chainIdToNetworkString = Object.freeze({
   "0x2a": "kovan",
 });
 
-const errors = {
+const errors = Object.freeze({
   LOADING_WALLET: () => "Error loading wallet",
   NO_METAMASK: () => "Please install MetaMask",
   FALLBACK: () => "Something went wrong",
+  SENDING_MESSAGE: () => "Error sending message",
   WRONG_CHAIN: (correctChain: string) =>
     `Please change chain to ${correctChain}`,
-};
-
-function encryptStringValues(value: string) {
-  return cryptojs.AES.encrypt(JSON.stringify(value), SECRET_KEY).toString();
-}
-
-export function abbreviateWalletAddress(address: string) {
-  return address.slice(0, 5) + "..." + address.slice(address.length - 5);
-}
+});
 
 // This defines the window.ethereum object for TypeScript
 declare global {
@@ -52,7 +45,7 @@ type UseConnectWalletReturnValues = {
   errorMessage: string;
   isLoaded: boolean;
   isError: boolean;
-  isMining: boolean;
+  isSending: boolean;
   sendNewMessage: (
     newEmail: MessageValues,
     onSuccessCallback: () => void
@@ -61,9 +54,10 @@ type UseConnectWalletReturnValues = {
 
 export function useConnectWallet(): UseConnectWalletReturnValues {
   const router = useRouter();
+
   const [isLoaded, setIsLoaded] = React.useState<boolean>(false);
   const [isError, setIsError] = React.useState<boolean>(false);
-  const [isMining, setIsMining] = React.useState<boolean>(false);
+  const [isSending, setIsSending] = React.useState<boolean>(false);
   const [currentAccount, setCurrentAccount] = React.useState<string>("");
   const [currentChain, setCurrentChain] = React.useState<ChainEnum | null>(
     null
@@ -72,170 +66,52 @@ export function useConnectWallet(): UseConnectWalletReturnValues {
     errors.FALLBACK()
   );
 
-  // Utility functions used inside this custom hook
-  const checkIfWalletIsConnected = React.useCallback(async (): Promise<
-    Array<string>
-  > => {
-    const { ethereum } = window || {};
-
-    if (ethereum) {
-      return ethereum.request({ method: "eth_accounts" });
-    }
-
-    setErrorMessage(errors.NO_METAMASK);
-    setIsError(true);
-    return [];
-  }, []);
-
-  const checkCurrentChain = React.useCallback(async () => {
-    const { ethereum } = window || {};
-
-    if (ethereum) {
-      const chainId = await ethereum.request({ method: "eth_chainId" });
-      const chainIdString = chainIdToNetworkString[String(chainId)] || null;
-      setCurrentChain(chainIdString);
-
-      if (chainIdString !== TARGETED_CHAIN) {
-        const capitalizedTargetedChainName = TARGETED_CHAIN.length
-          ? TARGETED_CHAIN.charAt(0).toUpperCase() + TARGETED_CHAIN.slice(1)
-          : "";
-        setCurrentAccount("");
-        setErrorMessage(errors.WRONG_CHAIN(capitalizedTargetedChainName));
-        setIsError(true);
-      }
-    } else {
-      setErrorMessage(errors.NO_METAMASK);
-      setIsError(true);
-    }
-  }, []);
-
-  const connectToWallet = React.useCallback(async (): Promise<{
-    error: boolean;
-    accounts: Array<string>;
-    message: string;
-  }> => {
-    try {
-      const { ethereum } = window || {};
-
-      if (!ethereum) {
-        return {
-          error: true,
-          accounts: [],
-          message: errors.NO_METAMASK(),
-        };
-      }
-
-      const accounts = await ethereum.request({
-        method: "eth_requestAccounts",
-      });
-
-      return { error: false, accounts, message: "" };
-    } catch (error) {
-      return {
-        error: true,
-        accounts: [],
-        message: errors.LOADING_WALLET(),
-      };
-    }
-  }, []);
-
-  const handleStartConnectionAttemptToWallet = React.useCallback(() => {
-    const handleConnectToWallet = async () => {
-      setIsError(false);
-      setErrorMessage("");
-
-      const result = await connectToWallet();
-
-      if (!result.error && result.accounts.length) {
-        setCurrentAccount(result.accounts[0]);
-        setIsLoaded(true);
-      } else {
-        setErrorMessage(result.message);
-        setIsError(true);
-      }
-    };
-
-    handleConnectToWallet();
-  }, []);
-
-  const sendNewMessage = React.useCallback(
-    async (newEmail: MessageValues, onSuccessCallback: () => void) => {
-      const { ethereum } = window || {};
-      const { name, email, message, fax } = newEmail;
-
-      const finalizedEmail = {
-        name: encryptStringValues(name),
-        email: encryptStringValues(email),
-        message: encryptStringValues(message),
-        fax,
-      };
-
-      if (ethereum) {
-        setIsMining(true);
-        const provider = new ethers.providers.Web3Provider(window.ethereum);
-        const signer = provider.getSigner();
-        const messageHubContract = new ethers.Contract(
-          CONTRACT_ADDRESS,
-          messageHub.abi,
-          signer
-        );
-
-        const sendMessageTxn = await messageHubContract.sendMessage(
-          finalizedEmail
-        );
-        await sendMessageTxn.wait();
-        onSuccessCallback();
-      } else {
-        setErrorMessage(errors.NO_METAMASK);
-        setIsError(true);
-      }
-
-      setIsMining(false);
-    },
-    []
-  );
-
   // Initial setup with window.ethereum for page load
   React.useEffect(() => {
-    async function handleCheckIfWalletIsConnected() {
-      const accounts = await checkIfWalletIsConnected();
+    async function handleAsyncInitialSetup() {
+      await checkIfWalletIsConnected(
+        setIsError,
+        setErrorMessage,
+        setCurrentAccount
+      );
 
-      if (accounts.length) {
-        setCurrentAccount(accounts[0]);
-      }
+      await checkCurrentChain(
+        setIsError,
+        setErrorMessage,
+        setCurrentChain,
+        setCurrentAccount
+      );
 
       setIsLoaded(true);
     }
 
-    handleCheckIfWalletIsConnected();
-    checkCurrentChain();
+    handleAsyncInitialSetup();
   }, [currentChain]);
 
   // Set a series of listeners for possible wallet connection state changes
   React.useEffect(() => {
-    const { ethereum } = window || {};
-
-    if (ethereum) {
-      // Set listener to handle account changes and update account state
-      const handleAccountsChanged = (accounts: string[]) => {
-        const updatedCurrentAccoumt = accounts.length ? accounts[0] : "";
-        setCurrentAccount(updatedCurrentAccoumt);
-      };
-      window.ethereum.on("accountsChanged", handleAccountsChanged);
-
-      // Set listener to handle network changes and reload page per recommendation from:
-      // https://docs.metamask.io/guide/ethereum-provider.html#chainchanged
-      const handleChainChanged = () => router.reload();
-      window.ethereum.on("chainChanged", handleChainChanged);
-
-      return () => {
-        window.ethereum.removeListener(
-          "accountsChanged",
-          handleAccountsChanged
-        );
-        window.ethereum.removeListener("chainChanged", handleChainChanged);
-      };
+    if (!hasEthereumInWindow) {
+      setErrorMessage(errors.NO_METAMASK());
+      setIsError(true);
+      return;
     }
+
+    // Set listener to handle account changes and update account state
+    const handleAccountsChanged = (accounts: string[]) => {
+      const updatedCurrentAccoumt = accounts.length ? accounts[0] : "";
+      setCurrentAccount(updatedCurrentAccoumt);
+    };
+    window.ethereum.on("accountsChanged", handleAccountsChanged);
+
+    // Set listener to handle network changes and reload page per recommendation from:
+    // https://docs.metamask.io/guide/ethereum-provider.html#chainchanged
+    const handleChainChanged = () => router.reload();
+    window.ethereum.on("chainChanged", handleChainChanged);
+
+    return () => {
+      window.ethereum.removeListener("accountsChanged", handleAccountsChanged);
+      window.ethereum.removeListener("chainChanged", handleChainChanged);
+    };
   }, []);
 
   return {
@@ -245,10 +121,164 @@ export function useConnectWallet(): UseConnectWalletReturnValues {
     errorMessage,
     isLoaded,
     isError,
-    isMining,
+    isSending,
 
     // Functions
-    connectToWallet: handleStartConnectionAttemptToWallet,
-    sendNewMessage,
+    connectToWallet: connectToWallet(
+      setIsError,
+      setErrorMessage,
+      setCurrentAccount
+    ),
+    sendNewMessage: sendNewMessage(setIsError, setErrorMessage, setIsSending),
   };
+}
+
+// Check if current chain is expected chain
+const checkCurrentChain = async (
+  onIsError: (isError: boolean) => void,
+  onErrorMessage: (errorMessage: string) => void,
+  onCurrentChain: (currentChain: ChainEnum) => void,
+  onCurrentAccount: (currentAccount: string) => void
+) => {
+  onIsError(false);
+  onErrorMessage("");
+
+  if (!hasEthereumInWindow) {
+    onErrorMessage(errors.NO_METAMASK());
+    onIsError(true);
+    return;
+  }
+
+  const chainId = await window.ethereum.request({ method: "eth_chainId" });
+  const chainIdString = chainIdToNetworkString[String(chainId)] || null;
+
+  if (chainIdString !== TARGETED_CHAIN) {
+    const capitalizedTargetedChainName = TARGETED_CHAIN.length
+      ? TARGETED_CHAIN.charAt(0).toUpperCase() + TARGETED_CHAIN.slice(1)
+      : "";
+
+    onCurrentAccount("");
+    onErrorMessage(errors.WRONG_CHAIN(capitalizedTargetedChainName));
+    onIsError(true);
+  } else {
+    onCurrentChain(chainIdString);
+  }
+};
+
+// Check if wallet is connected on load of hook
+const checkIfWalletIsConnected = async (
+  onIsError: (isError: boolean) => void,
+  onErrorMessage: (errorMessage: string) => void,
+  onCurrentAccount: (currentAccount: string) => void
+) => {
+  onIsError(false);
+  onErrorMessage("");
+
+  if (!hasEthereumInWindow) {
+    onErrorMessage(errors.NO_METAMASK());
+    onIsError(true);
+    return;
+  }
+
+  const accounts = await window.ethereum.request({ method: "eth_accounts" });
+  if (accounts.length) {
+    onCurrentAccount(accounts[0]);
+  }
+};
+
+// Connect to wallet
+const connectToWallet =
+  (
+    onIsError: (isError: boolean) => void,
+    onErrorMessage: (errorMessage: string) => void,
+    onCurrentAccount: (currentAccount: string) => void
+  ) =>
+  async () => {
+    onIsError(false);
+    onErrorMessage("");
+
+    if (!hasEthereumInWindow) {
+      onErrorMessage(errors.NO_METAMASK());
+      onIsError(true);
+      return;
+    }
+
+    try {
+      const accounts = await window.ethereum.request({
+        method: "eth_requestAccounts",
+      });
+
+      if (accounts.length) {
+        onCurrentAccount(accounts[0]);
+      } else {
+        throw Error();
+      }
+    } catch (_) {
+      onErrorMessage(errors.LOADING_WALLET());
+      onIsError(true);
+    }
+  };
+
+// Send message to smart contract
+const sendNewMessage =
+  (
+    onIsError: (isError: boolean) => void,
+    onErrorMessage: (errorMessage: string) => void,
+    onIsSending: (isSending: boolean) => void
+  ) =>
+  async (newEmail: MessageValues, onSuccessCallback: () => void) => {
+    onIsError(false);
+    onErrorMessage("");
+    onIsSending(false);
+
+    if (!hasEthereumInWindow) {
+      onErrorMessage(errors.NO_METAMASK());
+      onIsError(true);
+      return;
+    }
+
+    const { name, email, message, fax } = newEmail;
+
+    const finalizedEmail = {
+      name: encryptStringValues(name),
+      email: encryptStringValues(email),
+      message: encryptStringValues(message),
+      fax,
+    };
+
+    onIsSending(true);
+    try {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+      const messageHubContract = new ethers.Contract(
+        CONTRACT_ADDRESS,
+        messageHub.abi,
+        signer
+      );
+
+      const sendMessageTxn = await messageHubContract.sendMessage(
+        finalizedEmail
+      );
+      await sendMessageTxn.wait().then(onSuccessCallback);
+    } catch (_) {
+      onErrorMessage(errors.SENDING_MESSAGE());
+      onIsError(true);
+    }
+
+    onIsSending(false);
+  };
+
+// Check if Ethereum is in window object
+function hasEthereumInWindow() {
+  return !!(typeof window !== "undefined" && window?.ethereum);
+}
+
+// Handles encryption to extra layer of privacy in event on smart contract
+function encryptStringValues(value: string) {
+  return cryptojs.AES.encrypt(JSON.stringify(value), SECRET_KEY).toString();
+}
+
+// Abbreviates the wallet address for purposes of displaying it in the user interface
+export function abbreviateWalletAddress(address: string) {
+  return address.slice(0, 5) + "..." + address.slice(address.length - 5);
 }

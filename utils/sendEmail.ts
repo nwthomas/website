@@ -38,7 +38,7 @@ export const sendEmail = async (newEmail: NewEmail, withWeb3?: boolean) => {
     },
   });
 
-  const subjectEnding = withWeb3 ? " (with blockchain)" : "";
+  const subjectEnding = withWeb3 ? " (through smart contract)" : "";
   const subject = `From ${name}${subjectEnding}`;
 
   const result = await transporter.sendMail({
