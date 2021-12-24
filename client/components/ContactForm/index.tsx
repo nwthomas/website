@@ -9,7 +9,7 @@ import Spinner from "../Spinner";
 import type { ThemeEnum } from "../../hooks/useGetPreferredTheme";
 
 const web2DropdownContent = {
-  paragraphOne: "I get it. Sometimes the old ways are better. 🧙🏻‍♂️",
+  paragraphOne: "Sometimes the old ways are better. 🧙🏻‍♂️",
   paragraphTwo: "Would you like to switch back to the Web2 form?",
   buttonLabel: "Take me back",
 };

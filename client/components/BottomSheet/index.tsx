@@ -45,7 +45,10 @@ const RootStyles = styled.div<StyleProps>`
     -moz-box-shadow: ${({ theme }) => theme.dropshadows.small};
     box-shadow: ${({ theme }) => theme.dropshadows.small};
     bottom: 0;
-    padding: ${({ theme }) => theme.spaces.medium};
+    padding-bottom: ${({ theme }) => theme.spaces.medium};
+    padding-left: ${({ theme }) => theme.appDimensions.appHorizontalGutters};
+    padding-right: ${({ theme }) => theme.appDimensions.appHorizontalGutters};
+    padding-top: ${({ theme }) => theme.spaces.medium};
     position: absolute;
     width: 100%;
   }
