@@ -90,28 +90,29 @@ export function useConnectWallet(): UseConnectWalletReturnValues {
 
   // Set a series of listeners for possible wallet connection state changes
   React.useEffect(() => {
-    if (!hasEthereumInWindow) {
-      setErrorMessage(errors.NO_METAMASK());
-      setIsError(true);
-      return;
+    const { ethereum } = window || {};
+
+    if (ethereum) {
+      // Set listener to handle account changes and update account state
+      const handleAccountsChanged = (accounts: string[]) => {
+        const updatedCurrentAccoumt = accounts.length ? accounts[0] : "";
+        setCurrentAccount(updatedCurrentAccoumt);
+      };
+      window.ethereum.on("accountsChanged", handleAccountsChanged);
+
+      // Set listener to handle network changes and reload page per recommendation from:
+      // https://docs.metamask.io/guide/ethereum-provider.html#chainchanged
+      const handleChainChanged = () => router.reload();
+      window.ethereum.on("chainChanged", handleChainChanged);
+
+      return () => {
+        window.ethereum.removeListener(
+          "accountsChanged",
+          handleAccountsChanged
+        );
+        window.ethereum.removeListener("chainChanged", handleChainChanged);
+      };
     }
-
-    // Set listener to handle account changes and update account state
-    const handleAccountsChanged = (accounts: string[]) => {
-      const updatedCurrentAccoumt = accounts.length ? accounts[0] : "";
-      setCurrentAccount(updatedCurrentAccoumt);
-    };
-    window.ethereum.on("accountsChanged", handleAccountsChanged);
-
-    // Set listener to handle network changes and reload page per recommendation from:
-    // https://docs.metamask.io/guide/ethereum-provider.html#chainchanged
-    const handleChainChanged = () => router.reload();
-    window.ethereum.on("chainChanged", handleChainChanged);
-
-    return () => {
-      window.ethereum.removeListener("accountsChanged", handleAccountsChanged);
-      window.ethereum.removeListener("chainChanged", handleChainChanged);
-    };
   }, []);
 
   return {
@@ -143,7 +144,8 @@ const checkCurrentChain = async (
   onIsError(false);
   onErrorMessage("");
 
-  if (!hasEthereumInWindow) {
+  const { ethereum } = window || {};
+  if (!ethereum) {
     onErrorMessage(errors.NO_METAMASK());
     onIsError(true);
     return;
@@ -174,13 +176,14 @@ const checkIfWalletIsConnected = async (
   onIsError(false);
   onErrorMessage("");
 
-  if (!hasEthereumInWindow) {
+  const { ethereum } = window || {};
+  if (!ethereum) {
     onErrorMessage(errors.NO_METAMASK());
     onIsError(true);
     return;
   }
 
-  const accounts = await window.ethereum.request({ method: "eth_accounts" });
+  const accounts = await ethereum.request({ method: "eth_accounts" });
   if (accounts.length) {
     onCurrentAccount(accounts[0]);
   }
@@ -197,7 +200,8 @@ const connectToWallet =
     onIsError(false);
     onErrorMessage("");
 
-    if (!hasEthereumInWindow) {
+    const { ethereum } = window || {};
+    if (!ethereum) {
       onErrorMessage(errors.NO_METAMASK());
       onIsError(true);
       return;
@@ -231,7 +235,8 @@ const sendNewMessage =
     onErrorMessage("");
     onIsSending(false);
 
-    if (!hasEthereumInWindow) {
+    const { ethereum } = window || {};
+    if (!ethereum) {
       onErrorMessage(errors.NO_METAMASK());
       onIsError(true);
       return;
@@ -268,11 +273,6 @@ const sendNewMessage =
 
     onIsSending(false);
   };
-
-// Check if Ethereum is in window object
-function hasEthereumInWindow() {
-  return !!(typeof window !== "undefined" && window?.ethereum);
-}
 
 // Handles encryption to extra layer of privacy in event on smart contract
 function encryptStringValues(value: string) {
