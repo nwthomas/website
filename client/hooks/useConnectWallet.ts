@@ -128,7 +128,8 @@ export function useConnectWallet(): UseConnectWalletReturnValues {
     connectToWallet: connectToWallet(
       setIsError,
       setErrorMessage,
-      setCurrentAccount
+      setCurrentAccount,
+      currentChain
     ),
     sendNewMessage: sendNewMessage(setIsError, setErrorMessage, setIsSending),
   };
@@ -144,10 +145,9 @@ const checkCurrentChain = async (
   onIsError(false);
   onErrorMessage("");
 
+  // Given this is checking on load of hook, don't throw a full error message
   const { ethereum } = window || {};
   if (!ethereum) {
-    onErrorMessage(errors.NO_METAMASK());
-    onIsError(true);
     return;
   }
 
@@ -176,14 +176,14 @@ const checkIfWalletIsConnected = async (
   onIsError(false);
   onErrorMessage("");
 
+  // Given this is checking on load of hook, don't throw a full error message
   const { ethereum } = window || {};
   if (!ethereum) {
-    onErrorMessage(errors.NO_METAMASK());
-    onIsError(true);
     return;
   }
 
   const accounts = await ethereum.request({ method: "eth_accounts" });
+
   if (accounts.length) {
     onCurrentAccount(accounts[0]);
   }
@@ -194,15 +194,25 @@ const connectToWallet =
   (
     onIsError: (isError: boolean) => void,
     onErrorMessage: (errorMessage: string) => void,
-    onCurrentAccount: (currentAccount: string) => void
+    onCurrentAccount: (currentAccount: string) => void,
+    currentChain: ChainEnum | null
   ) =>
   async () => {
     onIsError(false);
     onErrorMessage("");
+    onCurrentAccount("");
 
     const { ethereum } = window || {};
     if (!ethereum) {
       onErrorMessage(errors.NO_METAMASK());
+      onIsError(true);
+      return;
+    } else if (currentChain !== TARGETED_CHAIN) {
+      const capitalizedTargetedChainName = TARGETED_CHAIN.length
+        ? TARGETED_CHAIN.charAt(0).toUpperCase() + TARGETED_CHAIN.slice(1)
+        : "";
+
+      onErrorMessage(errors.WRONG_CHAIN(capitalizedTargetedChainName));
       onIsError(true);
       return;
     }
