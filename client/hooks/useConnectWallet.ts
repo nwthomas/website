@@ -46,6 +46,7 @@ type UseConnectWalletReturnValues = {
   isLoaded: boolean;
   isError: boolean;
   isSending: boolean;
+  reset: () => void;
   sendNewMessage: (
     newEmail: MessageValues,
     onSuccessCallback: () => void
@@ -115,6 +116,13 @@ export function useConnectWallet(): UseConnectWalletReturnValues {
     }
   }, []);
 
+  // Resets the hook to an initialized state
+  function reset() {
+    setCurrentAccount("");
+    setIsError(false);
+    setErrorMessage(errors.FALLBACK());
+  }
+
   return {
     // State variables
     currentAccount,
@@ -131,6 +139,7 @@ export function useConnectWallet(): UseConnectWalletReturnValues {
       setCurrentAccount,
       currentChain
     ),
+    reset,
     sendNewMessage: sendNewMessage(setIsError, setErrorMessage, setIsSending),
   };
 }
