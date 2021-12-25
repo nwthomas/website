@@ -26,6 +26,7 @@ function Contact() {
     isError,
     isLoaded,
     isSending: isSendingToSmartContract,
+    reset: resetWalletState,
     sendNewMessage,
   } = useConnectWallet();
 
@@ -97,6 +98,11 @@ function Contact() {
     }
   };
 
+  const handleSetPreferredFormClick = () => {
+    resetWalletState();
+    setPreferredForm();
+  };
+
   const abbreviatedCurrentAccountAddress = currentAccount
     ? abbreviateWalletAddress(currentAccount)
     : undefined;
@@ -124,7 +130,7 @@ function Contact() {
               currentAccount={abbreviatedCurrentAccountAddress}
               initialValues={initialMessageValues}
               isWeb3Loaded={isLoaded}
-              onDropdownButtonClick={setPreferredForm}
+              onDropdownButtonClick={handleSetPreferredFormClick}
               onConnectWalletClick={handleConnectToWalletClick}
               onFormChange={handleOnFormChange}
               onSendMessageClick={handleSendMessage}
