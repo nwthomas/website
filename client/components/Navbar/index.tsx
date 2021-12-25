@@ -9,10 +9,8 @@ interface Props {
 }
 
 function Navbar({ currentTheme, onThemeChangeClick }: Props) {
-  const isWeb3Deploy = !!process.env.NEXT_PUBLIC_WITH_WEB3;
-
   return (
-    <RootStyles isWeb3Deploy={isWeb3Deploy}>
+    <RootStyles>
       <header>
         <div>
           <Link href="/">Nathan Thomas</Link>
@@ -39,11 +37,7 @@ function Navbar({ currentTheme, onThemeChangeClick }: Props) {
   );
 }
 
-interface StyleProps {
-  isWeb3Deploy: boolean;
-}
-
-const RootStyles = styled.div<StyleProps>`
+const RootStyles = styled.div`
   display: flex;
   background: ${({ theme }) => theme.colors.bodyBackground};
   height: ${({ theme }) => theme.appDimensions.navbarMobileHeight};
