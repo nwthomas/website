@@ -35,7 +35,7 @@ function Contact() {
   );
 
   React.useEffect(() => {
-    if (isError && preferredForm === WEB3_KEY) {
+    if (preferredForm === WEB3_KEY && isError && errorMessage) {
       dispatch(
         updateModalValues({
           buttonLabel: "Okay",
@@ -44,7 +44,7 @@ function Contact() {
         })
       );
     }
-  }, [isError]);
+  }, [preferredForm, isError]);
 
   const { mutate, isLoading: isSendingEmail } = useMutation(sendMessage, {
     onSuccess: () => {
@@ -83,6 +83,20 @@ function Contact() {
     dispatch(updateMessageValues({ [key]: value }));
   };
 
+  const handleConnectToWalletClick = () => {
+    connectToWallet();
+
+    if (isError && errorMessage) {
+      dispatch(
+        updateModalValues({
+          buttonLabel: "Okay",
+          message: errorMessage,
+          shouldShowModal: true,
+        })
+      );
+    }
+  };
+
   const abbreviatedCurrentAccountAddress = currentAccount
     ? abbreviateWalletAddress(currentAccount)
     : undefined;
@@ -111,7 +125,7 @@ function Contact() {
               initialValues={initialMessageValues}
               isWeb3Loaded={isLoaded}
               onDropdownButtonClick={setPreferredForm}
-              onConnectWalletClick={connectToWallet}
+              onConnectWalletClick={handleConnectToWalletClick}
               onFormChange={handleOnFormChange}
               onSendMessageClick={handleSendMessage}
               withSpinner={isSendingEmail || isSendingToSmartContract}
