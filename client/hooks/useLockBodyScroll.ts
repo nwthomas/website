@@ -5,8 +5,6 @@ export function useLockBodyScroll() {
     if (typeof window !== "undefined") {
       const getComputedStyle = (style: string): string =>
         window.getComputedStyle(document.body)[style];
-      const viewportTopYCoord = window.scrollY;
-      const viewportBottomYCoord = viewportTopYCoord + window.innerHeight;
 
       const originalBottomStyle = getComputedStyle("bottom");
       const originalLeftStyle = getComputedStyle("left");
@@ -15,12 +13,12 @@ export function useLockBodyScroll() {
       const originalRightStyle = getComputedStyle("right");
       const originalTopStyle = getComputedStyle("top");
 
-      document.body.style.bottom = String(viewportBottomYCoord);
+      document.body.style.bottom = "0";
       document.body.style.overflow = "hidden";
       document.body.style.position = "fixed";
       document.body.style.left = "0";
       document.body.style.right = "0";
-      document.body.style.top = String(viewportTopYCoord);
+      document.body.style.top = "0";
 
       return () => {
         document.body.style.bottom = originalBottomStyle;
