@@ -200,7 +200,6 @@ const connectToWallet =
   async () => {
     onIsError(false);
     onErrorMessage("");
-    onCurrentAccount("");
 
     const { ethereum } = window || {};
     if (!ethereum) {
@@ -212,6 +211,7 @@ const connectToWallet =
         ? TARGETED_CHAIN.charAt(0).toUpperCase() + TARGETED_CHAIN.slice(1)
         : "";
 
+      onCurrentAccount("");
       onErrorMessage(errors.WRONG_CHAIN(capitalizedTargetedChainName));
       onIsError(true);
       return;
