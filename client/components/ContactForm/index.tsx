@@ -9,7 +9,7 @@ import Spinner from "../Spinner";
 import type { ThemeEnum } from "../../hooks/useGetPreferredTheme";
 
 const web2DropdownContent = {
-  paragraphOne: "Sometimes the old ways are better. 🧙🏻‍♂️",
+  paragraphOne: "I get it. Sometimes the old ways are better.",
   paragraphTwo: "Would you like to switch back to the Web2 form?",
   buttonLabel: "Take me back",
 };
@@ -18,7 +18,7 @@ const web3DropdownContent = {
   paragraphOne: "You discovered a cool feature. 🎉",
   paragraphTwo:
     "Would you like the Web3 form? It requires an Ethereum wallet and Rinkeby testnet ether.",
-  buttonLabel: "Yes",
+  buttonLabel: "Gimme",
 };
 
 const CONNECT_WALLET_LABEL = "Connect Wallet";
