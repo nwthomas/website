@@ -20,6 +20,7 @@ const PAGE_NAME = "Contact";
 function Contact() {
   const [preferredForm, setPreferredForm] = useGetPreferredForm();
   const {
+    checkIfWalletIsConnected,
     currentAccount,
     connectToWallet,
     errorMessage,
@@ -100,6 +101,7 @@ function Contact() {
 
   const handleSetPreferredFormClick = () => {
     resetWalletState();
+    checkIfWalletIsConnected();
     setPreferredForm();
   };
 
