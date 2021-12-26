@@ -45,10 +45,12 @@ const RootStyles = styled.div<StyleProps>`
     -moz-box-shadow: ${({ theme }) => theme.dropshadows.small};
     box-shadow: ${({ theme }) => theme.dropshadows.small};
     bottom: 0;
-    padding-bottom: ${({ theme }) => theme.spaces.medium};
-    padding-left: ${({ theme }) => theme.appDimensions.appHorizontalGutters};
-    padding-right: ${({ theme }) => theme.appDimensions.appHorizontalGutters};
-    padding-top: ${({ theme }) => theme.spaces.medium};
+    padding-bottom: ${({ theme }) => theme.spaces.large};
+    padding-left: ${({ theme }) =>
+      `calc(${theme.appDimensions.appHorizontalGutters} + ${theme.spaces.small})`};
+    padding-right: ${({ theme }) =>
+      `calc(${theme.appDimensions.appHorizontalGutters} + ${theme.spaces.small})`};
+    padding-top: ${({ theme }) => theme.spaces.large};
     position: absolute;
     width: 100%;
   }
