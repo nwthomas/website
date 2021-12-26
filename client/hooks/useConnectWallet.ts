@@ -197,6 +197,7 @@ const checkIfWalletIsConnected = async (
   // Given this is checking on load of hook, don't throw a full error message
   const { ethereum } = window || {};
   if (!ethereum) {
+    onIsLoaded(true);
     return;
   }
 
