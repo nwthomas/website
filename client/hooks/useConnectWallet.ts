@@ -39,6 +39,7 @@ declare global {
 }
 
 type UseConnectWalletReturnValues = {
+  checkIfWalletIsConnected: () => void;
   connectToWallet: () => void;
   currentAccount: string;
   currentChain: ChainEnum | null;
@@ -73,7 +74,8 @@ export function useConnectWallet(): UseConnectWalletReturnValues {
       await checkIfWalletIsConnected(
         setIsError,
         setErrorMessage,
-        setCurrentAccount
+        setCurrentAccount,
+        setIsLoaded
       );
 
       await checkCurrentChain(
@@ -82,8 +84,6 @@ export function useConnectWallet(): UseConnectWalletReturnValues {
         setCurrentChain,
         setCurrentAccount
       );
-
-      setIsLoaded(true);
     }
 
     handleAsyncInitialSetup();
@@ -118,6 +118,7 @@ export function useConnectWallet(): UseConnectWalletReturnValues {
 
   // Resets the hook to an initialized state
   function reset() {
+    setIsLoaded(false);
     setCurrentAccount("");
     setIsError(false);
     setErrorMessage(errors.FALLBACK());
@@ -133,6 +134,13 @@ export function useConnectWallet(): UseConnectWalletReturnValues {
     isSending,
 
     // Functions
+    checkIfWalletIsConnected: () =>
+      checkIfWalletIsConnected(
+        setIsError,
+        setErrorMessage,
+        setCurrentAccount,
+        setIsLoaded
+      ),
     connectToWallet: connectToWallet(
       setIsError,
       setErrorMessage,
@@ -180,7 +188,8 @@ const checkCurrentChain = async (
 const checkIfWalletIsConnected = async (
   onIsError: (isError: boolean) => void,
   onErrorMessage: (errorMessage: string) => void,
-  onCurrentAccount: (currentAccount: string) => void
+  onCurrentAccount: (currentAccount: string) => void,
+  onIsLoaded: (isLoaded: boolean) => void
 ) => {
   onIsError(false);
   onErrorMessage("");
@@ -196,6 +205,8 @@ const checkIfWalletIsConnected = async (
   if (accounts.length) {
     onCurrentAccount(accounts[0]);
   }
+
+  onIsLoaded(true);
 };
 
 // Connect to wallet
