@@ -7,6 +7,7 @@ import DropdownAnchor from "../DropdownAnchor";
 import { DARK_THEME } from "../../hooks/useGetPreferredTheme";
 import Spinner from "../Spinner";
 import type { ThemeEnum } from "../../hooks/useGetPreferredTheme";
+import { useGetScreenDimensions } from "../../hooks/useGetScreenDimensions";
 
 const web2DropdownContent = {
   paragraphOne: "I get it. Sometimes the old ways are better.",
@@ -61,9 +62,12 @@ function ContactForm({
   withSpinner,
   withWeb3,
 }: Props) {
-  const { colors, currentTheme } = React.useContext(ThemeContext);
+  const { breakpointsInt, colors, currentTheme } =
+    React.useContext(ThemeContext);
+  const { width } = useGetScreenDimensions();
 
   const isFormButtonDisabled = (withWeb3 && !currentAccount) || withSpinner;
+  const isNarrowViewport = !!(width && width < breakpointsInt.tablet);
 
   const formik = useFormik({
     initialValues: {
@@ -94,14 +98,14 @@ function ContactForm({
     (onButtonClick: () => void) => {
       const content = withWeb3 ? web2DropdownContent : web3DropdownContent;
       return (
-        <DropdownContent>
+        <DropdownContent isNarrowViewport={isNarrowViewport}>
           <p>{content.paragraphOne}</p>
           {content?.paragraphTwo ? <p>{content.paragraphTwo}</p> : null}
           <button onClick={onButtonClick}>{content.buttonLabel}</button>
         </DropdownContent>
       );
     },
-    [withWeb3]
+    [isNarrowViewport, withWeb3]
   );
 
   return (
@@ -362,13 +366,13 @@ const RootStyles = styled.div<StyleProps>`
       cursor: ${({ isFormButtonDisabled }) =>
         isFormButtonDisabled ? "default" : "pointer"};
       display: flex;
+      height: ${({ theme }) => theme.spaces.xLarge};
       justify-content: center;
       margin-top: ${({ theme }) => theme.spaces.nano};
       opacity: ${({ isFormButtonDisabled, theme }) =>
         isFormButtonDisabled
           ? theme.opacity.opacity50
           : theme.opacity.opacity100};
-      height: ${({ theme }) => theme.spaces.xLarge};
 
       &:hover {
         opacity: ${({ isFormButtonDisabled, theme }) =>
@@ -380,7 +384,11 @@ const RootStyles = styled.div<StyleProps>`
   }
 `;
 
-const DropdownContent = styled.div`
+type DropdownContentProps = {
+  isNarrowViewport: boolean;
+};
+
+const DropdownContent = styled.div<DropdownContentProps>`
   width: 100%;
 
   > p {
@@ -395,7 +403,8 @@ const DropdownContent = styled.div`
     border-radius: ${({ theme }) => theme.borderRadii.large};
     color: ${({ theme }) => theme.colorsHex.white};
     cursor: pointer;
-    height: ${({ theme }) => theme.spaces.large};
+    height: ${({ isNarrowViewport, theme }) =>
+      isNarrowViewport ? theme.spaces.xLarge : theme.spaces.large};
     width: 100%;
   }
 `;
