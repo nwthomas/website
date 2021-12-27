@@ -45,7 +45,8 @@ const RootStyles = styled.div<StyleProps>`
     -moz-box-shadow: ${({ theme }) => theme.dropshadows.small};
     box-shadow: ${({ theme }) => theme.dropshadows.small};
     bottom: 0;
-    padding-bottom: ${({ theme }) => theme.spaces.large};
+    margin-bottom: -200px;
+    padding-bottom: ${({ theme }) => `calc(${theme.spaces.large} + 200px)`};
     padding-left: ${({ theme }) =>
       `calc(${theme.appDimensions.appHorizontalGutters} + ${theme.spaces.small})`};
     padding-right: ${({ theme }) =>
