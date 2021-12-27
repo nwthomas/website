@@ -1,6 +1,5 @@
 import * as React from "react";
 import styled, { ThemeContext } from "styled-components";
-import { useLockBodyScroll } from "../../hooks/useLockBodyScroll";
 import { ThemeEnum } from "../../hooks/useGetPreferredTheme";
 
 type Props = {
@@ -11,9 +10,6 @@ type Props = {
 
 function BottomSheet({ content, onBackgroundClick, onButtonClick }: Props) {
   const { currentTheme } = React.useContext(ThemeContext);
-
-  // This hook automatically removes the scroll lock on modal unmount
-  useLockBodyScroll();
 
   return (
     <RootStyles currentTheme={currentTheme} onClick={onBackgroundClick}>
@@ -45,8 +41,7 @@ const RootStyles = styled.div<StyleProps>`
     -moz-box-shadow: ${({ theme }) => theme.dropshadows.small};
     box-shadow: ${({ theme }) => theme.dropshadows.small};
     bottom: 0;
-    margin-bottom: -200px;
-    padding-bottom: ${({ theme }) => `calc(${theme.spaces.large} + 200px)`};
+    padding-bottom: ${({ theme }) => theme.spaces.large};
     padding-left: ${({ theme }) =>
       `calc(${theme.appDimensions.appHorizontalGutters} + ${theme.spaces.small})`};
     padding-right: ${({ theme }) =>
