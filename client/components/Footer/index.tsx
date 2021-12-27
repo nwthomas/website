@@ -4,8 +4,8 @@ import { BabyYoda } from "../EasterEggs";
 function Footer() {
   return (
     <RootStyles>
-      <footer>
-        <ul>
+      <ul>
+        <div>
           <li>
             <a
               href="https://dev.to/nwthomas"
@@ -15,6 +15,8 @@ function Footer() {
             >
               Dev.to
             </a>
+          </li>
+          <li>
             <a
               href="https://github.com/nwthomas"
               aria-label="Link to GitHub"
@@ -24,6 +26,8 @@ function Footer() {
               Github
             </a>
           </li>
+        </div>
+        <div>
           <li>
             <a
               href="https://www.instagram.com/nwthomas/"
@@ -33,6 +37,8 @@ function Footer() {
             >
               Instagram
             </a>
+          </li>
+          <li>
             <a
               href="https://www.linkedin.com/in/nwthomas-dev/"
               aria-label="Link to LinkedIn"
@@ -42,6 +48,8 @@ function Footer() {
               LinkedIn
             </a>
           </li>
+        </div>
+        <div>
           <li>
             <a
               href="https://www.polywork.com/nwthomas"
@@ -51,6 +59,8 @@ function Footer() {
             >
               Polywork
             </a>
+          </li>
+          <li>
             <a
               href="https://twitter.com/nwthomas_"
               aria-label="Link to Twitter"
@@ -60,14 +70,14 @@ function Footer() {
               Twitter
             </a>
           </li>
-        </ul>
-      </footer>
+        </div>
+      </ul>
       <BabyYoda />
     </RootStyles>
   );
 }
 
-const RootStyles = styled.div`
+const RootStyles = styled.footer`
   bottom: 0;
   display: flex;
   height: ${({ theme }) => theme.appDimensions.footerMobileHeight};
@@ -81,48 +91,46 @@ const RootStyles = styled.div`
     height: ${({ theme }) => theme.appDimensions.footerDesktopHeight};
   }
 
-  > footer {
+  > ul {
+    align-items: flex-start;
     display: flex;
+    flex-direction: column;
+    flex: wrap;
     max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
     width: 100%;
 
-    > ul {
-      align-items: flex-start;
-      flex: wrap;
-      flex-direction: column;
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.tablet}) {
+      align-items: center;
+      flex-direction: row;
+    }
+
+    > div {
       display: flex;
-      width: 100%;
+      flex-direction: column;
+      margin-bottom: ${({ theme }) => theme.spaces.medium};
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        align-items: center;
-        flex-direction: row;
+        margin-right: ${({ theme }) => theme.spaces.jumbo};
+      }
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.desktop}) {
+        margin-right: ${({ theme }) => `calc(${theme.spaces.xxLarge} * 3)`};
+      }
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.ultraWide}) {
+        margin-right: ${({ theme }) => `calc(${theme.spaces.jumbo} * 3)`};
       }
 
       > li {
-        display: flex;
-        flex-direction: column;
+        max-width: 180px;
         list-style-type: none;
-        margin-bottom: ${({ theme }) => theme.spaces.medium};
-
-        @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.tablet}) {
-          margin-right: ${({ theme }) => theme.spaces.jumbo};
-        }
-
-        @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.desktop}) {
-          margin-right: ${({ theme }) => `calc(${theme.spaces.xxLarge} * 3)`};
-        }
-
-        @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.ultraWide}) {
-          margin-right: ${({ theme }) => `calc(${theme.spaces.jumbo} * 3)`};
-        }
 
         > a {
           cursor: pointer;
-          max-width: 180px;
           transition: opacity ${({ theme }) => theme.transitions.medium}
             ease-in-out;
 
@@ -143,7 +151,7 @@ const RootStyles = styled.div`
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        > div {
+        > li {
           margin-bottom: none;
         }
       }

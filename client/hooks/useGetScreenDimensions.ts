@@ -29,11 +29,5 @@ export const useGetScreenDimensions = (): ReturnValues => {
     }
   }, []);
 
-  const dimensions: ReturnValues = {};
-  if (height && width) {
-    dimensions.height = height;
-    dimensions.width = width;
-  }
-
-  return dimensions;
+  return height && width ? { height, width } : {};
 };
