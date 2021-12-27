@@ -19,6 +19,7 @@ const chainIdToNetworkString = Object.freeze({
 });
 
 const errors = Object.freeze({
+  DISCONNECT: () => "The session has been disconnected",
   LOADING_WALLET: () => "Error loading wallet",
   NO_METAMASK: () => "Please install MetaMask",
   FALLBACK: () => "Something went wrong",
@@ -106,12 +107,20 @@ export function useConnectWallet(): UseConnectWalletReturnValues {
       const handleChainChanged = () => router.reload();
       window.ethereum.on("chainChanged", handleChainChanged);
 
+      const handleDisconnect = () => {
+        reset();
+        setIsError(true);
+        setErrorMessage(errors.DISCONNECT());
+      };
+      window.ethereum.on("disconnect", handleDisconnect);
+
       return () => {
         window.ethereum.removeListener(
           "accountsChanged",
           handleAccountsChanged
         );
         window.ethereum.removeListener("chainChanged", handleChainChanged);
+        window.ethereum.removeListener("disconnect", handleDisconnect);
       };
     }
   }, []);
