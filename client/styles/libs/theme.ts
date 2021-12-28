@@ -17,6 +17,7 @@ interface Colors {
   royalBlue: string;
   scarlet: string;
   shark: string;
+  silver: string;
   white: string;
   woodsmoke: string;
 }
@@ -35,6 +36,7 @@ export const colors: Colors = {
   royalBlue: "#5f63ec",
   scarlet: "#FF3700",
   shark: "#27272A",
+  silver: "#cccccc",
   white: "#ffffff",
   woodsmoke: "#161618",
 };
