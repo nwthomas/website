@@ -4,7 +4,6 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { SettingsIcon } from "../icons";
 import DropdownAnchor from "../DropdownAnchor";
-import { DARK_THEME } from "../../hooks/useGetPreferredTheme";
 import Spinner from "../Spinner";
 import type { ThemeEnum } from "../../hooks/useGetPreferredTheme";
 import { useGetScreenDimensions } from "../../hooks/useGetScreenDimensions";
@@ -19,7 +18,7 @@ const web3DropdownContent = {
   paragraphOne: "You discovered a cool feature. 🎉",
   paragraphTwo:
     "Would you like the Web3 form? It requires an Ethereum wallet and Rinkeby testnet ether.",
-  buttonLabel: "Gimme",
+  buttonLabel: "Gimme it",
 };
 
 const CONNECT_WALLET_LABEL = "Connect Wallet";
@@ -294,10 +293,7 @@ const RootStyles = styled.div<StyleProps>`
     flex-direction: column;
 
     > div {
-      background: ${({ theme }) =>
-        theme.currentTheme === DARK_THEME
-          ? theme.colors.bodyBackground
-          : theme.colors.bodyBackgroundAccentThree};
+      background: ${({ theme }) => theme.colors.bodyBackground};
       border: 1px solid ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
       border-radius: ${({ theme }) => theme.borderRadii.large};
       margin-bottom: ${({ theme }) => theme.spaces.micro};
@@ -337,10 +333,7 @@ const RootStyles = styled.div<StyleProps>`
 
       > p {
         align-items: center;
-        background: ${({ theme }) =>
-          theme.currentTheme === DARK_THEME
-            ? theme.colors.bodyBackground
-            : theme.colors.bodyBackgroundAccentThree};
+        background: ${({ theme }) => theme.colors.bodyBackground};
         border-radius: ${({ theme }) => theme.borderRadii.large};
         bottom: 0;
         color: ${({ theme }) => theme.colors.error};
