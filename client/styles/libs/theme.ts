@@ -6,7 +6,6 @@ interface Colors {
   alabaster: string;
   black: string;
   bunker: string;
-  cabaret: string;
   fireBush: string;
   forestGreen: string;
   mercury: string;
@@ -18,13 +17,11 @@ interface Colors {
   shark: string;
   silver: string;
   white: string;
-  woodsmoke: string;
 }
 export const colors: Colors = {
   alabaster: "#f8f8f8f8",
   black: "#000000",
   bunker: "#0D1117",
-  cabaret: "#D9406E",
   fireBush: "#eb9c31",
   forestGreen: "#357d22",
   mercury: "#e2e2e2",
@@ -36,7 +33,6 @@ export const colors: Colors = {
   shark: "#27272A",
   silver: "#cccccc",
   white: "#ffffff",
-  woodsmoke: "#161618",
 };
 
 // ===================================== Color Theme
