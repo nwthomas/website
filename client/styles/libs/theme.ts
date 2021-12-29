@@ -150,12 +150,13 @@ const breakpoints: Breakpoints = (function buildBreakpoints() {
   return breakpoints;
 })();
 
+// A crucial tool for testing out dropshadows is: https://www.cssmatic.com/box-shadow
 interface Dropshadows {
   small: string;
 }
 type DropshadowsFunction = (currentTheme: ThemeEnum | null) => Dropshadows;
 const dropshadows: DropshadowsFunction = (currentTheme) => ({
-  small: `0px 6px 19px -2px rgba(${
+  small: `0px 2px 19px -2px rgba(${
     currentTheme === DARK_THEME ? "255, 255, 255" : "0, 0, 0"
   }, 0.13)`,
 });
