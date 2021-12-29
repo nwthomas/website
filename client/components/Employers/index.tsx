@@ -34,8 +34,8 @@ function Employers() {
             <img
               src="twitter-logo.png"
               alt="Twitter logo"
-              width={1140}
-              height={927}
+              width={1036}
+              height={834}
             />
           </a>
         </TwitterLogo>

@@ -32,7 +32,7 @@ const RootStyles = styled.main`
   width: 100%;
 
   > h2 {
-    margin-bottom: ${({ theme }) => theme.spaces.large};
+    margin-bottom: ${({ theme }) => theme.spaces.medium};
   }
 
   > div {
@@ -41,7 +41,8 @@ const RootStyles = styled.main`
 
     > a {
       background-clip: text;
-      background-image: linear-gradient(120deg, #7579ff 0%, #b224ef 100%);
+      background-image: ${({ theme }) =>
+        `linear-gradient(120deg, ${theme.colorsHex.royalBlue} 0%, ${theme.colorsHex.pictonBlue} 100%)`};
       -moz-background-clip: text;
       -webkit-background-clip: text;
       background-size: 100%;

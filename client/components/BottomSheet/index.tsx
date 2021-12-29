@@ -34,7 +34,7 @@ const RootStyles = styled.div<StyleProps>`
 
   > div {
     background-image: ${({ theme }) =>
-      `linear-gradient(120deg, ${theme.colorsHex.cornFlowerBlue} 0%, ${theme.colorsHex.electricViolet} 100%)`};
+      `linear-gradient(120deg, ${theme.colorsHex.royalBlue} 0%, ${theme.colorsHex.pictonBlue} 100%)`};
     border-top-left-radius: ${({ theme }) => theme.borderRadii.xxLarge};
     border-top-right-radius: ${({ theme }) => theme.borderRadii.xxLarge};
     -webkit-box-shadow: ${({ theme }) => theme.dropshadows.small};
