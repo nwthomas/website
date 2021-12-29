@@ -1,20 +1,54 @@
 import * as React from "react";
 
-type ReturnValues = {
-  height?: number;
-  width?: number;
+export type ScreenDimensions = {
+  viewportHeight?: number;
+  viewportWidth?: number;
+  availableHeight?: number;
+  availableWidth?: number;
 };
 
-export const useGetScreenDimensions = (): ReturnValues => {
-  const [height, setHeight] = React.useState<number | null>(null);
-  const [width, setWidth] = React.useState<number | null>(null);
+export const useGetScreenDimensions = (): ScreenDimensions => {
+  const [viewportHeight, setViewportHeight] = React.useState<
+    number | undefined
+  >(undefined);
+  const [viewportWidth, setViewportWidth] = React.useState<number | undefined>(
+    undefined
+  );
+
+  const [availableHeight, setAvailableHeight] = React.useState<
+    number | undefined
+  >(undefined);
+  const [availableWidth, setAvailableWidth] = React.useState<
+    number | undefined
+  >(undefined);
 
   const handleMeasureWindowDimensions = () => {
     if (typeof window !== "undefined") {
-      const { innerHeight, innerWidth } = window;
+      // Total width and height of viewport
+      const { innerHeight: newViewportHeight, innerWidth: newViewportWidth } =
+        window;
 
-      setHeight(innerHeight);
-      setWidth(innerWidth);
+      // Viewport - scrollbars if they exist
+      const {
+        clientHeight: newAvailableHeight,
+        clientWidth: newAvailableWidth,
+      } = document.documentElement;
+
+      if (newViewportHeight !== viewportHeight) {
+        setViewportHeight(newViewportHeight);
+      }
+
+      if (newViewportWidth !== viewportWidth) {
+        setViewportWidth(newViewportWidth);
+      }
+
+      if (newAvailableHeight !== availableHeight) {
+        setAvailableHeight(newAvailableHeight);
+      }
+
+      if (newAvailableWidth !== availableWidth) {
+        setAvailableWidth(newAvailableWidth);
+      }
     }
   };
 
@@ -29,5 +63,5 @@ export const useGetScreenDimensions = (): ReturnValues => {
     }
   }, []);
 
-  return height && width ? { height, width } : {};
+  return { viewportHeight, viewportWidth, availableHeight, availableWidth };
 };

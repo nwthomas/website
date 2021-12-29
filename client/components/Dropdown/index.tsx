@@ -4,9 +4,6 @@ import type { ThemeEnum } from "../../hooks/useGetPreferredTheme";
 
 const DROPDOWN_MAX_WIDTH = 250;
 
-const ARROW_HEIGHT = 10;
-const ARROW_WIDTH = 20;
-
 interface Props {
   content: (onButtonClick: () => void) => React.ReactElement;
   onButtonClick: () => void;
@@ -49,8 +46,8 @@ const RootStyles = styled.div<StyleProps>`
   box-shadow: ${({ theme }) => theme.dropshadows.small};
   padding: ${({ theme }) => theme.spaces.medium};
   position: absolute;
-  left: ${({ left }) => `${left - DROPDOWN_MAX_WIDTH + ARROW_WIDTH}px`};
-  top: ${({ top }) => `${top + ARROW_HEIGHT}px`};
+  left: ${({ left }) => `${left}px`};
+  top: ${({ top }) => `${top}px`};
   max-width: ${DROPDOWN_MAX_WIDTH}px;
   width: 100%;
   z-index: 1;

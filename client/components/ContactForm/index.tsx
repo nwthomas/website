@@ -11,14 +11,14 @@ import { useGetScreenDimensions } from "../../hooks/useGetScreenDimensions";
 const web2DropdownContent = {
   paragraphOne: "I get it. Sometimes the old ways are better.",
   paragraphTwo: "Would you like to switch back to the Web2 form?",
-  buttonLabel: "Take me back",
+  buttonLabel: "Go back",
 };
 
 const web3DropdownContent = {
   paragraphOne: "You discovered a cool feature. 🎉",
   paragraphTwo:
     "Would you like the Web3 form? It requires an Ethereum wallet and Rinkeby testnet ether.",
-  buttonLabel: "Gimme it",
+  buttonLabel: "Gimme",
 };
 
 const CONNECT_WALLET_LABEL = "Connect Wallet";
@@ -63,10 +63,12 @@ function ContactForm({
 }: Props) {
   const { breakpointsInt, colors, currentTheme } =
     React.useContext(ThemeContext);
-  const { width } = useGetScreenDimensions();
+  const { viewportWidth } = useGetScreenDimensions();
 
   const isFormButtonDisabled = (withWeb3 && !currentAccount) || withSpinner;
-  const isNarrowViewport = !!(width && width < breakpointsInt.tablet);
+  const isNarrowViewport = !!(
+    viewportWidth && viewportWidth < breakpointsInt.tablet
+  );
 
   const formik = useFormik({
     initialValues: {
