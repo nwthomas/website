@@ -151,7 +151,7 @@ function DropdownAnchor({ children, content, onDropdownButtonClick }: Props) {
   const shouldShowDropdown =
     showDropdown && (shouldHideVisibility || !isNarrowViewport);
   const shouldShowBottomSheet =
-    showDropdown && (!shouldHideVisibility || isNarrowViewport);
+    showDropdown && !shouldHideVisibility && isNarrowViewport;
 
   return (
     <React.Fragment>
