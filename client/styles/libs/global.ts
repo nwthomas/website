@@ -44,6 +44,12 @@ const GlobalStyle = css`
     border-radius: ${({ theme }) => theme.borderRadii.infinity};
   }
 
+  :focus {
+    outline-color: ${({ theme }) => theme.colorsHex.royalBlue};
+    outline-style: solid;
+    outline-width: ${({ theme }) => theme.spaces.nano};
+  }
+
   /* To change the colors in the colors object, go to styles/libs/theme.ts */
   body.dark {
     /* this is a test of new background color for dark mode */
@@ -54,7 +60,7 @@ const GlobalStyle = css`
     --button-primary-bg: ${colors.royalBlue};
     --button-secondary-bg: ${colors.fireBush};
     --error: ${colors.scarlet};
-    --success: ${colors.forestGreen};
+    --success: ${colors.screaminGreen};
     --text: ${colors.white};
     --transparent: ${colors.transparent};
   }
@@ -66,7 +72,7 @@ const GlobalStyle = css`
     --button-primary-bg: ${colors.royalBlue};
     --button-secondary-bg: ${colors.fireBush};
     --error: ${colors.scarlet};
-    --success: ${colors.forestGreen};
+    --success: ${colors.screaminGreen};
     --text: ${colors.mineShaft};
     --transparent: ${colors.transparent};
   }
@@ -178,7 +184,7 @@ const GlobalStyle = css`
   }
 
   button {
-    background: linear-gradient(135deg, #6699ff 0%, #ff3366 100%);
+    background-color: ${({ theme }) => theme.colorsHex.cornFlowerBlue};
     color: ${({ theme }) => theme.colors.text};
     font-size: 1.6rem;
     font-weight: bold;

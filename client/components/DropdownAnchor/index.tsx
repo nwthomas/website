@@ -239,9 +239,9 @@ function getDropdownCoordinates(
 
     // Standardized measurements for placement booleans below
     const halfAnchorNodeWidth = anchorWidth / 2;
-    const halfDropDownWidth = dropdownWidth / 2;
+    const halfDropdownWidth = dropdownWidth / 2;
     const centeredDropdownPlacementLeft =
-      anchorLeft + halfAnchorNodeWidth - halfDropDownWidth;
+      anchorLeft + halfAnchorNodeWidth - halfDropdownWidth;
 
     // Placement booleans for decisions tree
     const isPlacementBelow =
@@ -249,39 +249,26 @@ function getDropdownCoordinates(
       availableViewportHeight;
     const isPlacementAbove =
       anchorTop - DROPDOWN_VERTICAL_GAP - dropdownHeight >= 0;
-    // const isPlacementLeft =
-    //   anchorLeft + anchorWidth + DROPDOWN_HORIZONTAL_GAP >
-    //   availableViewportWidth;
-    // const isPlacementRight = anchorLeft - DROPDOWN_HORIZONTAL_GAP < 0;
+    const isPlacementLeft =
+      anchorLeft + anchorWidth + DROPDOWN_VERTICAL_GAP > availableViewportWidth;
+    const isPlacementRight = anchorLeft - DROPDOWN_VERTICAL_GAP < 0;
 
     const isPlacementLeftOffset =
       centeredDropdownPlacementLeft + dropdownWidth + DROPDOWN_HORIZONTAL_GAP >
       availableViewportWidth;
     const isPlacementRightOffset =
       centeredDropdownPlacementLeft - DROPDOWN_HORIZONTAL_GAP < 0;
-    // TODO: Build isPlacementBottomOffset and isPlacementTopOffset
 
     const belowPositionTop = anchorTop + anchorHeight + DROPDOWN_VERTICAL_GAP;
     const abovePositionTop = anchorTop - dropdownHeight - DROPDOWN_VERTICAL_GAP;
 
-    // Handle below placement and to left
-    if (isPlacementBelow && isPlacementLeftOffset) {
-      dropdownCoordinates = {
-        left: availableViewportWidth - DROPDOWN_HORIZONTAL_GAP - dropdownWidth,
-        top: belowPositionTop,
-      };
-    }
-
-    // Handle below placement and to right
-    else if (isPlacementBelow && isPlacementRightOffset) {
-      dropdownCoordinates = {
-        left: anchorLeft + anchorWidth - dropdownWidth,
-        top: belowPositionTop,
-      };
-    }
-
     // Handle above placement and to left
-    else if (isPlacementLeftOffset) {
+    if (
+      isPlacementAbove &&
+      !isPlacementBelow &&
+      !isPlacementLeft &&
+      isPlacementLeftOffset
+    ) {
       dropdownCoordinates = {
         left: availableViewportWidth - DROPDOWN_HORIZONTAL_GAP - dropdownWidth,
         top: abovePositionTop,
@@ -289,25 +276,51 @@ function getDropdownCoordinates(
     }
 
     // Handle above placement and to right
-    else if (isPlacementRightOffset) {
+    else if (
+      isPlacementAbove &&
+      !isPlacementBelow &&
+      !isPlacementRight &&
+      isPlacementRightOffset
+    ) {
       dropdownCoordinates = {
         left: anchorLeft + anchorWidth - dropdownWidth,
         top: abovePositionTop,
       };
     }
 
-    // Handle above placement centered
-    else if (isPlacementAbove && !isPlacementBelow) {
+    // Handle above centered
+    else if (
+      isPlacementAbove &&
+      !isPlacementBelow &&
+      !isPlacementLeftOffset &&
+      !isPlacementRightOffset
+    ) {
       dropdownCoordinates = {
-        left: anchorLeft + halfAnchorNodeWidth - halfDropDownWidth,
+        left: anchorLeft + halfAnchorNodeWidth - halfDropdownWidth,
         top: abovePositionTop,
       };
     }
 
-    // Fallback + handle below placement centered
+    // Handle below placement and to left
+    else if (isPlacementBelow && !isPlacementLeft && isPlacementLeftOffset) {
+      dropdownCoordinates = {
+        left: availableViewportWidth - DROPDOWN_HORIZONTAL_GAP - dropdownWidth,
+        top: belowPositionTop,
+      };
+    }
+
+    // Handle below placement and to right
+    else if (isPlacementBelow && !isPlacementRight && isPlacementRightOffset) {
+      dropdownCoordinates = {
+        left: anchorLeft + anchorWidth - dropdownWidth,
+        top: belowPositionTop,
+      };
+    }
+
+    // else fallback + below centered
     else {
       dropdownCoordinates = {
-        left: anchorLeft + halfAnchorNodeWidth - halfDropDownWidth,
+        left: anchorLeft + halfAnchorNodeWidth - halfDropdownWidth,
         top: belowPositionTop,
       };
     }
