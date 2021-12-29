@@ -26,8 +26,8 @@ function DropdownAnchor({ children, content, onDropdownButtonClick }: Props) {
 
   const screenDimensions = useGetScreenDimensions();
 
-  // These are a placeholder until mount when the node is invisibly mounted,
-  // measured, and repositioned
+  // The defaults here are a placeholder until mount when the node is invisibly
+  // mounted, measured, and repositioned
   const [refCoords, setRefCoords] = React.useState<DropdownCoordinates>({
     left: 0,
     top: 0,
@@ -148,13 +148,18 @@ function DropdownAnchor({ children, content, onDropdownButtonClick }: Props) {
     screenDimensions.viewportWidth < breakpointsInt.tablet
   );
 
+  const shouldShowDropdown =
+    showDropdown && (shouldHideVisibility || !isNarrowViewport);
+  const shouldShowBottomSheet =
+    showDropdown && (!shouldHideVisibility || isNarrowViewport);
+
   return (
     <React.Fragment>
       {React.cloneElement(children, {
         onClick: handleChildElementClick,
         ref: (element: HTMLElement) => (anchorRef.current = element),
       })}
-      {showDropdown && !isNarrowViewport ? (
+      {shouldShowDropdown ? (
         <DropdownRootStyles isVisibilityHidden={shouldHideVisibility}>
           <Dropdown
             content={content}
@@ -164,7 +169,7 @@ function DropdownAnchor({ children, content, onDropdownButtonClick }: Props) {
           />
         </DropdownRootStyles>
       ) : null}
-      {showDropdown && isNarrowViewport ? (
+      {shouldShowBottomSheet ? (
         <BottomSheet
           content={content}
           onBackgroundClick={handleOnBottomSheetBackgroundClick}

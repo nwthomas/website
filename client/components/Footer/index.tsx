@@ -108,7 +108,6 @@ const RootStyles = styled.footer`
     > div {
       display: flex;
       flex-direction: column;
-      margin-bottom: ${({ theme }) => theme.spaces.medium};
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
@@ -128,6 +127,7 @@ const RootStyles = styled.footer`
       > li {
         max-width: 180px;
         list-style-type: none;
+        margin-bottom: ${({ theme }) => theme.spaces.medium};
 
         > a {
           cursor: pointer;
