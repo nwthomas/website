@@ -47,7 +47,6 @@ const GlobalStyle = css`
   /* To change the colors in the colors object, go to styles/libs/theme.ts */
   body.dark {
     /* this is a test of new background color for dark mode */
-    /* --body-bg: ${colors.woodsmoke}; */
     --body-bg: ${colors.bunker};
     --body-bg-accent-one: ${colors.black};
     --body-bg-accent-two: ${colors.mineShaft};

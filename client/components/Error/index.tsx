@@ -8,7 +8,7 @@ interface Props {
 export default function Error({ errorCode }: Props) {
   return (
     <RootStyles>
-      <h2>{`${errorCode} 🦄 Something went wrong`}</h2>
+      <h2>{`${errorCode} 🙃 Something went wrong`}</h2>
       <div>
         <Link href="/" passHref>
           <a>Go back home</a>

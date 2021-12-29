@@ -249,10 +249,10 @@ function getDropdownCoordinates(
       availableViewportHeight;
     const isPlacementAbove =
       anchorTop - DROPDOWN_VERTICAL_GAP - dropdownHeight >= 0;
-    const isPlacementLeft =
-      anchorLeft + anchorWidth + DROPDOWN_HORIZONTAL_GAP >
-      availableViewportWidth;
-    const isPlacementRight = anchorLeft - DROPDOWN_HORIZONTAL_GAP < 0;
+    // const isPlacementLeft =
+    //   anchorLeft + anchorWidth + DROPDOWN_HORIZONTAL_GAP >
+    //   availableViewportWidth;
+    // const isPlacementRight = anchorLeft - DROPDOWN_HORIZONTAL_GAP < 0;
 
     const isPlacementLeftOffset =
       centeredDropdownPlacementLeft + dropdownWidth + DROPDOWN_HORIZONTAL_GAP >
