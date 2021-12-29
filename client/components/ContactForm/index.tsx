@@ -254,7 +254,7 @@ const RootStyles = styled.div<StyleProps>`
         }
 
         > button {
-          background: ${({ theme }) => `${theme.colorsHex.royalBlue}20`};
+          background: ${({ theme }) => `${theme.colorsHex.transparent}`};
           border: 1px solid
             ${({ theme }) => theme.colors.buttonPrimaryBackground};
           border-radius: ${({ theme }) => theme.borderRadii.xxLarge};

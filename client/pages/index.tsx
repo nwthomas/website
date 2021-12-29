@@ -39,8 +39,8 @@ const Home: NextPage = () => {
                 target="_target"
               >
                 teacher
-              </a>{" "}
-              in San Francisco. I love building with{" "}
+              </a>
+              . I love building apps and with{" "}
               <span>
                 Bitcoin{" "}
                 <a
@@ -151,7 +151,6 @@ const RootStyles = styled.div`
         }
 
         > span > a > img {
-          margin: 0 -1px -4px;
           width: 18px;
 
           @media only screen and (min-width: ${({ theme }) =>

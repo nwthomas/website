@@ -7,7 +7,7 @@ interface Colors {
   black: string;
   bunker: string;
   fireBush: string;
-  forestGreen: string;
+  screaminGreen: string;
   mercury: string;
   mineShaft: string;
   pictonBlue: string;
@@ -23,7 +23,7 @@ export const colors: Colors = {
   black: "#000000",
   bunker: "#0D1117",
   fireBush: "#eb9c31",
-  forestGreen: "#357d22",
+  screaminGreen: "#66EF3D",
   mercury: "#e2e2e2",
   mineShaft: "#333333",
   pictonBlue: "#4597EC",
@@ -34,6 +34,17 @@ export const colors: Colors = {
   silver: "#cccccc",
   white: "#ffffff",
 };
+
+// A crucial tool for testing out dropshadows is: https://www.cssmatic.com/box-shadow
+interface Dropshadows {
+  small: string;
+}
+type DropshadowsFunction = (currentTheme: ThemeEnum | null) => Dropshadows;
+const dropshadows: DropshadowsFunction = (currentTheme) => ({
+  small: `0px 2px 19px -2px rgba(${
+    currentTheme === DARK_THEME ? "255, 255, 255" : "0, 0, 0"
+  }, 0.14)`,
+});
 
 // ===================================== Color Theme
 interface ThemeColorValues {
@@ -143,17 +154,6 @@ const breakpoints: Breakpoints = (function buildBreakpoints() {
 
   return breakpoints;
 })();
-
-// A crucial tool for testing out dropshadows is: https://www.cssmatic.com/box-shadow
-interface Dropshadows {
-  small: string;
-}
-type DropshadowsFunction = (currentTheme: ThemeEnum | null) => Dropshadows;
-const dropshadows: DropshadowsFunction = (currentTheme) => ({
-  small: `0px 2px 19px -2px rgba(${
-    currentTheme === DARK_THEME ? "255, 255, 255" : "0, 0, 0"
-  }, 0.13)`,
-});
 
 interface Opacity {
   opacity00: number;
