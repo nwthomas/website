@@ -7,12 +7,11 @@ interface Colors {
   black: string;
   bunker: string;
   cabaret: string;
-  cornFlowerBlue: string;
-  electricViolet: string;
   fireBush: string;
   forestGreen: string;
   mercury: string;
   mineShaft: string;
+  pictonBlue: string;
   transparent: string;
   royalBlue: string;
   scarlet: string;
@@ -26,12 +25,11 @@ export const colors: Colors = {
   black: "#000000",
   bunker: "#0D1117",
   cabaret: "#D9406E",
-  cornFlowerBlue: "#7579ff",
-  electricViolet: "#b224ef",
   fireBush: "#eb9c31",
   forestGreen: "#357d22",
   mercury: "#e2e2e2",
   mineShaft: "#333333",
+  pictonBlue: "#4597EC",
   transparent: "transparent",
   royalBlue: "#5f63ec",
   scarlet: "#FF3700",

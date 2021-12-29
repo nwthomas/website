@@ -14,7 +14,7 @@ export default function ThemeTransitionButton({
 }: Props) {
   const theme = React.useContext(ThemeContext);
   const MoonIcon = (
-    <Moon title="Dark mode icon" color={theme.colorsHex.cornFlowerBlue} />
+    <Moon title="Dark mode icon" color={theme.colorsHex.royalBlue} />
   );
   const SunIcon = (
     <Sun title="Light mode icon" color={theme.colorsHex.fireBush} />
