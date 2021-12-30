@@ -65,8 +65,8 @@ const GlobalStyle = css`
     --transparent: ${colors.transparent};
   }
   body.light {
-    --body-bg: ${colors.white};
-    --body-bg-accent-one: ${colors.alabaster};
+    --body-bg: ${colors.alabaster};
+    --body-bg-accent-one: ${colors.white};
     --body-bg-accent-two: ${colors.mercury};
     --body-bg-accent-three: ${colors.silver};
     --button-primary-bg: ${colors.royalBlue};
