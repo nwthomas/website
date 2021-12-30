@@ -25,7 +25,7 @@ function Work() {
               url="https://github.com/nwthomas/personal-portfolio"
             />
             <WorkExample
-              ariaLabel="Link to Techcrunch article about Twitter Super Follows"
+              ariaLabel="Link to Twitter blog post about Twitter Super Follows"
               imageAlt="Macbook with screenshot of Twitter.com Super Follows on it"
               imageDimensions={{ height: 735, width: 1258 }}
               imageSrc="./super-follows.png"
@@ -39,6 +39,14 @@ function Work() {
               imageSrc="./video-trimmer.png"
               title="Twitter Video Trimmer (beta)"
               url="https://twitter.com/wongmjane/status/1418299633382559748"
+            />
+            <WorkExample
+              ariaLabel="Link to Twitter blog post about Fleets deprecation"
+              imageAlt="Macbook with screenshot of Twitter.com Fleets on it"
+              imageDimensions={{ height: 735, width: 1258 }}
+              imageSrc="./fleets.png"
+              title="Twitter Fleets (cancelled)"
+              url="https://blog.twitter.com/en_us/topics/product/2021/goodbye-fleets"
             />
           </section>
         </main>
