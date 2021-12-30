@@ -5,8 +5,8 @@ import BottomSheet from "../BottomSheet";
 import { useGetScreenDimensions } from "../../hooks/useGetScreenDimensions";
 import type { ScreenDimensions } from "../../hooks/useGetScreenDimensions";
 
-const DROPDOWN_VERTICAL_GAP = 10;
-const DROPDOWN_HORIZONTAL_GAP = 40;
+const DROPDOWN_ANCHOR_GAP = 10;
+const DROPDOWN_SCREEN_EDGE_GAP = 40;
 
 interface Props {
   children: React.ReactElement;
@@ -41,11 +41,10 @@ function DropdownAnchor({ children, content, onDropdownButtonClick }: Props) {
     width: number;
   }>({ height: 0, width: 0 });
 
-  // Measure Dropdown on mount
-  React.useEffect(() => {
+  // Measure Dropdown on mount and then set passive scroll listener to measure placement
+  function handleSetNewRefCoords() {
     if (
       typeof window !== "undefined" &&
-      shouldHideVisibility &&
       anchorRef.current &&
       dropdownRef.current &&
       screenDimensions?.availableHeight &&
@@ -60,40 +59,31 @@ function DropdownAnchor({ children, content, onDropdownButtonClick }: Props) {
         screenDimensions
       );
       setRefCoords({ left, top });
+    }
+  }
 
+  React.useEffect(() => {
+    if (shouldHideVisibility) {
+      handleSetNewRefCoords();
       setShowDropdown(false);
       setShouldHideVisibility(false);
     }
   }, [anchorRef.current, dropdownRef.current, screenDimensions]);
 
-  // Take new measurements on screen dimensions changes
   React.useEffect(() => {
-    if (
-      typeof window !== "undefined" &&
-      anchorRef.current &&
-      dropdownRef.current &&
-      screenDimensions?.availableHeight &&
-      screenDimensions?.availableWidth
-    ) {
-      const { height, width } = getHTMLNodeCoordinates(dropdownRef.current);
-      const { left, top } = getDropdownCoordinates(
-        anchorRef.current,
-        { height, width },
-        screenDimensions
-      );
-      setRefCoords({ left, top });
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", handleSetNewRefCoords, {
+        passive: true,
+      });
+
+      return () => window.removeEventListener("scroll", handleSetNewRefCoords);
     }
-  }, [
-    anchorRef.current?.offsetHeight,
-    anchorRef.current?.offsetWidth,
-    screenDimensions?.availableHeight,
-    screenDimensions?.availableWidth,
-    screenDimensions?.viewportHeight,
-    screenDimensions?.viewportWidth,
-  ]);
+  }, []);
 
   // Handle resizing of elements which may impact positioning of Dropdown
-  React.useEffect(() => {}, [
+  React.useEffect(() => {
+    handleSetNewRefCoords();
+  }, [
     dropdownMeasurements,
     screenDimensions?.availableHeight,
     screenDimensions?.availableWidth,
@@ -271,38 +261,36 @@ function getDropdownCoordinates(
 
     // Placement booleans for decisions tree
     const isPlacementBelow =
-      anchorRelativeTop +
-        anchorHeight +
-        DROPDOWN_VERTICAL_GAP +
-        dropdownHeight <=
+      anchorRelativeTop + anchorHeight + DROPDOWN_ANCHOR_GAP + dropdownHeight <=
       availableViewportHeight;
     const isPlacementAbove =
-      anchorRelativeTop - DROPDOWN_VERTICAL_GAP - dropdownHeight >= 0;
+      anchorRelativeTop - DROPDOWN_ANCHOR_GAP - dropdownHeight >= 0;
     const isPlacementLeft =
-      anchorRelativeLeft + anchorWidth + DROPDOWN_VERTICAL_GAP >
+      anchorRelativeLeft + anchorWidth + DROPDOWN_ANCHOR_GAP >
       availableViewportWidth;
-    const isPlacementRight = anchorRelativeLeft - DROPDOWN_VERTICAL_GAP < 0;
+    const isPlacementRight = anchorRelativeLeft - DROPDOWN_ANCHOR_GAP < 0;
+    console.log({ isPlacementAbove, isPlacementBelow });
 
     const isPlacementLeftOffset =
-      centeredDropdownPlacementLeft + dropdownWidth + DROPDOWN_HORIZONTAL_GAP >
+      centeredDropdownPlacementLeft + dropdownWidth + DROPDOWN_SCREEN_EDGE_GAP >
       availableViewportWidth;
     const isPlacementRightOffset =
-      centeredDropdownPlacementLeft - DROPDOWN_HORIZONTAL_GAP < 0;
+      centeredDropdownPlacementLeft - DROPDOWN_SCREEN_EDGE_GAP < 0;
     // const isPlacementBottomOffset =
     //   anchorTop +
     //     halfAnchorNodeHeight -
     //     halfDropdownHeight -
-    //     DROPDOWN_VERTICAL_GAP <
+    //     DROPDOWN_ANCHOR_GAP <
     //   0;
     // const isPlacementTopOffset =
     //   anchorTop +
     //     halfAnchorNodeHeight +
     //     halfDropdownHeight +
-    //     DROPDOWN_VERTICAL_GAP >
+    //     DROPDOWN_ANCHOR_GAP >
     //   availableViewportHeight;
 
-    const belowPositionTop = anchorTop + anchorHeight + DROPDOWN_VERTICAL_GAP;
-    const abovePositionTop = anchorTop - dropdownHeight - DROPDOWN_VERTICAL_GAP;
+    const belowPositionTop = anchorTop + anchorHeight + DROPDOWN_ANCHOR_GAP;
+    const abovePositionTop = anchorTop - dropdownHeight - DROPDOWN_ANCHOR_GAP;
 
     // Handle above placement and to left
     if (
@@ -312,7 +300,7 @@ function getDropdownCoordinates(
       isPlacementLeftOffset
     ) {
       dropdownCoordinates = {
-        left: availableViewportWidth - DROPDOWN_HORIZONTAL_GAP - dropdownWidth,
+        left: availableViewportWidth - DROPDOWN_SCREEN_EDGE_GAP - dropdownWidth,
         top: abovePositionTop,
       };
     }
@@ -346,23 +334,23 @@ function getDropdownCoordinates(
     // // Handle left placement and up
     // else if (isPlacementLeft && isPlacementTopOffset) {
     //   dropdownCoordinates = {
-    //     left: anchorLeft - dropdownWidth - DROPDOWN_VERTICAL_GAP,
-    //     top: availableViewportHeight - DROPDOWN_VERTICAL_GAP - dropdownHeight,
+    //     left: anchorLeft - dropdownWidth - DROPDOWN_ANCHOR_GAP,
+    //     top: availableViewportHeight - DROPDOWN_ANCHOR_GAP - dropdownHeight,
     //   };
     // }
 
     // // Handle right placement and down
     // else if (isPlacementLeft && isPlacementBottomOffset) {
     //   dropdownCoordinates = {
-    //     left: anchorLeft - dropdownWidth - DROPDOWN_VERTICAL_GAP,
-    //     top: DROPDOWN_VERTICAL_GAP,
+    //     left: anchorLeft - dropdownWidth - DROPDOWN_ANCHOR_GAP,
+    //     top: DROPDOWN_ANCHOR_GAP,
     //   };
     // }
 
     // // Handle right centered
     // else if (isPlacementLeft) {
     //   dropdownCoordinates = {
-    //     left: anchorLeft - dropdownWidth - DROPDOWN_VERTICAL_GAP,
+    //     left: anchorLeft - dropdownWidth - DROPDOWN_ANCHOR_GAP,
     //     top: anchorTop + halfAnchorNodeHeight - halfDropdownHeight,
     //   };
     // }
@@ -376,7 +364,7 @@ function getDropdownCoordinates(
     // Handle below placement and to left
     else if (isPlacementBelow && !isPlacementLeft && isPlacementLeftOffset) {
       dropdownCoordinates = {
-        left: availableViewportWidth - DROPDOWN_HORIZONTAL_GAP - dropdownWidth,
+        left: availableViewportWidth - DROPDOWN_SCREEN_EDGE_GAP - dropdownWidth,
         top: belowPositionTop,
       };
     }
