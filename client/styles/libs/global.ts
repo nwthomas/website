@@ -67,8 +67,8 @@ const GlobalStyle = css`
   body.light {
     --body-bg: ${colors.alabaster};
     --body-bg-accent-one: ${colors.white};
-    --body-bg-accent-two: ${colors.mercury};
-    --body-bg-accent-three: ${colors.silver};
+    --body-bg-accent-two: ${colors.silver};
+    --body-bg-accent-three: ${colors.mercury};
     --button-primary-bg: ${colors.royalBlue};
     --button-secondary-bg: ${colors.fireBush};
     --error: ${colors.scarlet};
