@@ -56,11 +56,10 @@ const RootStyles = styled.div`
   > button {
     background: none;
     border: none;
-    display: flex;
     color: inherit;
     cursor: pointer;
-    flex-shrink: 1;
     font: inherit;
+    height: 40px;
     padding: 0;
     width: 30px;
   }
