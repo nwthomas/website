@@ -269,7 +269,6 @@ function getDropdownCoordinates(
       anchorRelativeLeft + anchorWidth + DROPDOWN_ANCHOR_GAP >
       availableViewportWidth;
     const isPlacementRight = anchorRelativeLeft - DROPDOWN_ANCHOR_GAP < 0;
-    console.log({ isPlacementAbove, isPlacementBelow });
 
     const isPlacementLeftOffset =
       centeredDropdownPlacementLeft + dropdownWidth + DROPDOWN_SCREEN_EDGE_GAP >
