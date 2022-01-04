@@ -5,7 +5,7 @@ function Employers() {
   return (
     <RootStyles>
       <div>
-        <h2>Soon</h2>
+        <h2>Currently</h2>
         <LoomLogo>
           <a
             href="https://www.loom.com"
@@ -23,7 +23,7 @@ function Employers() {
         </LoomLogo>
       </div>
       <div>
-        <h2>Currently</h2>
+        <h2>Previously</h2>
         <TwitterLogo>
           <a
             href="https://twitter.com/nwthomas_"
