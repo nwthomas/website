@@ -45,7 +45,7 @@ function Work() {
               imageAlt="Macbook with screenshot of Twitter.com Fleets on it"
               imageDimensions={{ height: 735, width: 1258 }}
               imageSrc="./fleets.png"
-              title="Twitter Fleets (deprecated)"
+              title="Twitter Fleets (cancelled)"
               url="https://blog.twitter.com/en_us/topics/product/2021/goodbye-fleets"
             />
           </section>

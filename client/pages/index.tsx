@@ -39,8 +39,8 @@ const Home: NextPage = () => {
                 target="_target"
               >
                 teacher
-              </a>{" "}
-              in San Francisco. I love building with{" "}
+              </a>
+              . I build stuff and also love{" "}
               <span>
                 Bitcoin{" "}
                 <a
