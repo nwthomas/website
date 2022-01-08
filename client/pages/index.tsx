@@ -104,12 +104,7 @@ const RootStyles = styled.div`
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        margin-top: ${({ theme }) => theme.spaces.large};
-      }
-
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.desktop}) {
-        margin-top: ${({ theme }) => theme.spaces.jumbo};
+        margin-top: ${({ theme }) => theme.spaces.xxLarge};
       }
 
       > div:nth-child(1) {
@@ -125,8 +120,7 @@ const RootStyles = styled.div`
           -webkit-background-clip: text;
           background-size: 100%;
           font-size: inherit;
-          padding-bottom: ${({ theme }) => theme.spaces.micro};
-          padding-top: ${({ theme }) => theme.spaces.micro};
+          padding: ${({ theme }) => `${theme.spaces.micro} 0`};
           -moz-text-fill-color: transparent;
           -webkit-text-fill-color: transparent;
         }
@@ -167,35 +161,11 @@ const RootStyles = styled.div`
     }
 
     > section:nth-child(1) {
-      margin-bottom: ${({ theme }) =>
-        `calc(${theme.appDimensions.navbarMobileHeight} / 2)`};
+      margin-bottom: ${({ theme }) => theme.spaces.large};
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        margin-bottom: ${({ theme }) =>
-          `calc(${theme.spaces.large} + ${theme.appDimensions.navbarDesktopHeight} / 2)`};
-      }
-
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.desktop}) {
-        margin-bottom: ${({ theme }) =>
-          `calc(${theme.spaces.jumbo} + ${theme.appDimensions.navbarDesktopHeight} / 2)`};
-      }
-    }
-
-    > section:nth-child(2) {
-      margin-bottom: ${({ theme }) =>
-        `calc(${theme.appDimensions.navbarMobileHeight} / 2)`};
-
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.tablet}) {
-        margin-bottom: ${({ theme }) =>
-          `calc(${theme.spaces.large} + ${theme.appDimensions.navbarDesktopHeight} / 2)`};
-      }
-
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.desktop}) {
-        margin-bottom: ${({ theme }) => theme.spaces.jumbo};
+        margin-bottom: ${({ theme }) => `calc(${theme.spaces.xxLarge} * 2)`};
       }
     }
   }

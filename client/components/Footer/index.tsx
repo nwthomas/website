@@ -80,16 +80,10 @@ function Footer() {
 const RootStyles = styled.footer`
   bottom: 0;
   display: flex;
-  height: ${({ theme }) => theme.appDimensions.footerMobileHeight};
   justify-content: center;
   position: absolute;
   padding: 0 ${({ theme }) => theme.appDimensions.appHorizontalGutters};
   width: 100%;
-
-  @media only screen and (min-width: ${({ theme }) =>
-      theme.breakpoints.tablet}) {
-    height: ${({ theme }) => theme.appDimensions.footerDesktopHeight};
-  }
 
   > ul {
     align-items: flex-start;
@@ -97,12 +91,13 @@ const RootStyles = styled.footer`
     flex-direction: column;
     flex: wrap;
     max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
+    margin-bottom: ${({ theme }) => theme.spaces.large};
     width: 100%;
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
-      align-items: center;
       flex-direction: row;
+      margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
     }
 
     > div {
@@ -125,9 +120,8 @@ const RootStyles = styled.footer`
       }
 
       > li {
-        max-width: 180px;
-        list-style-type: none;
         margin-bottom: ${({ theme }) => theme.spaces.medium};
+        list-style-type: none;
 
         > a {
           cursor: pointer;
@@ -154,7 +148,15 @@ const RootStyles = styled.footer`
         > li {
           margin-bottom: none;
         }
+
+        > li:last-child {
+          margin-bottom: 0;
+        }
       }
+    }
+
+    > div:last-child > li:last-child {
+      margin-bottom: 0;
     }
   }
 `;

@@ -39,8 +39,7 @@ function Navbar({ currentTheme, onThemeChangeClick }: Props) {
 
 const RootStyles = styled.div`
   display: flex;
-  background: ${({ theme }) => theme.colors.bodyBackground};
-  height: ${({ theme }) => theme.appDimensions.navbarMobileHeight};
+  background: ${({ theme }) => theme.colors.transparent};
   left: 0;
   padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
   position: absolute;
@@ -50,22 +49,18 @@ const RootStyles = styled.div`
   width: 100%;
   z-index: 1;
 
-  @media only screen and (min-width: ${({ theme }) =>
-      theme.breakpoints.tablet}) {
-    height: ${({ theme }) => theme.appDimensions.navbarDesktopHeight};
-  }
-
   > header {
+    background: ${({ theme }) => theme.colors.bodyBackground};
     align-items: center;
     display: flex;
-    height: ${({ theme }) => theme.appDimensions.navbarMobileHeight};
     justify-content: space-between;
     max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
+    padding: ${({ theme }) => `${theme.spaces.large} 0`};
     width: 100%;
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
-      height: ${({ theme }) => theme.appDimensions.navbarDesktopHeight};
+      padding: ${({ theme }) => `${theme.spaces.xxLarge} 0`};
     }
 
     > div {
@@ -103,13 +98,7 @@ const RootStyles = styled.div`
     nav {
       align-items: center;
       display: flex;
-      height: ${({ theme }) => theme.appDimensions.navbarMobileHeight};
       justify-content: center;
-
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.tablet}) {
-        height: ${({ theme }) => theme.appDimensions.navbarDesktopHeight};
-      }
 
       a {
         transition: opacity ${({ theme }) => theme.transitions.medium}

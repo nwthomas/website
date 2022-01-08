@@ -92,11 +92,11 @@ export const appDimensions: AppDimensions = {
   appMinHeight: "100vh",
   articleHeroImageMaxWidth: "1200px",
   articleMaxWidth: "600px",
-  footerDesktopHeight: "200px",
-  footerMobileHeight: "260px",
+  footerDesktopHeight: "178px",
+  footerMobileHeight: "283px",
   modalMaxWidth: "600px",
-  navbarDesktopHeight: "200px",
-  navbarMobileHeight: "150px",
+  navbarDesktopHeight: "183px",
+  navbarMobileHeight: "122px",
   navbarLinkWidth: "120px",
 };
 
@@ -133,6 +133,7 @@ const breakpointsInt: BreakpointsInt = {
   desktop: 1000,
   ultraWide: 1200,
 };
+
 interface Breakpoints {
   mini: string;
   tablet: string;
@@ -140,7 +141,7 @@ interface Breakpoints {
   ultraWide: string;
 }
 const breakpoints: Breakpoints = (function buildBreakpoints() {
-  // Empty strings here is done to keep TypeScript happy
+  // Empty strings here are to keep TypeScript happy prior to assignment
   const breakpoints = {
     mini: "",
     tablet: "",
@@ -185,6 +186,8 @@ const opacity: Opacity = {
 interface Spaces {
   nano: string;
   micro: string;
+  xxSmall: string;
+  xSmall: string;
   small: string;
   medium: string;
   large: string;
@@ -194,7 +197,9 @@ interface Spaces {
 }
 const spaces: Spaces = {
   nano: "2px",
-  micro: "5px",
+  micro: "4px",
+  xxSmall: "6px",
+  xSmall: "8px",
   small: "10px",
   medium: "20px",
   large: "40px",
