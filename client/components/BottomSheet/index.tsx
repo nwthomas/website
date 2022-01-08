@@ -42,10 +42,8 @@ const RootStyles = styled.div<StyleProps>`
     box-shadow: ${({ theme }) => theme.dropshadows.small};
     bottom: 0;
     padding-bottom: ${({ theme }) => theme.spaces.large};
-    padding-left: ${({ theme }) =>
-      `calc(${theme.appDimensions.appHorizontalGutters} + ${theme.spaces.small})`};
-    padding-right: ${({ theme }) =>
-      `calc(${theme.appDimensions.appHorizontalGutters} + ${theme.spaces.small})`};
+    padding-left: ${({ theme }) => theme.appDimensions.appHorizontalGutters};
+    padding-right: ${({ theme }) => theme.appDimensions.appHorizontalGutters};
     padding-top: ${({ theme }) => theme.spaces.large};
     position: absolute;
     width: 100%;

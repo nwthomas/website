@@ -37,17 +37,11 @@ const RootStyles = styled.div`
   background: ${({ theme }) => theme.colors.transparent};
   cursor: pointer;
   display: flex;
-  height: ${({ theme }) => theme.appDimensions.navbarMobileHeight};
   justify-content: flex-end;
   text-decoration: none;
   transition: opacity ${({ theme }) => theme.transitions.medium} ease-in-out,
     transform ${({ theme }) => theme.transitions.medium} ease-in-out;
   width: 100%;
-
-  @media only screen and (min-width: ${({ theme }) =>
-      theme.breakpoints.tablet}) {
-    height: ${({ theme }) => theme.appDimensions.navbarDesktopHeight};
-  }
 
   &:hover {
     opacity: ${({ theme }) => theme.opacity.opacity90};

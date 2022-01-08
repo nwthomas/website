@@ -44,13 +44,15 @@ function Employers() {
   );
 }
 
-const RootStyles = styled.section`
+const RootStyles = styled.div`
   display: flex;
   flex-direction: column;
+  margin-bottom: ${({ theme }) => theme.spaces.large};
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.tablet}) {
     flex-direction: row;
+    margin-bottom: ${({ theme }) => `calc(${theme.spaces.xxLarge} * 2)`};
   }
 
   h2 {
@@ -60,25 +62,22 @@ const RootStyles = styled.section`
         theme.breakpoints.tablet}) {
       margin-bottom: ${({ theme }) => theme.spaces.large};
     }
-
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.desktop}) {
-      margin-bottom: ${({ theme }) => theme.spaces.xLarge};
-    }
   }
 
   > div:nth-child(1) {
-    margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
+    margin-bottom: ${({ theme }) => theme.spaces.large};
     max-width: 250px;
 
     @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.desktop}) {
+        theme.breakpoints.tablet}) {
+      margin-bottom: 0;
+      margin-right: 150px;
       max-width: 315px;
     }
 
     @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.ultraWide}) {
-      max-width: none;
+        theme.breakpoints.desktop}) {
+      margin-right: 220px;
     }
   }
 `;
@@ -86,11 +85,7 @@ const RootStyles = styled.section`
 const LoomLogo = styled.div`
   transition: transform ${({ theme }) => theme.transitions.medium} ease-in-out,
     opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
-  width: 100px;
-
-  @media only screen and (min-width: ${({ theme }) => theme.breakpoints.mini}) {
-    width: 130px;
-  }
+  width: 130px;
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.tablet}) {
@@ -111,11 +106,7 @@ const LoomLogo = styled.div`
 const TwitterLogo = styled.div`
   transition: transform ${({ theme }) => theme.transitions.medium} ease-in-out,
     opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
-  width: 100px;
-
-  @media only screen and (min-width: ${({ theme }) => theme.breakpoints.mini}) {
-    width: 130px;
-  }
+  width: 130px;
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.tablet}) {
