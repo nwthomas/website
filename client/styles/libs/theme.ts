@@ -2,14 +2,15 @@ import { ThemeEnum, DARK_THEME } from "./../../hooks/useGetPreferredTheme";
 
 // ===================================== Color Assignment Variables
 // All color names pulled directly from http://chir.ag/projects/name-that-color/
+// To change the assignment of colors --> CSS variables, go to: styles/libs/global.ts
 interface Colors {
   alabaster: string;
   black: string;
-  bunker: string;
   fireBush: string;
   screaminGreen: string;
   mercury: string;
   mineShaft: string;
+  mirage: string;
   pictonBlue: string;
   transparent: string;
   royalBlue: string;
@@ -19,20 +20,20 @@ interface Colors {
   white: string;
 }
 export const colors: Colors = {
-  alabaster: "#f8f8f8f8",
+  alabaster: "#F8F8F8F8",
   black: "#000000",
-  bunker: "#0D1117",
-  fireBush: "#eb9c31",
+  fireBush: "#EB9C31",
   screaminGreen: "#66EF3D",
-  mercury: "#e2e2e2",
+  mercury: "#E2E2E2",
   mineShaft: "#333333",
+  mirage: "#17202B",
   pictonBlue: "#4597EC",
   transparent: "transparent",
-  royalBlue: "#5f63ec",
+  royalBlue: "#5f63EC",
   scarlet: "#FF3700",
   shark: "#27272A",
-  silver: "#cccccc",
-  white: "#ffffff",
+  silver: "#CCCCCC",
+  white: "#FFFFFF",
 };
 
 // A crucial tool for testing out dropshadows is: https://www.cssmatic.com/box-shadow

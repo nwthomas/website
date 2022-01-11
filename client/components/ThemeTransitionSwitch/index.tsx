@@ -53,7 +53,7 @@ const RootStyles = styled.div`
     color: inherit;
     cursor: pointer;
     font: inherit;
-    height: 40px;
+    height: 30px;
     padding: 0;
     width: 30px;
   }

@@ -116,6 +116,7 @@ const RootStyles = styled.div`
       > li {
         align-items: center;
         display: flex;
+        line-height: 1;
         list-style-type: none;
         margin-left: ${({ theme }) => theme.spaces.medium};
         justify-content: center;
