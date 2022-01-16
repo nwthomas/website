@@ -44,10 +44,23 @@ const GlobalStyle = css`
     border-radius: ${({ theme }) => theme.borderRadii.infinity};
   }
 
+  /* 
+  The focus-visible psuedo class is used by UAs when focus is helpful
+  to the user. It has decent browser support (not great), but I decided to
+  go with it given the needs of this site. Defining focus first and then reverting
+  with focus-visible will also gracefully degrade to showing a focus ring all the
+  time if necessary.
+  
+  See: https://css-tricks.com/platform-news-using-focus-visible-bbcs-new-typeface-declarative-shadow-doms-a11y-and-placeholders/#now-may-be-a-good-time-to-start-using-focus-visible
+  */
   :focus {
     outline-color: ${({ theme }) => theme.colorsHex.royalBlue};
     outline-style: solid;
     outline-width: ${({ theme }) => theme.spaces.nano};
+  }
+
+  :focus:not(:focus-visible) {
+    outline-color: ${({ theme }) => theme.colors.transparent};
   }
 
   /* To change the colors in the colors object, go to styles/libs/theme.ts */
