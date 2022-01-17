@@ -3,17 +3,20 @@ import styled, { ThemeContext } from "styled-components";
 import { ThemeEnum } from "../../hooks/useGetPreferredTheme";
 
 type Props = {
-  content: (onButtonClick: () => void) => React.ReactElement;
+  content: (
+    onConfirmClick: () => void,
+    onCancelClick: () => void
+  ) => React.ReactElement;
   onBackgroundClick: () => void;
-  onButtonClick: () => void;
+  onConfirmClick: () => void;
 };
 
-function BottomSheet({ content, onBackgroundClick, onButtonClick }: Props) {
+function BottomSheet({ content, onBackgroundClick, onConfirmClick }: Props) {
   const { currentTheme } = React.useContext(ThemeContext);
 
   return (
     <RootStyles currentTheme={currentTheme} onClick={onBackgroundClick}>
-      {content(onButtonClick)}
+      {content(onConfirmClick, onBackgroundClick)}
     </RootStyles>
   );
 }
@@ -42,8 +45,10 @@ const RootStyles = styled.div<StyleProps>`
     box-shadow: ${({ theme }) => theme.dropshadows.small};
     bottom: 0;
     padding-bottom: ${({ theme }) => theme.spaces.large};
-    padding-left: ${({ theme }) => theme.appDimensions.appHorizontalGutters};
-    padding-right: ${({ theme }) => theme.appDimensions.appHorizontalGutters};
+    padding-left: ${({ theme }) =>
+      `calc(${theme.appDimensions.appHorizontalGutters} + ${theme.spaces.small})`};
+    padding-right: ${({ theme }) =>
+      `calc(${theme.appDimensions.appHorizontalGutters} + ${theme.spaces.small})`};
     padding-top: ${({ theme }) => theme.spaces.large};
     position: absolute;
     width: 100%;

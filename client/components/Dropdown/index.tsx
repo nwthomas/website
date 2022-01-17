@@ -5,8 +5,12 @@ import type { ThemeEnum } from "../../hooks/useGetPreferredTheme";
 const DROPDOWN_MAX_WIDTH = 250;
 
 interface Props {
-  content: (onButtonClick: () => void) => React.ReactElement;
-  onButtonClick: () => void;
+  content: (
+    onConfirmClick: () => void,
+    onCancelClick: () => void
+  ) => React.ReactElement;
+  onCancelClick: () => void;
+  onConfirmClick: () => void;
   styles: {
     left: number;
     top: number;
@@ -14,7 +18,13 @@ interface Props {
   rootRef: React.MutableRefObject<HTMLDivElement | null>;
 }
 
-function Dropdown({ content, onButtonClick, rootRef, styles }: Props) {
+function Dropdown({
+  content,
+  onCancelClick,
+  onConfirmClick,
+  rootRef,
+  styles,
+}: Props) {
   const { left: leftCSSProperty, top: topCSSProperty } = styles;
   const { currentTheme } = React.useContext(ThemeContext);
 
@@ -25,7 +35,7 @@ function Dropdown({ content, onButtonClick, rootRef, styles }: Props) {
       left={leftCSSProperty}
       top={topCSSProperty}
     >
-      {content(onButtonClick)}
+      {content(onConfirmClick, onCancelClick)}
     </RootStyles>
   );
 }

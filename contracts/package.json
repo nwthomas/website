@@ -1,6 +1,6 @@
 {
   "name": "solidity-contracts",
-  "version": "0.0.0-alpha",
+  "version": "0.1.0",
   "description": "Solidity contracts for Nathan Thomas' portfolio site",
   "author": {
     "name": "Nathan Thomas",

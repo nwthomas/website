@@ -10,7 +10,10 @@ const DROPDOWN_SCREEN_EDGE_GAP = 40;
 
 interface Props {
   children: React.ReactElement;
-  content: (onButtonClick: () => void) => React.ReactElement;
+  content: (
+    onConfirmClick: () => void,
+    onCancelClick: () => void
+  ) => React.ReactElement;
   onDropdownButtonClick: () => void;
 }
 
@@ -144,7 +147,7 @@ function DropdownAnchor({ children, content, onDropdownButtonClick }: Props) {
     onDropdownButtonClick();
   };
 
-  const handleOnBottomSheetBackgroundClick = () => {
+  const handleCloseDropdown = () => {
     setShowDropdown(false);
   };
 
@@ -163,7 +166,8 @@ function DropdownAnchor({ children, content, onDropdownButtonClick }: Props) {
         <DropdownRootStyles isVisibilityHidden={shouldHideVisibility}>
           <Dropdown
             content={content}
-            onButtonClick={handleOnDropdownButtonClick}
+            onConfirmClick={handleOnDropdownButtonClick}
+            onCancelClick={handleCloseDropdown}
             rootRef={dropdownRef}
             styles={refCoords}
           />
@@ -172,8 +176,8 @@ function DropdownAnchor({ children, content, onDropdownButtonClick }: Props) {
       {shouldShowBottomSheet ? (
         <BottomSheet
           content={content}
-          onBackgroundClick={handleOnBottomSheetBackgroundClick}
-          onButtonClick={handleOnDropdownButtonClick}
+          onBackgroundClick={handleCloseDropdown}
+          onConfirmClick={handleOnDropdownButtonClick}
         />
       ) : null}
     </React.Fragment>
