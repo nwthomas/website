@@ -6,19 +6,19 @@ import { SettingsIcon } from "../icons";
 import DropdownAnchor from "../DropdownAnchor";
 import Spinner from "../Spinner";
 import type { ThemeEnum } from "../../hooks/useGetPreferredTheme";
-import { useGetScreenDimensions } from "../../hooks/useGetScreenDimensions";
 
 const web2DropdownContent = {
-  paragraphOne: "I get it. Sometimes the old ways are better.",
-  paragraphTwo: "Would you like to switch back to the Web2 form?",
-  buttonLabel: "Go back",
+  paragraphs: ["Would you like to switch back to the Web2 form?"],
+  confirmButtonLabel: "Yes",
+  cancelButtonLabel: "Go back",
 };
 
 const web3DropdownContent = {
-  paragraphOne: "You discovered a cool feature. 🎉",
-  paragraphTwo:
-    "Would you like the Web3 form? It requires an Ethereum wallet and Rinkeby testnet ether.",
-  buttonLabel: "Gimme",
+  paragraphs: [
+    "Would you like the Web3 form? You'll need an Ethereum wallet and Rinkeby testnet ether.",
+  ],
+  confirmButtonLabel: "Yes",
+  cancelButtonLabel: "Go back",
 };
 
 const CONNECT_WALLET_LABEL = "Connect Wallet";
@@ -61,14 +61,9 @@ function ContactForm({
   withSpinner,
   withWeb3,
 }: Props) {
-  const { breakpointsInt, colors, currentTheme } =
-    React.useContext(ThemeContext);
-  const { viewportWidth } = useGetScreenDimensions();
+  const { colors, currentTheme } = React.useContext(ThemeContext);
 
   const isFormButtonDisabled = (withWeb3 && !currentAccount) || withSpinner;
-  const isNarrowViewport = !!(
-    viewportWidth && viewportWidth < breakpointsInt.tablet
-  );
 
   const formik = useFormik({
     initialValues: {
@@ -96,17 +91,24 @@ function ContactForm({
   };
 
   const ContentNode = React.useCallback(
-    (onButtonClick: () => void) => {
+    (onConfirmButtonClick: () => void, onCancelButtonClick: () => void) => {
       const content = withWeb3 ? web2DropdownContent : web3DropdownContent;
+
       return (
-        <DropdownContent isNarrowViewport={isNarrowViewport}>
-          <p>{content.paragraphOne}</p>
-          {content?.paragraphTwo ? <p>{content.paragraphTwo}</p> : null}
-          <button onClick={onButtonClick}>{content.buttonLabel}</button>
+        <DropdownContent>
+          {content.paragraphs?.map((paragraph, index) => {
+            return <p key={index}>{paragraph}</p>;
+          })}
+          <button onClick={onConfirmButtonClick}>
+            {content.confirmButtonLabel}
+          </button>
+          <button onClick={onCancelButtonClick}>
+            {content.cancelButtonLabel}
+          </button>
         </DropdownContent>
       );
     },
-    [isNarrowViewport, withWeb3]
+    [withWeb3]
   );
 
   return (
@@ -379,11 +381,7 @@ const RootStyles = styled.div<StyleProps>`
   }
 `;
 
-type DropdownContentProps = {
-  isNarrowViewport: boolean;
-};
-
-const DropdownContent = styled.div<DropdownContentProps>`
+const DropdownContent = styled.div`
   width: 100%;
 
   > p {
@@ -394,13 +392,17 @@ const DropdownContent = styled.div<DropdownContentProps>`
 
   > button {
     border: none;
-    background: ${({ theme }) => theme.colors.buttonSecondaryBackground};
+    background-color: ${({ theme }) => theme.colors.buttonSecondaryBackground};
     border-radius: ${({ theme }) => theme.borderRadii.large};
     color: ${({ theme }) => theme.colorsHex.white};
     cursor: pointer;
-    height: ${({ isNarrowViewport, theme }) =>
-      isNarrowViewport ? theme.spaces.xLarge : theme.spaces.large};
+    height: ${({ theme }) => theme.spaces.large};
     width: 100%;
+  }
+
+  > button:last-child {
+    background-color: ${({ theme }) => `${theme.colorsHex.silver}`};
+    margin-top: ${({ theme }) => theme.spaces.small};
   }
 `;
 
