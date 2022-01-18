@@ -401,7 +401,8 @@ const DropdownContent = styled.div`
   }
 
   > button:last-child {
-    background-color: ${({ theme }) => `${theme.colorsHex.silver}`};
+    background-color: ${({ theme }) => theme.colorsHex.white};
+    color: ${({ theme }) => theme.colors.buttonSecondaryBackground};
     margin-top: ${({ theme }) => theme.spaces.small};
   }
 `;
