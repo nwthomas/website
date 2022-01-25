@@ -4,7 +4,7 @@
 
 This is the Github repository for my personal website. Making this site gave me the opportunity to really stretch out and craft a site that I felt was mine.
 
-Welcome. I hope you enjoy the site as much as I enjoyed making it.
+Welcome. I hope you enjoy this site as much as I enjoyed making it.
 
 ![Website screenshot](./assets/portfolio-site-macbook.png)
 
