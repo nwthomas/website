@@ -1,11 +1,13 @@
 import * as React from "react";
-import styled, { ThemeContext } from "styled-components";
-import { useFormik } from "formik";
 import * as Yup from "yup";
-import { SettingsIcon } from "../icons";
+
+import styled, { ThemeContext } from "styled-components";
+
 import DropdownAnchor from "../DropdownAnchor";
+import { SettingsIcon } from "../icons";
 import Spinner from "../Spinner";
 import type { ThemeEnum } from "../../hooks/useGetPreferredTheme";
+import { useFormik } from "formik";
 
 const web2DropdownContent = {
   paragraphs: ["Would you like to switch back to the Web2 form?"],
@@ -217,6 +219,7 @@ const RootStyles = styled.div<StyleProps>`
   -webkit-box-shadow: ${({ theme }) => theme.dropshadows.small};
   -moz-box-shadow: ${({ theme }) => theme.dropshadows.small};
   box-shadow: ${({ theme }) => theme.dropshadows.small};
+  border: 1px solid ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
   width: 100%;
 
   @media only screen and (min-width: ${({ theme }) =>

@@ -1,7 +1,7 @@
-import styled from "styled-components";
 import Link from "next/link";
-import ThemeTransitionSwitch from "../ThemeTransitionSwitch";
 import { ThemeEnum } from "../../hooks/useGetPreferredTheme";
+import ThemeTransitionSwitch from "../ThemeTransitionSwitch";
+import styled from "styled-components";
 
 interface Props {
   currentTheme: ThemeEnum | null;
@@ -14,7 +14,7 @@ function Navbar({ currentTheme, onThemeChangeClick }: Props) {
       <header>
         <div>
           <Link href="/">Nathan Thomas</Link>
-          <p>.eth</p>
+          <p>.btc & .eth</p>
         </div>
         <nav>
           <ul>
