@@ -216,9 +216,6 @@ const RootStyles = styled.div<StyleProps>`
   border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
   background: ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
   padding: ${({ theme }) => theme.spaces.small};
-  -webkit-box-shadow: ${({ theme }) => theme.dropshadows.small};
-  -moz-box-shadow: ${({ theme }) => theme.dropshadows.small};
-  box-shadow: ${({ theme }) => theme.dropshadows.small};
   border: 1px solid ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
   width: 100%;
 
