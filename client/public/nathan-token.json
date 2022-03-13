@@ -1,7 +1,7 @@
 {
   "name": "Profile Picture",
   "description": "A custom NFT minted by a contract that Nathan Thomas wrote",
-  "image": "https://www.nathanthomas.dev/nathatn-pfp.jpg",
+  "image": "https://www.nathanthomas.dev/nathan-pfp.jpg",
   "attributes": [
     {
       "trait_type": "JOB",
