@@ -1,0 +1,15 @@
+{
+  "name": "Profile Picture",
+  "description": "A custom NFT minted by a contract that Nathan Thomas wrote",
+  "image": "https://www.nathanthomas.dev/nathatn-pfp.jpg",
+  "attributes": [
+    {
+      "trait_type": "JOB",
+      "value": "Fullstack Software Engineer"
+    },
+    {
+      "trait_type": "EMAIL",
+      "value": "nathan@loom.com"
+    }
+  ]
+}
