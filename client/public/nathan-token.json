@@ -1,6 +1,6 @@
 {
-  "name": "Profile Picture",
-  "description": "A custom NFT minted by a contract that Nathan Thomas wrote",
+  "name": "Nathan's Profile Picture",
+  "description": "A custom NFT minted by a smart contract that Nathan Thomas wrote.",
   "image": "https://www.nathanthomas.dev/nathan-pfp.jpg",
   "attributes": [
     {
