@@ -1,0 +1,27 @@
+{
+  "name": "Nathan's Profile Picture",
+  "description": "A custom NFT minted by a Solidity smart contract that Nathan Thomas wrote and deployed because why not?\n\nIf you're looking to get in touch, feel free to use his Twitter DMs or the contact form at: nathanthomas.dev/contact",
+  "image": "https://www.nathanthomas.dev/nathan-token-pfp.jpg",
+  "attributes": [
+    {
+      "trait_type": "Job",
+      "value": "Fullstack Software Engineer"
+    },
+    {
+      "trait_type": "Employer",
+      "value": "Loom"
+    },
+    {
+      "trait_type": "Location",
+      "value": "San Francisco, CA"
+    },
+    {
+      "trait_type": "Favorite Languages",
+      "value": "JavaScript, TypeScript, Python, Solidity"
+    },
+    {
+      "trait_type": "Social Security Number",
+      "value": "lol"
+    }
+  ]
+}
