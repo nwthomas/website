@@ -1,14 +1,18 @@
 {
   "name": "Nathan's Profile Picture",
-  "description": "A custom NFT minted by a smart contract that Nathan Thomas wrote.",
+  "description": "A custom NFT minted by a smart contract that Nathan Thomas wrote",
   "image": "https://www.nathanthomas.dev/nathan-pfp.jpg",
   "attributes": [
     {
-      "trait_type": "JOB",
+      "trait_type": "Career",
       "value": "Fullstack Software Engineer"
     },
     {
-      "trait_type": "EMAIL",
+      "trait_type": "Employer",
+      "value": "Loom"
+    },
+    {
+      "trait_type": "Email",
       "value": "nathan@loom.com"
     }
   ]
