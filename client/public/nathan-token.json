@@ -12,10 +12,6 @@
       "value": "Loom"
     },
     {
-      "trait_type": "Email",
-      "value": "nathan@loom.com"
-    },
-    {
       "trait_type": "Favorite Languages",
       "value": "JavaScript, TypeScript, Python, Solidity"
     }
