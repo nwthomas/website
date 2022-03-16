@@ -1,4 +1,4 @@
-import { ThemeEnum, DARK_THEME } from "./../../hooks/useGetPreferredTheme";
+import { DARK_THEME, ThemeEnum } from "./../../hooks/useGetPreferredTheme";
 
 // ===================================== Color Assignment Variables
 // All color names pulled directly from http://chir.ag/projects/name-that-color/
@@ -6,6 +6,7 @@ import { ThemeEnum, DARK_THEME } from "./../../hooks/useGetPreferredTheme";
 interface Colors {
   alabaster: string;
   black: string;
+  bunker: string;
   fireBush: string;
   screaminGreen: string;
   mercury: string;
@@ -17,11 +18,13 @@ interface Colors {
   scarlet: string;
   shark: string;
   silver: string;
+  tuna: string;
   white: string;
 }
 export const colors: Colors = {
   alabaster: "#F8F8F8F8",
   black: "#000000",
+  bunker: "#0D1117",
   fireBush: "#EB9C31",
   screaminGreen: "#66EF3D",
   mercury: "#E2E2E2",
@@ -33,6 +36,7 @@ export const colors: Colors = {
   scarlet: "#FF3700",
   shark: "#27272A",
   silver: "#CCCCCC",
+  tuna: "#31363D",
   white: "#FFFFFF",
 };
 

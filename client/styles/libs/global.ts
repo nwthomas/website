@@ -1,5 +1,5 @@
-import { css } from "styled-components";
 import { colors } from "./theme";
+import { css } from "styled-components";
 
 const GlobalStyle = css`
   * {
@@ -28,22 +28,6 @@ const GlobalStyle = css`
     -moz-osx-font-smoothing: grayscale;
   }
 
-  ::-webkit-scrollbar {
-    width: 15px;
-  }
-
-  /* Track */
-  ::-webkit-scrollbar-track {
-    border-left: 1px solid
-      ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
-  }
-
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
-    border-radius: ${({ theme }) => theme.borderRadii.infinity};
-  }
-
   /* 
   The focus-visible psuedo class is used by UAs when focus is helpful
   to the user. It has decent browser support (not great), but I decided to
@@ -65,9 +49,9 @@ const GlobalStyle = css`
 
   /* To change the colors in the colors object, go to styles/libs/theme.ts */
   body.dark {
-    --body-bg: ${colors.mirage};
+    --body-bg: ${colors.bunker};
     --body-bg-accent-one: ${colors.black};
-    --body-bg-accent-two: ${colors.mineShaft};
+    --body-bg-accent-two: ${colors.tuna};
     --body-bg-accent-three: ${colors.shark};
     --button-primary-bg: ${colors.royalBlue};
     --button-secondary-bg: ${colors.fireBush};
