@@ -1,5 +1,7 @@
 import * as React from "react";
+
 import styled, { ThemeContext } from "styled-components";
+
 import { ThemeEnum } from "../../hooks/useGetPreferredTheme";
 
 type Props = {

@@ -1,8 +1,9 @@
 import * as React from "react";
+
+import Employers from "../components/Employers";
+import Layout from "../components/Layout";
 import type { NextPage } from "next";
 import styled from "styled-components";
-import Layout from "../components/Layout";
-import Employers from "../components/Employers";
 
 const PAGE_NAME = "Home";
 
@@ -24,8 +25,8 @@ const Home: NextPage = () => {
               </a>
               ,{" "}
               <a
-                href="https://dev.to/nwthomas"
-                aria-label="Link to writing on Dev.to"
+                href="https://www.getrevue.co/profile/nathan-thomas"
+                aria-label="Link to Nathan's newsletter"
                 rel="noopener noreferrer"
                 target="_target"
               >

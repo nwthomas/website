@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import styled from "styled-components";
+
 import type { ThemeEnum } from "../../hooks/useGetPreferredTheme";
+import styled from "styled-components";
 
 /**
  * NOTE: For anyone else that ever reads this code, I'm *extremely* unhappy with the implementation.
