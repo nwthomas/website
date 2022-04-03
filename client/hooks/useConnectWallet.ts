@@ -1,10 +1,11 @@
 import * as React from "react";
-import { useRouter } from "next/router";
-import { ethers } from "ethers";
-import cryptojs from "crypto-js";
+
 import { CONTRACT_ADDRESS } from "../constants/contracts/address";
-import messageHub from "../constants/contracts/MessageHub.json";
 import type { MessageValues } from "../components/ContactForm";
+import cryptojs from "crypto-js";
+import { ethers } from "ethers";
+import messageHub from "../constants/contracts/MessageHub.json";
+import { useRouter } from "next/router";
 
 const SECRET_KEY = process.env.NEXT_PUBLIC_SECRET_KEY || "";
 const TARGETED_CHAIN = process.env.NEXT_PUBLIC_TARGETED_CHAIN || "";

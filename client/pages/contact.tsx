@@ -1,19 +1,21 @@
 import * as React from "react";
-import styled from "styled-components";
-import { useSelector, useDispatch } from "react-redux";
-import { useMutation } from "react-query";
-import Layout from "../components/Layout";
-import ContactForm from "../components/ContactForm";
-import { useGetPreferredForm, WEB3_KEY } from "../hooks/useGetPreferredForm";
+
+import { WEB3_KEY, useGetPreferredForm } from "../hooks/useGetPreferredForm";
 import {
   abbreviateWalletAddress,
   useConnectWallet,
 } from "../hooks/useConnectWallet";
-import type { MessageValues } from "../components/ContactForm";
-import { sendMessage } from "./api/message";
 import { resetMessageValues, updateMessageValues } from "../store/contactSlice";
+import { useDispatch, useSelector } from "react-redux";
+
+import ContactForm from "../components/ContactForm";
+import Layout from "../components/Layout";
+import type { MessageValues } from "../components/ContactForm";
 import { RootState } from "../store";
+import { sendMessage } from "./api/message";
+import styled from "styled-components";
 import { updateModalValues } from "../store/modalSlice";
+import { useMutation } from "react-query";
 
 const PAGE_NAME = "Contact";
 
@@ -115,16 +117,16 @@ function Contact() {
         <main>
           <section>
             <h1>
-              You can use{" "}
+              You can reach me{" "}
               <a
                 href="https://twitter.com/nwthomas_"
                 aria-label="Link to Nathan's Twitter profile"
                 rel="noopener noreferrer"
                 target="_target"
               >
-                Twitter DMs
+                on Twitter
               </a>{" "}
-              ✨ or my contact form here:
+              🐦 or my contact form here:
             </h1>
           </section>
           <section>

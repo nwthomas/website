@@ -1,10 +1,12 @@
 import * as React from "react";
+
 import styled, { ThemeContext } from "styled-components";
-import { useLockBodyScroll } from "../../hooks/useLockBodyScroll";
-import { useSelector, useDispatch } from "react-redux";
-import { updateModalValues } from "../../store/modalSlice";
+import { useDispatch, useSelector } from "react-redux";
+
 import { RootState } from "../../store";
 import type { ThemeEnum } from "../../hooks/useGetPreferredTheme";
+import { updateModalValues } from "../../store/modalSlice";
+import { useLockBodyScroll } from "../../hooks/useLockBodyScroll";
 
 function Modal() {
   const dispatch = useDispatch();

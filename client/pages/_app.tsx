@@ -1,15 +1,18 @@
-import * as React from "react";
-import type { AppProps } from "next/app";
-import { Provider } from "react-redux";
-import { ThemeProvider } from "styled-components";
-import { useGetPreferredTheme } from "../hooks/useGetPreferredTheme";
-import { QueryClientProvider, QueryClient } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
-import { Hydrate } from "react-query/hydration";
-import GlobalStyle, { makeMainTheme } from "../styles";
-import Navbar from "../components/Navbar";
-import { store } from "../store";
 import "../styles/libs/fonts.css";
+
+import * as React from "react";
+
+import GlobalStyle, { makeMainTheme } from "../styles";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+import type { AppProps } from "next/app";
+import { Hydrate } from "react-query/hydration";
+import Navbar from "../components/Navbar";
+import { Provider } from "react-redux";
+import { ReactQueryDevtools } from "react-query/devtools";
+import { ThemeProvider } from "styled-components";
+import { store } from "../store";
+import { useGetPreferredTheme } from "../hooks/useGetPreferredTheme";
 
 // We don't care about cache invalidation given the needs of this app, so data isn't stale
 // until >= 1 day

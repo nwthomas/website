@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import styled, { keyframes } from "styled-components";
 
 // This file is an adaptation from an old (and abandoned) zero-config spinner repo

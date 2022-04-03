@@ -1,5 +1,5 @@
-import Layout from "../components/Layout";
 import Error from "../components/Error";
+import Layout from "../components/Layout";
 
 function FourOhFour() {
   return (

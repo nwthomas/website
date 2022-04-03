@@ -1,11 +1,12 @@
 import React, { ReactNode } from "react";
-import Head from "next/head";
-import styled from "styled-components";
-import { useSelector } from "react-redux";
+
 import Footer from "../Footer";
+import Head from "next/head";
 import Modal from "../Modal";
-import { useGetPageName } from "../../hooks/useGetPageName";
 import { RootState } from "../../store";
+import styled from "styled-components";
+import { useGetPageName } from "../../hooks/useGetPageName";
+import { useSelector } from "react-redux";
 
 interface Props {
   children: ReactNode | Array<ReactNode>;

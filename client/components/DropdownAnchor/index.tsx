@@ -1,9 +1,11 @@
 import * as React from "react";
+
 import styled, { ThemeContext } from "styled-components";
-import Dropdown from "../Dropdown";
+
 import BottomSheet from "../BottomSheet";
-import { useGetScreenDimensions } from "../../hooks/useGetScreenDimensions";
+import Dropdown from "../Dropdown";
 import type { ScreenDimensions } from "../../hooks/useGetScreenDimensions";
+import { useGetScreenDimensions } from "../../hooks/useGetScreenDimensions";
 
 const DROPDOWN_ANCHOR_GAP = 10;
 const DROPDOWN_SCREEN_EDGE_GAP = 40;
