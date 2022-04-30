@@ -1,6 +1,6 @@
-import styled from "styled-components";
 import Layout from "../components/Layout";
 import WorkExample from "../components/WorkExample";
+import styled from "styled-components";
 
 const PAGE_NAME = "Work";
 
@@ -37,7 +37,7 @@ function Work() {
               imageAlt="Macbook with screenshot of Twitter.com video trimmer on it"
               imageDimensions={{ height: 735, width: 1258 }}
               imageSrc="./video-trimmer.png"
-              title="Twitter Video Trimmer (beta)"
+              title="Twitter Video Trimmer"
               url="https://twitter.com/wongmjane/status/1418299633382559748"
             />
             <WorkExample
@@ -45,7 +45,7 @@ function Work() {
               imageAlt="Macbook with screenshot of Twitter.com Fleets on it"
               imageDimensions={{ height: 735, width: 1258 }}
               imageSrc="./fleets.png"
-              title="Twitter Fleets (cancelled)"
+              title="Twitter Fleets"
               url="https://blog.twitter.com/en_us/topics/product/2021/goodbye-fleets"
             />
           </section>
