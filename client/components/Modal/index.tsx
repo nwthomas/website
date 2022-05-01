@@ -1,10 +1,10 @@
 import * as React from "react";
 
+import { DARK_THEME, ThemeEnum } from "../../hooks/useGetPreferredTheme";
 import styled, { ThemeContext } from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 
 import { RootState } from "../../store";
-import type { ThemeEnum } from "../../hooks/useGetPreferredTheme";
 import { updateModalValues } from "../../store/modalSlice";
 import { useLockBodyScroll } from "../../hooks/useLockBodyScroll";
 
@@ -45,7 +45,12 @@ interface StyleProps {
 
 const RootStyles = styled.div<StyleProps>`
   align-items: center;
-  background-color: ${({ theme }) => `${theme.colorsHex.black}90`};
+  background-color: ${({ theme }) =>
+    `${
+      theme.currentTheme === DARK_THEME
+        ? theme.colorsHex.silver
+        : theme.colorsHex.black
+    }40`};
   display: flex;
   justify-content: center;
   position: fixed;

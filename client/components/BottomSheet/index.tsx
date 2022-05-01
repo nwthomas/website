@@ -1,8 +1,7 @@
 import * as React from "react";
 
+import { DARK_THEME, ThemeEnum } from "../../hooks/useGetPreferredTheme";
 import styled, { ThemeContext } from "styled-components";
-
-import { ThemeEnum } from "../../hooks/useGetPreferredTheme";
 
 type Props = {
   content: (
@@ -28,7 +27,12 @@ type StyleProps = {
 };
 
 const RootStyles = styled.div<StyleProps>`
-  background-color: ${({ theme }) => `${theme.colorsHex.black}90`};
+  background-color: ${({ theme }) =>
+    `${
+      theme.currentTheme === DARK_THEME
+        ? theme.colorsHex.silver
+        : theme.colorsHex.black
+    }40`};
   display: flex;
   position: fixed;
   height: 100%;
