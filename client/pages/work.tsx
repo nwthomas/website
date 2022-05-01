@@ -20,7 +20,7 @@ function Work() {
               ariaLabel="Link to portfolio site GitHub repository"
               imageAlt="Macbook with screenshot of Nathan's personal site on it"
               imageDimensions={{ height: 735, width: 1258 }}
-              imageSrc="./portfolio-site.png"
+              imageSrc="/portfolio-site.png"
               title="Personal Site"
               url="https://github.com/nwthomas/personal-portfolio"
             />
@@ -28,7 +28,7 @@ function Work() {
               ariaLabel="Link to Twitter blog post about Twitter Super Follows"
               imageAlt="Macbook with screenshot of Twitter.com Super Follows on it"
               imageDimensions={{ height: 735, width: 1258 }}
-              imageSrc="./super-follows.png"
+              imageSrc="/super-follows.png"
               title="Twitter Super Follows"
               url="https://blog.twitter.com/en_us/topics/product/2021/introducing-super-follows"
             />
@@ -36,7 +36,7 @@ function Work() {
               ariaLabel="Link to Jane Wong Tweet about the Twitter video trimmer"
               imageAlt="Macbook with screenshot of Twitter.com video trimmer on it"
               imageDimensions={{ height: 735, width: 1258 }}
-              imageSrc="./video-trimmer.png"
+              imageSrc="/video-trimmer.png"
               title="Twitter Video Trimmer"
               url="https://twitter.com/wongmjane/status/1418299633382559748"
             />
@@ -44,7 +44,7 @@ function Work() {
               ariaLabel="Link to Twitter blog post about Fleets deprecation"
               imageAlt="Macbook with screenshot of Twitter.com Fleets on it"
               imageDimensions={{ height: 735, width: 1258 }}
-              imageSrc="./fleets.png"
+              imageSrc="/fleets.png"
               title="Twitter Fleets"
               url="https://blog.twitter.com/en_us/topics/product/2021/goodbye-fleets"
             />
