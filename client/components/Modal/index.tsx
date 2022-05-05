@@ -30,7 +30,7 @@ function Modal() {
   };
 
   return (
-    <RootStyles currentTheme={currentTheme}>
+    <RootStyles currentTheme={currentTheme} onClick={handleDismissClick}>
       <div>
         <h1>{modalMessage}</h1>
         <button onClick={handleDismissClick}>{modalButtonLabel}</button>
