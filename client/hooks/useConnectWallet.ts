@@ -25,8 +25,7 @@ const errors = Object.freeze({
   NO_METAMASK: () => "Please install MetaMask",
   FALLBACK: () => "Something went wrong",
   SENDING_MESSAGE: () => "Error sending message",
-  WRONG_CHAIN: (correctChain: string) =>
-    `Please change chain to ${correctChain}`,
+  WRONG_CHAIN: (correctChain: string) => `Please use ${correctChain} chain`,
 });
 
 // This defines the window.ethereum object for TypeScript

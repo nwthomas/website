@@ -6,7 +6,7 @@ This is the Github repository for my personal website. Making this site gave me 
 
 Welcome. I hope you enjoy this site as much as I enjoyed making it.
 
-![Website screenshot](./assets/portfolio-site-macbook.png)
+![Website screenshot](./assets/portfolio-macbook.png)
 
 ## TABLE OF CONTENTS 🌀
 
