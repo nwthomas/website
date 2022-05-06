@@ -30,22 +30,22 @@ function Footer() {
         <div>
           <li>
             <a
-              href="https://www.instagram.com/nwthomas/"
-              aria-label="Link to Instagram"
-              rel="noopener noreferrer"
-              target="_target"
-            >
-              Instagram
-            </a>
-          </li>
-          <li>
-            <a
               href="https://www.linkedin.com/in/nwthomas-dev/"
               aria-label="Link to LinkedIn"
               rel="noopener noreferrer"
               target="_target"
             >
               LinkedIn
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://medium.com/@nwthomas"
+              aria-label="Link to Medium"
+              rel="noopener noreferrer"
+              target="_target"
+            >
+              Medium
             </a>
           </li>
         </div>
