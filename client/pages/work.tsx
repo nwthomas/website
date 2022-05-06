@@ -12,7 +12,7 @@ function Work() {
           <section>
             <h1>
               This is all the work that I'm really proud of. I hope you enjoy
-              it. 🍵
+              it. 🔩
             </h1>
           </section>
           <section>
@@ -25,11 +25,11 @@ function Work() {
               url="https://github.com/nwthomas/personal-portfolio"
             />
             <WorkExample
-              ariaLabel="Link to Loom blog post about multi-clip stitching"
+              ariaLabel="Link to Loom blog post about multi-video stitching"
               imageAlt="Macbook with screenshot of Loom.com multi-clip stiching"
               imageDimensions={{ height: 735, width: 1258 }}
               imageSrc="/loom-stitch.png"
-              title="Loom Video Stitching"
+              title="Loom Multi-Video Stitching"
               url="https://www.loom.com/blog/video-stitching"
             />
             <WorkExample
