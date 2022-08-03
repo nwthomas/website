@@ -1,6 +1,5 @@
 import * as React from "react";
 
-import Image from "next/image";
 import styled from "styled-components";
 
 function Employers() {
@@ -15,12 +14,10 @@ function Employers() {
             rel="noopener noreferrer"
             target="_target"
           >
-            <Image
+            <img
               alt="Loom logo"
               height={1000}
-              priority
-              quality={50}
-              src="/loom-logo.png"
+              src="./loom-logo.png"
               width={1000}
             />
           </a>
@@ -35,12 +32,10 @@ function Employers() {
             rel="noopener noreferrer"
             target="_target"
           >
-            <Image
+            <img
               alt="Twitter logo"
               height={834}
-              priority
-              quality={50}
-              src="/twitter-logo.png"
+              src="./twitter-logo.png"
               width={1036}
             />
           </a>
