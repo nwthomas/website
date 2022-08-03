@@ -1,4 +1,3 @@
-import Image from "next/image";
 import styled from "styled-components";
 
 type Props = {
@@ -28,10 +27,8 @@ function WorkExample({
       rel="noopener noreferrer"
       target="_target"
     >
-      <Image
+      <img
         alt={imageAlt || "Image"}
-        quality={50}
-        priority
         src={imageSrc}
         height={height}
         width={width}
