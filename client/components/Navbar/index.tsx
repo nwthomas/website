@@ -25,7 +25,7 @@ function Navbar({ currentTheme, onThemeChangeClick }: Props) {
               />
             </li>
             <li>
-              <Link href="/work">Work</Link>
+              <Link href="/projects">Projects</Link>
             </li>
             <li>
               <Link href="/contact">Contact</Link>
