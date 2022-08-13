@@ -6,7 +6,7 @@ import Link from "next/link";
 import type { NextPage } from "next";
 import styled from "styled-components";
 
-const PAGE_NAME = "Home";
+const PAGE_NAME = "Nathan Thomas | Home";
 
 const Home: NextPage = () => {
   return (
