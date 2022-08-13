@@ -117,14 +117,14 @@ function Contact() {
         <main>
           <section>
             <h1>
-              You can reach me{" "}
+              You can reach me on{" "}
               <a
                 href="https://twitter.com/nwthomas_"
                 aria-label="Link to Nathan's Twitter profile"
                 rel="noopener noreferrer"
                 target="_target"
               >
-                on Twitter
+                Twitter
               </a>{" "}
               🐦 or my contact form here:
             </h1>
