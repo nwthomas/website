@@ -27,7 +27,7 @@ function Navbar({ currentTheme, onThemeChangeClick }: Props) {
           <nav>
             <ul>
               <li>
-                <Link href="/">Home</Link>
+                <Link href="/blog">Blog</Link>
               </li>
               <li>
                 <Link href="/projects">Projects</Link>
