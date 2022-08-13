@@ -2,6 +2,7 @@ import * as React from "react";
 
 import Employers from "../components/Employers";
 import Layout from "../components/Layout";
+import Link from "next/link";
 import type { NextPage } from "next";
 import styled from "styled-components";
 
@@ -14,7 +15,7 @@ const Home: NextPage = () => {
         <main>
           <section>
             <h1>
-              Hi 👋🏻 I'm Nathan, a{" "}
+              I'm Nathan 👋🏻, a{" "}
               <a
                 href="https://github.com/nwthomas"
                 aria-label="Link to GitHub"
@@ -40,42 +41,8 @@ const Home: NextPage = () => {
                 target="_target"
               >
                 teacher
-              </a>
-              . I build stuff and also love{" "}
-              <span>
-                Bitcoin{" "}
-                <a
-                  href="https://bitcoin.org/bitcoin.pdf"
-                  aria-label="Link to Bitcoin whitepaper"
-                  rel="noopener noreferrer"
-                  target="_target"
-                >
-                  <img
-                    src="./bitcoin-logo.png"
-                    alt="Bitcoin logo"
-                    width={1440}
-                    height={1906}
-                  />
-                </a>
-              </span>{" "}
-              and{" "}
-              <span>
-                Ethereum{" "}
-                <a
-                  href="https://ethereum.org/"
-                  aria-label="Link to Ethereum.org"
-                  rel="noopener noreferrer"
-                  target="_target"
-                >
-                  <img
-                    src="./eth-icon.png"
-                    alt="Ethereum logo"
-                    width={44}
-                    height={70}
-                  />
-                </a>
-              </span>
-              .
+              </a>{" "}
+              from San Francisco. Let's <Link href="/contact">talk</Link>.
             </h1>
           </section>
           <Employers />
@@ -126,17 +93,7 @@ const RootStyles = styled.div`
           -webkit-text-fill-color: transparent;
         }
 
-        > a:nth-child(1) {
-          background-image: ${({ theme }) =>
-            `linear-gradient(120deg, ${theme.colorsHex.royalBlue} 0%, ${theme.colorsHex.pictonBlue} 100%)`};
-        }
-
-        > a:nth-child(2) {
-          background-image: ${({ theme }) =>
-            `linear-gradient(120deg, ${theme.colorsHex.royalBlue} 0%, ${theme.colorsHex.pictonBlue} 100%)`};
-        }
-
-        > a:nth-child(3) {
+        > a {
           background-image: ${({ theme }) =>
             `linear-gradient(120deg, ${theme.colorsHex.royalBlue} 0%, ${theme.colorsHex.pictonBlue} 100%)`};
         }
