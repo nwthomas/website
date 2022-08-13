@@ -42,7 +42,7 @@ const Home: NextPage = () => {
               >
                 teacher
               </a>{" "}
-              from San Francisco. Let's <Link href="/contact">talk</Link>.
+              in San Francisco. Let's <Link href="/contact">talk</Link>.
             </h1>
           </section>
           <Employers />
