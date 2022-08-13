@@ -13,11 +13,12 @@ interface Colors {
   mineShaft: string;
   mirage: string;
   pictonBlue: string;
-  transparent: string;
+  raisinBlack: string;
   royalBlue: string;
   scarlet: string;
   shark: string;
   silver: string;
+  transparent: string;
   tuna: string;
   white: string;
 }
@@ -31,11 +32,12 @@ export const colors: Colors = {
   mineShaft: "#333333",
   mirage: "#17202B",
   pictonBlue: "#4597EC",
-  transparent: "transparent",
+  raisinBlack: "#212121",
   royalBlue: "#5f63EC",
   scarlet: "#FF3700",
   shark: "#27272A",
   silver: "#CCCCCC",
+  transparent: "transparent",
   tuna: "#31363D",
   white: "#FFFFFF",
 };
