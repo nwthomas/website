@@ -1,7 +1,7 @@
 import * as React from "react";
 
 const INTERVAL_AMOUNT = 1000;
-const STATIC_EMOJI_LIST = [..."🦄🌀🍪🤬🦑👻✨🌧🤯👁👄👁"];
+const STATIC_EMOJI_LIST = [..."🌝🌖🌗🌘🌚🌒🌓🌔"];
 
 export function useGetPageName(initialPageName: string) {
   const [rotatingEmojiList, setRotatingEmojiList] =

@@ -2,7 +2,7 @@ import Layout from "../components/Layout";
 import WorkExample from "../components/WorkExample";
 import styled from "styled-components";
 
-const PAGE_NAME = "Work";
+const PAGE_NAME = "Nathan Thomas | Projects";
 
 function Work() {
   return (
