@@ -22,6 +22,7 @@ interface Colors {
   tuna: string;
   white: string;
 }
+
 export const colors: Colors = {
   alabaster: "#F8F8F8F8",
   black: "#000000",
