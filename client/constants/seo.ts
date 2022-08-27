@@ -5,7 +5,8 @@ const seoConfig = {
   author: {
     name: "Nathan Thomas",
   },
-  originalDescription: "Nathan Thomas",
+  originalDescription:
+    "Personal website for Nathan Thomas, software engineer, writer, and teacher",
   social: {
     twitter: "nwthomas_",
   },
