@@ -1,10 +1,10 @@
 import React, { ReactNode } from "react";
+import styled, { ThemeContext } from "styled-components";
 
 import Footer from "../Footer";
-import Head from "next/head";
 import Modal from "../Modal";
 import { RootState } from "../../store";
-import styled from "styled-components";
+import SEO from "../SEO";
 import { useGetPageName } from "../../hooks/useGetPageName";
 import { useSelector } from "react-redux";
 
@@ -15,17 +15,19 @@ interface Props {
 }
 
 function Layout({ children, pageName, withFooter }: Props) {
-  const currentPageName = useGetPageName(pageName);
+  const tabTitle = useGetPageName(pageName);
+  const { currentTheme } = React.useContext(ThemeContext);
   const shouldShowModal = useSelector(
     (state: RootState) => state.modal.shouldShowModal
   );
 
   return (
     <>
-      <Head>
-        <title>{currentPageName}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
+      <SEO
+        seoTitle={pageName}
+        tabTitle={tabTitle}
+        currentTheme={currentTheme}
+      />
       <RootStyles>
         {children}
         {withFooter ? <Footer /> : null}

@@ -4,6 +4,7 @@ import Employers from "../components/Employers";
 import Layout from "../components/Layout";
 import Link from "next/link";
 import type { NextPage } from "next";
+import SEO from "../components/SEO";
 import styled from "styled-components";
 
 const PAGE_NAME = "Nathan Thomas | Home";
