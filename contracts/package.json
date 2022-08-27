@@ -13,10 +13,12 @@
   },
   "main": "/contracts",
   "scripts": {
+    "clean": "npx hardhat clean",
     "compile": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat compile",
     "coverage": "yarn typechain && hardhat coverage --solcoverjs ./.solcover.ts --temp artifacts --testfiles \"./test/**/*.ts\"",
-    "deploy-local": "npx hardhat run scripts/manager/deploy.ts --network localhost",
-    "deploy-rinkeby": "npx hardhat run scripts/manager/deploy.ts --network rinkeby",
+    "deploy-local": "npx hardhat run scripts/deploy-testnet.ts --network localhost",
+    "deploy-mainnet": "npx hardhat run scripts/deploy-mainnet.ts --network mainnet",
+    "deploy-rinkeby": "npx hardhat run scripts/deploy-testnet.ts --network rinkeby",
     "lint": "yarn lint:sol && yarn lint:ts && yarn prettier:check",
     "lint:sol": "./node_modules/.bin/solhint -f table contracts/**/*.sol",
     "lint:ts": "eslint --config ./.eslintrc.json --ignore-path ./.eslintignore --ext .js,.ts .",
@@ -25,7 +27,8 @@
     "start": "npx hardhat run scripts/run.ts",
     "server": "npx hardhat node",
     "test": "nodemon -x 'npx hardhat test' -w contracts -w test -e ts,sol",
-    "typechain": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat typechain"
+    "typechain": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat typechain",
+    "verify": "npx hardhat run scripts/verification.ts --network mainnet"
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",
@@ -47,6 +50,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^5.2.0",
+    "eth-provider": "^0.12.1",
     "ethereum-waffle": "^3.0.0",
     "ethers": "^5.0.0",
     "hardhat": "^2.6.7",
