@@ -20,7 +20,7 @@ function Work() {
               ariaLabel="Link to portfolio site GitHub repository"
               imageAlt="Macbook with screenshot of Nathan's personal site on it"
               imageDimensions={{ height: 735, width: 1258 }}
-              imageSrc="./personal-portfolio.png"
+              imageSrc="./personal-portfolio.webp"
               title="Personal Site"
               url="https://github.com/nwthomas/personal-portfolio"
             />
@@ -28,7 +28,7 @@ function Work() {
               ariaLabel="Link to Loom blog post about low light adjustments"
               imageAlt="Macbook with screenshot of Loom.com low light adjustments"
               imageDimensions={{ height: 735, width: 1258 }}
-              imageSrc="./loom-low-light.png"
+              imageSrc="./loom-low-light.webp"
               title="Loom Low Light Adjustments"
               url="https://new.loom.com/announcements/look-your-best-with-touch-up-my-appearance-and-low-light-adjustments"
             />
@@ -36,15 +36,23 @@ function Work() {
               ariaLabel="Link to Loom blog post about multi-video stitching"
               imageAlt="Macbook with screenshot of Loom.com multi-clip stiching"
               imageDimensions={{ height: 735, width: 1258 }}
-              imageSrc="./loom-stitch.png"
-              title="Loom Multi-Video Stitching"
+              imageSrc="./loom-multi-clip-editing.webp"
+              title="Loom Multi-Clip Editing"
               url="https://www.loom.com/blog/video-stitching"
+            />
+            <WorkExample
+              ariaLabel="Link to Jane Wong Tweet about the Twitter video trimmer"
+              imageAlt="Macbook with screenshot of Twitter.com video trimmer"
+              imageDimensions={{ height: 735, width: 1258 }}
+              imageSrc="/twitter-video-trimmer.webp"
+              title="Twitter Video Trimmer"
+              url="https://twitter.com/wongmjane/status/1418299633382559748"
             />
             <WorkExample
               ariaLabel="Link to Twitter blog post about Twitter Super Follows"
               imageAlt="Macbook with screenshot of Twitter.com Super Follows on it"
               imageDimensions={{ height: 735, width: 1258 }}
-              imageSrc="./twitter-super-follows.png"
+              imageSrc="./twitter-super-follows.webp"
               title="Twitter Super Follows"
               url="https://blog.twitter.com/en_us/topics/product/2021/introducing-super-follows"
             />
@@ -52,7 +60,7 @@ function Work() {
               ariaLabel="Link to Twitter blog post about Fleets deprecation"
               imageAlt="Macbook with screenshot of Twitter.com Fleets on it"
               imageDimensions={{ height: 735, width: 1258 }}
-              imageSrc="./twitter-fleets.png"
+              imageSrc="./twitter-fleets.webp"
               title="Twitter Fleets"
               url="https://blog.twitter.com/en_us/topics/product/2021/goodbye-fleets"
             />
