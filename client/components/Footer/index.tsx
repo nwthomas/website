@@ -5,8 +5,8 @@ function Footer() {
   return (
     <RootStyles>
       <ul>
-        <div>
-          <li>
+        <li>
+          <div>
             <a
               href="https://dev.to/nwthomas"
               aria-label="Link to Dev.to"
@@ -15,8 +15,8 @@ function Footer() {
             >
               Dev.to
             </a>
-          </li>
-          <li>
+          </div>
+          <div>
             <a
               href="https://github.com/nwthomas"
               aria-label="Link to GitHub"
@@ -25,10 +25,10 @@ function Footer() {
             >
               Github
             </a>
-          </li>
-        </div>
-        <div>
-          <li>
+          </div>
+        </li>
+        <li>
+          <div>
             <a
               href="https://www.linkedin.com/in/nwthomas-dev/"
               aria-label="Link to LinkedIn"
@@ -37,8 +37,8 @@ function Footer() {
             >
               LinkedIn
             </a>
-          </li>
-          <li>
+          </div>
+          <div>
             <a
               href="https://medium.com/@nwthomas"
               aria-label="Link to Medium"
@@ -47,10 +47,10 @@ function Footer() {
             >
               Medium
             </a>
-          </li>
-        </div>
-        <div>
-          <li>
+          </div>
+        </li>
+        <li>
+          <div>
             <a
               href="https://www.polywork.com/nwthomas"
               aria-label="Link to Polywork"
@@ -59,8 +59,8 @@ function Footer() {
             >
               Polywork
             </a>
-          </li>
-          <li>
+          </div>
+          <div>
             <a
               href="https://twitter.com/nwthomas_"
               aria-label="Link to Twitter"
@@ -69,8 +69,8 @@ function Footer() {
             >
               Twitter
             </a>
-          </li>
-        </div>
+          </div>
+        </li>
       </ul>
       <BabyYoda />
     </RootStyles>
@@ -100,7 +100,7 @@ const RootStyles = styled.footer`
       margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
     }
 
-    > div {
+    > li {
       display: flex;
       flex-direction: column;
 
@@ -119,7 +119,7 @@ const RootStyles = styled.footer`
         margin-right: ${({ theme }) => `calc(${theme.spaces.jumbo} * 3)`};
       }
 
-      > li {
+      > div {
         margin-bottom: ${({ theme }) => theme.spaces.medium};
         list-style-type: none;
 
@@ -145,17 +145,17 @@ const RootStyles = styled.footer`
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        > li {
+        > div {
           margin-bottom: none;
         }
 
-        > li:last-child {
+        > div:last-child {
           margin-bottom: 0;
         }
       }
     }
 
-    > div:last-child > li:last-child {
+    > li:last-child > div:last-child {
       margin-bottom: 0;
     }
   }
