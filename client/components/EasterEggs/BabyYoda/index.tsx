@@ -9,7 +9,7 @@ export default function BabyYodaEasterEgg() {
           alt="Baby Yoda"
           draggable={false}
           height={512}
-          src="/baby-yoda.png"
+          src="/baby-yoda.webp"
           width={491}
         />
       </div>

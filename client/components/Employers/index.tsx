@@ -17,7 +17,7 @@ function Employers() {
             <img
               alt="Loom logo"
               height={1000}
-              src="./loom-logo.png"
+              src="./loom-logo.webp"
               width={1000}
             />
           </a>
@@ -35,7 +35,7 @@ function Employers() {
             <img
               alt="Twitter logo"
               height={834}
-              src="./twitter-logo.png"
+              src="./twitter-logo.webp"
               width={1036}
             />
           </a>
