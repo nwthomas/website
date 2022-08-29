@@ -96,7 +96,7 @@ interface AppDimensions {
 }
 export const appDimensions: AppDimensions = {
   appHorizontalGutters: "5%",
-  appMaxWidth: "1200px",
+  appMaxWidth: "1600px",
   appMinHeight: "100vh",
   articleHeroImageMaxWidth: "1200px",
   articleMaxWidth: "600px",
