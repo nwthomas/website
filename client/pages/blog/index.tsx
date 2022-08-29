@@ -1,5 +1,4 @@
 import Layout from "../../components/Layout";
-import Link from "next/link";
 import styled from "styled-components";
 
 const PAGE_NAME = "Nathan Thomas | Blog";
