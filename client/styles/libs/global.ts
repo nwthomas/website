@@ -91,11 +91,6 @@ const GlobalStyle = css`
         theme.breakpoints.tablet}) {
       font-size: 5rem;
     }
-
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.desktop}) {
-      font-size: 7rem;
-    }
   }
 
   h2 {
