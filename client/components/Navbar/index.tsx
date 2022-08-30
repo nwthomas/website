@@ -74,18 +74,18 @@ const RootStyles = styled.div`
 
         @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.tablet}) {
-          display: block;
           margin-left: ${({ theme }) => `calc(${theme.spaces.nano} * 3)`};
         }
 
         @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.desktop}) {
+          display: block;
           margin-left: ${({ theme }) => `calc(${theme.spaces.nano} * 4)`};
         }
       }
 
       @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.tablet}) {
+          theme.breakpoints.desktop}) {
         &:hover {
           > p {
             opacity: ${({ theme }) => theme.opacity.opacity100};
