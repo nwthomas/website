@@ -140,7 +140,7 @@ function Footer() {
           <div>
             <a
               href="https://twitter.com/nwthomas_"
-              aria-label="Link to Twitter"
+              aria-label="Link to Nathan's Twitter"
               rel="noopener noreferrer"
               target="_target"
             >
