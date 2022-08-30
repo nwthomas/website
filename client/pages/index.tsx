@@ -14,7 +14,7 @@ const Home: NextPage = () => {
         <main>
           <section>
             <h1>
-              I'm Nathan 👋🏻, a{" "}
+              Hi. I'm <span>Nathan 👋🏻,</span> a{" "}
               <a
                 href="https://github.com/nwthomas"
                 aria-label="Link to GitHub"
@@ -41,7 +41,10 @@ const Home: NextPage = () => {
               >
                 teacher
               </a>{" "}
-              in San Francisco. Let's <Link href="/contact">talk</Link>.
+              in San Francisco.{" "}
+              <span>
+                Let's <Link href="/contact">talk</Link>.
+              </span>
             </h1>
           </section>
           <Employers />

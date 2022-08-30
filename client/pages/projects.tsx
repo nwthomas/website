@@ -100,6 +100,10 @@ const RootStyles = styled.div`
         margin-bottom: ${({ theme }) =>
           `calc(${theme.spaces.medium} + ${theme.spaces.xxLarge})`};
       }
+
+      span {
+        white-space: nowrap;
+      }
     }
 
     > section:nth-child(2) {

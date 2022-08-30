@@ -12,6 +12,7 @@ function Footer() {
 
   return (
     <RootStyles>
+<<<<<<< HEAD
       <footer>
         <p>{copyrightLabel}</p>
         <nav>
@@ -79,6 +80,76 @@ function Footer() {
           </ul>
         </nav>
       </footer>
+=======
+      <ul>
+        <li>
+          <div>
+            <a
+              href="https://github.com/nwthomas"
+              aria-label="Link to GitHub"
+              rel="noopener noreferrer"
+              target="_target"
+            >
+              Github
+            </a>
+          </div>
+          <div>
+            <a
+              href="https://www.instagram.com/nwthomas/"
+              aria-label="Link to Instagram"
+              rel="noopener noreferrer"
+              target="_target"
+            >
+              Instagram
+            </a>
+          </div>
+        </li>
+        <li>
+          <div>
+            <a
+              href="https://www.linkedin.com/in/nwthomas-dev/"
+              aria-label="Link to Nathan's LinkedIn"
+              rel="noopener noreferrer"
+              target="_target"
+            >
+              LinkedIn
+            </a>
+          </div>
+          <div>
+            <a
+              href="https://medium.com/@nwthomas"
+              aria-label="Link to Nathan's Medium"
+              rel="noopener noreferrer"
+              target="_target"
+            >
+              Medium
+            </a>
+          </div>
+        </li>
+        <li>
+          <div>
+            <a
+              href="https://www.getrevue.co/profile/nathan-thomas"
+              aria-label="Link to Revue newsletter"
+              rel="noopener noreferrer"
+              target="_target"
+            >
+              Revue
+            </a>
+          </div>
+          <div>
+            <a
+              href="https://twitter.com/nwthomas_"
+              aria-label="Link to Twitter"
+              rel="noopener noreferrer"
+              target="_target"
+            >
+              Twitter
+            </a>
+          </div>
+        </li>
+      </ul>
+>>>>>>> e3f037b (Make various tweaks to content and add blog page)
       <BabyYoda />
     </RootStyles>
   );
