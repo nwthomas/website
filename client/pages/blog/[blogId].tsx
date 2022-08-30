@@ -1,6 +1,15 @@
 import Layout from "../../components/Layout";
 import fs from "fs";
 
+const BLOG_DEFAULT_NAME = "Nathan Thomas | Blog Post";
+const buildBlogPostPageName = (blogName?: string) => {
+  if (!blogName) {
+    return BLOG_DEFAULT_NAME;
+  }
+
+  return `Nathan Thomas | ${blogName}`;
+};
+
 export async function getStaticPaths() {
   const files = fs.readdirSync("../../constants/blogs");
   const paths = files.map((filename) => ({
@@ -15,11 +24,10 @@ export async function getStaticPaths() {
   };
 }
 
-function BlogPost({ blogId, content }) {
-  const pageName = "";
+function BlogPost() {
   return (
-    <Layout pageName={pageName} withFooter>
-      {content}
+    <Layout pageName={buildBlogPostPageName()} withFooter>
+      ""
     </Layout>
   );
 }
