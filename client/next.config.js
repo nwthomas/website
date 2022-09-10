@@ -2,6 +2,9 @@ const { withSentryConfig } = require("@sentry/nextjs");
 
 const moduleExports = {
   reactStrictMode: true,
+  serverRuntimeConfig: {
+    PROJECT_ROOT: __dirname,
+  },
 };
 
 const SentryWebpackPluginOptions = {
