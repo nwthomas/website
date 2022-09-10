@@ -36,23 +36,25 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [currentTheme]);
 
   return (
-    <Provider store={store}>
-      <QueryClientProvider client={queryClient}>
-        <Hydrate state={pageProps.dehydratedState}>
-          <ThemeProvider theme={mainTheme}>
-            <Navbar
-              currentTheme={currentTheme}
-              onThemeChangeClick={setCurrentTheme}
-            />
-            <GlobalStyle theme={mainTheme} />
-            <Component {...pageProps} currentTheme={currentTheme} />
-          </ThemeProvider>
-          {process.env.NEXT_PUBLIC_RUNTIME_ENV === "development" ? (
-            <ReactQueryDevtools />
-          ) : null}
-        </Hydrate>
-      </QueryClientProvider>
-    </Provider>
+    <>
+      <Provider store={store}>
+        <QueryClientProvider client={queryClient}>
+          <Hydrate state={pageProps.dehydratedState}>
+            <ThemeProvider theme={mainTheme}>
+              <Navbar
+                currentTheme={currentTheme}
+                onThemeChangeClick={setCurrentTheme}
+              />
+              <GlobalStyle theme={mainTheme} />
+              <Component {...pageProps} currentTheme={currentTheme} />
+            </ThemeProvider>
+            {process.env.NEXT_PUBLIC_RUNTIME_ENV === "development" ? (
+              <ReactQueryDevtools />
+            ) : null}
+          </Hydrate>
+        </QueryClientProvider>
+      </Provider>
+    </>
   );
 }
 
