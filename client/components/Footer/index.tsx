@@ -52,12 +52,12 @@ function Footer() {
         <li>
           <div>
             <a
-              href="https://www.polywork.com/nwthomas"
-              aria-label="Link to Polywork"
+              href="https://www.getrevue.co/profile/nathan-thomas"
+              aria-label="Link to Nathan's Revue email newsletter"
               rel="noopener noreferrer"
               target="_target"
             >
-              Polywork
+              Revue
             </a>
           </div>
           <div>
