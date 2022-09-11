@@ -118,15 +118,18 @@ function Contact() {
           <section>
             <h1>
               You can reach me on{" "}
-              <a
-                href="https://twitter.com/nwthomas_"
-                aria-label="Link to Nathan's Twitter profile"
-                rel="noopener noreferrer"
-                target="_target"
-              >
-                Twitter
-              </a>{" "}
-              🐦 or my contact form here:
+              <span>
+                <a
+                  href="https://twitter.com/nwthomas_"
+                  aria-label="Link to Nathan's Twitter profile"
+                  rel="noopener noreferrer"
+                  target="_target"
+                >
+                  Twitter
+                </a>{" "}
+                🐦
+              </span>{" "}
+              or my contact form here:
             </h1>
           </section>
           <section>
@@ -179,6 +182,10 @@ const RootStyles = styled.div`
         -webkit-text-fill-color: transparent;
         -moz-text-fill-color: transparent;
         font-size: inherit;
+      }
+
+      span {
+        white-space: nowrap;
       }
     }
 
