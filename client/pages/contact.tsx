@@ -142,7 +142,9 @@ function Contact() {
               onFormChange={handleOnFormChange}
               onSendMessageClick={handleSendMessage}
               withSpinner={isSendingEmail || isSendingToSmartContract}
-              withWeb3={preferredForm === WEB3_KEY}
+              withWeb3={Boolean(
+                preferredForm === WEB3_KEY && process.env.NEXT_PUBLIC_WITH_WEB3
+              )}
             />
           </section>
         </main>
