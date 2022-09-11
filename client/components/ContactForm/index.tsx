@@ -121,26 +121,28 @@ function ContactForm({
     >
       <div>
         <h2>Message</h2>
-        <div>
-          {withWeb3 && isWeb3Loaded ? (
-            <div>
-              <div />
-              <button onClick={onConnectWalletClick}>
-                {currentAccount || CONNECT_WALLET_LABEL}
-              </button>
-            </div>
-          ) : null}
-          <DropdownAnchor
-            content={ContentNode}
-            onDropdownButtonClick={onDropdownButtonClick}
-          >
-            <button>
+        {process.env.NEXT_PUBLIC_WITH_WEB3 ? (
+          <div>
+            {withWeb3 && isWeb3Loaded ? (
               <div>
-                <SettingsIcon color={colors.text} />
+                <div />
+                <button onClick={onConnectWalletClick}>
+                  {currentAccount || CONNECT_WALLET_LABEL}
+                </button>
               </div>
-            </button>
-          </DropdownAnchor>
-        </div>
+            ) : null}
+            <DropdownAnchor
+              content={ContentNode}
+              onDropdownButtonClick={onDropdownButtonClick}
+            >
+              <button>
+                <div>
+                  <SettingsIcon color={colors.text} />
+                </div>
+              </button>
+            </DropdownAnchor>
+          </div>
+        ) : null}
       </div>
       <form onSubmit={formik.handleSubmit}>
         <div>
