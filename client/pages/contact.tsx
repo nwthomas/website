@@ -76,7 +76,7 @@ function Contact() {
     messageValues: MessageValues,
     onSuccess: () => void
   ) => {
-    if (preferredForm === WEB3_KEY) {
+    if (preferredForm === WEB3_KEY && process.env.NEXT_PUBLIC_WITH_WEB3) {
       sendNewMessage(messageValues, onSuccess);
     } else {
       mutate(messageValues, { onSuccess });
