@@ -21,24 +21,26 @@ function WorkExample({
   url,
 }: Props) {
   return (
-    <RootStyles
-      href={url}
-      aria-label={ariaLabel}
-      rel="noopener noreferrer"
-      target="_target"
-    >
-      <img
-        alt={imageAlt || "Image"}
-        src={imageSrc}
-        height={height}
-        width={width}
-      />
-      <h2>{title}</h2>
+    <RootStyles>
+      <a
+        href={url}
+        aria-label={ariaLabel}
+        rel="noopener noreferrer"
+        target="_target"
+      >
+        <img
+          alt={imageAlt || "Image"}
+          src={imageSrc}
+          height={height}
+          width={width}
+        />
+        <h2>{title}</h2>
+      </a>
     </RootStyles>
   );
 }
 
-const RootStyles = styled.a`
+const RootStyles = styled.li`
   align-items: center;
   cursor: pointer;
   display: flex;
@@ -52,9 +54,13 @@ const RootStyles = styled.a`
     max-width: 700px;
   }
 
-  > h2 {
-    margin-top: ${({ theme }) => theme.spaces.medium};
-    text-align: center;
+  > a {
+    width: 100%;
+
+    > h2 {
+      margin-top: ${({ theme }) => theme.spaces.medium};
+      text-align: center;
+    }
   }
 
   &:hover {
