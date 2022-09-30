@@ -20,30 +20,31 @@ Welcome. I hope you enjoy this site as much as I enjoyed making it.
 I tried to use a completely modern tech stack while testing out some new technologies that I'd never used before. This resulted in a fast, performant, and easily-extensible web app that should be fairly future-proof for the coming next several years. I used:
 
 - Front-End:
-  - [TypeScript](https://www.typescriptlang.org/)
+  - [Axios](https://axios-http.com/docs/intro)
+  - [CryptoJS](https://github.com/brix/crypto-js)
+  - [Ethers](https://docs.ethers.io/v5/)
+  - [Fleek (IPFS deploy)](https://fleek.co/)
+  - [Focus Trap React](https://github.com/focus-trap/focus-trap-react)
+  - [Formik](https://formik.org/)
   - [Next.js](https://nextjs.org/)
   - [Redux](https://redux.js.org/)
-  - [Styled Components](https://styled-components.com/)
-  - [Ethers](https://docs.ethers.io/v5/)
-  - [Formik](https://formik.org/)
-  - [Yup](https://github.com/jquense/yup)
-  - [Axios](https://axios-http.com/docs/intro)
-  - [Vercel (main deploy)](https://vercel.com/)
-  - [Fleek (IPFS deploy)](https://fleek.co/)
   - [Sentry](https://sentry.io/welcome/)
-  - [CryptoJS](https://github.com/brix/crypto-js)
-- Back-end:
+  - [Styled Components](https://styled-components.com/)
   - [TypeScript](https://www.typescriptlang.org/)
-  - [Express](https://expressjs.com/)
-  - [Nodemailer](https://github.com/nodemailer/nodemailer)
+  - [Vercel (main deploy)](https://vercel.com/)
+  - [Yup](https://github.com/jquense/yup)
+- Back-end:
+  - [CryptoJS](https://github.com/brix/crypto-js)
   - [Docker](https://www.docker.com/)
   - [Ethers.js](https://docs.ethers.io/v5/)
-  - [CryptoJS](https://github.com/brix/crypto-js)
-- Smart Contracts:
-  - [Solidity](https://soliditylang.org/)
+  - [Express](https://expressjs.com/)
+  - [Nodemailer](https://github.com/nodemailer/nodemailer)
   - [TypeScript](https://www.typescriptlang.org/)
+- Smart Contracts:
   - [Hardhat](https://hardhat.org/)
   - [Solhint](https://protofire.github.io/solhint/)
+  - [Solidity](https://soliditylang.org/)
+  - [TypeScript](https://www.typescriptlang.org/)
 
 ## UNIT TESTING 🧪
 
