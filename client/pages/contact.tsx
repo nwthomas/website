@@ -17,7 +17,7 @@ import styled from "styled-components";
 import { updateModalValues } from "../store/modalSlice";
 import { useMutation } from "react-query";
 
-const PAGE_NAME = "Nathan Thomas | Contact";
+const PAGE_NAME = "Contact";
 
 function Contact() {
   const [preferredForm, setPreferredForm] = useGetPreferredForm();

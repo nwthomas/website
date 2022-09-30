@@ -1,7 +1,7 @@
 import Error from "../components/Error";
 import Layout from "../components/Layout";
 
-const PAGE_NAME = "Nathan Thomas | 404";
+const PAGE_NAME = "404";
 
 function FourOhFour() {
   return (
