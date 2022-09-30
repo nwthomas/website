@@ -2,6 +2,7 @@ import * as React from "react";
 
 import styled, { ThemeContext } from "styled-components";
 
+import FocusTrap from "focus-trap-react";
 import type { ThemeEnum } from "../../hooks/useGetPreferredTheme";
 
 const DROPDOWN_MAX_WIDTH = 250;
@@ -37,7 +38,7 @@ function Dropdown({
       left={leftCSSProperty}
       top={topCSSProperty}
     >
-      {content(onConfirmClick, onCancelClick)}
+      <FocusTrap>{content(onConfirmClick, onCancelClick)}</FocusTrap>
     </RootStyles>
   );
 }
