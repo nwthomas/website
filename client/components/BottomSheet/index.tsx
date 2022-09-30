@@ -3,6 +3,8 @@ import * as React from "react";
 import { DARK_THEME, ThemeEnum } from "../../hooks/useGetPreferredTheme";
 import styled, { ThemeContext } from "styled-components";
 
+import FocusTrap from "focus-trap-react";
+
 type Props = {
   content: (
     onConfirmClick: () => void,
@@ -17,7 +19,7 @@ function BottomSheet({ content, onBackgroundClick, onConfirmClick }: Props) {
 
   return (
     <RootStyles currentTheme={currentTheme} onClick={onBackgroundClick}>
-      {content(onConfirmClick, onBackgroundClick)}
+      <FocusTrap>{content(onConfirmClick, onBackgroundClick)}</FocusTrap>
     </RootStyles>
   );
 }

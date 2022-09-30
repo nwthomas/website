@@ -4,6 +4,7 @@ import { DARK_THEME, ThemeEnum } from "../../hooks/useGetPreferredTheme";
 import styled, { ThemeContext } from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 
+import FocusTrap from "focus-trap-react";
 import { RootState } from "../../store";
 import { updateModalValues } from "../../store/modalSlice";
 import { useLockBodyScroll } from "../../hooks/useLockBodyScroll";
@@ -31,10 +32,12 @@ function Modal() {
 
   return (
     <RootStyles currentTheme={currentTheme} onClick={handleDismissClick}>
-      <div>
-        <h1>{modalMessage}</h1>
-        <button onClick={handleDismissClick}>{modalButtonLabel}</button>
-      </div>
+      <FocusTrap>
+        <dialog>
+          <h1>{modalMessage}</h1>
+          <button onClick={handleDismissClick}>{modalButtonLabel}</button>
+        </dialog>
+      </FocusTrap>
     </RootStyles>
   );
 }
@@ -65,7 +68,7 @@ const RootStyles = styled.div<StyleProps>`
     padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
   }
 
-  > div {
+  > dialog {
     align-items: center;
     background-color: ${({ theme }) => theme.colors.bodyBackground};
     display: flex;

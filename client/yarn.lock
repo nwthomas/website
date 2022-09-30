@@ -2282,6 +2282,21 @@ flatted@^3.1.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.2.tgz#64bfed5cb68fe3ca78b3eb214ad97b63bedce561"
   integrity sha512-JaTY/wtrcSyvXJl4IMFHPKyFur1sE9AUqc0QnhOaJ0CxHtAoIV8pYDzeEfAaNEtGkOfq4gr3LBFmdXW5mOQFnA==
 
+focus-trap-react@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/focus-trap-react/-/focus-trap-react-10.0.0.tgz#9e41ddd0b869db577dfe670611648d97736b9188"
+  integrity sha512-I0tReLdpmCwWuVb6YAmOD+S9KHj0GrlIWmnVJf61j2NHxiIg7DbrsabPmtPC+1yzGJrsy+/iTZiqXtStjlBQcA==
+  dependencies:
+    focus-trap "^7.0.0"
+    tabbable "^6.0.0"
+
+focus-trap@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/focus-trap/-/focus-trap-7.0.0.tgz#4e2cd9aab5b673e2cbad945c52bd232f6160c2cb"
+  integrity sha512-uT4Bl8TwU+5vVAx/DHil/1eVS54k9unqhK/vGy2KSh7esPmqgC0koAB9J2sJ+vtj8+vmiFyGk2unLkhNLQaxoA==
+  dependencies:
+    tabbable "^6.0.0"
+
 follow-redirects@^1.14.0:
   version "1.14.4"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.4.tgz#838fdf48a8bbdd79e52ee51fb1c94e3ed98b9379"
@@ -4267,6 +4282,11 @@ supports-color@^8.0.0:
   integrity sha512-MpUEN2OodtUzxvKQl72cUF7RQ5EiHsGvSsVG0ia9c5RbWGL2CI4C7EpPS8UTBIplnlzZiNuV56w+FuNxy3ty2Q==
   dependencies:
     has-flag "^4.0.0"
+
+tabbable@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/tabbable/-/tabbable-6.0.0.tgz#7f95ea69134e9335979092ba63866fe67b521b01"
+  integrity sha512-SxhZErfHc3Yozz/HLAl/iPOxuIj8AtUw13NRewVOjFW7vbsqT1f3PuiHrPQbUkRcLNEgAedAv2DnjLtzynJXiw==
 
 table@^6.0.9:
   version "6.7.1"
