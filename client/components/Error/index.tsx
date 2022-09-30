@@ -8,12 +8,12 @@ interface Props {
 export default function Error({ errorCode }: Props) {
   return (
     <RootStyles>
-      <h2>{`${errorCode} 😩 Something went wrong`}</h2>
-      <div>
+      <h1>
+        {`${errorCode} 😩 `}{" "}
         <Link href="/" passHref>
-          <a>Go back home</a>
+          Go back home
         </Link>
-      </div>
+      </h1>
     </RootStyles>
   );
 }
@@ -31,13 +31,9 @@ const RootStyles = styled.main`
   top: 0;
   width: 100%;
 
-  > h2 {
+  > h1 {
+    text-align: center;
     margin-bottom: ${({ theme }) => theme.spaces.medium};
-  }
-
-  > div {
-    cursor: pointer;
-    transition: opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
 
     > a {
       background-clip: text;
@@ -46,14 +42,10 @@ const RootStyles = styled.main`
       -moz-background-clip: text;
       -webkit-background-clip: text;
       background-size: 100%;
+      font-size: inherit;
+      padding: ${({ theme }) => `${theme.spaces.micro} 0`};
       -moz-text-fill-color: transparent;
       -webkit-text-fill-color: transparent;
-      display: inline-block;
-      transition: opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
-
-      &:hover {
-        color: ${({ theme }) => theme.colors.textAccentThree};
-      }
     }
   }
 `;
