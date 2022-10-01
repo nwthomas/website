@@ -18,9 +18,11 @@ function BottomSheet({ content, onBackgroundClick, onConfirmClick }: Props) {
   const { currentTheme } = React.useContext(ThemeContext);
 
   return (
-    <RootStyles currentTheme={currentTheme} onClick={onBackgroundClick}>
-      <FocusTrap>{content(onConfirmClick, onBackgroundClick)}</FocusTrap>
-    </RootStyles>
+    <FocusTrap>
+      <RootStyles currentTheme={currentTheme} onClick={onBackgroundClick}>
+        {content(onConfirmClick, onBackgroundClick)}
+      </RootStyles>
+    </FocusTrap>
   );
 }
 
