@@ -109,6 +109,7 @@ const RootStyles = styled.div`
         display: grid;
         grid-row-gap: ${({ theme }) => theme.spaces.large};
         margin-bottom: ${({ theme }) => theme.spaces.large};
+        width: 100%;
 
         @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.tablet}) {
@@ -121,6 +122,10 @@ const RootStyles = styled.div`
         @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.desktop}) {
           grid-template-columns: 1fr 1fr;
+        }
+
+        > li {
+          min-width: 100%;
         }
       }
     }
