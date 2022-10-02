@@ -21,7 +21,7 @@ function Work() {
                 ariaLabel="Link to portfolio site GitHub repository"
                 imageAlt="Macbook with screenshot of Nathan's personal site on it"
                 imageDimensions={{ height: 859, width: 1407 }}
-                imageSrc="./personal-portfolio-site.webp"
+                imageSrc="./personal-portfolio.webp"
                 title="Personal Site"
                 url="https://github.com/nwthomas/personal-portfolio"
               />
