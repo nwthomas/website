@@ -52,7 +52,7 @@ function Work() {
               <WorkExample
                 ariaLabel="Link to Twitter blog post about Twitter Super Follows"
                 imageAlt="Macbook with screenshot of Twitter.com Super Follows on it"
-                imageDimensions={{ height: 735, width: 1258 }}
+                imageDimensions={{ height: 859, width: 1407 }}
                 imageSrc="./twitter-super-follows.webp"
                 title="Twitter Super Follows"
                 url="https://blog.twitter.com/en_us/topics/product/2021/introducing-super-follows"
