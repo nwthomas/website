@@ -28,7 +28,7 @@ function Work() {
               <WorkExample
                 ariaLabel="Link to Loom blog post about low light adjustments"
                 imageAlt="Macbook with screenshot of Loom.com low light adjustments"
-                imageDimensions={{ height: 735, width: 1258 }}
+                imageDimensions={{ height: 859, width: 1407 }}
                 imageSrc="./loom-low-light.webp"
                 title="Loom Low Light Adjustments"
                 url="https://new.loom.com/announcements/look-your-best-with-touch-up-my-appearance-and-low-light-adjustments"
@@ -36,7 +36,7 @@ function Work() {
               <WorkExample
                 ariaLabel="Link to Loom blog post about multi-video stitching"
                 imageAlt="Macbook with screenshot of Loom.com multi-clip stiching"
-                imageDimensions={{ height: 735, width: 1258 }}
+                imageDimensions={{ height: 859, width: 1407 }}
                 imageSrc="./loom-multi-clip-editing.webp"
                 title="Loom Multi-Clip Editing"
                 url="https://www.loom.com/blog/video-stitching"
@@ -44,7 +44,7 @@ function Work() {
               <WorkExample
                 ariaLabel="Link to Jane Wong Tweet about the Twitter video trimmer"
                 imageAlt="Macbook with screenshot of Twitter.com video trimmer"
-                imageDimensions={{ height: 735, width: 1258 }}
+                imageDimensions={{ height: 859, width: 1407 }}
                 imageSrc="/twitter-video-trimmer.webp"
                 title="Twitter Video Trimmer"
                 url="https://twitter.com/wongmjane/status/1418299633382559748"
