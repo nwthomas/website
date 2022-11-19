@@ -1,10 +1,5 @@
 import * as React from "react";
 
-import { WEB3_KEY, useGetPreferredForm } from "../hooks/useGetPreferredForm";
-import {
-  abbreviateWalletAddress,
-  useConnectWallet,
-} from "../hooks/useConnectWallet";
 import { resetMessageValues, updateMessageValues } from "../store/contactSlice";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -20,35 +15,10 @@ import { useMutation } from "react-query";
 const PAGE_NAME = "Contact";
 
 function Contact() {
-  const [preferredForm, setPreferredForm] = useGetPreferredForm();
-  const {
-    checkIfWalletIsConnected,
-    currentAccount,
-    connectToWallet,
-    errorMessage,
-    isError,
-    isLoaded,
-    isSending: isSendingToSmartContract,
-    reset: resetWalletState,
-    sendNewMessage,
-  } = useConnectWallet();
-
   const dispatch = useDispatch();
   const initialMessageValues = useSelector(
     (state: RootState) => state.contact.message
   );
-
-  React.useEffect(() => {
-    if (preferredForm === WEB3_KEY && isError && errorMessage) {
-      dispatch(
-        updateModalValues({
-          buttonLabel: "Okay",
-          message: errorMessage,
-          shouldShowModal: true,
-        })
-      );
-    }
-  }, [preferredForm, isError]);
 
   const { mutate, isLoading: isSendingEmail } = useMutation(sendMessage, {
     onSuccess: () => {
@@ -76,40 +46,12 @@ function Contact() {
     messageValues: MessageValues,
     onSuccess: () => void
   ) => {
-    if (preferredForm === WEB3_KEY && process.env.NEXT_PUBLIC_WITH_WEB3) {
-      sendNewMessage(messageValues, onSuccess);
-    } else {
-      mutate(messageValues, { onSuccess });
-    }
+    mutate(messageValues, { onSuccess });
   };
 
   const handleOnFormChange = (key: string, value: string) => {
     dispatch(updateMessageValues({ [key]: value }));
   };
-
-  const handleConnectToWalletClick = () => {
-    connectToWallet();
-
-    if (isError && errorMessage) {
-      dispatch(
-        updateModalValues({
-          buttonLabel: "Okay",
-          message: errorMessage,
-          shouldShowModal: true,
-        })
-      );
-    }
-  };
-
-  const handleSetPreferredFormClick = () => {
-    resetWalletState();
-    checkIfWalletIsConnected();
-    setPreferredForm();
-  };
-
-  const abbreviatedCurrentAccountAddress = currentAccount
-    ? abbreviateWalletAddress(currentAccount)
-    : undefined;
 
   return (
     <Layout pageName={PAGE_NAME} withFooter>
@@ -126,25 +68,17 @@ function Contact() {
                   target="_target"
                 >
                   Twitter
-                </a>{" "}
-                🐦
+                </a>
               </span>{" "}
               or my contact form here:
             </h1>
           </section>
           <section>
             <ContactForm
-              currentAccount={abbreviatedCurrentAccountAddress}
               initialValues={initialMessageValues}
-              isWeb3Loaded={isLoaded}
-              onDropdownButtonClick={handleSetPreferredFormClick}
-              onConnectWalletClick={handleConnectToWalletClick}
               onFormChange={handleOnFormChange}
               onSendMessageClick={handleSendMessage}
-              withSpinner={isSendingEmail || isSendingToSmartContract}
-              withWeb3={Boolean(
-                preferredForm === WEB3_KEY && process.env.NEXT_PUBLIC_WITH_WEB3
-              )}
+              withSpinner={isSendingEmail}
             />
           </section>
         </main>

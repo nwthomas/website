@@ -12,7 +12,7 @@ function Work() {
           <section>
             <h1>
               This is all the work that I'm really proud of. I hope you enjoy
-              it. 🌀
+              it.
             </h1>
           </section>
           <section>

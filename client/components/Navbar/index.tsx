@@ -14,7 +14,6 @@ function Navbar({ currentTheme, onThemeChangeClick }: Props) {
       <header>
         <div>
           <Link href="/">Nathan Thomas</Link>
-          <p>.btc & .eth</p>
         </div>
         <nav>
           <ul>
@@ -61,37 +60,6 @@ const RootStyles = styled.div`
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
       padding: ${({ theme }) => `${theme.spaces.xxLarge} 0`};
-    }
-
-    > div {
-      > p {
-        display: none;
-        margin-left: ${({ theme }) => `calc(${theme.spaces.nano} * 2)`};
-        opacity: 0;
-        transition: opacity ${({ theme }) => theme.transitions.medium}
-          ease-in-out;
-        user-select: none;
-
-        @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.tablet}) {
-          margin-left: ${({ theme }) => `calc(${theme.spaces.nano} * 3)`};
-        }
-
-        @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.desktop}) {
-          display: block;
-          margin-left: ${({ theme }) => `calc(${theme.spaces.nano} * 4)`};
-        }
-      }
-
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.desktop}) {
-        &:hover {
-          > p {
-            opacity: ${({ theme }) => theme.opacity.opacity100};
-          }
-        }
-      }
     }
 
     > div,
