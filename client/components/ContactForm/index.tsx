@@ -3,27 +3,9 @@ import * as Yup from "yup";
 
 import styled, { ThemeContext } from "styled-components";
 
-import DropdownAnchor from "../DropdownAnchor";
-import { SettingsIcon } from "../icons";
 import Spinner from "../Spinner";
 import type { ThemeEnum } from "../../hooks/useGetPreferredTheme";
 import { useFormik } from "formik";
-
-const web2DropdownContent = {
-  paragraphs: ["Would you like to switch back to the Web2 form?"],
-  confirmButtonLabel: "Yes",
-  cancelButtonLabel: "Go back",
-};
-
-const web3DropdownContent = {
-  paragraphs: [
-    "Would you like the Web3 form? You'll need an Ethereum wallet and Rinkeby testnet ether.",
-  ],
-  confirmButtonLabel: "Yes",
-  cancelButtonLabel: "Go back",
-};
-
-const CONNECT_WALLET_LABEL = "Connect Wallet";
 
 export interface MessageValues {
   email: string;
@@ -33,39 +15,27 @@ export interface MessageValues {
 }
 
 interface Props {
-  currentAccount?: string;
   initialValues: {
     name: string;
     email: string;
     message: string;
     fax: string;
   };
-  isWeb3Loaded?: boolean;
-  onConnectWalletClick: () => void;
-  onDropdownButtonClick: () => void;
   onFormChange: (key: string, value: string) => void;
   onSendMessageClick: (
     messageValues: MessageValues,
     onSuccess: () => void
   ) => void;
   withSpinner?: boolean;
-  withWeb3?: boolean;
 }
 
 function ContactForm({
-  currentAccount,
   initialValues,
-  isWeb3Loaded,
-  onConnectWalletClick,
-  onDropdownButtonClick,
   onFormChange,
   onSendMessageClick,
   withSpinner,
-  withWeb3,
 }: Props) {
-  const { colors, currentTheme } = React.useContext(ThemeContext);
-
-  const isFormButtonDisabled = (withWeb3 && !currentAccount) || withSpinner;
+  const { currentTheme } = React.useContext(ThemeContext);
 
   const formik = useFormik({
     initialValues: {
@@ -92,57 +62,10 @@ function ContactForm({
     onFormChange(event.target.name, event.target.value);
   };
 
-  const ContentNode = React.useCallback(
-    (onConfirmButtonClick: () => void, onCancelButtonClick: () => void) => {
-      const content = withWeb3 ? web2DropdownContent : web3DropdownContent;
-
-      return (
-        <DropdownContent>
-          {content.paragraphs?.map((paragraph, index) => {
-            return <p key={index}>{paragraph}</p>;
-          })}
-          <button onClick={onConfirmButtonClick}>
-            {content.confirmButtonLabel}
-          </button>
-          <button onClick={onCancelButtonClick}>
-            {content.cancelButtonLabel}
-          </button>
-        </DropdownContent>
-      );
-    },
-    [withWeb3]
-  );
-
   return (
-    <RootStyles
-      currentTheme={currentTheme}
-      isWalletConnected={!!currentAccount}
-      isFormButtonDisabled={isFormButtonDisabled}
-    >
+    <RootStyles currentTheme={currentTheme} isFormButtonDisabled={withSpinner}>
       <div>
         <h2>Message</h2>
-        {process.env.NEXT_PUBLIC_WITH_WEB3 ? (
-          <div>
-            {withWeb3 && isWeb3Loaded ? (
-              <div>
-                <div />
-                <button onClick={onConnectWalletClick}>
-                  {currentAccount || CONNECT_WALLET_LABEL}
-                </button>
-              </div>
-            ) : null}
-            <DropdownAnchor
-              content={ContentNode}
-              onDropdownButtonClick={onDropdownButtonClick}
-            >
-              <button>
-                <div>
-                  <SettingsIcon color={colors.text} />
-                </div>
-              </button>
-            </DropdownAnchor>
-          </div>
-        ) : null}
       </div>
       <form onSubmit={formik.handleSubmit}>
         <div>
@@ -196,7 +119,7 @@ function ContactForm({
             value={formik.values.fax}
           ></input>
         </div>
-        <button disabled={isFormButtonDisabled} type="submit">
+        <button disabled={withSpinner} type="submit">
           {withSpinner ? (
             <Spinner color="white" height="40px" width="40px" />
           ) : (
@@ -236,61 +159,6 @@ const RootStyles = styled.div<StyleProps>`
 
     > h2 {
       font-size: 1.6rem;
-    }
-
-    > div {
-      align-items: center;
-      display: flex;
-      height: ${({ theme }) => theme.spaces.medium};
-
-      > div:nth-child(1) {
-        align-items: center;
-        display: flex;
-        justify-content: center;
-
-        > div {
-          background: ${({ isWalletConnected, theme }) =>
-            isWalletConnected ? theme.colors.success : theme.colors.error};
-          border-radius: ${({ theme }) => theme.borderRadii.infinity};
-          height: ${({ theme }) => theme.spaces.small};
-          margin-right: ${({ theme }) => theme.spaces.small};
-          width: ${({ theme }) => theme.spaces.small};
-        }
-
-        > button {
-          background: ${({ theme }) => `${theme.colorsHex.transparent}`};
-          border: 1px solid
-            ${({ theme }) => theme.colors.buttonPrimaryBackground};
-          border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
-          color: ${({ theme }) => theme.colors.buttonPrimaryBackground};
-          cursor: pointer;
-          margin-right: ${({ theme }) => theme.spaces.small};
-          padding: ${({ theme }) =>
-            `${theme.spaces.micro} ${theme.spaces.small}`};
-        }
-      }
-
-      > button {
-        background: ${({ theme }) => theme.colors.transparent};
-        align-items: flex-end;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-        overflow: hidden;
-        padding: ${({ theme }) => theme.spaces.nano} 0 0 0;
-        transition: opacity ${({ theme }) => theme.transitions.medium}
-          ease-in-out;
-
-        &:hover {
-          opacity: ${({ theme }) => theme.opacity.opacity70};
-        }
-
-        > div {
-          height: 20px;
-          width: 20px;
-        }
-      }
     }
   }
 
@@ -380,33 +248,6 @@ const RootStyles = styled.div<StyleProps>`
             : theme.opacity.opacity70};
       }
     }
-  }
-`;
-
-const DropdownContent = styled.div`
-  width: 100%;
-
-  > p {
-    color: ${({ theme }) => theme.colorsHex.white};
-    font-size: 1.6rem;
-    margin-bottom: ${({ theme }) => theme.spaces.medium};
-  }
-
-  > button {
-    border: none;
-    background-color: ${({ theme }) => theme.colors.buttonSecondaryBackground};
-    border-radius: ${({ theme }) => theme.borderRadii.large};
-    color: ${({ theme }) => theme.colorsHex.white};
-    cursor: pointer;
-    height: ${({ theme }) => theme.spaces.large};
-    width: 100%;
-  }
-
-  > button:last-child {
-    background-color: ${({ theme }) => theme.colors.transparent};
-    border: 2px solid ${({ theme }) => theme.colorsHex.white};
-    color: ${({ theme }) => theme.colorsHex.white};
-    margin-top: ${({ theme }) => theme.spaces.small};
   }
 `;
 
