@@ -40,11 +40,6 @@ I tried to use a completely modern tech stack while testing out some new technol
   - [Express](https://expressjs.com/)
   - [Nodemailer](https://github.com/nodemailer/nodemailer)
   - [TypeScript](https://www.typescriptlang.org/)
-- Smart Contracts:
-  - [Hardhat](https://hardhat.org/)
-  - [Solhint](https://protofire.github.io/solhint/)
-  - [Solidity](https://soliditylang.org/)
-  - [TypeScript](https://www.typescriptlang.org/)
 
 ## UNIT TESTING 🧪
 
@@ -52,10 +47,6 @@ I tried to use a completely modern tech stack while testing out some new technol
   - `COMING SOON`™
 - Back-end:
   - `COMING SOON`™
-- Smart Contracts:
-  - [Chai](https://www.chaijs.com/)
-  - [Mocha](https://mochajs.org/)
-  - [Hardhat](https://hardhat.org/)
 
 ## ACKNOWLEDGEMENTS 🎉
 
