@@ -85,14 +85,14 @@ const RootStyles = styled.div<StyleProps>`
     width: 50px;
 
     p {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       text-align: center;
       user-select: none;
       vertical-align: middle;
     }
 
     > p:nth-child(2) {
-      font-size: 1.9rem;
+      font-size: 1.6rem;
     }
 
     > div {
