@@ -13,7 +13,13 @@ export default function ThemeTransitionButton({
   onClick,
   currentTheme,
 }: Props) {
+  const inputRef = React.createRef<HTMLInputElement>();
   const isDarkMode = currentTheme === DARK_THEME;
+
+  const handleThemeSwitchClick = () => {
+    inputRef.current?.focus();
+    onClick();
+  };
 
   return (
     <RootStyles isDarkMode={isDarkMode}>
@@ -24,9 +30,10 @@ export default function ThemeTransitionButton({
             type="checkbox"
             checked={isDarkMode}
             onChange={onClick}
+            ref={inputRef}
             tabIndex={0}
           />
-          <div onClick={onClick}>
+          <div onClick={handleThemeSwitchClick}>
             <p>🌙</p>
             <p>☀️</p>
             <div />
@@ -44,7 +51,7 @@ type StyleProps = {
 const RootStyles = styled.div<StyleProps>`
   height: 24px;
   width: 50px;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 
   > input {
     border: 0;
@@ -73,6 +80,7 @@ const RootStyles = styled.div<StyleProps>`
     justify-content: space-between;
     padding: 4px 3px 0;
     position: relative;
+    touch-action: pan-x;
     width: 50px;
 
     p {
@@ -98,8 +106,7 @@ const RootStyles = styled.div<StyleProps>`
         cubic-bezier(0.23, 1, 0.32, 1);
       width: 20px;
 
-      &:active,
-      &:focus {
+      &:focus-within {
         box-shadow: 0 0 2px 3px ${({ theme }) => theme.colorsHex.pictonBlue};
       }
     }
