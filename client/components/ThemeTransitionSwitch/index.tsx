@@ -16,7 +16,8 @@ export default function ThemeTransitionButton({
   const inputRef = React.createRef<HTMLInputElement>();
   const isDarkMode = currentTheme === DARK_THEME;
 
-  const handleThemeSwitchClick = () => {
+  const handleThemeSwitchClick = (event: React.SyntheticEvent) => {
+    event.stopPropagation();
     inputRef.current?.focus();
     onClick();
   };
@@ -28,8 +29,8 @@ export default function ThemeTransitionButton({
           <input
             aria-label="Switch between light and dark mode"
             type="checkbox"
-            checked={isDarkMode}
-            onChange={onClick}
+            defaultChecked={isDarkMode}
+            onChange={handleThemeSwitchClick}
             ref={inputRef}
             tabIndex={0}
           />
