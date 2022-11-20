@@ -35,8 +35,8 @@ const Home: NextPage = () => {
               </a>
               , and{" "}
               <a
-                href="https://www.youtube.com/watch?v=GNrQTbIFsG4&t=2909s"
-                aria-label="Link to presentation on YouTube"
+                href="https://www.codetenderloin.org/code-ramp-course"
+                aria-label="Link to Code Tenderloin's Code Ramp bootcamp"
                 rel="noopener noreferrer"
                 target="_target"
               >
