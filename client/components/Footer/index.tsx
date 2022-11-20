@@ -8,22 +8,22 @@ function Footer() {
         <li>
           <div>
             <a
-              href="https://dev.to/nwthomas"
-              aria-label="Link to Dev.to"
-              rel="noopener noreferrer"
-              target="_target"
-            >
-              Dev.to
-            </a>
-          </div>
-          <div>
-            <a
               href="https://github.com/nwthomas"
               aria-label="Link to GitHub"
               rel="noopener noreferrer"
               target="_target"
             >
               Github
+            </a>
+          </div>
+          <div>
+            <a
+              href="https://www.instagram.com/nwthomas/"
+              aria-label="Link to Instagram"
+              rel="noopener noreferrer"
+              target="_target"
+            >
+              Instagram
             </a>
           </div>
         </li>
@@ -53,7 +53,7 @@ function Footer() {
           <div>
             <a
               href="https://www.getrevue.co/profile/nathan-thomas"
-              aria-label="Link to Nathan's Revue email newsletter"
+              aria-label="Link to Revue newsletter"
               rel="noopener noreferrer"
               target="_target"
             >
