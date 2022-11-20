@@ -49,7 +49,7 @@ const GlobalStyle = css`
 
   /* To change the colors in the colors object, go to styles/libs/theme.ts */
   body.dark {
-    --body-bg: ${colors.raisinBlack};
+    --body-bg: ${colors.bunker};
     --body-bg-accent-one: ${colors.black};
     --body-bg-accent-two: ${colors.tuna};
     --body-bg-accent-three: ${colors.shark};
