@@ -76,19 +76,14 @@ const RootStyles = styled.div`
     }
 
     > div {
-      background-color: ${({ theme }) => theme.colors.bodyBackgroundAccent};
+      background-: ${({ theme }) => theme.colors.bodyBackgroundAccent};
       border: ${({ theme }) =>
-        `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentOne}`};
+        `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
       border-radius: ${({ theme }) => theme.borderRadii.infinity};
       display: flex;
       justify-content: space-between;
       padding: ${({ theme }) => theme.spaces.small};
       width: 100%;
-
-      &:hover {
-        border: ${({ theme }) =>
-          `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
-      }
 
       > div,
       nav {
