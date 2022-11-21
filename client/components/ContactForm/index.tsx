@@ -65,68 +65,70 @@ function ContactForm({
   return (
     <RootStyles currentTheme={currentTheme} isFormButtonDisabled={withSpinner}>
       <div>
-        <h2>Message</h2>
+        <div>
+          <h2>Message</h2>
+        </div>
+        <form onSubmit={formik.handleSubmit}>
+          <div>
+            {formik.touched.name && formik.errors.name ? (
+              <p>{formik.errors.name}</p>
+            ) : null}
+            <input
+              name="name"
+              onBlur={formik.handleBlur}
+              onChange={handleOnFormChange}
+              placeholder="What's your name?"
+              type="text"
+              value={formik.values.name}
+            ></input>
+          </div>
+          <div>
+            {formik.touched.email && formik.errors.email ? (
+              <p>{formik.errors.email}</p>
+            ) : null}
+            <input
+              autoCapitalize="off"
+              name="email"
+              onBlur={formik.handleBlur}
+              onChange={handleOnFormChange}
+              placeholder="What's your email?"
+              type="text"
+              value={formik.values.email}
+            ></input>
+          </div>
+          <div>
+            {formik.touched.message && formik.errors.message ? (
+              <p>{formik.errors.message}</p>
+            ) : null}
+            <textarea
+              autoComplete="off"
+              name="message"
+              onBlur={formik.handleBlur}
+              onChange={handleOnFormChange}
+              placeholder="What's happening?"
+              value={formik.values.message}
+            ></textarea>
+          </div>
+          <div>
+            <input
+              autoComplete="off"
+              name="fax"
+              onBlur={formik.handleBlur}
+              onChange={handleOnFormChange}
+              type="text"
+              tabIndex={-1}
+              value={formik.values.fax}
+            ></input>
+          </div>
+          <button disabled={withSpinner} type="submit">
+            {withSpinner ? (
+              <Spinner color="white" height="40px" width="40px" />
+            ) : (
+              "Submit"
+            )}
+          </button>
+        </form>
       </div>
-      <form onSubmit={formik.handleSubmit}>
-        <div>
-          {formik.touched.name && formik.errors.name ? (
-            <p>{formik.errors.name}</p>
-          ) : null}
-          <input
-            name="name"
-            onBlur={formik.handleBlur}
-            onChange={handleOnFormChange}
-            placeholder="What's your name?"
-            type="text"
-            value={formik.values.name}
-          ></input>
-        </div>
-        <div>
-          {formik.touched.email && formik.errors.email ? (
-            <p>{formik.errors.email}</p>
-          ) : null}
-          <input
-            autoCapitalize="off"
-            name="email"
-            onBlur={formik.handleBlur}
-            onChange={handleOnFormChange}
-            placeholder="What's your email?"
-            type="text"
-            value={formik.values.email}
-          ></input>
-        </div>
-        <div>
-          {formik.touched.message && formik.errors.message ? (
-            <p>{formik.errors.message}</p>
-          ) : null}
-          <textarea
-            autoComplete="off"
-            name="message"
-            onBlur={formik.handleBlur}
-            onChange={handleOnFormChange}
-            placeholder="What's happening?"
-            value={formik.values.message}
-          ></textarea>
-        </div>
-        <div>
-          <input
-            autoComplete="off"
-            name="fax"
-            onBlur={formik.handleBlur}
-            onChange={handleOnFormChange}
-            type="text"
-            tabIndex={-1}
-            value={formik.values.fax}
-          ></input>
-        </div>
-        <button disabled={withSpinner} type="submit">
-          {withSpinner ? (
-            <Spinner color="white" height="40px" width="40px" />
-          ) : (
-            "Submit"
-          )}
-        </button>
-      </form>
     </RootStyles>
   );
 }
@@ -138,10 +140,9 @@ interface StyleProps {
 }
 
 const RootStyles = styled.div<StyleProps>`
+  background-image: ${({ theme }) => theme.gradients.contactFormBorder};
   border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
-  background-color: ${({ theme }) => theme.colors.bodyBackground};
-  padding: ${({ theme }) => theme.spaces.small};
-  border: 3px solid ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
+  padding: ${({ theme }) => theme.spaces.nano};
   width: 100%;
 
   @media only screen and (min-width: ${({ theme }) =>
@@ -150,102 +151,110 @@ const RootStyles = styled.div<StyleProps>`
   }
 
   > div {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: ${({ theme }) => theme.spaces.small};
-    margin-top: ${({ theme }) => theme.spaces.micro};
-    padding: 0 ${({ theme }) => theme.spaces.small};
-
-    > h2 {
-      font-size: 1.6rem;
-    }
-  }
-
-  > form {
-    display: flex;
-    flex-direction: column;
+    border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
+    background-color: ${({ theme }) => theme.colors.bodyBackground};
+    padding: ${({ theme }) => theme.spaces.small};
+    width: 100%;
 
     > div {
-      background-color: ${({ theme }) => theme.colors.bodyBackground};
-      border: 3px solid ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
-      border-radius: ${({ theme }) => theme.borderRadii.large};
-      margin-bottom: ${({ theme }) => theme.spaces.micro};
-      min-height: ${({ theme }) => theme.spaces.xxLarge};
-      position: relative;
-      width: 100%;
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: ${({ theme }) => theme.spaces.small};
+      margin-top: ${({ theme }) => theme.spaces.micro};
+      padding: 0 ${({ theme }) => theme.spaces.small};
 
-      > input {
-        background: ${({ theme }) => theme.colorsHex.transparent};
-        border: none;
-        border-radius: ${({ theme }) => theme.borderRadii.large};
-        min-height: ${({ theme }) => theme.spaces.xxLarge};
-        padding: ${({ theme }) => theme.spaces.medium};
-        width: 100%;
-      }
-
-      > textarea {
-        background: ${({ theme }) => theme.colors.transparent};
-        border: none;
-        border-top-left-radius: ${({ theme }) => theme.borderRadii.large};
-        border-bottom-left-radius: ${({ theme }) => theme.borderRadii.large};
-        border-top-right-radius: ${({ theme }) => theme.borderRadii.large};
-        min-height: ${({ theme }) => theme.spaces.xxLarge};
-        padding: ${({ theme }) => theme.spaces.medium};
-        resize: vertical;
-        width: 100%;
-      }
-
-      &:nth-of-type(3) {
-        border-bottom-right-radius: 0;
-        margin-bottom: ${({ theme }) => theme.spaces.micro};
-      }
-
-      &:last-of-type {
-        display: none;
-      }
-
-      > p {
-        align-items: center;
-        background: ${({ theme }) => theme.colors.bodyBackground};
-        border-radius: ${({ theme }) => theme.borderRadii.large};
-        bottom: 0;
-        color: ${({ theme }) => theme.colors.error};
-        display: flex;
+      > h2 {
         font-size: 1.6rem;
-        height: ${({ theme }) => theme.spaces.xLarge};
-        margin-right: ${({ theme }) => theme.spaces.micro};
-        margin-top: ${({ theme }) => theme.spaces.small};
-        padding: 0 ${({ theme }) => theme.spaces.small};
-        position: absolute;
-        right: 0;
-        user-select: none;
-        top: 0;
       }
     }
 
-    > button {
-      align-items: center;
-      background: ${({ theme }) => theme.colors.buttonPrimaryBackground};
-      border-radius: ${({ theme }) => theme.borderRadii.large};
-      border: 1px solid ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
-      color: ${({ theme }) => theme.colorsHex.white};
-      cursor: ${({ isFormButtonDisabled }) =>
-        isFormButtonDisabled ? "default" : "pointer"};
+    > form {
       display: flex;
-      height: ${({ theme }) => theme.spaces.xLarge};
-      justify-content: center;
-      margin-top: ${({ theme }) => theme.spaces.nano};
-      opacity: ${({ isFormButtonDisabled, theme }) =>
-        isFormButtonDisabled
-          ? theme.opacity.opacity50
-          : theme.opacity.opacity100};
+      flex-direction: column;
 
-      &:hover {
+      > div {
+        background-color: ${({ theme }) => theme.colors.bodyBackground};
+        border: ${({ theme }) =>
+          `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
+        border-radius: ${({ theme }) => theme.borderRadii.large};
+        margin-bottom: ${({ theme }) => theme.spaces.micro};
+        min-height: ${({ theme }) => theme.spaces.xxLarge};
+        position: relative;
+        width: 100%;
+
+        > input {
+          background: ${({ theme }) => theme.colorsHex.transparent};
+          border: none;
+          border-radius: ${({ theme }) => theme.borderRadii.large};
+          min-height: ${({ theme }) => theme.spaces.xxLarge};
+          padding: ${({ theme }) => theme.spaces.medium};
+          width: 100%;
+        }
+
+        > textarea {
+          background: ${({ theme }) => theme.colors.transparent};
+          border: none;
+          border-top-left-radius: ${({ theme }) => theme.borderRadii.large};
+          border-bottom-left-radius: ${({ theme }) => theme.borderRadii.large};
+          border-top-right-radius: ${({ theme }) => theme.borderRadii.large};
+          min-height: ${({ theme }) => theme.spaces.xxLarge};
+          padding: ${({ theme }) => theme.spaces.medium};
+          resize: vertical;
+          width: 100%;
+        }
+
+        &:nth-of-type(3) {
+          border-bottom-right-radius: 0;
+          margin-bottom: ${({ theme }) => theme.spaces.micro};
+        }
+
+        &:last-of-type {
+          display: none;
+        }
+
+        > p {
+          align-items: center;
+          background: ${({ theme }) => theme.colors.bodyBackground};
+          border-radius: ${({ theme }) => theme.borderRadii.large};
+          bottom: 0;
+          color: ${({ theme }) => theme.colors.error};
+          display: flex;
+          font-size: 1.6rem;
+          height: ${({ theme }) => theme.spaces.xLarge};
+          margin-right: ${({ theme }) => theme.spaces.micro};
+          margin-top: ${({ theme }) => theme.spaces.small};
+          padding: 0 ${({ theme }) => theme.spaces.small};
+          position: absolute;
+          right: 0;
+          user-select: none;
+          top: 0;
+        }
+      }
+
+      > button {
+        align-items: center;
+        background: ${({ theme }) => theme.colors.buttonPrimaryBackground};
+        border-radius: ${({ theme }) => theme.borderRadii.large};
+        border: 2px solid ${({ theme }) => theme.colors.buttonPrimaryBackground};
+        color: ${({ theme }) => theme.colorsHex.white};
+        cursor: ${({ isFormButtonDisabled }) =>
+          isFormButtonDisabled ? "default" : "pointer"};
+        display: flex;
+        height: ${({ theme }) => theme.spaces.xLarge};
+        justify-content: center;
+        margin-top: ${({ theme }) => theme.spaces.nano};
         opacity: ${({ isFormButtonDisabled, theme }) =>
           isFormButtonDisabled
             ? theme.opacity.opacity50
-            : theme.opacity.opacity80};
+            : theme.opacity.opacity100};
+
+        &:hover {
+          opacity: ${({ isFormButtonDisabled, theme }) =>
+            isFormButtonDisabled
+              ? theme.opacity.opacity50
+              : theme.opacity.opacity80};
+        }
       }
     }
   }

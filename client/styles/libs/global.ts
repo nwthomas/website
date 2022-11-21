@@ -12,13 +12,10 @@ const GlobalStyle = css`
       `background ${short} ease-in-out, background-color ${short} ease-in-out, color ${short} ease-in-out, fill ${short} ease-in-out, stroke ${short} ease-in-out, border-color ${short} ease-in-out`};
   }
 
+  body,
   html {
-    font-size: 62.5%;
-  }
-
-  html,
-  body {
     background: ${({ theme }) => theme.colors.bodyBackground};
+    font-size: 62.5%;
   }
 
   body {
@@ -59,8 +56,8 @@ const GlobalStyle = css`
   }
   body.light {
     --body-bg: ${colors.white};
-    --body-bg-accent-one: ${colors.platinum};
-    --body-bg-accent-two: ${colors.alabaster};
+    --body-bg-accent-one: ${colors.alabaster};
+    --body-bg-accent-two: ${colors.platinum};
     --button-primary-bg: ${colors.royalBlue};
     --error: ${colors.scarlet};
     --text: ${colors.mineShaft};
@@ -94,15 +91,12 @@ const GlobalStyle = css`
 
   h2 {
     font-size: 1.6rem;
+    letter-spacing: ${({ theme }) => theme.spaces.micro};
+    text-transform: uppercase;
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
       font-size: 2rem;
-    }
-
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.desktop}) {
-      font-size: 3rem;
     }
   }
 

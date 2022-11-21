@@ -27,6 +27,9 @@ function Navbar({ currentTheme, onThemeChangeClick }: Props) {
           <nav>
             <ul>
               <li>
+                <Link href="/">Home</Link>
+              </li>
+              <li>
                 <Link href="/projects">Projects</Link>
               </li>
               <li>
@@ -73,13 +76,19 @@ const RootStyles = styled.div`
     }
 
     > div {
-      background-color: ${({ theme }) => theme.colors.bodyBackground};
-      border: 3px solid ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
-      border-radius: ${({ theme }) => theme.borderRadii.large};
+      background-color: ${({ theme }) => theme.colors.bodyBackgroundAccent};
+      border: ${({ theme }) =>
+        `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentOne}`};
+      border-radius: ${({ theme }) => theme.borderRadii.infinity};
       display: flex;
       justify-content: space-between;
       padding: ${({ theme }) => theme.spaces.small};
       width: 100%;
+
+      &:hover {
+        border: ${({ theme }) =>
+          `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
+      }
 
       > div,
       nav {
