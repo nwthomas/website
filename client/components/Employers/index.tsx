@@ -99,8 +99,8 @@ const LoomLogo = styled.div`
   }
 
   &:hover {
-    opacity: ${({ theme }) => theme.opacity.opacity70};
-    transform: translateY(-3px);
+    opacity: ${({ theme }) => theme.opacity.opacity90};
+    transform: translateY(-1px);
   }
 `;
 
@@ -120,8 +120,8 @@ const TwitterLogo = styled.div`
   }
 
   &:hover {
-    opacity: ${({ theme }) => theme.opacity.opacity70};
-    transform: translateY(-3px);
+    opacity: ${({ theme }) => theme.opacity.opacity90};
+    transform: translateY(-1px);
   }
 `;
 

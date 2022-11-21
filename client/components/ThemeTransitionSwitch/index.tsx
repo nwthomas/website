@@ -66,7 +66,7 @@ const RootStyles = styled.div<StyleProps>`
 
     &:active + div > div,
     &:focus + div > div {
-      box-shadow: 0 0 2px 3px ${({ theme }) => theme.colorsHex.pictonBlue};
+      box-shadow: 0 0 3px 3px ${({ theme }) => theme.colorsHex.royalBlue};
     }
   }
 
@@ -79,7 +79,7 @@ const RootStyles = styled.div<StyleProps>`
     align-items: center;
     height: 24px;
     justify-content: space-between;
-    padding: 4px 3px 0;
+    padding: 4px 4px 0;
     position: relative;
     touch-action: pan-x;
     width: 50px;
@@ -118,7 +118,7 @@ const RootStyles = styled.div<StyleProps>`
       width: 20px;
 
       &:focus-within {
-        box-shadow: 0 0 2px 3px ${({ theme }) => theme.colorsHex.pictonBlue};
+        box-shadow: 0 0 3px 3px ${({ theme }) => theme.colorsHex.royalBlue};
       }
     }
   }

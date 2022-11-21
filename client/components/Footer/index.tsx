@@ -91,7 +91,6 @@ const RootStyles = styled.footer`
     flex-direction: column;
     flex: wrap;
     max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
-    margin-bottom: ${({ theme }) => theme.spaces.large};
     width: 100%;
 
     @media only screen and (min-width: ${({ theme }) =>
@@ -111,7 +110,7 @@ const RootStyles = styled.footer`
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.desktop}) {
-        margin-right: ${({ theme }) => `calc(${theme.spaces.xxLarge} * 3)`};
+        margin-right: ${({ theme }) => `calc(${theme.spaces.xxLarge} * 2)`};
       }
 
       @media only screen and (min-width: ${({ theme }) =>
@@ -129,7 +128,7 @@ const RootStyles = styled.footer`
             ease-in-out;
 
           &:hover {
-            opacity: ${({ theme }) => theme.opacity.opacity70};
+            opacity: ${({ theme }) => theme.opacity.opacity80};
           }
 
           @media only screen and (min-width: ${({ theme }) =>

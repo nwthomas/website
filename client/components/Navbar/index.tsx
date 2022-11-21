@@ -13,31 +13,34 @@ function Navbar({ currentTheme, onThemeChangeClick }: Props) {
     <RootStyles>
       <header>
         <div>
-          <Link href="/" passHref>
-            <img
-              alt="Go to home page"
-              height={400}
-              src="./nathan-thomas-pfp.jpg"
-              width={400}
-            />
-          </Link>
-        </div>
-        <nav>
-          <ul>
-            <li>
-              <Link href="/projects">Projects</Link>
-            </li>
-            <li>
-              <Link href="/contact">Contact</Link>
-            </li>
-            <li>
-              <ThemeTransitionSwitch
-                currentTheme={currentTheme}
-                onClick={onThemeChangeClick}
+          <div>
+            <Link href="/" passHref>
+              <img
+                alt="Go to home page"
+                draggable={false}
+                height={400}
+                src="./nathan-thomas-pfp.jpg"
+                width={400}
               />
-            </li>
-          </ul>
-        </nav>
+            </Link>
+          </div>
+          <nav>
+            <ul>
+              <li>
+                <Link href="/projects">Projects</Link>
+              </li>
+              <li>
+                <Link href="/contact">Contact</Link>
+              </li>
+              <li>
+                <ThemeTransitionSwitch
+                  currentTheme={currentTheme}
+                  onClick={onThemeChangeClick}
+                />
+              </li>
+            </ul>
+          </nav>
+        </div>
       </header>
     </RootStyles>
   );
@@ -59,7 +62,7 @@ const RootStyles = styled.div`
     background: ${({ theme }) => theme.colors.bodyBackground};
     align-items: center;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
     padding: ${({ theme }) => `${theme.spaces.large} 0`};
     width: 100%;
@@ -69,44 +72,55 @@ const RootStyles = styled.div`
       padding: ${({ theme }) => `${theme.spaces.xxLarge} 0`};
     }
 
-    > div,
-    nav {
-      align-items: center;
+    > div {
+      background-color: ${({ theme }) => theme.colors.bodyBackground};
+      border: 3px solid ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
+      border-radius: ${({ theme }) => theme.borderRadii.large};
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
+      padding: ${({ theme }) => theme.spaces.small};
+      width: 100%;
 
-      a,
-      img {
-        transition: opacity ${({ theme }) => theme.transitions.medium}
-          ease-in-out;
+      > div,
+      nav {
+        align-items: center;
+        display: flex;
+        justify-content: center;
 
-        &:hover {
-          opacity: ${({ theme }) => theme.opacity.opacity70};
+        a,
+        img {
+          transition: opacity ${({ theme }) => theme.transitions.medium}
+            ease-in-out;
+
+          &:hover {
+            opacity: ${({ theme }) => theme.opacity.opacity80};
+          }
+        }
+
+        img {
+          border-radius: ${({ theme }) => theme.borderRadii.infinity};
+          cursor: pointer;
+          height: 50px;
+          user-select: none;
+          width: 50px;
         }
       }
 
-      img {
-        border-radius: ${({ theme }) => theme.borderRadii.infinity};
-        cursor: pointer;
-        height: 50px;
-        width: 50px;
-      }
-    }
-
-    > nav > ul {
-      display: flex;
-
-      > li {
-        align-items: center;
+      > nav > ul {
         display: flex;
-        line-height: 1;
-        list-style-type: none;
-        margin-left: ${({ theme }) => theme.spaces.medium};
-        justify-content: center;
 
-        @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.tablet}) {
-          margin-left: ${({ theme }) => theme.spaces.large};
+        > li {
+          align-items: center;
+          display: flex;
+          line-height: 1;
+          list-style-type: none;
+          margin-left: ${({ theme }) => theme.spaces.medium};
+          justify-content: center;
+
+          @media only screen and (min-width: ${({ theme }) =>
+              theme.breakpoints.tablet}) {
+            margin-left: ${({ theme }) => theme.spaces.large};
+          }
         }
       }
     }

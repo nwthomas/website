@@ -86,16 +86,13 @@ const RootStyles = styled.div`
           background-clip: text;
           -moz-background-clip: text;
           -webkit-background-clip: text;
+          background-image: ${({ theme }) =>
+            `linear-gradient(120deg, ${theme.colorsHex.royalBlue} 0%, ${theme.colorsHex.shockingPink} 100%)`};
           background-size: 100%;
           font-size: inherit;
           padding: ${({ theme }) => `${theme.spaces.micro} 0`};
           -moz-text-fill-color: transparent;
           -webkit-text-fill-color: transparent;
-        }
-
-        > a {
-          background-image: ${({ theme }) =>
-            `linear-gradient(120deg, ${theme.colorsHex.royalBlue} 0%, ${theme.colorsHex.pictonBlue} 100%)`};
         }
 
         > span {

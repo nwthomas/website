@@ -139,9 +139,9 @@ interface StyleProps {
 
 const RootStyles = styled.div<StyleProps>`
   border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
-  background: ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
+  background-color: ${({ theme }) => theme.colors.bodyBackground};
   padding: ${({ theme }) => theme.spaces.small};
-  border: 1px solid ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
+  border: 3px solid ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
   width: 100%;
 
   @media only screen and (min-width: ${({ theme }) =>
@@ -167,8 +167,8 @@ const RootStyles = styled.div<StyleProps>`
     flex-direction: column;
 
     > div {
-      background: ${({ theme }) => theme.colors.bodyBackground};
-      border: 1px solid ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
+      background-color: ${({ theme }) => theme.colors.bodyBackground};
+      border: 3px solid ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
       border-radius: ${({ theme }) => theme.borderRadii.large};
       margin-bottom: ${({ theme }) => theme.spaces.micro};
       min-height: ${({ theme }) => theme.spaces.xxLarge};
@@ -245,7 +245,7 @@ const RootStyles = styled.div<StyleProps>`
         opacity: ${({ isFormButtonDisabled, theme }) =>
           isFormButtonDisabled
             ? theme.opacity.opacity50
-            : theme.opacity.opacity70};
+            : theme.opacity.opacity80};
       }
     }
   }

@@ -64,7 +64,7 @@ const RootStyles = styled.li`
   }
 
   &:hover {
-    opacity: ${({ theme }) => theme.opacity.opacity70};
+    opacity: ${({ theme }) => theme.opacity.opacity80};
     transform: translateY(-3px);
   }
 `;
