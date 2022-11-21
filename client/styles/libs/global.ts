@@ -49,26 +49,20 @@ const GlobalStyle = css`
 
   /* To change the colors in the colors object, go to styles/libs/theme.ts */
   body.dark {
-    --body-bg: ${colors.raisinBlack};
-    --body-bg-accent-one: ${colors.black};
-    --body-bg-accent-two: ${colors.tuna};
-    --body-bg-accent-three: ${colors.shark};
+    --body-bg: ${colors.black};
+    --body-bg-accent-one: ${colors.codGray};
+    --body-bg-accent-two: ${colors.mineShaft};
     --button-primary-bg: ${colors.royalBlue};
-    --button-secondary-bg: ${colors.fireBush};
     --error: ${colors.scarlet};
-    --success: ${colors.screaminGreen};
     --text: ${colors.white};
     --transparent: ${colors.transparent};
   }
   body.light {
-    --body-bg: ${colors.alabaster};
-    --body-bg-accent-one: ${colors.white};
-    --body-bg-accent-two: ${colors.silver};
-    --body-bg-accent-three: ${colors.mercury};
+    --body-bg: ${colors.white};
+    --body-bg-accent-one: ${colors.platinum};
+    --body-bg-accent-two: ${colors.alabaster};
     --button-primary-bg: ${colors.royalBlue};
-    --button-secondary-bg: ${colors.fireBush};
     --error: ${colors.scarlet};
-    --success: ${colors.screaminGreen};
     --text: ${colors.mineShaft};
     --transparent: ${colors.transparent};
   }
@@ -129,7 +123,7 @@ const GlobalStyle = css`
 
     &::placeholder {
       color: ${({ theme }) => theme.colors.text};
-      opacity: ${({ theme }) => theme.opacity.opacity80};
+      opacity: ${({ theme }) => theme.opacity.opacity70};
       font-size: 1.6rem;
       font-family: "ObjectSans", Object Sans, Helvetica, sans-serif;
     }
@@ -169,13 +163,8 @@ const GlobalStyle = css`
       font-size: 2rem;
     }
 
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.desktop}) {
-      font-size: 3rem;
-    }
-
     &:hover {
-      opacity: ${({ theme }) => theme.opacity.opacity70};
+      opacity: ${({ theme }) => theme.opacity.opacity80};
     }
   }
 
@@ -187,7 +176,7 @@ const GlobalStyle = css`
     transition: opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
 
     &:hover {
-      opacity: ${({ theme }) => theme.opacity.opacity70};
+      opacity: ${({ theme }) => theme.opacity.opacity80};
     }
   }
 

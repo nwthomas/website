@@ -123,10 +123,6 @@ const RootStyles = styled.div`
             theme.breakpoints.desktop}) {
           grid-template-columns: 1fr 1fr;
         }
-
-        > li {
-          min-width: 100%;
-        }
       }
     }
   }

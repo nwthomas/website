@@ -114,7 +114,7 @@ const RootStyles = styled.div<StyleProps>`
       align-items: center;
       background: ${({ theme }) => theme.colors.buttonPrimaryBackground};
       border-radius: ${({ theme }) => theme.borderRadii.large};
-      border: 1px solid ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
+      border: 2px solid ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
       color: ${({ theme }) => theme.colorsHex.white};
       cursor: pointer;
       display: flex;
@@ -130,7 +130,7 @@ const RootStyles = styled.div<StyleProps>`
       }
 
       &:hover {
-        opacity: ${({ theme }) => theme.opacity.opacity70};
+        opacity: ${({ theme }) => theme.opacity.opacity80};
       }
     }
   }

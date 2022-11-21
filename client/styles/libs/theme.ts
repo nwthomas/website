@@ -5,42 +5,38 @@ import { DARK_THEME, ThemeEnum } from "./../../hooks/useGetPreferredTheme";
 // To change the assignment of colors --> CSS variables, go to: styles/libs/global.ts
 interface Colors {
   alabaster: string;
+  alto: string;
   black: string;
-  bunker: string;
-  fireBush: string;
-  screaminGreen: string;
-  mercury: string;
+  codGray: string;
+  eerieBlack: string;
   mineShaft: string;
-  mirage: string;
   pictonBlue: string;
-  raisinBlack: string;
+  platinum: string;
+  purpleHeart: string;
   royalBlue: string;
   scarlet: string;
-  shark: string;
-  silver: string;
+  shockingPink: string;
   transparent: string;
-  tuna: string;
   white: string;
+  woodsmoke: string;
 }
 
 export const colors: Colors = {
   alabaster: "#F8F8F8F8",
+  alto: "#DBDBDB",
   black: "#000000",
-  bunker: "#0D1117",
-  fireBush: "#EB9C31",
-  screaminGreen: "#66EF3D",
-  mercury: "#E2E2E2",
+  codGray: "#131313",
+  eerieBlack: "#141414",
   mineShaft: "#333333",
-  mirage: "#17202B",
   pictonBlue: "#4597EC",
-  raisinBlack: "#212121",
+  platinum: "#ebebeb",
+  purpleHeart: "#7928ca",
   royalBlue: "#5f63EC",
   scarlet: "#FF3700",
-  shark: "#27272A",
-  silver: "#CCCCCC",
+  shockingPink: "#f81ce5",
   transparent: "transparent",
-  tuna: "#31363D",
   white: "#FFFFFF",
+  woodsmoke: "#141418",
 };
 
 // A crucial tool for testing out dropshadows is: https://www.cssmatic.com/box-shadow
@@ -59,11 +55,8 @@ interface ThemeColorValues {
   bodyBackground: string;
   bodyBackgroundAccentOne: string;
   bodyBackgroundAccentTwo: string;
-  bodyBackgroundAccentThree: string;
   buttonPrimaryBackground: string;
-  buttonSecondaryBackground: string;
   error: string;
-  success: string;
   text: string;
   transparent: string;
 }
@@ -71,11 +64,8 @@ export const themeColorValues: ThemeColorValues = {
   bodyBackground: "var(--body-bg)",
   bodyBackgroundAccentOne: "var(--body-bg-accent-one)",
   bodyBackgroundAccentTwo: "var(--body-bg-accent-two)",
-  bodyBackgroundAccentThree: "var(--body-bg-accent-three)",
   buttonPrimaryBackground: "var(--button-primary-bg)",
-  buttonSecondaryBackground: "var(--button-secondary-bg)",
   error: "var(--error)",
-  success: "var(--success)",
   text: "var(--text)",
   transparent: "var(--transparent)",
 };
@@ -103,8 +93,8 @@ export const appDimensions: AppDimensions = {
   footerDesktopHeight: "178px",
   footerMobileHeight: "283px",
   modalMaxWidth: "600px",
-  navbarDesktopHeight: "183px",
-  navbarMobileHeight: "122px",
+  navbarDesktopHeight: "215px",
+  navbarMobileHeight: "155px",
   navbarLinkWidth: "120px",
 };
 
