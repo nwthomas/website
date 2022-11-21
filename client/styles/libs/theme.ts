@@ -39,6 +39,17 @@ export const colors: Colors = {
   woodsmoke: "#141418",
 };
 
+// Gradients
+interface Gradients {
+  contactFormBorder: string;
+  linkText: string;
+}
+
+const gradients: Gradients = {
+  contactFormBorder: `linear-gradient(calc(-2.6rad), ${colors.royalBlue} 0%, ${colors.pictonBlue} 20%, rgba(121,40,202,0) 70%)`,
+  linkText: `linear-gradient(120deg, ${colors.royalBlue} 0%, ${colors.pictonBlue} 100%)`,
+};
+
 // A crucial tool for testing out dropshadows is: https://www.cssmatic.com/box-shadow
 interface Dropshadows {
   small: string;
@@ -90,8 +101,8 @@ export const appDimensions: AppDimensions = {
   appMinHeight: "100vh",
   articleHeroImageMaxWidth: "1200px",
   articleMaxWidth: "600px",
-  footerDesktopHeight: "178px",
-  footerMobileHeight: "283px",
+  footerDesktopHeight: "148px",
+  footerMobileHeight: "155px",
   modalMaxWidth: "600px",
   navbarDesktopHeight: "215px",
   navbarMobileHeight: "155px",
@@ -226,6 +237,7 @@ export interface Theme {
   colorsHex: Colors;
   currentTheme: ThemeEnum | null;
   dropshadows: Dropshadows;
+  gradients: Gradients;
   opacity: Opacity;
   spaces: Spaces;
   transitions: Transitions;
@@ -242,6 +254,7 @@ function makeMainTheme(currentTheme: ThemeEnum | null): Theme {
     colorsHex: colors,
     currentTheme,
     dropshadows: dropshadows(currentTheme),
+    gradients,
     opacity,
     spaces,
     transitions,

@@ -36,7 +36,7 @@ export default function ThemeTransitionButton({
           />
           <div onClick={handleThemeSwitchClick}>
             <p>🌙</p>
-            <p>☀️</p>
+            <p>🌞</p>
             <div />
           </div>
         </>
@@ -79,30 +79,20 @@ const RootStyles = styled.div<StyleProps>`
     align-items: center;
     height: 24px;
     justify-content: space-between;
-    padding: 4px 4px 0;
+    padding: 5px 3px 0;
     position: relative;
     touch-action: pan-x;
     width: 50px;
 
     p {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       text-align: center;
       user-select: none;
       vertical-align: middle;
-
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.tablet}) {
-        font-size: 1.4rem;
-      }
     }
 
     > p:nth-child(2) {
-      font-size: 1.4rem;
-
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.tablet}) {
-        font-size: 1.6rem;
-      }
+      font-size: 1.6rem;
     }
 
     > div {

@@ -1,83 +1,100 @@
+import * as React from "react";
+
 import { BabyYoda } from "../EasterEggs";
 import styled from "styled-components";
 
 function Footer() {
+  const currentYear = new Date().getFullYear();
+
+  const copyrightLabel = React.useMemo(() => {
+    return `Copyright © ${currentYear} Nathan Thomas`;
+  }, [currentYear]);
+
   return (
     <RootStyles>
-      <ul>
-        <li>
-          <div>
-            <a
-              href="https://github.com/nwthomas"
-              aria-label="Link to GitHub"
-              rel="noopener noreferrer"
-              target="_target"
-            >
-              Github
-            </a>
-          </div>
-          <div>
-            <a
-              href="https://www.instagram.com/nwthomas/"
-              aria-label="Link to Instagram"
-              rel="noopener noreferrer"
-              target="_target"
-            >
-              Instagram
-            </a>
-          </div>
-        </li>
-        <li>
-          <div>
-            <a
-              href="https://www.linkedin.com/in/nwthomas-dev/"
-              aria-label="Link to LinkedIn"
-              rel="noopener noreferrer"
-              target="_target"
-            >
-              LinkedIn
-            </a>
-          </div>
-          <div>
-            <a
-              href="https://medium.com/@nwthomas"
-              aria-label="Link to Medium"
-              rel="noopener noreferrer"
-              target="_target"
-            >
-              Medium
-            </a>
-          </div>
-        </li>
-        <li>
-          <div>
-            <a
-              href="https://www.getrevue.co/profile/nathan-thomas"
-              aria-label="Link to Revue newsletter"
-              rel="noopener noreferrer"
-              target="_target"
-            >
-              Revue
-            </a>
-          </div>
-          <div>
-            <a
-              href="https://twitter.com/nwthomas_"
-              aria-label="Link to Twitter"
-              rel="noopener noreferrer"
-              target="_target"
-            >
-              Twitter
-            </a>
-          </div>
-        </li>
-      </ul>
+      <footer>
+        <p>{copyrightLabel}</p>
+        <nav>
+          <ul>
+            <li>
+              <a
+                href="https://github.com/nwthomas"
+                aria-label="Link to GitHub"
+                rel="noopener noreferrer"
+                target="_target"
+              >
+                Github
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/nwthomas/"
+                aria-label="Link to Instagram"
+                rel="noopener noreferrer"
+                target="_target"
+              >
+                Instagram
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/nwthomas-dev/"
+                aria-label="Link to LinkedIn"
+                rel="noopener noreferrer"
+                target="_target"
+              >
+                LinkedIn
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://medium.com/@nwthomas"
+                aria-label="Link to Medium"
+                rel="noopener noreferrer"
+                target="_target"
+              >
+                Medium
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://nathanthomas.substack.com/"
+                aria-label="Link to Substack newsletter"
+                rel="noopener noreferrer"
+                target="_target"
+              >
+                Substack
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://nathanthomas.substack.com/"
+                aria-label="Link to Substack newsletter"
+                rel="noopener noreferrer"
+                target="_target"
+              >
+                Substack
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://twitter.com/nwthomas_"
+                aria-label="Link to Twitter"
+                rel="noopener noreferrer"
+                target="_target"
+              >
+                Twitter
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </footer>
       <BabyYoda />
     </RootStyles>
   );
 }
 
-const RootStyles = styled.footer`
+const RootStyles = styled.div`
   bottom: 0;
   display: flex;
   justify-content: center;
@@ -85,77 +102,59 @@ const RootStyles = styled.footer`
   padding: 0 ${({ theme }) => theme.appDimensions.appHorizontalGutters};
   width: 100%;
 
-  > ul {
-    align-items: flex-start;
-    display: flex;
-    flex-direction: column;
-    flex: wrap;
+  footer {
     max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
     width: 100%;
 
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.tablet}) {
-      flex-direction: row;
-      margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
-    }
-
-    > li {
-      display: flex;
-      flex-direction: column;
+    > p {
+      font-size: 1.6rem;
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        margin-right: ${({ theme }) => theme.spaces.jumbo};
+        font-size: 2rem;
       }
+    }
 
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.desktop}) {
-        margin-right: ${({ theme }) => `calc(${theme.spaces.xxLarge} * 2)`};
-      }
+    > nav {
+      display: flex;
+      width: 100%;
 
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.ultraWide}) {
-        margin-right: ${({ theme }) => `calc(${theme.spaces.jumbo} * 3)`};
-      }
+      > ul {
+        display: flex;
+        flex-wrap: wrap;
+        padding-bottom: ${({ theme }) => theme.spaces.large};
+        width: 100%;
 
-      > div {
-        margin-bottom: ${({ theme }) => theme.spaces.medium};
-        list-style-type: none;
+        @media only screen and (min-width: ${({ theme }) =>
+            theme.breakpoints.tablet}) {
+          padding-bottom: ${({ theme }) => theme.spaces.xxLarge};
+        }
 
-        > a {
-          cursor: pointer;
-          transition: opacity ${({ theme }) => theme.transitions.medium}
-            ease-in-out;
-
-          &:hover {
-            opacity: ${({ theme }) => theme.opacity.opacity80};
-          }
+        > li {
+          display: flex;
+          margin-top: ${({ theme }) => theme.spaces.medium};
+          margin-right: ${({ theme }) => theme.spaces.medium};
 
           @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.tablet}) {
-            margin-bottom: ${({ theme }) => theme.spaces.large};
+            margin-right: ${({ theme }) => theme.spaces.large};
+          }
+
+          > a {
+            cursor: pointer;
+            transition: opacity ${({ theme }) => theme.transitions.medium}
+              ease-in-out;
+
+            &:hover {
+              opacity: ${({ theme }) => theme.opacity.opacity80};
+            }
           }
         }
 
-        > a:nth-child(1) {
-          margin-bottom: ${({ theme }) => theme.spaces.medium};
-        }
-      }
-
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.tablet}) {
-        > div {
-          margin-bottom: none;
-        }
-
-        > div:last-child {
+        > li:last-child > div:last-child {
           margin-bottom: 0;
         }
       }
-    }
-
-    > li:last-child > div:last-child {
-      margin-bottom: 0;
     }
   }
 `;
