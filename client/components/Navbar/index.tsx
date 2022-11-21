@@ -13,21 +13,28 @@ function Navbar({ currentTheme, onThemeChangeClick }: Props) {
     <RootStyles>
       <header>
         <div>
-          <Link href="/">Nathan Thomas</Link>
+          <Link href="/" passHref>
+            <img
+              alt="Go to home page"
+              height={400}
+              src="./nathan-thomas-pfp.jpg"
+              width={400}
+            />
+          </Link>
         </div>
         <nav>
           <ul>
-            <li>
-              <ThemeTransitionSwitch
-                currentTheme={currentTheme}
-                onClick={onThemeChangeClick}
-              />
-            </li>
             <li>
               <Link href="/projects">Projects</Link>
             </li>
             <li>
               <Link href="/contact">Contact</Link>
+            </li>
+            <li>
+              <ThemeTransitionSwitch
+                currentTheme={currentTheme}
+                onClick={onThemeChangeClick}
+              />
             </li>
           </ul>
         </nav>
@@ -68,13 +75,20 @@ const RootStyles = styled.div`
       display: flex;
       justify-content: center;
 
-      a {
+      a,
+      img {
         transition: opacity ${({ theme }) => theme.transitions.medium}
           ease-in-out;
 
         &:hover {
           opacity: ${({ theme }) => theme.opacity.opacity70};
         }
+      }
+
+      img {
+        border-radius: ${({ theme }) => theme.borderRadii.infinity};
+        cursor: pointer;
+        height: 50px;
       }
     }
 

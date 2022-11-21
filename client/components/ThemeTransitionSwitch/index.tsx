@@ -79,7 +79,7 @@ const RootStyles = styled.div<StyleProps>`
     align-items: center;
     height: 24px;
     justify-content: space-between;
-    padding: 4px 3px 0;
+    padding: 4px 4px 0;
     position: relative;
     touch-action: pan-x;
     width: 50px;
