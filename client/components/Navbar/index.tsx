@@ -89,6 +89,7 @@ const RootStyles = styled.div`
         border-radius: ${({ theme }) => theme.borderRadii.infinity};
         cursor: pointer;
         height: 50px;
+        width: 50px;
       }
     }
 
