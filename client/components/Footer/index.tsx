@@ -107,6 +107,8 @@ const RootStyles = styled.div`
     width: 100%;
 
     > p {
+      color: ${({ theme }) => theme.colors.textSecondary};
+      margin-bottom: ${({ theme }) => theme.spaces.small};
       font-size: 1.6rem;
 
       @media only screen and (min-width: ${({ theme }) =>
@@ -141,6 +143,7 @@ const RootStyles = styled.div`
           }
 
           > a {
+            color: ${({ theme }) => theme.colors.textSecondary};
             cursor: pointer;
             transition: opacity ${({ theme }) => theme.transitions.medium}
               ease-in-out;
