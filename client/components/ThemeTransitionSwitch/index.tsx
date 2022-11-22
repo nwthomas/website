@@ -72,27 +72,28 @@ const RootStyles = styled.div<StyleProps>`
 
   > div {
     background-color: ${({ theme }) => theme.colorsHex.black};
-    border: 1px solid ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
+    border: ${({ theme }) =>
+      `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
     border-radius: ${({ theme }) => theme.borderRadii.infinity};
     cursor: pointer;
     display: flex;
     align-items: center;
-    height: 24px;
+    height: 26px;
     justify-content: space-between;
-    padding: 5px 3px 0;
+    padding: 5px 5px 0;
     position: relative;
     touch-action: pan-x;
-    width: 50px;
+    width: 52px;
 
     p {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       text-align: center;
       user-select: none;
       vertical-align: middle;
     }
 
     > p:nth-child(2) {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
     }
 
     > div {
