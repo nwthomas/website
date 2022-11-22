@@ -68,16 +68,6 @@ function Footer() {
             </li>
             <li>
               <a
-                href="https://nathanthomas.substack.com/"
-                aria-label="Link to Substack newsletter"
-                rel="noopener noreferrer"
-                target="_target"
-              >
-                Substack
-              </a>
-            </li>
-            <li>
-              <a
                 href="https://twitter.com/nwthomas_"
                 aria-label="Link to Twitter"
                 rel="noopener noreferrer"
