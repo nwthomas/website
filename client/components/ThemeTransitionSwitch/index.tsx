@@ -99,14 +99,14 @@ const RootStyles = styled.div<StyleProps>`
     > div {
       background-color: ${({ theme }) => theme.colorsHex.white};
       border-radius: ${({ theme }) => theme.borderRadii.infinity};
-      height: 20px;
+      height: 18px;
       position: absolute;
       left: 2px;
-      top: 1px;
-      transform: translateX(${({ isDarkMode }) => (isDarkMode ? "24px" : 0)});
+      top: 2px;
+      transform: translateX(${({ isDarkMode }) => (isDarkMode ? "26px" : 0)});
       transition: transform ${({ theme }) => theme.transitions.short}
         cubic-bezier(0.23, 1, 0.32, 1);
-      width: 20px;
+      width: 18px;
 
       &:focus-within {
         box-shadow: 0 0 3px 3px ${({ theme }) => theme.colorsHex.pictonBlue};
