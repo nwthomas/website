@@ -103,6 +103,7 @@ const RootStyles = styled.div`
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
+        margin-top: ${({ theme }) => theme.spaces.micro};
         font-size: 2rem;
       }
     }
@@ -124,23 +125,18 @@ const RootStyles = styled.div`
 
         > li {
           display: flex;
-          margin-top: ${({ theme }) => theme.spaces.medium};
+          margin-top: ${({ theme }) => theme.spaces.small};
           margin-right: ${({ theme }) => theme.spaces.medium};
 
           @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.tablet}) {
+            margin-top: ${({ theme }) => theme.spaces.medium};
             margin-right: ${({ theme }) => theme.spaces.large};
           }
 
           > a {
-            color: ${({ theme }) => theme.colors.textSecondary};
-            cursor: pointer;
             transition: opacity ${({ theme }) => theme.transitions.medium}
               ease-in-out;
-
-            &:hover {
-              opacity: ${({ theme }) => theme.opacity.opacity80};
-            }
           }
         }
 

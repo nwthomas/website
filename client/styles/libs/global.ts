@@ -146,13 +146,13 @@ const GlobalStyle = css`
   a {
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.textSecondary};
     font-display: swap;
     font-family: "ObjectSans", Object Sans, Helvetica, sans-serif;
     font-size: 1.6rem;
     overflow: break-word;
     text-decoration: none;
-    transition: opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
+    transition: color ${({ theme }) => theme.transitions.medium} ease-in-out;
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
@@ -160,7 +160,7 @@ const GlobalStyle = css`
     }
 
     &:hover {
-      opacity: ${({ theme }) => theme.opacity.opacity80};
+      color: ${({ theme }) => theme.colors.text};
     }
   }
 
