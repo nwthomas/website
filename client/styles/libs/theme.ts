@@ -8,14 +8,14 @@ interface Colors {
   alto: "#DBDBDB";
   black: "#000000";
   codGray: "#131313";
+  doveGray: "#707070";
   eerieBlack: "#141414";
-  emperor: "#525252";
-  manatee: "#808489";
   mineShaft: "#333333";
   pictonBlue: "#4597EC";
   platinum: "#EBEBEB";
   purpleHeart: "#7928CA";
   royalBlue: "#5f63EC";
+  rollingStone: "#717579";
   scarlet: "#FF3700";
   shockingPink: "#F81CE5";
   transparent: "transparent";
@@ -28,13 +28,13 @@ export const colors: Colors = {
   alto: "#DBDBDB",
   black: "#000000",
   codGray: "#131313",
+  doveGray: "#707070",
   eerieBlack: "#141414",
-  emperor: "#525252",
-  manatee: "#808489",
   mineShaft: "#333333",
   pictonBlue: "#4597EC",
   platinum: "#EBEBEB",
   purpleHeart: "#7928CA",
+  rollingStone: "#717579",
   royalBlue: "#5f63EC",
   scarlet: "#FF3700",
   shockingPink: "#F81CE5",
