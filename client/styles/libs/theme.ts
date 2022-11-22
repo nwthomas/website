@@ -4,21 +4,23 @@ import { DARK_THEME, ThemeEnum } from "./../../hooks/useGetPreferredTheme";
 // All color names pulled directly from http://chir.ag/projects/name-that-color/
 // To change the assignment of colors --> CSS variables, go to: styles/libs/global.ts
 interface Colors {
-  alabaster: string;
-  alto: string;
-  black: string;
-  codGray: string;
-  eerieBlack: string;
-  mineShaft: string;
-  pictonBlue: string;
-  platinum: string;
-  purpleHeart: string;
-  royalBlue: string;
-  scarlet: string;
-  shockingPink: string;
-  transparent: string;
-  white: string;
-  woodsmoke: string;
+  alabaster: "#F8F8F8F8";
+  alto: "#DBDBDB";
+  black: "#000000";
+  codGray: "#131313";
+  eerieBlack: "#141414";
+  emperor: "#525252";
+  manatee: "#808489";
+  mineShaft: "#333333";
+  pictonBlue: "#4597EC";
+  platinum: "#EBEBEB";
+  purpleHeart: "#7928CA";
+  royalBlue: "#5f63EC";
+  scarlet: "#FF3700";
+  shockingPink: "#F81CE5";
+  transparent: "transparent";
+  white: "#FFFFFF";
+  woodsmoke: "#141418";
 }
 
 export const colors: Colors = {
@@ -27,13 +29,15 @@ export const colors: Colors = {
   black: "#000000",
   codGray: "#131313",
   eerieBlack: "#141414",
+  emperor: "#525252",
+  manatee: "#808489",
   mineShaft: "#333333",
   pictonBlue: "#4597EC",
-  platinum: "#ebebeb",
-  purpleHeart: "#7928ca",
+  platinum: "#EBEBEB",
+  purpleHeart: "#7928CA",
   royalBlue: "#5f63EC",
   scarlet: "#FF3700",
-  shockingPink: "#f81ce5",
+  shockingPink: "#F81CE5",
   transparent: "transparent",
   white: "#FFFFFF",
   woodsmoke: "#141418",
@@ -46,7 +50,7 @@ interface Gradients {
 }
 
 const gradients: Gradients = {
-  contactFormBorder: `linear-gradient(calc(-2.6rad), ${colors.royalBlue} 0%, ${colors.pictonBlue} 20%, rgba(121,40,202,0) 70%)`,
+  contactFormBorder: `linear-gradient(calc(3.3rad), ${colors.royalBlue} 0%, ${colors.pictonBlue} 20%, rgba(121,40,202,0) 80%)`,
   linkText: `linear-gradient(120deg, ${colors.royalBlue} 0%, ${colors.pictonBlue} 100%)`,
 };
 
@@ -69,6 +73,7 @@ interface ThemeColorValues {
   buttonPrimaryBackground: string;
   error: string;
   text: string;
+  textSecondary: string;
   transparent: string;
 }
 export const themeColorValues: ThemeColorValues = {
@@ -78,6 +83,7 @@ export const themeColorValues: ThemeColorValues = {
   buttonPrimaryBackground: "var(--button-primary-bg)",
   error: "var(--error)",
   text: "var(--text)",
+  textSecondary: "var(--text-secondary)",
   transparent: "var(--transparent)",
 };
 
@@ -101,8 +107,8 @@ export const appDimensions: AppDimensions = {
   appMinHeight: "100vh",
   articleHeroImageMaxWidth: "1200px",
   articleMaxWidth: "600px",
-  footerDesktopHeight: "148px",
-  footerMobileHeight: "155px",
+  footerDesktopHeight: "158px",
+  footerMobileHeight: "158px",
   modalMaxWidth: "600px",
   navbarDesktopHeight: "215px",
   navbarMobileHeight: "155px",

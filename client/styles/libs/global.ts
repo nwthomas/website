@@ -52,6 +52,7 @@ const GlobalStyle = css`
     --button-primary-bg: ${colors.royalBlue};
     --error: ${colors.scarlet};
     --text: ${colors.white};
+    --text-secondary: ${colors.manatee};
     --transparent: ${colors.transparent};
   }
   body.light {
@@ -61,6 +62,7 @@ const GlobalStyle = css`
     --button-primary-bg: ${colors.royalBlue};
     --error: ${colors.scarlet};
     --text: ${colors.mineShaft};
+    --text-secondary: ${colors.emperor};
     --transparent: ${colors.transparent};
   }
 

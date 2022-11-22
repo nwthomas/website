@@ -78,7 +78,7 @@ const RootStyles = styled.div`
     > div {
       background-: ${({ theme }) => theme.colors.bodyBackgroundAccent};
       border: ${({ theme }) =>
-        `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
+        `${theme.spaces.nano} solid ${theme.colors.transparent}`};
       border-radius: ${({ theme }) => theme.borderRadii.infinity};
       display: flex;
       justify-content: space-between;
