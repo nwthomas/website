@@ -74,12 +74,14 @@ function Contact() {
             </h1>
           </section>
           <section>
-            <ContactForm
-              initialValues={initialMessageValues}
-              onFormChange={handleOnFormChange}
-              onSendMessageClick={handleSendMessage}
-              withSpinner={isSendingEmail}
-            />
+            <div>
+              <ContactForm
+                initialValues={initialMessageValues}
+                onFormChange={handleOnFormChange}
+                onSendMessageClick={handleSendMessage}
+                withSpinner={isSendingEmail}
+              />
+            </div>
           </section>
         </main>
       </RootStyles>
@@ -110,7 +112,7 @@ const RootStyles = styled.div`
 
       a {
         background-clip: text;
-        background-image: ${({ theme }) => theme.gradients.linkText};
+        background-image: ${({ theme }) => theme.gradients.getLinkText()};
         background-size: 100%;
         -webkit-background-clip: text;
         -moz-background-clip: text;

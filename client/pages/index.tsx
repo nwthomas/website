@@ -86,7 +86,7 @@ const RootStyles = styled.div`
           background-clip: text;
           -moz-background-clip: text;
           -webkit-background-clip: text;
-          background-image: ${({ theme }) => theme.gradients.linkText};
+          background-image: ${({ theme }) => theme.gradients.getLinkText()};
           background-size: 100%;
           font-size: inherit;
           padding: ${({ theme }) => `${theme.spaces.micro} 0`};
