@@ -92,6 +92,13 @@ const RootStyles = styled.div`
           padding: ${({ theme }) => `${theme.spaces.micro} 0`};
           -moz-text-fill-color: transparent;
           -webkit-text-fill-color: transparent;
+          text-decoration: none;
+          transition: opacity ${({ theme }) => theme.transitions.medium}
+            ease-in-out;
+
+          &:hover {
+            opacity: ${({ theme }) => theme.opacity.opacity80};
+          }
         }
 
         > span {

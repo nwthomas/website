@@ -133,11 +133,6 @@ const RootStyles = styled.div`
             margin-top: ${({ theme }) => theme.spaces.medium};
             margin-right: ${({ theme }) => theme.spaces.large};
           }
-
-          > a {
-            transition: opacity ${({ theme }) => theme.transitions.medium}
-              ease-in-out;
-          }
         }
 
         > li:last-child > div:last-child {

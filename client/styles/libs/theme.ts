@@ -110,8 +110,8 @@ export const appDimensions: AppDimensions = {
   footerDesktopHeight: "158px",
   footerMobileHeight: "158px",
   modalMaxWidth: "600px",
-  navbarDesktopHeight: "215px",
-  navbarMobileHeight: "155px",
+  navbarDesktopHeight: "195px",
+  navbarMobileHeight: "135px",
   navbarLinkWidth: "120px",
 };
 
