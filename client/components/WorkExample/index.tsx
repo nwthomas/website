@@ -55,6 +55,7 @@ const RootStyles = styled.li`
   }
 
   > a {
+    text-decoration: none;
     width: 100%;
 
     > h2 {

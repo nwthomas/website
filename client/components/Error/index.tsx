@@ -9,7 +9,7 @@ export default function Error({ errorCode }: Props) {
   return (
     <RootStyles>
       <h1>
-        {`${errorCode} 😩 `}{" "}
+        {`${errorCode} 🤙🏻 `}{" "}
         <Link href="/" passHref>
           Go back home
         </Link>
@@ -32,6 +32,7 @@ const RootStyles = styled.main`
   width: 100%;
 
   > h1 {
+    font-size: 3rem;
     text-align: center;
     margin-bottom: ${({ theme }) => theme.spaces.medium};
 
@@ -45,6 +46,12 @@ const RootStyles = styled.main`
       padding: ${({ theme }) => `${theme.spaces.micro} 0`};
       -moz-text-fill-color: transparent;
       -webkit-text-fill-color: transparent;
+      text-decoration: none;
+      transition: opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
+
+      &:hover {
+        opacity: ${({ theme }) => theme.opacity.opacity80};
+      }
     }
   }
 `;

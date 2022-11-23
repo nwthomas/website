@@ -67,12 +67,14 @@ const RootStyles = styled.div`
     display: flex;
     justify-content: center;
     max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
-    padding: ${({ theme }) => `${theme.spaces.large} 0`};
+    padding: ${({ theme }) =>
+      `calc(${theme.spaces.large} - ${theme.spaces.small}) 0`};
     width: 100%;
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
-      padding: ${({ theme }) => `${theme.spaces.xxLarge} 0`};
+      padding: ${({ theme }) =>
+        `calc(${theme.spaces.xxLarge}  - ${theme.spaces.small}) 0`};
     }
 
     > div {
@@ -91,7 +93,6 @@ const RootStyles = styled.div`
         display: flex;
         justify-content: center;
 
-        a,
         img {
           transition: opacity ${({ theme }) => theme.transitions.medium}
             ease-in-out;

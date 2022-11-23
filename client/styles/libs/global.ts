@@ -151,8 +151,11 @@ const GlobalStyle = css`
     font-family: "ObjectSans", Object Sans, Helvetica, sans-serif;
     font-size: 1.6rem;
     overflow: break-word;
-    text-decoration: none;
-    transition: color ${({ theme }) => theme.transitions.medium} ease-in-out;
+    text-decoration-color: transparent;
+    text-decoration-style: solid;
+    text-decoration-line: underline;
+    transition: text-decoration-color ${({ theme }) => theme.transitions.medium}
+      ease-in-out;
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
@@ -160,7 +163,7 @@ const GlobalStyle = css`
     }
 
     &:hover {
-      color: ${({ theme }) => theme.colors.text};
+      text-decoration-color: ${({ theme }) => theme.colors.textSecondary};
     }
   }
 
