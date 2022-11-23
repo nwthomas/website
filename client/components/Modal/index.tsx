@@ -51,7 +51,7 @@ const RootStyles = styled.div<StyleProps>`
   background-color: ${({ theme }) =>
     `${
       theme.currentTheme === DARK_THEME
-        ? theme.colorsHex.silver
+        ? theme.colorsHex.alabaster
         : theme.colorsHex.black
     }40`};
   display: flex;
@@ -71,6 +71,7 @@ const RootStyles = styled.div<StyleProps>`
   > dialog {
     align-items: center;
     background-color: ${({ theme }) => theme.colors.bodyBackground};
+    border: none;
     display: flex;
     flex-direction: column;
     height: 100%;
