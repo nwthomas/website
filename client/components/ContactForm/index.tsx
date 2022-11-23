@@ -6,6 +6,9 @@ import styled, { ThemeContext } from "styled-components";
 import Spinner from "../Spinner";
 import type { ThemeEnum } from "../../hooks/useGetPreferredTheme";
 import { useFormik } from "formik";
+import { useGetMouseAngle } from "../../hooks/useGetMouseAngle";
+
+const contactFormRef = React.createRef<HTMLDivElement>();
 
 export interface MessageValues {
   email: string;
@@ -35,7 +38,9 @@ function ContactForm({
   onSendMessageClick,
   withSpinner,
 }: Props) {
-  const { currentTheme } = React.useContext(ThemeContext);
+  const { gradients, currentTheme } = React.useContext(ThemeContext);
+
+  const radians = useGetMouseAngle(contactFormRef);
 
   const formik = useFormik({
     initialValues: {
@@ -63,8 +68,14 @@ function ContactForm({
   };
 
   return (
-    <RootStyles currentTheme={currentTheme} isFormButtonDisabled={withSpinner}>
-      <div>
+    <RootStyles
+      currentTheme={currentTheme}
+      isFormButtonDisabled={withSpinner}
+      style={{
+        backgroundImage: gradients.getContactFormBorder(radians),
+      }}
+    >
+      <div ref={contactFormRef}>
         <div>
           <h2>Message</h2>
         </div>
@@ -140,7 +151,6 @@ interface StyleProps {
 }
 
 const RootStyles = styled.div<StyleProps>`
-  background-image: ${({ theme }) => theme.gradients.contactFormBorder};
   border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
   padding: ${({ theme }) => theme.spaces.nano};
   width: 100%;

@@ -45,13 +45,17 @@ export const colors: Colors = {
 
 // Gradients
 interface Gradients {
-  contactFormBorder: string;
-  linkText: string;
+  getContactFormBorder: (radians: number) => string;
+  getLinkText: () => string;
 }
 
 const gradients: Gradients = {
-  contactFormBorder: `linear-gradient(calc(3.3rad), ${colors.royalBlue} 0%, ${colors.pictonBlue} 20%, rgba(121,40,202,0) 80%)`,
-  linkText: `linear-gradient(120deg, ${colors.royalBlue} 0%, ${colors.pictonBlue} 100%)`,
+  getContactFormBorder: (radians: number) => {
+    return `linear-gradient(calc(${radians}rad), ${colors.royalBlue} 0%, ${colors.pictonBlue} 20%, rgba(121,40,202,0) 75%)`;
+  },
+  getLinkText: () => {
+    return `linear-gradient(120deg, ${colors.royalBlue} 0%, ${colors.pictonBlue} 100%)`;
+  },
 };
 
 // A crucial tool for testing out dropshadows is: https://www.cssmatic.com/box-shadow
