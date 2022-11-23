@@ -18,7 +18,7 @@ function getAngleRadians(
   return result;
 }
 
-export function useGetMouseAngle(ref: React.RefObject<HTMLElement>): number {
+export function useGetMouseRadian(ref: React.RefObject<HTMLElement>): number {
   const { viewportWidth } = useGetScreenDimensions();
   const { breakpointsInt } = React.useContext(ThemeContext);
   const [mouseCoordinates, setMouseCoordinates] = React.useState<{

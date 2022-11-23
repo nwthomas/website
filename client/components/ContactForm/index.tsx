@@ -6,7 +6,7 @@ import styled, { ThemeContext } from "styled-components";
 import Spinner from "../Spinner";
 import type { ThemeEnum } from "../../hooks/useGetPreferredTheme";
 import { useFormik } from "formik";
-import { useGetMouseAngle } from "../../hooks/useGetMouseAngle";
+import { useGetMouseRadian } from "../../hooks/useGetMouseRadian";
 
 const contactFormRef = React.createRef<HTMLDivElement>();
 
@@ -40,7 +40,7 @@ function ContactForm({
 }: Props) {
   const { gradients, currentTheme } = React.useContext(ThemeContext);
 
-  const radians = useGetMouseAngle(contactFormRef);
+  const radians = useGetMouseRadian(contactFormRef);
 
   const formik = useFormik({
     initialValues: {
