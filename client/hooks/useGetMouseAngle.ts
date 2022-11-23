@@ -1,5 +1,8 @@
 import * as React from "react";
 
+import { ThemeContext } from "styled-components";
+import { useGetScreenDimensions } from "./useGetScreenDimensions";
+
 const DEFAULT_RADIANS = (2 * Math.PI) / 2;
 
 function getAngleRadians(
@@ -16,6 +19,8 @@ function getAngleRadians(
 }
 
 export function useGetMouseAngle(ref: React.RefObject<HTMLElement>): number {
+  const { viewportWidth } = useGetScreenDimensions();
+  const { breakpointsInt } = React.useContext(ThemeContext);
   const [mouseCoordinates, setMouseCoordinates] = React.useState<{
     x?: number;
     y?: number;
@@ -36,7 +41,11 @@ export function useGetMouseAngle(ref: React.RefObject<HTMLElement>): number {
     };
   }, []);
 
-  if (!ref.current) {
+  if (
+    !ref.current ||
+    !viewportWidth ||
+    viewportWidth <= breakpointsInt.tablet
+  ) {
     return DEFAULT_RADIANS;
   }
 
