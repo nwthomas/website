@@ -53,7 +53,8 @@ const RootStyles = styled.div`
   display: flex;
   background: ${({ theme }) => theme.colors.transparent};
   left: 0;
-  padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
+  padding: ${({ theme }) =>
+    `0 calc(${theme.appDimensions.appHorizontalGutters} - ${theme.spaces.small})`};
   position: absolute;
   justify-content: center;
   right: 0;
@@ -66,7 +67,8 @@ const RootStyles = styled.div`
     align-items: center;
     display: flex;
     justify-content: center;
-    max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
+    max-width: ${({ theme }) =>
+      `calc(${theme.appDimensions.appMaxWidth} + ${theme.spaces.small})`};
     padding: ${({ theme }) =>
       `calc(${theme.spaces.large} - ${theme.spaces.small}) 0`};
     width: 100%;
