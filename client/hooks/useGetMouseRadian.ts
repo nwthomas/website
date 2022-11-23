@@ -3,7 +3,7 @@ import * as React from "react";
 import { ThemeContext } from "styled-components";
 import { useGetScreenDimensions } from "./useGetScreenDimensions";
 
-const DEFAULT_RADIANS = (2 * Math.PI) / 2;
+const DEFAULT_RADIANS = Math.PI;
 
 function getAngleRadians(
   x1: number,
