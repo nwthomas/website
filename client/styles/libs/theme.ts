@@ -4,7 +4,7 @@ import { DARK_THEME, ThemeEnum } from "./../../hooks/useGetPreferredTheme";
 // All color names pulled directly from http://chir.ag/projects/name-that-color/
 // To change the assignment of colors --> CSS variables, go to: styles/libs/global.ts
 interface Colors {
-  alabaster: "#F8F8F8F8";
+  alabaster: "#F8F8F8";
   alto: "#DBDBDB";
   black: "#000000";
   codGray: "#131313";
@@ -24,7 +24,7 @@ interface Colors {
 }
 
 export const colors: Colors = {
-  alabaster: "#F8F8F8F8",
+  alabaster: "#F8F8F8",
   alto: "#DBDBDB",
   black: "#000000",
   codGray: "#131313",
