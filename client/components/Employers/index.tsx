@@ -48,12 +48,10 @@ function Employers() {
 const RootStyles = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: ${({ theme }) => theme.spaces.large};
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.tablet}) {
     flex-direction: row;
-    margin-bottom: ${({ theme }) => `calc(${theme.spaces.xxLarge} * 2)`};
   }
 
   h2 {

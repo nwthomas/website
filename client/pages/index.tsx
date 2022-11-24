@@ -72,7 +72,7 @@ const RootStyles = styled.div`
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        margin-top: ${({ theme }) => theme.spaces.xxLarge};
+        margin-top: ${({ theme }) => theme.spaces.medium};
       }
 
       > div:nth-child(1) {
@@ -126,7 +126,18 @@ const RootStyles = styled.div`
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        margin-bottom: ${({ theme }) => `calc(${theme.spaces.xxLarge} * 2)`};
+        margin-bottom: ${({ theme }) =>
+          `calc(${theme.spaces.medium} + ${theme.spaces.xxLarge})`};
+      }
+    }
+
+    > div {
+      margin-bottom: ${({ theme }) => theme.spaces.large};
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.tablet}) {
+        margin-bottom: ${({ theme }) =>
+          `calc(${theme.spaces.medium} + ${theme.spaces.xxLarge})`};
       }
     }
   }

@@ -99,9 +99,11 @@ interface AppDimensions {
   articleHeroImageMaxWidth: string;
   articleMaxWidth: string;
   footerDesktopHeight: string;
+  footerTabletHeight: string;
   footerMobileHeight: string;
   modalMaxWidth: string;
   navbarDesktopHeight: string;
+  navbarTabletHeight: string;
   navbarMobileHeight: string;
   navbarLinkWidth: string;
 }
@@ -111,10 +113,12 @@ export const appDimensions: AppDimensions = {
   appMinHeight: "100vh",
   articleHeroImageMaxWidth: "1200px",
   articleMaxWidth: "600px",
-  footerDesktopHeight: "158px",
-  footerMobileHeight: "158px",
+  footerDesktopHeight: "151px",
+  footerTabletHeight: "199px",
+  footerMobileHeight: "129px",
   modalMaxWidth: "600px",
   navbarDesktopHeight: "195px",
+  navbarTabletHeight: "195px",
   navbarMobileHeight: "135px",
   navbarLinkWidth: "120px",
 };
