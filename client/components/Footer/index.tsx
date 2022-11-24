@@ -98,7 +98,6 @@ const RootStyles = styled.div`
 
     > p {
       color: ${({ theme }) => theme.colors.textSecondary};
-      margin-bottom: ${({ theme }) => theme.spaces.small};
       font-size: 1.6rem;
 
       @media only screen and (min-width: ${({ theme }) =>

@@ -89,7 +89,7 @@ const RootStyles = styled.div`
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        margin-top: ${({ theme }) => theme.spaces.xxLarge};
+        margin-top: ${({ theme }) => theme.spaces.medium};
       }
     }
 
@@ -97,8 +97,9 @@ const RootStyles = styled.div`
       margin-bottom: ${({ theme }) => theme.spaces.large};
 
       @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.desktop}) {
-        margin-bottom: ${({ theme }) => `calc(${theme.spaces.xxLarge} * 2)`};
+          theme.breakpoints.tablet}) {
+        margin-bottom: ${({ theme }) =>
+          `calc(${theme.spaces.medium} + ${theme.spaces.xxLarge})`};
       }
     }
 
@@ -116,7 +117,8 @@ const RootStyles = styled.div`
           grid-column-gap: ${({ theme }) => theme.spaces.xxLarge};
           grid-row-gap: ${({ theme }) => theme.spaces.xxLarge};
           grid-template-columns: 1fr;
-          margin-bottom: ${({ theme }) => `calc(${theme.spaces.xxLarge} * 2)`};
+          margin-bottom: ${({ theme }) =>
+            `calc(${theme.spaces.medium} + ${theme.spaces.xxLarge})`};
         }
 
         @media only screen and (min-width: ${({ theme }) =>

@@ -50,6 +50,12 @@ const RootStyles = styled.div`
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.tablet}) {
     padding: ${({ theme }) =>
+      `${theme.appDimensions.navbarTabletHeight} 0 ${theme.appDimensions.footerTabletHeight}`};
+  }
+
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.breakpoints.desktop}) {
+    padding: ${({ theme }) =>
       `${theme.appDimensions.navbarDesktopHeight} 0 ${theme.appDimensions.footerDesktopHeight}`};
   }
 `;

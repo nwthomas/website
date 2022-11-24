@@ -15,7 +15,7 @@ function getAngleRadians(
   const distX = x2 - x1;
   const result = Math.atan2(distY, distX);
 
-  return result;
+  return result - Math.PI / 2;
 }
 
 export function useGetMouseRadian(ref: React.RefObject<HTMLElement>): number {
