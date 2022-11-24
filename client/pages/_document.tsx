@@ -57,14 +57,7 @@ export default class MyDocument extends Document {
               var DARK_THEME = "dark";
               var LIGHT_THEME = "light";
               var THEME_KEY = "theme";
-              
-              var WEB2_KEY = "web2";
-              var WEB3_KEY = "web3";
-              var FORM_KEY = "preferredForm";
-
               var preferredTheme;
-              var preferredForm;
-
               var handleChangeTheme = function handleChangeTheme() {}
 
               function setTheme(newTheme) {
@@ -73,20 +66,11 @@ export default class MyDocument extends Document {
                 document.body.className = newTheme;
               }
 
-              function setPreferredForm(newFormPreference) {
-                window.__preferredForm = newFormPreference;
-                preferredForm = newFormPreference;
-              }
-
               try {
                 var savedPreferredTheme = localStorage.getItem(THEME_KEY);
-                var savedPreferredForm = localStorage.getItem(FORM_KEY);
 
                 if (savedPreferredTheme === DARK_THEME || savedPreferredTheme === LIGHT_THEME) {
                   preferredTheme = savedPreferredTheme;
-                }
-                if (savedPreferredForm === WEB2_KEY || savedPreferredForm === WEB3_KEY) {
-                  preferredForm = savedPreferredForm;
                 }
               } catch (error) {}
 
@@ -98,21 +82,12 @@ export default class MyDocument extends Document {
                 } catch (error) {}
               }
 
-              window.__setPreferredForm = function setPreferredFrom(newFormPreference) {
-                setPreferredForm(newFormPreference);
-
-                try {
-                  localStorage.setItem(FORM_KEY, newFormPreference);
-                } catch (error) {}
-              }
-
               var userThemePreference = window.matchMedia('(prefers-color-scheme: dark)');
               userThemePreference.addListener(function(event) {
                 window.__setPreferredTheme(event.matches ? DARK_THEME : LIGHT_THEME);
               });
               
               setTheme(preferredTheme || (userThemePreference.matches ? DARK_THEME : LIGHT_THEME));
-              setPreferredForm(preferredForm || WEB2_KEY);
             })();
             `,
             }}
