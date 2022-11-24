@@ -5,7 +5,7 @@ const PAGE_NAME = "404";
 
 function FourOhFour() {
   return (
-    <Layout pageName={PAGE_NAME}>
+    <Layout pageName={PAGE_NAME} withFooter>
       <Error errorCode="404" />
     </Layout>
   );
