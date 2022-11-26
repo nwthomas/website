@@ -19,7 +19,7 @@ function Navbar({ currentTheme, onThemeChangeClick }: Props) {
                 alt="Go to home page"
                 draggable={false}
                 height={400}
-                src={`./nathan-thomas-pfp.jpg`}
+                src="/nathan-thomas-pfp.jpg"
                 width={400}
               />
             </Link>
