@@ -68,7 +68,8 @@ function Contact() {
                   target="_target"
                 >
                   Twitter
-                </a>
+                </a>{" "}
+                🐦
               </span>{" "}
               or my contact form here:
             </h1>
