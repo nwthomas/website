@@ -70,7 +70,7 @@ const RootStyles = styled.div`
     max-width: ${({ theme }) =>
       `calc(${theme.appDimensions.appMaxWidth} + ${theme.spaces.small})`};
     padding: ${({ theme }) =>
-      `calc(${theme.spaces.large} - ${theme.spaces.small}) 0`};
+      `${theme.spaces.small} 0 calc(${theme.spaces.large} - ${theme.spaces.small})`};
     width: 100%;
 
     @media only screen and (min-width: ${({ theme }) =>
