@@ -157,7 +157,7 @@ const RootStyles = styled.div<StyleProps>`
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.tablet}) {
-    max-width: 550px;
+    max-width: ${({ theme }) => theme.appDimensions.contactFormMaxWidth};
   }
 
   > div {

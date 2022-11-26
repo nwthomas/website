@@ -154,6 +154,7 @@ const GlobalStyle = css`
     text-decoration-color: transparent;
     text-decoration-style: solid;
     text-decoration-line: underline;
+    text-underline-offset: ${({ theme }) => theme.spaces.micro};
     transition: text-decoration-color ${({ theme }) => theme.transitions.medium}
       ease-in-out;
 
@@ -168,8 +169,8 @@ const GlobalStyle = css`
   }
 
   button {
-    background-color: ${({ theme }) => theme.colorsHex.cornFlowerBlue};
-    color: ${({ theme }) => theme.colors.text};
+    background-color: ${({ theme }) => theme.colors.buttonPrimaryBackground};
+    color: ${({ theme }) => theme.colorsHex.white};
     font-size: 1.6rem;
     font-weight: bold;
     transition: opacity ${({ theme }) => theme.transitions.medium} ease-in-out;

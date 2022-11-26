@@ -23,7 +23,7 @@ function Footer() {
                 rel="noopener noreferrer"
                 target="_target"
               >
-                Github
+                GitHub
               </a>
             </li>
             <li>

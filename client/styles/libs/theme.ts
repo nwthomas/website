@@ -98,6 +98,7 @@ interface AppDimensions {
   appMinHeight: string;
   articleHeroImageMaxWidth: string;
   articleMaxWidth: string;
+  contactFormMaxWidth: string;
   footerDesktopHeight: string;
   footerTabletHeight: string;
   footerMobileHeight: string;
@@ -113,6 +114,7 @@ export const appDimensions: AppDimensions = {
   appMinHeight: "100vh",
   articleHeroImageMaxWidth: "1200px",
   articleMaxWidth: "600px",
+  contactFormMaxWidth: "600px",
   footerDesktopHeight: "151px",
   footerTabletHeight: "199px",
   footerMobileHeight: "129px",
@@ -220,7 +222,7 @@ interface Spaces {
 }
 const spaces: Spaces = {
   nano: "2px",
-  micro: "4px",
+  micro: "3px",
   xxSmall: "6px",
   xSmall: "8px",
   small: "10px",
