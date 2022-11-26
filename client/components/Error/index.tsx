@@ -9,7 +9,7 @@ export default function Error({ errorCode }: Props) {
   return (
     <RootStyles>
       <h1>
-        {`${errorCode} 🤙🏻 `}{" "}
+        {`${errorCode} 🌲 `}{" "}
         <Link href="/" passHref>
           Go back home
         </Link>
