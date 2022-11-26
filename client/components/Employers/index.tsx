@@ -17,7 +17,7 @@ function Employers() {
             <img
               alt="Loom logo"
               height={1000}
-              src="./loom-logo.webp"
+              src="/loom-logo.webp"
               width={1000}
             />
           </a>
@@ -35,7 +35,7 @@ function Employers() {
             <img
               alt="Twitter logo"
               height={834}
-              src="./twitter-logo.webp"
+              src="/twitter-logo.webp"
               width={1036}
             />
           </a>
@@ -45,7 +45,7 @@ function Employers() {
   );
 }
 
-const RootStyles = styled.div`
+const RootStyles = styled.section`
   display: flex;
   flex-direction: column;
 
