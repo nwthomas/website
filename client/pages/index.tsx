@@ -69,10 +69,13 @@ const RootStyles = styled.div`
 
     > section {
       display: flex;
+      margin-bottom: ${({ theme }) => theme.spaces.large};
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
         margin-top: ${({ theme }) => theme.spaces.medium};
+        margin-bottom: ${({ theme }) =>
+          `calc(${theme.spaces.medium} + ${theme.spaces.xxLarge})`};
       }
 
       > div:nth-child(1) {
@@ -118,26 +121,6 @@ const RootStyles = styled.div`
             width: 40px;
           }
         }
-      }
-    }
-
-    > section:nth-child(1) {
-      margin-bottom: ${({ theme }) => theme.spaces.large};
-
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.tablet}) {
-        margin-bottom: ${({ theme }) =>
-          `calc(${theme.spaces.medium} + ${theme.spaces.xxLarge})`};
-      }
-    }
-
-    > div {
-      margin-bottom: ${({ theme }) => theme.spaces.large};
-
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.tablet}) {
-        margin-bottom: ${({ theme }) =>
-          `calc(${theme.spaces.medium} + ${theme.spaces.xxLarge})`};
       }
     }
   }
