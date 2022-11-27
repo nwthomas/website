@@ -26,7 +26,7 @@ const Home: NextPage = () => {
               </a>
               ,{" "}
               <a
-                href="https://www.getrevue.co/profile/nathan-thomas"
+                href="https://substack.com/profile/11012426-nathan-thomas"
                 aria-label="Link to Nathan's newsletter"
                 rel="noopener noreferrer"
                 target="_target"
