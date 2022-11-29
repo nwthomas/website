@@ -84,7 +84,7 @@ const RootStyles = styled.div<StyleProps>`
     padding: 1px 5px 0;
     position: relative;
     touch-action: pan-x;
-    width: 52px;
+    width: 50px;
 
     > svg {
       height: 15px;
@@ -98,7 +98,7 @@ const RootStyles = styled.div<StyleProps>`
       position: absolute;
       left: 2px;
       top: 2px;
-      transform: translateX(${({ isDarkMode }) => (isDarkMode ? "26px" : 0)});
+      transform: translateX(${({ isDarkMode }) => (isDarkMode ? "24px" : 0)});
       transition: transform ${({ theme }) => theme.transitions.short}
         cubic-bezier(0.23, 1, 0.32, 1);
       width: 18px;
