@@ -1,8 +1,8 @@
 import * as React from "react";
 
 import { DARK_THEME, ThemeEnum } from "../../hooks/useGetPreferredTheme";
-
-import styled from "styled-components";
+import { MoonIcon, SunIcon } from "../Icons";
+import styled, { ThemeContext } from "styled-components";
 
 interface Props {
   currentTheme: ThemeEnum | null;
@@ -13,6 +13,7 @@ export default function ThemeTransitionButton({
   onClick,
   currentTheme,
 }: Props) {
+  const { colorsHex } = React.useContext(ThemeContext);
   const inputRef = React.createRef<HTMLInputElement>();
   const isDarkMode = currentTheme === DARK_THEME;
 
@@ -35,8 +36,8 @@ export default function ThemeTransitionButton({
             tabIndex={0}
           />
           <div onClick={handleThemeSwitchClick}>
-            <p>🌙</p>
-            <p>🌞</p>
+            <MoonIcon color={colorsHex.brightSun} />
+            <SunIcon color={colorsHex.brightSun} />
             <div />
           </div>
         </>
@@ -80,20 +81,14 @@ const RootStyles = styled.div<StyleProps>`
     align-items: center;
     height: 26px;
     justify-content: space-between;
-    padding: 5px 5px 0;
+    padding: 1px 5px 0;
     position: relative;
     touch-action: pan-x;
     width: 52px;
 
-    p {
-      font-size: 1.2rem;
-      text-align: center;
-      user-select: none;
-      vertical-align: middle;
-    }
-
-    > p:nth-child(2) {
-      font-size: 1.4rem;
+    > svg {
+      height: 15px;
+      width: 15px;
     }
 
     > div {

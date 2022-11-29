@@ -7,6 +7,7 @@ interface Colors {
   alabaster: "#F8F8F8";
   alto: "#DBDBDB";
   black: "#000000";
+  brightSun: "#FACF3D";
   codGray: "#131313";
   doveGray: "#707070";
   eerieBlack: "#141414";
@@ -27,6 +28,7 @@ export const colors: Colors = {
   alabaster: "#F8F8F8",
   alto: "#DBDBDB",
   black: "#000000",
+  brightSun: "#FACF3D",
   codGray: "#131313",
   doveGray: "#707070",
   eerieBlack: "#141414",
