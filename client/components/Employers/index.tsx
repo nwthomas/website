@@ -65,18 +65,17 @@ const RootStyles = styled.section`
 
   > div:nth-child(1) {
     margin-bottom: ${({ theme }) => theme.spaces.large};
-    max-width: 250px;
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
       margin-bottom: 0;
-      margin-right: 150px;
-      max-width: 315px;
+      margin-right: ${({ theme }) => `calc(${theme.spaces.xxLarge} * 2)`};
+      max-width: 150px;
     }
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.desktop}) {
-      margin-right: 220px;
+      max-width: 250px;
     }
   }
 `;
