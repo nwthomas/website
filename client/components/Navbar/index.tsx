@@ -1,3 +1,10 @@
+import {
+  BLOG_PAGE,
+  CONTACT_PAGE,
+  HOME_PAGE,
+  PROJECTS_PAGE,
+} from "../../constants/routes";
+
 import Link from "next/link";
 import { ThemeEnum } from "../../hooks/useGetPreferredTheme";
 import ThemeTransitionSwitch from "../ThemeTransitionSwitch";
@@ -14,7 +21,7 @@ function Navbar({ currentTheme, onThemeChangeClick }: Props) {
       <header>
         <div>
           <div>
-            <Link href="/" passHref>
+            <Link href={HOME_PAGE} passHref>
               <img
                 alt="Go to home page"
                 draggable={false}
@@ -27,13 +34,16 @@ function Navbar({ currentTheme, onThemeChangeClick }: Props) {
           <nav>
             <ul>
               <li>
-                <Link href="/blog">Blog</Link>
+                <Link href={HOME_PAGE}>Home</Link>
               </li>
               <li>
-                <Link href="/projects">Projects</Link>
+                <Link href={BLOG_PAGE}>Blog</Link>
               </li>
               <li>
-                <Link href="/contact">Contact</Link>
+                <Link href={PROJECTS_PAGE}>Projects</Link>
+              </li>
+              <li>
+                <Link href={CONTACT_PAGE}>Contact</Link>
               </li>
               <li>
                 <ThemeTransitionSwitch
@@ -82,7 +92,7 @@ const RootStyles = styled.div`
     > div {
       background-: ${({ theme }) => theme.colors.bodyBackgroundAccent};
       border: ${({ theme }) =>
-        `${theme.spaces.nano} solid ${theme.colors.transparent}`};
+        `${theme.spaces.nano} solid ${theme.colorsHex.transparent}`};
       border-radius: ${({ theme }) => theme.borderRadii.infinity};
       display: flex;
       justify-content: space-between;
@@ -96,20 +106,17 @@ const RootStyles = styled.div`
         justify-content: center;
 
         img {
+          border-radius: ${({ theme }) => theme.borderRadii.infinity};
+          cursor: pointer;
+          height: 50px;
           transition: opacity ${({ theme }) => theme.transitions.medium}
             ease-in-out;
+          user-select: none;
+          width: 50px;
 
           &:hover {
             opacity: ${({ theme }) => theme.opacity.opacity80};
           }
-        }
-
-        img {
-          border-radius: ${({ theme }) => theme.borderRadii.infinity};
-          cursor: pointer;
-          height: 50px;
-          user-select: none;
-          width: 50px;
         }
       }
 

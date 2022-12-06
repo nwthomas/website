@@ -23,16 +23,7 @@ const Home: NextPage = () => {
               >
                 software engineer
               </a>
-              ,{" "}
-              <a
-                href="https://substack.com/profile/11012426-nathan-thomas"
-                aria-label="Link to Nathan's newsletter"
-                rel="noopener noreferrer"
-                target="_target"
-              >
-                writer
-              </a>
-              , and{" "}
+              , <Link href="/blog">writer</Link>, and{" "}
               <a
                 href="https://www.codetenderloin.org/code-ramp-course"
                 aria-label="Link to Code Tenderloin's Code Ramp bootcamp"
@@ -58,7 +49,7 @@ const RootStyles = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
+  margin: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
   width: 100%;
 
   > main {
@@ -78,10 +69,6 @@ const RootStyles = styled.div`
         margin-top: ${({ theme }) => theme.spaces.medium};
         margin-bottom: ${({ theme }) =>
           `calc(${theme.spaces.medium} + ${theme.spaces.xxLarge})`};
-      }
-
-      > div:nth-child(1) {
-        width: 400px;
       }
 
       > h1 {

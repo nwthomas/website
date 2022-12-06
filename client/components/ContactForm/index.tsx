@@ -152,6 +152,7 @@ interface StyleProps {
 
 const RootStyles = styled.div<StyleProps>`
   border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
+  max-width: ${({ theme }) => theme.appDimensions.contactFormMaxWidth};
   padding: ${({ theme }) => theme.spaces.nano};
   width: 100%;
 
@@ -244,10 +245,8 @@ const RootStyles = styled.div<StyleProps>`
 
       > button {
         align-items: center;
-        background: ${({ theme }) => theme.colors.buttonPrimaryBackground};
         border-radius: ${({ theme }) => theme.borderRadii.large};
         border: 2px solid ${({ theme }) => theme.colors.buttonPrimaryBackground};
-        color: ${({ theme }) => theme.colorsHex.white};
         cursor: ${({ isFormButtonDisabled }) =>
           isFormButtonDisabled ? "default" : "pointer"};
         display: flex;

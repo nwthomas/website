@@ -3,12 +3,12 @@ import {
   bucketAndSortBlogPostsByTags,
 } from "../../utils/sortBlogPosts";
 
-import Card from "../../components/Card";
+import BlogSection from "../../components/BlogSection/Section";
 import Layout from "../../components/Layout";
 import { getDirectoryFiles } from "../../utils/readBlogFiles";
 import styled from "styled-components";
 
-const PAGE_NAME = "Nathan Thomas | Blog";
+const PAGE_NAME = "Blog";
 
 export async function getStaticProps() {
   const blogPosts = getDirectoryFiles("/constants/blogs");
@@ -31,20 +31,7 @@ function Blogs({ blogPosts }) {
       <RootStyles>
         <main>
           <section>
-            <h1>
-              I write a lot and publish most of it here. I also have a{" "}
-              <span>
-                <a
-                  href="https://www.getrevue.co/profile/nathan-thomas"
-                  aria-label="Link to Nathan's newsletter"
-                  rel="noopener noreferrer"
-                  target="_target"
-                >
-                  newsletter
-                </a>
-                . 📬
-              </span>
-            </h1>
+            <BlogSection />
           </section>
         </main>
       </RootStyles>
@@ -72,7 +59,7 @@ const RootStyles = styled.div`
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        margin-top: ${({ theme }) => theme.spaces.xxLarge};
+        margin-top: ${({ theme }) => theme.spaces.medium};
       }
 
       > h1 {
