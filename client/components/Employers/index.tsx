@@ -83,20 +83,23 @@ const RootStyles = styled.section`
 const LoomLogo = styled.div`
   transition: transform ${({ theme }) => theme.transitions.medium} ease-in-out,
     opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
-  width: 130px;
+  max-width: 130px;
+  width: 100%;
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.tablet}) {
+    max-width: 100%;
     width: 150px;
   }
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.desktop}) {
+    max-width: 100%;
     width: 185px;
   }
 
   &:hover {
-    opacity: ${({ theme }) => theme.opacity.opacity90};
+    opacity: ${({ theme }) => theme.opacity.opacity80};
     transform: translateY(-1px);
   }
 `;
@@ -104,20 +107,23 @@ const LoomLogo = styled.div`
 const TwitterLogo = styled.div`
   transition: transform ${({ theme }) => theme.transitions.medium} ease-in-out,
     opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
-  width: 130px;
+  max-width: 130px;
+  width: 100%;
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.tablet}) {
+    max-width: 100%;
     width: 182px;
   }
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.desktop}) {
+    max-width: 100%;
     width: 225px;
   }
 
   &:hover {
-    opacity: ${({ theme }) => theme.opacity.opacity90};
+    opacity: ${({ theme }) => theme.opacity.opacity80};
     transform: translateY(-1px);
   }
 `;
