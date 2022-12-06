@@ -33,6 +33,7 @@ export const seoConfig = Object.freeze({
       twitter: "nwthomas_",
       instagram: "nwthomas",
     },
+    title: "Projects",
   },
   [CONTACT_PAGE_NAME]: {
     author: {
@@ -48,6 +49,7 @@ export const seoConfig = Object.freeze({
       twitter: "nwthomas_",
       instagram: "nwthomas",
     },
+    title: "Contact",
   },
   [FOUR_OH_FOUR_PAGE_NAME]: {
     author: {
