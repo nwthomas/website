@@ -1,73 +1,61 @@
-import Head from "next/head";
-import type { ThemeEnum } from "../../hooks/useGetPreferredTheme";
-import seoConfig from "../../constants/seo";
+import * as React from "react";
 
-const {
-  originalTitle,
-  currentURL,
-  originalImageURL,
-  originalDescription,
-  social,
-  siteName,
-} = seoConfig;
+import Head from "next/head";
+import { ThemeContext } from "styled-components";
+import { seoConfig } from "../../constants/seo";
+import { useGetPageName } from "../../hooks/useGetPageName";
 
 interface Props {
-  currentTheme: ThemeEnum;
-  description?: string;
-  seoTitle?: string;
-  tabTitle?: string;
-  imageURL?: string;
-  slug?: string;
   isArticle?: boolean;
+  pageName: string;
 }
 
-function SEO({
-  currentTheme,
-  description,
-  imageURL,
-  isArticle,
-  seoTitle,
-  tabTitle,
-  slug,
-}: Props) {
-  const finalDescription = description || originalDescription;
-  const finalImageURL = imageURL || originalImageURL;
-  const finalSEOTitle = seoTitle || originalTitle;
-  const finalTabTitle = tabTitle || originalTitle;
-  const finalURL = slug ? `${currentURL}${slug}` : currentURL;
+function SEO({ isArticle, pageName }: Props) {
+  const { currentTheme } = React.useContext(ThemeContext);
+  const currentPageMetadata = seoConfig[pageName];
+
+  const {
+    currentUrl,
+    description,
+    imageUrl,
+    siteName,
+    social: { twitter },
+    title,
+  } = currentPageMetadata;
+
+  const tabTitle = useGetPageName(title);
 
   return (
     <Head>
-      <title>{finalTabTitle}</title>
+      <title>{tabTitle}</title>
       <meta charSet="utf-8" />
-      <meta name="description" content={finalDescription} />
-      <meta name="image" content={finalImageURL} />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="description" content={description} />
+      <meta name="image" content={imageUrl} />
       <meta
         property="og:type"
         content={isArticle ? "article" : "website"}
         key="ogtype"
       />
-      <meta property="og:title" content={finalSEOTitle} key="ogtitle" />
-      <meta property="og:description" content={finalDescription} key="ogdesc" />
-      <meta property="og:image" content={finalImageURL} key="ogimage" />
-      <meta property="og:url" content={finalURL} key="ogurl" />
+      <meta property="og:title" content={pageName} key="ogtitle" />
+      <meta property="og:description" content={description} key="ogdesc" />
+      <meta property="og:image" content={imageUrl} key="ogimage" />
+      <meta property="og:url" content={currentUrl} key="ogurl" />
       <meta property="og:site_name" content={siteName} key="ogsitename" />
       <meta
         property="twitter:card"
         content="summary_large_image"
         key="twcard"
       />
-      <meta name="twitter:creator" content={social.twitter} key="twhandle" />
-      <meta name="twitter:title" content={finalSEOTitle} key="twtitle" />
+      <meta name="twitter:creator" content={twitter} key="twhandle" />
+      <meta name="twitter:title" content={pageName} key="twtitle" />
       <meta name="twitter:widgets:theme" content={currentTheme}></meta>
       <meta name="twitter:dnt" content="on"></meta>
       <meta
         name="twitter:description"
-        content={finalDescription}
+        content={description}
         key="twdescription"
       />
-      <meta name="twitter:image" content={finalImageURL} key="twimage" />
+      <meta name="twitter:image" content={imageUrl} key="twimage" />
     </Head>
   );
 }

@@ -1,12 +1,11 @@
 import Layout from "../components/Layout";
+import { PROJECTS_PAGE_NAME } from "../constants/seo";
 import WorkExample from "../components/WorkExample";
 import styled from "styled-components";
 
-const PAGE_NAME = "Projects";
-
 function Work() {
   return (
-    <Layout pageName={PAGE_NAME} withFooter>
+    <Layout pageName={PROJECTS_PAGE_NAME} withFooter>
       <RootStyles>
         <main>
           <section>

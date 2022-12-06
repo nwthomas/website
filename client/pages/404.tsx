@@ -1,11 +1,10 @@
 import Error from "../components/Error";
+import { FOUR_OH_FOUR_PAGE_NAME } from "../constants/seo";
 import Layout from "../components/Layout";
-
-const PAGE_NAME = "404";
 
 function FourOhFour() {
   return (
-    <Layout pageName={PAGE_NAME} withFooter>
+    <Layout pageName={FOUR_OH_FOUR_PAGE_NAME} withFooter>
       <Error errorCode="404" />
     </Layout>
   );

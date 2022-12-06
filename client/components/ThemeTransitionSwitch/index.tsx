@@ -74,7 +74,7 @@ const RootStyles = styled.div<StyleProps>`
   > div {
     background-color: ${({ theme }) => theme.colorsHex.black};
     border: ${({ theme }) =>
-      `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
+      `${theme.spaces.nano} solid ${theme.colors.textSecondary}`};
     border-radius: ${({ theme }) => theme.borderRadii.infinity};
     cursor: pointer;
     display: flex;
