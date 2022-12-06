@@ -3,6 +3,7 @@ import * as React from "react";
 import { resetMessageValues, updateMessageValues } from "../store/contactSlice";
 import { useDispatch, useSelector } from "react-redux";
 
+import { CONTACT_PAGE_NAME } from "../constants/seo";
 import ContactForm from "../components/ContactForm";
 import Layout from "../components/Layout";
 import type { MessageValues } from "../components/ContactForm";
@@ -11,8 +12,6 @@ import { sendMessage } from "./api/message";
 import styled from "styled-components";
 import { updateModalValues } from "../store/modalSlice";
 import { useMutation } from "react-query";
-
-const PAGE_NAME = "Contact";
 
 function Contact() {
   const dispatch = useDispatch();
@@ -54,7 +53,7 @@ function Contact() {
   };
 
   return (
-    <Layout pageName={PAGE_NAME} withFooter>
+    <Layout pageName={CONTACT_PAGE_NAME} withFooter>
       <RootStyles>
         <main>
           <section>

@@ -1,11 +1,10 @@
 import React, { ReactNode } from "react";
-import styled, { ThemeContext } from "styled-components";
 
 import Footer from "../Footer";
 import Modal from "../Modal";
 import { RootState } from "../../store";
 import SEO from "../SEO";
-import { useGetPageName } from "../../hooks/useGetPageName";
+import styled from "styled-components";
 import { useSelector } from "react-redux";
 
 interface Props {
@@ -15,19 +14,13 @@ interface Props {
 }
 
 function Layout({ children, pageName, withFooter }: Props) {
-  const tabTitle = useGetPageName(pageName);
-  const { currentTheme } = React.useContext(ThemeContext);
   const shouldShowModal = useSelector(
     (state: RootState) => state.modal.shouldShowModal
   );
 
   return (
     <>
-      <SEO
-        seoTitle={pageName}
-        tabTitle={tabTitle}
-        currentTheme={currentTheme}
-      />
+      <SEO pageName={pageName} />
       <RootStyles>
         {children}
         {withFooter ? <Footer /> : null}

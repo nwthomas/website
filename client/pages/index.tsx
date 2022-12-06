@@ -1,16 +1,15 @@
 import * as React from "react";
 
 import Employers from "../components/Employers";
+import { HOME_PAGE_NAME } from "../constants/seo";
 import Layout from "../components/Layout";
 import Link from "next/link";
 import type { NextPage } from "next";
 import styled from "styled-components";
 
-const PAGE_NAME = "Nathan Thomas";
-
 const Home: NextPage = () => {
   return (
-    <Layout pageName={PAGE_NAME} withFooter>
+    <Layout pageName={HOME_PAGE_NAME} withFooter>
       <RootStyles>
         <main>
           <section>
