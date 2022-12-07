@@ -2,8 +2,9 @@ import * as React from "react";
 
 import Head from "next/head";
 import { ThemeContext } from "styled-components";
-import { seoConfig } from "../../constants/seo";
+import { buildSeoConfig } from "../../constants/seo";
 import { useGetPageName } from "../../hooks/useGetPageName";
+import { useRouter } from "next/router";
 
 interface Props {
   isArticle?: boolean;
@@ -11,8 +12,16 @@ interface Props {
 }
 
 function SEO({ isArticle, pageName }: Props) {
+  const { query } = useRouter();
   const { currentTheme } = React.useContext(ThemeContext);
-  const currentPageMetadata = seoConfig[pageName];
+
+  const isTag = Boolean(query?.tagId);
+
+  console.log({ isTag });
+
+  const currentPageMetadata = React.useMemo(() => {
+    return buildSeoConfig(pageName);
+  }, [pageName]);
 
   const {
     currentUrl,
