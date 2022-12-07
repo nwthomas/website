@@ -9,7 +9,6 @@ type Props = {
 };
 
 function BlogSection({ blogPosts, tag }: Props) {
-  console.log(blogPosts, tag);
   return (
     <RootStyles>
       <Tag text={tag} />

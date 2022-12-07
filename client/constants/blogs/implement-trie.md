@@ -8,6 +8,7 @@ tags:
   - Python
   - Leetcode
   - Coding Challenge
+  - Soft Skills
 ---
 
 # Implement Trie

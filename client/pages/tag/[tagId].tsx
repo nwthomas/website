@@ -5,11 +5,16 @@ import {
   bucketAndSortBlogPostsByTags,
 } from "../../utils/sortBlogPosts";
 
-import { BLOG_PAGE_NAME } from "../../constants/seo";
 import BlogSection from "../../components/BlogSection/Section";
 import Layout from "../../components/Layout";
+import { buildTagIdParam } from "../../utils/tags";
 import { getDirectoryFiles } from "../../utils/readBlogFiles";
 import styled from "styled-components";
+import { useRouter } from "next/router";
+
+function buildTagIdPageName(tag: string) {
+  return `${tag} Blogs`;
+}
 
 export async function getStaticProps() {
   const blogPosts = getDirectoryFiles("/constants/blogs");
@@ -19,33 +24,48 @@ export async function getStaticProps() {
 
   return {
     props: {
-      blogPosts,
       blogPostsByTags: bucketAndSortBlogPostsByTags(blogPostContent),
     },
   };
 }
 
-function Blogs({ blogPostsByTags }) {
-  const blogSections = React.useMemo(() => {
-    const sections: JSX.Element[] = [];
+export async function getStaticPaths() {
+  const blogPosts = getDirectoryFiles("/constants/blogs");
+  const blogPostContent = blogPosts.map(
+    (blogPost) => blogPost.fileContents
+  ) as BlogPosts;
 
+  const bucketedBlogPosts = bucketAndSortBlogPostsByTags(blogPostContent);
+
+  const paths = Object.keys(bucketedBlogPosts).map((tag) => {
+    return { params: { tagId: buildTagIdParam(tag) } };
+  });
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+function TagIdPage({ blogPostsByTags }) {
+  const {
+    query: { tagId: tagIdParam },
+  } = useRouter();
+
+  const tagIdBlogSection = React.useMemo(() => {
     for (const tag in blogPostsByTags) {
-      sections.push(
-        <BlogSection
-          blogPosts={blogPostsByTags[tag]}
-          key={sections.length}
-          tag={tag}
-        />
-      );
+      if (buildTagIdParam(tag) === tagIdParam) {
+        return <BlogSection blogPosts={blogPostsByTags[tag]} tag={tag} />;
+      }
     }
 
-    return sections;
-  }, [blogPostsByTags]);
+    return null;
+  }, [tagIdParam]);
 
   return (
-    <Layout pageName={BLOG_PAGE_NAME} withFooter>
+    <Layout pageName={buildTagIdPageName("Python")} withFooter>
       <RootStyles>
-        <main>{blogSections}</main>
+        <main>{tagIdBlogSection}</main>
       </RootStyles>
     </Layout>
   );
@@ -77,4 +97,4 @@ const RootStyles = styled.div`
   }
 `;
 
-export default Blogs;
+export default TagIdPage;

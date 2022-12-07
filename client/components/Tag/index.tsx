@@ -1,12 +1,6 @@
+import { buildAriaLabel, buildLinkHref } from "../../utils/tags";
+
 import styled from "styled-components";
-
-function buildAriaLabel(tagName: string): string {
-  return `Go to all articles about ${tagName}`;
-}
-
-function buildLinkHref(tagName: string): string {
-  return `/blog/tag/${tagName.split(" ").join("-").toLowerCase()}`;
-}
 
 type Props = {
   text: string;
