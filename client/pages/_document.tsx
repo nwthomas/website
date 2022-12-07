@@ -82,12 +82,9 @@ export default class MyDocument extends Document {
                 } catch (error) {}
               }
 
-              var userThemePreference = window.matchMedia('(prefers-color-scheme: dark)');
-              userThemePreference.addListener(function(event) {
-                window.__setPreferredTheme(event.matches ? DARK_THEME : LIGHT_THEME);
-              });
+              var userOSThemePreference = window.matchMedia('(prefers-color-scheme: dark)');
               
-              setTheme(preferredTheme || (userThemePreference.matches ? DARK_THEME : LIGHT_THEME));
+              setTheme(preferredTheme || (userOSThemePreference.matches ? DARK_THEME : LIGHT_THEME));
             })();
             `,
             }}

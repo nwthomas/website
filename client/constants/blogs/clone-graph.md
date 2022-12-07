@@ -5,9 +5,9 @@ metaDescription: "The Clone Graph LeetCode coding challenge"
 socialImage: ./default-homepage.png
 date: "2022-07-02"
 tags:
-  - python
-  - leetcode
-  - coding-challenge
+  - Python
+  - Leetcode
+  - Coding Challenge
 ---
 
 # Clone Graph

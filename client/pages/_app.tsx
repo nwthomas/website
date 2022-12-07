@@ -19,7 +19,7 @@ import { useGetPreferredTheme } from "../hooks/useGetPreferredTheme";
 const ONE_DAY_MS = 60000 * 60 * 24;
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [currentTheme, setCurrentTheme] = useGetPreferredTheme();
+  const [currentTheme] = useGetPreferredTheme();
   const [queryClient] = React.useState(
     () =>
       new QueryClient({
@@ -41,10 +41,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <QueryClientProvider client={queryClient}>
           <Hydrate state={pageProps.dehydratedState}>
             <ThemeProvider theme={mainTheme}>
-              <Navbar
-                currentTheme={currentTheme}
-                onThemeChangeClick={setCurrentTheme}
-              />
+              <Navbar />
               <GlobalStyle theme={mainTheme} />
               <Component {...pageProps} currentTheme={currentTheme} />
             </ThemeProvider>
