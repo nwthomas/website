@@ -5,7 +5,7 @@ import {
   bucketAndSortBlogPostsByTags,
 } from "../../utils/sortBlogPosts";
 
-import BlogSection from "../../components/BlogSection/Section";
+import BlogSection from "../../components/BlogSection";
 import Layout from "../../components/Layout";
 import { buildTagIdParam } from "../../utils/tags";
 import { getDirectoryFiles } from "../../utils/readBlogFiles";
@@ -83,16 +83,8 @@ const RootStyles = styled.div`
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
+      padding-top: ${({ theme }) => theme.spaces.medium};
       width: 100%;
-    }
-
-    > section {
-      display: flex;
-
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.tablet}) {
-        margin-top: ${({ theme }) => theme.spaces.medium};
-      }
     }
   }
 `;

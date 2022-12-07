@@ -34,7 +34,7 @@ function SunIcon({ color, title }: Props) {
 }
 
 interface StyleProps {
-  color?: string;
+  color: string;
 }
 
 const RootStyles = styled.svg<StyleProps>`
