@@ -1,18 +1,14 @@
 import * as React from "react";
 
-import { DARK_THEME, ThemeEnum } from "../../hooks/useGetPreferredTheme";
+import {
+  DARK_THEME,
+  useGetPreferredTheme,
+} from "../../hooks/useGetPreferredTheme";
 import { MoonIcon, SunIcon } from "../Icons";
 import styled, { ThemeContext } from "styled-components";
 
-interface Props {
-  currentTheme: ThemeEnum | null;
-  onClick: () => void;
-}
-
-export default function ThemeTransitionButton({
-  onClick,
-  currentTheme,
-}: Props) {
+function ThemeTransitionSwitch() {
+  const [currentTheme, setCurrentTheme] = useGetPreferredTheme();
   const { colorsHex } = React.useContext(ThemeContext);
   const inputRef = React.createRef<HTMLInputElement>();
   const isDarkMode = currentTheme === DARK_THEME;
@@ -20,7 +16,7 @@ export default function ThemeTransitionButton({
   const handleThemeSwitchClick = (event: React.SyntheticEvent) => {
     event.stopPropagation();
     inputRef.current?.focus();
-    onClick();
+    setCurrentTheme();
   };
 
   return (
@@ -109,3 +105,5 @@ const RootStyles = styled.div<StyleProps>`
     }
   }
 `;
+
+export default ThemeTransitionSwitch;

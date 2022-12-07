@@ -132,6 +132,11 @@ const RootStyles = styled.div`
             margin-top: ${({ theme }) => theme.spaces.medium};
             margin-right: ${({ theme }) => theme.spaces.large};
           }
+
+          > a:focus {
+            outline: none;
+            text-decoration-color: ${({ theme }) => theme.colors.textSecondary};
+          }
         }
 
         > li:last-child > div:last-child {

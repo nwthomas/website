@@ -6,16 +6,10 @@ import {
 } from "../../constants/routes";
 
 import Link from "next/link";
-import { ThemeEnum } from "../../hooks/useGetPreferredTheme";
 import ThemeTransitionSwitch from "../ThemeTransitionSwitch";
 import styled from "styled-components";
 
-interface Props {
-  currentTheme: ThemeEnum | null;
-  onThemeChangeClick: () => void;
-}
-
-function Navbar({ currentTheme, onThemeChangeClick }: Props) {
+function Navbar() {
   return (
     <RootStyles>
       <header>
@@ -46,10 +40,7 @@ function Navbar({ currentTheme, onThemeChangeClick }: Props) {
                 <Link href={CONTACT_PAGE}>Contact</Link>
               </li>
               <li>
-                <ThemeTransitionSwitch
-                  currentTheme={currentTheme}
-                  onClick={onThemeChangeClick}
-                />
+                <ThemeTransitionSwitch />
               </li>
             </ul>
           </nav>
@@ -134,6 +125,11 @@ const RootStyles = styled.div`
           @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.tablet}) {
             margin-left: ${({ theme }) => theme.spaces.large};
+          }
+
+          > a:focus {
+            outline: none;
+            text-decoration-color: ${({ theme }) => theme.colors.textSecondary};
           }
         }
       }

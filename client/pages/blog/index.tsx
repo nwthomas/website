@@ -1,3 +1,5 @@
+import * as React from "react";
+
 import {
   BlogPosts,
   bucketAndSortBlogPostsByTags,
@@ -24,16 +26,23 @@ export async function getStaticProps() {
   };
 }
 
-function Blogs({ blogPosts }) {
-  console.log(blogPosts);
+function Blogs({ blogPostsByTags }) {
+  const blogSections = React.useMemo(() => {
+    const sections: JSX.Element[] = [];
+
+    for (const tag in blogPostsByTags) {
+      sections.push(<BlogSection blogPosts={blogPostsByTags[tag]} tag={tag} />);
+    }
+
+    console.log(blogPostsByTags);
+
+    return sections;
+  }, [blogPostsByTags]);
+
   return (
     <Layout pageName={PAGE_NAME} withFooter>
       <RootStyles>
-        <main>
-          <section>
-            <BlogSection />
-          </section>
-        </main>
+        <main>{blogSections}</main>
       </RootStyles>
     </Layout>
   );
