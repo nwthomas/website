@@ -6,7 +6,7 @@ import {
 } from "../../utils/sortBlogPosts";
 
 import { BLOG_PAGE_NAME } from "../../constants/seo";
-import BlogSection from "../../components/BlogSection/Section";
+import BlogSection from "../../components/BlogSection";
 import Layout from "../../components/Layout";
 import { getDirectoryFiles } from "../../utils/readBlogFiles";
 import styled from "styled-components";
@@ -63,16 +63,8 @@ const RootStyles = styled.div`
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
+      padding-top: ${({ theme }) => theme.spaces.medium};
       width: 100%;
-    }
-
-    > section {
-      display: flex;
-
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.tablet}) {
-        margin-top: ${({ theme }) => theme.spaces.medium};
-      }
     }
   }
 `;
