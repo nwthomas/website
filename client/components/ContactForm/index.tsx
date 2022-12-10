@@ -185,7 +185,8 @@ const RootStyles = styled.div<StyleProps>`
       flex-direction: column;
 
       > div {
-        background-color: ${({ theme }) => theme.colors.bodyBackground};
+        background-color: ${({ theme }) =>
+          theme.colors.bodyBackgroundAccentOne};
         border: ${({ theme }) =>
           `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
         border-radius: ${({ theme }) => theme.borderRadii.large};
@@ -226,7 +227,8 @@ const RootStyles = styled.div<StyleProps>`
 
         > p {
           align-items: center;
-          background: ${({ theme }) => theme.colors.bodyBackground};
+          background-color: ${({ theme }) =>
+            theme.colors.bodyBackgroundAccentOne};
           border-radius: ${({ theme }) => theme.borderRadii.large};
           bottom: 0;
           color: ${({ theme }) => theme.colors.error};

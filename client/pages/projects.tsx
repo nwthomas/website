@@ -10,8 +10,16 @@ function Work() {
         <main>
           <section>
             <h1>
-              This is all the work that I'm really proud of. I hope you enjoy
-              it.
+              This some work I'm proud of. You can find more on{" "}
+              <a
+                href="https://github.com/nwthomas"
+                aria-label="Link to GitHub"
+                rel="noopener noreferrer"
+                target="_target"
+              >
+                GitHub
+              </a>
+              .
             </h1>
           </section>
           <section>
@@ -101,8 +109,25 @@ const RootStyles = styled.div`
           `calc(${theme.spaces.medium} + ${theme.spaces.xxLarge})`};
       }
 
-      span {
-        white-space: nowrap;
+      a {
+        background-clip: text;
+        background-image: ${({ theme }) =>
+          `linear-gradient(120deg, ${theme.colorsHex.royalBlue} 0%, ${theme.colorsHex.pictonBlue} 100%)`};
+        -moz-background-clip: text;
+        -webkit-background-clip: text;
+        background-image: ${({ theme }) => theme.gradients.getLinkText()};
+        background-size: 100%;
+        font-size: inherit;
+        padding: ${({ theme }) => `${theme.spaces.micro} 0`};
+        -moz-text-fill-color: transparent;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none;
+        transition: opacity ${({ theme }) => theme.transitions.short}
+          ease-in-out;
+
+        &:hover {
+          opacity: ${({ theme }) => theme.opacity.opacity80};
+        }
       }
     }
 
@@ -111,7 +136,7 @@ const RootStyles = styled.div`
 
       > ul {
         display: grid;
-        grid-row-gap: ${({ theme }) => theme.spaces.large};
+        grid-row-gap: ${({ theme }) => theme.spaces.medium};
         margin-bottom: ${({ theme }) => theme.spaces.large};
         width: 100%;
 

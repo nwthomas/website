@@ -1,13 +1,11 @@
 ---
 title: "Clone Graph (LeetCode #133)"
 metaTitle: "Clone Graph (LeetCode #133)"
-metaDescription: "The Clone Graph LeetCode coding challenge"
-socialImage: ./default-homepage.png
+metaDescription: "This coding challenge will teach you both graph traversal as well as comparison by reference."
+imageUrl: /seo/contact-page.png
 date: "2022-07-02"
 tags:
-  - Python
   - Leetcode
-  - Coding Challenge
 ---
 
 # Clone Graph
