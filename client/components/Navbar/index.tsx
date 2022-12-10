@@ -1,4 +1,5 @@
 import {
+  BLOG_ARTICLE_PAGE,
   BLOG_PAGE,
   CONTACT_PAGE,
   HOME_PAGE,
@@ -8,10 +9,14 @@ import {
 import Link from "next/link";
 import ThemeTransitionSwitch from "../ThemeTransitionSwitch";
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 function Navbar() {
+  const { pathname } = useRouter();
+  const isArticle = pathname === BLOG_ARTICLE_PAGE;
+
   return (
-    <RootStyles>
+    <RootStyles isArticle={isArticle}>
       <header>
         <div>
           <div>
@@ -47,7 +52,11 @@ function Navbar() {
   );
 }
 
-const RootStyles = styled.div`
+interface StyleProps {
+  isArticle: boolean;
+}
+
+const RootStyles = styled.div<StyleProps>`
   display: flex;
   background: ${({ theme }) => theme.colors.transparent};
   left: 0;

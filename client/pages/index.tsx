@@ -4,7 +4,7 @@ import Employers from "../components/Employers";
 import { HOME_PAGE_NAME } from "../constants/seo";
 import Layout from "../components/Layout";
 import Link from "next/link";
-import type { NextPage } from "next";
+import { NextPage } from "next";
 import styled from "styled-components";
 
 const Home: NextPage = () => {

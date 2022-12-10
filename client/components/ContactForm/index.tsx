@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import styled, { ThemeContext } from "styled-components";
 
 import Spinner from "../Spinner";
-import type { ThemeEnum } from "../../hooks/useGetPreferredTheme";
+import { ThemeEnum } from "../../hooks/useGetPreferredTheme";
 import { useFormik } from "formik";
 import { useGetMouseRadian } from "../../hooks/useGetMouseRadian";
 

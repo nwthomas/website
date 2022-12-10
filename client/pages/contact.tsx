@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { CONTACT_PAGE_NAME } from "../constants/seo";
 import ContactForm from "../components/ContactForm";
 import Layout from "../components/Layout";
-import type { MessageValues } from "../components/ContactForm";
+import { MessageValues } from "../components/ContactForm";
 import { RootState } from "../store";
 import { sendMessage } from "./api/message";
 import styled from "styled-components";

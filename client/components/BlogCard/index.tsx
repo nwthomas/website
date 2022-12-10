@@ -4,21 +4,17 @@ import styled, { ThemeContext } from "styled-components";
 
 import { ArrowForwardsIcon } from "../Icons";
 
-type Props = {
+interface Props {
   description: string;
   title: string;
   url: string;
-};
+}
 
 function BlogCard({ description, title, url }: Props) {
-  const blogCardRef = React.useRef<HTMLElement | null>(null);
   const { colorsHex } = React.useContext(ThemeContext);
 
   return (
-    <RootStyles
-      ref={blogCardRef}
-      style={{ transform: `rotate3d(1, 1, 1, 0rad)` }}
-    >
+    <RootStyles>
       <a href={`/blog/${url}`}>
         <div>
           <h2>{title}</h2>

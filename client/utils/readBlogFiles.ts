@@ -1,8 +1,7 @@
-import matter, { GrayMatterFile } from "gray-matter";
-
 import { BlogPost } from "./sortBlogPosts";
 import fs from "fs";
 import getConfig from "next/config";
+import matter from "gray-matter";
 import path from "path";
 
 type Files = Array<{

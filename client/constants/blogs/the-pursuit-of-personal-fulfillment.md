@@ -1,0 +1,106 @@
+---
+title: "The Pursuit of Personal Fulfillment"
+metaTitle: "The Pursuit of Personal Fulfillment"
+slug: "the-pursuit-of-personal-fulfillment"
+metaDescription: "Life is what you make it. Your reality is flexible and will give to your efforts."
+imageUrl:
+date: "2019-7-2"
+tags:
+  - Soft Skills
+---
+
+# The Pursuit of Personal Fulfillment
+
+![Black and white photograph of man surfing](/blog-assets/the-pursuit-of-personal-fulfillment/man-surfing.webp "Image by [Alex Braga](https://unsplash.com/@awbraga) on [Unsplash](https://unsplash.com/)")
+
+---
+
+> This article originally appeared on [Medium](https://medium.com/@nwthomas/the-pursuit-of-personal-fulfillment-c5c82994c028).
+
+---
+
+## You May Say That I’m a Dreamer
+
+A warm summer breeze is drifting through the window this evening. I’m sitting here staring at a blank electric page, and I’m struck by nostalgia.
+
+It’s been two years (almost to the day) since I resigned from a job to travel. In those two years, I’ve seen friends I hadn’t seen since university, led a healthcare wellness program to a level that was recognized by Forbes, and spent a lot of time searching. The last eight months have been consumed by my time at Lambda School, and the most recent 3 have been as a section lead (which means I manage 160 students and 20 project managers).
+
+As I’m drawing to the end of this role at Lambda, I’ve found myself thinking a lot about what people really want when they say they’re trying to “find their purpose.” Back when I was job hunting pre-Lambda School, I used to put a lot of thought into what I really wanted to do with the rest of my life. It was stressful. How can you find answers when you don’t even know the right questions?
+
+I recently realized that it’s been eight months since I asked myself that. I’ve found something I love, and I’ve stopped thinking about questions like “is this what I’m meant to do?” Could it be that self-fulfillment is something viewed only in the rearview mirror of life instead of being actively pursued as a goal in-and-of-itself?
+
+Grab your coffee, tea, or something good. ☕️
+
+Sit down.
+
+Let’s talk.
+
+---
+
+> “When I was 5 years old, my mother always told me that happiness was the key to life. When I went to school, they asked me what I wanted to be when I grew up. I wrote down ‘happy.’ They told me I didn’t understand the assignment, and I told them they didn’t understand life.”
+>
+> ― John Lennon
+
+---
+
+## It’s All About the Journey 🚗
+
+Before I started my journey into web development and software engineering, I spent a solid six months job hunting and interviewing with lots of startups.
+
+During that time, I started having lots of second thoughts about the direction I was headed. I started wondering the big questions in life like “What makes me happy?” and “Why do dogs love us so much when we basically trap them in our homes, regulate when they get to eat and poop, and only take them on walks a couple times a day?”
+
+Every choice I faced was viewed through my own self-imposed lens of artificial pressure. By trying to “find my purpose,” I was actually telling myself that every choice I made was high-stakes. Everything became important. There was no room to play and be creative. There was no room to make mistakes.
+
+I was miserable.
+
+![Black and white photograph of waves at the beach](/blog-assets/the-pursuit-of-personal-fulfillment/beach.webp "Image by [Annie Spratt](https://unsplash.com/@anniespratt) on [Unsplash](https://unsplash.com/)")
+
+Somewhere along the way, I got it into my head that I wanted to make a personal blog. I didn’t expect anyone else to read it, but I wanted my own corner of the internet to record my thoughts.
+
+When I couldn’t figure out how to customize Wordpress templates, I turned to the Internet to teach me a bit more about CSS and HTML. When I got stuck on animations and JavaScript, I enrolled in [The Odin Project](https://www.theodinproject.com/) out of a passing interest since it was free. When I needed additional coaching, I decided to take a free intro course from [Lambda School](https://www.bloomtech.com/). It couldn’t hurt, right?
+
+At no point in this journey was I focused on web development or software engineering as an eventual career. I didn’t see my passions and hobbies finding their own way and taking on a life of their own. I was so focused on what I thought fulfilled me that I couldn’t see what I actually loved. It wasn’t until my family started pointing out how much I seemed to love writing code that I woke up to what was happening.
+
+Even after that, it took a friend to pull me aside and tell me that “You could totally do this as a career, man” before I decided to step off that ledge into the unknown (credit to my friend [Joseph Cawood](https://www.linkedin.com/in/joseph-cawood-mshi/) for that conversation — He spends every day battling data in Python and R at UC Davis to make this world a better place). I enrolled in Lambda School.
+
+---
+
+> “If today were the last day of my life, would I want to do what I’m about to do today.”
+>
+> — Steve Jobs
+
+---
+
+## A Life Viewed in Reverse ⏮
+
+The world needs more people who take things one day at a time and who focus on what really matters to them. There’s a quote from a Calvin and Hobbes comic where Calvin says, “If people sat outside and looked at the stars each night, I’ll bet they’d live a lot differently.”
+
+Telling yourself that every decision you make needs to lead towards some vague pursuit of a future “purpose” sounds like a terrible way to go through life. Steve Jobs certainly seemed to think so in the quote before this section.
+
+Forcing yourself to plan for what your unknown future self wants is an impossible journey; learning how to find personal value in what you’re doing every day is not. If you would have asked Steve if he thought his life had purpose, I’m absolutely certain he’d have responded with a “Yes.”
+
+Before you say “This is a dumb article, Nate” and egg my house, notice that I’m not saying preparation for the future, setting goals, and planning are bad things. Those are all crucial pieces of the puzzle for anyone who wants to achieve anything great. But there is a certain element of personal reflection needed in order to focus on what both grows you as a person while also pursuing daily value and meaning.
+
+It’s hard to find that elusive feeling of purpose when you’re always looking into the future for the answers. The thing about the future is that it never actually arrives.
+
+---
+
+![Man in waves at the ocean](/blog-assets/the-pursuit-of-personal-fulfillment/man-in-waves.webp "Image by [Cherry Laithang](https://unsplash.com/@laicho) on [Unsplash](https://unsplash.com/)")
+
+---
+
+## Turning up Gold
+
+It’s been said that a major source of dissatisfaction in our lives is the gap between our expectations and reality. When we expect some future where we’ll finally feel complete, we start to feel an intense disconnect and bitterness with how our lives turned out if we never reach it.
+
+Most people focus on their daily grind and see all of life’s imperfections. They see the stressors, and they long for a day when all of those things just magically disappear. This is the mindset that makes most people spend their lives wishing for a future that, quite frankly, will never arrive. As John Lennon sang, “Life is what happens to you while you’re busy making other plans.”
+
+When you focus on your daily fulfillment, you start to sort out all of the fluff that seemed so necessary to you before, and new passions and character qualities in your life that were previously overlooked start surfacing. If this happens to you, I would highly encourage you to pursue them. You never know when one of these loose threads might tug and pull you into a life or a career that’s better than you could have dreamed.
+
+Although I can’t anticipate the future, it’s opportunities, or it’s stressors, I do know that I’m really grateful to be where I’m at. I’m passionate about what I get to do every day, and I find my fulfillment in that.
+
+---
+
+Thanks for reading. 🔥
+
+Nathan
