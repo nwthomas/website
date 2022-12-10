@@ -42,9 +42,9 @@ function ThemeTransitionSwitch() {
   );
 }
 
-type StyleProps = {
+interface StyleProps {
   isDarkMode: boolean;
-};
+}
 
 const RootStyles = styled.div<StyleProps>`
   height: 24px;

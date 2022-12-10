@@ -1,6 +1,6 @@
 import { GrayMatterFile } from "gray-matter";
 
-export type BlogPost = GrayMatterFile<string>;
+export type BlogPost = Omit<GrayMatterFile<string>, "orig">;
 
 export type BlogPosts = Array<BlogPost>;
 
@@ -32,9 +32,9 @@ export function buildSlugToBlogPostMap(blogPosts: BlogPosts): {
   return slugToBlogPostMap;
 }
 
-type BlogPostsByTags = {
+interface BlogPostsByTags {
   [key: string]: BlogPosts;
-};
+}
 
 // Organizes blog posts by tags
 export function bucketAndSortBlogPostsByTags(

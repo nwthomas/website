@@ -21,7 +21,7 @@ const DEFAULT_SEO_VALUES: SeoConfig = {
   title: "Home",
 };
 
-type SeoConfig = {
+interface SeoConfig {
   author: {
     name: String;
   };
@@ -35,7 +35,7 @@ type SeoConfig = {
     instagram: string;
   };
   title: string;
-};
+}
 
 export function buildSeoConfig(pageName: string, route?: string): SeoConfig {
   switch (pageName) {

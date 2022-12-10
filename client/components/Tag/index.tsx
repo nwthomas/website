@@ -2,9 +2,9 @@ import { buildAriaLabel, buildLinkHref } from "../../utils/tags";
 
 import styled from "styled-components";
 
-type Props = {
+interface Props {
   text: string;
-};
+}
 
 function Tag({ text }: Props) {
   return (

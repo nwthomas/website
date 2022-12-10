@@ -5,10 +5,10 @@ import Card from "../BlogCard";
 import Tag from "../Tag";
 import styled from "styled-components";
 
-type Props = {
+interface Props {
   blogPosts: BlogPosts;
   tag: string;
-};
+}
 
 function buildBlogPostsCountText(blogPostsCount: number) {
   return `${blogPostsCount} Article${blogPostsCount > 1 ? "s" : ""}`;

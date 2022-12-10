@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-type Props = {
+interface Props {
   ariaLabel: string;
   imageDimensions: {
     height: number;
@@ -10,7 +10,7 @@ type Props = {
   imageSrc: string;
   title: string;
   url: string;
-};
+}
 
 function WorkExample({
   ariaLabel,
