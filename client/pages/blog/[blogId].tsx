@@ -1,33 +1,32 @@
-import {
-  BlogPosts,
-  bucketAndSortBlogPostsByTags,
-} from "../../utils/sortBlogPosts";
+import { BlogPosts, buildSlugToBlogPostMap } from "../../utils/sortBlogPosts";
 
 import Layout from "../../components/Layout";
-import fs from "fs";
 import { getDirectoryFiles } from "../../utils/readBlogFiles";
+import { useRouter } from "next/router";
 
 export async function getStaticProps() {
   const blogPosts = getDirectoryFiles("/constants/blogs");
   const blogPostContent = blogPosts.map(
     (blogPost) => blogPost.fileContents
   ) as BlogPosts;
-  const blogPostsByTags = bucketAndSortBlogPostsByTags(blogPostContent);
+  const slugToBlogPostMap = buildSlugToBlogPostMap(blogPostContent);
 
   return {
     props: {
-      blogPostsByTags,
+      slugToBlogPostMap,
     },
   };
 }
 
 export async function getStaticPaths() {
-  const files = fs.readdirSync("../../constants/blogs");
-  const paths = files.map((filename) => ({
-    params: {
-      slug: filename.replace(".md", ""),
-    },
-  }));
+  const blogPosts = getDirectoryFiles("/constants/blogs");
+  const blogPostContent = blogPosts.map(
+    (blogPost) => blogPost.fileContents
+  ) as BlogPosts;
+
+  const paths = blogPostContent.map((blogPost) => {
+    return { params: { blogId: blogPost.data.slug } };
+  });
 
   return {
     paths,
@@ -35,7 +34,14 @@ export async function getStaticPaths() {
   };
 }
 
-function BlogPost({ blogPostsByTags }) {
+function BlogPost({ slugToBlogPostMap }) {
+  const {
+    query: { blogId },
+  } = useRouter();
+
+  const blogPost = slugToBlogPostMap[blogId as string];
+  console.log({ blogPost });
+
   return (
     <Layout pageName={""} withFooter>
       <p>Testing</p>

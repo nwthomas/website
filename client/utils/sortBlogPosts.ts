@@ -4,10 +4,6 @@ export type BlogPost = GrayMatterFile<string>;
 
 export type BlogPosts = Array<BlogPost>;
 
-type BlogPostsByTags = {
-  [key: string]: BlogPosts;
-};
-
 // Takes in any list of tags and returns them fully sorted
 export function getSortedTagsList(tags: Array<string>): Array<string> {
   // This is purely a formality to keep TypeScript happy and conform to the required callback
@@ -19,7 +15,28 @@ export function getSortedTagsList(tags: Array<string>): Array<string> {
   return mergeSort(tags, getTagTitle);
 }
 
-// Utility function for organizing blog posts by tags
+// Keys all blog posts by associated slug for quick selection
+export function buildSlugToBlogPostMap(blogPosts: BlogPosts): {
+  [key: string]: BlogPost;
+} {
+  const slugToBlogPostMap: { [key: string]: BlogPost } = {};
+
+  for (const blogPost of blogPosts) {
+    const {
+      data: { slug },
+    } = blogPost;
+
+    slugToBlogPostMap[slug] = blogPost;
+  }
+
+  return slugToBlogPostMap;
+}
+
+type BlogPostsByTags = {
+  [key: string]: BlogPosts;
+};
+
+// Organizes blog posts by tags
 export function bucketAndSortBlogPostsByTags(
   blogPosts: BlogPosts
 ): BlogPostsByTags {
@@ -86,8 +103,6 @@ function mergeItems(
     } else {
       const firstComparator = getComparator(firstArray[firstIndex]);
       const secondComparator = getComparator(secondArray[secondIndex]);
-
-      console.log(firstComparator, secondComparator);
 
       if (compareStrings(firstComparator, secondComparator) < 0) {
         result.push(firstArray[firstIndex]);

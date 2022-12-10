@@ -5,13 +5,12 @@ import styled, { ThemeContext } from "styled-components";
 import { ArrowForwardsIcon } from "../Icons";
 
 type Props = {
-  date: string;
   description: string;
-  imageUrl: string;
   title: string;
+  url: string;
 };
 
-function BlogCard({ description, imageUrl, title }: Props) {
+function BlogCard({ description, title, url }: Props) {
   const blogCardRef = React.useRef<HTMLElement | null>(null);
   const { colorsHex } = React.useContext(ThemeContext);
 
@@ -20,7 +19,7 @@ function BlogCard({ description, imageUrl, title }: Props) {
       ref={blogCardRef}
       style={{ transform: `rotate3d(1, 1, 1, 0rad)` }}
     >
-      <a href="/blog/clone-graph">
+      <a href={`/blog/${url}`}>
         <div>
           <h2>{title}</h2>
           <p>{description}</p>
