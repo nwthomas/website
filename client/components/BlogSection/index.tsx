@@ -68,7 +68,6 @@ const RootStyles = styled.section`
     grid-row-gap: ${({ theme }) => theme.spaces.medium};
     grid-template-columns: 1fr;
     grid-auto-rows: 1fr;
-    margin-bottom: ${({ theme }) => theme.spaces.xLarge};
 
     > li {
       line-height: 1;

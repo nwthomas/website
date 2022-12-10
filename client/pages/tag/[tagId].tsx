@@ -82,7 +82,15 @@ const RootStyles = styled.div`
   width: 100%;
 
   > main {
+    margin-bottom: ${({ theme }) => theme.spaces.large};
     max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
+
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.tablet}) {
+      margin-bottom: ${({ theme }) =>
+        `calc(${theme.spaces.medium} + ${theme.spaces.xxLarge})`};
+      margin-top: ${({ theme }) => theme.spaces.medium};
+    }
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
