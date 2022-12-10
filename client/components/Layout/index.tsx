@@ -11,16 +11,17 @@ interface Props {
   children: ReactNode | Array<ReactNode>;
   pageName: string;
   withFooter?: boolean;
+  withPageNameEmojis?: boolean;
 }
 
-function Layout({ children, pageName, withFooter }: Props) {
+function Layout({ children, pageName, withFooter, withPageNameEmojis }: Props) {
   const shouldShowModal = useSelector(
     (state: RootState) => state.modal.shouldShowModal
   );
 
   return (
     <>
-      <SEO pageName={pageName} />
+      <SEO pageName={pageName} withPageNameEmojis={withPageNameEmojis} />
       <RootStyles>
         {children}
         {withFooter ? <Footer /> : null}

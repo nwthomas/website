@@ -1,6 +1,6 @@
 import { GrayMatterFile } from "gray-matter";
 
-export type BlogPost = Omit<GrayMatterFile<string>, "orig">;
+export type BlogPost = GrayMatterFile<string>;
 
 export type BlogPosts = Array<BlogPost>;
 

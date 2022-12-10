@@ -21,10 +21,11 @@ export async function getStaticProps() {
   const blogPostContent = blogPosts.map(
     (blogPost) => blogPost.fileContents
   ) as BlogPosts;
+  const blogPostsByTags = bucketAndSortBlogPostsByTags(blogPostContent);
 
   return {
     props: {
-      blogPostsByTags: bucketAndSortBlogPostsByTags(blogPostContent),
+      blogPostsByTags,
     },
   };
 }
@@ -66,7 +67,11 @@ function TagIdPage({ blogPostsByTags }) {
   }, [tagIdParam]);
 
   return (
-    <Layout pageName={buildTagIdPageName(pageName)} withFooter>
+    <Layout
+      pageName={buildTagIdPageName(pageName)}
+      withFooter
+      withPageNameEmojis
+    >
       <RootStyles>
         <main>{tagIdBlogSection}</main>
       </RootStyles>

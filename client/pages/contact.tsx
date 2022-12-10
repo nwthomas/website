@@ -53,7 +53,7 @@ function Contact() {
   };
 
   return (
-    <Layout pageName={CONTACT_PAGE_NAME} withFooter>
+    <Layout pageName={CONTACT_PAGE_NAME} withFooter withPageNameEmojis>
       <RootStyles>
         <main>
           <section>

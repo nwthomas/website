@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 function Work() {
   return (
-    <Layout pageName={PROJECTS_PAGE_NAME} withFooter>
+    <Layout pageName={PROJECTS_PAGE_NAME} withFooter withPageNameEmojis>
       <RootStyles>
         <main>
           <section>

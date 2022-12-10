@@ -1,14 +1,25 @@
+import {
+  BlogPosts,
+  bucketAndSortBlogPostsByTags,
+} from "../../utils/sortBlogPosts";
+
 import Layout from "../../components/Layout";
 import fs from "fs";
+import { getDirectoryFiles } from "../../utils/readBlogFiles";
 
-const BLOG_DEFAULT_NAME = "Nathan Thomas | Blog Post";
-const buildBlogPostPageName = (blogName?: string) => {
-  if (!blogName) {
-    return BLOG_DEFAULT_NAME;
-  }
+export async function getStaticProps() {
+  const blogPosts = getDirectoryFiles("/constants/blogs");
+  const blogPostContent = blogPosts.map(
+    (blogPost) => blogPost.fileContents
+  ) as BlogPosts;
+  const blogPostsByTags = bucketAndSortBlogPostsByTags(blogPostContent);
 
-  return `Nathan Thomas | ${blogName}`;
-};
+  return {
+    props: {
+      blogPostsByTags,
+    },
+  };
+}
 
 export async function getStaticPaths() {
   const files = fs.readdirSync("../../constants/blogs");
@@ -24,10 +35,10 @@ export async function getStaticPaths() {
   };
 }
 
-function BlogPost() {
+function BlogPost({ blogPostsByTags }) {
   return (
-    <Layout pageName={buildBlogPostPageName()} withFooter>
-      ""
+    <Layout pageName={""} withFooter>
+      <p>Testing</p>
     </Layout>
   );
 }

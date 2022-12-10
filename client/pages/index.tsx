@@ -9,7 +9,7 @@ import styled from "styled-components";
 
 const Home: NextPage = () => {
   return (
-    <Layout pageName={HOME_PAGE_NAME} withFooter>
+    <Layout pageName={HOME_PAGE_NAME} withFooter withPageNameEmojis>
       <RootStyles>
         <main>
           <section>
