@@ -17,15 +17,14 @@ function buildBlogPostsCountText(blogPostsCount: number) {
 function BlogSection({ blogPosts, tag }: Props) {
   const blogCards = React.useMemo(() => {
     return blogPosts.map((blogPost, i) => {
-      const { date, metaDescription, imageUrl, metaTitle } = blogPost.data;
+      const { metaDescription, metaTitle, slug } = blogPost.data;
 
       return (
         <li key={i}>
           <Card
-            date={date}
             description={metaDescription}
-            imageUrl={imageUrl}
             title={metaTitle}
+            url={slug}
             key={i}
           />
         </li>
