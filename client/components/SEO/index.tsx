@@ -4,20 +4,15 @@ import Head from "next/head";
 import { ThemeContext } from "styled-components";
 import { buildSeoConfig } from "../../constants/seo";
 import { useGetPageName } from "../../hooks/useGetPageName";
-import { useRouter } from "next/router";
 
 interface Props {
   isArticle?: boolean;
   pageName: string;
+  withPageNameEmojis?: boolean;
 }
 
-function SEO({ isArticle, pageName }: Props) {
-  const { query } = useRouter();
+function SEO({ isArticle, pageName, withPageNameEmojis }: Props) {
   const { currentTheme } = React.useContext(ThemeContext);
-
-  const isTag = Boolean(query?.tagId);
-
-  console.log({ isTag });
 
   const currentPageMetadata = React.useMemo(() => {
     return buildSeoConfig(pageName);
@@ -32,7 +27,7 @@ function SEO({ isArticle, pageName }: Props) {
     title,
   } = currentPageMetadata;
 
-  const tabTitle = useGetPageName(title);
+  const tabTitle = useGetPageName(title, withPageNameEmojis);
 
   return (
     <Head>

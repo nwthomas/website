@@ -47,7 +47,7 @@ function Blogs({ blogPostsByTags, sortedTags }) {
   }, [blogPostsByTags, sortedTags]);
 
   return (
-    <Layout pageName={BLOG_PAGE_NAME} withFooter>
+    <Layout pageName={BLOG_PAGE_NAME} withFooter withPageNameEmojis>
       <RootStyles>
         <main>{blogSections}</main>
       </RootStyles>
