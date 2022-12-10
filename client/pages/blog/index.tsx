@@ -3,6 +3,7 @@ import * as React from "react";
 import {
   BlogPosts,
   bucketAndSortBlogPostsByTags,
+  getSortedTagsList,
 } from "../../utils/sortBlogPosts";
 
 import { BLOG_PAGE_NAME } from "../../constants/seo";
@@ -16,31 +17,34 @@ export async function getStaticProps() {
   const blogPostContent = blogPosts.map(
     (blogPost) => blogPost.fileContents
   ) as BlogPosts;
+  const blogPostsByTags = bucketAndSortBlogPostsByTags(blogPostContent);
+
+  const tags = Object.keys(blogPostsByTags);
+  const sortedTags = getSortedTagsList(tags);
 
   return {
     props: {
-      blogPosts,
-      blogPostsByTags: bucketAndSortBlogPostsByTags(blogPostContent),
+      blogPostsByTags,
+      sortedTags,
     },
   };
 }
 
-function Blogs({ blogPostsByTags }) {
+function Blogs({ blogPostsByTags, sortedTags }) {
   const blogSections = React.useMemo(() => {
     const sections: JSX.Element[] = [];
 
-    for (const tag in blogPostsByTags) {
+    // Using the sortedTags array as the source of truth keeps the page sorted by tag name
+    for (const tag of sortedTags) {
       sections.push(
-        <BlogSection
-          blogPosts={blogPostsByTags[tag]}
-          key={sections.length}
-          tag={tag}
-        />
+        <div key={sections.length}>
+          <BlogSection blogPosts={blogPostsByTags[tag]} tag={tag} />
+        </div>
       );
     }
 
     return sections;
-  }, [blogPostsByTags]);
+  }, [blogPostsByTags, sortedTags]);
 
   return (
     <Layout pageName={BLOG_PAGE_NAME} withFooter>
@@ -59,12 +63,28 @@ const RootStyles = styled.div`
   width: 100%;
 
   > main {
+    margin-bottom: ${({ theme }) => theme.spaces.large};
     max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
+
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.tablet}) {
+      margin-bottom: ${({ theme }) =>
+        `calc(${theme.spaces.medium} + ${theme.spaces.xxLarge})`};
+      margin-top: ${({ theme }) => theme.spaces.medium};
+    }
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
       padding-top: ${({ theme }) => theme.spaces.medium};
       width: 100%;
+    }
+
+    > div {
+      margin-bottom: ${({ theme }) => theme.spaces.xLarge};
+    }
+
+    > div:last-child {
+      margin-bottom: 0;
     }
   }
 `;
