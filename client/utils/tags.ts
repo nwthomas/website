@@ -1,5 +1,5 @@
 export function buildAriaLabel(tagName: string): string {
-  return `Go to all articles about ${tagName}`;
+  return `All articles about ${tagName}`;
 }
 
 export function buildTagIdParam(tagName: string): string {

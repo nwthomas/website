@@ -3,29 +3,22 @@ import * as React from "react";
 import styled, { ThemeContext } from "styled-components";
 
 import { ArrowForwardsIcon } from "../Icons";
-import { useGetMouseRadian } from "../../hooks/useGetMouseRadian";
 
 type Props = {
-  title: string;
+  date: string;
   description: string;
+  imageUrl: string;
+  title: string;
 };
 
-function BlogCard({ description, title }: Props) {
-  const [isActive, setIsActive] = React.useState<boolean>(false);
+function BlogCard({ description, imageUrl, title }: Props) {
   const blogCardRef = React.useRef<HTMLElement | null>(null);
   const { colorsHex } = React.useContext(ThemeContext);
-  const radians = useGetMouseRadian(blogCardRef);
-
-  const handleIsCardActive = React.useCallback(() => {
-    setIsActive(!isActive);
-  }, [isActive]);
 
   return (
     <RootStyles
-      onMouseEnter={handleIsCardActive}
-      onMouseLeave={handleIsCardActive}
       ref={blogCardRef}
-      style={{ transform: `rotate3d(1, 1, 1, ${isActive ? radians : 0}rad)` }}
+      style={{ transform: `rotate3d(1, 1, 1, 0rad)` }}
     >
       <a href="/blog/clone-graph">
         <div>
@@ -42,24 +35,24 @@ function BlogCard({ description, title }: Props) {
 }
 
 const RootStyles = styled.article`
-  background-color: ${({ theme }) => theme.colors.bodyBackground};
   border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
-  height: 300px;
-  margin-right: 20px;
-  max-width: 350px;
-  transition: transform ${({ theme }) => theme.transitions.medium} ease-in-out
+  display: flex;
+  flex: 1;
   width: 100%;
 
   > a {
-    justify-content: space-between;
+    background-color: ${({ theme }) => theme.colors.bodyBackground};
     border: ${({ theme }) =>
       `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
     border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
     display: flex;
     flex-direction: column;
-    height: 100%;
+    justify-content: space-between;
+    min-height: 300px;
     padding: ${({ theme }) => theme.spaces.medium};
-    transition: border ${({ theme }) => theme.transitions.medium} ease-in-out;
+    transition: background-color ${({ theme }) => theme.transitions.short}
+        ease-in-out,
+      border ${({ theme }) => theme.transitions.short} ease-in-out;
     text-decoration: none;
     width: 100%;
 
@@ -67,18 +60,15 @@ const RootStyles = styled.article`
       width: 100%;
 
       > h2 {
+        display: block;
         font-size: 2rem;
         letter-spacing: ${({ theme }) => theme.spaces.micro};
-        transition: opacity ${({ theme }) => theme.transitions.medium}
-          ease-in-out;
-        text-transform: uppercase;
+        margin-bottom: ${({ theme }) => theme.spaces.medium};
       }
 
       > p {
         font-size: 2rem;
-        transition: color ${({ theme }) =>
-          theme.transitions.medium} ease-in-out,
-          opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
+        transition: color ${({ theme }) => theme.transitions.short} ease-in-out;
       }
     }
 
@@ -103,17 +93,11 @@ const RootStyles = styled.article`
 
     &:focus,
     &:hover {
+      background-color: ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
       border: ${({ theme }) =>
         `${theme.spaces.nano} solid ${theme.colorsHex.royalBlue}`};
       border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
       outline: none;
-
-      > div:nth-child(1) {
-        h2,
-        p {
-          opacity: ${({ theme }) => theme.opacity.opacity80};
-        }
-      }
 
       > div:nth-child(2) {
         > p {

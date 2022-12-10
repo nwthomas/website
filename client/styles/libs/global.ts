@@ -150,7 +150,7 @@ const GlobalStyle = css`
     text-decoration-style: solid;
     text-decoration-line: underline;
     text-underline-offset: ${({ theme }) => theme.spaces.micro};
-    transition: text-decoration-color ${({ theme }) => theme.transitions.medium}
+    transition: text-decoration-color ${({ theme }) => theme.transitions.short}
       ease-in-out;
 
     @media only screen and (min-width: ${({ theme }) =>

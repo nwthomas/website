@@ -48,6 +48,7 @@ export async function getStaticPaths() {
 }
 
 function TagIdPage({ blogPostsByTags }) {
+  const [pageName, setPageName] = React.useState<string>("");
   const {
     query: { tagId: tagIdParam },
   } = useRouter();
@@ -55,6 +56,8 @@ function TagIdPage({ blogPostsByTags }) {
   const tagIdBlogSection = React.useMemo(() => {
     for (const tag in blogPostsByTags) {
       if (buildTagIdParam(tag) === tagIdParam) {
+        setPageName(tag);
+
         return <BlogSection blogPosts={blogPostsByTags[tag]} tag={tag} />;
       }
     }
@@ -63,7 +66,7 @@ function TagIdPage({ blogPostsByTags }) {
   }, [tagIdParam]);
 
   return (
-    <Layout pageName={buildTagIdPageName("Python")} withFooter>
+    <Layout pageName={buildTagIdPageName(pageName)} withFooter>
       <RootStyles>
         <main>{tagIdBlogSection}</main>
       </RootStyles>

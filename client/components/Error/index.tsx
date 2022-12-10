@@ -32,7 +32,7 @@ const RootStyles = styled.main`
   width: 100%;
 
   > h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     text-align: center;
     margin-bottom: ${({ theme }) => theme.spaces.medium};
 

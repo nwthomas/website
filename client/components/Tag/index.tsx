@@ -9,13 +9,14 @@ type Props = {
 function Tag({ text }: Props) {
   return (
     <RootStyles aria-label={buildAriaLabel(text)} href={buildLinkHref(text)}>
-      <p>{text}</p>
+      <h1>{text}</h1>
     </RootStyles>
   );
 }
 
 const RootStyles = styled.a`
   align-items: center;
+  background-color: ${({ theme }) => theme.colors.bodyBackground};
   border: ${({ theme }) =>
     `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
   border-radius: ${({ theme }) => theme.borderRadii.infinity};
@@ -24,9 +25,10 @@ const RootStyles = styled.a`
   justify-content: center;
   padding: ${({ theme }) => `${theme.spaces.xSmall} ${theme.spaces.medium}`};
   text-decoration: none;
-  transition: opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
+  transition: border-color ${({ theme }) => theme.transitions.short} ease-in-out,
+    background-color ${({ theme }) => theme.transitions.short} ease-in-out;
 
-  > p {
+  > h1 {
     color: ${({ theme }) => theme.colors.text};
     font-size: 2rem;
     display: block;
@@ -35,15 +37,13 @@ const RootStyles = styled.a`
     width: 100%;
   }
 
-  &:hover {
-    opacity: ${({ theme }) => theme.opacity.opacity80};
-    text-decoration: none;
-  }
-
+  &:hover,
   &:focus {
+    background-color: ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
     border: ${({ theme }) =>
       `${theme.spaces.nano} solid ${theme.colorsHex.royalBlue}`};
     outline: none;
+    text-decoration: none;
   }
 `;
 

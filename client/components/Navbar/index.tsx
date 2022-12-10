@@ -28,9 +28,6 @@ function Navbar() {
           <nav>
             <ul>
               <li>
-                <Link href={HOME_PAGE}>Home</Link>
-              </li>
-              <li>
                 <Link href={BLOG_PAGE}>Blog</Link>
               </li>
               <li>
@@ -55,7 +52,7 @@ const RootStyles = styled.div`
   background: ${({ theme }) => theme.colors.transparent};
   left: 0;
   padding: ${({ theme }) =>
-    `0 calc(${theme.appDimensions.appHorizontalGutters} - ${theme.spaces.small})`};
+    `0 calc(${theme.appDimensions.appHorizontalGutters} - ${theme.spaces.small} - 2px)`};
   position: absolute;
   justify-content: center;
   right: 0;
@@ -69,7 +66,7 @@ const RootStyles = styled.div`
     display: flex;
     justify-content: center;
     max-width: ${({ theme }) =>
-      `calc(${theme.appDimensions.appMaxWidth} + ${theme.spaces.small})`};
+      `calc(${theme.appDimensions.appMaxWidth} + ${theme.spaces.small} + 2px)`};
     padding: ${({ theme }) =>
       `${theme.spaces.small} 0 calc(${theme.spaces.large} - ${theme.spaces.small})`};
     width: 100%;
@@ -83,11 +80,13 @@ const RootStyles = styled.div`
     > div {
       background-: ${({ theme }) => theme.colors.bodyBackgroundAccent};
       border: ${({ theme }) =>
-        `${theme.spaces.nano} solid ${theme.colorsHex.transparent}`};
+        `${theme.spaces.nano} solid ${theme.colors.transparent}`};
       border-radius: ${({ theme }) => theme.borderRadii.infinity};
       display: flex;
       justify-content: space-between;
       padding: ${({ theme }) => theme.spaces.small};
+      transition: border-color ${({ theme }) => theme.transitions.short}
+        ease-in-out;
       width: 100%;
 
       > div,

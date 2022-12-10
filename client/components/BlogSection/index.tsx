@@ -10,15 +10,25 @@ type Props = {
   tag: string;
 };
 
+function buildBlogPostsCountText(blogPostsCount: number) {
+  return `${blogPostsCount} Article${blogPostsCount > 1 ? "s" : ""}`;
+}
+
 function BlogSection({ blogPosts, tag }: Props) {
   const blogCards = React.useMemo(() => {
     return blogPosts.map((blogPost, i) => {
+      const { date, metaDescription, imageUrl, metaTitle } = blogPost.data;
+
       return (
-        <Card
-          description={blogPost.data.metaDescription}
-          title={blogPost.data.metaTitle}
-          key={i}
-        />
+        <li key={i}>
+          <Card
+            date={date}
+            description={metaDescription}
+            imageUrl={imageUrl}
+            title={metaTitle}
+            key={i}
+          />
+        </li>
       );
     });
   }, [blogPosts]);
@@ -27,8 +37,9 @@ function BlogSection({ blogPosts, tag }: Props) {
     <RootStyles>
       <div>
         <Tag text={tag} />
+        <p>{buildBlogPostsCountText(blogPosts.length)}</p>
       </div>
-      <div>{blogCards}</div>
+      <ul>{blogCards}</ul>
     </RootStyles>
   );
 }
@@ -39,14 +50,40 @@ const RootStyles = styled.section`
   position: relative;
   width: 100%;
 
-  > div:nth-child(1) {
+  > div {
+    align-items: center;
     display: flex;
+    justify-content: space-between;
     margin-bottom: ${({ theme }) => theme.spaces.medium};
+
+    > p {
+      font-size: 2rem;
+      line-height: 1;
+    }
   }
 
-  > div:nth-child(2) {
-    display: flex;
-    margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
+  > ul {
+    display: grid;
+    grid-column-gap: ${({ theme }) => theme.spaces.medium};
+    grid-row-gap: ${({ theme }) => theme.spaces.medium};
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1fr;
+    margin-bottom: ${({ theme }) => theme.spaces.xLarge};
+
+    > li {
+      line-height: 1;
+      list-style-type: none;
+    }
+
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.tablet}) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.desktop}) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
   }
 `;
 
