@@ -6,7 +6,7 @@ metaDescription: "This coding challenge will teach you both graph traversal as w
 imageUrl: /seo/contact-page.png
 date: "2022-07-02"
 tags:
-  - Leetcode
+  - LeetCode
 ---
 
 # Clone Graph

@@ -93,11 +93,6 @@ const RootStyles = styled.div`
 
     > section {
       display: flex;
-
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.tablet}) {
-        margin-top: ${({ theme }) => theme.spaces.medium};
-      }
     }
 
     > section:nth-child(1) {
@@ -105,8 +100,7 @@ const RootStyles = styled.div`
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        margin-bottom: ${({ theme }) =>
-          `calc(${theme.spaces.medium} + ${theme.spaces.xxLarge})`};
+        margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
       }
 
       a {

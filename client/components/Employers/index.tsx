@@ -16,6 +16,7 @@ function Employers() {
           >
             <img
               alt="Loom logo"
+              draggable={false}
               height={1000}
               src="/loom-logo.webp"
               width={1000}
@@ -34,6 +35,7 @@ function Employers() {
           >
             <img
               alt="Twitter logo"
+              draggable={false}
               height={834}
               src="/twitter-logo.webp"
               width={1036}
@@ -70,6 +72,13 @@ const RootStyles = styled.section`
         theme.breakpoints.tablet}) {
       margin-bottom: 0;
       margin-right: ${({ theme }) => `calc(${theme.spaces.xxLarge} * 2)`};
+      max-width: 150px;
+    }
+
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.desktop}) {
+      margin-bottom: 0;
+      margin-right: ${({ theme }) => `calc(${theme.spaces.xxLarge} * 3)`};
       max-width: 150px;
     }
 

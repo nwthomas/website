@@ -9,9 +9,9 @@ tags:
   - Soft Skills
 ---
 
-# The Pursuit of Persistence and Grit
-
 ![Black and white photograph of fisherman](/blog-assets/the-pursuit-of-persistence-and-grit/black-and-white-beach-fishermen.webp "Image by [Christie Kim](https://unsplash.com/@christieckim) on [Unsplash](https://unsplash.com/@christieckim)")
+
+# The Pursuit of Persistence and Grit
 
 ---
 

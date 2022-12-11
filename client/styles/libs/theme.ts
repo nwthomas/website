@@ -48,12 +48,16 @@ export const colors: Colors = {
 // Gradients
 interface Gradients {
   getContactFormBorder: (radians: number) => string;
+  getHeaderBackground: () => string;
   getLinkText: () => string;
 }
 
 const gradients: Gradients = {
   getContactFormBorder: (radians: number) => {
     return `linear-gradient(calc(${radians}rad), ${colors.royalBlue} 0%, ${colors.pictonBlue} 20%, rgba(121,40,202,0) 75%)`;
+  },
+  getHeaderBackground: () => {
+    return `linear-gradient(180deg, ${themeColorValues.bodyBackground} 60%, rgba(121,40,202,0) 100%)`;
   },
   getLinkText: () => {
     return `linear-gradient(120deg, ${colors.royalBlue} 0%, ${colors.pictonBlue} 100%)`;
@@ -121,9 +125,9 @@ export const appDimensions: AppDimensions = {
   footerTabletHeight: "199px",
   footerMobileHeight: "98px",
   modalMaxWidth: "600px",
-  navbarDesktopHeight: "195px",
-  navbarTabletHeight: "195px",
-  navbarMobileHeight: "115px",
+  navbarDesktopHeight: "192px",
+  navbarTabletHeight: "192px",
+  navbarMobileHeight: "72px",
   navbarLinkWidth: "120px",
 };
 

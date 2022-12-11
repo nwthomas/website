@@ -5,7 +5,7 @@ import {
   bucketAndSortBlogPostsByTags,
 } from "../../utils/sortBlogPosts";
 
-import BlogSection from "../../components/BlogSection";
+import BlogCardSection from "../../components/BlogCardSection";
 import Layout from "../../components/Layout";
 import { buildTagIdParam } from "../../utils/tags";
 import { getDirectoryFiles } from "../../utils/readBlogFiles";
@@ -31,8 +31,8 @@ export async function getStaticProps() {
 }
 
 export async function getStaticPaths() {
-  const blogPosts = getDirectoryFiles("/constants/blogs");
-  const blogPostContent = blogPosts.map(
+  const blogCardPosts = getDirectoryFiles("/constants/blogs");
+  const blogPostContent = blogCardPosts.map(
     (blogPost) => blogPost.fileContents
   ) as BlogPosts;
 
@@ -59,7 +59,7 @@ function TagIdPage({ blogPostsByTags }) {
       if (buildTagIdParam(tag) === tagIdParam) {
         setPageName(tag);
 
-        return <BlogSection blogPosts={blogPostsByTags[tag]} tag={tag} />;
+        return <BlogCardSection blogPosts={blogPostsByTags[tag]} tag={tag} />;
       }
     }
 
@@ -92,14 +92,11 @@ const RootStyles = styled.div`
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
-      margin-bottom: ${({ theme }) =>
-        `calc(${theme.spaces.medium} + ${theme.spaces.xxLarge})`};
-      margin-top: ${({ theme }) => theme.spaces.medium};
+      margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
     }
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
-      padding-top: ${({ theme }) => theme.spaces.medium};
       width: 100%;
     }
   }

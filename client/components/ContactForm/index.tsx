@@ -152,14 +152,8 @@ interface StyleProps {
 
 const RootStyles = styled.div<StyleProps>`
   border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
-  max-width: ${({ theme }) => theme.appDimensions.contactFormMaxWidth};
   padding: ${({ theme }) => theme.spaces.nano};
   width: 100%;
-
-  @media only screen and (min-width: ${({ theme }) =>
-      theme.breakpoints.tablet}) {
-    max-width: ${({ theme }) => theme.appDimensions.contactFormMaxWidth};
-  }
 
   > div {
     border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
