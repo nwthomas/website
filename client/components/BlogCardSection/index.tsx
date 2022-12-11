@@ -14,7 +14,7 @@ function buildBlogPostsCountText(blogPostsCount: number) {
   return `${blogPostsCount} Article${blogPostsCount > 1 ? "s" : ""}`;
 }
 
-function BlogSection({ blogPosts, tag }: Props) {
+function BlogCardSection({ blogPosts, tag }: Props) {
   const blogCards = React.useMemo(() => {
     return blogPosts.map((blogPost, i) => {
       const { metaDescription, metaTitle, slug } = blogPost.data;
@@ -85,4 +85,4 @@ const RootStyles = styled.section`
   }
 `;
 
-export default BlogSection;
+export default BlogCardSection;

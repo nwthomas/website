@@ -106,9 +106,7 @@ const RootStyles = styled.div`
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        margin-bottom: ${({ theme }) =>
-          `calc(${theme.spaces.medium} + ${theme.spaces.xxLarge})`};
-        margin-top: ${({ theme }) => theme.spaces.medium};
+        margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
       }
 
       a {
@@ -141,6 +139,16 @@ const RootStyles = styled.div`
           theme.breakpoints.tablet}) {
         margin-bottom: ${({ theme }) =>
           `calc(${theme.spaces.medium} + ${theme.spaces.xxLarge})`};
+      }
+
+      > div {
+        max-width: none;
+        width: 100%;
+
+        @media only screen and (min-width: ${({ theme }) =>
+            theme.breakpoints.tablet}) {
+          max-width: ${({ theme }) => theme.appDimensions.contactFormMaxWidth};
+        }
       }
     }
   }

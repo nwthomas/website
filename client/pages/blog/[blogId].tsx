@@ -1,8 +1,17 @@
+import {
+  BlogHeading,
+  BlogHorizontalRule,
+  BlogImage,
+  BlogParagraph,
+} from "../../components/BlogArticle";
 import { BlogPosts, buildSlugToBlogPostMap } from "../../utils/sortBlogPosts";
 
 import Layout from "../../components/Layout";
 import ReactMarkdown from "react-markdown";
 import { getDirectoryFiles } from "../../utils/readBlogFiles";
+import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
+import remarkGfm from "remark-gfm";
+import remarkUnwrapImages from "remark-unwrap-images";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 
@@ -42,12 +51,57 @@ function BlogPost({ slugToBlogPostMap }) {
   } = useRouter();
 
   const blogPost = slugToBlogPostMap[blogId as string];
+  const { imageUrl: heroImageUrl } = blogPost.data;
 
   return (
     <Layout pageName={blogPost.data.title} withFooter>
       <RootStyles>
         <main>
-          <ReactMarkdown>{blogPost.content}</ReactMarkdown>
+          <ReactMarkdown
+            children={blogPost.content}
+            components={{
+              blockquote({ ...props }) {
+                // console.log(props);
+
+                return null;
+              },
+              h1({ children }) {
+                return <BlogHeading contents={children} level={1} />;
+              },
+              h2({ children }) {
+                return <BlogHeading contents={children} level={2} />;
+              },
+              h3({ children }) {
+                return <BlogHeading contents={children} level={3} />;
+              },
+              h4({ children }) {
+                return <BlogHeading contents={children} level={4} />;
+              },
+              h5({ children }) {
+                return <BlogHeading contents={children} level={5} />;
+              },
+              hr() {
+                return <BlogHorizontalRule />;
+              },
+              p({ children }) {
+                return <BlogParagraph contents={children} />;
+              },
+              img({ alt, src, title }) {
+                const isHeroImage = heroImageUrl === src;
+
+                return (
+                  <BlogImage
+                    alt={alt}
+                    isHeroImage={isHeroImage}
+                    src={src}
+                    title={title}
+                  />
+                );
+              },
+            }}
+            rehypePlugins={[rehypeAccessibleEmojis]}
+            remarkPlugins={[remarkGfm, remarkUnwrapImages]}
+          />
         </main>
       </RootStyles>
     </Layout>
@@ -69,24 +123,12 @@ const RootStyles = styled.div`
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
-      margin-bottom: ${({ theme }) =>
-        `calc(${theme.spaces.medium} + ${theme.spaces.xxLarge})`};
-      margin-top: ${({ theme }) => theme.spaces.medium};
+      margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
     }
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
-      padding-top: ${({ theme }) => theme.spaces.medium};
       width: 100%;
-    }
-
-    > img:first-child {
-      max-width: ${({ theme }) => theme.appDimensions.articleHeroImageMaxWidth};
-    }
-
-    > p {
-      font-size: 2rem;
-      max-width: ${({ theme }) => theme.appDimensions.articleMaxWidth};
     }
   }
 `;

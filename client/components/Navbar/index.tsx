@@ -1,5 +1,4 @@
 import {
-  BLOG_ARTICLE_PAGE,
   BLOG_PAGE,
   CONTACT_PAGE,
   HOME_PAGE,
@@ -9,14 +8,10 @@ import {
 import Link from "next/link";
 import ThemeTransitionSwitch from "../ThemeTransitionSwitch";
 import styled from "styled-components";
-import { useRouter } from "next/router";
 
 function Navbar() {
-  const { pathname } = useRouter();
-  const isArticle = pathname === BLOG_ARTICLE_PAGE;
-
   return (
-    <RootStyles isArticle={isArticle}>
+    <RootStyles>
       <header>
         <div>
           <div>
@@ -32,6 +27,9 @@ function Navbar() {
           </div>
           <nav>
             <ul>
+              <li>
+                <Link href={HOME_PAGE}>Home</Link>
+              </li>
               <li>
                 <Link href={BLOG_PAGE}>Blog</Link>
               </li>
@@ -52,16 +50,11 @@ function Navbar() {
   );
 }
 
-interface StyleProps {
-  isArticle: boolean;
-}
-
-const RootStyles = styled.div<StyleProps>`
+const RootStyles = styled.div`
+  background-color: ${({ theme }) => theme.colors.bodyBackground};
   display: flex;
-  background: ${({ theme }) => theme.colors.transparent};
   left: 0;
-  padding: ${({ theme }) =>
-    `0 calc(${theme.appDimensions.appHorizontalGutters} - ${theme.spaces.small} - 2px)`};
+  padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
   position: absolute;
   justify-content: center;
   right: 0;
@@ -70,30 +63,21 @@ const RootStyles = styled.div<StyleProps>`
   z-index: 1;
 
   > header {
-    background: ${({ theme }) => theme.colors.bodyBackground};
     align-items: center;
     display: flex;
     justify-content: center;
-    max-width: ${({ theme }) =>
-      `calc(${theme.appDimensions.appMaxWidth} + ${theme.spaces.small} + 2px)`};
-    padding: ${({ theme }) =>
-      `${theme.spaces.small} 0 calc(${theme.spaces.large} - ${theme.spaces.small})`};
+    max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
+    padding: ${({ theme }) => `${theme.spaces.small} 0 `};
     width: 100%;
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
-      padding: ${({ theme }) =>
-        `calc(${theme.spaces.xxLarge}  - ${theme.spaces.small}) 0`};
+      padding: ${({ theme }) => `${theme.spaces.xxLarge} 0`};
     }
 
     > div {
-      background-: ${({ theme }) => theme.colors.bodyBackgroundAccent};
-      border: ${({ theme }) =>
-        `${theme.spaces.nano} solid ${theme.colors.transparent}`};
-      border-radius: ${({ theme }) => theme.borderRadii.infinity};
       display: flex;
       justify-content: space-between;
-      padding: ${({ theme }) => theme.spaces.small};
       transition: border-color ${({ theme }) => theme.transitions.short}
         ease-in-out;
       width: 100%;

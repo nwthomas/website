@@ -1,17 +1,17 @@
 ---
 title: "The Pursuit of Personal Fulfillment"
 metaTitle: "The Pursuit of Personal Fulfillment"
-slug: "the-pursuit-of-personal-fulfillment"
 metaDescription: "Life is what you make it. Your reality is flexible and will give to your efforts."
-imageUrl:
+slug: "the-pursuit-of-personal-fulfillment"
+imageUrl: "/blog-assets/the-pursuit-of-personal-fulfillment/man-surfing.webp"
 date: "2019-7-2"
 tags:
   - Soft Skills
 ---
 
-# The Pursuit of Personal Fulfillment
-
 ![Black and white photograph of man surfing](/blog-assets/the-pursuit-of-personal-fulfillment/man-surfing.webp "Image by [Alex Braga](https://unsplash.com/@awbraga) on [Unsplash](https://unsplash.com/)")
+
+# The Pursuit of Personal Fulfillment
 
 ---
 

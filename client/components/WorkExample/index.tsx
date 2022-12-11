@@ -30,6 +30,7 @@ function WorkExample({
       >
         <img
           alt={imageAlt || "Image"}
+          draggable={false}
           src={imageSrc}
           height={height}
           width={width}

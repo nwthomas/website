@@ -30,7 +30,7 @@ const RootStyles = styled.div`
     width: 150px;
 
     > div {
-      transition: ${({ theme }) => theme.transitions.long} ease-in-out;
+      transition: transform ${({ theme }) => theme.transitions.long} ease-in-out;
       transform: rotate(-30deg) translate(0px, 180px);
       user-select: none;
     }
