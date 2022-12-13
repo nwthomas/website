@@ -12,7 +12,7 @@ function Employers() {
             href="https://www.loom.com"
             aria-label="Link to Loom"
             rel="noopener noreferrer"
-            target="_target"
+            target="_blank"
           >
             <img
               alt="Loom logo"
@@ -31,7 +31,7 @@ function Employers() {
             href="https://twitter.com/nwthomas_"
             aria-label="Link to Twitter profile"
             rel="noopener noreferrer"
-            target="_target"
+            target="_blank"
           >
             <img
               alt="Twitter logo"

@@ -21,7 +21,7 @@ function Footer() {
                 href="https://github.com/nwthomas"
                 aria-label="Link to GitHub"
                 rel="noopener noreferrer"
-                target="_target"
+                target="_blank"
               >
                 GitHub
               </a>
@@ -31,7 +31,7 @@ function Footer() {
                 href="https://www.instagram.com/nwthomas/"
                 aria-label="Link to Instagram"
                 rel="noopener noreferrer"
-                target="_target"
+                target="_blank"
               >
                 Instagram
               </a>
@@ -41,7 +41,7 @@ function Footer() {
                 href="https://www.linkedin.com/in/nwthomas-dev/"
                 aria-label="Link to LinkedIn"
                 rel="noopener noreferrer"
-                target="_target"
+                target="_blank"
               >
                 LinkedIn
               </a>
@@ -51,7 +51,7 @@ function Footer() {
                 href="https://medium.com/@nwthomas"
                 aria-label="Link to Medium"
                 rel="noopener noreferrer"
-                target="_target"
+                target="_blank"
               >
                 Medium
               </a>
@@ -61,7 +61,7 @@ function Footer() {
                 href="https://substack.com/profile/11012426-nathan-thomas"
                 aria-label="Link to Substack"
                 rel="noopener noreferrer"
-                target="_target"
+                target="_blank"
               >
                 Substack
               </a>
@@ -71,7 +71,7 @@ function Footer() {
                 href="https://twitter.com/nwthomas_"
                 aria-label="Link to Twitter"
                 rel="noopener noreferrer"
-                target="_target"
+                target="_blank"
               >
                 Twitter
               </a>

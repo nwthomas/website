@@ -64,7 +64,7 @@ function Contact() {
                   href="https://twitter.com/nwthomas_"
                   aria-label="Link to Nathan's Twitter profile"
                   rel="noopener noreferrer"
-                  target="_target"
+                  target="_blank"
                 >
                   Twitter
                 </a>{" "}

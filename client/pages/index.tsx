@@ -19,7 +19,7 @@ const Home: NextPage = () => {
                 href="https://github.com/nwthomas"
                 aria-label="Link to GitHub"
                 rel="noopener noreferrer"
-                target="_target"
+                target="_blank"
               >
                 software engineer
               </a>
@@ -28,7 +28,7 @@ const Home: NextPage = () => {
                 href="https://www.codetenderloin.org/code-ramp-course"
                 aria-label="Link to Code Tenderloin's Code Ramp bootcamp"
                 rel="noopener noreferrer"
-                target="_target"
+                target="_blank"
               >
                 teacher
               </a>{" "}

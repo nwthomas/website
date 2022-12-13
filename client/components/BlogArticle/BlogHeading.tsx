@@ -34,13 +34,20 @@ function BlogHeading({ contents, level }: Props) {
 const RootStyles = styled.div`
   display: flex;
   justify-content: center;
-  padding-top: ${({ theme }) => theme.spaces.large};
   width: 100%;
 
   > div {
     margin-left: ${({ theme }) =>
       `calc((100% - ${theme.appDimensions.articleMaxWidth}) / 2)`};
     width: 100%;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      padding-top: ${({ theme }) => theme.spaces.large};
+    }
   }
 `;
 
