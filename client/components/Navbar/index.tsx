@@ -28,9 +28,6 @@ function Navbar() {
           <nav>
             <ul>
               <li>
-                <Link href={HOME_PAGE}>Home</Link>
-              </li>
-              <li>
                 <Link href={BLOG_PAGE}>Blog</Link>
               </li>
               <li>

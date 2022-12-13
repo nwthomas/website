@@ -15,7 +15,7 @@ function Work() {
                 href="https://github.com/nwthomas"
                 aria-label="Link to GitHub"
                 rel="noopener noreferrer"
-                target="_target"
+                target="_blank"
               >
                 GitHub
               </a>

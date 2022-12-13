@@ -1,6 +1,6 @@
 import styled, { ThemeContext } from "styled-components";
 
-import ReactMarkdown from "react-markdown";
+import { BlogMarkdownRenderer } from "./";
 import { useContext } from "react";
 import { useGetScreenDimensions } from "../../hooks/useGetScreenDimensions";
 
@@ -27,7 +27,7 @@ function BlogImage({ alt, isHeroImage, src, title }: Props) {
     >
       <div>
         <img alt={alt} draggable={false} src={src} />
-        {title ? <ReactMarkdown>{title}</ReactMarkdown> : null}
+        {title ? <BlogMarkdownRenderer content={title} /> : null}
       </div>
     </RootStyles>
   );
@@ -65,13 +65,15 @@ const RootStyles = styled.div<StyleProps>`
       }
     }
 
-    > p {
-      color: ${({ theme }) => theme.colors.textSecondary};
-      font-size: 1.6rem;
-      margin-top: ${({ theme }) => theme.spaces.small};
+    > div {
+      display: flex;
+      justify-content: center;
+      padding-top: ${({ theme }) => theme.spaces.medium};
 
-      > a {
-        font-size: 1.6rem;
+      p {
+        color: ${({ theme }) => theme.colors.textSecondary};
+        font-style: italic;
+        text-align: center;
       }
     }
   }

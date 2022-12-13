@@ -15,7 +15,7 @@ tags:
 
 ---
 
-> This article originally appeared on [Medium](https://medium.com/@nwthomas/the-pursuit-of-personal-fulfillment-c5c82994c028).
+> This article originally appeared on [Medium](https://medium.com/@nwthomas/the-pursuit-of-personal-fulfillment-c5c82994c028). It has received slight edits (since we're all better at our hobbies - like writing - as we get older), but it's still true to its original vision.
 
 ---
 

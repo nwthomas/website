@@ -15,7 +15,7 @@ tags:
 
 ---
 
-> This article originally appeared on [Medium](https://medium.com/@nwthomas/the-pursuit-of-persistence-and-grit-c13ad37743c4).
+> This article originally appeared on [Medium](https://medium.com/@nwthomas/the-pursuit-of-persistence-and-grit-c13ad37743c4). It has received slight edits (since we're all better at our hobbies - like writing - as we get older), but it's still true to its original vision.
 
 ---
 
@@ -31,9 +31,9 @@ I’d be lying if I said it was easy. I’d be lying if I said it was always fun
 
 ---
 
-> “The secret of getting ahead is getting started.”
+> _“The secret of getting ahead is getting started.”_
 >
-> — Mark Twain
+> _— Mark Twain_
 
 ---
 
@@ -53,9 +53,9 @@ But hard is not the same thing as bad, and easy is not the same thing as good. R
 
 ---
 
-> “We choose to go to the Moon in this decade and do the other things, not because they are easy, but because they are hard.”
+> _“We choose to go to the Moon in this decade and do the other things, not because they are easy, but because they are hard.”_
 >
-> — President John F. Kennedy
+> _— President John F. Kennedy_
 
 ---
 

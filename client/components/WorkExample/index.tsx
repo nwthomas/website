@@ -26,7 +26,7 @@ function WorkExample({
         href={url}
         aria-label={ariaLabel}
         rel="noopener noreferrer"
-        target="_target"
+        target="_blank"
       >
         <img
           alt={imageAlt || "Image"}
