@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { ThemeContext } from "styled-components";
-import { useGetScreenDimensions } from "./useGetScreenDimensions";
+import { useGetScreenDimensions } from "./";
 
 const DEFAULT_RADIANS = Math.PI;
 

@@ -7,13 +7,13 @@ import {
 
 import BlogCardSection from "../../components/BlogCardSection";
 import Layout from "../../components/Layout";
-import { buildTagIdParam } from "../../utils/tags";
+import { buildKebabCaseParam } from "../../utils/routes";
 import { getDirectoryFiles } from "../../utils/readBlogFiles";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 
 function buildTagIdPageName(tag: string) {
-  return `${tag} Blogs`;
+  return `${tag} Articles`;
 }
 
 export async function getStaticProps() {
@@ -39,7 +39,7 @@ export async function getStaticPaths() {
   const bucketedBlogPosts = bucketAndSortBlogPostsByTags(blogPostContent);
 
   const paths = Object.keys(bucketedBlogPosts).map((tag) => {
-    return { params: { tagId: buildTagIdParam(tag) } };
+    return { params: { tagId: buildKebabCaseParam(tag) } };
   });
 
   return {
@@ -56,7 +56,7 @@ function TagIdPage({ blogPostsByTags }) {
 
   const tagIdBlogSection = React.useMemo(() => {
     for (const tag in blogPostsByTags) {
-      if (buildTagIdParam(tag) === tagIdParam) {
+      if (buildKebabCaseParam(tag) === tagIdParam) {
         setPageName(tag);
 
         return <BlogCardSection blogPosts={blogPostsByTags[tag]} tag={tag} />;

@@ -2,7 +2,7 @@ import styled, { ThemeContext } from "styled-components";
 
 import { BlogMarkdownRenderer } from "./";
 import { useContext } from "react";
-import { useGetScreenDimensions } from "../../hooks/useGetScreenDimensions";
+import { useGetScreenDimensions } from "../../hooks";
 
 interface Props {
   alt?: string;
@@ -13,12 +13,14 @@ interface Props {
 
 function BlogImage({ alt, isHeroImage, src, title }: Props) {
   const {
-    breakpointsInt: { ultraWide },
+    breakpointsInt: { tablet, ultraWide },
   } = useContext(ThemeContext);
   const { availableWidth } = useGetScreenDimensions();
 
+  const borderRadiusBreakpoint = isHeroImage ? ultraWide : tablet;
   const withImageRoundedCorners =
-    typeof availableWidth === "number" && availableWidth > ultraWide;
+    typeof availableWidth === "number" &&
+    availableWidth >= borderRadiusBreakpoint;
 
   return (
     <RootStyles
@@ -56,13 +58,8 @@ const RootStyles = styled.div<StyleProps>`
     > img {
       overflow: hidden;
       border-radius: 0;
-
-      @media only screen and (min-width: ${({ isHeroImage, theme }) =>
-          isHeroImage
-            ? theme.breakpoints.ultraWide
-            : theme.breakpoints.tablet}) {
-        border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
-      }
+      border-radius: ${({ theme, withImageRoundedCorners }) =>
+        withImageRoundedCorners ? theme.borderRadii.xxLarge : 0};
     }
 
     > div {
@@ -73,6 +70,7 @@ const RootStyles = styled.div<StyleProps>`
       p {
         color: ${({ theme }) => theme.colors.textSecondary};
         font-style: italic;
+        line-height: 1;
         text-align: center;
       }
     }

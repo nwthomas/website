@@ -5,20 +5,47 @@ import {
   BlogImage,
   BlogParagraph,
 } from "./";
+import { useCallback, useRef } from "react";
 
 import ReactMarkdown from "react-markdown";
+import { buildKebabCaseParam } from "../../utils/routes";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 import rehypeExternalLinks from "rehype-external-links";
 import remarkGfm from "remark-gfm";
 import remarkUnwrapImages from "remark-unwrap-images";
-import { useCallback } from "react";
+import { useRouter } from "next/router";
 
 interface Props {
   content: string;
   heroImageUrl?: string;
 }
 
+function buildHeadingId(childrenNodes): string {
+  return childrenNodes.reduce((accum: string, child) => {
+    if (child.type === "text") {
+      const currentStringKebabCaseConversion = buildKebabCaseParam(child.value);
+      return accum.length > 0
+        ? `${accum}-${currentStringKebabCaseConversion}`
+        : currentStringKebabCaseConversion;
+    }
+
+    return accum;
+  }, "");
+}
+
+function buildBlogArticlePath(blogId: string): string {
+  return `/blog/${blogId}`;
+}
+
 function BlogMarkdownRenderer({ content, heroImageUrl }: Props) {
+  const {
+    query: { blogId },
+  } = useRouter();
+  // This ternary is to keep TypeScript happy. This will only ever be a single string.
+  const { current: originalPath } = useRef<string>(
+    buildBlogArticlePath(typeof blogId === "string" ? blogId : "")
+  );
+
   const handleRehypeExternalLinks = useCallback(() => {
     return rehypeExternalLinks({
       rel: ["noopener", "noreferrer"],
@@ -33,20 +60,70 @@ function BlogMarkdownRenderer({ content, heroImageUrl }: Props) {
         blockquote({ children }) {
           return <BlogBlockQuote children={children} />;
         },
-        h1({ children }) {
-          return <BlogHeading contents={children} level={1} />;
+        h1({ children, node }) {
+          const headingId = buildHeadingId(node.children);
+          const headingLinkPath = `${originalPath}#${headingId}`;
+
+          return (
+            <BlogHeading
+              contents={children}
+              level={1}
+              linkPath={headingLinkPath}
+              routeId={headingId}
+            />
+          );
         },
-        h2({ children }) {
-          return <BlogHeading contents={children} level={2} />;
+        h2({ children, node }) {
+          const headingId = buildHeadingId(node.children);
+          const headingLinkPath = `${originalPath}#${headingId}`;
+
+          return (
+            <BlogHeading
+              contents={children}
+              level={2}
+              linkPath={headingLinkPath}
+              routeId={headingId}
+            />
+          );
         },
-        h3({ children }) {
-          return <BlogHeading contents={children} level={3} />;
+        h3({ children, node }) {
+          const headingId = buildHeadingId(node.children);
+          const headingLinkPath = `${originalPath}#${headingId}`;
+
+          return (
+            <BlogHeading
+              contents={children}
+              level={3}
+              linkPath={headingLinkPath}
+              routeId={headingId}
+            />
+          );
         },
-        h4({ children }) {
-          return <BlogHeading contents={children} level={4} />;
+        h4({ children, node }) {
+          const headingId = buildHeadingId(node.children);
+          const headingLinkPath = `${originalPath}#${headingId}`;
+
+          return (
+            <BlogHeading
+              contents={children}
+              level={4}
+              linkPath={headingLinkPath}
+              routeId={headingId}
+            />
+          );
         },
-        h5({ children }) {
-          return <BlogHeading contents={children} level={5} />;
+        h5({ children, node }) {
+          const headingId = buildHeadingId(node.children);
+          const headingLinkPath = `${originalPath}#${headingId}`;
+
+          return (
+            <BlogHeading
+              contents={children}
+              level={5}
+              linkPath={headingLinkPath}
+              routeId={headingId}
+            />
+          );
         },
         hr() {
           return <BlogHorizontalRule />;
