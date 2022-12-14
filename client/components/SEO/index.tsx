@@ -3,7 +3,7 @@ import * as React from "react";
 import Head from "next/head";
 import { ThemeContext } from "styled-components";
 import { buildSeoConfig } from "../../constants/seo";
-import { useGetPageName } from "../../hooks/useGetPageName";
+import { useGetPageName } from "../../hooks";
 
 interface Props {
   isArticle?: boolean;

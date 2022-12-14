@@ -1,4 +1,4 @@
-import { DARK_THEME, ThemeEnum } from "./../../hooks/useGetPreferredTheme";
+import { DARK_THEME, ThemeEnum } from "./../../hooks";
 
 // ===================================== Color Assignment Variables
 // All color names pulled directly from http://chir.ag/projects/name-that-color/
@@ -119,12 +119,12 @@ export const appDimensions: AppDimensions = {
   appMaxWidth: "1200px",
   appMinHeight: "100vh",
   articleHeroImageMaxWidth: "1200px",
-  articleMaxWidth: "650px",
-  contactFormMaxWidth: "650px",
+  articleMaxWidth: "600px",
+  contactFormMaxWidth: "600px",
   footerDesktopHeight: "151px",
   footerTabletHeight: "199px",
   footerMobileHeight: "98px",
-  modalMaxWidth: "650px",
+  modalMaxWidth: "600px",
   navbarDesktopHeight: "192px",
   navbarTabletHeight: "192px",
   navbarMobileHeight: "72px",

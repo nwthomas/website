@@ -9,19 +9,30 @@ import { useSelector } from "react-redux";
 
 interface Props {
   children: ReactNode | Array<ReactNode>;
+  isArticle?: boolean;
   pageName: string;
   withFooter?: boolean;
   withPageNameEmojis?: boolean;
 }
 
-function Layout({ children, pageName, withFooter, withPageNameEmojis }: Props) {
+function Layout({
+  children,
+  isArticle,
+  pageName,
+  withFooter,
+  withPageNameEmojis,
+}: Props) {
   const shouldShowModal = useSelector(
     (state: RootState) => state.modal.shouldShowModal
   );
 
   return (
     <>
-      <SEO pageName={pageName} withPageNameEmojis={withPageNameEmojis} />
+      <SEO
+        isArticle={isArticle}
+        pageName={pageName}
+        withPageNameEmojis={withPageNameEmojis}
+      />
       <RootStyles>
         {children}
         {withFooter ? <Footer /> : null}

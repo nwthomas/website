@@ -1,6 +1,9 @@
-import { buildAriaLabel, buildLinkHref } from "../../utils/tags";
-
+import { buildLinkHref } from "../../utils/routes";
 import styled from "styled-components";
+
+export function buildTagLinkAriaLabel(tagName: string): string {
+  return `All articles about ${tagName}`;
+}
 
 interface Props {
   text: string;
@@ -8,7 +11,10 @@ interface Props {
 
 function Tag({ text }: Props) {
   return (
-    <RootStyles aria-label={buildAriaLabel(text)} href={buildLinkHref(text)}>
+    <RootStyles
+      aria-label={buildTagLinkAriaLabel(text)}
+      href={buildLinkHref(text)}
+    >
       <h1>{text}</h1>
     </RootStyles>
   );

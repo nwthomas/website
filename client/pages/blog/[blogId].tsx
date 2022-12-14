@@ -2,12 +2,7 @@ import { BlogPosts, buildSlugToBlogPostMap } from "../../utils/sortBlogPosts";
 
 import { BlogMarkdownRenderer } from "../../components/BlogArticle";
 import Layout from "../../components/Layout";
-import ReactMarkdown from "react-markdown";
 import { getDirectoryFiles } from "../../utils/readBlogFiles";
-import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
-import rehypeExternalLinks from "rehype-external-links";
-import remarkGfm from "remark-gfm";
-import remarkUnwrapImages from "remark-unwrap-images";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 
@@ -50,13 +45,15 @@ function BlogPost({ slugToBlogPostMap }) {
   const { imageUrl: heroImageUrl } = blogPost.data;
 
   return (
-    <Layout pageName={blogPost.data.title} withFooter>
+    <Layout isArticle pageName={blogPost.data.title} withFooter>
       <RootStyles>
         <main>
-          <BlogMarkdownRenderer
-            content={blogPost.content}
-            heroImageUrl={heroImageUrl}
-          />
+          <article>
+            <BlogMarkdownRenderer
+              content={blogPost.content}
+              heroImageUrl={heroImageUrl}
+            />
+          </article>
         </main>
       </RootStyles>
     </Layout>
@@ -83,6 +80,10 @@ const RootStyles = styled.div`
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
+      width: 100%;
+    }
+
+    > article {
       width: 100%;
     }
   }

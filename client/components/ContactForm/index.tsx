@@ -4,9 +4,9 @@ import * as Yup from "yup";
 import styled, { ThemeContext } from "styled-components";
 
 import Spinner from "../Spinner";
-import { ThemeEnum } from "../../hooks/useGetPreferredTheme";
+import { ThemeEnum } from "../../hooks";
 import { useFormik } from "formik";
-import { useGetMouseRadian } from "../../hooks/useGetMouseRadian";
+import { useGetMouseRadian } from "../../hooks";
 
 const contactFormRef = React.createRef<HTMLDivElement>();
 
