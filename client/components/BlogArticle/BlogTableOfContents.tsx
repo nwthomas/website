@@ -4,7 +4,7 @@ interface Props {
   // finish
 }
 
-function BlogTableOfContents(props: Props, headings: Array<string>) {
+function BlogTableOfContents(props: Props) {
   return (
     <RootStyles>
       <div>On This Page</div>
@@ -12,6 +12,8 @@ function BlogTableOfContents(props: Props, headings: Array<string>) {
   );
 }
 
-const RootStyles = styled.div``;
+const RootStyles = styled.div`
+  position: absolute;
+`;
 
 export default BlogTableOfContents;

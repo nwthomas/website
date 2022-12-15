@@ -41,6 +41,7 @@ function BlogMarkdownRenderer({ content, heroImageUrl }: Props) {
   const {
     query: { blogId },
   } = useRouter();
+
   // This ternary is to keep TypeScript happy. This will only ever be a single string.
   const { current: originalPath } = useRef<string>(
     buildBlogArticlePath(typeof blogId === "string" ? blogId : "")
@@ -65,12 +66,14 @@ function BlogMarkdownRenderer({ content, heroImageUrl }: Props) {
           const headingLinkPath = `${originalPath}#${headingId}`;
 
           return (
-            <BlogHeading
-              contents={children}
-              level={1}
-              linkPath={headingLinkPath}
-              routeId={headingId}
-            />
+            <>
+              <BlogHeading
+                contents={children}
+                level={1}
+                linkPath={headingLinkPath}
+                routeId={headingId}
+              />
+            </>
           );
         },
         h2({ children, node }) {

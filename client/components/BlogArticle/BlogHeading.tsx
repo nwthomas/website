@@ -77,7 +77,7 @@ function BlogHeading({ contents, level, linkPath, routeId }: Props) {
           onMouseLeave={handleOnUnactivated}
           className="hovered-heading"
         >
-          <p {...headingHandlers} tabIndex={-1}>
+          <p {...headingHandlers} aria-hidden="true" tabIndex={-1}>
             #
           </p>
         </div>
@@ -95,21 +95,44 @@ interface StyleProps {
 const RootStyles = styled.div<StyleProps>`
   display: flex;
   justify-content: center;
+  padding-left: ${({ theme }) => theme.appDimensions.appHorizontalGutters};
+  padding-right: ${({ theme }) => theme.appDimensions.appHorizontalGutters};
   width: 100%;
+
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.breakpoints.ultraWide}) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 
   > div {
     display: grid;
+    grid-template-columns: 1fr;
+    max-width: ${({ theme }) => theme.appDimensions.articleMaxWidth};
     grid-template-columns: ${({ theme }) =>
       `1fr minmax(1px, ${theme.appDimensions.articleMaxWidth}) 1fr`};
     grid-template-rows: 1fr;
+    position: relative;
     width: 100%;
 
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.ultraWide}) {
+      grid-template-columns: ${({ theme }) =>
+        `1fr minmax(1px, ${theme.appDimensions.articleMaxWidth}) 1fr`};
+      max-width: none;
+    }
+
     > div {
-      align-items: flex-end;
-      display: ${({ isSelected }) => (isSelected ? "flex" : "none")};
-      grid-column-start: 1;
-      grid-column-end: 2;
-      justify-content: flex-end;
+      display: none;
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.desktop}) {
+        align-items: flex-end;
+        display: ${({ isSelected }) => (isSelected ? "flex" : "none")};
+        grid-column-start: 1;
+        grid-column-end: 2;
+        justify-content: flex-end;
+      }
 
       > p {
         color: ${({ theme }) => theme.colors.textSecondary};
