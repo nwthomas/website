@@ -53,6 +53,8 @@ const BlockRootStyles = styled.div`
     width: 100%;
 
     span {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        Liberation Mono, Courier New, monospace;
       flex-wrap: wrap;
     }
   }
@@ -65,7 +67,7 @@ const InlineRootStyles = styled.code`
     Liberation Mono, Courier New, monospace;
   font-size: 1.2rem;
   padding: ${({ theme }) =>
-    `calc(${theme.spaces.nano} * 2) calc(${theme.spaces.micro} * 2)`};
+    `${theme.spaces.nano} calc(${theme.spaces.micro} * 2)`};
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.tablet}) {
