@@ -23,19 +23,12 @@ const RootStyles = styled.div`
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.tablet}) {
-    padding-top: ${({ theme }) => theme.spaces.medium};
+    padding-top: ${({ theme }) => theme.spaces.large};
   }
 
   > p {
-    font-size: 1.6rem;
-    line-height: 1.8;
     max-width: ${({ theme }) => theme.appDimensions.articleMaxWidth};
     width: 100%;
-
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.tablet}) {
-      font-size: 2rem;
-    }
 
     > a {
       background-clip: text;
