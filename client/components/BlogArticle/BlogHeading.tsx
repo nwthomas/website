@@ -1,6 +1,7 @@
-import { ReactNode, useCallback, useMemo, useState } from "react";
+import { ReactNode, useCallback, useContext, useMemo, useState } from "react";
+import styled, { ThemeContext } from "styled-components";
 
-import styled from "styled-components";
+import { CopyLinkIcon } from "../Icons";
 
 type HeadingLevel = 1 | 2 | 3 | 4 | 5;
 
@@ -13,6 +14,7 @@ interface Props {
 
 function BlogHeading({ contents, level, linkPath, routeId }: Props) {
   const [isSelected, setIsSelected] = useState<boolean>(false);
+  const { colors } = useContext(ThemeContext);
 
   const handleOnActivated = useCallback(() => {
     setIsSelected(true);
@@ -75,11 +77,15 @@ function BlogHeading({ contents, level, linkPath, routeId }: Props) {
           onBlur={handleOnUnactivated}
           onMouseEnter={handleOnActivated}
           onMouseLeave={handleOnUnactivated}
-          className="hovered-heading"
         >
-          <p {...headingHandlers} aria-hidden="true" tabIndex={-1}>
-            #
-          </p>
+          <a
+            {...headingHandlers}
+            aria-hidden="true"
+            href={linkPath}
+            tabIndex={-1}
+          >
+            <CopyLinkIcon color={colors.textSecondary} />
+          </a>
         </div>
         {headingContent}
       </div>
@@ -107,7 +113,6 @@ const RootStyles = styled.div<StyleProps>`
 
   > div {
     display: grid;
-    grid-template-columns: 1fr;
     max-width: ${({ theme }) => theme.appDimensions.articleMaxWidth};
     grid-template-columns: ${({ theme }) =>
       `1fr minmax(1px, ${theme.appDimensions.articleMaxWidth}) 1fr`};
@@ -117,39 +122,37 @@ const RootStyles = styled.div<StyleProps>`
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.ultraWide}) {
-      grid-template-columns: ${({ theme }) =>
-        `1fr minmax(1px, ${theme.appDimensions.articleMaxWidth}) 1fr`};
       max-width: none;
     }
 
     > div {
       display: none;
+    }
 
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.desktop}) {
-        align-items: flex-end;
-        display: ${({ isSelected }) => (isSelected ? "flex" : "none")};
-        grid-column-start: 1;
-        grid-column-end: 2;
-        justify-content: flex-end;
-      }
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.desktop}) {
+      &:active,
+      &:hover {
+        @media only screen and (min-width: ${({ theme }) =>
+            theme.breakpoints.desktop}) {
+          > div {
+            align-items: flex-end;
+            display: flex;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            justify-content: flex-end;
 
-      > p {
-        color: ${({ theme }) => theme.colors.textSecondary};
-        margin-right: ${({ theme }) => theme.spaces.small};
-
-        ${({ level, theme }) => {
-          switch (level) {
-            case 1:
-              return `font-size: 3rem;
-
-              @media only screen and (min-width: ${theme.breakpoints.tablet}) {
-                font-size: 5rem;
-              }`;
-            default:
-              return "font-size: 2rem";
+            svg {
+              height: ${({ level, theme }) =>
+                level === 1 ? theme.spaces.xLarge : theme.spaces.medium};
+              margin-bottom: ${({ level, theme }) =>
+                level === 1 ? theme.spaces.xxSmall : 0};
+              margin-right: ${({ theme }) => theme.spaces.small};
+              width: ${({ level, theme }) =>
+                level === 1 ? theme.spaces.xLarge : theme.spaces.medium};
+            }
           }
-        }}
+        }
       }
     }
 

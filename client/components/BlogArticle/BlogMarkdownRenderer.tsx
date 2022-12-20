@@ -1,5 +1,6 @@
 import {
   BlogBlockQuote,
+  BlogCodeBlock,
   BlogHeading,
   BlogHorizontalRule,
   BlogImage,
@@ -11,6 +12,7 @@ import ReactMarkdown from "react-markdown";
 import { buildKebabCaseParam } from "../../utils/routes";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 import rehypeExternalLinks from "rehype-external-links";
+import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import remarkUnwrapImages from "remark-unwrap-images";
 import { useRouter } from "next/router";
@@ -58,9 +60,6 @@ function BlogMarkdownRenderer({ content, heroImageUrl }: Props) {
     <ReactMarkdown
       children={content}
       components={{
-        blockquote({ children }) {
-          return <BlogBlockQuote children={children} />;
-        },
         h1({ children, node }) {
           const headingId = buildHeadingId(node.children);
           const headingLinkPath = `${originalPath}#${headingId}`;
@@ -128,11 +127,14 @@ function BlogMarkdownRenderer({ content, heroImageUrl }: Props) {
             />
           );
         },
-        hr() {
-          return <BlogHorizontalRule />;
-        },
         p({ children }) {
           return <BlogParagraph contents={children} />;
+        },
+        blockquote({ children }) {
+          return <BlogBlockQuote children={children} />;
+        },
+        hr() {
+          return <BlogHorizontalRule />;
         },
         img({ alt, src, title }) {
           const isHeroImage = heroImageUrl === src;
@@ -146,8 +148,32 @@ function BlogMarkdownRenderer({ content, heroImageUrl }: Props) {
             />
           );
         },
+        ol({ ...props }) {
+          console.log(props);
+          return null;
+        },
+        code({ className, inline, children }) {
+          const language =
+            typeof className === "string" && className.length > 0
+              ? className.substring(9)
+              : undefined;
+
+          const content = children[0] as string;
+
+          return (
+            <BlogCodeBlock
+              contents={content}
+              isInline={inline}
+              language={language}
+            />
+          );
+        },
       }}
-      rehypePlugins={[rehypeAccessibleEmojis, handleRehypeExternalLinks]}
+      rehypePlugins={[
+        rehypeAccessibleEmojis,
+        handleRehypeExternalLinks,
+        rehypeRaw,
+      ]}
       remarkPlugins={[remarkGfm, remarkUnwrapImages]}
     />
   );

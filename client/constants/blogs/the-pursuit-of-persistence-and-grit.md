@@ -1,7 +1,7 @@
 ---
 title: "The Pursuit of Persistence and Grit"
 slug: "the-pursuit-of-persistence-and-grit"
-imageUrl: /blog-assets/the-pursuit-of-persistence-and-grit/black-and-white-beach-fishermen.webp
+imageUrl: /blog-assets/the-pursuit-of-persistence-and-grit/fishermen.webp
 metaTitle: "The Pursuit of Persistence and Grit"
 metaDescription: "Hard things are worth doing. Push through the feeling of wanting to stop."
 date: "2019-03-22"
@@ -9,7 +9,7 @@ tags:
   - Soft Skills
 ---
 
-![Black and white photograph of fisherman](/blog-assets/the-pursuit-of-persistence-and-grit/black-and-white-beach-fishermen.webp "Image by [Christie Kim](https://unsplash.com/@christieckim) on [Unsplash](https://unsplash.com/@christieckim)")
+![Black and white photograph of fisherman](/blog-assets/the-pursuit-of-persistence-and-grit/fishermen.webp "Image by [Christie Kim](https://unsplash.com/@christieckim) on [Unsplash](https://unsplash.com/@christieckim)")
 
 # The Pursuit of Persistence and Grit
 
@@ -43,7 +43,7 @@ It’s been said that the secret sauce to finding success in life is to have gri
 
 If you’d have told me a year ago that I’d soon be headed towards a fairly promising career in software development, I wouldn’t have believed you. But 12 months and countless hours of studying later, here I am. It’s funny how much a person can change in a single year. In this span of time, I’ve gone from a business-minded healthcare employee to a code-dreaming, wide-eyed engineer.
 
-![Black and white image of mountains](/blog-assets/the-pursuit-of-persistence-and-grit/black-and-white-mountains.webp "Image by [Radio Pink](https://unsplash.com/@radiopinkfloyd) on [Unsplash](https://unsplash.com/)")
+![Black and white image of mountains](/blog-assets/the-pursuit-of-persistence-and-grit/mountains.webp "Image by [Radio Pink](https://unsplash.com/@radiopinkfloyd) on [Unsplash](https://unsplash.com/)")
 
 At Lambda School, one of the core virtues students are taught outside of writing eloquent and excellent code is the ability to persist themselves through any obstacles set in their path. This resolve, when properly seasoned with empathy, allows leaders to be formed. It allows students to walk in the door from any direction and emerge with the confidence and drive to move mountains.
 
@@ -65,7 +65,7 @@ When I started at Lambda, I was told by an alumnus to “Keep the fire alive no 
 
 My fire was tested in the middle of the last build week at Lambda School. While refactoring server code, implementing application features, and writing tests using time that I honestly did not think I had, I was faced with immense pressure; I would code all day, spend time with my father who landed in the hospital with emergent and serious health issues, and somehow budget my remaining time gearing up to be a solid leader for the largest full stack web development cohort Lambda has ever seen within 72 hours of being hired.
 
-![Black and white photograph of the Golden Gate Bridge](/blog-assets/the-pursuit-of-persistence-and-grit/black-and-white-golden-gate-bridge.webp "Image by [Abigail Keenan](https://unsplash.com/@akeenster) on [Unsplash](https://unsplash.com/)")
+![Black and white photograph of the Golden Gate Bridge](/blog-assets/the-pursuit-of-persistence-and-grit/golden-gate-bridge.webp "Image by [Abigail Keenan](https://unsplash.com/@akeenster) on [Unsplash](https://unsplash.com/)")
 
 It was hard. But do you know what I wanted to do each morning after those long nights? _I wanted to code_. The fire was still there.
 
