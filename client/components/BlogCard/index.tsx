@@ -11,7 +11,7 @@ interface Props {
 }
 
 function BlogCard({ description, title, url }: Props) {
-  const { colorsHex } = React.useContext(ThemeContext);
+  const { colors } = React.useContext(ThemeContext);
 
   return (
     <RootStyles>
@@ -22,7 +22,7 @@ function BlogCard({ description, title, url }: Props) {
         </div>
         <div>
           <p>Read more</p>
-          <ArrowForwardsIcon color={colorsHex.royalBlue} />
+          <ArrowForwardsIcon color={colors.textSecondary} />
         </div>
       </a>
     </RootStyles>
@@ -59,6 +59,7 @@ const RootStyles = styled.article`
         font-size: 2rem;
         letter-spacing: ${({ theme }) => theme.spaces.micro};
         margin-bottom: ${({ theme }) => theme.spaces.medium};
+        transition: color ${({ theme }) => theme.transitions.short} ease-in-out;
       }
 
       > p {
@@ -80,7 +81,7 @@ const RootStyles = styled.article`
         height: ${({ theme }) => theme.spaces.medium};
         margin-left: ${({ theme }) => theme.spaces.micro};
         opacity: ${({ theme }) => theme.opacity.opacity00};
-        transition: opacity ${({ theme }) => theme.transitions.medium}
+        transition: opacity ${({ theme }) => theme.transitions.short}
           ease-in-out;
         width: ${({ theme }) => theme.spaces.medium};
       }
@@ -94,14 +95,12 @@ const RootStyles = styled.article`
       border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
       outline: none;
 
-      > div:nth-child(2) {
-        > p {
-          color: ${({ theme }) => theme.colorsHex.royalBlue};
-        }
+      > div > h2 {
+        color: ${({ theme }) => theme.colorsHex.royalBlue};
+      }
 
-        > svg {
-          opacity: ${({ theme }) => theme.opacity.opacity100};
-        }
+      > div:nth-child(2) > svg {
+        opacity: ${({ theme }) => theme.opacity.opacity100};
       }
     }
   }

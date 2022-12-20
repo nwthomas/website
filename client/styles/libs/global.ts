@@ -52,6 +52,7 @@ const GlobalStyle = css`
     --button-primary-bg: ${colors.royalBlue};
     --error: ${colors.scarlet};
     --text: ${colors.white};
+    --text-on-contrast: ${colors.white};
     --text-secondary: ${colors.rollingStone};
     --transparent: ${colors.transparent};
   }
@@ -62,6 +63,7 @@ const GlobalStyle = css`
     --button-primary-bg: ${colors.royalBlue};
     --error: ${colors.scarlet};
     --text: ${colors.mineShaft};
+    --text-on-contrast: ${colors.white};
     --text-secondary: ${colors.doveGray};
     --transparent: ${colors.transparent};
   }

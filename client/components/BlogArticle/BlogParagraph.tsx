@@ -3,28 +3,22 @@ import styled from "styled-components";
 
 interface Props {
   contents: ReactNode & Array<ReactNode>;
-  isFirstParagraph?: boolean;
 }
 
-function BlogParagraph({ contents, isFirstParagraph }: Props) {
+function BlogParagraph({ contents }: Props) {
   return (
-    <RootStyles isFirstParagraph={isFirstParagraph}>
+    <RootStyles>
       <p>{contents}</p>
     </RootStyles>
   );
 }
 
-interface StyleProps {
-  isFirstParagraph?: boolean;
-}
-
-const RootStyles = styled.div<StyleProps>`
+const RootStyles = styled.div`
   display: flex;
   justify-content: center;
   padding-left: ${({ theme }) => theme.appDimensions.appHorizontalGutters};
   padding-right: ${({ theme }) => theme.appDimensions.appHorizontalGutters};
-  padding-top: ${({ isFirstParagraph, theme }) =>
-    isFirstParagraph ? 0 : theme.spaces.large};
+  padding-top: ${({ theme }) => theme.spaces.large};
   width: 100%;
 
   > p {

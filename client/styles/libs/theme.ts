@@ -83,6 +83,7 @@ interface ThemeColorValues {
   buttonPrimaryBackground: string;
   error: string;
   text: string;
+  textOnContrast: string;
   textSecondary: string;
   transparent: string;
 }
@@ -93,6 +94,7 @@ export const themeColorValues: ThemeColorValues = {
   buttonPrimaryBackground: "var(--button-primary-bg)",
   error: "var(--error)",
   text: "var(--text)",
+  textOnContrast: "var(--text-on-contrast)",
   textSecondary: "var(--text-secondary)",
   transparent: "var(--transparent)",
 };
@@ -226,7 +228,7 @@ interface Spaces {
   xxLarge: string;
   jumbo: string;
 }
-const spaces: Spaces = {
+export const spaces: Spaces = {
   nano: "2px",
   micro: "3px",
   xxSmall: "6px",

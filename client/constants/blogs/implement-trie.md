@@ -1,6 +1,6 @@
 ---
-title: "Implement Trie (LeetCode #208)"
-metaTitle: "Implement Trie (LeetCode #208)"
+title: "(LeetCode #208) Implement Trie"
+metaTitle: "(LeetCode #208) Implement Trie"
 slug: "implement-trie"
 metaDescription: "The Implement Trie LeetCode coding challenge"
 imageUrl: ./default-homepage.png

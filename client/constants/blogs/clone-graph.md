@@ -1,8 +1,8 @@
 ---
-title: "Clone Graph (LeetCode #133)"
-metaTitle: "Clone Graph (LeetCode #133)"
+title: "(LeetCode #133) Clone Graph"
+metaTitle: "(LeetCode #133) Clone Graph"
 slug: "clone-graph"
-metaDescription: "This coding challenge will teach you both graph traversal as well as comparison by reference."
+metaDescription: "This coding challenge will teach you graph traversal as well as comparison by pointer reference."
 imageUrl: /seo/contact-page.png
 date: "2022-07-02"
 tags:

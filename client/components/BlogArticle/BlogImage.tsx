@@ -1,7 +1,7 @@
 import styled, { ThemeContext } from "styled-components";
 
 import { BlogMarkdownRenderer } from "./";
-import { useContext } from "react";
+import React from "react";
 import { useGetScreenDimensions } from "../../hooks";
 
 interface Props {
@@ -14,7 +14,7 @@ interface Props {
 function BlogImage({ alt, isHeroImage, src, title }: Props) {
   const {
     breakpointsInt: { tablet, ultraWide },
-  } = useContext(ThemeContext);
+  } = React.useContext(ThemeContext);
   const { availableWidth } = useGetScreenDimensions();
 
   const borderRadiusBreakpoint = isHeroImage ? ultraWide : tablet;
@@ -57,9 +57,8 @@ const RootStyles = styled.div<StyleProps>`
 
     > img {
       overflow: hidden;
-      border-radius: 0;
       border-radius: ${({ theme, withImageRoundedCorners }) =>
-        withImageRoundedCorners ? theme.borderRadii.xxLarge : 0};
+        withImageRoundedCorners ? theme.borderRadii.large : 0};
     }
 
     > div {
