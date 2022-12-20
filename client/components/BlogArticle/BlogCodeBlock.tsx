@@ -44,7 +44,7 @@ const BlockRootStyles = styled.div`
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.tablet}) {
-    margin-top: ${({ theme }) => theme.spaces.large};
+    margin-top: ${({ theme }) => theme.spaces.medium};
   }
 
   > div {

@@ -175,3 +175,25 @@ def reverse_list(self, head):
 
     return current_node
 ```
+
+Boom.
+
+Notice that, for each iteration of our loop, we’re bumping the `current_node` value back to `prev_node`, bumping the `next_node` value to be assigned to `current_node`, setting `next_node` to be the `current_node.next`'s value, and finally doing the same pointer switch of the `current_node`'s next pointer so that it points at the `prev_node`.
+
+Once we’re done, we’ll be at the last node (which is now pointing in reverse back down our reversed singly-linked list). This has become our new root node. We can simply return this at the end of the function.
+
+This entire problem will run in `O(n)` time complexity (since we’re iterating through the list once) and `O(1)` space complexity (since we’re only using a constant number of variables to reverse the singly linked list no matter how long it is).
+
+---
+
+## Conclusion
+
+Great job. How did it go? Did you feel like this one deserved the “easy” title on LeetCode?
+
+Keep an eye out for the rest of these Blind 75 coding challenges articles I’m doing. It’s going to be a fun ride.
+
+Feel free to reach out (using the links below) if you want to talk about coding, cool tech, or anything else (I really like book recommendations).
+
+Thanks for reading. 🔥
+
+Nathan
