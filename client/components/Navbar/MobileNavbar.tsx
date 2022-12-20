@@ -1,3 +1,4 @@
+import FocusTrap from "focus-trap-react";
 import styled from "styled-components";
 
 interface Props {
@@ -7,7 +8,9 @@ interface Props {
 function MobileNavbar(props: Props) {
   return (
     <RootStyles>
-      <div />
+      <FocusTrap>
+        <div />
+      </FocusTrap>
     </RootStyles>
   );
 }

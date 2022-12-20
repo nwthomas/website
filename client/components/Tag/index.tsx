@@ -40,11 +40,13 @@ const RootStyles = styled.a`
     display: block;
     height: 100%;
     line-height: 1;
+    margin-top: ${({ theme }) => theme.spaces.nano};
     width: 100%;
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
       font-size: 2rem;
+      margin-top: ${({ theme }) => theme.spaces.micro};
     }
   }
 

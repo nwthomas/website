@@ -58,10 +58,12 @@ const RootStyles = styled.section`
     > p {
       font-size: 1.6rem;
       line-height: 1;
+      margin-top: ${({ theme }) => theme.spaces.nano};
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
         font-size: 2rem;
+        margin-top: ${({ theme }) => theme.spaces.micro};
       }
     }
   }
