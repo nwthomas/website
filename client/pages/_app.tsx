@@ -6,8 +6,8 @@ import GlobalStyle, { makeMainTheme } from "../styles";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 import { AppProps } from "next/app";
+import { DesktopNavbar } from "../components/Navbar";
 import { Hydrate } from "react-query/hydration";
-import Navbar from "../components/Navbar";
 import { Provider } from "react-redux";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { ThemeProvider } from "styled-components";
@@ -41,7 +41,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <QueryClientProvider client={queryClient}>
           <Hydrate state={pageProps.dehydratedState}>
             <ThemeProvider theme={mainTheme}>
-              <Navbar />
+              <DesktopNavbar />
               <GlobalStyle theme={mainTheme} />
               <Component {...pageProps} currentTheme={currentTheme} />
             </ThemeProvider>
