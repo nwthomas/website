@@ -162,7 +162,7 @@ const RootStyles = styled.div<StyleProps>`
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        padding-top: ${({ theme }) => theme.spaces.large};
+        padding-top: ${({ theme }) => theme.spaces.medium};
       }
 
       > a {

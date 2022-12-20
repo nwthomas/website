@@ -7,7 +7,6 @@ interface Props {
 }
 
 function BlogList({ contents, isOrderedList }: Props) {
-  return null;
   return (
     <RootStyles>
       <ol>{contents}</ol>
@@ -18,7 +17,6 @@ function BlogList({ contents, isOrderedList }: Props) {
 const RootStyles = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: ${({ theme }) => theme.spaces.large};
   width: 100%;
 
   > ol {
@@ -27,7 +25,9 @@ const RootStyles = styled.div`
 
     > li {
       font-size: 2rem;
-      list-style-type: none;
+      line-height: 1.8;
+      list-style-type: disc;
+      margin-top: ${({ theme }) => theme.spaces.medium};
     }
   }
 `;

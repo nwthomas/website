@@ -55,7 +55,7 @@ const RootStyles = styled.div<StyleProps>`
     padding: ${({ isHeroImage, theme }) =>
       isHeroImage
         ? 0
-        : `${theme.spaces.large} ${theme.appDimensions.appHorizontalGutters} 0`};
+        : `${theme.spaces.medium} ${theme.appDimensions.appHorizontalGutters} 0`};
   }
 
   > div {
