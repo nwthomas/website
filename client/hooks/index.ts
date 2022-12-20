@@ -1,3 +1,4 @@
+export { useIsArticlePage } from "./useIsArticlePage";
 export { useGetMouseRadian } from "./useGetMouseRadian";
 export { useGetPageName } from "./useGetPageName";
 export {

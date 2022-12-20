@@ -158,6 +158,10 @@ const GlobalStyle = css`
     &:hover {
       text-decoration-color: ${({ theme }) => theme.colors.textSecondary};
     }
+
+    &:active {
+      text-decoration-color: ${({ theme }) => theme.colors.textSecondary};
+    }
   }
 
   button {
@@ -165,7 +169,7 @@ const GlobalStyle = css`
     color: ${({ theme }) => theme.colorsHex.white};
     font-size: 1.6rem;
     font-weight: bold;
-    transition: opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
+    transition: opacity ${({ theme }) => theme.transitions.short} ease-in-out;
 
     &:hover {
       opacity: ${({ theme }) => theme.opacity.opacity80};

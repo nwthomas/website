@@ -5,6 +5,7 @@ import Modal from "../Modal";
 import { RootState } from "../../store";
 import SEO from "../SEO";
 import styled from "styled-components";
+import { useIsArticlePage } from "../../hooks";
 import { useSelector } from "react-redux";
 
 interface Props {
@@ -22,6 +23,7 @@ function Layout({
   withFooter,
   withPageNameEmojis,
 }: Props) {
+  const isArticlePage = useIsArticlePage();
   const shouldShowModal = useSelector(
     (state: RootState) => state.modal.shouldShowModal
   );
@@ -33,7 +35,7 @@ function Layout({
         pageName={pageName}
         withPageNameEmojis={withPageNameEmojis}
       />
-      <RootStyles>
+      <RootStyles isArticlePage={isArticlePage}>
         {children}
         {withFooter ? <Footer /> : null}
         {shouldShowModal ? <Modal /> : null}
@@ -42,25 +44,35 @@ function Layout({
   );
 }
 
-const RootStyles = styled.div`
+interface StyleProps {
+  isArticlePage: boolean;
+}
+
+const RootStyles = styled.div<StyleProps>`
   display: flex;
   justify-content: center;
-  padding: ${({ theme }) =>
-    `${theme.appDimensions.navbarMobileHeight} 0 ${theme.appDimensions.footerMobileHeight}`};
+  padding-top: ${({ theme }) => theme.appDimensions.navbarMobileHeight};
+  padding-bottom: ${({ theme }) => theme.appDimensions.footerMobileHeight};
   min-height: ${({ theme }) => theme.appDimensions.appMinHeight};
   position: relative;
   width: 100%;
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.tablet}) {
-    padding: ${({ theme }) =>
-      `${theme.appDimensions.navbarTabletHeight} 0 ${theme.appDimensions.footerTabletHeight}`};
+    padding-top: ${({ theme }) => theme.appDimensions.navbarTabletHeight};
+    padding-bottom: ${({ isArticlePage, theme }) =>
+      isArticlePage
+        ? theme.appDimensions.footerArticleHeight
+        : theme.appDimensions.footerTabletHeight};
   }
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.desktop}) {
-    padding: ${({ theme }) =>
-      `${theme.appDimensions.navbarDesktopHeight} 0 ${theme.appDimensions.footerDesktopHeight}`};
+    padding-top: ${({ theme }) => theme.appDimensions.navbarDesktopHeight};
+    padding-bottom: ${({ isArticlePage, theme }) =>
+      isArticlePage
+        ? theme.appDimensions.footerArticleHeight
+        : theme.appDimensions.footerDesktopHeight};
   }
 `;
 

@@ -2,16 +2,18 @@ import * as React from "react";
 
 import { BabyYoda } from "../EasterEggs";
 import styled from "styled-components";
+import { useIsArticlePage } from "../../hooks";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
+  const isArticlePage = useIsArticlePage();
 
   const copyrightLabel = React.useMemo(() => {
     return `Copyright © ${currentYear} Nathan Thomas.`;
   }, [currentYear]);
 
   return (
-    <RootStyles>
+    <RootStyles isArticlePage={isArticlePage}>
       <footer>
         <p>{copyrightLabel}</p>
         <nav>
@@ -58,6 +60,16 @@ function Footer() {
             </li>
             <li>
               <a
+                href="https://www.polywork.com/nwthomas"
+                aria-label="Link to Polywork"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Polywork
+              </a>
+            </li>
+            <li>
+              <a
                 href="https://substack.com/profile/11012426-nathan-thomas"
                 aria-label="Link to Substack"
                 rel="noopener noreferrer"
@@ -84,7 +96,11 @@ function Footer() {
   );
 }
 
-const RootStyles = styled.div`
+interface StyleProps {
+  isArticlePage: boolean;
+}
+
+const RootStyles = styled.div<StyleProps>`
   bottom: 0;
   display: flex;
   justify-content: center;
@@ -94,7 +110,8 @@ const RootStyles = styled.div`
 
   footer {
     max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
-    width: 100%;
+    width: ${({ isArticlePage, theme }) =>
+      isArticlePage ? theme.appDimensions.articleMaxWidth : "100%"};
 
     > p {
       color: ${({ theme }) => theme.colors.textSecondary};
