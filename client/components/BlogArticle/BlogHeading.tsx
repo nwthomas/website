@@ -164,7 +164,12 @@ const RootStyles = styled.div<StyleProps>`
       cursor: pointer;
       grid-column-start: 2;
       grid-column-end: 3;
-      padding-top: ${({ theme }) => theme.spaces.large};
+      padding-top: ${({ theme }) => theme.spaces.medium};
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.tablet}) {
+        padding-top: ${({ theme }) => theme.spaces.large};
+      }
 
       > a {
         color: inherit;
@@ -183,7 +188,6 @@ const RootStyles = styled.div<StyleProps>`
       cursor: pointer;
       grid-column-start: 2;
       grid-column-end: 3;
-      padding-top: ${({ theme }) => theme.spaces.large};
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.ultraWide}) {

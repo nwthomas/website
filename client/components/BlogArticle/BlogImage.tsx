@@ -18,14 +18,15 @@ function BlogImage({ alt, isHeroImage, src, title }: Props) {
   const { availableWidth } = useGetScreenDimensions();
 
   const borderRadiusBreakpoint = isHeroImage ? ultraWide : tablet;
-  const withImageRoundedCorners =
+
+  const withHeroImageRoundedCorners =
     typeof availableWidth === "number" &&
     availableWidth >= borderRadiusBreakpoint;
 
   return (
     <RootStyles
       isHeroImage={isHeroImage}
-      withImageRoundedCorners={withImageRoundedCorners}
+      withImageRoundedCorners={isHeroImage ? withHeroImageRoundedCorners : true}
     >
       <div>
         <img alt={alt} draggable={false} src={src} />
@@ -43,9 +44,19 @@ interface StyleProps {
 const RootStyles = styled.div<StyleProps>`
   display: flex;
   justify-content: center;
-  padding-top: ${({ isHeroImage, theme }) =>
-    isHeroImage ? 0 : theme.spaces.large};
+  padding: ${({ isHeroImage, theme }) =>
+    isHeroImage
+      ? 0
+      : `${theme.spaces.medium} ${theme.appDimensions.appHorizontalGutters} 0`};
   width: 100%;
+
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.breakpoints.tablet}) {
+    padding: ${({ isHeroImage, theme }) =>
+      isHeroImage
+        ? 0
+        : `${theme.spaces.large} ${theme.appDimensions.appHorizontalGutters} 0`};
+  }
 
   > div {
     align-items: center;
@@ -64,7 +75,12 @@ const RootStyles = styled.div<StyleProps>`
     > div {
       display: flex;
       justify-content: center;
-      padding-top: ${({ theme }) => theme.spaces.medium};
+      padding-top: ${({ theme }) => theme.spaces.small};
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.tablet}) {
+        padding-top: ${({ theme }) => theme.spaces.medium};
+      }
 
       p {
         color: ${({ theme }) => theme.colors.textSecondary};

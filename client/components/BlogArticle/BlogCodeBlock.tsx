@@ -16,7 +16,7 @@ function BlogCodeBlock({ contents, isInline, language }: Props) {
     return <InlineRootStyles>{contents}</InlineRootStyles>;
   }
 
-  // Trim new line escaped character (e.g. '\n') off end of string
+  // Trim new line escaped character '\n' off end of string
   const normalizedContent = contents.slice(0, contents.length - 1);
 
   return (
@@ -38,9 +38,14 @@ function BlogCodeBlock({ contents, isInline, language }: Props) {
 const BlockRootStyles = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: ${({ theme }) => theme.spaces.large};
+  margin-top: ${({ theme }) => theme.spaces.medium};
   padding: 0 ${({ theme }) => theme.appDimensions.appHorizontalGutters};
   width: 100%;
+
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.breakpoints.tablet}) {
+    margin-top: ${({ theme }) => theme.spaces.large};
+  }
 
   > div {
     background-color: ${({ theme }) => theme.colors.backgroundColorAccentTwo};
@@ -71,9 +76,14 @@ const InlineRootStyles = styled.code`
   border-radius: ${({ theme }) => theme.borderRadii.medium};
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     Liberation Mono, Courier New, monospace;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   padding: ${({ theme }) =>
     `calc(${theme.spaces.nano} * 2) calc(${theme.spaces.micro} * 2)`};
+
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.breakpoints.tablet}) {
+    font-size: 1.6rem;
+  }
 `;
 
 export default BlogCodeBlock;

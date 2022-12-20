@@ -18,8 +18,13 @@ const RootStyles = styled.div`
   justify-content: center;
   padding-left: ${({ theme }) => theme.appDimensions.appHorizontalGutters};
   padding-right: ${({ theme }) => theme.appDimensions.appHorizontalGutters};
-  padding-top: ${({ theme }) => theme.spaces.large};
+  padding-top: ${({ theme }) => theme.spaces.medium};
   width: 100%;
+
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.breakpoints.tablet}) {
+    padding-top: ${({ theme }) => theme.spaces.large};
+  }
 
   > p {
     font-size: 1.6rem;
