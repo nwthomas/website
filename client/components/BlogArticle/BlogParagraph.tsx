@@ -27,6 +27,7 @@ const RootStyles = styled.div`
   }
 
   > p {
+    line-height: 1.8;
     max-width: ${({ theme }) => theme.appDimensions.articleMaxWidth};
     width: 100%;
 

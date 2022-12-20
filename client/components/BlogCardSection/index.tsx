@@ -56,8 +56,13 @@ const RootStyles = styled.section`
     margin-bottom: ${({ theme }) => theme.spaces.medium};
 
     > p {
-      font-size: 2rem;
+      font-size: 1.6rem;
       line-height: 1;
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.tablet}) {
+        font-size: 2rem;
+      }
     }
   }
 
