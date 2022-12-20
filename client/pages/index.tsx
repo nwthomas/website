@@ -14,7 +14,7 @@ const Home: NextPage = () => {
         <main>
           <section>
             <h1>
-              Hi. I'm <span>Nathan 👋🏻,</span> a{" "}
+              I'm <span>Nathan 👋🏻,</span> a{" "}
               <a
                 href="https://github.com/nwthomas"
                 aria-label="Link to GitHub"

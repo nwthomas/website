@@ -7,7 +7,7 @@ function Footer() {
   const currentYear = new Date().getFullYear();
 
   const copyrightLabel = React.useMemo(() => {
-    return `© ${currentYear} Nathan Thomas. All rights reserved.`;
+    return `Copyright © ${currentYear} Nathan Thomas.`;
   }, [currentYear]);
 
   return (
