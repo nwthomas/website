@@ -43,7 +43,7 @@ const RootStyles = styled.article`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 300px;
+    min-height: 200px;
     padding: ${({ theme }) => theme.spaces.medium};
     transition: background-color ${({ theme }) => theme.transitions.short}
         ease-in-out,
@@ -51,19 +51,28 @@ const RootStyles = styled.article`
     text-decoration: none;
     width: 100%;
 
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.tablet}) {
+      min-height: 300px;
+    }
+
     > div {
       width: 100%;
 
       > h2 {
         display: block;
-        font-size: 2rem;
+        font-size: 1.6rem;
         letter-spacing: ${({ theme }) => theme.spaces.micro};
         margin-bottom: ${({ theme }) => theme.spaces.medium};
         transition: color ${({ theme }) => theme.transitions.short} ease-in-out;
+
+        @media only screen and (min-width: ${({ theme }) =>
+            theme.breakpoints.tablet}) {
+          font-size: 2rem;
+        }
       }
 
       > p {
-        font-size: 2rem;
         transition: color ${({ theme }) => theme.transitions.short} ease-in-out;
       }
     }
@@ -71,10 +80,10 @@ const RootStyles = styled.article`
     > div:nth-child(2) {
       align-items: center;
       display: flex;
+      margin-top: ${({ theme }) => theme.spaces.medium};
 
       > p {
         color: ${({ theme }) => theme.colors.textSecondary};
-        font-size: 2rem;
       }
 
       > svg {

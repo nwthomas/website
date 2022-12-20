@@ -96,7 +96,7 @@ const RootStyles = styled.div`
     }
 
     > section:nth-child(1) {
-      margin-bottom: ${({ theme }) => theme.spaces.large};
+      margin-bottom: ${({ theme }) => theme.spaces.medium};
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
@@ -139,8 +139,7 @@ const RootStyles = styled.div`
           grid-column-gap: ${({ theme }) => theme.spaces.xxLarge};
           grid-row-gap: ${({ theme }) => theme.spaces.xxLarge};
           grid-template-columns: 1fr;
-          margin-bottom: ${({ theme }) =>
-            `calc(${theme.spaces.medium} + ${theme.spaces.xxLarge})`};
+          margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
         }
 
         @media only screen and (min-width: ${({ theme }) =>
