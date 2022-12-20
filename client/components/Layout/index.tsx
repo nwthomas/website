@@ -44,7 +44,6 @@ function Layout({
 
 const RootStyles = styled.div`
   display: flex;
-  background: ${({ theme }) => theme.colors.bodyBackground};
   justify-content: center;
   padding: ${({ theme }) =>
     `${theme.appDimensions.navbarMobileHeight} 0 ${theme.appDimensions.footerMobileHeight}`};
