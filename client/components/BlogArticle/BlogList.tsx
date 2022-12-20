@@ -1,4 +1,3 @@
-import { BlogMarkdownRenderer } from "./";
 import { ReactNode } from "react";
 import styled from "styled-components";
 
@@ -8,9 +7,10 @@ interface Props {
 }
 
 function BlogList({ contents, isOrderedList }: Props) {
+  return null;
   return (
     <RootStyles>
-      <div />
+      <ol>{contents}</ol>
     </RootStyles>
   );
 }
@@ -20,6 +20,16 @@ const RootStyles = styled.div`
   justify-content: center;
   margin-top: ${({ theme }) => theme.spaces.large};
   width: 100%;
+
+  > ol {
+    max-width: ${({ theme }) => theme.appDimensions.articleMaxWidth};
+    width: 100%;
+
+    > li {
+      font-size: 2rem;
+      list-style-type: none;
+    }
+  }
 `;
 
 export default BlogList;

@@ -23,11 +23,11 @@ function BlogCodeBlock({ contents, isInline, language }: Props) {
     <BlockRootStyles>
       <SyntaxHighlighter
         language={language}
-        PreTag="div"
         style={undefinedTheme}
+        PreTag="div"
         showLineNumbers
         showInlineLineNumbers
-        wrapLongLines={false}
+        wrapLongLines
       >
         {normalizedContent}
       </SyntaxHighlighter>
@@ -48,25 +48,12 @@ const BlockRootStyles = styled.div`
   }
 
   > div {
-    background-color: ${({ theme }) => theme.colors.backgroundColorAccentTwo};
     border-radius: ${({ theme }) => theme.borderRadii.large};
     max-width: ${({ theme }) => theme.appDimensions.articleMaxWidth};
     width: 100%;
 
-    > code {
-      background: ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
-      font-size: 2rem;
-
-      span {
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-          Liberation Mono, Courier New, monospace;
-      }
-
-      .linenumber {
-        color: ${({ theme }) => theme.colors.textSecondary};
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-          Liberation Mono, Courier New, monospace;
-      }
+    span {
+      flex-wrap: wrap;
     }
   }
 `;

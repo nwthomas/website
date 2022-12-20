@@ -4,6 +4,7 @@ import {
   BlogHeading,
   BlogHorizontalRule,
   BlogImage,
+  BlogList,
   BlogParagraph,
 } from "./";
 import { useCallback, useRef } from "react";
@@ -148,9 +149,11 @@ function BlogMarkdownRenderer({ content, heroImageUrl }: Props) {
             />
           );
         },
-        ol({ ...props }) {
-          console.log(props);
-          return null;
+        ol({ children }) {
+          return <BlogList isOrderedList contents={children} />;
+        },
+        ul({ children }) {
+          return <BlogList isOrderedList={false} contents={children} />;
         },
         code({ className, inline, children }) {
           const language =

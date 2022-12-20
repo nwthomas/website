@@ -113,17 +113,11 @@ const RootStyles = styled.div<StyleProps>`
 
   > div {
     display: grid;
-    max-width: ${({ theme }) => theme.appDimensions.articleMaxWidth};
     grid-template-columns: ${({ theme }) =>
       `1fr minmax(1px, ${theme.appDimensions.articleMaxWidth}) 1fr`};
     grid-template-rows: 1fr;
     position: relative;
     width: 100%;
-
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.ultraWide}) {
-      max-width: none;
-    }
 
     > div {
       display: none;
