@@ -120,7 +120,10 @@ const RootStyles = styled.div<StyleProps>`
     width: 100%;
 
     > div {
-      display: none;
+      align-items: flex-end;
+      display: flex;
+      opacity: ${({ theme }) => theme.opacity.opacity00};
+      transition: opacity ${({ theme }) => theme.transitions.short} ease-in-out;
     }
 
     @media only screen and (min-width: ${({ theme }) =>
@@ -130,11 +133,10 @@ const RootStyles = styled.div<StyleProps>`
         @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.desktop}) {
           > div {
-            align-items: flex-end;
-            display: flex;
             grid-column-start: 1;
             grid-column-end: 2;
             justify-content: flex-end;
+            opacity: ${({ theme }) => theme.opacity.opacity100};
 
             svg {
               height: ${({ level, theme }) =>

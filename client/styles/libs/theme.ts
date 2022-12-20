@@ -107,6 +107,7 @@ interface AppDimensions {
   articleHeroImageMaxWidth: string;
   articleMaxWidth: string;
   contactFormMaxWidth: string;
+  footerArticleHeight: string;
   footerDesktopHeight: string;
   footerTabletHeight: string;
   footerMobileHeight: string;
@@ -123,6 +124,7 @@ export const appDimensions: AppDimensions = {
   articleHeroImageMaxWidth: "1200px",
   articleMaxWidth: "600px",
   contactFormMaxWidth: "600px",
+  footerArticleHeight: "198px",
   footerDesktopHeight: "151px",
   footerTabletHeight: "199px",
   footerMobileHeight: "110px",
