@@ -2,8 +2,6 @@ import { colors, spaces, themeColorValues } from "../../styles/libs/theme";
 
 const undefinedTheme = {
   'code[class*="language-"]': {
-    fontFamily:
-      "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace",
     fontSize: "14px",
     lineHeight: "1.375",
     direction: "ltr",
@@ -22,8 +20,6 @@ const undefinedTheme = {
     color: colors.royalBlue,
   },
   'pre[class*="language-"]': {
-    fontFamily:
-      "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace",
     fontSize: "14px",
     lineHeight: "1.375",
     direction: "ltr",
