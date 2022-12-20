@@ -125,11 +125,11 @@ export const appDimensions: AppDimensions = {
   contactFormMaxWidth: "600px",
   footerDesktopHeight: "151px",
   footerTabletHeight: "199px",
-  footerMobileHeight: "98px",
+  footerMobileHeight: "110px",
   modalMaxWidth: "600px",
-  navbarDesktopHeight: "192px",
+  navbarDesktopHeight: "200px",
   navbarTabletHeight: "192px",
-  navbarMobileHeight: "72px",
+  navbarMobileHeight: "90px",
   navbarLinkWidth: "120px",
 };
 

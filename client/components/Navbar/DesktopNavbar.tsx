@@ -51,7 +51,6 @@ function DesktopNavbar() {
 }
 
 const RootStyles = styled.div`
-  background-color: ${({ theme }) => theme.colors.bodyBackground};
   display: flex;
   left: 0;
   padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
@@ -67,7 +66,7 @@ const RootStyles = styled.div`
     display: flex;
     justify-content: center;
     max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
-    padding: ${({ theme }) => `${theme.spaces.small} 0 `};
+    padding: ${({ theme }) => `${theme.spaces.medium} 0 `};
     width: 100%;
 
     @media only screen and (min-width: ${({ theme }) =>

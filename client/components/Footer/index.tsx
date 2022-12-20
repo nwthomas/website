@@ -114,7 +114,7 @@ const RootStyles = styled.div`
       > ul {
         display: flex;
         flex-wrap: wrap;
-        margin-bottom: ${({ theme }) => theme.spaces.small};
+        padding-bottom: ${({ theme }) => theme.spaces.medium};
         width: 100%;
 
         @media only screen and (min-width: ${({ theme }) =>

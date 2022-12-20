@@ -10,7 +10,7 @@ function Work() {
         <main>
           <section>
             <h1>
-              This some work I'm proud of. You can find more on{" "}
+              This is some of the work I'm really proud of. You can find more on{" "}
               <a
                 href="https://github.com/nwthomas"
                 aria-label="Link to GitHub"
