@@ -1,4 +1,5 @@
 import FocusTrap from "focus-trap-react";
+import React from "react";
 import styled from "styled-components";
 
 interface Props {
@@ -6,6 +7,8 @@ interface Props {
 }
 
 function MobileNavbar(props: Props) {
+  const [isOpen, setIsOpen] = React.useState<boolean>(false);
+
   return (
     <RootStyles>
       <FocusTrap>
@@ -15,6 +18,8 @@ function MobileNavbar(props: Props) {
   );
 }
 
-const RootStyles = styled.div``;
+const RootStyles = styled.div`
+  width: 100%;
+`;
 
 export default MobileNavbar;
