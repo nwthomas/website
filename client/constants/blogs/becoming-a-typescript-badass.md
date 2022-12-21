@@ -9,7 +9,7 @@ tags:
   - TypeScript
 ---
 
-![Typescript log on a white wall background](/blog-assets/how-to-become-a-typescript-badass/typescript-on-wall.webp)
+<img alt="Typescript log on a white wall background" height="700" src="/blog-assets/how-to-become-a-typescript-badass/typescript-on-wall.webp" width="1050">
 
 # Becoming a TypeScript Badass
 
@@ -111,7 +111,7 @@ However, there's a problem here. 😞 You probably already noticed it.
 
 Since we assigned a `number` type (`100`) to a variable that's supposed to be of type `string`, TypeScript is unhappy. You should get an error that looks very close to this:
 
-![VS Code screenshot of TypeScript error](/blog-assets/how-to-become-a-typescript-badass/vscode-typescript-error.jpg "(Sorry for the junky screenshot)")
+<img alt="VS Code screenshot of TypeScript error" height="224" src="/blog-assets/how-to-become-a-typescript-badass/vscode-typescript-error.jpg" title="(Sorry for the junky screenshot)" width="1046">
 
 This is what it looks like when TypeScript is trying to tell us that we're doing something dumb, like [tucking a caffe latte under our shirt](https://www.youtube.com/watch?v=TysjNDTWEBc).
 
@@ -286,7 +286,7 @@ Go ahead and refill that delicious drink you made earlier.
 
 We're going into the home stretch. ✌🏻
 
-![White wall with ivy to the left side of it](/blog-assets/how-to-become-a-typescript-badass/ivy-wall.webp)
+<img alt="White wall with ivy to the left side of it" height="667" src="/blog-assets/how-to-become-a-typescript-badass/ivy-wall.webp" width="1000">
 
 ## Classes: Complex and Beautiful
 

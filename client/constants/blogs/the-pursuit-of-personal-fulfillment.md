@@ -9,7 +9,7 @@ tags:
   - Soft Skills
 ---
 
-![Black and white photograph of man surfing](/blog-assets/the-pursuit-of-personal-fulfillment/man-surfing.webp "Image by [Alex Braga](https://unsplash.com/@awbraga) on [Unsplash](https://unsplash.com/)")
+<img alt="Black and white photograph of man surfing" height="964" src="/blog-assets/the-pursuit-of-personal-fulfillment/man-surfing.webp" title="Image by [Alex Braga](https://unsplash.com/@awbraga) on [Unsplash](https://unsplash.com/)" width="1450">
 
 # The Pursuit of Personal Fulfillment
 
@@ -53,7 +53,7 @@ Every choice I faced was viewed through my own self-imposed lens of artificial p
 
 I was miserable.
 
-![Black and white photograph of waves at the beach](/blog-assets/the-pursuit-of-personal-fulfillment/beach.webp "Image by [Annie Spratt](https://unsplash.com/@anniespratt) on [Unsplash](https://unsplash.com/)")
+<img alt="Black and white photograph of waves at the beach" height="933" src="/blog-assets/the-pursuit-of-personal-fulfillment/beach.webp" title="Image by [Annie Spratt](https://unsplash.com/@anniespratt) on [Unsplash](https://unsplash.com/)" width="1400">
 
 Somewhere along the way, I got it into my head that I wanted to make a personal blog. I didn’t expect anyone else to read it, but I wanted my own corner of the internet to record my thoughts.
 
@@ -85,7 +85,7 @@ It’s hard to find that elusive feeling of purpose when you’re always looking
 
 ---
 
-![Man in waves at the ocean](/blog-assets/the-pursuit-of-personal-fulfillment/man-in-waves.webp "Image by [Cherry Laithang](https://unsplash.com/@laicho) on [Unsplash](https://unsplash.com/)")
+<img alt="Man in waves at the ocean" height="927" src="/blog-assets/the-pursuit-of-personal-fulfillment/man-in-waves.webp" title="Image by [Cherry Laithang](https://unsplash.com/@laicho) on [Unsplash](https://unsplash.com/)" width="1400">
 
 ---
 
