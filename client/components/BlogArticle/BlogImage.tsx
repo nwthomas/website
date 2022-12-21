@@ -19,14 +19,19 @@ function BlogImage({ alt, isHeroImage, src, title }: Props) {
 
   const borderRadiusBreakpoint = isHeroImage ? ultraWide : tablet;
 
-  const withHeroImageRoundedCorners =
+  const isNotFullWidthImage =
     typeof availableWidth === "number" &&
-    availableWidth >= borderRadiusBreakpoint;
+    availableWidth > borderRadiusBreakpoint;
+
+  const withRoundedCorners =
+    typeof availableWidth === "number" && isHeroImage
+      ? isNotFullWidthImage
+      : true;
 
   return (
     <RootStyles
       isHeroImage={isHeroImage}
-      withImageRoundedCorners={isHeroImage ? withHeroImageRoundedCorners : true}
+      withRoundedCorners={withRoundedCorners}
     >
       <div>
         <img alt={alt} draggable={false} src={src} />
@@ -38,7 +43,7 @@ function BlogImage({ alt, isHeroImage, src, title }: Props) {
 
 interface StyleProps {
   isHeroImage?: boolean;
-  withImageRoundedCorners?: boolean;
+  withRoundedCorners: boolean;
 }
 
 const RootStyles = styled.div<StyleProps>`
@@ -68,8 +73,8 @@ const RootStyles = styled.div<StyleProps>`
 
     > img {
       overflow: hidden;
-      border-radius: ${({ theme, withImageRoundedCorners }) =>
-        withImageRoundedCorners ? theme.borderRadii.large : 0};
+      border-radius: ${({ theme, withRoundedCorners }) =>
+        withRoundedCorners ? theme.borderRadii.large : 0};
     }
 
     > div {

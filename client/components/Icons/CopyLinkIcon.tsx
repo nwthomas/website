@@ -26,7 +26,7 @@ interface StyleProps {
 }
 
 const RootStyles = styled.svg<StyleProps>`
-  stroke: #fff;
+  stroke: ${({ color }) => color};
 `;
 
 export default CopyLinkIcon;

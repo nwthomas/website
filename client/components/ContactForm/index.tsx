@@ -179,8 +179,6 @@ const RootStyles = styled.div<StyleProps>`
       flex-direction: column;
 
       > div {
-        background-color: ${({ theme }) =>
-          theme.colors.bodyBackgroundAccentOne};
         border: ${({ theme }) =>
           `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
         border-radius: ${({ theme }) => theme.borderRadii.large};
