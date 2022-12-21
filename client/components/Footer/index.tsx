@@ -142,7 +142,7 @@ const RootStyles = styled.div<StyleProps>`
         > li {
           display: flex;
           margin-top: ${({ theme }) => theme.spaces.small};
-          margin-right: ${({ theme }) => theme.spaces.medium};
+          margin-right: ${({ theme }) => theme.spaces.small};
 
           @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.tablet}) {

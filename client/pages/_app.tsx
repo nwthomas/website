@@ -7,7 +7,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 
 import { AppProps } from "next/app";
 import { Hydrate } from "react-query/hydration";
-import { Navbar } from "../components/Navbar";
+import Navbar from "../components/Navbar";
 import { Provider } from "react-redux";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { ThemeProvider } from "styled-components";
