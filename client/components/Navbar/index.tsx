@@ -6,7 +6,7 @@ import React from "react";
 import ThemeTransitionSwitch from "../ThemeTransitionSwitch";
 import styled from "styled-components";
 
-function DesktopNavbar() {
+function Navbar() {
   return (
     <RootStyles>
       <header>
@@ -130,4 +130,4 @@ const RootStyles = styled.div`
   }
 `;
 
-export default DesktopNavbar;
+export default Navbar;
