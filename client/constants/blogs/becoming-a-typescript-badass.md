@@ -1,7 +1,7 @@
 ---
-title: "How to Become a TypeScript Badass"
-metaTitle: "How to Become a TypeScript Badass"
-slug: "how-to-become-a-typescript-badass"
+title: "Becoming a TypeScript Badass"
+metaTitle: "Becoming a TypeScript Badass"
+slug: "becoming-a-typescript-badass"
 metaDescription: "Have you always wanted to learn how to master TypeScript? In that case, this one is for you."
 imageUrl: /blog-assets/how-to-become-a-typescript-badass/typescript-on-wall.webp
 date: "2020-08-20"
@@ -11,11 +11,11 @@ tags:
 
 ![Typescript log on a white wall background](/blog-assets/how-to-become-a-typescript-badass/typescript-on-wall.webp)
 
-# How to Become a TypeScript Badass
+# Becoming a TypeScript Badass
 
 ---
 
-> This article originally appeared on [HackerNoon](https://hackernoon.com/how-to-become-a-typescript-badass-0o213e4v). It has received slight edits (since we all get better at our hobbies - like writing - with time), but it's still true to its original vision.
+> This article originally appeared on [HackerNoon](https://hackernoon.com/how-to-become-a-typescript-badass-0o213e4v). It has received some edits (since we all get better at our hobbies - like writing - with time), but it's still true to its original vision.
 
 ---
 

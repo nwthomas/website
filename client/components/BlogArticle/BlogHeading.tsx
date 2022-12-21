@@ -24,14 +24,19 @@ function BlogHeading({ contents, level, linkPath, routeId }: Props) {
     setIsSelected(false);
   }, []);
 
+  const handleHeadingClicked = useCallback(() => {
+    document.getElementById(routeId)?.scrollIntoView();
+  }, []);
+
   const headingHandlers = useMemo(() => {
     return {
+      onClick: handleHeadingClicked,
       onFocus: handleOnActivated,
       onBlur: handleOnUnactivated,
       onMouseEnter: handleOnActivated,
       onMouseLeave: handleOnUnactivated,
     };
-  }, [handleOnActivated, handleOnUnactivated]);
+  }, [handleHeadingClicked, handleOnActivated, handleOnUnactivated]);
 
   const headingContent = useMemo(() => {
     switch (level) {
