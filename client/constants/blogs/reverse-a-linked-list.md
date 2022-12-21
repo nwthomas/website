@@ -9,7 +9,7 @@ tags:
   - LeetCode
 ---
 
-![Chains superimposed against water](/blog-assets/reverse-a-linked-list/chains.webp "Image by [Mael BALLAND](https://unsplash.com/@mael_balland) on [Unsplash](https://unsplash.com/@christieckim)")
+<img alt="Chains superimposed against water" src="/blog-assets/reverse-a-linked-list/chains.webp" title="Image by [Mael BALLAND](https://unsplash.com/@mael_balland) on [Unsplash](https://unsplash.com/@christieckim)" width="1152" height="1728">
 
 # Reverse a Linked List
 
@@ -54,7 +54,7 @@ To start off with, let’s quickly review what a linked list data structure is (
 
 A linked list is really just a series of nodes that point to each other like this:
 
-![Singly-linked list example](/blog-assets/reverse-a-linked-list/sll.webp)
+<img alt="Singly-linked list example" height="240" src="/blog-assets/reverse-a-linked-list/sll.webp" width="1200">
 
 Each one of these nodes will have a value associated with it along with a pointer to the next node. If we were to write a class for this, it would look like this:
 
@@ -81,7 +81,7 @@ With linked lists, you can add (to either the start or the end) and remove value
 
 It’s worth noting here that the data structure we just discussed above is a _singly_-linked list. The difference is that a _doubly_-linked list would also have a pointer back to the _previous_ node, not just one pointing to the next one like this:
 
-![Doubly-linked list example](/blog-assets/reverse-a-linked-list/dll.webp)
+<img alt="Doubly-linked list example" height="240" src="/blog-assets/reverse-a-linked-list/dll.webp" width="1200">
 
 We’d write the code for that like this:
 

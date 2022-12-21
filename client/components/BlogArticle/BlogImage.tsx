@@ -6,12 +6,14 @@ import { useGetScreenDimensions } from "../../hooks";
 
 interface Props {
   alt?: string;
+  height?: string | number;
   isHeroImage?: boolean;
   src?: string;
   title?: string;
+  width?: string | number;
 }
 
-function BlogImage({ alt, isHeroImage, src, title }: Props) {
+function BlogImage({ alt, height, isHeroImage, src, title, width }: Props) {
   const {
     breakpointsInt: { tablet, ultraWide },
   } = React.useContext(ThemeContext);
@@ -34,7 +36,13 @@ function BlogImage({ alt, isHeroImage, src, title }: Props) {
       withRoundedCorners={withRoundedCorners}
     >
       <div>
-        <img alt={alt} draggable={false} src={src} />
+        <img
+          alt={alt}
+          draggable={false}
+          height={height}
+          src={src}
+          width={width}
+        />
         {title ? <BlogMarkdownRenderer content={title} /> : null}
       </div>
     </RootStyles>
