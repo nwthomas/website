@@ -52,6 +52,7 @@ const GlobalStyle = css`
     --button-primary-bg: ${colors.royalBlue};
     --error: ${colors.scarlet};
     --text: ${colors.white};
+    --text-on-contrast: ${colors.white};
     --text-secondary: ${colors.rollingStone};
     --transparent: ${colors.transparent};
   }
@@ -62,6 +63,7 @@ const GlobalStyle = css`
     --button-primary-bg: ${colors.royalBlue};
     --error: ${colors.scarlet};
     --text: ${colors.mineShaft};
+    --text-on-contrast: ${colors.white};
     --text-secondary: ${colors.doveGray};
     --transparent: ${colors.transparent};
   }
@@ -123,11 +125,6 @@ const GlobalStyle = css`
         theme.breakpoints.tablet}) {
       font-size: 2rem;
     }
-
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.desktop}) {
-      font-size: 3rem;
-    }
   }
 
   span {
@@ -150,7 +147,7 @@ const GlobalStyle = css`
     text-decoration-style: solid;
     text-decoration-line: underline;
     text-underline-offset: ${({ theme }) => theme.spaces.micro};
-    transition: text-decoration-color ${({ theme }) => theme.transitions.medium}
+    transition: text-decoration-color ${({ theme }) => theme.transitions.short}
       ease-in-out;
 
     @media only screen and (min-width: ${({ theme }) =>
@@ -161,6 +158,10 @@ const GlobalStyle = css`
     &:hover {
       text-decoration-color: ${({ theme }) => theme.colors.textSecondary};
     }
+
+    &:active {
+      text-decoration-color: ${({ theme }) => theme.colors.textSecondary};
+    }
   }
 
   button {
@@ -168,7 +169,7 @@ const GlobalStyle = css`
     color: ${({ theme }) => theme.colorsHex.white};
     font-size: 1.6rem;
     font-weight: bold;
-    transition: opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
+    transition: opacity ${({ theme }) => theme.transitions.short} ease-in-out;
 
     &:hover {
       opacity: ${({ theme }) => theme.opacity.opacity80};

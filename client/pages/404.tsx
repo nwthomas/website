@@ -4,7 +4,7 @@ import Layout from "../components/Layout";
 
 function FourOhFour() {
   return (
-    <Layout pageName={FOUR_OH_FOUR_PAGE_NAME} withFooter>
+    <Layout pageName={FOUR_OH_FOUR_PAGE_NAME} withFooter withPageNameEmojis>
       <Error errorCode="404" />
     </Layout>
   );

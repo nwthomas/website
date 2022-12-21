@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { CONTACT_PAGE_NAME } from "../constants/seo";
 import ContactForm from "../components/ContactForm";
 import Layout from "../components/Layout";
-import type { MessageValues } from "../components/ContactForm";
+import { MessageValues } from "../components/ContactForm";
 import { RootState } from "../store";
 import { sendMessage } from "./api/message";
 import styled from "styled-components";
@@ -53,7 +53,7 @@ function Contact() {
   };
 
   return (
-    <Layout pageName={CONTACT_PAGE_NAME} withFooter>
+    <Layout pageName={CONTACT_PAGE_NAME} withFooter withPageNameEmojis>
       <RootStyles>
         <main>
           <section>
@@ -64,7 +64,7 @@ function Contact() {
                   href="https://twitter.com/nwthomas_"
                   aria-label="Link to Nathan's Twitter profile"
                   rel="noopener noreferrer"
-                  target="_target"
+                  target="_blank"
                 >
                   Twitter
                 </a>{" "}
@@ -102,13 +102,11 @@ const RootStyles = styled.div`
 
     > section:nth-child(1) {
       display: flex;
-      margin-bottom: ${({ theme }) => theme.spaces.large};
+      margin-bottom: ${({ theme }) => theme.spaces.medium};
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        margin-bottom: ${({ theme }) =>
-          `calc(${theme.spaces.medium} + ${theme.spaces.xxLarge})`};
-        margin-top: ${({ theme }) => theme.spaces.medium};
+        margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
       }
 
       a {
@@ -139,8 +137,17 @@ const RootStyles = styled.div`
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        margin-bottom: ${({ theme }) =>
-          `calc(${theme.spaces.medium} + ${theme.spaces.xxLarge})`};
+        margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
+      }
+
+      > div {
+        max-width: none;
+        width: 100%;
+
+        @media only screen and (min-width: ${({ theme }) =>
+            theme.breakpoints.tablet}) {
+          max-width: ${({ theme }) => theme.appDimensions.contactFormMaxWidth};
+        }
       }
     }
   }

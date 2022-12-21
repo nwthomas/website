@@ -4,9 +4,9 @@ import * as Yup from "yup";
 import styled, { ThemeContext } from "styled-components";
 
 import Spinner from "../Spinner";
-import type { ThemeEnum } from "../../hooks/useGetPreferredTheme";
+import { ThemeEnum } from "../../hooks";
 import { useFormik } from "formik";
-import { useGetMouseRadian } from "../../hooks/useGetMouseRadian";
+import { useGetMouseRadian } from "../../hooks";
 
 const contactFormRef = React.createRef<HTMLDivElement>();
 
@@ -155,11 +155,6 @@ const RootStyles = styled.div<StyleProps>`
   padding: ${({ theme }) => theme.spaces.nano};
   width: 100%;
 
-  @media only screen and (min-width: ${({ theme }) =>
-      theme.breakpoints.tablet}) {
-    max-width: ${({ theme }) => theme.appDimensions.contactFormMaxWidth};
-  }
-
   > div {
     border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
     background-color: ${({ theme }) => theme.colors.bodyBackground};
@@ -184,7 +179,6 @@ const RootStyles = styled.div<StyleProps>`
       flex-direction: column;
 
       > div {
-        background-color: ${({ theme }) => theme.colors.bodyBackground};
         border: ${({ theme }) =>
           `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
         border-radius: ${({ theme }) => theme.borderRadii.large};
@@ -225,7 +219,8 @@ const RootStyles = styled.div<StyleProps>`
 
         > p {
           align-items: center;
-          background: ${({ theme }) => theme.colors.bodyBackground};
+          background-color: ${({ theme }) =>
+            theme.colors.bodyBackgroundAccentOne};
           border-radius: ${({ theme }) => theme.borderRadii.large};
           bottom: 0;
           color: ${({ theme }) => theme.colors.error};
@@ -244,10 +239,8 @@ const RootStyles = styled.div<StyleProps>`
 
       > button {
         align-items: center;
-        background: ${({ theme }) => theme.colors.buttonPrimaryBackground};
         border-radius: ${({ theme }) => theme.borderRadii.large};
         border: 2px solid ${({ theme }) => theme.colors.buttonPrimaryBackground};
-        color: ${({ theme }) => theme.colorsHex.white};
         cursor: ${({ isFormButtonDisabled }) =>
           isFormButtonDisabled ? "default" : "pointer"};
         display: flex;

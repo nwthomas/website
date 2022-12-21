@@ -3,11 +3,11 @@ import nodemailer from "nodemailer";
 
 const SECRET_KEY = process.env.SECRET_KEY || "";
 
-type NewEmail = {
+interface NewEmail {
   name: string;
   email: string;
   message: string;
-};
+}
 
 export const sendEmail = async (newEmail: NewEmail, withWeb3?: boolean) => {
   const { name: rawName, email: rawEmail, message: rawMessage } = newEmail;

@@ -7,11 +7,7 @@ interface Props {
 
 function SunIcon({ color, title }: Props) {
   return (
-    <RootStyles
-      color={color}
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 512 512"
-    >
+    <RootStyles color={color} viewBox="0 0 512 512">
       <title>{title || "Sun icon"}</title>
       <path
         fill={color}
@@ -34,7 +30,7 @@ function SunIcon({ color, title }: Props) {
 }
 
 interface StyleProps {
-  color?: string;
+  color: string;
 }
 
 const RootStyles = styled.svg<StyleProps>`

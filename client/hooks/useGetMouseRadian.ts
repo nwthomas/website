@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { ThemeContext } from "styled-components";
-import { useGetScreenDimensions } from "./useGetScreenDimensions";
+import { useGetScreenDimensions } from "./";
 
 const DEFAULT_RADIANS = Math.PI;
 
@@ -46,7 +46,7 @@ export function useGetMouseRadian(ref: React.RefObject<HTMLElement>): number {
     !viewportWidth ||
     viewportWidth <= breakpointsInt.tablet
   ) {
-    return DEFAULT_RADIANS;
+    return DEFAULT_RADIANS + DEFAULT_RADIANS / 10;
   }
 
   const { x: mouseX, y: mouseY } = mouseCoordinates;

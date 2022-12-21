@@ -2,17 +2,21 @@ import * as React from "react";
 
 import Head from "next/head";
 import { ThemeContext } from "styled-components";
-import { seoConfig } from "../../constants/seo";
-import { useGetPageName } from "../../hooks/useGetPageName";
+import { buildSeoConfig } from "../../constants/seo";
+import { useGetPageName } from "../../hooks";
 
 interface Props {
   isArticle?: boolean;
   pageName: string;
+  withPageNameEmojis?: boolean;
 }
 
-function SEO({ isArticle, pageName }: Props) {
+function SEO({ isArticle, pageName, withPageNameEmojis }: Props) {
   const { currentTheme } = React.useContext(ThemeContext);
-  const currentPageMetadata = seoConfig[pageName];
+
+  const currentPageMetadata = React.useMemo(() => {
+    return buildSeoConfig(pageName);
+  }, [pageName]);
 
   const {
     currentUrl,
@@ -23,7 +27,7 @@ function SEO({ isArticle, pageName }: Props) {
     title,
   } = currentPageMetadata;
 
-  const tabTitle = useGetPageName(title);
+  const tabTitle = useGetPageName(title, withPageNameEmojis);
 
   return (
     <Head>

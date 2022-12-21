@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-type Props = {
+interface Props {
   ariaLabel: string;
   imageDimensions: {
     height: number;
@@ -10,7 +10,7 @@ type Props = {
   imageSrc: string;
   title: string;
   url: string;
-};
+}
 
 function WorkExample({
   ariaLabel,
@@ -26,10 +26,11 @@ function WorkExample({
         href={url}
         aria-label={ariaLabel}
         rel="noopener noreferrer"
-        target="_target"
+        target="_blank"
       >
         <img
           alt={imageAlt || "Image"}
+          draggable={false}
           src={imageSrc}
           height={height}
           width={width}

@@ -2,16 +2,18 @@ import * as React from "react";
 
 import { BabyYoda } from "../EasterEggs";
 import styled from "styled-components";
+import { useIsArticlePage } from "../../hooks";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
+  const isArticlePage = useIsArticlePage();
 
   const copyrightLabel = React.useMemo(() => {
-    return `Copyright © ${currentYear} Nathan Thomas`;
+    return `Copyright © ${currentYear} Nathan Thomas.`;
   }, [currentYear]);
 
   return (
-    <RootStyles>
+    <RootStyles isArticlePage={isArticlePage}>
       <footer>
         <p>{copyrightLabel}</p>
         <nav>
@@ -21,7 +23,7 @@ function Footer() {
                 href="https://github.com/nwthomas"
                 aria-label="Link to GitHub"
                 rel="noopener noreferrer"
-                target="_target"
+                target="_blank"
               >
                 GitHub
               </a>
@@ -31,7 +33,7 @@ function Footer() {
                 href="https://www.instagram.com/nwthomas/"
                 aria-label="Link to Instagram"
                 rel="noopener noreferrer"
-                target="_target"
+                target="_blank"
               >
                 Instagram
               </a>
@@ -41,7 +43,7 @@ function Footer() {
                 href="https://www.linkedin.com/in/nwthomas-dev/"
                 aria-label="Link to LinkedIn"
                 rel="noopener noreferrer"
-                target="_target"
+                target="_blank"
               >
                 LinkedIn
               </a>
@@ -51,9 +53,19 @@ function Footer() {
                 href="https://medium.com/@nwthomas"
                 aria-label="Link to Medium"
                 rel="noopener noreferrer"
-                target="_target"
+                target="_blank"
               >
                 Medium
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.polywork.com/nwthomas"
+                aria-label="Link to Polywork"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Polywork
               </a>
             </li>
             <li>
@@ -61,7 +73,7 @@ function Footer() {
                 href="https://substack.com/profile/11012426-nathan-thomas"
                 aria-label="Link to Substack"
                 rel="noopener noreferrer"
-                target="_target"
+                target="_blank"
               >
                 Substack
               </a>
@@ -71,7 +83,7 @@ function Footer() {
                 href="https://twitter.com/nwthomas_"
                 aria-label="Link to Twitter"
                 rel="noopener noreferrer"
-                target="_target"
+                target="_blank"
               >
                 Twitter
               </a>
@@ -84,7 +96,11 @@ function Footer() {
   );
 }
 
-const RootStyles = styled.div`
+interface StyleProps {
+  isArticlePage: boolean;
+}
+
+const RootStyles = styled.div<StyleProps>`
   bottom: 0;
   display: flex;
   justify-content: center;
@@ -94,7 +110,8 @@ const RootStyles = styled.div`
 
   footer {
     max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
-    width: 100%;
+    width: ${({ isArticlePage, theme }) =>
+      isArticlePage ? theme.appDimensions.articleMaxWidth : "100%"};
 
     > p {
       color: ${({ theme }) => theme.colors.textSecondary};
@@ -114,7 +131,7 @@ const RootStyles = styled.div`
       > ul {
         display: flex;
         flex-wrap: wrap;
-        margin-bottom: ${({ theme }) => theme.spaces.small};
+        padding-bottom: ${({ theme }) => theme.spaces.medium};
         width: 100%;
 
         @media only screen and (min-width: ${({ theme }) =>
@@ -125,12 +142,17 @@ const RootStyles = styled.div`
         > li {
           display: flex;
           margin-top: ${({ theme }) => theme.spaces.small};
-          margin-right: ${({ theme }) => theme.spaces.medium};
+          margin-right: ${({ theme }) => theme.spaces.small};
 
           @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.tablet}) {
             margin-top: ${({ theme }) => theme.spaces.medium};
             margin-right: ${({ theme }) => theme.spaces.large};
+          }
+
+          > a:focus {
+            outline: none;
+            text-decoration-color: ${({ theme }) => theme.colors.textSecondary};
           }
         }
 
