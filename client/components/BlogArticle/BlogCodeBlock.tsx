@@ -65,7 +65,7 @@ const InlineRootStyles = styled.code`
   border-radius: ${({ theme }) => theme.borderRadii.medium};
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     Liberation Mono, Courier New, monospace;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   padding: ${({ theme }) =>
     `${theme.spaces.nano} calc(${theme.spaces.micro} * 2)`};
   white-space: nowrap;
