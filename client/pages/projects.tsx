@@ -5,13 +5,21 @@ import styled from "styled-components";
 
 function Work() {
   return (
-    <Layout pageName={PROJECTS_PAGE_NAME} withFooter>
+    <Layout pageName={PROJECTS_PAGE_NAME} withFooter withPageNameEmojis>
       <RootStyles>
         <main>
           <section>
             <h1>
-              This is all the work that I'm really proud of. I hope you enjoy
-              it.
+              This is some of the work I'm really proud of. You can find more on{" "}
+              <a
+                href="https://github.com/nwthomas"
+                aria-label="Link to GitHub"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                GitHub
+              </a>
+              .
             </h1>
           </section>
           <section>
@@ -85,20 +93,35 @@ const RootStyles = styled.div`
 
     > section {
       display: flex;
-
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.tablet}) {
-        margin-top: ${({ theme }) => theme.spaces.medium};
-      }
     }
 
     > section:nth-child(1) {
-      margin-bottom: ${({ theme }) => theme.spaces.large};
+      margin-bottom: ${({ theme }) => theme.spaces.medium};
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        margin-bottom: ${({ theme }) =>
-          `calc(${theme.spaces.medium} + ${theme.spaces.xxLarge})`};
+        margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
+      }
+
+      a {
+        background-clip: text;
+        background-image: ${({ theme }) =>
+          `linear-gradient(120deg, ${theme.colorsHex.royalBlue} 0%, ${theme.colorsHex.pictonBlue} 100%)`};
+        -moz-background-clip: text;
+        -webkit-background-clip: text;
+        background-image: ${({ theme }) => theme.gradients.getLinkText()};
+        background-size: 100%;
+        font-size: inherit;
+        padding: ${({ theme }) => `${theme.spaces.micro} 0`};
+        -moz-text-fill-color: transparent;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none;
+        transition: opacity ${({ theme }) => theme.transitions.short}
+          ease-in-out;
+
+        &:hover {
+          opacity: ${({ theme }) => theme.opacity.opacity80};
+        }
       }
     }
 
@@ -107,7 +130,7 @@ const RootStyles = styled.div`
 
       > ul {
         display: grid;
-        grid-row-gap: ${({ theme }) => theme.spaces.large};
+        grid-row-gap: ${({ theme }) => theme.spaces.medium};
         margin-bottom: ${({ theme }) => theme.spaces.large};
         width: 100%;
 
@@ -116,8 +139,7 @@ const RootStyles = styled.div`
           grid-column-gap: ${({ theme }) => theme.spaces.xxLarge};
           grid-row-gap: ${({ theme }) => theme.spaces.xxLarge};
           grid-template-columns: 1fr;
-          margin-bottom: ${({ theme }) =>
-            `calc(${theme.spaces.medium} + ${theme.spaces.xxLarge})`};
+          margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
         }
 
         @media only screen and (min-width: ${({ theme }) =>

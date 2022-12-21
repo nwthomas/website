@@ -12,10 +12,11 @@ function Employers() {
             href="https://www.loom.com"
             aria-label="Link to Loom"
             rel="noopener noreferrer"
-            target="_target"
+            target="_blank"
           >
             <img
               alt="Loom logo"
+              draggable={false}
               height={1000}
               src="/loom-logo.webp"
               width={1000}
@@ -30,10 +31,11 @@ function Employers() {
             href="https://twitter.com/nwthomas_"
             aria-label="Link to Twitter profile"
             rel="noopener noreferrer"
-            target="_target"
+            target="_blank"
           >
             <img
               alt="Twitter logo"
+              draggable={false}
               height={834}
               src="/twitter-logo.webp"
               width={1036}
@@ -75,6 +77,13 @@ const RootStyles = styled.section`
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.desktop}) {
+      margin-bottom: 0;
+      margin-right: ${({ theme }) => `calc(${theme.spaces.xxLarge} * 3)`};
+      max-width: 150px;
+    }
+
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.desktop}) {
       max-width: 250px;
     }
   }
@@ -83,20 +92,23 @@ const RootStyles = styled.section`
 const LoomLogo = styled.div`
   transition: transform ${({ theme }) => theme.transitions.medium} ease-in-out,
     opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
-  width: 130px;
+  max-width: 130px;
+  width: 100%;
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.tablet}) {
+    max-width: 100%;
     width: 150px;
   }
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.desktop}) {
+    max-width: 100%;
     width: 185px;
   }
 
   &:hover {
-    opacity: ${({ theme }) => theme.opacity.opacity90};
+    opacity: ${({ theme }) => theme.opacity.opacity80};
     transform: translateY(-1px);
   }
 `;
@@ -104,20 +116,23 @@ const LoomLogo = styled.div`
 const TwitterLogo = styled.div`
   transition: transform ${({ theme }) => theme.transitions.medium} ease-in-out,
     opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
-  width: 130px;
+  max-width: 130px;
+  width: 100%;
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.tablet}) {
+    max-width: 100%;
     width: 182px;
   }
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.desktop}) {
+    max-width: 100%;
     width: 225px;
   }
 
   &:hover {
-    opacity: ${({ theme }) => theme.opacity.opacity90};
+    opacity: ${({ theme }) => theme.opacity.opacity80};
     transform: translateY(-1px);
   }
 `;

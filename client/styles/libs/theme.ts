@@ -1,4 +1,4 @@
-import { DARK_THEME, ThemeEnum } from "./../../hooks/useGetPreferredTheme";
+import { DARK_THEME, ThemeEnum } from "./../../hooks";
 
 // ===================================== Color Assignment Variables
 // All color names pulled directly from http://chir.ag/projects/name-that-color/
@@ -48,12 +48,16 @@ export const colors: Colors = {
 // Gradients
 interface Gradients {
   getContactFormBorder: (radians: number) => string;
+  getHeaderBackground: () => string;
   getLinkText: () => string;
 }
 
 const gradients: Gradients = {
   getContactFormBorder: (radians: number) => {
     return `linear-gradient(calc(${radians}rad), ${colors.royalBlue} 0%, ${colors.pictonBlue} 20%, rgba(121,40,202,0) 75%)`;
+  },
+  getHeaderBackground: () => {
+    return `linear-gradient(180deg, ${themeColorValues.bodyBackground} 60%, rgba(121,40,202,0) 100%)`;
   },
   getLinkText: () => {
     return `linear-gradient(120deg, ${colors.royalBlue} 0%, ${colors.pictonBlue} 100%)`;
@@ -79,6 +83,7 @@ interface ThemeColorValues {
   buttonPrimaryBackground: string;
   error: string;
   text: string;
+  textOnContrast: string;
   textSecondary: string;
   transparent: string;
 }
@@ -89,6 +94,7 @@ export const themeColorValues: ThemeColorValues = {
   buttonPrimaryBackground: "var(--button-primary-bg)",
   error: "var(--error)",
   text: "var(--text)",
+  textOnContrast: "var(--text-on-contrast)",
   textSecondary: "var(--text-secondary)",
   transparent: "var(--transparent)",
 };
@@ -101,6 +107,7 @@ interface AppDimensions {
   articleHeroImageMaxWidth: string;
   articleMaxWidth: string;
   contactFormMaxWidth: string;
+  footerArticleHeight: string;
   footerDesktopHeight: string;
   footerTabletHeight: string;
   footerMobileHeight: string;
@@ -117,13 +124,14 @@ export const appDimensions: AppDimensions = {
   articleHeroImageMaxWidth: "1200px",
   articleMaxWidth: "600px",
   contactFormMaxWidth: "600px",
+  footerArticleHeight: "198px",
   footerDesktopHeight: "151px",
   footerTabletHeight: "199px",
-  footerMobileHeight: "98px",
+  footerMobileHeight: "110px",
   modalMaxWidth: "600px",
-  navbarDesktopHeight: "195px",
-  navbarTabletHeight: "195px",
-  navbarMobileHeight: "115px",
+  navbarDesktopHeight: "200px",
+  navbarTabletHeight: "192px",
+  navbarMobileHeight: "90px",
   navbarLinkWidth: "120px",
 };
 
@@ -222,7 +230,7 @@ interface Spaces {
   xxLarge: string;
   jumbo: string;
 }
-const spaces: Spaces = {
+export const spaces: Spaces = {
   nano: "2px",
   micro: "3px",
   xxSmall: "6px",

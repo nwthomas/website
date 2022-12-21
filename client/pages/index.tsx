@@ -4,44 +4,38 @@ import Employers from "../components/Employers";
 import { HOME_PAGE_NAME } from "../constants/seo";
 import Layout from "../components/Layout";
 import Link from "next/link";
-import type { NextPage } from "next";
+import { NextPage } from "next";
 import styled from "styled-components";
 
 const Home: NextPage = () => {
   return (
-    <Layout pageName={HOME_PAGE_NAME} withFooter>
+    <Layout pageName={HOME_PAGE_NAME} withFooter withPageNameEmojis>
       <RootStyles>
         <main>
           <section>
             <h1>
-              I'm Nathan 👋🏻, a{" "}
+              I'm <span>Nathan 👋🏻,</span> a{" "}
               <a
                 href="https://github.com/nwthomas"
                 aria-label="Link to GitHub"
                 rel="noopener noreferrer"
-                target="_target"
+                target="_blank"
               >
                 software engineer
               </a>
-              ,{" "}
-              <a
-                href="https://substack.com/profile/11012426-nathan-thomas"
-                aria-label="Link to Nathan's newsletter"
-                rel="noopener noreferrer"
-                target="_target"
-              >
-                writer
-              </a>
-              , and{" "}
+              , <Link href="/blog">writer</Link>, and{" "}
               <a
                 href="https://www.codetenderloin.org/code-ramp-course"
                 aria-label="Link to Code Tenderloin's Code Ramp bootcamp"
                 rel="noopener noreferrer"
-                target="_target"
+                target="_blank"
               >
                 teacher
               </a>{" "}
-              in San Francisco. Let's <Link href="/contact">talk</Link>.
+              in San Francisco.{" "}
+              <span>
+                Let's <Link href="/contact">talk</Link>.
+              </span>
             </h1>
           </section>
           <Employers />
@@ -55,7 +49,7 @@ const RootStyles = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
+  margin: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
   width: 100%;
 
   > main {
@@ -72,13 +66,7 @@ const RootStyles = styled.div`
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        margin-top: ${({ theme }) => theme.spaces.medium};
-        margin-bottom: ${({ theme }) =>
-          `calc(${theme.spaces.medium} + ${theme.spaces.xxLarge})`};
-      }
-
-      > div:nth-child(1) {
-        width: 400px;
+        margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
       }
 
       > h1 {
@@ -86,6 +74,8 @@ const RootStyles = styled.div`
 
         a {
           background-clip: text;
+          background-image: ${({ theme }) =>
+            `linear-gradient(120deg, ${theme.colorsHex.royalBlue} 0%, ${theme.colorsHex.pictonBlue} 100%)`};
           -moz-background-clip: text;
           -webkit-background-clip: text;
           background-image: ${({ theme }) => theme.gradients.getLinkText()};
@@ -95,7 +85,7 @@ const RootStyles = styled.div`
           -moz-text-fill-color: transparent;
           -webkit-text-fill-color: transparent;
           text-decoration: none;
-          transition: opacity ${({ theme }) => theme.transitions.medium}
+          transition: opacity ${({ theme }) => theme.transitions.short}
             ease-in-out;
 
           &:hover {

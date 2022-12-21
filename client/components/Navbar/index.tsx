@@ -1,49 +1,46 @@
+import { BLOG_PAGE, CONTACT_PAGE, PROJECTS_PAGE } from "../../constants/routes";
+
+import { HOME_PAGE } from "../../constants/routes";
 import Link from "next/link";
-import { ThemeEnum } from "../../hooks/useGetPreferredTheme";
+import React from "react";
 import ThemeTransitionSwitch from "../ThemeTransitionSwitch";
 import styled from "styled-components";
 
-interface Props {
-  currentTheme: ThemeEnum | null;
-  onThemeChangeClick: () => void;
-}
-
-function Navbar({ currentTheme, onThemeChangeClick }: Props) {
+function Navbar() {
   return (
     <RootStyles>
       <header>
-        <div>
-          <div>
-            <Link href="/" passHref>
-              <img
-                alt="Go to home page"
-                draggable={false}
-                height={400}
-                src="/nathan-thomas-pfp.jpg"
-                width={400}
-              />
-            </Link>
-          </div>
-          <nav>
-            <ul>
+        <nav>
+          <ul>
+            <div>
               <li>
-                <Link href="/">Home</Link>
+                <a href={HOME_PAGE}>
+                  <img
+                    alt="Go to home page"
+                    draggable={false}
+                    height={400}
+                    src="/nathan-thomas-pfp.jpg"
+                    width={400}
+                  />
+                </a>
+              </li>
+            </div>
+            <div>
+              <li>
+                <Link href={BLOG_PAGE}>Blog</Link>
               </li>
               <li>
-                <Link href="/projects">Projects</Link>
+                <Link href={PROJECTS_PAGE}>Projects</Link>
               </li>
               <li>
-                <Link href="/contact">Contact</Link>
+                <Link href={CONTACT_PAGE}>Contact</Link>
               </li>
               <li>
-                <ThemeTransitionSwitch
-                  currentTheme={currentTheme}
-                  onClick={onThemeChangeClick}
-                />
+                <ThemeTransitionSwitch />
               </li>
-            </ul>
-          </nav>
-        </div>
+            </div>
+          </ul>
+        </nav>
       </header>
     </RootStyles>
   );
@@ -51,10 +48,8 @@ function Navbar({ currentTheme, onThemeChangeClick }: Props) {
 
 const RootStyles = styled.div`
   display: flex;
-  background: ${({ theme }) => theme.colors.transparent};
   left: 0;
-  padding: ${({ theme }) =>
-    `0 calc(${theme.appDimensions.appHorizontalGutters} - ${theme.spaces.small})`};
+  padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
   position: absolute;
   justify-content: center;
   right: 0;
@@ -63,70 +58,71 @@ const RootStyles = styled.div`
   z-index: 1;
 
   > header {
-    background: ${({ theme }) => theme.colors.bodyBackground};
     align-items: center;
     display: flex;
     justify-content: center;
-    max-width: ${({ theme }) =>
-      `calc(${theme.appDimensions.appMaxWidth} + ${theme.spaces.small})`};
-    padding: ${({ theme }) =>
-      `${theme.spaces.small} 0 calc(${theme.spaces.large} - ${theme.spaces.small})`};
+    max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
+    padding: ${({ theme }) => `${theme.spaces.medium} 0 `};
     width: 100%;
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
-      padding: ${({ theme }) =>
-        `calc(${theme.spaces.xxLarge}  - ${theme.spaces.small}) 0`};
+      padding: ${({ theme }) => `${theme.spaces.xxLarge} 0`};
     }
 
-    > div {
-      background-: ${({ theme }) => theme.colors.bodyBackgroundAccent};
-      border: ${({ theme }) =>
-        `${theme.spaces.nano} solid ${theme.colors.transparent}`};
-      border-radius: ${({ theme }) => theme.borderRadii.infinity};
+    > nav {
+      align-items: center;
       display: flex;
-      justify-content: space-between;
-      padding: ${({ theme }) => theme.spaces.small};
+      justify-content: center;
       width: 100%;
 
-      > div,
-      nav {
-        align-items: center;
+      > ul {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
+        width: 100%;
 
-        img {
-          transition: opacity ${({ theme }) => theme.transitions.medium}
-            ease-in-out;
-
-          &:hover {
-            opacity: ${({ theme }) => theme.opacity.opacity80};
-          }
-        }
-
-        img {
-          border-radius: ${({ theme }) => theme.borderRadii.infinity};
-          cursor: pointer;
-          height: 50px;
-          user-select: none;
-          width: 50px;
-        }
-      }
-
-      > nav > ul {
-        display: flex;
-
-        > li {
+        > div {
           align-items: center;
           display: flex;
-          line-height: 1;
-          list-style-type: none;
-          margin-left: ${({ theme }) => theme.spaces.medium};
           justify-content: center;
 
-          @media only screen and (min-width: ${({ theme }) =>
-              theme.breakpoints.tablet}) {
-            margin-left: ${({ theme }) => theme.spaces.large};
+          li {
+            align-items: center;
+            display: flex;
+            line-height: 1;
+            list-style-type: none;
+            margin-left: ${({ theme }) => theme.spaces.small};
+            justify-content: center;
+
+            @media only screen and (min-width: ${({ theme }) =>
+                theme.breakpoints.tablet}) {
+              margin-left: ${({ theme }) => theme.spaces.large};
+            }
+
+            > a {
+              &:has(img) {
+                border-radius: ${({ theme }) => theme.borderRadii.infinity};
+              }
+
+              > img {
+                border-radius: ${({ theme }) => theme.borderRadii.infinity};
+                display: flex;
+                cursor: pointer;
+                height: 50px;
+                transition: opacity ${({ theme }) => theme.transitions.medium}
+                  ease-in-out;
+                user-select: none;
+                width: 50px;
+
+                &:hover {
+                  opacity: ${({ theme }) => theme.opacity.opacity80};
+                }
+              }
+            }
+          }
+
+          li:nth-child(1) {
+            margin-left: 0;
           }
         }
       }

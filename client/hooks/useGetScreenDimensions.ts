@@ -1,11 +1,11 @@
 import * as React from "react";
 
-export type ScreenDimensions = {
+export interface ScreenDimensions {
   viewportHeight?: number;
   viewportWidth?: number;
   availableHeight?: number;
   availableWidth?: number;
-};
+}
 
 export const useGetScreenDimensions = (): ScreenDimensions => {
   const [viewportHeight, setViewportHeight] = React.useState<
