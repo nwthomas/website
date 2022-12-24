@@ -1,3 +1,4 @@
+import { CONTENTS_ID } from "../constants/routes";
 import Layout from "../components/Layout";
 import { PROJECTS_PAGE_NAME } from "../constants/seo";
 import WorkExample from "../components/WorkExample";
@@ -7,7 +8,7 @@ function Work() {
   return (
     <Layout pageName={PROJECTS_PAGE_NAME} withFooter withPageNameEmojis>
       <RootStyles>
-        <main>
+        <main id={CONTENTS_ID}>
           <section>
             <h1>
               This is some of the work I'm really proud of. You can find more on{" "}

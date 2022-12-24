@@ -1,5 +1,6 @@
 import * as React from "react";
 
+import { CONTENTS_ID } from "../constants/routes";
 import Employers from "../components/Employers";
 import { HOME_PAGE_NAME } from "../constants/seo";
 import Layout from "../components/Layout";
@@ -11,7 +12,7 @@ const Home: NextPage = () => {
   return (
     <Layout pageName={HOME_PAGE_NAME} withFooter withPageNameEmojis>
       <RootStyles>
-        <main>
+        <main id={CONTENTS_ID}>
           <section>
             <h1>
               I'm <span>Nathan 👋🏻,</span> a{" "}

@@ -53,7 +53,12 @@ const RootStyles = styled.section`
     align-items: center;
     display: flex;
     justify-content: space-between;
-    margin-bottom: ${({ theme }) => theme.spaces.medium};
+    margin-bottom: ${({ theme }) => theme.spaces.small};
+
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.desktop}) {
+      margin-bottom: ${({ theme }) => theme.spaces.medium};
+    }
 
     > p {
       font-size: 1.6rem;
@@ -70,24 +75,21 @@ const RootStyles = styled.section`
 
   > ul {
     display: grid;
-    grid-column-gap: ${({ theme }) => theme.spaces.medium};
-    grid-row-gap: ${({ theme }) => theme.spaces.medium};
+    grid-column-gap: ${({ theme }) => theme.spaces.small};
+    grid-row-gap: ${({ theme }) => theme.spaces.small};
     grid-template-columns: 1fr;
     grid-auto-rows: 1fr;
+
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.desktop}) {
+      grid-column-gap: ${({ theme }) => theme.spaces.medium};
+      grid-row-gap: ${({ theme }) => theme.spaces.medium};
+      grid-template-columns: 1fr 1fr 1fr;
+    }
 
     > li {
       line-height: 1;
       list-style-type: none;
-    }
-
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.tablet}) {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.desktop}) {
-      grid-template-columns: 1fr 1fr 1fr;
     }
   }
 `;

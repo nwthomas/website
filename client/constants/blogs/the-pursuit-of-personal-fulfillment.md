@@ -15,7 +15,7 @@ tags:
 
 ---
 
-> This article originally appeared on [Medium](https://medium.com/@nwthomas/the-pursuit-of-personal-fulfillment-c5c82994c028). It has received slight edits (since we all get better at our hobbies - like writing - with time), but it's still true to its original vision.
+> This article originally appeared on Medium. It has received slight edits (since we all get better at our hobbies - like writing - with time), but it's still true to its original vision.
 
 ---
 
