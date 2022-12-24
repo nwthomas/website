@@ -219,8 +219,7 @@ const RootStyles = styled.div<StyleProps>`
 
         > p {
           align-items: center;
-          background-color: ${({ theme }) =>
-            theme.colors.bodyBackgroundAccentOne};
+          background-color: ${({ theme }) => theme.colors.bodyBackground};
           border-radius: ${({ theme }) => theme.borderRadii.large};
           bottom: 0;
           color: ${({ theme }) => theme.colors.error};

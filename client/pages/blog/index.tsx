@@ -8,6 +8,7 @@ import {
 
 import { BLOG_PAGE_NAME } from "../../constants/seo";
 import BlogCardSection from "../../components/BlogCardSection";
+import { CONTENTS_ID } from "../../constants/routes";
 import Layout from "../../components/Layout";
 import { getDirectoryFiles } from "../../utils/readBlogFiles";
 import styled from "styled-components";
@@ -49,7 +50,7 @@ function Blogs({ blogPostsByTags, sortedTags }) {
   return (
     <Layout pageName={BLOG_PAGE_NAME} withFooter withPageNameEmojis>
       <RootStyles>
-        <main>{blogCardSections}</main>
+        <main id={CONTENTS_ID}>{blogCardSections}</main>
       </RootStyles>
     </Layout>
   );
@@ -63,7 +64,7 @@ const RootStyles = styled.div`
   width: 100%;
 
   > main {
-    margin-bottom: ${({ theme }) => theme.spaces.large};
+    margin-bottom: ${({ theme }) => theme.spaces.medium};
     max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
 
     @media only screen and (min-width: ${({ theme }) =>
@@ -73,7 +74,7 @@ const RootStyles = styled.div`
     }
 
     > div {
-      margin-bottom: ${({ theme }) => theme.spaces.medium};
+      margin-bottom: ${({ theme }) => theme.spaces.small};
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {

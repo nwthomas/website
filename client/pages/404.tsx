@@ -1,3 +1,4 @@
+import { CONTENTS_ID } from "../constants/routes";
 import Error from "../components/Error";
 import { FOUR_OH_FOUR_PAGE_NAME } from "../constants/seo";
 import Layout from "../components/Layout";
@@ -5,7 +6,9 @@ import Layout from "../components/Layout";
 function FourOhFour() {
   return (
     <Layout pageName={FOUR_OH_FOUR_PAGE_NAME} withFooter withPageNameEmojis>
-      <Error errorCode="404" />
+      <main id={CONTENTS_ID}>
+        <Error errorCode="404" />
+      </main>
     </Layout>
   );
 }

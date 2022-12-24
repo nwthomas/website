@@ -15,7 +15,7 @@ tags:
 
 ---
 
-> This article originally appeared on [HackerNoon](https://hackernoon.com/how-to-become-a-typescript-badass-0o213e4v). It has received some edits (since we all get better at our hobbies - like writing - with time), but it's still true to its original vision.
+> This article originally appeared on HackerNoon. It has received some edits (since we all get better at our hobbies - like writing - with time), but it's still true to its original vision.
 
 ---
 

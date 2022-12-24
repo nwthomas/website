@@ -1,5 +1,6 @@
 import { BLOG_PAGE, CONTACT_PAGE, PROJECTS_PAGE } from "../../constants/routes";
 
+import { CONTENTS_ID } from "../../constants/routes";
 import { HOME_PAGE } from "../../constants/routes";
 import Link from "next/link";
 import React from "react";
@@ -25,6 +26,9 @@ function Navbar() {
                 </a>
               </li>
             </div>
+            <li>
+              <a href={`#${CONTENTS_ID}`}>Skip to Content</a>
+            </li>
             <div>
               <li>
                 <Link href={BLOG_PAGE}>Blog</Link>
@@ -79,7 +83,38 @@ const RootStyles = styled.div`
       > ul {
         display: flex;
         justify-content: space-between;
+        position: relative;
         width: 100%;
+
+        /* These styles are for the hidden content button */
+        > li {
+          list-style-type: none;
+
+          > a {
+            align-items: center;
+            display: flex;
+            height: 100%;
+            left: ${({ theme }) =>
+              `calc(${theme.spaces.xLarge} + ${theme.spaces.micro})`};
+            position: absolute;
+            overflow: hidden;
+            top: 0;
+            transform: translateY(-1000%);
+            z-index: 1000;
+
+            @media only screen and (min-width: ${({ theme }) =>
+                theme.breakpoints.tablet}) {
+              left: ${({ theme }) => theme.spaces.xxLarge};
+            }
+
+            :focus {
+              outline: none;
+              text-decoration-color: ${({ theme }) =>
+                theme.colors.textSecondary};
+              transform: translateY(0%);
+            }
+          }
+        }
 
         > div {
           align-items: center;
@@ -100,8 +135,20 @@ const RootStyles = styled.div`
             }
 
             > a {
+              &:focus {
+                outline: none;
+                text-decoration-color: ${({ theme }) =>
+                  theme.colors.textSecondary};
+              }
+
               &:has(img) {
                 border-radius: ${({ theme }) => theme.borderRadii.infinity};
+
+                &:focus {
+                  outline-color: ${({ theme }) => theme.colorsHex.royalBlue};
+                  outline-style: solid;
+                  outline-width: ${({ theme }) => theme.spaces.nano};
+                }
               }
 
               > img {

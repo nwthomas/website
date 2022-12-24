@@ -1,6 +1,7 @@
 import { BlogPosts, buildSlugToBlogPostMap } from "../../utils/sortBlogPosts";
 
 import { BlogMarkdownRenderer } from "../../components/BlogArticle";
+import { CONTENTS_ID } from "../../constants/routes";
 import Layout from "../../components/Layout";
 import { getDirectoryFiles } from "../../utils/readBlogFiles";
 import styled from "styled-components";
@@ -47,7 +48,7 @@ function BlogPost({ slugToBlogPostMap }) {
   return (
     <Layout isArticle pageName={blogPost.data.title} withFooter>
       <RootStyles>
-        <main>
+        <main id={CONTENTS_ID}>
           <article>
             <BlogMarkdownRenderer
               content={blogPost.content}

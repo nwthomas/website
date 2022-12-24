@@ -1,6 +1,6 @@
 ---
-title: "(LeetCode #206) Reverse a Linked List"
-metaTitle: "(LeetCode #206) Reverse a Linked List"
+title: "Reverse a Linked List"
+metaTitle: "Reverse a Linked List"
 slug: "reverse-a-linked-list"
 metaDescription: "The Reverse a Linked List coding challenge teaches you about singly-linked lists and how to use them."
 imageUrl: /blog-assets/reverse-a-linked-list/chains.webp
@@ -9,13 +9,13 @@ tags:
   - LeetCode
 ---
 
-<img alt="Chains superimposed against water" src="/blog-assets/reverse-a-linked-list/chains.webp" title="Image by [Mael BALLAND](https://unsplash.com/@mael_balland) on [Unsplash](https://unsplash.com/@christieckim)" width="1152" height="1728">
+<img alt="Chains superimposed against water" src="/blog-assets/reverse-a-linked-list/chains.webp" title="Image by [Mael BALLAND](https://unsplash.com/@mael_balland) on [Unsplash](https://unsplash.com/@christieckim)" width="1728" height="1152">
 
 # Reverse a Linked List
 
 ---
 
-> This article originally appeared on [Medium](https://medium.com/@nwthomas/reverse-a-linked-list-leetcode-206-62441622e652). It has received slight edits (since we're all better at our hobbies - like writing - as we get older), but it's still true to its original vision.
+> This article originally appeared on Medium. It has received slight edits (since we all get better at our hobbies - like writing - with time), but it's still true to its original vision.
 
 ---
 

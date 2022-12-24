@@ -6,6 +6,7 @@ import {
 } from "../../utils/sortBlogPosts";
 
 import BlogCardSection from "../../components/BlogCardSection";
+import { CONTENTS_ID } from "../../constants/routes";
 import Layout from "../../components/Layout";
 import { buildKebabCaseParam } from "../../utils/routes";
 import { getDirectoryFiles } from "../../utils/readBlogFiles";
@@ -73,7 +74,7 @@ function TagIdPage({ blogPostsByTags }) {
       withPageNameEmojis
     >
       <RootStyles>
-        <main>{tagIdBlogSection}</main>
+        <main id={CONTENTS_ID}>{tagIdBlogSection}</main>
       </RootStyles>
     </Layout>
   );

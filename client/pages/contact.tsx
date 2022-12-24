@@ -4,6 +4,7 @@ import { resetMessageValues, updateMessageValues } from "../store/contactSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 import { CONTACT_PAGE_NAME } from "../constants/seo";
+import { CONTENTS_ID } from "../constants/routes";
 import ContactForm from "../components/ContactForm";
 import Layout from "../components/Layout";
 import { MessageValues } from "../components/ContactForm";
@@ -55,7 +56,7 @@ function Contact() {
   return (
     <Layout pageName={CONTACT_PAGE_NAME} withFooter withPageNameEmojis>
       <RootStyles>
-        <main>
+        <main id={CONTENTS_ID}>
           <section>
             <h1>
               You can reach me on{" "}
