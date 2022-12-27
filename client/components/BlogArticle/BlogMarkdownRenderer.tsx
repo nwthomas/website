@@ -145,7 +145,7 @@ function BlogMarkdownRenderer({ content, heroImageUrl }: Props) {
               alt={alt}
               height={height}
               isHeroImage={isHeroImage}
-              src={src || ""}
+              src={src}
               title={title}
               width={width}
             />

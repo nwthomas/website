@@ -1,8 +1,5 @@
 import * as React from "react";
 
-// For more information about how to use the Image component, check out:
-// https://nextjs.org/docs/api-reference/next/image#blurdataurl
-import Image from "next/image";
 import styled from "styled-components";
 
 function Employers() {
@@ -17,11 +14,10 @@ function Employers() {
             rel="noopener noreferrer"
             target="_blank"
           >
-            <Image
+            <img
               alt="Loom logo"
               draggable={false}
               height={1000}
-              priority
               src="/loom-logo.webp"
               width={1000}
             />
@@ -37,11 +33,10 @@ function Employers() {
             rel="noopener noreferrer"
             target="_blank"
           >
-            <Image
+            <img
               alt="Twitter logo"
               draggable={false}
               height={834}
-              priority
               src="/twitter-logo.webp"
               width={1036}
             />
