@@ -2,6 +2,7 @@ import { BLOG_PAGE, CONTACT_PAGE, PROJECTS_PAGE } from "../../constants/routes";
 
 import { CONTENTS_ID } from "../../constants/routes";
 import { HOME_PAGE } from "../../constants/routes";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import ThemeTransitionSwitch from "../ThemeTransitionSwitch";
@@ -16,10 +17,11 @@ function Navbar() {
             <div>
               <li>
                 <a href={HOME_PAGE}>
-                  <img
+                  <Image
                     alt="Go to home page"
                     draggable={false}
                     height={400}
+                    priority
                     src="/nathan-thomas-pfp.jpg"
                     width={400}
                   />
@@ -143,6 +145,9 @@ const RootStyles = styled.div`
 
               &:has(img) {
                 border-radius: ${({ theme }) => theme.borderRadii.infinity};
+                height: 50px;
+                overflow: hidden;
+                width: 50px;
 
                 &:focus {
                   outline-color: ${({ theme }) => theme.colorsHex.royalBlue};

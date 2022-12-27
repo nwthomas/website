@@ -1,3 +1,6 @@
+// For more information about how to use the Image component, check out:
+// https://nextjs.org/docs/api-reference/next/image#blurdataurl
+import Image from "next/image";
 import styled from "styled-components";
 
 interface Props {
@@ -10,6 +13,7 @@ interface Props {
   imageSrc: string;
   title: string;
   url: string;
+  withPriorityLoad?: boolean;
 }
 
 function WorkExample({
@@ -19,6 +23,7 @@ function WorkExample({
   imageSrc,
   title,
   url,
+  withPriorityLoad,
 }: Props) {
   return (
     <RootStyles>
@@ -28,10 +33,11 @@ function WorkExample({
         rel="noopener noreferrer"
         target="_blank"
       >
-        <img
+        <Image
           alt={imageAlt || "Image"}
           draggable={false}
           src={imageSrc}
+          priority={withPriorityLoad}
           height={height}
           width={width}
         />
