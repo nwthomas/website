@@ -32,7 +32,6 @@ function Work() {
                 imageSrc="/personal-portfolio.webp"
                 title="Personal Site"
                 url="https://github.com/nwthomas/personal-portfolio"
-                withPriorityLoad
               />
               <WorkExample
                 ariaLabel="Link to Loom blog post about low light adjustments"
@@ -41,7 +40,6 @@ function Work() {
                 imageSrc="/loom-low-light.webp"
                 title="Loom Low Light Adjustments"
                 url="https://new.loom.com/announcements/look-your-best-with-touch-up-my-appearance-and-low-light-adjustments"
-                withPriorityLoad
               />
               <WorkExample
                 ariaLabel="Link to Loom blog post about multi-video stitching"
@@ -50,7 +48,6 @@ function Work() {
                 imageSrc="/loom-multi-clip-editing.webp"
                 title="Loom Multi-Clip Editing"
                 url="https://www.loom.com/blog/video-stitching"
-                withPriorityLoad
               />
               <WorkExample
                 ariaLabel="Link to Jane Wong Tweet about the Twitter video trimmer"
@@ -59,7 +56,6 @@ function Work() {
                 imageSrc="/twitter-video-trimmer.webp"
                 title="Twitter Video Trimmer"
                 url="https://twitter.com/wongmjane/status/1418299633382559748"
-                withPriorityLoad
               />
               <WorkExample
                 ariaLabel="Link to Twitter blog post about Twitter Super Follows"

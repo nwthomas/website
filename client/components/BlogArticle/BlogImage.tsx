@@ -1,9 +1,6 @@
 import styled, { ThemeContext } from "styled-components";
 
 import { BlogMarkdownRenderer } from "./";
-// For more information about how to use the Image component, check out:
-// https://nextjs.org/docs/api-reference/next/image#blurdataurl
-import Image from "next/image";
 import React from "react";
 import { useGetScreenDimensions } from "../../hooks";
 
@@ -11,7 +8,7 @@ interface Props {
   alt?: string;
   height?: string | number;
   isHeroImage?: boolean;
-  src: string;
+  src?: string;
   title?: string;
   width?: string | number;
 }
@@ -39,11 +36,10 @@ function BlogImage({ alt, height, isHeroImage, src, title, width }: Props) {
       withRoundedCorners={withRoundedCorners}
     >
       <div>
-        <Image
+        <img
           alt={alt}
           draggable={false}
           height={height}
-          priority={isHeroImage}
           src={src}
           width={width}
         />
