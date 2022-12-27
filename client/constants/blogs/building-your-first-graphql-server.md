@@ -157,11 +157,7 @@ From there, you'll find yourself on the "Project Settings" page. Click on the "D
 
 <img alg="Screenshot of the Supabase new project dashboard with an arrow indicating where to click for Project Settings" height="1009" src="/blog-assets/building-your-first-graphql-server/supabase-grab-database-url.webp" width="1473">
 
-Copy the `NodeJS` URL. We'll use that in just a second. Here’s a fake link to demonstrate what it should look like:
-
-```
-postgresql://postgres:[YOUR-PASSWORD]@db.fxmmbuowzzhryfwwprao.supabase.co:5432/postgres
-```
+Copy the `NodeJS` URL. We'll use that in just a second.
 
 Next, go to the repository that you cloned from me. Create a file called `.env` in your root directory and paste the following in:
 
