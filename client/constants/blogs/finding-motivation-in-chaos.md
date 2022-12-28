@@ -1,0 +1,186 @@
+---
+title: "Finding Motivation in Chaos"
+slug: "finding-motivation-in-chaos"
+imageUrl: /blog-assets/finding-motivation-in-chaos/surfer.webp
+metaTitle: "Finding Motivation in Chaos"
+metaDescription: "Change is a constant in life. The only thing that matters is that you keep working."
+date: "2019-11-27"
+tags:
+  - Soft Skills
+---
+
+<img alt="Black and white photograph of a surfer" height="972" src="/blog-assets/finding-motivation-in-chaos/surfer.webp" title="Image by [Tim Marshall](https://unsplash.com/@timmarshall) on [Unsplash](https://unsplash.com)" width="1728">
+
+# Finding Motivation in Chaos
+
+---
+
+> This article originally appeared on Medium. It has received slight edits (since we all get better at our hobbies - like writing - with time), but it's still true to its original vision.
+
+---
+
+## Introduction
+
+I’ve told several of my friends recently that I write best about what I know.
+
+Well, this is what I know: This year has been pure chaos in my life, and it’s been all I can do to hold on with both hands. This isn’t anything unique to me; so many people are struggling this year. In the heart of the all of this, it’s been all I can do to focus on work.
+
+Somewhere along the way, I stopped being able to write as much, tweet as much, or code a lot in my free time. I even have trouble finding time to play the guitar now.
+
+When this happens — when I don’t get to express myself or create — I find myself circulating in a negative mental cycle.
+
+“You should be writing more” becomes “You are lazy.”
+
+“You should be coding more” becomes “You’re failing.”
+
+“Nate, you should cut yourself some slack. Also, others have it way worse.” You’re right. I should, and they do. But this is the way the human mind works, and so it’s the mental struggle I’ve been dealing with this year.
+
+I also think what I’ve said so far might resonate with a lot of you.
+
+Today, I want to talk about motivation: what it is, why it might look very different from what you think, and how to get it back if you feel like you’ve lost it.
+
+As always, get yourself a cup of some hot beverage (I’m drinking hot cocoa as I type this).
+
+It’s cold outside, but that doesn’t mean we can’t be warm. ☕️
+
+---
+
+> “I accept chaos, I’m not sure whether it accepts me.”
+>
+> — Bob Dylan
+
+---
+
+## Do the Things, Be the Things
+
+It’s been said that we shouldn’t tell others what we plan on accomplishing in the future, as the mere act of doing so gives us a dopamine rush. When people praise us for our goals, our brain feels successful and validated. Ironically, we’re now _less_ likely to complete that task. Our brain thinks we’re done.
+
+I’d also argue that it’s just as dangerous to think about what we _should_ be accomplishing at some point in the future. I read once that most people’s unhappiness stems from the difference between how they think their lives should turn out and what actually happens.
+
+If I staunchly believe I should own a house, be married, and have a white picket fence with 2.5 kids by the time I’m 21, I might end up being a very stressed person if I’m 22, single, searching for a job, and living in an apartment the size of a closet.
+
+When people say they’re struggling with motivation, really what they often mean is that they think they haven’t completed anything lately that they’re proud of.
+
+The heart of the problem is usually that they’ve tied their self-worth to their ability to complete an arbitrary task defined by either society or their own mind.
+
+_(The thought in the sentence above is a brand new revelation for me. I realized it about myself right as I was typing it out for you. Don’t let anyone ever tell you that writing can’t be therapeutic.)_
+
+But life isn’t just about goals. Human beings aren’t robots that check boxes.
+
+As the cliché goes, “Life is about the journey.” What if this is true of motivation? What if being motivated isn’t about the goals you achieve? What if being motivated is persisting yourself through whatever comes your way?
+
+_(I wrote an [article back in 2019 on this](https://www.nathanthomas.dev/blog/the-pursuit-of-personal-fulfillment) that I apparently didn’t internalize.)_
+
+I’ve had a mounting suspicion lately that we all think about motivation in the wrong way. It’s not just about what you accomplish.
+
+---
+
+> “Life is what happens to you while you’re busy making other plans.”
+>
+> — John Lennon
+
+---
+
+## Accomplishments are Retroactive
+
+If motivation isn’t about accomplishments, then what is it all about?
+
+The best way to approach motivation is to ask yourself what the most important thing is to _you_ that you should be doing in that moment.
+
+The stoic philosophers had an idea called “memento mori,” or “remember that you must die.” The idea was that you could die at any moment, so keep that thought in your mind to focus your attention in life onto what really matters to you.
+
+Should you be reading that book? Working hard to make money to buy a house for your family? Writing a song? Coding an app as a side project?
+
+The problem with defining happiness based on _completion_ of goals is that they’re so often impossible to completely define; the goalposts keep moving as life moves on.
+
+If you told yourself that you want to be a gifted musician, you might give up in the first month if you still couldn’t absolutely shred. But if your desire is to learn to play the guitar, then you’re already fulfilling that promise the first time you play a C chord.
+
+You’re much more likely to continue doing something if your desire stems from wanting to do the learning (or building) action, not the finishing one.
+
+If we’re inspired by this long enough to keep creating, we often look backwards and see how much we’ve accomplished.
+
+It’s this point that others look at with admiration.
+
+It’s this point that so many people hang all of their hopes and dreams on.
+
+It’s this point that causes so much unhappiness for others when their expectations do not end up matching reality.
+
+---
+
+<img alt="Foggy beach in Northern California" height="1125" src="/blog-assets/finding-motivation-in-chaos/beach.webp" width="1795">
+
+---
+
+## Inaction is a Slow Death
+
+If there is something comforting in all of this talk about motivation, it’s this — Everyone who has tried learning a new skill or habit has experienced failures. It comes with the territory. You have to be prepared to fail (especially in the beginning) when you’re learning a new skill.
+
+This should be an encouraging thought, since it ultimately frees you to pursue what you want.
+
+For instance, I often think of this scene from the show [Adventure Time](https://en.wikipedia.org/wiki/Adventure_Time) when talking about failure:
+
+<img alt="Jake the Dog from Adventure Time saying, 'Dude, sucking at something is the first step towards being sort of good at something'" height="266" src="/blog-assets/finding-motivation-in-chaos/jake-the-dog-advice.gif" width="474">
+
+So many people stay in stasis because it’s safer for them to stand still and never experience failure than to be pushing for what they want and are passionate about in life. They’re scared others will judge them if they don’t succeed.
+
+Notice a trend here?
+
+Once again, our mind’s end goal is forcing us into unrealistic expectations of how our journey will be.
+
+Instead of this, recognize that true success is in just _moving_ in a certain direction. This is a victory all by itself, as you can always pivot and adjust course later.
+
+When teaching students how to code at Code Tenderloin, I sometimes see students upset that they made a small mistake. But I always remind them that it’s actually an advantage — Now that mistake is permanently burned into their mind, and they’ll likely never make it again.
+
+A weakness has become a strength.
+
+It’s the same way with our motivation. If we focus on the journey and not some end goal, we can be thankful in the moment for when we mess up because it’s made us even stronger.
+
+---
+
+> “The only man who never makes mistakes is the man who never does anything.”
+>
+> — Theodore Roosevelt
+
+---
+
+## Success is a Team Sport
+
+There’s one more point I’d like to make about finding motivation, what it is, and how it relates into what we feel — Motivation is often found through collaboration and communion with others.
+
+There’s a quote in the book [Debugging Through Teams](https://www.amazon.com/Debugging-Teams-Productivity-through-Collaboration/dp/1491932058) by Brian Fitzpatrick and Ben Collins-Sussman that says, “Lone craftsman are extremely rare — and even when they do exist, they don’t perform superhuman achievements in a vacuum; their world-changing accomplishment is almost always the result of a spark of inspiration followed by a heroic team effort.”
+
+Motivation is extremely easy to find (and sustain) in groups. It’s much harder to develop on your own at your desk at 11:35 pm on a random Tuesday.
+
+When people think of how Apple started, they often think of the legend of Steve Jobs and Steve Wozniak, laboring away in a little garage in Los Altos, California.
+
+But what people often don’t realize is that Jobs and Wozniak quickly hired a team around them who helped lay the foundation for what Apple is today. Apple never would have succeeded if it had just stayed the two of them.
+
+If you’re struggling with motivation, perhaps it’s time to start working with those around you to produce something insanely great. Focus on what you’re passionate about and go from there.
+
+You might be surprised what your group of believers can turn out.
+
+---
+
+> “It always seems impossible until it’s done.”
+>
+> — Nelson Mandela
+
+---
+
+## Embrace the Chaos, Find Motivation
+
+Instead of fighting with how your week, month, or year is going, notice instead how you have succeeded within it. Appreciate when you’ve taken steps to work on yourself, your friends and family, and your hobbies.
+
+Carve out some moments in the coming days to practice and build projects that you’re passionate about.
+
+Don’t worry about what this will look like a year or two from now, since most of us can barely predict what we’ll eat for lunch today (let alone tomorrow).
+
+Finally, think about gathering up people like you to work on ideas together. There’s strength in numbers.
+
+If you take these steps, I promise you’ll look up one day down the road and realize that you’re somehow motivated in a way you couldn’t have previously imagined while also having a series of achievements that you’re proud of.
+
+---
+
+Thanks for reading. 🔥
+
+Nathan
