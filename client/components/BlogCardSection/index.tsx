@@ -55,11 +55,6 @@ const RootStyles = styled.section`
     justify-content: space-between;
     margin-bottom: ${({ theme }) => theme.spaces.small};
 
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.desktop}) {
-      margin-bottom: ${({ theme }) => theme.spaces.medium};
-    }
-
     > p {
       font-size: 1.6rem;
       line-height: 1;
@@ -82,15 +77,11 @@ const RootStyles = styled.section`
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
-      grid-column-gap: ${({ theme }) => theme.spaces.small};
-      grid-row-gap: ${({ theme }) => theme.spaces.small};
       grid-template-columns: 1fr 1fr;
     }
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.desktop}) {
-      grid-column-gap: ${({ theme }) => theme.spaces.medium};
-      grid-row-gap: ${({ theme }) => theme.spaces.medium};
       grid-template-columns: 1fr 1fr 1fr;
     }
 

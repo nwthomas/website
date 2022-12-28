@@ -75,11 +75,6 @@ const RootStyles = styled.div`
 
     > div {
       margin-bottom: ${({ theme }) => theme.spaces.small};
-
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.desktop}) {
-        margin-bottom: ${({ theme }) => theme.spaces.medium};
-      }
     }
 
     > div:last-child {
