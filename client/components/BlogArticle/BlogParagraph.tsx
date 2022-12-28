@@ -31,7 +31,7 @@ const RootStyles = styled.div`
     max-width: ${({ theme }) => theme.appDimensions.articleMaxWidth};
     width: 100%;
 
-    > a {
+    a {
       background-clip: text;
       background-image: ${({ theme }) =>
         `linear-gradient(120deg, ${theme.colorsHex.royalBlue} 0%, ${theme.colorsHex.pictonBlue} 100%)`};
@@ -51,12 +51,12 @@ const RootStyles = styled.div`
       }
     }
 
-    > em,
+    em,
     i {
       font-style: italic;
     }
 
-    > b {
+    b {
       font-style: bold;
     }
   }
