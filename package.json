@@ -8,9 +8,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nwthomas/personal-portfolio.git"
+    "url": "git+https://github.com/nwthomas/website.git"
   },
-  "description": "The server for Nathan Thomas' portfolio site",
+  "description": "The server for Nathan Thomas' website",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
