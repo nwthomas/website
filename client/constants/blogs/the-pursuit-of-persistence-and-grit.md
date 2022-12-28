@@ -9,7 +9,7 @@ tags:
   - Soft Skills
 ---
 
-<img alt="Black and white photograph of fisherman" height="912" src="/blog-assets/the-pursuit-of-persistence-and-grit/fishermen.webp" title="Image by [Christie Kim](https://unsplash.com/@christieckim) on [Unsplash](https://unsplash.com/@christieckim)" width="1368">
+<img alt="Black and white photograph of fisherman" height="912" src="/blog-assets/the-pursuit-of-persistence-and-grit/fishermen.webp" title="Image by [Christie Kim](https://unsplash.com/@christieckim) on [Unsplash](https://unsplash.com)" width="1368">
 
 # The Pursuit of Persistence and Grit
 
