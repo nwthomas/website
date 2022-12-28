@@ -1,13 +1,10 @@
-import express from "express";
 import applyMiddleware from "./middleware";
-import { listenForContractMessageEvent } from "../utils/listenForContractMessageEvents";
+import express from "express";
 import { sendEmail } from "../utils/sendEmail";
 
 const server = express();
 
 applyMiddleware(server);
-
-listenForContractMessageEvent();
 
 server.get("/", (_, res) => {
   res.status(200).send({
