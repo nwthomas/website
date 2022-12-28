@@ -81,6 +81,13 @@ const RootStyles = styled.section`
     grid-auto-rows: 1fr;
 
     @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.tablet}) {
+      grid-column-gap: ${({ theme }) => theme.spaces.small};
+      grid-row-gap: ${({ theme }) => theme.spaces.small};
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.desktop}) {
       grid-column-gap: ${({ theme }) => theme.spaces.medium};
       grid-row-gap: ${({ theme }) => theme.spaces.medium};
