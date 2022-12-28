@@ -9,7 +9,7 @@ tags:
   - LeetCode
 ---
 
-<img alt="Chains superimposed against water" src="/blog-assets/reverse-a-linked-list/chains.webp" title="Image by [Mael BALLAND](https://unsplash.com/@mael_balland) on [Unsplash](https://unsplash.com/@christieckim)" width="1728" height="1152">
+<img alt="Chains superimposed against water" src="/blog-assets/reverse-a-linked-list/chains.webp" title="Image by [Mael BALLAND](https://unsplash.com/@mael_balland) on [Unsplash](https://unsplash.com)" width="1728" height="1152">
 
 # Reverse a Linked List
 

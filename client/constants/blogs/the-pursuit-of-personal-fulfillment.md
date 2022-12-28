@@ -9,7 +9,7 @@ tags:
   - Soft Skills
 ---
 
-<img alt="Black and white photograph of man surfing" height="964" src="/blog-assets/the-pursuit-of-personal-fulfillment/man-surfing.webp" title="Image by [Alex Braga](https://unsplash.com/@awbraga) on [Unsplash](https://unsplash.com/)" width="1450">
+<img alt="Black and white photograph of man surfing" height="964" src="/blog-assets/the-pursuit-of-personal-fulfillment/man-surfing.webp" title="Image by [Alex Braga](https://unsplash.com/@awbraga) on [Unsplash](https://unsplash.com)" width="1450">
 
 # The Pursuit of Personal Fulfillment
 
