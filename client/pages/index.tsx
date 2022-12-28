@@ -26,10 +26,10 @@ const Home: NextPage = () => {
               </a>
               , <Link href="/blog">writer</Link>, and{" "}
               <a
-                href="https://www.codetenderloin.org/code-ramp-course"
-                aria-label="Link to Code Tenderloin's Code Ramp bootcamp"
+                href="https://www.youtube.com/watch?v=GNrQTbIFsG4&t=2909s"
+                aria-label="Link to presentation on YouTube"
                 rel="noopener noreferrer"
-                target="_blank"
+                target="_target"
               >
                 teacher
               </a>{" "}
