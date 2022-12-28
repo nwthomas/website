@@ -26,12 +26,12 @@ function Work() {
           <section>
             <ul>
               <WorkExample
-                ariaLabel="Link to portfolio site GitHub repository"
+                ariaLabel="Link to website GitHub repository"
                 imageAlt="Macbook with screenshot of Nathan's personal site on it"
                 imageDimensions={{ height: 859, width: 1407 }}
-                imageSrc="/personal-portfolio.webp"
+                imageSrc="/personal-website.webp"
                 title="Personal Site"
-                url="https://github.com/nwthomas/personal-portfolio"
+                url="https://github.com/nwthomas/website"
               />
               <WorkExample
                 ariaLabel="Link to Loom blog post about low light adjustments"
