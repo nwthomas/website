@@ -59,7 +59,7 @@ const GlobalStyle = css`
   body.light {
     --body-bg: ${colors.white};
     --body-bg-accent-one: ${colors.alabaster};
-    --body-bg-accent-two: ${colors.platinum};
+    --body-bg-accent-two: ${colors.alto};
     --button-primary-bg: ${colors.royalBlue};
     --error: ${colors.scarlet};
     --text: ${colors.mineShaft};
