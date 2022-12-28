@@ -21,9 +21,6 @@ I tried to use a completely modern tech stack while testing out some new technol
 
 - Front-End:
   - [Axios](https://axios-http.com/docs/intro)
-  - [CryptoJS](https://github.com/brix/crypto-js)
-  - [Ethers](https://docs.ethers.io/v5/)
-  - [Fleek (IPFS deploy)](https://fleek.co/)
   - [Focus Trap React](https://github.com/focus-trap/focus-trap-react)
   - [Formik](https://formik.org/)
   - [Next.js](https://nextjs.org/)
@@ -34,9 +31,7 @@ I tried to use a completely modern tech stack while testing out some new technol
   - [Vercel (main deploy)](https://vercel.com/)
   - [Yup](https://github.com/jquense/yup)
 - Back-end:
-  - [CryptoJS](https://github.com/brix/crypto-js)
   - [Docker](https://www.docker.com/)
-  - [Ethers.js](https://docs.ethers.io/v5/)
   - [Express](https://expressjs.com/)
   - [Nodemailer](https://github.com/nodemailer/nodemailer)
   - [TypeScript](https://www.typescriptlang.org/)
