@@ -13,12 +13,10 @@ interface Colors {
   eerieBlack: "#141414";
   mineShaft: "#333333";
   pictonBlue: "#4597EC";
-  platinum: "#EBEBEB";
   purpleHeart: "#7928CA";
   royalBlue: "#5f63EC";
   rollingStone: "#717579";
   scarlet: "#FF3700";
-  shockingPink: "#F81CE5";
   transparent: "transparent";
   white: "#FFFFFF";
   woodsmoke: "#141418";
@@ -34,12 +32,10 @@ export const colors: Colors = {
   eerieBlack: "#141414",
   mineShaft: "#333333",
   pictonBlue: "#4597EC",
-  platinum: "#EBEBEB",
   purpleHeart: "#7928CA",
   rollingStone: "#717579",
   royalBlue: "#5f63EC",
   scarlet: "#FF3700",
-  shockingPink: "#F81CE5",
   transparent: "transparent",
   white: "#FFFFFF",
   woodsmoke: "#141418",
