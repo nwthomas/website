@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 
 interface Props {
   children: ReactNode | Array<ReactNode>;
+  imageUrl?: string;
   isArticle?: boolean;
   pageName: string;
   withFooter?: boolean;
@@ -18,6 +19,7 @@ interface Props {
 
 function Layout({
   children,
+  imageUrl,
   isArticle,
   pageName,
   withFooter,
@@ -31,6 +33,7 @@ function Layout({
   return (
     <>
       <SEO
+        customImageUrl={imageUrl}
         isArticle={isArticle}
         pageName={pageName}
         withPageNameEmojis={withPageNameEmojis}

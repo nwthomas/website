@@ -6,12 +6,18 @@ import { buildSeoConfig } from "../../constants/seo";
 import { useGetPageName } from "../../hooks";
 
 interface Props {
+  customImageUrl?: string;
   isArticle?: boolean;
   pageName: string;
   withPageNameEmojis?: boolean;
 }
 
-function SEO({ isArticle, pageName, withPageNameEmojis }: Props) {
+function SEO({
+  customImageUrl,
+  isArticle,
+  pageName,
+  withPageNameEmojis,
+}: Props) {
   const { currentTheme } = React.useContext(ThemeContext);
 
   const currentPageMetadata = React.useMemo(() => {
@@ -34,7 +40,7 @@ function SEO({ isArticle, pageName, withPageNameEmojis }: Props) {
       <title>{tabTitle}</title>
       <meta charSet="utf-8" />
       <meta name="description" content={description} />
-      <meta name="image" content={imageUrl} />
+      <meta name="image" content={customImageUrl || imageUrl} />
       <meta
         property="og:type"
         content={isArticle ? "article" : "website"}
@@ -42,7 +48,11 @@ function SEO({ isArticle, pageName, withPageNameEmojis }: Props) {
       />
       <meta property="og:title" content={pageName} key="ogtitle" />
       <meta property="og:description" content={description} key="ogdesc" />
-      <meta property="og:image" content={imageUrl} key="ogimage" />
+      <meta
+        property="og:image"
+        content={customImageUrl || imageUrl}
+        key="ogimage"
+      />
       <meta property="og:url" content={currentUrl} key="ogurl" />
       <meta property="og:site_name" content={siteName} key="ogsitename" />
       <meta
@@ -59,7 +69,11 @@ function SEO({ isArticle, pageName, withPageNameEmojis }: Props) {
         content={description}
         key="twdescription"
       />
-      <meta name="twitter:image" content={imageUrl} key="twimage" />
+      <meta
+        name="twitter:image"
+        content={customImageUrl || imageUrl}
+        key="twimage"
+      />
     </Head>
   );
 }

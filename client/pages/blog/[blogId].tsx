@@ -46,7 +46,12 @@ function BlogPost({ slugToBlogPostMap }) {
   const { imageUrl: heroImageUrl } = blogPost.data;
 
   return (
-    <Layout isArticle pageName={blogPost.data.title} withFooter>
+    <Layout
+      imageUrl={heroImageUrl}
+      isArticle
+      pageName={blogPost.data.title}
+      withFooter
+    >
       <RootStyles>
         <main id={CONTENTS_ID}>
           <article>
