@@ -23,7 +23,7 @@ const RootStyles = styled.div`
 
   > hr {
     border: ${({ theme }) =>
-      `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
+      `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentOne}`};
     max-width: ${({ theme }) => theme.appDimensions.articleMaxWidth};
     width: 100%;
   }
