@@ -46,13 +46,13 @@ const GlobalStyle = css`
 
   /* To change the colors in the colors object, go to styles/libs/theme.ts */
   body.dark {
-    --body-bg: ${colors.black};
-    --body-bg-accent-one: ${colors.codGray};
-    --body-bg-accent-two: ${colors.mineShaft};
+    --body-bg: ${colors.woodsmoke};
+    --body-bg-accent-one: ${colors.shark};
+    --body-bg-accent-two: ${colors.outerSpace};
     --button-primary-bg: ${colors.royalBlue};
     --error: ${colors.scarlet};
-    --text: ${colors.white};
-    --text-on-contrast: ${colors.white};
+    --text: ${colors.mercury};
+    --text-on-contrast: ${colors.mercury};
     --text-secondary: ${colors.rollingStone};
     --transparent: ${colors.transparent};
   }

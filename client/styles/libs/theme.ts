@@ -6,39 +6,47 @@ import { DARK_THEME, ThemeEnum } from "./../../hooks";
 interface Colors {
   alabaster: "#F8F8F8";
   alto: "#DBDBDB";
+  balticSea: "#25232A";
   black: "#000000";
   brightSun: "#FACF3D";
   codGray: "#131313";
   doveGray: "#707070";
   eerieBlack: "#141414";
+  mercury: "#E1E1E1";
   mineShaft: "#333333";
+  outerSpace: "#373A3D";
   pictonBlue: "#4597EC";
   purpleHeart: "#7928CA";
   royalBlue: "#5f63EC";
   rollingStone: "#717579";
   scarlet: "#FF3700";
+  shark: "#202325";
   transparent: "transparent";
   white: "#FFFFFF";
-  woodsmoke: "#141418";
+  woodsmoke: "#131416";
 }
 
 export const colors: Colors = {
   alabaster: "#F8F8F8",
   alto: "#DBDBDB",
+  balticSea: "#25232A",
   black: "#000000",
   brightSun: "#FACF3D",
   codGray: "#131313",
   doveGray: "#707070",
   eerieBlack: "#141414",
+  mercury: "#E1E1E1",
   mineShaft: "#333333",
+  outerSpace: "#373A3D",
   pictonBlue: "#4597EC",
   purpleHeart: "#7928CA",
   rollingStone: "#717579",
   royalBlue: "#5f63EC",
   scarlet: "#FF3700",
+  shark: "#202325",
   transparent: "transparent",
   white: "#FFFFFF",
-  woodsmoke: "#141418",
+  woodsmoke: "#131416",
 };
 
 // Gradients
