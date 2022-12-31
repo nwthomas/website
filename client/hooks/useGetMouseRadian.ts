@@ -44,9 +44,9 @@ export function useGetMouseRadian(ref: React.RefObject<HTMLElement>): number {
   if (
     !ref.current ||
     !viewportWidth ||
-    viewportWidth <= breakpointsInt.tablet
+    viewportWidth <= breakpointsInt.desktop
   ) {
-    return DEFAULT_RADIANS + DEFAULT_RADIANS / 10;
+    return DEFAULT_RADIANS + DEFAULT_RADIANS / 5;
   }
 
   const { x: mouseX, y: mouseY } = mouseCoordinates;

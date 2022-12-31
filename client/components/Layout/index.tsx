@@ -57,8 +57,6 @@ const RootStyles = styled.div<StyleProps>`
   padding-top: ${({ theme }) => theme.appDimensions.navbarMobileHeight};
   padding-bottom: ${({ theme }) => theme.appDimensions.footerMobileHeight};
   min-height: ${({ theme }) => theme.appDimensions.appMinHeight};
-  /* mobile viewport bug fix */
-  min-height: -webkit-fill-available;
   position: relative;
   width: 100%;
 

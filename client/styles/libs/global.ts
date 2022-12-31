@@ -12,13 +12,14 @@ const GlobalStyle = css`
       `background ${short} ease-in-out, background-color ${short} ease-in-out, color ${short} ease-in-out, fill ${short} ease-in-out, stroke ${short} ease-in-out, border-color ${short} ease-in-out`};
   }
 
-  body,
   html {
     background: ${({ theme }) => theme.colors.bodyBackground};
     font-size: 62.5%;
   }
 
   body {
+    background: ${({ theme }) => theme.colors.bodyBackground};
+    font-size: 62.5%;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
@@ -185,10 +186,6 @@ const GlobalStyle = css`
   input,
   textarea {
     font-size: 1.6rem;
-  }
-
-  .disable-select {
-    user-select: none;
   }
 `;
 
