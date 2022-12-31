@@ -132,7 +132,7 @@ const RootStyles = styled.div`
       > ul {
         display: grid;
         grid-row-gap: ${({ theme }) => theme.spaces.medium};
-        margin-bottom: ${({ theme }) => theme.spaces.large};
+        margin-bottom: ${({ theme }) => theme.spaces.medium};
         width: 100%;
 
         @media only screen and (min-width: ${({ theme }) =>
