@@ -122,7 +122,7 @@ interface AppDimensions {
   navbarLinkWidth: string;
 }
 export const appDimensions: AppDimensions = {
-  appHorizontalGutters: "4%",
+  appHorizontalGutters: "3%",
   appMaxWidth: "1200px",
   appMinHeight: "100vh",
   articleHeroImageMaxWidth: "1200px",
