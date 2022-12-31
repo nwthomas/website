@@ -130,6 +130,11 @@ const RootStyles = styled.div`
             justify-content: center;
 
             @media only screen and (min-width: ${({ theme }) =>
+                theme.breakpoints.mini}) {
+              margin-left: ${({ theme }) => theme.spaces.medium};
+            }
+
+            @media only screen and (min-width: ${({ theme }) =>
                 theme.breakpoints.tablet}) {
               margin-left: ${({ theme }) => theme.spaces.large};
             }

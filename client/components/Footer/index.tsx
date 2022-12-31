@@ -145,6 +145,11 @@ const RootStyles = styled.div<StyleProps>`
           margin-right: ${({ theme }) => theme.spaces.small};
 
           @media only screen and (min-width: ${({ theme }) =>
+              theme.breakpoints.mini}) {
+            margin-right: ${({ theme }) => theme.spaces.medium};
+          }
+
+          @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.tablet}) {
             margin-top: ${({ theme }) => theme.spaces.medium};
             margin-right: ${({ theme }) => theme.spaces.large};
