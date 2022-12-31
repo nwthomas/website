@@ -34,7 +34,7 @@ function WorkExample({
           draggable={false}
           height={height}
           priority={false}
-          quality={60}
+          quality={75}
           src={imageSrc}
           width={width}
         />

@@ -24,7 +24,6 @@
     "express": "^4.17.1",
     "helmet": "^4.6.0",
     "morgan": "^1.10.0",
-    "next": "12",
     "nodemailer": "^6.6.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

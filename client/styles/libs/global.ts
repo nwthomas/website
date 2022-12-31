@@ -133,6 +133,8 @@ const GlobalStyle = css`
 
   span {
     font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
   }
 
   li {

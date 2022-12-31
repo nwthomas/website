@@ -37,7 +37,7 @@ interface SeoConfig {
   title: string;
 }
 
-export function buildSeoConfig(pageName: string, route?: string): SeoConfig {
+export function buildSeoConfig(pageName: string): SeoConfig {
   switch (pageName) {
     case BLOG_PAGE_NAME:
       return {

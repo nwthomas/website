@@ -10,7 +10,7 @@ const moduleExports = {
       {
         source: "/tag",
         destination: "/blog",
-        permanent: false,
+        permanent: true,
       },
     ];
   },
