@@ -63,7 +63,7 @@ const RootStyles = styled.div`
 
     > section {
       display: flex;
-      margin-bottom: ${({ theme }) => theme.spaces.large};
+      margin-bottom: ${({ theme }) => theme.spaces.medium};
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
