@@ -5,12 +5,12 @@ import React from "react";
 import { useGetScreenDimensions } from "../../hooks";
 
 interface Props {
-  alt?: string;
-  height?: string | number;
-  isHeroImage?: boolean;
+  alt: string;
+  height: number;
+  isHeroImage: boolean;
   src: string;
   title?: string;
-  width?: string | number;
+  width: number;
 }
 
 function BlogImage({ alt, height, isHeroImage, src, title, width }: Props) {
@@ -41,7 +41,7 @@ function BlogImage({ alt, height, isHeroImage, src, title, width }: Props) {
           draggable={false}
           height={height}
           priority={isHeroImage}
-          quality={60}
+          quality={100}
           src={src}
           width={width}
         />
@@ -82,13 +82,13 @@ const RootStyles = styled.div<StyleProps>`
     overflow: hidden;
     width: 100%;
 
-    > div:nth-child(1) {
+    > img {
       border-radius: ${({ theme, withRoundedCorners }) =>
         withRoundedCorners ? theme.borderRadii.large : 0};
       width: 100%;
     }
 
-    > div:nth-child(2) {
+    > div {
       display: flex;
       justify-content: center;
       padding-top: ${({ theme }) => theme.spaces.small};

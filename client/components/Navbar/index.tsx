@@ -17,17 +17,15 @@ function Navbar() {
             <div>
               <li>
                 <Link href={HOME_PAGE} passHref>
-                  <a>
-                    <Image
-                      alt="Go to home page"
-                      draggable={false}
-                      height={400}
-                      priority
-                      quality={10}
-                      src="/nathan-thomas-pfp.jpg"
-                      width={400}
-                    />
-                  </a>
+                  <Image
+                    alt="Go to home page"
+                    draggable={false}
+                    height={400}
+                    priority
+                    quality={50}
+                    src="/nathan-thomas-pfp.jpg"
+                    width={400}
+                  />
                 </Link>
               </li>
             </div>

@@ -27,6 +27,12 @@ export function getDirectoryFiles(relativeDirectoryPath: string): Files {
     const name = path.parse(filename).name;
     const fileContents = readFileContentsObject(filePath);
 
+    if (!fileContents) {
+      continue;
+    }
+
+    fileContents.data.slug = name;
+
     files.push({
       fileContents,
       filePath,

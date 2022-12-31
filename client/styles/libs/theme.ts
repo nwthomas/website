@@ -108,7 +108,6 @@ interface AppDimensions {
   appHorizontalGutters: string;
   appMaxWidth: string;
   appMinHeight: string;
-  articleHeroImageMaxWidth: string;
   articleMaxWidth: string;
   contactFormMaxWidth: string;
   footerArticleHeight: string;
@@ -126,8 +125,7 @@ export const appDimensions: AppDimensions = {
   appMaxWidth: "1200px",
   // This value is set in the global.ts file for the :root selector
   appMinHeight: "var(--app-min-height)",
-  articleHeroImageMaxWidth: "1200px",
-  articleMaxWidth: "600px",
+  articleMaxWidth: "650px",
   contactFormMaxWidth: "600px",
   footerArticleHeight: "198px",
   footerDesktopHeight: "151px",
