@@ -37,7 +37,10 @@ function Layout({
       const { documentElement } = document;
       const newViewportHeightPx = `${viewportHeight}px`;
 
-      documentElement.style.setProperty("--app-height", newViewportHeightPx);
+      documentElement.style.setProperty(
+        "--app-min-height",
+        newViewportHeightPx
+      );
     }
   }, [viewportHeight]);
 
