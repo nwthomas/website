@@ -29,7 +29,7 @@ function SEO({
     description,
     imageUrl,
     siteName,
-    social: { twitter },
+    social: { twitter: twitterHandle },
     title,
   } = currentPageMetadata;
 
@@ -38,42 +38,27 @@ function SEO({
   return (
     <Head>
       <title>{tabTitle}</title>
+
+      {/* Miscellaneous Meta Tags */}
       <meta charSet="utf-8" />
       <meta name="description" content={description} />
       <meta name="image" content={customImageUrl || imageUrl} />
-      <meta
-        property="og:type"
-        content={isArticle ? "article" : "website"}
-        key="ogtype"
-      />
-      <meta property="og:title" content={pageName} key="ogtitle" />
-      <meta property="og:description" content={description} key="ogdesc" />
-      <meta
-        property="og:image"
-        content={customImageUrl || imageUrl}
-        key="ogimage"
-      />
-      <meta property="og:url" content={currentUrl} key="ogurl" />
-      <meta property="og:site_name" content={siteName} key="ogsitename" />
-      <meta
-        property="twitter:card"
-        content="summary_large_image"
-        key="twcard"
-      />
-      <meta name="twitter:creator" content={twitter} key="twhandle" />
-      <meta name="twitter:title" content={pageName} key="twtitle" />
-      <meta name="twitter:widgets:theme" content={currentTheme}></meta>
-      <meta name="twitter:dnt" content="on"></meta>
-      <meta
-        name="twitter:description"
-        content={description}
-        key="twdescription"
-      />
-      <meta
-        name="twitter:image"
-        content={customImageUrl || imageUrl}
-        key="twimage"
-      />
+
+      {/* Open Graph Meta Tags */}
+      <meta property="og:type" content={isArticle ? "article" : "website"} />
+      <meta property="og:title" content={pageName} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={customImageUrl || imageUrl} />
+      <meta property="og:url" content={currentUrl} />
+      <meta property="og:site_name" content={siteName} />
+
+      {/* Twitter Meta Tags */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content={twitterHandle} />
+      <meta name="twitter:creator" content={twitterHandle} />
+      <meta name="twitter:title" content={pageName} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={customImageUrl || imageUrl} />
     </Head>
   );
 }
