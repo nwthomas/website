@@ -1,10 +1,11 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect } from "react";
 
 import Footer from "../Footer";
 import Modal from "../Modal";
 import { RootState } from "../../store";
 import SEO from "../SEO";
 import styled from "styled-components";
+import { useGetScreenDimensions } from "../../hooks";
 import { useIsArticlePage } from "../../hooks";
 import { useSelector } from "react-redux";
 
@@ -25,10 +26,20 @@ function Layout({
   withFooter,
   withPageNameEmojis,
 }: Props) {
+  const { viewportHeight } = useGetScreenDimensions();
   const isArticlePage = useIsArticlePage();
   const shouldShowModal = useSelector(
     (state: RootState) => state.modal.shouldShowModal
   );
+
+  useEffect(() => {
+    if (typeof viewportHeight === "number" && typeof window !== "undefined") {
+      const { documentElement } = document;
+      const newViewportHeightPx = `${viewportHeight}px`;
+
+      documentElement.style.setProperty("--app-height", newViewportHeightPx);
+    }
+  }, [viewportHeight]);
 
   return (
     <>

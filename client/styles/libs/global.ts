@@ -12,6 +12,11 @@ const GlobalStyle = css`
       `background ${short} ease-in-out, background-color ${short} ease-in-out, color ${short} ease-in-out, fill ${short} ease-in-out, stroke ${short} ease-in-out, border-color ${short} ease-in-out`};
   }
 
+  /* This value can be modified in the theme.ts file's appDimensions object */
+  :root {
+    --app-min-height: 100vh;
+  }
+
   html {
     background: ${({ theme }) => theme.colors.bodyBackground};
     font-size: 62.5%;

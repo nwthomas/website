@@ -10,17 +10,25 @@ export interface ScreenDimensions {
 export const useGetScreenDimensions = (): ScreenDimensions => {
   const [viewportHeight, setViewportHeight] = React.useState<
     number | undefined
-  >(undefined);
+  >(typeof window !== "undefined" ? window.innerHeight : undefined);
   const [viewportWidth, setViewportWidth] = React.useState<number | undefined>(
-    undefined
+    typeof window !== "undefined" ? window.innerWidth : undefined
   );
 
   const [availableHeight, setAvailableHeight] = React.useState<
     number | undefined
-  >(undefined);
+  >(
+    typeof window !== "undefined"
+      ? document.documentElement.clientHeight
+      : undefined
+  );
   const [availableWidth, setAvailableWidth] = React.useState<
     number | undefined
-  >(undefined);
+  >(
+    typeof window !== "undefined"
+      ? document.documentElement.clientWidth
+      : undefined
+  );
 
   const handleMeasureWindowDimensions = () => {
     if (typeof window !== "undefined") {
