@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import Head from "next/head";
-import { ThemeContext } from "styled-components";
 import { buildSeoConfig } from "../../constants/seo";
 import { useGetPageName } from "../../hooks";
 
@@ -18,8 +17,6 @@ function SEO({
   pageName,
   withPageNameEmojis,
 }: Props) {
-  const { currentTheme } = React.useContext(ThemeContext);
-
   const currentPageMetadata = React.useMemo(() => {
     return buildSeoConfig(pageName);
   }, [pageName]);
