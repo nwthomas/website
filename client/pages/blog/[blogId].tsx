@@ -43,11 +43,12 @@ function BlogPost({ slugToBlogPostMap }) {
   } = useRouter();
 
   const blogPost = slugToBlogPostMap[blogId as string];
-  const { imageUrl: heroImageUrl } = blogPost.data;
+  const { imageUrl: heroImageUrl, metaDescription } = blogPost.data;
 
   return (
     <Layout
-      imageUrl={heroImageUrl}
+      customSEODescription={metaDescription}
+      customSEOImageUrl={heroImageUrl}
       isArticle
       pageName={blogPost.data.title}
       withFooter

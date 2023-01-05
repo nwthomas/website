@@ -5,6 +5,7 @@ import { buildSeoConfig } from "../../constants/seo";
 import { useGetPageName } from "../../hooks";
 
 interface Props {
+  customDescription?: string;
   customImageUrl?: string;
   isArticle?: boolean;
   pageName: string;
@@ -12,6 +13,7 @@ interface Props {
 }
 
 function SEO({
+  customDescription,
   customImageUrl,
   isArticle,
   pageName,
@@ -38,7 +40,7 @@ function SEO({
 
       {/* Miscellaneous Meta Tags */}
       <meta charSet="utf-8" />
-      <meta name="description" content={description} />
+      <meta name="description" content={customDescription || description} />
       <meta name="image" content={customImageUrl || imageUrl} />
 
       {/* Open Graph Meta Tags */}
@@ -54,7 +56,7 @@ function SEO({
       <meta name="twitter:site" content={twitterHandle} />
       <meta name="twitter:creator" content={twitterHandle} />
       <meta name="twitter:title" content={pageName} />
-      <meta name="twitter:description" content={description} />
+      <meta name="twitter:description" content={customDescription || description} />
       <meta name="twitter:image" content={customImageUrl || imageUrl} />
     </Head>
   );
