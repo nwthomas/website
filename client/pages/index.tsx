@@ -82,7 +82,8 @@ const RootStyles = styled.div`
           background-image: ${({ theme }) => theme.gradients.getLinkText()};
           background-size: 100%;
           font-size: inherit;
-          padding: ${({ theme }) => `${theme.spaces.micro} 0`};
+          margin-right: -0.4em;
+          padding: ${({ theme }) => `${theme.spaces.micro} 0.4em ${theme.spaces.micro} 0`};
           -moz-text-fill-color: transparent;
           -webkit-text-fill-color: transparent;
           text-decoration: none;
