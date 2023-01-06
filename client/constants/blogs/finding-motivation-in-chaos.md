@@ -3,7 +3,7 @@ title: "Finding Motivation in Chaos"
 slug: "finding-motivation-in-chaos"
 imageUrl: /blog-assets/finding-motivation-in-chaos/surfer.webp
 metaTitle: "Finding Motivation in Chaos"
-metaDescription: "Change is a constant in life. The only thing that matters is that you keep working."
+metaDescription: "Change is a constant in life. The only thing that matters is that you keep working on yourself."
 date: "2019-11-27"
 tags:
   - Soft Skills
