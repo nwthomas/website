@@ -15,15 +15,17 @@ function Navbar() {
           <ul>
             <div>
               <li>
-                <a href={HOME_PAGE}>
-                  <img
-                    alt="Go to home page"
-                    draggable={false}
-                    height={400}
-                    src="/nathan-thomas-pfp.jpg"
-                    width={400}
-                  />
-                </a>
+                <Link href={HOME_PAGE} passHref>
+                  <a>
+                    <img
+                      alt="Go to home page"
+                      draggable={false}
+                      height={400}
+                      src="/nathan-thomas-pfp.jpg"
+                      width={400}
+                    />
+                  </a>
+                </Link>
               </li>
             </div>
             <li>
