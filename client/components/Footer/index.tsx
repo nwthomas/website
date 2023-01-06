@@ -9,7 +9,7 @@ function Footer() {
   const isArticlePage = useIsArticlePage();
 
   const copyrightLabel = React.useMemo(() => {
-    return `Copyright © ${currentYear} Nathan Thomas`;
+    return `© ${currentYear} Nathan Thomas`;
   }, [currentYear]);
 
   return (
