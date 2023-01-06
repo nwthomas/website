@@ -13,7 +13,7 @@ const DEFAULT_SEO_VALUES: SeoConfig = {
     "Internet home for Nathan Thomas. Focus on projects and blogging.",
   imageUrl: "/seo/home-page.png",
   originalTitle: "Nathan Thomas",
-  siteName: "Nathan W Thomas",
+  siteName: "Nathan Thomas",
   social: {
     twitter: "nwthomas_",
     instagram: "nwthomas",
