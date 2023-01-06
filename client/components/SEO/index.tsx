@@ -46,7 +46,7 @@ function SEO({
       {/* Open Graph Meta Tags */}
       <meta property="og:type" content={isArticle ? "article" : "website"} />
       <meta property="og:title" content={pageName} />
-      <meta property="og:description" content={description} />
+      <meta property="og:description" content={customDescription || description} />
       <meta property="og:image" content={customImageUrl || imageUrl} />
       <meta property="og:url" content={currentUrl} />
       <meta property="og:site_name" content={siteName} />
