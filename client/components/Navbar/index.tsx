@@ -23,6 +23,7 @@ function Navbar() {
                       draggable={false}
                       height={400}
                       priority
+                      quality={60}
                       src="/nathan-thomas-pfp.jpg"
                       width={400}
                     />
