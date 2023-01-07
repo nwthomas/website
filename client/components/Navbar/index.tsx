@@ -22,6 +22,7 @@ function Navbar() {
                       alt="Go to home page"
                       draggable={false}
                       height={400}
+                      priority
                       src="/nathan-thomas-pfp.jpg"
                       width={400}
                     />

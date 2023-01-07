@@ -18,7 +18,7 @@ function Employers() {
               alt="Loom logo"
               draggable={false}
               height={1000}
-              priority={false}
+              priority
               src="/loom-logo.webp"
               width={1000}
             />
