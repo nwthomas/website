@@ -15,7 +15,7 @@ const DEFAULT_SEO_VALUES: SeoConfig = {
   originalTitle: "Nathan Thomas",
   siteName: "Nathan Thomas",
   social: {
-    twitter: "nwthomas_",
+    twitter: "@nwthomas_",
     instagram: "nwthomas",
   },
   title: "Home",
