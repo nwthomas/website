@@ -97,7 +97,7 @@ const RootStyles = styled.div`
     }
 
     > section:nth-child(1) {
-      margin-bottom: ${({ theme }) => theme.spaces.large};
+      margin-bottom: ${({ theme }) => theme.spaces.medium};
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
@@ -130,6 +130,11 @@ const RootStyles = styled.div`
 
     > section:nth-child(2) {
       width: 100%;
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.tablet}) {
+        margin-bottom: ${({ theme }) => theme.spaces.large};
+      }
 
       > ul {
         display: grid;
