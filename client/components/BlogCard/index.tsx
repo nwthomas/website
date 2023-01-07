@@ -61,16 +61,8 @@ const RootStyles = styled.article`
       width: 100%;
 
       > h2 {
-        display: block;
-        font-size: 1.6rem;
-        letter-spacing: ${({ theme }) => theme.spaces.micro};
         margin-bottom: ${({ theme }) => theme.spaces.medium};
         transition: color ${({ theme }) => theme.transitions.short} ease-in-out;
-
-        @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.tablet}) {
-          font-size: 2rem;
-        }
       }
 
       > p {

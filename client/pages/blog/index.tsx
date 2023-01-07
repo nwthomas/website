@@ -64,7 +64,7 @@ const RootStyles = styled.div`
   width: 100%;
 
   > main {
-    margin-bottom: ${({ theme }) => theme.spaces.medium};
+    margin-bottom: ${({ theme }) => theme.spaces.large};
     max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
 
     @media only screen and (min-width: ${({ theme }) =>
