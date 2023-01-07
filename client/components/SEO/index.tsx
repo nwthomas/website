@@ -19,6 +19,10 @@ function SEO({
   pageName,
   withPageNameEmojis,
 }: Props) {
+  const origin = typeof window !== 'undefined' && window.location.origin
+    ? window.location.origin
+    : '';
+
   const currentPageMetadata = React.useMemo(() => {
     return buildSeoConfig(pageName);
   }, [pageName]);
@@ -47,7 +51,7 @@ function SEO({
       <meta property="og:type" content={isArticle ? "article" : "website"} />
       <meta property="og:title" content={pageName} />
       <meta property="og:description" content={customDescription || description} />
-      <meta property="og:image" content={customImageUrl || imageUrl} />
+      <meta property="og:image" content={`${origin}${customImageUrl || imageUrl}`} />
       <meta property="og:url" content={currentUrl} />
       <meta property="og:site_name" content={siteName} />
 
@@ -57,7 +61,7 @@ function SEO({
       <meta name="twitter:creator" content={twitterHandle} />
       <meta name="twitter:title" content={pageName} />
       <meta name="twitter:description" content={customDescription || description} />
-      <meta name="twitter:image:src" content={customImageUrl || imageUrl} />
+      <meta name="twitter:image" content={`${origin}${customImageUrl || imageUrl}`} />
     </Head>
   );
 }
