@@ -56,7 +56,7 @@ function SEO({
       <meta property="og:site_name" content={siteName} />
 
       {/* Twitter Meta Tags */}
-      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content={twitterHandle} />
       <meta name="twitter:creator" content={twitterHandle} />
       <meta name="twitter:title" content={pageName} />
