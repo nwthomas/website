@@ -19,7 +19,7 @@ function Employers() {
               draggable={false}
               height={1000}
               priority
-              quality={60}
+              quality={30}
               src="/loom-logo.webp"
               width={1000}
             />
@@ -40,7 +40,7 @@ function Employers() {
               draggable={false}
               height={834}
               priority
-              quality={60}
+              quality={30}
               src="/twitter-logo.webp"
               width={1036}
             />
