@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Image from "next/image";
 
 interface Props {
   ariaLabel: string;
@@ -28,9 +29,10 @@ function WorkExample({
         rel="noopener noreferrer"
         target="_blank"
       >
-        <img
+        <Image
           alt={imageAlt || "Image"}
           draggable={false}
+          priority={false}
           src={imageSrc}
           height={height}
           width={width}
