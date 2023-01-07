@@ -77,7 +77,7 @@ const RootStyles = styled.div`
     align-items: center;
     display: flex;
     flex-direction: column;
-    margin-bottom: ${({ theme }) => theme.spaces.medium};
+    margin-bottom: ${({ theme }) => theme.spaces.large};
     max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
 
     @media only screen and (min-width: ${({ theme }) =>

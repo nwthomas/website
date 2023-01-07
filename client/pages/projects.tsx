@@ -97,7 +97,7 @@ const RootStyles = styled.div`
     }
 
     > section:nth-child(1) {
-      margin-bottom: ${({ theme }) => theme.spaces.medium};
+      margin-bottom: ${({ theme }) => theme.spaces.large};
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
@@ -114,7 +114,8 @@ const RootStyles = styled.div`
         background-size: 100%;
         font-size: inherit;
         margin-right: -0.4em;
-        padding: ${({ theme }) => `${theme.spaces.micro} 0.4em ${theme.spaces.micro} 0`};
+        padding: ${({ theme }) =>
+          `${theme.spaces.micro} 0.4em ${theme.spaces.micro} 0`};
         -moz-text-fill-color: transparent;
         -webkit-text-fill-color: transparent;
         text-decoration: none;

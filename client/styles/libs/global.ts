@@ -95,13 +95,11 @@ const GlobalStyle = css`
   }
 
   h2 {
-    font-size: 1.6rem;
-    letter-spacing: ${({ theme }) => theme.spaces.micro};
-    text-transform: uppercase;
+    font-size: 2rem;
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
-      font-size: 2rem;
+      font-size: 2.4rem;
     }
   }
 
