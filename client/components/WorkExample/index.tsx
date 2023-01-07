@@ -32,9 +32,10 @@ function WorkExample({
         <Image
           alt={imageAlt || "Image"}
           draggable={false}
-          priority={false}
-          src={imageSrc}
           height={height}
+          priority={false}
+          quality={60}
+          src={imageSrc}
           width={width}
         />
         <h2>{title}</h2>

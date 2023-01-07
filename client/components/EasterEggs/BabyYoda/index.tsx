@@ -11,6 +11,7 @@ export default function BabyYodaEasterEgg() {
           draggable={false}
           height={512}
           priority={false}
+          quality={50}
           src="/baby-yoda.webp"
           width={491}
         />

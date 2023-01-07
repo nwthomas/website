@@ -41,6 +41,7 @@ function BlogImage({ alt, height, isHeroImage, src, title, width }: Props) {
           draggable={false}
           height={height}
           priority={isHeroImage}
+          quality={60}
           src={src}
           width={width}
         />
