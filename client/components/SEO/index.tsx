@@ -65,7 +65,7 @@ function SEO({
       <meta name="twitter:description" content={customDescription || description} />
       <meta name="twitter:site" content={twitterHandle} />
       <meta name="twitter:creator" content={twitterHandle} />
-      <meta name="twitter:image" content={buildImageUrlWithOrigin(customImageUrl || imageUrl)} />
+      <meta name="twitter:image:src" content={buildImageUrlWithOrigin(customImageUrl || imageUrl)} />
     </Head>
   );
 }
