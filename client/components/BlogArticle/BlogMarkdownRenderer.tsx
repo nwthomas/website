@@ -137,7 +137,7 @@ function BlogMarkdownRenderer({ content, heroImageUrl }: Props) {
         hr() {
           return <BlogHorizontalRule />;
         },
-        img({ alt, height, src, title, width }) {
+        img({ alt, height, src = "", title, width }) {
           const isHeroImage = heroImageUrl === src;
 
           return (
