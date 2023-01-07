@@ -1,14 +1,16 @@
 import React from "react";
+import Image from "next/image";
 import styled from "styled-components";
 
 export default function BabyYodaEasterEgg() {
   return (
     <RootStyles>
       <div>
-        <img
+        <Image
           alt="Baby Yoda"
           draggable={false}
           height={512}
+          priority={false}
           src="/baby-yoda.webp"
           width={491}
         />

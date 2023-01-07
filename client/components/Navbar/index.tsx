@@ -1,5 +1,6 @@
 import { BLOG_PAGE, CONTACT_PAGE, PROJECTS_PAGE } from "../../constants/routes";
 
+import Image from "next/image";
 import { CONTENTS_ID } from "../../constants/routes";
 import { HOME_PAGE } from "../../constants/routes";
 import Link from "next/link";
@@ -17,7 +18,7 @@ function Navbar() {
               <li>
                 <Link href={HOME_PAGE} passHref>
                   <a>
-                    <img
+                    <Image
                       alt="Go to home page"
                       draggable={false}
                       height={400}
@@ -149,6 +150,7 @@ const RootStyles = styled.div`
               }
 
               &:has(img) {
+                display: flex;
                 border-radius: ${({ theme }) => theme.borderRadii.infinity};
 
                 &:focus {
@@ -158,7 +160,7 @@ const RootStyles = styled.div`
                 }
               }
 
-              > img {
+              img {
                 border-radius: ${({ theme }) => theme.borderRadii.infinity};
                 display: flex;
                 cursor: pointer;

@@ -1,5 +1,5 @@
 import * as React from "react";
-
+import Image from "next/image";
 import styled from "styled-components";
 
 function Employers() {
@@ -9,15 +9,16 @@ function Employers() {
         <h2>Currently</h2>
         <LoomLogo>
           <a
-            href="https://www.loom.com"
             aria-label="Link to Loom"
+            href="https://www.loom.com"
             rel="noopener noreferrer"
             target="_blank"
           >
-            <img
+            <Image
               alt="Loom logo"
               draggable={false}
               height={1000}
+              priority={false}
               src="/loom-logo.webp"
               width={1000}
             />
@@ -33,10 +34,11 @@ function Employers() {
             rel="noopener noreferrer"
             target="_blank"
           >
-            <img
+            <Image
               alt="Twitter logo"
               draggable={false}
               height={834}
+              priority
               src="/twitter-logo.webp"
               width={1036}
             />

@@ -1,5 +1,5 @@
 import styled, { ThemeContext } from "styled-components";
-
+import Image from "next/image";
 import { BlogMarkdownRenderer } from "./";
 import React from "react";
 import { useGetScreenDimensions } from "../../hooks";
@@ -8,7 +8,7 @@ interface Props {
   alt?: string;
   height?: string | number;
   isHeroImage?: boolean;
-  src?: string;
+  src: string;
   title?: string;
   width?: string | number;
 }
@@ -36,10 +36,11 @@ function BlogImage({ alt, height, isHeroImage, src, title, width }: Props) {
       withRoundedCorners={withRoundedCorners}
     >
       <div>
-        <img
+        <Image
           alt={alt}
           draggable={false}
           height={height}
+          priority={isHeroImage}
           src={src}
           width={width}
         />
