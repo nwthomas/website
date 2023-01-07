@@ -47,8 +47,8 @@ function SEO({
       {/* Miscellaneous Meta Tags */}
       <title>{tabTitle}</title>
       <meta charSet="utf-8" />
-      <meta property="description" content={customDescription || description} />
-      <meta property="image" content={buildImageUrlWithOrigin(customImageUrl || imageUrl)} />
+      <meta name="description" content={customDescription || description} />
+      <meta name="image" content={buildImageUrlWithOrigin(customImageUrl || imageUrl)} />
 
       {/* Open Graph Meta Tags */}
       <meta property="og:type" content={isArticle ? "article" : "website"} />
