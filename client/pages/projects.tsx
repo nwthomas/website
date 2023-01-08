@@ -129,11 +129,12 @@ const RootStyles = styled.div`
     }
 
     > section:nth-child(2) {
+      margin-bottom: ${({ theme }) => theme.spaces.large};
       width: 100%;
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        margin-bottom: ${({ theme }) => theme.spaces.large};
+        margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
       }
 
       > ul {

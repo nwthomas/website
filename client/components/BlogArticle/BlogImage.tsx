@@ -79,15 +79,16 @@ const RootStyles = styled.div<StyleProps>`
     flex-direction: column;
     max-width: ${({ isHeroImage, theme }) =>
       isHeroImage ? "100%" : theme.appDimensions.articleMaxWidth};
+    overflow: hidden;
     width: 100%;
 
-    > img {
-      overflow: hidden;
+    > div:nth-child(1) {
       border-radius: ${({ theme, withRoundedCorners }) =>
         withRoundedCorners ? theme.borderRadii.large : 0};
+      width: 100%;
     }
 
-    > div {
+    > div:nth-child(2) {
       display: flex;
       justify-content: center;
       padding-top: ${({ theme }) => theme.spaces.small};
