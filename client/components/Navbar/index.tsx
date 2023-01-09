@@ -7,8 +7,12 @@ import Link from "next/link";
 import * as React from "react";
 import ThemeTransitionSwitch from "../ThemeTransitionSwitch";
 import styled from "styled-components";
+import NavbarLink from "./NavbarLink";
+import { useRouter } from "next/router";
 
 function Navbar() {
+  const { asPath: currentPath } = useRouter();
+
   return (
     <RootStyles>
       <header>
@@ -36,13 +40,19 @@ function Navbar() {
             </li>
             <div>
               <li>
-                <Link href={BLOG_PAGE}>Blog</Link>
+                <NavbarLink currentPath={currentPath} route={BLOG_PAGE}>
+                  Blog
+                </NavbarLink>
               </li>
               <li>
-                <Link href={PROJECTS_PAGE}>Projects</Link>
+                <NavbarLink currentPath={currentPath} route={PROJECTS_PAGE}>
+                  Projects
+                </NavbarLink>
               </li>
               <li>
-                <Link href={CONTACT_PAGE}>Contact</Link>
+                <NavbarLink currentPath={currentPath} route={CONTACT_PAGE}>
+                  Contact
+                </NavbarLink>
               </li>
               <li>
                 <ThemeTransitionSwitch />
