@@ -4,7 +4,7 @@ import Image from "next/image";
 import { CONTENTS_ID } from "../../constants/routes";
 import { HOME_PAGE } from "../../constants/routes";
 import Link from "next/link";
-import React from "react";
+import * as React from "react";
 import ThemeTransitionSwitch from "../ThemeTransitionSwitch";
 import styled from "styled-components";
 

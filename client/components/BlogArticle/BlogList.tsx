@@ -1,8 +1,8 @@
-import { ReactNode } from "react";
+import * as React from "react";
 import styled from "styled-components";
 
 interface Props {
-  contents: ReactNode & Array<ReactNode>;
+  contents: React.ReactNode & Array<React.ReactNode>;
   isOrderedList?: boolean;
 }
 
@@ -51,7 +51,8 @@ const RootStyles = styled.div`
         background-size: 100%;
         font-size: inherit;
         margin-right: -0.4em;
-        padding: ${({ theme }) => `${theme.spaces.micro} 0.4em ${theme.spaces.micro} 0`};
+        padding: ${({ theme }) =>
+          `${theme.spaces.micro} 0.4em ${theme.spaces.micro} 0`};
         -moz-text-fill-color: transparent;
         -webkit-text-fill-color: transparent;
         text-decoration: none;
