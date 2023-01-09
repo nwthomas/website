@@ -41,6 +41,7 @@ const RootStyles = styled.a`
     height: 100%;
     line-height: 1;
     margin-top: ${({ theme }) => theme.spaces.nano};
+    transition: color ${({ theme }) => theme.transitions.short} ease-in-out;
     width: 100%;
 
     @media only screen and (min-width: ${({ theme }) =>
@@ -57,6 +58,10 @@ const RootStyles = styled.a`
       `${theme.spaces.nano} solid ${theme.colorsHex.royalBlue}`};
     outline: none;
     text-decoration: none;
+
+    > h1 {
+      color: ${({ theme }) => theme.colorsHex.royalBlue};
+    }
   }
 `;
 

@@ -39,7 +39,7 @@ export function useGetMouseRadian(ref: React.RefObject<HTMLElement>): number {
     return () => {
       document.removeEventListener("mousemove", getMouseCoordinates);
     };
-  }, []);
+  }, [getMouseCoordinates]);
 
   if (
     !ref.current ||
