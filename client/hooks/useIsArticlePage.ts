@@ -1,5 +1,5 @@
 import { BLOG_ARTICLE_PAGE } from "../constants/routes";
-import React from "react";
+import * as React from "react";
 import { useRouter } from "next/router";
 
 export const useIsArticlePage = (): boolean => {

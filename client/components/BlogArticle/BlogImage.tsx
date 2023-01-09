@@ -1,7 +1,7 @@
 import styled, { ThemeContext } from "styled-components";
 import Image from "next/image";
 import { BlogMarkdownRenderer } from "./";
-import React from "react";
+import * as React from "react";
 import { useGetScreenDimensions } from "../../hooks";
 
 interface Props {

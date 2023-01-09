@@ -1,4 +1,4 @@
-import { ReactNode, useCallback, useContext, useMemo, useState } from "react";
+import * as React from "react";
 import styled, { ThemeContext } from "styled-components";
 
 import { CopyLinkIcon } from "../Icons";
@@ -6,29 +6,29 @@ import { CopyLinkIcon } from "../Icons";
 type HeadingLevel = 1 | 2 | 3 | 4 | 5;
 
 interface Props {
-  contents: ReactNode & Array<ReactNode>;
+  contents: React.ReactNode & Array<React.ReactNode>;
   level: HeadingLevel;
   linkPath: string;
   routeId: string;
 }
 
 function BlogHeading({ contents, level, linkPath, routeId }: Props) {
-  const [isSelected, setIsSelected] = useState<boolean>(false);
-  const { colors } = useContext(ThemeContext);
+  const [isSelected, setIsSelected] = React.useState<boolean>(false);
+  const { colors } = React.useContext(ThemeContext);
 
-  const handleOnActivated = useCallback(() => {
+  const handleOnActivated = React.useCallback(() => {
     setIsSelected(true);
   }, []);
 
-  const handleOnUnactivated = useCallback(() => {
+  const handleOnUnactivated = React.useCallback(() => {
     setIsSelected(false);
   }, []);
 
-  const handleHeadingClicked = useCallback(() => {
+  const handleHeadingClicked = React.useCallback(() => {
     document.getElementById(routeId)?.scrollIntoView();
   }, []);
 
-  const headingHandlers = useMemo(() => {
+  const headingHandlers = React.useMemo(() => {
     return {
       onClick: handleHeadingClicked,
       onFocus: handleOnActivated,
@@ -38,7 +38,7 @@ function BlogHeading({ contents, level, linkPath, routeId }: Props) {
     };
   }, [handleHeadingClicked, handleOnActivated, handleOnUnactivated]);
 
-  const headingContent = useMemo(() => {
+  const headingContent = React.useMemo(() => {
     switch (level) {
       case 2:
         return (
