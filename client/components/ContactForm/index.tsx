@@ -185,7 +185,14 @@ const RootStyles = styled.div<StyleProps>`
         margin-bottom: ${({ theme }) => theme.spaces.micro};
         min-height: ${({ theme }) => theme.spaces.xxLarge};
         position: relative;
+        transition: border-color ${({ theme }) => theme.transitions.short}
+          ease-in-out;
         width: 100%;
+
+        &:hover {
+          border: ${({ theme }) =>
+            `${theme.spaces.nano} solid ${theme.colorsHex.royalBlue}`};
+        }
 
         > input {
           background: ${({ theme }) => theme.colorsHex.transparent};
