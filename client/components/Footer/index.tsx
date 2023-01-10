@@ -1,21 +1,14 @@
 import * as React from "react";
 
-import { BabyYoda } from "../EasterEggs";
 import styled from "styled-components";
 import { useIsArticlePage } from "../../hooks";
 
 function Footer() {
-  const currentYear = new Date().getFullYear();
   const isArticlePage = useIsArticlePage();
-
-  const copyrightLabel = React.useMemo(() => {
-    return `© ${currentYear} Nathan Thomas`;
-  }, [currentYear]);
 
   return (
     <RootStyles isArticlePage={isArticlePage}>
       <footer>
-        <p>{copyrightLabel}</p>
         <nav>
           <ul>
             <li>
@@ -81,7 +74,6 @@ function Footer() {
           </ul>
         </nav>
       </footer>
-      <BabyYoda />
     </RootStyles>
   );
 }
@@ -103,17 +95,6 @@ const RootStyles = styled.div<StyleProps>`
     width: ${({ isArticlePage, theme }) =>
       isArticlePage ? theme.appDimensions.articleMaxWidth : "100%"};
 
-    > p {
-      color: ${({ theme }) => theme.colors.textSecondary};
-      font-size: 1.6rem;
-
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.tablet}) {
-        margin-top: ${({ theme }) => theme.spaces.micro};
-        font-size: 2rem;
-      }
-    }
-
     > nav {
       display: flex;
       width: 100%;
@@ -121,7 +102,8 @@ const RootStyles = styled.div<StyleProps>`
       > ul {
         display: flex;
         flex-wrap: wrap;
-        padding-bottom: ${({ theme }) => theme.spaces.medium};
+        padding-bottom: ${({ theme }) =>
+          `calc(${theme.spaces.medium} - ${theme.spaces.small})`};
         width: 100%;
 
         @media only screen and (min-width: ${({ theme }) =>
@@ -131,7 +113,7 @@ const RootStyles = styled.div<StyleProps>`
 
         > li {
           display: flex;
-          margin-top: ${({ theme }) => theme.spaces.small};
+          margin-bottom: ${({ theme }) => theme.spaces.small};
           margin-right: ${({ theme }) => theme.spaces.small};
 
           @media only screen and (min-width: ${({ theme }) =>
@@ -141,7 +123,7 @@ const RootStyles = styled.div<StyleProps>`
 
           @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.tablet}) {
-            margin-top: ${({ theme }) => theme.spaces.medium};
+            margin-bottom: ${({ theme }) => theme.spaces.medium};
             margin-right: ${({ theme }) => theme.spaces.large};
           }
 
@@ -149,10 +131,6 @@ const RootStyles = styled.div<StyleProps>`
             outline: none;
             text-decoration-color: ${({ theme }) => theme.colors.textSecondary};
           }
-        }
-
-        > li:last-child > div:last-child {
-          margin-bottom: 0;
         }
       }
     }

@@ -22,15 +22,7 @@ function Navbar() {
               <li>
                 <Link href={HOME_PAGE} passHref>
                   <a>
-                    <Image
-                      alt="Go to home page"
-                      draggable={false}
-                      height={400}
-                      priority
-                      quality={10}
-                      src="/nathan-thomas-pfp.jpg"
-                      width={400}
-                    />
+                    <div />
                   </a>
                 </Link>
               </li>
@@ -42,11 +34,6 @@ function Navbar() {
               <li>
                 <NavbarLink currentPath={currentPath} route={BLOG_PAGE}>
                   Blog
-                </NavbarLink>
-              </li>
-              <li>
-                <NavbarLink currentPath={currentPath} route={PROJECTS_PAGE}>
-                  Projects
                 </NavbarLink>
               </li>
               <li>
@@ -161,9 +148,8 @@ const RootStyles = styled.div`
                   theme.colors.textSecondary};
               }
 
-              &:has(img) {
+              &:has(div) {
                 display: flex;
-                border-radius: ${({ theme }) => theme.borderRadii.infinity};
 
                 &:focus {
                   outline-color: ${({ theme }) => theme.colorsHex.royalBlue};
@@ -172,19 +158,11 @@ const RootStyles = styled.div`
                 }
               }
 
-              img {
-                border-radius: ${({ theme }) => theme.borderRadii.infinity};
-                display: flex;
+              div {
+                background-color: ${({ theme }) => theme.colors.text};
                 cursor: pointer;
-                height: 50px;
-                transition: opacity ${({ theme }) => theme.transitions.medium}
-                  ease-in-out;
-                user-select: none;
-                width: 50px;
-
-                &:hover {
-                  opacity: ${({ theme }) => theme.opacity.opacity80};
-                }
+                height: ${({ theme }) => theme.spaces.large};
+                width: ${({ theme }) => theme.spaces.large};
               }
             }
           }

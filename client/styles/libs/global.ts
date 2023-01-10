@@ -52,7 +52,7 @@ const GlobalStyle = css`
 
   /* To change the colors in the colors object, go to styles/libs/theme.ts */
   body.dark {
-    --body-bg: ${colors.woodsmoke};
+    --body-bg: ${colors.black};
     --body-bg-accent-one: ${colors.shark};
     --body-bg-accent-two: ${colors.outerSpace};
     --button-primary-bg: ${colors.royalBlue};
