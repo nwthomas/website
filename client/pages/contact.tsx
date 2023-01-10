@@ -60,18 +60,15 @@ function Contact() {
           <section>
             <h1>
               You can reach me on{" "}
-              <span>
-                <a
-                  href="https://twitter.com/nwthomas_"
-                  aria-label="Link to Nathan's Twitter profile"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  Twitter
-                </a>{" "}
-                🐦
-              </span>{" "}
-              or my contact form here:
+              <a
+                href="https://twitter.com/nwthomas_"
+                aria-label="Link to Nathan's Twitter profile"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Twitter
+              </a>{" "}
+              or right here:
             </h1>
           </section>
           <section>

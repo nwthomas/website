@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import { CONTENTS_ID } from "../constants/routes";
-import Employers from "../components/Employers";
 import { HOME_PAGE_NAME } from "../constants/seo";
 import Layout from "../components/Layout";
 import Link from "next/link";
@@ -73,8 +72,6 @@ const RootStyles = styled.div`
 
       > h1 a {
         background-clip: text;
-        background-image: ${({ theme }) =>
-          `linear-gradient(120deg, ${theme.colorsHex.royalBlue} 0%, ${theme.colorsHex.pictonBlue} 100%)`};
         -moz-background-clip: text;
         -webkit-background-clip: text;
         background-image: ${({ theme }) => theme.gradients.getLinkText()};
