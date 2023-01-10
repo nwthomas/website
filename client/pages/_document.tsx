@@ -33,7 +33,6 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link rel="icon" href="/favicon.ico" />
           <link
             rel="preload"
             href="/fonts/ObjectSans400.woff2"

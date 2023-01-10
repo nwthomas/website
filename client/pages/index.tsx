@@ -15,7 +15,7 @@ const Home: NextPage = () => {
         <main id={CONTENTS_ID}>
           <section>
             <h1>
-              I'm <span>Nathan 👋🏻,</span> a{" "}
+              Hi. I'm <span>Nathan 👋🏻,</span> a{" "}
               <a
                 href="https://github.com/nwthomas"
                 aria-label="Link to GitHub"
@@ -39,7 +39,6 @@ const Home: NextPage = () => {
               </span>
             </h1>
           </section>
-          <Employers />
         </main>
       </RootStyles>
     </Layout>
@@ -67,57 +66,31 @@ const RootStyles = styled.div`
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
+        margin-bottom: ${({ theme }) =>
+          `calc(${theme.spaces.xxLarge} + ${theme.spaces.medium})`};
+        margin-top: ${({ theme }) => theme.spaces.medium};
       }
 
-      > h1 {
-        background: ${({ theme }) => theme.colors.transparent};
-
-        a {
-          background-clip: text;
-          background-image: ${({ theme }) =>
-            `linear-gradient(120deg, ${theme.colorsHex.royalBlue} 0%, ${theme.colorsHex.pictonBlue} 100%)`};
-          -moz-background-clip: text;
-          -webkit-background-clip: text;
-          background-image: ${({ theme }) => theme.gradients.getLinkText()};
-          background-size: 100%;
-          font-size: inherit;
-          margin-right: -0.4em;
-          padding: ${({ theme }) =>
-            `${theme.spaces.micro} 0.4em ${theme.spaces.micro} 0`};
-          -moz-text-fill-color: transparent;
-          -webkit-text-fill-color: transparent;
-          text-decoration: none;
-          transition: opacity ${({ theme }) => theme.transitions.short}
-            ease-in-out;
-
-          &:hover {
-            opacity: ${({ theme }) => theme.opacity.opacity80};
-          }
-        }
-
-        > span {
-          white-space: nowrap;
-        }
-
-        > span > a > img {
-          width: 18px;
-
-          @media only screen and (min-width: ${({ theme }) =>
-              theme.breakpoints.tablet}) {
-            width: 30px;
-          }
-
-          @media only screen and (min-width: ${({ theme }) =>
-              theme.breakpoints.desktop}) {
-            width: 40px;
-          }
-        }
+      > h1 a {
+        background-clip: text;
+        background-image: ${({ theme }) =>
+          `linear-gradient(120deg, ${theme.colorsHex.royalBlue} 0%, ${theme.colorsHex.pictonBlue} 100%)`};
+        -moz-background-clip: text;
+        -webkit-background-clip: text;
+        background-image: ${({ theme }) => theme.gradients.getLinkText()};
+        background-size: 100%;
+        font-size: inherit;
+        margin-right: -0.4em;
+        padding: ${({ theme }) =>
+          `${theme.spaces.micro} 0.4em ${theme.spaces.micro} 0`};
+        -moz-text-fill-color: transparent;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none;
       }
-    }
 
-    > section:nth-child(2) {
-      margin-bottom: ${({ theme }) => theme.spaces.large};
+      > h1 > span {
+        white-space: nowrap;
+      }
     }
   }
 `;
