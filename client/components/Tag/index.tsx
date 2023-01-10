@@ -31,8 +31,7 @@ const RootStyles = styled.a`
   justify-content: center;
   padding: ${({ theme }) => `${theme.spaces.xSmall} ${theme.spaces.medium}`};
   text-decoration: none;
-  transition: border-color ${({ theme }) => theme.transitions.short} ease-in-out,
-    background-color ${({ theme }) => theme.transitions.short} ease-in-out;
+  transition: border-color ${({ theme }) => theme.transitions.short} ease-in-out;
 
   > h1 {
     color: ${({ theme }) => theme.colors.text};
@@ -41,7 +40,8 @@ const RootStyles = styled.a`
     height: 100%;
     line-height: 1;
     margin-top: ${({ theme }) => theme.spaces.nano};
-    transition: color ${({ theme }) => theme.transitions.short} ease-in-out;
+    transition: background-image ${({ theme }) => theme.transitions.short}
+      ease-in-out;
     width: 100%;
 
     @media only screen and (min-width: ${({ theme }) =>
@@ -53,14 +53,25 @@ const RootStyles = styled.a`
 
   &:hover,
   &:focus {
-    background-color: ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
     border: ${({ theme }) =>
-      `${theme.spaces.nano} solid ${theme.colorsHex.royalBlue}`};
+      `${theme.spaces.nano} solid ${theme.colorsHex.cornflowerBlue}`};
     outline: none;
     text-decoration: none;
 
     > h1 {
-      color: ${({ theme }) => theme.colorsHex.royalBlue};
+      background-clip: text;
+      -moz-background-clip: text;
+      -webkit-background-clip: text;
+      background-image: ${({ theme }) =>
+        theme.gradients.getLinkText(
+          theme.colorsHex.royalBlue,
+          theme.colorsHex.cornflowerBlue,
+          theme.colorsHex.mauve
+        )};
+      background-size: 100%;
+      -moz-text-fill-color: transparent;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
     }
   }
 `;

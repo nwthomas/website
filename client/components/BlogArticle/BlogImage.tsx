@@ -84,7 +84,7 @@ const RootStyles = styled.div<StyleProps>`
 
     > div:nth-child(1) {
       border-radius: ${({ theme, withRoundedCorners }) =>
-        withRoundedCorners ? theme.borderRadii.large : 0};
+        withRoundedCorners ? theme.borderRadii.medium : 0};
       width: 100%;
     }
 

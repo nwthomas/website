@@ -32,10 +32,7 @@ const Home: NextPage = () => {
               >
                 teacher
               </a>{" "}
-              in San Francisco.{" "}
-              <span>
-                Let's <Link href="/contact">talk</Link>.
-              </span>
+              living in San Francisco.
             </h1>
           </section>
         </main>
@@ -74,12 +71,15 @@ const RootStyles = styled.div`
         background-clip: text;
         -moz-background-clip: text;
         -webkit-background-clip: text;
-        background-image: ${({ theme }) => theme.gradients.getLinkText()};
+        background-image: ${({ theme }) =>
+          theme.gradients.getLinkText(
+            theme.colorsHex.royalBlue,
+            theme.colorsHex.cornflowerBlue,
+            theme.colorsHex.mauve
+          )};
         background-size: 100%;
         font-size: inherit;
-        margin-right: -0.4em;
-        padding: ${({ theme }) =>
-          `${theme.spaces.micro} 0.4em ${theme.spaces.micro} 0`};
+        padding: ${({ theme }) => `${theme.spaces.micro} 0`};
         -moz-text-fill-color: transparent;
         -webkit-text-fill-color: transparent;
         text-decoration: none;

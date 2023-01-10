@@ -59,7 +59,7 @@ function Contact() {
         <main id={CONTENTS_ID}>
           <section>
             <h1>
-              You can reach me on{" "}
+              Message me on{" "}
               <a
                 href="https://twitter.com/nwthomas_"
                 aria-label="Link to Nathan's Twitter profile"
@@ -104,12 +104,18 @@ const RootStyles = styled.div`
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
+        margin-bottom: ${({ theme }) => theme.spaces.large};
+        margin-top: ${({ theme }) => theme.spaces.medium};
       }
 
       a {
         background-clip: text;
-        background-image: ${({ theme }) => theme.gradients.getLinkText()};
+        background-image: ${({ theme }) =>
+          theme.gradients.getLinkText(
+            theme.colorsHex.royalBlue,
+            theme.colorsHex.cornflowerBlue,
+            theme.colorsHex.mauve
+          )};
         background-size: 100%;
         -webkit-background-clip: text;
         -moz-background-clip: text;
@@ -117,12 +123,6 @@ const RootStyles = styled.div`
         -moz-text-fill-color: transparent;
         font-size: inherit;
         text-decoration: none;
-        transition: opacity ${({ theme }) => theme.transitions.medium}
-          ease-in-out;
-
-        &:hover {
-          opacity: ${({ theme }) => theme.opacity.opacity80};
-        }
       }
 
       span {

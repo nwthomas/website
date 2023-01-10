@@ -10,8 +10,10 @@ interface Colors {
   black: "#000000";
   brightSun: "#FACF3D";
   codGray: "#131313";
+  cornflowerBlue: "#818cf8";
   doveGray: "#707070";
   eerieBlack: "#141414";
+  mauve: "#d8b4fe",
   mercury: "#E1E1E1";
   mineShaft: "#333333";
   outerSpace: "#373A3D";
@@ -33,8 +35,10 @@ export const colors: Colors = {
   black: "#000000",
   brightSun: "#FACF3D",
   codGray: "#131313",
+  cornflowerBlue: "#818cf8",
   doveGray: "#707070",
   eerieBlack: "#141414",
+  mauve: "#d8b4fe",
   mercury: "#E1E1E1",
   mineShaft: "#333333",
   outerSpace: "#373A3D",
@@ -53,18 +57,18 @@ export const colors: Colors = {
 interface Gradients {
   getContactFormBorder: (radians: number) => string;
   getHeaderBackground: () => string;
-  getLinkText: () => string;
+  getLinkText: (colorOne: string, colorTwo: string, colorThree: string) => string;
 }
 
 const gradients: Gradients = {
   getContactFormBorder: (radians: number) => {
-    return `linear-gradient(calc(${radians}rad), ${colors.royalBlue} 0%, ${colors.pictonBlue} 20%, rgba(121,40,202,0) 75%)`;
+    return `linear-gradient(calc(${radians}rad), ${colors.royalBlue} 0%, ${colors.cornflowerBlue} 10%, ${colors.mauve} 30%, rgba(121,40,202,0) 75%)`;
   },
   getHeaderBackground: () => {
     return `linear-gradient(180deg, ${themeColorValues.bodyBackground} 60%, rgba(121,40,202,0) 100%)`;
   },
-  getLinkText: () => {
-    return `linear-gradient(120deg, ${colors.royalBlue} 0%, ${colors.pictonBlue} 100%)`;
+  getLinkText: (colorOne: string, colorTwo: string, colorThree: string): string => {
+    return `linear-gradient(120deg, ${colorOne} 0%, ${colorTwo} 55%, ${colorThree} 100%)`;
   },
 };
 

@@ -9,7 +9,7 @@ export default function Error({ errorCode }: Props) {
   return (
     <RootStyles>
       <h1>
-        {`${errorCode} 🌲 `}{" "}
+        {`${errorCode} `}
         <Link href="/" passHref>
           Go back home
         </Link>
@@ -38,7 +38,12 @@ const RootStyles = styled.main`
 
     > a {
       background-clip: text;
-      background-image: ${({ theme }) => theme.gradients.getLinkText()};
+      background-image: ${({ theme }) =>
+        theme.gradients.getLinkText(
+          theme.colorsHex.royalBlue,
+          theme.colorsHex.cornflowerBlue,
+          theme.colorsHex.mauve
+        )};
       -moz-background-clip: text;
       -webkit-background-clip: text;
       background-size: 100%;
