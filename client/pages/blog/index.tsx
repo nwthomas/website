@@ -64,13 +64,14 @@ const RootStyles = styled.div`
   width: 100%;
 
   > main {
-    margin-bottom: ${({ theme }) => theme.spaces.large};
     max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
+    margin-bottom: ${({ theme }) => theme.spaces.medium};
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
-      margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
-      width: 100%;
+      margin-bottom: ${({ theme }) =>
+        `calc(${theme.spaces.xxLarge} + ${theme.spaces.medium})`};
+      margin-top: ${({ theme }) => theme.spaces.medium};
     }
 
     > div {

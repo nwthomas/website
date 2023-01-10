@@ -40,7 +40,7 @@ const RootStyles = styled.article`
     background-color: ${({ theme }) => theme.colors.bodyBackground};
     border: ${({ theme }) =>
       `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
-    border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
+    border-radius: ${({ theme }) => theme.borderRadii.medium};
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -94,7 +94,7 @@ const RootStyles = styled.article`
       background-color: ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
       border: ${({ theme }) =>
         `${theme.spaces.nano} solid ${theme.colorsHex.royalBlue}`};
-      border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
+      border-radius: ${({ theme }) => theme.borderRadii.medium};
       outline: none;
 
       > div > h2 {

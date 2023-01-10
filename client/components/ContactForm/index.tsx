@@ -151,12 +151,12 @@ interface StyleProps {
 }
 
 const RootStyles = styled.div<StyleProps>`
-  border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
+  border-radius: ${({ theme }) => theme.borderRadii.large};
   padding: ${({ theme }) => theme.spaces.nano};
   width: 100%;
 
   > div {
-    border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
+    border-radius: ${({ theme }) => theme.borderRadii.large};
     background-color: ${({ theme }) => theme.colors.bodyBackground};
     padding: ${({ theme }) => theme.spaces.small};
     width: 100%;
@@ -181,7 +181,7 @@ const RootStyles = styled.div<StyleProps>`
       > div {
         border: ${({ theme }) =>
           `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
-        border-radius: ${({ theme }) => theme.borderRadii.large};
+        border-radius: ${({ theme }) => theme.borderRadii.medium};
         margin-bottom: ${({ theme }) => theme.spaces.micro};
         min-height: ${({ theme }) => theme.spaces.xxLarge};
         position: relative;
@@ -197,7 +197,7 @@ const RootStyles = styled.div<StyleProps>`
         > input {
           background: ${({ theme }) => theme.colorsHex.transparent};
           border: none;
-          border-radius: ${({ theme }) => theme.borderRadii.large};
+          border-radius: ${({ theme }) => theme.borderRadii.medium};
           min-height: ${({ theme }) => theme.spaces.xxLarge};
           padding: ${({ theme }) => theme.spaces.medium};
           width: 100%;
@@ -206,9 +206,9 @@ const RootStyles = styled.div<StyleProps>`
         > textarea {
           background: ${({ theme }) => theme.colors.transparent};
           border: none;
-          border-top-left-radius: ${({ theme }) => theme.borderRadii.large};
-          border-bottom-left-radius: ${({ theme }) => theme.borderRadii.large};
-          border-top-right-radius: ${({ theme }) => theme.borderRadii.large};
+          border-top-left-radius: ${({ theme }) => theme.borderRadii.medium};
+          border-bottom-left-radius: ${({ theme }) => theme.borderRadii.medium};
+          border-top-right-radius: ${({ theme }) => theme.borderRadii.medium};
           min-height: ${({ theme }) => theme.spaces.xxLarge};
           padding: ${({ theme }) => theme.spaces.medium};
           resize: vertical;
@@ -245,7 +245,7 @@ const RootStyles = styled.div<StyleProps>`
 
       > button {
         align-items: center;
-        border-radius: ${({ theme }) => theme.borderRadii.large};
+        border-radius: ${({ theme }) => theme.borderRadii.medium};
         border: 2px solid ${({ theme }) => theme.colors.buttonPrimaryBackground};
         cursor: ${({ isFormButtonDisabled }) =>
           isFormButtonDisabled ? "default" : "pointer"};
