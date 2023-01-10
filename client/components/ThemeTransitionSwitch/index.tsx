@@ -60,7 +60,7 @@ const RootStyles = styled.div<StyleProps>`
 
     &:active + div > div,
     &:focus + div > div {
-      box-shadow: 0 0 3px 3px ${({ theme }) => theme.colorsHex.pictonBlue};
+      box-shadow: 0 0 3px 3px ${({ theme }) => theme.colorsHex.cornflowerBlue};
     }
   }
 

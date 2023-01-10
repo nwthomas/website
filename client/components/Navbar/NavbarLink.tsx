@@ -31,6 +31,11 @@ const RootStyles = styled.div<StyleProps>`
 
       return "";
     }}
+
+    &:focus {
+      outline: none;
+      text-decoration-color: ${({ theme }) => theme.colors.textSecondary};
+    }
   }
 `;
 

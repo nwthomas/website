@@ -1,9 +1,8 @@
 import * as React from "react";
-import { ThemeContext } from "styled-components";
 import { DARK_THEME } from "../../hooks";
 import Head from "next/head";
 import { buildSeoConfig } from "../../constants/seo";
-import { useGetPageName } from "../../hooks";
+import { useGetPreferredTheme } from "../../hooks";
 
 const darkModeFaviconPath = "/dark-mode-favicon.ico";
 const lightModeFaviconPath = "/light-mode-favicon.ico";
@@ -32,7 +31,7 @@ function SEO({
   pageName,
   withPageNameEmojis,
 }: Props) {
-  const { currentTheme } = React.useContext(ThemeContext);
+  const [currentTheme] = useGetPreferredTheme();
 
   const currentPageMetadata = React.useMemo(() => {
     return buildSeoConfig(pageName);
@@ -47,12 +46,10 @@ function SEO({
     title,
   } = currentPageMetadata;
 
-  const tabTitle = useGetPageName(title, withPageNameEmojis);
-
   return (
     <Head>
       {/* Miscellaneous Meta Tags */}
-      <title>{tabTitle}</title>
+      <title>{title}</title>
       <meta charSet="utf-8" />
       <meta name="description" content={customDescription || description} />
       <meta

@@ -48,7 +48,7 @@ const BlockRootStyles = styled.div`
   }
 
   > div {
-    border-radius: ${({ theme }) => theme.borderRadii.large};
+    border-radius: ${({ theme }) => theme.borderRadii.medium};
     max-width: ${({ theme }) => theme.appDimensions.articleMaxWidth};
     width: 100%;
 
@@ -62,7 +62,7 @@ const BlockRootStyles = styled.div`
 
 const InlineRootStyles = styled.code`
   background-color: ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
-  border-radius: ${({ theme }) => theme.borderRadii.medium};
+  border-radius: ${({ theme }) => theme.borderRadii.small};
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     Liberation Mono, Courier New, monospace;
   font-size: 1.4rem;

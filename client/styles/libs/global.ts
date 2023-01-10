@@ -16,7 +16,7 @@ const GlobalStyle = css`
   :root {
     --app-min-height: 100vh;
   }
-
+  
   html {
     background: ${({ theme }) => theme.colors.bodyBackground};
     font-size: 62.5%;
@@ -41,7 +41,7 @@ const GlobalStyle = css`
   See: https://css-tricks.com/platform-news-using-focus-visible-bbcs-new-typeface-declarative-shadow-doms-a11y-and-placeholders/#now-may-be-a-good-time-to-start-using-focus-visible
   */
   :focus {
-    outline-color: ${({ theme }) => theme.colorsHex.royalBlue};
+    outline-color: ${({ theme }) => theme.colorsHex.cornflowerBlue};
     outline-style: solid;
     outline-width: ${({ theme }) => theme.spaces.nano};
   }
@@ -55,7 +55,7 @@ const GlobalStyle = css`
     --body-bg: ${colors.black};
     --body-bg-accent-one: ${colors.shark};
     --body-bg-accent-two: ${colors.outerSpace};
-    --button-primary-bg: ${colors.royalBlue};
+    --button-primary-bg: ${colors.cornflowerBlue};
     --error: ${colors.scarlet};
     --text: ${colors.mercury};
     --text-on-contrast: ${colors.mercury};
@@ -66,7 +66,7 @@ const GlobalStyle = css`
     --body-bg: ${colors.white};
     --body-bg-accent-one: ${colors.alabaster};
     --body-bg-accent-two: ${colors.alto};
-    --button-primary-bg: ${colors.royalBlue};
+    --button-primary-bg: ${colors.cornflowerBlue};
     --error: ${colors.scarlet};
     --text: ${colors.mineShaft};
     --text-on-contrast: ${colors.white};

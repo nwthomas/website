@@ -46,9 +46,7 @@ const RootStyles = styled.article`
     justify-content: space-between;
     min-height: 200px;
     padding: ${({ theme }) => theme.spaces.medium};
-    transition: background-color ${({ theme }) => theme.transitions.short}
-        ease-in-out,
-      border ${({ theme }) => theme.transitions.short} ease-in-out;
+    transition: border ${({ theme }) => theme.transitions.short} ease-in-out;
     text-decoration: none;
     width: 100%;
 
@@ -91,14 +89,25 @@ const RootStyles = styled.article`
 
     &:focus,
     &:hover {
-      background-color: ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
       border: ${({ theme }) =>
-        `${theme.spaces.nano} solid ${theme.colorsHex.royalBlue}`};
+        `${theme.spaces.nano} solid ${theme.colorsHex.cornflowerBlue}`};
       border-radius: ${({ theme }) => theme.borderRadii.medium};
       outline: none;
 
       > div > h2 {
-        color: ${({ theme }) => theme.colorsHex.royalBlue};
+        background-clip: text;
+        -moz-background-clip: text;
+        -webkit-background-clip: text;
+        background-image: ${({ theme }) =>
+          theme.gradients.getLinkText(
+            theme.colorsHex.royalBlue,
+            theme.colorsHex.cornflowerBlue,
+            theme.colorsHex.mauve
+          )};
+        background-size: 100%;
+        -moz-text-fill-color: transparent;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none;
       }
 
       > div:nth-child(2) > svg {

@@ -64,7 +64,7 @@ export function buildSeoConfig(pageName: string, route?: string): SeoConfig {
         ...DEFAULT_SEO_VALUES,
         currentUrl: "https://www.nathanthomas.dev",
         imageUrl: "/seo/home-page.png",
-        title: "Home",
+        title: "Nathan Thomas's blog",
       };
     case PROJECTS_PAGE_NAME:
       return {

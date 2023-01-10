@@ -1,6 +1,5 @@
-import { BLOG_PAGE, CONTACT_PAGE, PROJECTS_PAGE } from "../../constants/routes";
+import { BLOG_PAGE, CONTACT_PAGE } from "../../constants/routes";
 
-import Image from "next/image";
 import { CONTENTS_ID } from "../../constants/routes";
 import { HOME_PAGE } from "../../constants/routes";
 import Link from "next/link";
@@ -142,17 +141,12 @@ const RootStyles = styled.div`
             }
 
             > a {
-              &:focus {
-                outline: none;
-                text-decoration-color: ${({ theme }) =>
-                  theme.colors.textSecondary};
-              }
-
               &:has(div) {
                 display: flex;
 
                 &:focus {
-                  outline-color: ${({ theme }) => theme.colorsHex.royalBlue};
+                  outline-color: ${({ theme }) =>
+                    theme.colorsHex.cornflowerBlue};
                   outline-style: solid;
                   outline-width: ${({ theme }) => theme.spaces.nano};
                 }

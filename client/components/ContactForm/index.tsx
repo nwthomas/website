@@ -152,11 +152,13 @@ interface StyleProps {
 
 const RootStyles = styled.div<StyleProps>`
   border-radius: ${({ theme }) => theme.borderRadii.large};
-  padding: ${({ theme }) => theme.spaces.nano};
+  padding: ${({ theme }) => theme.spaces.micro};
   width: 100%;
 
   > div {
-    border-radius: ${({ theme }) => theme.borderRadii.large};
+    /* Compensate for the inner curve of this element against its parent */
+    border-radius: ${({ theme }) =>
+      `calc(${theme.borderRadii.large} - ${theme.spaces.micro})`};
     background-color: ${({ theme }) => theme.colors.bodyBackground};
     padding: ${({ theme }) => theme.spaces.small};
     width: 100%;
@@ -185,14 +187,7 @@ const RootStyles = styled.div<StyleProps>`
         margin-bottom: ${({ theme }) => theme.spaces.micro};
         min-height: ${({ theme }) => theme.spaces.xxLarge};
         position: relative;
-        transition: border-color ${({ theme }) => theme.transitions.short}
-          ease-in-out;
         width: 100%;
-
-        &:hover {
-          border: ${({ theme }) =>
-            `${theme.spaces.nano} solid ${theme.colorsHex.royalBlue}`};
-        }
 
         > input {
           background: ${({ theme }) => theme.colorsHex.transparent};
