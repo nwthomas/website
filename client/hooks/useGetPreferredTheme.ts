@@ -16,6 +16,8 @@ declare global {
   }
 }
 
+// Directly (and only) pull the window object theme value which is useful both in the hook
+// below as well as in _app.tsx when the StoreProvider is not available
 export function getThemeFromWindowObject() {
   // We must check for typeof window !== "undefined" instead of window !== undefined
   // because typeof does not evaluate window but only get its type
