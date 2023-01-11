@@ -53,8 +53,10 @@ const BlockRootStyles = styled.div`
     width: 100%;
 
     span {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-        Liberation Mono, Courier New, monospace;
+      font-family: "ObjectSans", Object Sans, Helvetica, ui-sans-serif,
+        system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+        Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
+        Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
       flex-wrap: wrap;
     }
   }
@@ -63,8 +65,10 @@ const BlockRootStyles = styled.div`
 const InlineRootStyles = styled.code`
   background-color: ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
   border-radius: ${({ theme }) => theme.borderRadii.small};
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    Liberation Mono, Courier New, monospace;
+  font-family: "ObjectSans", Object Sans, Helvetica, ui-sans-serif, system-ui,
+    -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial,
+    Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
+    Noto Color Emoji;
   font-size: 1.4rem;
   padding: ${({ theme }) =>
     `${theme.spaces.nano} calc(${theme.spaces.micro} * 2)`};

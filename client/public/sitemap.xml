@@ -4,17 +4,12 @@
   <url>
     <loc>https://www.nathanthomas.dev</loc>
     <lastmod>2022-12-27</lastmod>
-    <changefreq>monthly<changefreq>
+    <changefreq>weekly<changefreq>
   </url>
     <url>
     <loc>https://www.nathanthomas.dev/blog</loc>
     <lastmod>2022-12-27</lastmod>
     <changefreq>weekly<changefreq>
-  </url>
-  <url>
-    <loc>https://www.nathanthomas.dev/projects</loc>
-    <lastmod>2022-11-01</lastmod>
-    <changefreq>monthly<changefreq>
   </url>
   <url>
     <loc>https://www.nathanthomas.dev/contact</loc>

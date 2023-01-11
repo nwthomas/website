@@ -1,6 +1,6 @@
 /* I found a great guide for fonts in NextJS was at https://leerob.io/blog/fonts */
 
-/* These two @font-face rules stack thanks to truetype format and can both be accessed by 'Work Sans' */
+/* These two @font-face rules stack thanks to truetype format */
 @font-face {
   font-family: "ObjectSans";
   font-style: normal;
@@ -10,7 +10,7 @@
 }
 @font-face {
   font-family: "ObjectSans";
-  font-style: normal;
+  font-style: bold;
   font-display: swap;
   font-weight: 700;
   src: url(/fonts/ObjectSans700.woff2) format("truetype");
