@@ -106,7 +106,10 @@ const GlobalStyle = css`
   h5 {
     color: ${({ theme }) => theme.colors.text};
     font-display: swap;
-    font-family: "ObjectSans", Object Sans, Helvetica, sans-serif;
+    font-family: "ObjectSans", Object Sans, Helvetica, ui-sans-serif, system-ui,
+      -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial,
+      Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
+      Noto Color Emoji;
     line-height: 1.4;
   }
 
@@ -141,13 +144,19 @@ const GlobalStyle = css`
     font-size: 1.6rem;
     line-height: 1.4;
     overflow: break-word;
-    font-family: "ObjectSans", Object Sans, Helvetica, sans-serif;
+    font-family: "ObjectSans", Object Sans, Helvetica, ui-sans-serif, system-ui,
+      -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial,
+      Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
+      Noto Color Emoji;
 
     &::placeholder {
       color: ${({ theme }) => theme.colors.text};
       opacity: ${({ theme }) => theme.opacity.opacity70};
       font-size: 1.6rem;
-      font-family: "ObjectSans", Object Sans, Helvetica, sans-serif;
+      font-family: "ObjectSans", Object Sans, Helvetica, ui-sans-serif,
+        system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+        Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
+        Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
     }
 
     @media only screen and (min-width: ${({ theme }) =>
@@ -169,7 +178,10 @@ const GlobalStyle = css`
     -webkit-box-decoration-break: clone;
     color: ${({ theme }) => theme.colors.textSecondary};
     font-display: swap;
-    font-family: "ObjectSans", Object Sans, Helvetica, sans-serif;
+    font-family: "ObjectSans", Object Sans, Helvetica, ui-sans-serif, system-ui,
+      -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial,
+      Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
+      Noto Color Emoji;
     font-size: 1.6rem;
     overflow: break-word;
     text-decoration-color: transparent;
