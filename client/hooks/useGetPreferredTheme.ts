@@ -1,10 +1,13 @@
 import * as React from "react";
-import { ThemeEnum, updateCurrentTheme } from "../store/themeSlice";
+import {
+  DARK_THEME,
+  LIGHT_THEME,
+  ThemeEnum,
+  updateCurrentTheme,
+} from "../store/themeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
 
-export const DARK_THEME = "dark";
-export const LIGHT_THEME = "light";
 export const LOCAL_STORAGE_KEY = "theme";
 const MATCH_MEDIA_QUERY_NAME = "(prefers-color-scheme: dark)";
 

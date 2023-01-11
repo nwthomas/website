@@ -1,5 +1,5 @@
 import * as React from "react";
-import { DARK_THEME } from "../../hooks";
+import { DARK_THEME } from "../../store/themeSlice";
 import Head from "next/head";
 import { buildSeoConfig } from "../../constants/seo";
 import { useGetPreferredTheme } from "../../hooks";

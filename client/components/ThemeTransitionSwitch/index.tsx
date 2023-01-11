@@ -1,6 +1,7 @@
 import * as React from "react";
 
-import { DARK_THEME, useGetPreferredTheme } from "../../hooks";
+import { DARK_THEME } from "../../store/themeSlice";
+import { useGetPreferredTheme } from "../../hooks";
 import { MoonIcon, SunIcon } from "../Icons";
 import styled, { ThemeContext } from "styled-components";
 
