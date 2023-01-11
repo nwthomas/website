@@ -99,7 +99,7 @@ interface ThemeColorValues {
   buttonPrimaryBackground: string;
   error: string;
   text: string;
-  textOnContrast: string;
+  selection: string;
   textSecondary: string;
   transparent: string;
 }
@@ -110,7 +110,7 @@ export const themeColorValues: ThemeColorValues = {
   buttonPrimaryBackground: "var(--button-primary-bg)",
   error: "var(--error)",
   text: "var(--text)",
-  textOnContrast: "var(--text-on-contrast)",
+  selection: "var(--selection)",
   textSecondary: "var(--text-secondary)",
   transparent: "var(--transparent)",
 };

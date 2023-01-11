@@ -83,12 +83,6 @@ const RootStyles = styled.div`
         -moz-text-fill-color: transparent;
         -webkit-text-fill-color: transparent;
         text-decoration: none;
-        transition: opacity ${({ theme }) => theme.transitions.short}
-          ease-in-out;
-
-        &:hover {
-          opacity: ${({ theme }) => theme.opacity.opacity90};
-        }
       }
 
       > h1 > span {

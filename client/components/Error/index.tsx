@@ -52,11 +52,6 @@ const RootStyles = styled.main`
       -moz-text-fill-color: transparent;
       -webkit-text-fill-color: transparent;
       text-decoration: none;
-      transition: opacity ${({ theme }) => theme.transitions.medium} ease-in-out;
-
-      &:hover {
-        opacity: ${({ theme }) => theme.opacity.opacity80};
-      }
     }
   }
 `;

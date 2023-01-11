@@ -50,6 +50,31 @@ const GlobalStyle = css`
     outline-color: ${({ theme }) => theme.colors.transparent};
   }
 
+  /* Code for Firefox */
+  ::-moz-selection {
+    color: ${({ theme }) => theme.colors.text};
+    background: ${({ theme }) => theme.colorsHex.cornflowerBlue};
+    background-clip: border-box;
+    background-image: none;
+    background-size: 100%;
+    -webkit-background-clip: border-box;
+    -moz-background-clip: border-box;
+    -webkit-text-fill-color: currentColor;
+    -moz-text-fill-color: currentColor;
+  }
+
+  ::selection {
+    color: ${({ theme }) => theme.colors.textSecondary};
+    background: ${({ theme }) => theme.colorsHex.mauve};
+    background-clip: border-box;
+    background-image: none;
+    background-size: 100%;
+    -webkit-background-clip: border-box;
+    -moz-background-clip: border-box;
+    -webkit-text-fill-color: currentColor;
+    -moz-text-fill-color: currentColor;
+  }
+
   /* To change the colors in the colors object, go to styles/libs/theme.ts */
   body.dark {
     --body-bg: ${colors.black};
@@ -58,7 +83,7 @@ const GlobalStyle = css`
     --button-primary-bg: ${colors.cornflowerBlue};
     --error: ${colors.scarlet};
     --text: ${colors.mercury};
-    --text-on-contrast: ${colors.mercury};
+    --selection: ${colors.woodsmoke};
     --text-secondary: ${colors.rollingStone};
     --transparent: ${colors.transparent};
   }
@@ -69,7 +94,7 @@ const GlobalStyle = css`
     --button-primary-bg: ${colors.cornflowerBlue};
     --error: ${colors.scarlet};
     --text: ${colors.mineShaft};
-    --text-on-contrast: ${colors.white};
+    --selection: ${colors.alabaster};
     --text-secondary: ${colors.doveGray};
     --transparent: ${colors.transparent};
   }
