@@ -29,7 +29,6 @@ function SEO({
   customImageUrl,
   isArticle,
   pageName,
-  withPageNameEmojis,
 }: Props) {
   const [currentTheme] = useGetPreferredTheme();
 

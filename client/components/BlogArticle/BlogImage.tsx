@@ -1,8 +1,7 @@
-import styled, { ThemeContext } from "styled-components";
+import styled from "styled-components";
 import Image from "next/image";
 import { BlogMarkdownRenderer } from "./";
 import * as React from "react";
-import { useGetScreenDimensions } from "../../hooks";
 
 interface Props {
   alt?: string;
@@ -14,27 +13,8 @@ interface Props {
 }
 
 function BlogImage({ alt, height, isHeroImage, src, title, width }: Props) {
-  const {
-    breakpointsInt: { tablet, ultraWide },
-  } = React.useContext(ThemeContext);
-  const { availableWidth } = useGetScreenDimensions();
-
-  const borderRadiusBreakpoint = isHeroImage ? ultraWide : tablet;
-
-  const isNotFullWidthImage =
-    typeof availableWidth === "number" &&
-    availableWidth > borderRadiusBreakpoint;
-
-  const withRoundedCorners =
-    typeof availableWidth === "number" && isHeroImage
-      ? isNotFullWidthImage
-      : true;
-
   return (
-    <RootStyles
-      isHeroImage={isHeroImage}
-      withRoundedCorners={withRoundedCorners}
-    >
+    <RootStyles isHeroImage={isHeroImage}>
       <div>
         <Image
           alt={alt}
@@ -53,24 +33,17 @@ function BlogImage({ alt, height, isHeroImage, src, title, width }: Props) {
 
 interface StyleProps {
   isHeroImage?: boolean;
-  withRoundedCorners: boolean;
 }
 
 const RootStyles = styled.div<StyleProps>`
   display: flex;
   justify-content: center;
-  padding: ${({ isHeroImage, theme }) =>
-    isHeroImage
-      ? 0
-      : `${theme.spaces.medium} ${theme.appDimensions.appHorizontalGutters} 0`};
+  padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
   width: 100%;
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.tablet}) {
-    padding: ${({ isHeroImage, theme }) =>
-      isHeroImage
-        ? 0
-        : `${theme.spaces.large} ${theme.appDimensions.appHorizontalGutters} 0`};
+    padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
   }
 
   > div {
@@ -83,8 +56,7 @@ const RootStyles = styled.div<StyleProps>`
     width: 100%;
 
     > div:nth-child(1) {
-      border-radius: ${({ theme, withRoundedCorners }) =>
-        withRoundedCorners ? theme.borderRadii.medium : 0};
+      border-radius: ${({ theme }) => theme.borderRadii.medium};
       width: 100%;
     }
 

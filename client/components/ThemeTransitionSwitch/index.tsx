@@ -99,7 +99,7 @@ const RootStyles = styled.div<StyleProps>`
       width: 18px;
 
       &:focus-within {
-        box-shadow: 0 0 3px 3px ${({ theme }) => theme.colorsHex.pictonBlue};
+        box-shadow: 0 0 3px 3px ${({ theme }) => theme.colorsHex.cornflowerBlue};
       }
     }
   }
