@@ -22,7 +22,6 @@ function Tag({ text }: Props) {
 
 const RootStyles = styled.a`
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.bodyBackground};
   border: ${({ theme }) =>
     `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
   border-radius: ${({ theme }) => theme.borderRadii.infinity};
@@ -41,7 +40,8 @@ const RootStyles = styled.a`
     line-height: 1;
     margin-top: ${({ theme }) => theme.spaces.nano};
     transition: background-image ${({ theme }) => theme.transitions.short}
-      ease-in-out;
+        ease-in-out,
+      color ${({ theme }) => theme.transitions.short} ease-in-out;
     width: 100%;
 
     @media only screen and (min-width: ${({ theme }) =>

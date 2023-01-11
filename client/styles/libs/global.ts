@@ -16,7 +16,7 @@ const GlobalStyle = css`
   :root {
     --app-min-height: 100vh;
   }
-  
+
   html {
     background: ${({ theme }) => theme.colors.bodyBackground};
     font-size: 62.5%;
