@@ -37,7 +37,6 @@ const RootStyles = styled.article`
   width: 100%;
 
   > a {
-    background-color: ${({ theme }) => theme.colors.bodyBackground};
     border: ${({ theme }) =>
       `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
     border-radius: ${({ theme }) => theme.borderRadii.medium};

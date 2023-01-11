@@ -66,7 +66,8 @@ const RootStyles = styled.div<StyleProps>`
   }
 
   > div {
-    background-color: ${({ theme }) => theme.colorsHex.black};
+    background-color: ${({ isDarkMode, theme }) =>
+      isDarkMode ? theme.colorsHex.black : theme.colorsHex.mineShaft};
     border: ${({ theme }) =>
       `${theme.spaces.nano} solid ${theme.colors.textSecondary}`};
     border-radius: ${({ theme }) => theme.borderRadii.infinity};
