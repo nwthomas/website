@@ -65,7 +65,7 @@ const RootStyles = styled.div<StyleProps>`
   }
 
   > div {
-    background-color: ${({ theme }) => theme.colorsHex.woodsmoke};
+    background-color: ${({ theme }) => theme.colorsHex.black};
     border: ${({ theme }) =>
       `${theme.spaces.nano} solid ${theme.colors.textSecondary}`};
     border-radius: ${({ theme }) => theme.borderRadii.infinity};

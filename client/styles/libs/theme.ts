@@ -1,4 +1,5 @@
-import { DARK_THEME, ThemeEnum } from "./../../hooks";
+import { DARK_THEME } from "./../../hooks";
+import { ThemeEnum } from "../../store/themeSlice";
 
 // ===================================== Color Assignment Variables
 // All color names pulled directly from http://chir.ag/projects/name-that-color/
@@ -13,7 +14,7 @@ interface Colors {
   cornflowerBlue: "#818cf8";
   doveGray: "#707070";
   eerieBlack: "#141414";
-  mauve: "#d8b4fe",
+  mauve: "#d8b4fe";
   mercury: "#E1E1E1";
   mineShaft: "#333333";
   outerSpace: "#373A3D";
@@ -57,7 +58,11 @@ export const colors: Colors = {
 interface Gradients {
   getContactFormBorder: (radians: number) => string;
   getHeaderBackground: () => string;
-  getLinkText: (colorOne: string, colorTwo: string, colorThree: string) => string;
+  getLinkText: (
+    colorOne: string,
+    colorTwo: string,
+    colorThree: string
+  ) => string;
 }
 
 const gradients: Gradients = {
@@ -67,7 +72,11 @@ const gradients: Gradients = {
   getHeaderBackground: () => {
     return `linear-gradient(180deg, ${themeColorValues.bodyBackground} 60%, rgba(121,40,202,0) 100%)`;
   },
-  getLinkText: (colorOne: string, colorTwo: string, colorThree: string): string => {
+  getLinkText: (
+    colorOne: string,
+    colorTwo: string,
+    colorThree: string
+  ): string => {
     return `linear-gradient(120deg, ${colorOne} 0%, ${colorTwo} 55%, ${colorThree} 100%)`;
   },
 };

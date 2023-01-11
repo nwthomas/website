@@ -12,28 +12,27 @@ import { Provider } from "react-redux";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { ThemeProvider } from "styled-components";
 import { store } from "../store";
-import { useGetPreferredTheme } from "../hooks";
+import { getThemeFromWindowObject } from "../hooks";
 
 // We don't care about cache invalidation given the needs of this app, so data isn't stale
 // until >= 1 day
 const ONE_DAY_MS = 60000 * 60 * 24;
+const client = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: ONE_DAY_MS,
+    },
+  },
+});
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [currentTheme] = useGetPreferredTheme();
-  const [queryClient] = React.useState(
-    () =>
-      new QueryClient({
-        defaultOptions: {
-          queries: {
-            staleTime: ONE_DAY_MS,
-          },
-        },
-      })
-  );
+  const [queryClient] = React.useState(() => client);
 
   const mainTheme = React.useMemo(() => {
+    const currentTheme = getThemeFromWindowObject();
+
     return makeMainTheme(currentTheme);
-  }, [currentTheme]);
+  }, []);
 
   return (
     <>
@@ -43,7 +42,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             <ThemeProvider theme={mainTheme}>
               <Navbar />
               <GlobalStyle theme={mainTheme} />
-              <Component {...pageProps} currentTheme={currentTheme} />
+              <Component {...pageProps} />
             </ThemeProvider>
             {process.env.NEXT_PUBLIC_RUNTIME_ENV === "development" ? (
               <ReactQueryDevtools />

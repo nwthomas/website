@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { DARK_THEME, ThemeEnum } from "../../hooks";
+import { DARK_THEME, ThemeEnum } from "../../store/themeSlice";
 import styled, { ThemeContext } from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 

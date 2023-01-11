@@ -53,7 +53,7 @@ function Footer() {
             </li>
             <li>
               <a
-                href="https://substack.com/profile/11012426-nathan-thomas"
+                href="https://nathanthomas.substack.com/"
                 aria-label="Link to Substack"
                 rel="noopener noreferrer"
                 target="_blank"
