@@ -3,6 +3,21 @@ export const CONTACT_PAGE_NAME = "Contact";
 export const FOUR_OH_FOUR_PAGE_NAME = "404";
 export const BLOG_PAGE_NAME = "Blog";
 
+interface SeoConfig {
+  author: {
+    name: String;
+  };
+  currentUrl: string;
+  description: string;
+  imageUrl: string;
+  siteName: string;
+  social: {
+    twitter: string;
+    instagram: string;
+  };
+  title: string;
+}
+
 const DEFAULT_SEO_VALUES: SeoConfig = {
   author: {
     name: "Nathan W Thomas",
@@ -11,30 +26,13 @@ const DEFAULT_SEO_VALUES: SeoConfig = {
   description:
     "Internet playground for Nathan Thomas. Focus on blogging and experiments.",
   imageUrl: "/seo/home-page.webp",
-  originalTitle: "Nathan Thomas",
   siteName: "Nathan Thomas",
   social: {
     twitter: "@nwthomas_",
     instagram: "nwthomas",
   },
-  title: "Nathan Thomas' blog",
+  title: "Nathan Thomas",
 };
-
-interface SeoConfig {
-  author: {
-    name: String;
-  };
-  currentUrl: string;
-  description: string;
-  imageUrl: string;
-  originalTitle: string;
-  siteName: string;
-  social: {
-    twitter: string;
-    instagram: string;
-  };
-  title: string;
-}
 
 export function buildSeoConfig(pageName: string, route?: string): SeoConfig {
   switch (pageName) {
@@ -65,6 +63,10 @@ export function buildSeoConfig(pageName: string, route?: string): SeoConfig {
         imageUrl: "/seo/home-page.webp",
       };
     default:
-      return { ...DEFAULT_SEO_VALUES, title: pageName };
+      return {
+        ...DEFAULT_SEO_VALUES,
+        title: pageName,
+        currentUrl: route || DEFAULT_SEO_VALUES.currentUrl,
+      };
   }
 }
