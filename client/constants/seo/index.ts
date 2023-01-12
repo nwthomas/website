@@ -1,5 +1,4 @@
 export const HOME_PAGE_NAME = "Nathan Thomas";
-export const PROJECTS_PAGE_NAME = "Projects";
 export const CONTACT_PAGE_NAME = "Contact";
 export const FOUR_OH_FOUR_PAGE_NAME = "404";
 export const BLOG_PAGE_NAME = "Blog";
@@ -11,7 +10,7 @@ const DEFAULT_SEO_VALUES: SeoConfig = {
   currentUrl: "https://www.nathanthomas.dev",
   description:
     "Internet home for Nathan Thomas. Focus on projects and blogging.",
-  imageUrl: "/seo/home-page.png",
+  imageUrl: "/seo/home-page.webp",
   originalTitle: "Nathan Thomas",
   siteName: "Nathan Thomas",
   social: {
@@ -43,35 +42,28 @@ export function buildSeoConfig(pageName: string, route?: string): SeoConfig {
       return {
         ...DEFAULT_SEO_VALUES,
         currentUrl: "https://www.nathanthomas.dev/blog",
-        imageUrl: "/seo/blog-page.png",
+        imageUrl: "/seo/all-blogs-page.webp",
         title: "Blog",
       };
     case CONTACT_PAGE_NAME:
       return {
         ...DEFAULT_SEO_VALUES,
         currentUrl: "https://www.nathanthomas.dev/contact",
-        imageUrl: "/seo/contact-page.png",
+        imageUrl: "/seo/contact-page.webp",
         title: "Contact",
       };
     case FOUR_OH_FOUR_PAGE_NAME:
       return {
         ...DEFAULT_SEO_VALUES,
-        imageUrl: "/seo/404-page.png",
+        imageUrl: "/seo/404-page.webp",
         title: "404",
       };
     case HOME_PAGE_NAME:
       return {
         ...DEFAULT_SEO_VALUES,
         currentUrl: "https://www.nathanthomas.dev",
-        imageUrl: "/seo/home-page.png",
+        imageUrl: "/seo/home-page.webp",
         title: "Nathan Thomas's blog",
-      };
-    case PROJECTS_PAGE_NAME:
-      return {
-        ...DEFAULT_SEO_VALUES,
-        currentUrl: "https://www.nathanthomas.dev/projects",
-        imageUrl: "/seo/projects-page.png",
-        title: "Projects",
       };
     default:
       return { ...DEFAULT_SEO_VALUES, title: pageName };
