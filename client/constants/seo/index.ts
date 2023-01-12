@@ -9,7 +9,7 @@ const DEFAULT_SEO_VALUES: SeoConfig = {
   },
   currentUrl: "https://www.nathanthomas.dev",
   description:
-    "Internet home for Nathan Thomas. Focus on projects and blogging.",
+    "Internet playground for Nathan Thomas. Focus on blogging and experiments.",
   imageUrl: "/seo/home-page.webp",
   originalTitle: "Nathan Thomas",
   siteName: "Nathan Thomas",
@@ -17,7 +17,7 @@ const DEFAULT_SEO_VALUES: SeoConfig = {
     twitter: "@nwthomas_",
     instagram: "nwthomas",
   },
-  title: "Home",
+  title: "Nathan Thomas' blog",
 };
 
 interface SeoConfig {
@@ -63,7 +63,6 @@ export function buildSeoConfig(pageName: string, route?: string): SeoConfig {
         ...DEFAULT_SEO_VALUES,
         currentUrl: "https://www.nathanthomas.dev",
         imageUrl: "/seo/home-page.webp",
-        title: "Nathan Thomas's blog",
       };
     default:
       return { ...DEFAULT_SEO_VALUES, title: pageName };
