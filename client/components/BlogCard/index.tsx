@@ -59,8 +59,6 @@ const RootStyles = styled.article`
 
       > h2 {
         margin-bottom: ${({ theme }) => theme.spaces.medium};
-        transition: background-image ${({ theme }) => theme.transitions.short}
-          ease-in-out;
       }
 
       > p {
@@ -81,7 +79,7 @@ const RootStyles = styled.article`
         height: ${({ theme }) => theme.spaces.medium};
         margin-left: ${({ theme }) => theme.spaces.micro};
         opacity: ${({ theme }) => theme.opacity.opacity00};
-        transition: opacity ${({ theme }) => theme.transitions.short}
+        transition: opacity ${({ theme }) => theme.transitions.medium}
           ease-in-out;
         width: ${({ theme }) => theme.spaces.medium};
       }
