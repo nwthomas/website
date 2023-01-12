@@ -39,7 +39,6 @@ const BlockRootStyles = styled.div`
   display: flex;
   justify-content: center;
   margin-top: ${({ theme }) => theme.spaces.medium};
-  padding: 0 ${({ theme }) => theme.appDimensions.appHorizontalGutters};
   width: 100%;
 
   @media only screen and (min-width: ${({ theme }) =>

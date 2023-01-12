@@ -106,8 +106,6 @@ interface StyleProps {
 const RootStyles = styled.div<StyleProps>`
   display: flex;
   justify-content: center;
-  padding-left: ${({ theme }) => theme.appDimensions.appHorizontalGutters};
-  padding-right: ${({ theme }) => theme.appDimensions.appHorizontalGutters};
   width: 100%;
 
   @media only screen and (min-width: ${({ theme }) =>
