@@ -12,8 +12,8 @@ interface SeoConfig {
   imageUrl: string;
   siteName: string;
   social: {
-    twitter: string;
-    instagram: string;
+    twitter: { handle: string; site: string };
+    instagram: { handle: string };
   };
   title: string;
 }
@@ -28,8 +28,8 @@ const DEFAULT_SEO_VALUES: SeoConfig = {
   imageUrl: "/seo/home-page.webp",
   siteName: "Nathan Thomas",
   social: {
-    twitter: "@nwthomas_",
-    instagram: "nwthomas",
+    twitter: { handle: "@nwthomas_", site: "@nwthomas_" },
+    instagram: { handle: "@nwthomas" },
   },
   title: "Nathan Thomas",
 };

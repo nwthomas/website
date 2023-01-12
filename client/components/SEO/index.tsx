@@ -3,6 +3,7 @@ import { DARK_THEME } from "../../store/themeSlice";
 import Head from "next/head";
 import { buildSeoConfig } from "../../constants/seo";
 import { useGetPreferredTheme } from "../../hooks";
+import { NextSeo } from "next-seo";
 
 const darkModeFaviconPath = "/dark-mode-favicon.ico";
 const lightModeFaviconPath = "/light-mode-favicon.ico";
@@ -41,58 +42,48 @@ function SEO({
     description,
     imageUrl,
     siteName,
-    social: { twitter: twitterHandle },
+    social: {
+      twitter: { handle, site },
+    },
     title,
   } = currentPageMetadata;
 
   return (
-    <Head>
-      {/* Miscellaneous Meta Tags */}
-      <title>{title}</title>
-      <meta charSet="utf-8" />
-      <meta name="description" content={customDescription || description} />
-      <meta
-        name="image"
-        content={buildImageUrlWithOrigin(customImageUrl || imageUrl)}
+    <>
+      <NextSeo
+        title={title}
+        description={customDescription || description}
+        canonical={currentUrl}
+        openGraph={{
+          url: currentUrl,
+          title: pageName,
+          description: customDescription || description,
+          images: [
+            {
+              url: buildImageUrlWithOrigin(customImageUrl || imageUrl),
+              type: "image/webp",
+            },
+          ],
+          siteName,
+          type: isArticle ? "article" : "website",
+        }}
+        twitter={{
+          handle,
+          site,
+          cardType: "summary_large_image",
+        }}
       />
-      <link
-        rel="icon"
-        href={
-          currentTheme === DARK_THEME
-            ? darkModeFaviconPath
-            : lightModeFaviconPath
-        }
-      />
-
-      {/* Open Graph Meta Tags */}
-      <meta property="og:type" content={isArticle ? "article" : "website"} />
-      <meta property="og:url" content={currentUrl} />
-      <meta property="og:title" content={pageName} />
-      <meta
-        property="og:description"
-        content={customDescription || description}
-      />
-      <meta
-        property="og:image"
-        content={buildImageUrlWithOrigin(customImageUrl || imageUrl)}
-      />
-      <meta property="og:site_name" content={siteName} />
-
-      {/* Twitter Meta Tags */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:url" content={currentUrl} />
-      <meta name="twitter:title" content={pageName} />
-      <meta
-        name="twitter:description"
-        content={customDescription || description}
-      />
-      <meta name="twitter:site" content={twitterHandle} />
-      <meta name="twitter:creator" content={twitterHandle} />
-      <meta
-        name="twitter:image:src"
-        content={buildImageUrlWithOrigin(customImageUrl || imageUrl)}
-      />
-    </Head>
+      <Head>
+        <link
+          rel="icon"
+          href={
+            currentTheme === DARK_THEME
+              ? darkModeFaviconPath
+              : lightModeFaviconPath
+          }
+        />
+      </Head>
+    </>
   );
 }
 
