@@ -67,7 +67,7 @@ const RootStyles = styled.div`
         margin-top: ${({ theme }) => theme.spaces.medium};
       }
 
-      > h1 a {
+      > h1 > a {
         background-clip: text;
         -moz-background-clip: text;
         -webkit-background-clip: text;

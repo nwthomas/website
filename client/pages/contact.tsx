@@ -108,7 +108,7 @@ const RootStyles = styled.div`
         margin-top: ${({ theme }) => theme.spaces.medium};
       }
 
-      a {
+      > h1 > a {
         background-clip: text;
         background-image: ${({ theme }) =>
           `linear-gradient(90deg, ${theme.colorsHex.danube} 0%, ${theme.colorsHex.turquoise} 100%)`};
