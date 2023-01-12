@@ -61,8 +61,6 @@ function SEO({
           images: [
             {
               url: buildImageUrlWithOrigin(customImageUrl || imageUrl),
-              height: 901,
-              width: 1300,
               type: "image/webp",
             },
           ],
