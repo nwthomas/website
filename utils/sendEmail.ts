@@ -1,7 +1,5 @@
 import nodemailer from "nodemailer";
 
-const SECRET_KEY = process.env.SECRET_KEY || "";
-
 interface NewEmail {
   name: string;
   email: string;
