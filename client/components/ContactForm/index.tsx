@@ -186,8 +186,7 @@ const RootStyles = styled.div<StyleProps>`
       flex-direction: column;
 
       > div {
-        border: ${({ theme }) =>
-          `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
+        border: none;
         border-radius: ${({ theme }) => theme.borderRadii.medium};
         margin-bottom: ${({ theme }) => theme.spaces.micro};
         min-height: ${({ theme }) => theme.spaces.xxLarge};
@@ -196,23 +195,45 @@ const RootStyles = styled.div<StyleProps>`
 
         > input {
           background: ${({ theme }) => theme.colorsHex.transparent};
-          border: none;
+          border: ${({ theme }) =>
+            `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
           border-radius: ${({ theme }) => theme.borderRadii.medium};
           min-height: ${({ theme }) => theme.spaces.xxLarge};
           padding: ${({ theme }) => theme.spaces.medium};
+          transition: border-color ${({ theme }) => theme.transitions.short}
+            ease-in-out;
           width: 100%;
+
+          &:hover,
+          &:active,
+          &:focus {
+            outline: none;
+            border: ${({ theme }) =>
+              `${theme.spaces.nano} solid ${theme.colorsHex.pictonBlue}`};
+          }
         }
 
         > textarea {
           background: ${({ theme }) => theme.colors.transparent};
-          border: none;
+          border: ${({ theme }) =>
+            `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
           border-top-left-radius: ${({ theme }) => theme.borderRadii.medium};
           border-bottom-left-radius: ${({ theme }) => theme.borderRadii.medium};
           border-top-right-radius: ${({ theme }) => theme.borderRadii.medium};
           min-height: ${({ theme }) => theme.spaces.xxLarge};
           padding: ${({ theme }) => theme.spaces.medium};
           resize: vertical;
+          transition: border-color ${({ theme }) => theme.transitions.short}
+            ease-in-out;
           width: 100%;
+
+          &:hover,
+          &:active,
+          &:focus {
+            outline: none;
+            border: ${({ theme }) =>
+              `${theme.spaces.nano} solid ${theme.colorsHex.pictonBlue}`};
+          }
         }
 
         &:nth-of-type(3) {
