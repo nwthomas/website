@@ -52,8 +52,8 @@ const GlobalStyle = css`
 
   /* Code for Firefox */
   ::-moz-selection {
-    color: ${({ theme }) => theme.colors.text};
-    background: ${({ theme }) => theme.colorsHex.cornflowerBlue};
+    color: ${({ theme }) => theme.colorsHex.white};
+    background: ${({ theme }) => theme.colorsHex.pictonBlue};
     background-clip: border-box;
     background-image: none;
     background-size: 100%;
@@ -64,8 +64,8 @@ const GlobalStyle = css`
   }
 
   ::selection {
-    color: ${({ theme }) => theme.colors.textSecondary};
-    background: ${({ theme }) => theme.colorsHex.mauve};
+    color: ${({ theme }) => theme.colorsHex.white};
+    background: ${({ theme }) => theme.colorsHex.pictonBlue};
     background-clip: border-box;
     background-image: none;
     background-size: 100%;

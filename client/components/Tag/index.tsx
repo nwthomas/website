@@ -62,12 +62,7 @@ const RootStyles = styled.a`
       background-clip: text;
       -moz-background-clip: text;
       -webkit-background-clip: text;
-      background-image: ${({ theme }) =>
-        theme.gradients.getLinkText(
-          theme.colorsHex.royalBlue,
-          theme.colorsHex.cornflowerBlue,
-          theme.colorsHex.mauve
-        )};
+      background-image: linear-gradient(90deg, #b721ff 0%, #21d4fd 100%);
       background-size: 100%;
       -moz-text-fill-color: transparent;
       -webkit-text-fill-color: transparent;
