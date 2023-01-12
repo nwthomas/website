@@ -1,17 +1,17 @@
 import * as React from "react";
 
 import { DARK_THEME, ThemeEnum } from "../../store/themeSlice";
-import styled, { ThemeContext } from "styled-components";
+import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 
 import FocusTrap from "focus-trap-react";
 import { RootState } from "../../store";
 import { updateModalValues } from "../../store/modalSlice";
-import { useLockBodyScroll } from "../../hooks/useLockBodyScroll";
+import { useGetPreferredTheme, useLockBodyScroll } from "../../hooks";
 
 function Modal() {
   const dispatch = useDispatch();
-  const { currentTheme } = React.useContext(ThemeContext);
+  const [currentTheme] = useGetPreferredTheme();
   const modalMessage = useSelector((state: RootState) => state.modal.message);
   const modalButtonLabel = useSelector(
     (state: RootState) => state.modal.buttonLabel
@@ -43,15 +43,15 @@ function Modal() {
 }
 
 interface StyleProps {
-  currentTheme: ThemeEnum;
+  currentTheme: ThemeEnum | null;
 }
 
 const RootStyles = styled.div<StyleProps>`
   align-items: center;
-  background-color: ${({ theme }) =>
+  background-color: ${({ currentTheme, theme }) =>
     `${
-      theme.currentTheme === DARK_THEME
-        ? theme.colorsHex.alabaster
+      currentTheme === DARK_THEME
+        ? theme.colorsHex.white
         : theme.colorsHex.black
     }40`};
   display: flex;
@@ -81,40 +81,32 @@ const RootStyles = styled.div<StyleProps>`
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
-      border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
-      background: ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
+      border-radius: ${({ theme }) => theme.borderRadii.large};
+      background: ${({ theme }) => theme.colors.bodyBackground};
       -webkit-box-shadow: ${({ theme }) => theme.dropshadows.small};
       -moz-box-shadow: ${({ theme }) => theme.dropshadows.small};
       box-shadow: ${({ theme }) => theme.dropshadows.small};
       height: initial;
       max-width: ${({ theme }) => theme.appDimensions.modalMaxWidth};
-      padding: ${({ theme }) => theme.spaces.large};
+      padding: ${({ theme }) => theme.spaces.xLarge};
       width: 100%;
-
-      > h1 {
-        font-size: 1.6rem;
-
-        @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.tablet}) {
-          font-size: 2rem;
-        }
-
-        @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.desktop}) {
-          font-size: 3rem;
-        }
-      }
     }
 
     > h1 {
+      font-size: 1.6rem;
       margin-bottom: ${({ theme }) => theme.spaces.medium};
       text-align: center;
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.tablet}) {
+        font-size: 2rem;
+      }
     }
 
     > button {
       align-items: center;
       background: ${({ theme }) => theme.colors.buttonPrimaryBackground};
-      border-radius: ${({ theme }) => theme.borderRadii.large};
+      border-radius: ${({ theme }) => theme.borderRadii.medium};
       border: 2px solid ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
       color: ${({ theme }) => theme.colorsHex.white};
       cursor: pointer;
