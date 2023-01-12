@@ -12,5 +12,5 @@
     "resolveJsonModule": true
   },
   "lib": ["es2015"],
-  "exclude": ["node_modules", "client", "assets", "contracts"]
+  "exclude": ["node_modules", "client", "assets"]
 }
