@@ -43,7 +43,7 @@ function ContactForm({
   onSendMessageClick,
   withSpinner,
 }: Props) {
-  const { gradients, currentTheme } = React.useContext(ThemeContext);
+  const { currentTheme } = React.useContext(ThemeContext);
 
   const radians = useGetMouseRadian(contactFormRef);
 
