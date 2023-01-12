@@ -1,4 +1,4 @@
-# Personal Website 👁👄👁
+# Personal Website
 
 ## GETTING STARTED 💭
 
@@ -6,9 +6,7 @@ This is the Github repository for my personal website. Making this site gave me 
 
 Welcome. I hope you enjoy this site as much as I enjoyed making it.
 
-![Website screenshot](./assets/readme-example-macbook.webp)
-
-## TABLE OF CONTENTS 🌀
+## TABLE OF CONTENTS ☕️
 
 - [Getting Started](#getting-started)
 - [Technology Stack](#technology-stack)
