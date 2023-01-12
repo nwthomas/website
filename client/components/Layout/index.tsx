@@ -6,7 +6,6 @@ import { RootState } from "../../store";
 import SEO from "../SEO";
 import styled from "styled-components";
 import { useGetScreenDimensions } from "../../hooks";
-import { useIsArticlePage } from "../../hooks";
 import { useSelector } from "react-redux";
 
 interface Props {
@@ -29,7 +28,6 @@ function Layout({
   withPageNameEmojis,
 }: Props) {
   const { viewportHeight } = useGetScreenDimensions();
-  const isArticlePage = useIsArticlePage();
   const shouldShowModal = useSelector(
     (state: RootState) => state.modal.shouldShowModal
   );
@@ -57,7 +55,7 @@ function Layout({
         pageName={pageName}
         withPageNameEmojis={withPageNameEmojis}
       />
-      <RootStyles isArticlePage={isArticlePage}>
+      <RootStyles>
         {children}
         {withFooter ? <Footer /> : null}
         {shouldShowModal ? <Modal /> : null}
@@ -66,11 +64,7 @@ function Layout({
   );
 }
 
-interface StyleProps {
-  isArticlePage: boolean;
-}
-
-const RootStyles = styled.div<StyleProps>`
+const RootStyles = styled.div`
   display: flex;
   justify-content: center;
   padding-top: ${({ theme }) => theme.appDimensions.navbarMobileHeight};
@@ -82,19 +76,13 @@ const RootStyles = styled.div<StyleProps>`
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.tablet}) {
     padding-top: ${({ theme }) => theme.appDimensions.navbarTabletHeight};
-    padding-bottom: ${({ isArticlePage, theme }) =>
-      isArticlePage
-        ? theme.appDimensions.footerArticleHeight
-        : theme.appDimensions.footerTabletHeight};
+    padding-bottom: ${({ theme }) => theme.appDimensions.footerTabletHeight};
   }
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.desktop}) {
     padding-top: ${({ theme }) => theme.appDimensions.navbarDesktopHeight};
-    padding-bottom: ${({ isArticlePage, theme }) =>
-      isArticlePage
-        ? theme.appDimensions.footerArticleHeight
-        : theme.appDimensions.footerDesktopHeight};
+    padding-bottom: ${({ theme }) => theme.appDimensions.footerDesktopHeight};
   }
 `;
 
