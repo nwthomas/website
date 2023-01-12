@@ -16,8 +16,6 @@ function BlogParagraph({ contents }: Props) {
 const RootStyles = styled.div`
   display: flex;
   justify-content: center;
-  padding-left: ${({ theme }) => theme.appDimensions.appHorizontalGutters};
-  padding-right: ${({ theme }) => theme.appDimensions.appHorizontalGutters};
   padding-top: ${({ theme }) => theme.spaces.medium};
   width: 100%;
 
@@ -39,9 +37,7 @@ const RootStyles = styled.div`
         `linear-gradient(90deg, ${theme.colorsHex.lavender} 0%, ${theme.colorsHex.orchid} 33%, ${theme.colorsHex.brilliantRose} 66%, ${theme.colorsHex.brilliantRose} 100%)`};
       background-size: 100%;
       font-size: inherit;
-      margin-right: -0.4em;
-      padding: ${({ theme }) =>
-        `${theme.spaces.micro} 0.4em ${theme.spaces.micro} 0`};
+      padding: ${({ theme }) => `${theme.spaces.micro} 0`};
       -moz-text-fill-color: transparent;
       -webkit-text-fill-color: transparent;
       text-decoration: none;

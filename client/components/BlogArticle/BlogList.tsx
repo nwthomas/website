@@ -17,8 +17,6 @@ function BlogList({ contents, isOrderedList }: Props) {
 const RootStyles = styled.div`
   display: flex;
   justify-content: center;
-  padding-left: ${({ theme }) => theme.appDimensions.appHorizontalGutters};
-  padding-right: ${({ theme }) => theme.appDimensions.appHorizontalGutters};
   padding-top: ${({ theme }) => theme.spaces.medium};
   width: 100%;
 

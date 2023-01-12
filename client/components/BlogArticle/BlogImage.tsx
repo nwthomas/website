@@ -38,13 +38,7 @@ interface StyleProps {
 const RootStyles = styled.div<StyleProps>`
   display: flex;
   justify-content: center;
-  padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
   width: 100%;
-
-  @media only screen and (min-width: ${({ theme }) =>
-      theme.breakpoints.tablet}) {
-    padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
-  }
 
   > div {
     align-items: center;
@@ -72,9 +66,8 @@ const RootStyles = styled.div<StyleProps>`
 
       p {
         color: ${({ theme }) => theme.colors.textSecondary};
-        font-style: italic;
-        line-height: 1;
         text-align: center;
+        z-index: 9;
       }
     }
   }

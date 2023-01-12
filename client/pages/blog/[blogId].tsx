@@ -71,18 +71,21 @@ const RootStyles = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
+  padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
   width: 100%;
 
   > main {
     align-items: center;
     display: flex;
     flex-direction: column;
-    margin-bottom: ${({ theme }) => theme.spaces.large};
     max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
+    margin-bottom: ${({ theme }) => theme.spaces.medium};
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
-      margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
+      margin-bottom: ${({ theme }) =>
+        `calc(${theme.spaces.xxLarge} + ${theme.spaces.medium})`};
+      margin-top: ${({ theme }) => theme.spaces.medium};
     }
 
     @media only screen and (min-width: ${({ theme }) =>
