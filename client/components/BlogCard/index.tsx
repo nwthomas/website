@@ -1,5 +1,6 @@
 import * as React from "react";
 
+import Link from "next/link";
 import styled, { ThemeContext } from "styled-components";
 
 import { ArrowForwardsIcon } from "../Icons";
@@ -15,16 +16,18 @@ function BlogCard({ description, title, url }: Props) {
 
   return (
     <RootStyles>
-      <a href={`/blog/${url}`}>
-        <div>
-          <h2>{title}</h2>
-          <p>{description}</p>
-        </div>
-        <div>
-          <p>Read more</p>
-          <ArrowForwardsIcon color={colors.textSecondary} />
-        </div>
-      </a>
+      <Link href={`/blog/${url}`} passHref>
+        <a>
+          <div>
+            <h2>{title}</h2>
+            <p>{description}</p>
+          </div>
+          <div>
+            <p>Read more</p>
+            <ArrowForwardsIcon color={colors.textSecondary} />
+          </div>
+        </a>
+      </Link>
     </RootStyles>
   );
 }
