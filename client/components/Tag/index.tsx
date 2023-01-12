@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { buildLinkHref } from "../../utils/routes";
 import styled from "styled-components";
 
@@ -11,12 +12,11 @@ interface Props {
 
 function Tag({ text }: Props) {
   return (
-    <RootStyles
-      aria-label={buildTagLinkAriaLabel(text)}
-      href={buildLinkHref(text)}
-    >
-      <h1>{text}</h1>
-    </RootStyles>
+    <Link href={buildLinkHref(text)} passHref>
+      <RootStyles aria-label={buildTagLinkAriaLabel(text)}>
+        <h1>{text}</h1>
+      </RootStyles>
+    </Link>
   );
 }
 
