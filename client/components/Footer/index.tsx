@@ -1,13 +1,10 @@
 import * as React from "react";
 
 import styled from "styled-components";
-import { useIsArticlePage } from "../../hooks";
 
 function Footer() {
-  const isArticlePage = useIsArticlePage();
-
   return (
-    <RootStyles isArticlePage={isArticlePage}>
+    <RootStyles>
       <footer>
         <nav>
           <ul>
@@ -63,6 +60,16 @@ function Footer() {
             </li>
             <li>
               <a
+                href="https://www.polywork.com/nwthomas"
+                aria-label="Link to Polywork"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Polywork
+              </a>
+            </li>
+            <li>
+              <a
                 href="https://nathanthomas.substack.com/"
                 aria-label="Link to Substack"
                 rel="noopener noreferrer"
@@ -88,10 +95,6 @@ function Footer() {
   );
 }
 
-interface StyleProps {
-  isArticlePage: boolean;
-}
-
 const RootStyles = styled.div<StyleProps>`
   bottom: 0;
   display: flex;
@@ -102,8 +105,7 @@ const RootStyles = styled.div<StyleProps>`
 
   footer {
     max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
-    width: ${({ isArticlePage, theme }) =>
-      isArticlePage ? theme.appDimensions.articleMaxWidth : "100%"};
+    width: 100%;
 
     > nav {
       display: flex;
