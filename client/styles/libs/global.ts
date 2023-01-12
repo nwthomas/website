@@ -226,6 +226,23 @@ const GlobalStyle = css`
   input,
   textarea {
     font-size: 1.6rem;
+
+    &::placeholder {
+      /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: ${({ theme }) => theme.colors.textSecondary};
+      /* Firefox */
+      opacity: ${({ theme }) => theme.opacity.opacity100};
+    }
+
+    &:-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      color: ${({ theme }) => theme.colors.textSecondary};
+    }
+
+    &::-ms-input-placeholder {
+      /* Microsoft Edge */
+      color: ${({ theme }) => theme.colors.textSecondary};
+    }
   }
 `;
 

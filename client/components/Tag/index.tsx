@@ -15,6 +15,7 @@ function Tag({ text }: Props) {
     <Link href={buildLinkHref(text)} passHref>
       <RootStyles aria-label={buildTagLinkAriaLabel(text)}>
         <h1>{text}</h1>
+        <h1 aria-hidden>{text}</h1>
       </RootStyles>
     </Link>
   );
@@ -29,6 +30,7 @@ const RootStyles = styled.a`
   display: flex;
   justify-content: center;
   padding: ${({ theme }) => `${theme.spaces.xSmall} ${theme.spaces.medium}`};
+  position: relative;
   text-decoration: none;
   transition: border-color ${({ theme }) => theme.transitions.short} ease-in-out;
 
@@ -48,6 +50,25 @@ const RootStyles = styled.a`
     }
   }
 
+  > h1:nth-child(2) {
+    background-clip: text;
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+    background-image: ${({ theme }) =>
+      `linear-gradient(90deg, ${theme.colorsHex.lavender} 0%, ${theme.colorsHex.orchid} 33%, ${theme.colorsHex.brilliantRose} 66%, ${theme.colorsHex.brilliantRose} 100%)`};
+    background-size: 100%;
+    left: 0;
+    opacity: ${({ theme }) => theme.opacity.opacity00};
+    padding: ${({ theme }) => `${theme.spaces.xSmall} ${theme.spaces.medium}`};
+    position: absolute;
+    right: 0;
+    -moz-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+    top: 0;
+    transition: opacity ${({ theme }) => theme.transitions.short} ease-in-out;
+  }
+
   &:hover,
   &:focus {
     border: ${({ theme }) =>
@@ -55,16 +76,8 @@ const RootStyles = styled.a`
     outline: none;
     text-decoration: none;
 
-    > h1 {
-      background-clip: text;
-      -moz-background-clip: text;
-      -webkit-background-clip: text;
-      background-image: ${({ theme }) =>
-        `linear-gradient(90deg, ${theme.colorsHex.lavender} 0%, ${theme.colorsHex.orchid} 33%, ${theme.colorsHex.brilliantRose} 66%, ${theme.colorsHex.brilliantRose} 100%)`};
-      background-size: 100%;
-      -moz-text-fill-color: transparent;
-      -webkit-text-fill-color: transparent;
-      text-decoration: none;
+    > h1:nth-child(2) {
+      opacity: ${({ theme }) => theme.opacity.opacity100};
     }
   }
 `;

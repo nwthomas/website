@@ -22,6 +22,9 @@ function BlogCard({ description, title, url }: Props) {
             <h2>{title}</h2>
             <p>{description}</p>
           </div>
+          <div aria-hidden>
+            <h2>{title}</h2>
+          </div>
           <div>
             <p>Read more</p>
             <ArrowForwardsIcon color={colors.textSecondary} />
@@ -48,6 +51,7 @@ const RootStyles = styled.article`
     justify-content: space-between;
     min-height: 200px;
     padding: ${({ theme }) => theme.spaces.medium};
+    position: relative;
     transition: border ${({ theme }) => theme.transitions.short} ease-in-out;
     text-decoration: none;
     width: 100%;
@@ -70,6 +74,25 @@ const RootStyles = styled.article`
     }
 
     > div:nth-child(2) {
+      background-clip: text;
+      -moz-background-clip: text;
+      -webkit-background-clip: text;
+      background-image: ${({ theme }) =>
+        `linear-gradient(90deg, ${theme.colorsHex.lavender} 0%, ${theme.colorsHex.orchid} 33%, ${theme.colorsHex.brilliantRose} 66%, ${theme.colorsHex.brilliantRose} 100%)`};
+      background-size: 100%;
+      left: 0;
+      opacity: ${({ theme }) => theme.opacity.opacity00};
+      padding: ${({ theme }) => theme.spaces.medium};
+      position: absolute;
+      right: 0;
+      -moz-text-fill-color: transparent;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
+      top: 0;
+      transition: opacity ${({ theme }) => theme.transitions.short} ease-in-out;
+    }
+
+    > div:nth-child(3) {
       align-items: center;
       display: flex;
       margin-top: ${({ theme }) => theme.spaces.medium};
@@ -95,19 +118,11 @@ const RootStyles = styled.article`
       border-radius: ${({ theme }) => theme.borderRadii.medium};
       outline: none;
 
-      > div > h2 {
-        background-clip: text;
-        -moz-background-clip: text;
-        -webkit-background-clip: text;
-        background-image: ${({ theme }) =>
-          `linear-gradient(90deg, ${theme.colorsHex.lavender} 0%, ${theme.colorsHex.orchid} 33%, ${theme.colorsHex.brilliantRose} 66%, ${theme.colorsHex.brilliantRose} 100%)`};
-        background-size: 100%;
-        -moz-text-fill-color: transparent;
-        -webkit-text-fill-color: transparent;
-        text-decoration: none;
+      > div:nth-child(2) {
+        opacity: ${({ theme }) => theme.opacity.opacity100};
       }
 
-      > div:nth-child(2) > svg {
+      > div:nth-child(3) > svg {
         opacity: ${({ theme }) => theme.opacity.opacity100};
       }
     }
