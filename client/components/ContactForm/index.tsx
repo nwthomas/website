@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as Yup from "yup";
+import { colors } from "../../styles/libs/theme";
 
 import styled, { ThemeContext } from "styled-components";
 
@@ -9,6 +10,10 @@ import { useFormik } from "formik";
 import { useGetMouseRadian } from "../../hooks";
 
 const contactFormRef = React.createRef<HTMLDivElement>();
+
+function getContactFormBorder(radians: number) {
+  return `linear-gradient(calc(${radians}rad), ${colors.turquoise} 0%, ${colors.danube} 50%, rgba(121,40,202,0) 75%)`;
+}
 
 export interface MessageValues {
   email: string;
@@ -72,7 +77,7 @@ function ContactForm({
       currentTheme={currentTheme}
       isFormButtonDisabled={withSpinner}
       style={{
-        backgroundImage: gradients.getContactFormBorder(radians),
+        backgroundImage: getContactFormBorder(radians),
       }}
     >
       <div ref={contactFormRef}>

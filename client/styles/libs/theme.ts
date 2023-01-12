@@ -7,10 +7,15 @@ interface Colors {
   alabaster: "#F8F8F8";
   alto: "#DBDBDB";
   black: "#000000";
+  brightTurquoise: "#0acffe";
+  brilliantRose: "#ee609c";
   brightSun: "#FACF3D";
+  danube: "#72afd3";
   doveGray: "#707070";
+  lavender: "#b465da";
   mercury: "#E1E1E1";
   mineShaft: "#333333";
+  orchid: "#cf6cc9";
   outerSpace: "#373A3D";
   pictonBlue: "#4597EC";
   royalBlue: "#5f63EC";
@@ -18,6 +23,7 @@ interface Colors {
   scarlet: "#FF3700";
   shark: "#202325";
   transparent: "transparent";
+  turquoise: "#37ecba";
   white: "#FFFFFF";
   woodsmoke: "#131416";
 }
@@ -26,10 +32,16 @@ export const colors: Colors = {
   alabaster: "#F8F8F8",
   alto: "#DBDBDB",
   black: "#000000",
+  brightTurquoise: "#0acffe",
+  brilliantRose: "#ee609c",
   brightSun: "#FACF3D",
+  danube: "#72afd3",
   doveGray: "#707070",
+  electricViolet: "#b721ff",
+  lavender: "#b465da",
   mercury: "#E1E1E1",
   mineShaft: "#333333",
+  orchid: "#cf6cc9",
   outerSpace: "#373A3D",
   pictonBlue: "#4597EC",
   rollingStone: "#717579",
@@ -37,35 +49,9 @@ export const colors: Colors = {
   scarlet: "#FF3700",
   shark: "#202325",
   transparent: "transparent",
+  turquoise: "#37ecba",
   white: "#FFFFFF",
   woodsmoke: "#131416",
-};
-
-// Gradients
-interface Gradients {
-  getContactFormBorder: (radians: number) => string;
-  getHeaderBackground: () => string;
-  getLinkText: (
-    colorOne: string,
-    colorTwo: string,
-    colorThree: string
-  ) => string;
-}
-
-const gradients: Gradients = {
-  getContactFormBorder: (radians: number) => {
-    return `linear-gradient(calc(${radians}rad), #37ecba 0%, #72afd3 50%, rgba(121,40,202,0) 75%)`;
-  },
-  getHeaderBackground: () => {
-    return `linear-gradient(180deg, ${themeColorValues.bodyBackground} 60%, rgba(121,40,202,0) 100%)`;
-  },
-  getLinkText: (
-    colorOne: string,
-    colorTwo: string,
-    colorThree: string
-  ): string => {
-    return `linear-gradient(120deg, ${colorOne} 0%, ${colorTwo} 55%, ${colorThree} 100%)`;
-  },
 };
 
 // A crucial tool for testing out dropshadows is: https://www.cssmatic.com/box-shadow
@@ -268,7 +254,6 @@ export interface Theme {
   colorsHex: Colors;
   currentTheme: ThemeEnum | null;
   dropshadows: Dropshadows;
-  gradients: Gradients;
   opacity: Opacity;
   spaces: Spaces;
   transitions: Transitions;
@@ -285,7 +270,6 @@ function makeMainTheme(currentTheme: ThemeEnum | null): Theme {
     colorsHex: colors,
     currentTheme,
     dropshadows: dropshadows(currentTheme),
-    gradients,
     opacity,
     spaces,
     transitions,

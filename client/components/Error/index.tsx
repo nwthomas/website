@@ -38,7 +38,8 @@ const RootStyles = styled.main`
 
     > a {
       background-clip: text;
-      background-image: linear-gradient(90deg, #fc6076 0%, #ff9a44 100%);
+      background-image: ${({ theme }) =>
+        `linear-gradient(90deg, ${theme.colorsHex.electricViolet} 0%, ${theme.colorsHex.brightTurquoise} 100%)`};
       -moz-background-clip: text;
       -webkit-background-clip: text;
       background-size: 100%;
@@ -47,6 +48,11 @@ const RootStyles = styled.main`
       -moz-text-fill-color: transparent;
       -webkit-text-fill-color: transparent;
       text-decoration: none;
+      transition: opacity ${({ theme }) => theme.transitions.short} ease-in-out;
+
+      &:hover {
+        opacity: ${({ theme }) => theme.opacity.opacity80};
+      }
     }
   }
 `;

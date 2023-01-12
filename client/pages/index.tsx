@@ -71,13 +71,8 @@ const RootStyles = styled.div`
         background-clip: text;
         -moz-background-clip: text;
         -webkit-background-clip: text;
-        background-image: linear-gradient(
-          to right,
-          #b465da 0%,
-          #cf6cc9 33%,
-          #ee609c 66%,
-          #ee609c 100%
-        );
+        background-image: ${({ theme }) =>
+          `linear-gradient(90deg, ${theme.colorsHex.royalBlue} 0%, ${theme.colorsHex.brightTurquoise} 100%)`};
         background-size: 100%;
         font-size: inherit;
         padding: ${({ theme }) => `${theme.spaces.micro} 0`};
