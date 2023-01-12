@@ -12,6 +12,7 @@ interface Colors {
   brightSun: "#FACF3D";
   danube: "#72afd3";
   doveGray: "#707070";
+  electricViolet: "#b721ff";
   lavender: "#b465da";
   mercury: "#E1E1E1";
   mineShaft: "#333333";
