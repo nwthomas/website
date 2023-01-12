@@ -11,6 +11,7 @@ interface Colors {
   brightSun: "#FACF3D";
   codGray: "#131313";
   cornflowerBlue: "#818cf8";
+  danube: "#72afd3";
   doveGray: "#707070";
   eerieBlack: "#141414";
   mauve: "#d8b4fe";
@@ -66,7 +67,7 @@ interface Gradients {
 
 const gradients: Gradients = {
   getContactFormBorder: (radians: number) => {
-    return `linear-gradient(calc(${radians}rad), ${colors.royalBlue} 0%, ${colors.cornflowerBlue} 10%, ${colors.mauve} 30%, rgba(121,40,202,0) 75%)`;
+    return `linear-gradient(calc(${radians}rad), #37ecba 0%, #72afd3 50%, rgba(121,40,202,0) 75%)`;
   },
   getHeaderBackground: () => {
     return `linear-gradient(180deg, ${themeColorValues.bodyBackground} 60%, rgba(121,40,202,0) 100%)`;
@@ -135,16 +136,16 @@ interface AppDimensions {
 }
 export const appDimensions: AppDimensions = {
   appHorizontalGutters: "3%",
-  appMaxWidth: "1200px",
+  appMaxWidth: "1000px",
   // This value is set in the global.ts file for the :root selector
   appMinHeight: "var(--app-min-height)",
-  articleHeroImageMaxWidth: "1200px",
+  articleHeroImageMaxWidth: "1000px",
   articleMaxWidth: "600px",
   contactFormMaxWidth: "600px",
   footerArticleHeight: "198px",
-  footerDesktopHeight: "119px",
-  footerTabletHeight: "119px",
-  footerMobileHeight: "76px",
+  footerDesktopHeight: "99px",
+  footerTabletHeight: "147px",
+  footerMobileHeight: "96px",
   modalMaxWidth: "600px",
   navbarDesktopHeight: "181px",
   navbarTabletHeight: "181px",
