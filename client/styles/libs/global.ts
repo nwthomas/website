@@ -80,7 +80,7 @@ const GlobalStyle = css`
     --body-bg: ${colors.black};
     --body-bg-accent-one: ${colors.shark};
     --body-bg-accent-two: ${colors.outerSpace};
-    --button-primary-bg: ${colors.cornflowerBlue};
+    --button-primary-bg: ${colors.pictonBlue};
     --error: ${colors.scarlet};
     --text: ${colors.mercury};
     --selection: ${colors.woodsmoke};
@@ -91,7 +91,7 @@ const GlobalStyle = css`
     --body-bg: ${colors.white};
     --body-bg-accent-one: ${colors.alabaster};
     --body-bg-accent-two: ${colors.alto};
-    --button-primary-bg: ${colors.cornflowerBlue};
+    --button-primary-bg: ${colors.pictonBlue};
     --error: ${colors.scarlet};
     --text: ${colors.mineShaft};
     --selection: ${colors.alabaster};

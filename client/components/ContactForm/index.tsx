@@ -158,7 +158,7 @@ const RootStyles = styled.div<StyleProps>`
   > div {
     /* Compensate for the inner curve of this element against its parent */
     border-radius: ${({ theme }) =>
-      `calc(${theme.borderRadii.large} - ${theme.spaces.micro})`};
+      `calc(${theme.borderRadii.large} - ${theme.spaces.nano})`};
     background-color: ${({ theme }) => theme.colors.bodyBackground};
     padding: ${({ theme }) => theme.spaces.small};
     width: 100%;
