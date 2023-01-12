@@ -59,7 +59,8 @@ const RootStyles = styled.article`
 
       > h2 {
         margin-bottom: ${({ theme }) => theme.spaces.medium};
-        transition: color ${({ theme }) => theme.transitions.short} ease-in-out;
+        transition: background-image ${({ theme }) => theme.transitions.short}
+          ease-in-out;
       }
 
       > p {

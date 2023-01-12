@@ -95,7 +95,7 @@ function Footer() {
   );
 }
 
-const RootStyles = styled.div<StyleProps>`
+const RootStyles = styled.div`
   bottom: 0;
   display: flex;
   justify-content: center;
