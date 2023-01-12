@@ -145,8 +145,7 @@ const RootStyles = styled.div`
                 display: flex;
 
                 &:focus {
-                  outline-color: ${({ theme }) =>
-                    theme.colorsHex.cornflowerBlue};
+                  outline-color: ${({ theme }) => theme.colorsHex.pictonBlue};
                   outline-style: solid;
                   outline-width: ${({ theme }) => theme.spaces.nano};
                 }

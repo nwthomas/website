@@ -6,20 +6,13 @@ import { DARK_THEME, ThemeEnum } from "../../store/themeSlice";
 interface Colors {
   alabaster: "#F8F8F8";
   alto: "#DBDBDB";
-  balticSea: "#25232A";
   black: "#000000";
   brightSun: "#FACF3D";
-  codGray: "#131313";
-  cornflowerBlue: "#818cf8";
-  danube: "#72afd3";
   doveGray: "#707070";
-  eerieBlack: "#141414";
-  mauve: "#d8b4fe";
   mercury: "#E1E1E1";
   mineShaft: "#333333";
   outerSpace: "#373A3D";
   pictonBlue: "#4597EC";
-  purpleHeart: "#7928CA";
   royalBlue: "#5f63EC";
   rollingStone: "#717579";
   scarlet: "#FF3700";
@@ -32,19 +25,13 @@ interface Colors {
 export const colors: Colors = {
   alabaster: "#F8F8F8",
   alto: "#DBDBDB",
-  balticSea: "#25232A",
   black: "#000000",
   brightSun: "#FACF3D",
-  codGray: "#131313",
-  cornflowerBlue: "#818cf8",
   doveGray: "#707070",
-  eerieBlack: "#141414",
-  mauve: "#d8b4fe",
   mercury: "#E1E1E1",
   mineShaft: "#333333",
   outerSpace: "#373A3D",
   pictonBlue: "#4597EC",
-  purpleHeart: "#7928CA",
   rollingStone: "#717579",
   royalBlue: "#5f63EC",
   scarlet: "#FF3700",
@@ -136,10 +123,10 @@ interface AppDimensions {
 }
 export const appDimensions: AppDimensions = {
   appHorizontalGutters: "3%",
-  appMaxWidth: "1000px",
+  appMaxWidth: "1200px",
   // This value is set in the global.ts file for the :root selector
   appMinHeight: "var(--app-min-height)",
-  articleHeroImageMaxWidth: "1000px",
+  articleHeroImageMaxWidth: "1200px",
   articleMaxWidth: "600px",
   contactFormMaxWidth: "600px",
   footerArticleHeight: "198px",
