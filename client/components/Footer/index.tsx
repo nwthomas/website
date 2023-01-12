@@ -13,6 +13,16 @@ function Footer() {
           <ul>
             <li>
               <a
+                href="https://dev.to/nwthomas"
+                aria-label="Link to Dev.to"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Dev.to
+              </a>
+            </li>
+            <li>
+              <a
                 href="https://github.com/nwthomas"
                 aria-label="Link to GitHub"
                 rel="noopener noreferrer"
@@ -103,12 +113,13 @@ const RootStyles = styled.div<StyleProps>`
         display: flex;
         flex-wrap: wrap;
         padding-bottom: ${({ theme }) =>
-          `calc(${theme.spaces.medium} - ${theme.spaces.small})`};
+          `calc(${theme.spaces.large} - ${theme.spaces.small})`};
         width: 100%;
 
         @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.tablet}) {
-          padding-bottom: ${({ theme }) => theme.spaces.xxLarge};
+          padding-bottom: ${({ theme }) =>
+            `calc(${theme.spaces.xxLarge} - ${theme.spaces.medium})`};
         }
 
         > li {

@@ -41,7 +41,7 @@ const GlobalStyle = css`
   See: https://css-tricks.com/platform-news-using-focus-visible-bbcs-new-typeface-declarative-shadow-doms-a11y-and-placeholders/#now-may-be-a-good-time-to-start-using-focus-visible
   */
   :focus {
-    outline-color: ${({ theme }) => theme.colorsHex.cornflowerBlue};
+    outline-color: ${({ theme }) => theme.colorsHex.pictonBlue};
     outline-style: solid;
     outline-width: ${({ theme }) => theme.spaces.nano};
   }

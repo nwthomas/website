@@ -110,12 +110,7 @@ const RootStyles = styled.div`
 
       a {
         background-clip: text;
-        background-image: ${({ theme }) =>
-          theme.gradients.getLinkText(
-            theme.colorsHex.royalBlue,
-            theme.colorsHex.cornflowerBlue,
-            theme.colorsHex.mauve
-          )};
+        background-image: linear-gradient(90deg, #72afd3 0%, #37ecba 100%);
         background-size: 100%;
         -webkit-background-clip: text;
         -moz-background-clip: text;
