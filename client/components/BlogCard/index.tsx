@@ -105,7 +105,7 @@ const RootStyles = styled.article`
         height: ${({ theme }) => theme.spaces.medium};
         margin-left: ${({ theme }) => theme.spaces.micro};
         opacity: ${({ theme }) => theme.opacity.opacity00};
-        transition: opacity ${({ theme }) => theme.transitions.medium}
+        transition: opacity ${({ theme }) => theme.transitions.short}
           ease-in-out;
         width: ${({ theme }) => theme.spaces.medium};
       }
