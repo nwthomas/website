@@ -7,12 +7,15 @@ interface Colors {
   alabaster: "#F8F8F8";
   alto: "#DBDBDB";
   black: "#000000";
+  blueRibbon: "#3156F6";
   brightTurquoise: "#0acffe";
   brilliantRose: "#ee609c";
   brightSun: "#FACF3D";
+  crownOfThorns: "#752522";
   danube: "#72afd3";
   doveGray: "#707070";
   electricViolet: "#b721ff";
+  everglade: "##285231";
   lavender: "#b465da";
   mercury: "#E1E1E1";
   mineShaft: "#333333";
@@ -33,12 +36,15 @@ export const colors: Colors = {
   alabaster: "#F8F8F8",
   alto: "#DBDBDB",
   black: "#000000",
+  blueRibbon: "#3156F6",
   brightTurquoise: "#0acffe",
   brilliantRose: "#ee609c",
   brightSun: "#FACF3D",
+  crownOfThorns: "#752522",
   danube: "#72afd3",
   doveGray: "#707070",
   electricViolet: "#b721ff",
+  everglade: "##285231",
   lavender: "#b465da",
   mercury: "#E1E1E1",
   mineShaft: "#333333",
