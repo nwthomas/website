@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 interface Props {
   color: string;
+  isAriaHidden?: boolean;
   title?: string;
 }
 
-function ArrowForwardsIcon({ color, title }: Props) {
+function ArrowForwardsIcon({ color, isAriaHidden, title }: Props) {
   return (
-    <RootStyles color={color} viewBox="0 0 512 512">
+    <RootStyles aria-hidden color={color} viewBox="0 0 512 512">
       <title>{title || "Arrow Forwards"}</title>
       <path
         fill="none"

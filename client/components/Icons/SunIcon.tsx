@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 interface Props {
   color: string;
+  isAriaHidden?: boolean;
   title?: string;
 }
 
-function SunIcon({ color, title }: Props) {
+function SunIcon({ color, isAriaHidden, title }: Props) {
   return (
-    <RootStyles color={color} viewBox="0 0 512 512">
+    <RootStyles aria-hidden={isAriaHidden} color={color} viewBox="0 0 512 512">
       <title>{title || "Sun icon"}</title>
       <path
         fill={color}
