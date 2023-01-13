@@ -27,7 +27,7 @@ function BlogCard({ description, title, url }: Props) {
           </div>
           <div>
             <p>Read more</p>
-            <ArrowForwardsIcon color={colors.textSecondary} />
+            <ArrowForwardsIcon color={colors.textSecondary} aria-hidden />
           </div>
         </a>
       </Link>
