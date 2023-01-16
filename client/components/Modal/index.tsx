@@ -1,13 +1,13 @@
 import * as React from "react";
 
 import { DARK_THEME, ThemeEnum } from "../../store/themeSlice";
-import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
+import { useGetPreferredTheme, useLockBodyScroll } from "../../hooks";
 
 import FocusTrap from "focus-trap-react";
 import { RootState } from "../../store";
+import styled from "styled-components";
 import { updateModalValues } from "../../store/modalSlice";
-import { useGetPreferredTheme, useLockBodyScroll } from "../../hooks";
 
 function Modal() {
   const dispatch = useDispatch();
