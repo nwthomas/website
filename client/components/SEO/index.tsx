@@ -4,14 +4,13 @@ import { LOCALHOST_ORIGIN, PRODUCTION_ORIGIN } from "../../constants/routes";
 
 import { DARK_THEME } from "../../store/themeSlice";
 import Head from "next/head";
+import { NODE_ENV } from "../../constants/environments";
 import { NextSeo } from "next-seo";
 import { buildSeoConfig } from "../../constants/seo";
 import { useGetPreferredTheme } from "../../hooks";
 
 const darkModeFaviconPath = "/dark-mode-favicon.ico";
 const lightModeFaviconPath = "/light-mode-favicon.ico";
-
-const NODE_ENV = process.env.NODE_ENV;
 
 function buildImageUrlWithOrigin(origin: string, currentUrl: string): string {
   return `${origin}${currentUrl}`;
