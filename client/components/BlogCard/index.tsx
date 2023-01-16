@@ -17,19 +17,17 @@ function BlogCard({ description, title, url }: Props) {
   return (
     <RootStyles>
       <Link href={`/blog/${url}`} passHref>
-        <a>
-          <div>
-            <h2>{title}</h2>
-            <p>{description}</p>
-          </div>
-          <div aria-hidden>
-            <h2>{title}</h2>
-          </div>
-          <div>
-            <p>Read more</p>
-            <ArrowForwardsIcon color={colors.textSecondary} isAriaHidden />
-          </div>
-        </a>
+        <div>
+          <h2>{title}</h2>
+          <p>{description}</p>
+        </div>
+        <div aria-hidden>
+          <h2>{title}</h2>
+        </div>
+        <div>
+          <p>Read more</p>
+          <ArrowForwardsIcon color={colors.textSecondary} isAriaHidden />
+        </div>
       </Link>
     </RootStyles>
   );
