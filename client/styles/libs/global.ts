@@ -203,6 +203,10 @@ const GlobalStyle = css`
     &:active {
       text-decoration-color: ${({ theme }) => theme.colors.textSecondary};
     }
+
+    &:focus {
+      text-decoration-color: ${({ theme }) => theme.colors.textSecondary};
+    }
   }
 
   button {
