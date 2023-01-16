@@ -157,7 +157,6 @@ const RootStyles = styled.div`
 
               div {
                 background-color: ${({ theme }) => theme.colors.text};
-                cursor: pointer;
                 height: ${({ theme }) => theme.spaces.large};
                 width: ${({ theme }) => theme.spaces.large};
               }
