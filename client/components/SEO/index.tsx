@@ -12,8 +12,11 @@ import { useGetPreferredTheme } from "../../hooks";
 const darkModeFaviconPath = "/dark-mode-favicon.ico";
 const lightModeFaviconPath = "/light-mode-favicon.ico";
 
-function buildImageUrlWithOrigin(origin: string, currentUrl: string): string {
-  return `${origin}${currentUrl}`;
+function buildUrlWithOrigin(currentUrl: string): string {
+  const currentOrigin =
+    NODE_ENV === "production" ? PRODUCTION_ORIGIN : LOCALHOST_ORIGIN;
+
+  return `${currentOrigin}${currentUrl}`;
 }
 
 interface Props {
@@ -35,9 +38,6 @@ function SEO({
   const currentPageMetadata = React.useMemo(() => {
     return buildSeoConfig(pageName);
   }, [pageName]);
-
-  const currentOrigin =
-    NODE_ENV === "production" ? PRODUCTION_ORIGIN : LOCALHOST_ORIGIN;
 
   const {
     currentUrl,
@@ -62,10 +62,7 @@ function SEO({
           description: customDescription || description,
           images: [
             {
-              url: buildImageUrlWithOrigin(
-                currentOrigin,
-                customImageUrl || imageUrl
-              ),
+              url: buildUrlWithOrigin(customImageUrl || imageUrl),
               type: "image/webp",
             },
           ],

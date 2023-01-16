@@ -24,7 +24,7 @@ const DEFAULT_SEO_VALUES: SeoConfig = {
   },
   currentUrl: "https://www.nathanthomas.dev",
   description:
-    "Internet playground for Nathan Thomas. Focus on blogging and experiments.",
+    "Internet home for Nathan Thomas. Focus on articles and projects.",
   imageUrl: "/seo/home-page.webp",
   siteName: "Nathan Thomas",
   social: {
