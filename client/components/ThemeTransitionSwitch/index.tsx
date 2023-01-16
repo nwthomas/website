@@ -6,6 +6,9 @@ import styled, { ThemeContext } from "styled-components";
 import { DARK_THEME } from "../../store/themeSlice";
 import { useGetPreferredTheme } from "../../hooks";
 
+const DARK_MODE_ARIA_LABEL = "Switch to light mode";
+const LIGHT_MODE_ARIA_LABEL = "Switch to dark mode";
+
 function ThemeTransitionSwitch() {
   const [currentTheme, setCurrentTheme] = useGetPreferredTheme();
   const { colorsHex } = React.useContext(ThemeContext);
@@ -18,12 +21,16 @@ function ThemeTransitionSwitch() {
     setCurrentTheme();
   };
 
+  const currentAriaLabel = isDarkMode
+    ? DARK_MODE_ARIA_LABEL
+    : LIGHT_MODE_ARIA_LABEL;
+
   return (
     <RootStyles isDarkMode={isDarkMode}>
       {currentTheme !== null ? (
         <>
           <input
-            aria-label="Switch between light and dark mode"
+            aria-label={currentAriaLabel}
             type="checkbox"
             defaultChecked={isDarkMode}
             onChange={handleThemeSwitchClick}

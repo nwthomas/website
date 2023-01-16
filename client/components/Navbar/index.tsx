@@ -10,6 +10,11 @@ import ThemeTransitionSwitch from "../ThemeTransitionSwitch";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 
+const BLOG_LINK_ARIA_LABEL = "Go to all blog posts page";
+const CONTACT_LINK_ARIA_LABEL = "Go to contact form";
+const HOME_LINK_ARIA_LABEL = "Go to home page";
+const SKIP_TO_CONTENT_ARIA_LABEL = "Skip to page main content";
+
 function Navbar() {
   const { asPath: currentPath } = useRouter();
 
@@ -20,22 +25,39 @@ function Navbar() {
           <ul>
             <div>
               <li>
-                <Link href={HOME_PAGE} passHref>
+                <Link
+                  aria-label={HOME_LINK_ARIA_LABEL}
+                  href={HOME_PAGE}
+                  passHref
+                >
                   <div />
                 </Link>
               </li>
             </div>
             <li>
-              <a href={`#${CONTENTS_ID}`}>Skip to Content</a>
+              <a
+                aria-label={SKIP_TO_CONTENT_ARIA_LABEL}
+                href={`#${CONTENTS_ID}`}
+              >
+                Skip to Content
+              </a>
             </li>
             <div>
               <li>
-                <NavbarLink currentPath={currentPath} route={BLOG_PAGE}>
+                <NavbarLink
+                  ariaLabel={BLOG_LINK_ARIA_LABEL}
+                  currentPath={currentPath}
+                  route={BLOG_PAGE}
+                >
                   Blog
                 </NavbarLink>
               </li>
               <li>
-                <NavbarLink currentPath={currentPath} route={CONTACT_PAGE}>
+                <NavbarLink
+                  ariaLabel={CONTACT_LINK_ARIA_LABEL}
+                  currentPath={currentPath}
+                  route={CONTACT_PAGE}
+                >
                   Contact
                 </NavbarLink>
               </li>
