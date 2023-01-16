@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import {
   DARK_THEME,
   LIGHT_THEME,
@@ -6,6 +7,7 @@ import {
   updateCurrentTheme,
 } from "../store/themeSlice";
 import { useDispatch, useSelector } from "react-redux";
+
 import { RootState } from "../store";
 
 export const LOCAL_STORAGE_KEY = "theme";

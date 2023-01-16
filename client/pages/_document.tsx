@@ -1,5 +1,6 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
 
+import Script from "next/script";
 import { ServerStyleSheet } from "styled-components";
 
 export default class MyDocument extends Document {
@@ -49,45 +50,9 @@ export default class MyDocument extends Document {
           />
         </Head>
         <body>
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-            (function () {
-              var DARK_THEME = "dark";
-              var LIGHT_THEME = "light";
-              var THEME_KEY = "theme";
-              var preferredTheme;
-              var handleChangeTheme = function handleChangeTheme() {}
-
-              function setTheme(newTheme) {
-                window.__theme = newTheme;
-                preferredTheme = newTheme;
-                document.body.className = newTheme;
-              }
-
-              try {
-                var savedPreferredTheme = localStorage.getItem(THEME_KEY);
-
-                if (savedPreferredTheme === DARK_THEME || savedPreferredTheme === LIGHT_THEME) {
-                  preferredTheme = savedPreferredTheme;
-                }
-              } catch (error) {}
-
-              window.__setPreferredTheme = function setPreferredTheme(newTheme) {
-                setTheme(newTheme);
-
-                try {
-                  localStorage.setItem(THEME_KEY, newTheme);
-                } catch (error) {}
-              }
-
-              var userOSThemePreference = window.matchMedia('(prefers-color-scheme: dark)');
-              
-              setTheme(preferredTheme || (userOSThemePreference.matches ? DARK_THEME : LIGHT_THEME));
-            })();
-            `,
-            }}
-          ></script>
+          <Script src="/theme.js" strategy="beforeInteractive"></Script>
+          {/* Empty script tag as chrome bug fix, see https://stackoverflow.com/a/42969608/943337 */}
+          <script> </script>
           <Main />
           <NextScript />
         </body>
