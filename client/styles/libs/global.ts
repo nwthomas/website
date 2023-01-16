@@ -177,6 +177,7 @@ const GlobalStyle = css`
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
     color: ${({ theme }) => theme.colors.textSecondary};
+    cursor: pointer;
     font-display: swap;
     font-family: "ObjectSans", Object Sans, Helvetica, ui-sans-serif, system-ui,
       -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial,
@@ -212,6 +213,7 @@ const GlobalStyle = css`
   button {
     background-color: ${({ theme }) => theme.colors.buttonPrimaryBackground};
     color: ${({ theme }) => theme.colorsHex.white};
+    cursor: pointer;
     font-size: 1.6rem;
     font-weight: bold;
     transition: opacity ${({ theme }) => theme.transitions.short} ease-in-out;
