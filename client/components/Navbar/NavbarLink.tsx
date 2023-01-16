@@ -4,17 +4,20 @@ import Link from "next/link";
 import styled from "styled-components";
 
 interface Props {
+  ariaLabel?: string;
   children: React.ReactNode | Array<React.ReactNode>;
   currentPath: string;
   route: string;
 }
 
-function NavbarLink({ children, currentPath, route }: Props) {
+function NavbarLink({ ariaLabel, children, currentPath, route }: Props) {
   const isCurrentPage = currentPath === route;
 
   return (
     <RootStyles isCurrentPage={isCurrentPage}>
-      <Link href={route}>{children}</Link>
+      <Link aria-label={ariaLabel} href={route}>
+        {children}
+      </Link>
     </RootStyles>
   );
 }

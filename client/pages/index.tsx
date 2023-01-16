@@ -7,6 +7,10 @@ import Link from "next/link";
 import { NextPage } from "next";
 import styled from "styled-components";
 
+const GITHUB_LINK_ARIA_LABEL = "Link to Nathan's GitHub page";
+const WRITING_LINK_ARIA_LABEL = "Link to Nathan's blog page";
+const TEACHING_LINK_ARIA_LABEL = "Link to presentation from Nathan on YouTube";
+
 const Home: NextPage = () => {
   return (
     <Layout pageName={HOME_PAGE_NAME} withFooter withPageNameEmojis>
@@ -17,16 +21,20 @@ const Home: NextPage = () => {
               Hi. I'm <span>Nathan 👋🏻,</span> a{" "}
               <a
                 href="https://github.com/nwthomas"
-                aria-label="Link to GitHub"
+                aria-label={GITHUB_LINK_ARIA_LABEL}
                 rel="noopener noreferrer"
                 target="_blank"
               >
                 software engineer
               </a>
-              , <Link href="/blog">writer</Link>, and{" "}
+              ,{" "}
+              <Link aria-label={WRITING_LINK_ARIA_LABEL} href="/blog">
+                writer
+              </Link>
+              , and{" "}
               <a
                 href="https://www.youtube.com/watch?v=GNrQTbIFsG4&t=2909s"
-                aria-label="Link to presentation on YouTube"
+                aria-label={TEACHING_LINK_ARIA_LABEL}
                 rel="noopener noreferrer"
                 target="_target"
               >

@@ -14,6 +14,8 @@ import styled from "styled-components";
 import { updateModalValues } from "../store/modalSlice";
 import { useMutation } from "react-query";
 
+const TWITTER_LINK_ARIA_LABEL = "Link to Nathan's Twitter profile";
+
 function Contact() {
   const dispatch = useDispatch();
   const initialMessageValues = useSelector(
@@ -62,7 +64,7 @@ function Contact() {
               Message me on{" "}
               <a
                 href="https://twitter.com/nwthomas_"
-                aria-label="Link to Nathan's Twitter profile"
+                aria-label={TWITTER_LINK_ARIA_LABEL}
                 rel="noopener noreferrer"
                 target="_blank"
               >

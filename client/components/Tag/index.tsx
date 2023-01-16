@@ -3,7 +3,7 @@ import { buildLinkHref } from "../../utils/routes";
 import styled from "styled-components";
 
 export function buildTagLinkAriaLabel(tagName: string): string {
-  return `All articles about ${tagName}`;
+  return `${tagName} blog section, link is to page with only ${tagName}`;
 }
 
 interface Props {
