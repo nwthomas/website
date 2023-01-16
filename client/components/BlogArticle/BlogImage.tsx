@@ -1,7 +1,8 @@
-import styled from "styled-components";
-import Image from "next/image";
-import { BlogMarkdownRenderer } from "./";
 import * as React from "react";
+
+import { BlogMarkdownRenderer } from "./";
+import Image from "next/image";
+import styled from "styled-components";
 
 interface Props {
   alt?: string;
@@ -12,18 +13,25 @@ interface Props {
   width?: string | number;
 }
 
-function BlogImage({ alt, height, isHeroImage, src, title, width }: Props) {
+function BlogImage({
+  alt = "",
+  height = 0,
+  isHeroImage,
+  src,
+  title,
+  width = 0,
+}: Props) {
   return (
     <RootStyles isHeroImage={isHeroImage}>
       <div>
         <Image
           alt={alt}
           draggable={false}
-          height={height}
+          height={Number(height)}
           priority={isHeroImage}
           quality={60}
           src={src}
-          width={width}
+          width={Number(width)}
         />
         {title ? <BlogMarkdownRenderer content={title} /> : null}
       </div>
