@@ -109,7 +109,6 @@ const RootStyles = styled.div<StyleProps>`
       border-radius: ${({ theme }) => theme.borderRadii.medium};
       border: 2px solid ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
       color: ${({ theme }) => theme.colorsHex.white};
-      cursor: pointer;
       display: flex;
       justify-content: center;
       margin-top: ${({ theme }) => theme.spaces.nano};

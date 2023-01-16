@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import styled, { ThemeContext } from "styled-components";
 
 import { CopyLinkIcon } from "../Icons";
@@ -184,7 +185,6 @@ const RootStyles = styled.div<StyleProps>`
     }
 
     h1 {
-      cursor: pointer;
       grid-column-start: 2;
       grid-column-end: 3;
 
