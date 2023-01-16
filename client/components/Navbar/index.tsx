@@ -1,12 +1,13 @@
+import * as React from "react";
+
 import { BLOG_PAGE, CONTACT_PAGE } from "../../constants/routes";
 
 import { CONTENTS_ID } from "../../constants/routes";
 import { HOME_PAGE } from "../../constants/routes";
 import Link from "next/link";
-import * as React from "react";
+import NavbarLink from "./NavbarLink";
 import ThemeTransitionSwitch from "../ThemeTransitionSwitch";
 import styled from "styled-components";
-import NavbarLink from "./NavbarLink";
 import { useRouter } from "next/router";
 
 function Navbar() {
@@ -142,9 +143,12 @@ const RootStyles = styled.div`
 
             > a {
               &:has(div) {
+                border-radius: ${({ theme }) => theme.borderRadii.nano};
                 display: flex;
+                overflow: hidden;
 
-                &:focus {
+                &:focus,
+                &:active {
                   outline-color: ${({ theme }) => theme.colorsHex.pictonBlue};
                   outline-style: solid;
                   outline-width: ${({ theme }) => theme.spaces.nano};
