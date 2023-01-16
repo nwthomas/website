@@ -1,11 +1,11 @@
 import * as React from "react";
 import * as Yup from "yup";
-import { colors } from "../../styles/libs/theme";
 
 import styled, { ThemeContext } from "styled-components";
 
 import Spinner from "../Spinner";
 import { ThemeEnum } from "../../store/themeSlice";
+import { colors } from "../../styles/libs/theme";
 import { useFormik } from "formik";
 import { useGetMouseRadian } from "../../hooks";
 

@@ -12,6 +12,11 @@ const moduleExports = {
         destination: "/blog",
         permanent: false,
       },
+      {
+        source: "/playground",
+        destination: "/",
+        permanent: false,
+      },
     ];
   },
 };

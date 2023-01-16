@@ -1,9 +1,10 @@
 import * as React from "react";
+
 import { DARK_THEME } from "../../store/themeSlice";
 import Head from "next/head";
+import { NextSeo } from "next-seo";
 import { buildSeoConfig } from "../../constants/seo";
 import { useGetPreferredTheme } from "../../hooks";
-import { NextSeo } from "next-seo";
 
 const darkModeFaviconPath = "/dark-mode-favicon.ico";
 const lightModeFaviconPath = "/light-mode-favicon.ico";

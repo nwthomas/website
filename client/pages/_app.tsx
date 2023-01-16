@@ -11,8 +11,8 @@ import Navbar from "../components/Navbar";
 import { Provider } from "react-redux";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { ThemeProvider } from "styled-components";
-import { store } from "../store";
 import { getThemeFromWindowObject } from "../hooks";
+import { store } from "../store";
 
 // We don't care about cache invalidation given the needs of this app, so data isn't stale
 // until >= 1 day
