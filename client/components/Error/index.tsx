@@ -11,7 +11,7 @@ export default function Error({ errorCode }: Props) {
       <h1>
         {`${errorCode} `}
         <Link href="/" passHref>
-          <a>Go back home</a>
+          Go back home
         </Link>
       </h1>
     </RootStyles>

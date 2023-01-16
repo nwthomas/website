@@ -21,9 +21,7 @@ function Navbar() {
             <div>
               <li>
                 <Link href={HOME_PAGE} passHref>
-                  <a>
-                    <div />
-                  </a>
+                  <div />
                 </Link>
               </li>
             </div>
