@@ -12,16 +12,18 @@ interface Props {
 
 function Tag({ text }: Props) {
   return (
-    <Link href={buildLinkHref(text)} passHref>
-      <RootStyles aria-label={buildTagLinkAriaLabel(text)}>
-        <h1>{text}</h1>
-        <h1 aria-hidden>{text}</h1>
-      </RootStyles>
-    </Link>
+    <StyledLink
+      aria-label={buildTagLinkAriaLabel(text)}
+      href={buildLinkHref(text)}
+      passHref
+    >
+      <h1>{text}</h1>
+      <h1 aria-hidden>{text}</h1>
+    </StyledLink>
   );
 }
 
-const RootStyles = styled.a`
+const StyledLink = styled(Link)`
   align-items: center;
   border: ${({ theme }) =>
     `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
@@ -79,6 +81,12 @@ const RootStyles = styled.a`
     > h1:nth-child(2) {
       opacity: ${({ theme }) => theme.opacity.opacity100};
     }
+  }
+
+  &:hover,
+  &:select,
+  &:focus {
+    text-decoration-underline: none;
   }
 `;
 
