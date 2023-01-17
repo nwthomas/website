@@ -57,8 +57,7 @@ const RootStyles = styled.section`
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
-      font-size: 2rem;
-      margin-top: ${({ theme }) => theme.spaces.small};
+      margin-bottom: ${({ theme }) => theme.spaces.small};
     }
 
     > p {
