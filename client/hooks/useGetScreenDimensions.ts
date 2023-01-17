@@ -1,5 +1,9 @@
 import * as React from "react";
 
+import throttle from "lodash/throttle";
+
+const THROTTLE_WAIT_TIME_MS = 10;
+
 export interface ScreenDimensions {
   viewportHeight?: number;
   viewportWidth?: number;
@@ -30,35 +34,44 @@ export const useGetScreenDimensions = (): ScreenDimensions => {
       : undefined
   );
 
-  const handleMeasureWindowDimensions = () => {
-    if (typeof window !== "undefined") {
-      // Total width and height of viewport
-      const { innerHeight: newViewportHeight, innerWidth: newViewportWidth } =
-        window;
+  const handleMeasureWindowDimensions = React.useCallback(
+    throttle(
+      () => {
+        if (typeof window !== "undefined") {
+          // Total width and height of viewport
+          const {
+            innerHeight: newViewportHeight,
+            innerWidth: newViewportWidth,
+          } = window;
 
-      // Viewport - scrollbars if they exist
-      const {
-        clientHeight: newAvailableHeight,
-        clientWidth: newAvailableWidth,
-      } = document.documentElement;
+          // Viewport - scrollbars if they exist
+          const {
+            clientHeight: newAvailableHeight,
+            clientWidth: newAvailableWidth,
+          } = document.documentElement;
 
-      if (newViewportHeight !== viewportHeight) {
-        setViewportHeight(newViewportHeight);
-      }
+          if (newViewportHeight !== viewportHeight) {
+            setViewportHeight(newViewportHeight);
+          }
 
-      if (newViewportWidth !== viewportWidth) {
-        setViewportWidth(newViewportWidth);
-      }
+          if (newViewportWidth !== viewportWidth) {
+            setViewportWidth(newViewportWidth);
+          }
 
-      if (newAvailableHeight !== availableHeight) {
-        setAvailableHeight(newAvailableHeight);
-      }
+          if (newAvailableHeight !== availableHeight) {
+            setAvailableHeight(newAvailableHeight);
+          }
 
-      if (newAvailableWidth !== availableWidth) {
-        setAvailableWidth(newAvailableWidth);
-      }
-    }
-  };
+          if (newAvailableWidth !== availableWidth) {
+            setAvailableWidth(newAvailableWidth);
+          }
+        }
+      },
+      THROTTLE_WAIT_TIME_MS,
+      { trailing: true }
+    ),
+    []
+  );
 
   React.useEffect(() => {
     handleMeasureWindowDimensions();
