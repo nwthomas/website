@@ -1,4 +1,4 @@
-import { DARK_THEME, ThemeEnum } from "../../store/themeSlice";
+import { DARK_THEME, ThemeEnum } from "../../store/reducers/themeSlice";
 
 // ===================================== Color Assignment Variables
 // All color names pulled directly from http://chir.ag/projects/name-that-color/

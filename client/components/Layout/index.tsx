@@ -2,8 +2,8 @@ import * as React from "react";
 
 import Footer from "../Footer";
 import Modal from "../Modal";
-import { RootState } from "../../store";
 import SEO from "../SEO";
+import { selectShouldShowModal } from "../../store/selectors/modalSelectors";
 import styled from "styled-components";
 import { useGetScreenDimensions } from "../../hooks";
 import { useSelector } from "react-redux";
@@ -28,9 +28,7 @@ function Layout({
   withPageNameEmojis,
 }: Props) {
   const { availableHeight, availableWidth } = useGetScreenDimensions();
-  const shouldShowModal = useSelector(
-    (state: RootState) => state.modal.shouldShowModal
-  );
+  const shouldShowModal = useSelector(selectShouldShowModal);
 
   // This is a bit of a hack to get around the fact that mobile devices don't play nicely
   // with 100vh. This will pin the footer to the bottom of any screen on mobile.

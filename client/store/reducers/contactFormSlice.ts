@@ -1,15 +1,17 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-export interface ContactState {
-  message: {
-    name: string;
-    email: string;
-    message: string;
-    fax: string;
-  };
+export interface ContactFormMessage {
+  name: string;
+  email: string;
+  message: string;
+  fax: string;
 }
 
-const initialState: ContactState = {
+export interface ContactFormState {
+  message: ContactFormMessage;
+}
+
+const initialState: ContactFormState = {
   message: {
     name: "",
     email: "",
@@ -18,7 +20,7 @@ const initialState: ContactState = {
   },
 };
 
-export const contactSlice = createSlice({
+export const contactFormSlice = createSlice({
   name: "contact",
   initialState,
   reducers: {
@@ -42,5 +44,6 @@ export const contactSlice = createSlice({
   },
 });
 
-export const { resetMessageValues, updateMessageValues } = contactSlice.actions;
-export default contactSlice.reducer;
+export const { resetMessageValues, updateMessageValues } =
+  contactFormSlice.actions;
+export default contactFormSlice.reducer;

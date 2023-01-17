@@ -5,7 +5,7 @@ export type ThemeEnum = "dark" | "light";
 export const DARK_THEME = "dark";
 export const LIGHT_THEME = "light";
 
-interface ThemeState {
+export interface ThemeState {
   currentTheme: ThemeEnum | null;
 }
 
