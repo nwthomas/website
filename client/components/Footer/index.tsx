@@ -11,7 +11,7 @@ function Footer() {
             <li>
               <a
                 href="https://dev.to/nwthomas"
-                aria-label="Link to Dev.to"
+                aria-label="Link to Nathan's Dev.to"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -21,7 +21,7 @@ function Footer() {
             <li>
               <a
                 href="https://github.com/nwthomas"
-                aria-label="Link to GitHub"
+                aria-label="Link to Nathan's GitHub"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -31,7 +31,7 @@ function Footer() {
             <li>
               <a
                 href="https://www.instagram.com/nwthomas/"
-                aria-label="Link to Instagram"
+                aria-label="Link to Nathan's Instagram"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -41,7 +41,7 @@ function Footer() {
             <li>
               <a
                 href="https://www.linkedin.com/in/nwthomas-dev/"
-                aria-label="Link to LinkedIn"
+                aria-label="Link to Nathan's LinkedIn"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -51,7 +51,7 @@ function Footer() {
             <li>
               <a
                 href="https://medium.com/@nwthomas"
-                aria-label="Link to Medium"
+                aria-label="Link to Nathan's Medium"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -61,7 +61,7 @@ function Footer() {
             <li>
               <a
                 href="https://www.polywork.com/nwthomas"
-                aria-label="Link to Polywork"
+                aria-label="Link to Nathan's Polywork"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -71,7 +71,7 @@ function Footer() {
             <li>
               <a
                 href="https://nathanthomas.substack.com/"
-                aria-label="Link to Substack"
+                aria-label="Link to Nathan's Substack"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -81,7 +81,7 @@ function Footer() {
             <li>
               <a
                 href="https://twitter.com/nwthomas_"
-                aria-label="Link to Twitter"
+                aria-label="Link to Nathan's Twitter"
                 rel="noopener noreferrer"
                 target="_blank"
               >

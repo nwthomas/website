@@ -11,9 +11,9 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 
 const BLOG_LINK_ARIA_LABEL = "Go to all blog posts page";
-const CONTACT_LINK_ARIA_LABEL = "Go to contact form";
+const CONTACT_LINK_ARIA_LABEL = "Go to contact form page";
 const HOME_LINK_ARIA_LABEL = "Go to home page";
-const SKIP_TO_CONTENT_ARIA_LABEL = "Skip to page main content";
+const SKIP_TO_CONTENT_ARIA_LABEL = "Skip to the page's main content";
 
 function Navbar() {
   const { asPath: currentPath } = useRouter();
