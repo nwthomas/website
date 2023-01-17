@@ -84,14 +84,16 @@ export default class MyDocument extends Document {
               var userOSThemePreference = window.matchMedia('(prefers-color-scheme: dark)');
               
               setTheme(preferredTheme || (userOSThemePreference.matches ? DARK_THEME : LIGHT_THEME));
+
+
+              // Set preload class to avoid transitions while page is loading in
+              document.body.classList.add(["preload"]);
             })();
             `,
             }}
           ></script>
           <Main />
           <NextScript />
-          {/* Empty script tag as chrome bug fix, see https://stackoverflow.com/a/42969608/943337 */}
-          <script> </script>
         </body>
       </Html>
     );
