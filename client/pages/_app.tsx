@@ -40,8 +40,8 @@ function MyApp({ Component, pageProps }: AppProps) {
         <QueryClientProvider client={queryClient}>
           <Hydrate state={pageProps.dehydratedState}>
             <ThemeProvider theme={mainTheme}>
-              <Navbar />
               <GlobalStyle theme={mainTheme} />
+              <Navbar />
               <Component {...pageProps} />
             </ThemeProvider>
             {process.env.NEXT_PUBLIC_RUNTIME_ENV === "development" ? (
