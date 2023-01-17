@@ -12,6 +12,18 @@ const GlobalStyle = css`
       `background ${short} ease-in-out, background-color ${short} ease-in-out, color ${short} ease-in-out, fill ${short} ease-in-out, stroke ${short} ease-in-out, border-color ${short} ease-in-out`};
   }
 
+  /*
+  Transitions on load in NextJS are a real issue that include some Chromium bugs. This is my fix for now.
+  
+  See: https://stackoverflow.com/questions/57401976/css-transition-flash-on-page-load-with-nextjs-production-build
+  */
+  .preload {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+  }
+
   /* This value can be modified in the theme.ts file's appDimensions object */
   :root {
     --app-min-height: 100vh;

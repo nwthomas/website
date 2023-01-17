@@ -28,6 +28,13 @@ const client = new QueryClient({
 function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = React.useState(() => client);
 
+  // See global.tx .preload class for an explanation on why this is needed
+  React.useEffect(() => {
+    if (typeof window !== "undefined") {
+      document.body.classList.remove("preload");
+    }
+  }, []);
+
   const mainTheme = React.useMemo(() => {
     const currentTheme = getThemeFromWindowObject();
 
