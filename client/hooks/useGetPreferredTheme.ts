@@ -35,7 +35,7 @@ export function getThemeFromWindowObject() {
     return window.__theme;
   }
 
-  return LIGHT_THEME;
+  return DARK_THEME;
 }
 
 // Updates the theme using the JavaScript code defined in the _document.tsx file
