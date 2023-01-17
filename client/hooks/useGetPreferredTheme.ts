@@ -75,14 +75,12 @@ export function useGetPreferredTheme(): [ThemeEnum | null, () => void] {
 
   // Handles setting the theme in Redux on load of hook
   React.useEffect(() => {
+    const windowObjectTheme = getThemeFromWindowObject();
+
     // We must check for typeof window !== "undefined" instead of window !== undefined
     // because typeof does not evaluate window but only get its type
     // https://dev.to/vvo/how-to-solve-window-is-not-defined-errors-in-react-and-next-js-5f97
-    if (
-      typeof window !== "undefined" &&
-      window.__theme &&
-      (window.__theme === DARK_THEME || window.__theme === LIGHT_THEME)
-    ) {
+    if (windowObjectTheme) {
       const isMatchMediaSupported = typeof window.matchMedia === "function";
 
       if (isMatchMediaSupported) {
@@ -91,14 +89,7 @@ export function useGetPreferredTheme(): [ThemeEnum | null, () => void] {
           .addEventListener("change", handleMatchMediaChange);
       }
 
-      const windowObjectTheme = getThemeFromWindowObject();
-
-      if (
-        windowObjectTheme !== null &&
-        (windowObjectTheme === DARK_THEME || windowObjectTheme === LIGHT_THEME)
-      ) {
-        dispatch(updateCurrentTheme(windowObjectTheme));
-      }
+      dispatch(updateCurrentTheme(windowObjectTheme));
 
       return () => {
         window
