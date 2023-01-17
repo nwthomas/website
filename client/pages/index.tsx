@@ -11,6 +11,12 @@ const GITHUB_LINK_ARIA_LABEL = "Link to Nathan's GitHub page";
 const WRITING_LINK_ARIA_LABEL = "Link to Nathan's blog page";
 const TEACHING_LINK_ARIA_LABEL = "Link to presentation from Nathan on YouTube";
 
+export async function getStaticProps() {
+  return {
+    props: {},
+  };
+}
+
 const Home: NextPage = () => {
   return (
     <Layout pageName={HOME_PAGE_NAME} withFooter withPageNameEmojis>

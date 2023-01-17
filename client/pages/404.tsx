@@ -3,6 +3,12 @@ import Error from "../components/Error";
 import { FOUR_OH_FOUR_PAGE_NAME } from "../constants/seo";
 import Layout from "../components/Layout";
 
+export async function getStaticProps() {
+  return {
+    props: {},
+  };
+}
+
 function FourOhFour() {
   return (
     <Layout pageName={FOUR_OH_FOUR_PAGE_NAME} withFooter withPageNameEmojis>

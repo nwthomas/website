@@ -19,6 +19,12 @@ import { useMutation } from "react-query";
 
 const TWITTER_LINK_ARIA_LABEL = "Link to Nathan's Twitter profile";
 
+export async function getStaticProps() {
+  return {
+    props: {},
+  };
+}
+
 function Contact() {
   const dispatch = useDispatch();
   const initialMessageValues = useSelector(selectContactFormMessageValues);
