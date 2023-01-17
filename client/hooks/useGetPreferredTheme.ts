@@ -23,7 +23,7 @@ declare global {
 
 // Directly (and only) pull the window object theme value which is useful both in the hook
 // below as well as in _app.tsx when the StoreProvider is not available
-export function getThemeFromWindowObject() {
+export function getThemeFromWindowObject(): ThemeEnum | null {
   // We must check for typeof window !== "undefined" instead of window !== undefined
   // because typeof does not evaluate window but only get its type
   // https://dev.to/vvo/how-to-solve-window-is-not-defined-errors-in-react-and-next-js-5f97
@@ -35,7 +35,10 @@ export function getThemeFromWindowObject() {
     return window.__theme;
   }
 
-  return LIGHT_THEME;
+  // This will usually not fetch and update Redux fast enough in order to avoid a flicker,
+  // so no default is given. This will be updated with the user's preferences when the hook
+  // loads in for various components. The user's preference is still set in _document.tsx.
+  return null;
 }
 
 // Updates the theme using the JavaScript code defined in the _document.tsx file
@@ -89,7 +92,13 @@ export function useGetPreferredTheme(): [ThemeEnum | null, () => void] {
       }
 
       const windowObjectTheme = getThemeFromWindowObject();
-      dispatch(updateCurrentTheme(windowObjectTheme));
+
+      if (
+        windowObjectTheme !== null &&
+        (windowObjectTheme === DARK_THEME || windowObjectTheme === LIGHT_THEME)
+      ) {
+        dispatch(updateCurrentTheme(windowObjectTheme));
+      }
 
       return () => {
         window
