@@ -1,10 +1,10 @@
 import * as React from "react";
 
 import { ThemeContext } from "styled-components";
-import debounce from "lodash/debounce";
+import throttle from "lodash/throttle";
 import { useGetScreenDimensions } from "./";
 
-const DEBOUNCE_WAIT_TIME_MS = 10;
+const THROTTLE_WAIT_TIME_MS = 10;
 
 const DEFAULT_RADIANS = Math.PI;
 
@@ -30,11 +30,11 @@ export function useGetMouseRadian(ref: React.RefObject<HTMLElement>): number {
   }>({});
 
   const getMouseCoordinates = React.useCallback(
-    debounce(
+    throttle(
       ({ clientX, clientY }: MouseEvent) => {
         setMouseCoordinates({ x: clientX, y: clientY });
       },
-      DEBOUNCE_WAIT_TIME_MS,
+      THROTTLE_WAIT_TIME_MS,
       { trailing: true }
     ),
     []
