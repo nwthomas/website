@@ -1,6 +1,9 @@
 import * as React from "react";
 
-import { resetMessageValues, updateMessageValues } from "../store/contactSlice";
+import {
+  resetMessageValues,
+  updateMessageValues,
+} from "../store/reducers/contactFormSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 import { CONTACT_PAGE_NAME } from "../constants/seo";
@@ -8,19 +11,17 @@ import { CONTENTS_ID } from "../constants/routes";
 import ContactForm from "../components/ContactForm";
 import Layout from "../components/Layout";
 import { MessageValues } from "../components/ContactForm";
-import { RootState } from "../store";
+import { selectContactFormMessageValues } from "../store/selectors/contactFormSelectors";
 import { sendMessage } from "./api/message";
 import styled from "styled-components";
-import { updateModalValues } from "../store/modalSlice";
+import { updateModalValues } from "../store/reducers/modalSlice";
 import { useMutation } from "react-query";
 
 const TWITTER_LINK_ARIA_LABEL = "Link to Nathan's Twitter profile";
 
 function Contact() {
   const dispatch = useDispatch();
-  const initialMessageValues = useSelector(
-    (state: RootState) => state.contact.message
-  );
+  const initialMessageValues = useSelector(selectContactFormMessageValues);
 
   const { mutate, isLoading: isSendingEmail } = useMutation(sendMessage, {
     onSuccess: () => {

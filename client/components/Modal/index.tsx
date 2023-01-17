@@ -1,21 +1,22 @@
 import * as React from "react";
 
-import { DARK_THEME, ThemeEnum } from "../../store/themeSlice";
+import { DARK_THEME, ThemeEnum } from "../../store/reducers/themeSlice";
+import {
+  selectModalButtonLabel,
+  selectModalMessage,
+} from "../../store/selectors/modalSelectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useGetPreferredTheme, useLockBodyScroll } from "../../hooks";
 
 import FocusTrap from "focus-trap-react";
-import { RootState } from "../../store";
 import styled from "styled-components";
-import { updateModalValues } from "../../store/modalSlice";
+import { updateModalValues } from "../../store/reducers/modalSlice";
 
 function Modal() {
   const dispatch = useDispatch();
   const [currentTheme] = useGetPreferredTheme();
-  const modalMessage = useSelector((state: RootState) => state.modal.message);
-  const modalButtonLabel = useSelector(
-    (state: RootState) => state.modal.buttonLabel
-  );
+  const modalMessage = useSelector(selectModalMessage);
+  const modalButtonLabel = useSelector(selectModalButtonLabel);
 
   // This hook automatically removes the scroll lock on modal unmount
   useLockBodyScroll();

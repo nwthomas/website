@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import contactReducer from "./contactSlice";
-import modalReducer from "./modalSlice";
-import themeReducer from "./themeSlice";
+import contactFormReducer from "./reducers/contactFormSlice";
+import modalReducer from "./reducers/modalSlice";
+import themeReducer from "./reducers/themeSlice";
 
 export const store = configureStore({
   reducer: {
-    contact: contactReducer,
+    contactForm: contactFormReducer,
     modal: modalReducer,
     theme: themeReducer,
   },

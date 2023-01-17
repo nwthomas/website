@@ -5,10 +5,10 @@ import {
   LIGHT_THEME,
   ThemeEnum,
   updateCurrentTheme,
-} from "../store/themeSlice";
+} from "../store/reducers/themeSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-import { RootState } from "../store";
+import { selectCurrentTheme } from "../store/selectors/themeSelectors";
 
 export const LOCAL_STORAGE_KEY = "theme";
 const MATCH_MEDIA_QUERY_NAME = "(prefers-color-scheme: dark)";
@@ -42,9 +42,7 @@ export function getThemeFromWindowObject() {
 export function useGetPreferredTheme(): [ThemeEnum | null, () => void] {
   const dispatch = useDispatch();
   // Theme value from Redux (starts as null)
-  const userPreferredTheme = useSelector(
-    (state: RootState) => state.theme.currentTheme
-  );
+  const userPreferredTheme = useSelector(selectCurrentTheme);
 
   // Function to handle match media changes by user in OS
   const handleMatchMediaChange = React.useCallback(

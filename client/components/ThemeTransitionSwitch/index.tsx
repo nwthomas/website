@@ -3,7 +3,7 @@ import * as React from "react";
 import { MoonIcon, SunIcon } from "../Icons";
 import styled, { ThemeContext } from "styled-components";
 
-import { DARK_THEME } from "../../store/themeSlice";
+import { DARK_THEME } from "../../store/reducers/themeSlice";
 import { useGetPreferredTheme } from "../../hooks";
 
 const DARK_MODE_ARIA_LABEL = "Switch to light mode";

@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { LOCALHOST_ORIGIN, PRODUCTION_ORIGIN } from "../../constants/routes";
 
-import { DARK_THEME } from "../../store/themeSlice";
+import { DARK_THEME } from "../../store/reducers/themeSlice";
 import Head from "next/head";
 import { NextSeo } from "next-seo";
 import { buildSeoConfig } from "../../constants/seo";
