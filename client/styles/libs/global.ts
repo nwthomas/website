@@ -13,9 +13,10 @@ const GlobalStyle = css`
   }
 
   /*
-  Transitions on load in NextJS are a real issue that include some Chromium bugs. This is my fix for now.
+  Transitions on load in NextJS are a real issue that include some Chromium bugs. This is a fix for now.
   
   See: https://stackoverflow.com/questions/57401976/css-transition-flash-on-page-load-with-nextjs-production-build
+  Also: https://css-tricks.com/transitions-only-after-page-load
   */
   .preload {
     -webkit-transition: none !important;
