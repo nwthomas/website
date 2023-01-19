@@ -5,6 +5,7 @@ import * as React from "react";
 import GlobalStyle, { makeMainTheme } from "../styles";
 import { QueryClient, QueryClientProvider } from "react-query";
 
+import { Analytics } from "@vercel/analytics/react";
 import { AppProps } from "next/app";
 import { Hydrate } from "react-query/hydration";
 import Navbar from "../components/Navbar";
@@ -57,6 +58,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           </Hydrate>
         </QueryClientProvider>
       </Provider>
+      <Analytics />
     </>
   );
 }
