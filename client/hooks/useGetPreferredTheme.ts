@@ -54,9 +54,10 @@ export function useGetPreferredTheme(): [ThemeEnum | null, () => void] {
         ? DARK_THEME
         : LIGHT_THEME;
 
+      dispatch(updateCurrentTheme(newTheme));
       window.__setPreferredTheme(newTheme);
     },
-    []
+    [dispatch]
   );
 
   // Handles any updates to the theme
@@ -77,17 +78,10 @@ export function useGetPreferredTheme(): [ThemeEnum | null, () => void] {
   React.useEffect(() => {
     const windowObjectTheme = getThemeFromWindowObject();
 
-    // We must check for typeof window !== "undefined" instead of window !== undefined
-    // because typeof does not evaluate window but only get its type
-    // https://dev.to/vvo/how-to-solve-window-is-not-defined-errors-in-react-and-next-js-5f97
     if (windowObjectTheme) {
-      const isMatchMediaSupported = typeof window.matchMedia === "function";
-
-      if (isMatchMediaSupported) {
-        window
-          .matchMedia(MATCH_MEDIA_QUERY_NAME)
-          .addEventListener("change", handleMatchMediaChange);
-      }
+      window
+        .matchMedia(MATCH_MEDIA_QUERY_NAME)
+        .addEventListener("change", handleMatchMediaChange);
 
       dispatch(updateCurrentTheme(windowObjectTheme));
 
