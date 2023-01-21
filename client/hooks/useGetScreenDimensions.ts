@@ -14,9 +14,9 @@ export interface ScreenDimensions {
 export const useGetScreenDimensions = (): ScreenDimensions => {
   const [viewportHeight, setViewportHeight] = React.useState<
     number | undefined
-  >(typeof window !== "undefined" ? window.outerHeight : undefined);
+  >(typeof window !== "undefined" ? window.innerHeight : undefined);
   const [viewportWidth, setViewportWidth] = React.useState<number | undefined>(
-    typeof window !== "undefined" ? window.outerWidth : undefined
+    typeof window !== "undefined" ? window.innerWidth : undefined
   );
 
   const [availableHeight, setAvailableHeight] = React.useState<
@@ -40,8 +40,8 @@ export const useGetScreenDimensions = (): ScreenDimensions => {
         if (typeof window !== "undefined") {
           // Total width and height of viewport
           const {
-            outerHeight: newViewportHeight,
-            outerWidth: newViewportWidth,
+            innerHeight: newViewportHeight,
+            innerWidth: newViewportWidth,
           } = window;
 
           // Viewport - scrollbars if they exist
