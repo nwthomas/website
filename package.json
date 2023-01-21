@@ -15,8 +15,9 @@
   "scripts": {
     "build": "tsc",
     "dev": "nodemon",
-    "server": "ts-node index.ts",
-    "start": "node dist/index.js"
+    "preinstall": "npx only-allow pnpm",
+    "start": "node dist/index.js",
+    "server": "ts-node index.ts"
   },
   "dependencies": {
     "cors": "^2.8.5",
