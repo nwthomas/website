@@ -157,7 +157,7 @@ interface StyleProps {
 
 const RootStyles = styled.div<StyleProps>`
   border-radius: ${({ theme }) => theme.borderRadii.large};
-  padding: ${({ theme }) => theme.spaces.micro};
+  padding: ${({ theme }) => theme.spaces.nano};
   width: 100%;
 
   > div {
