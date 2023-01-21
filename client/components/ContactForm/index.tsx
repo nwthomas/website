@@ -2,16 +2,16 @@ import * as React from "react";
 import * as Yup from "yup";
 
 import styled, { ThemeContext } from "styled-components";
-import { useGetMouseRadian, useGetScreenDimensions } from "../../hooks";
 
 import Spinner from "../Spinner";
 import { ThemeEnum } from "../../store/reducers/themeSlice";
 import { colors } from "../../styles/libs/theme";
 import { useFormik } from "formik";
+import { useGetMouseRadian } from "../../hooks";
 
 const contactFormRef = React.createRef<HTMLDivElement>();
 
-function getDesktopContactFormBorder(radians: number) {
+function getContactFormBorder(radians: number) {
   return `linear-gradient(calc(${radians}rad), ${colors.turquoise} 0%, ${colors.danube} 50%, rgba(121,40,202,0) 75%)`;
 }
 
@@ -43,14 +43,9 @@ function ContactForm({
   onSendMessageClick,
   withSpinner,
 }: Props) {
-  const { breakpointsInt, currentTheme } = React.useContext(ThemeContext);
-  const { viewportWidth } = useGetScreenDimensions();
+  const { currentTheme } = React.useContext(ThemeContext);
 
   const radians = useGetMouseRadian(contactFormRef);
-
-  const isDesktopWidth =
-    typeof viewportWidth === "number" &&
-    viewportWidth >= breakpointsInt.desktop;
 
   const formik = useFormik({
     initialValues: {
@@ -81,11 +76,9 @@ function ContactForm({
     <RootStyles
       currentTheme={currentTheme}
       isFormButtonDisabled={withSpinner}
-      style={
-        isDesktopWidth
-          ? { backgroundImage: getDesktopContactFormBorder(radians) }
-          : undefined
-      }
+      style={{
+        backgroundImage: getContactFormBorder(radians),
+      }}
     >
       <div ref={contactFormRef}>
         <div>
@@ -163,8 +156,6 @@ interface StyleProps {
 }
 
 const RootStyles = styled.div<StyleProps>`
-  background-image: ${({ theme }) =>
-    `linear-gradient(40deg, ${theme.colorsHex.danube} 0%, ${theme.colorsHex.turquoise} 100%)`};
   border-radius: ${({ theme }) => theme.borderRadii.large};
   padding: ${({ theme }) => theme.spaces.micro};
   width: 100%;
