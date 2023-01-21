@@ -78,9 +78,18 @@ export const useGetScreenDimensions = (): ScreenDimensions => {
 
     if (typeof window !== "undefined") {
       window.addEventListener("resize", handleMeasureWindowDimensions);
+      window.addEventListener(
+        "orientationchange",
+        handleMeasureWindowDimensions
+      );
 
-      return () =>
+      return () => {
         window.removeEventListener("resize", handleMeasureWindowDimensions);
+        window.removeEventListener(
+          "orientationchange",
+          handleMeasureWindowDimensions
+        );
+      };
     }
   }, []);
 
