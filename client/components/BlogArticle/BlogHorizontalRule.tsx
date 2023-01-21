@@ -14,11 +14,6 @@ const RootStyles = styled.div`
   padding-top: ${({ theme }) => theme.spaces.medium};
   width: 100%;
 
-  @media only screen and (min-width: ${({ theme }) =>
-      theme.breakpoints.tablet}) {
-    padding-top: ${({ theme }) => theme.spaces.large};
-  }
-
   > hr {
     border: ${({ theme }) =>
       `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentOne}`};

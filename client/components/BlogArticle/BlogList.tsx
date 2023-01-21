@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import styled from "styled-components";
 
 interface Props {
@@ -20,11 +21,6 @@ const RootStyles = styled.div`
   padding-top: ${({ theme }) => theme.spaces.medium};
   width: 100%;
 
-  @media only screen and (min-width: ${({ theme }) =>
-      theme.breakpoints.tablet}) {
-    padding-top: ${({ theme }) => theme.spaces.large};
-  }
-
   > ol {
     max-width: ${({ theme }) => theme.appDimensions.articleMaxWidth};
     width: 100%;
@@ -32,12 +28,7 @@ const RootStyles = styled.div`
     > li {
       line-height: 1.8;
       list-style-type: disc;
-      margin-top: ${({ theme }) => theme.spaces.small};
-
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.tablet}) {
-        margin-top: ${({ theme }) => theme.spaces.medium};
-      }
+      margin-top: ${({ theme }) => theme.spaces.medium};
 
       > a {
         background-clip: text;

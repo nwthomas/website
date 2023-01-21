@@ -166,11 +166,6 @@ const RootStyles = styled.div<StyleProps>`
       grid-column-end: 3;
       padding-top: ${({ theme }) => theme.spaces.medium};
 
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.tablet}) {
-        padding-top: ${({ theme }) => theme.spaces.large};
-      }
-
       > a {
         color: inherit;
         font-size: inherit;
