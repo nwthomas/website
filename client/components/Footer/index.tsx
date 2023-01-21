@@ -1,5 +1,6 @@
 import * as React from "react";
 
+import { BabyYoda } from "../EasterEggs";
 import styled from "styled-components";
 
 function Footer() {
@@ -91,6 +92,7 @@ function Footer() {
           </ul>
         </nav>
       </footer>
+      <BabyYoda />
     </RootStyles>
   );
 }
