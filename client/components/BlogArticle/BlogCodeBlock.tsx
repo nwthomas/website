@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import styled from "styled-components";
 import undefinedTheme from "../../constants/codeThemes/undefinedTheme";
@@ -70,7 +71,7 @@ const InlineRootStyles = styled.code`
     Noto Color Emoji;
   font-size: 1.4rem;
   padding: ${({ theme }) =>
-    `${theme.spaces.nano} calc(${theme.spaces.micro} * 2)`};
+    `${theme.spaces.micro} calc(${theme.spaces.micro} * 2)`};
   white-space: nowrap;
 
   @media only screen and (min-width: ${({ theme }) =>

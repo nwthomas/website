@@ -11,7 +11,7 @@ export default function Error({ errorCode }: Props) {
       <h1>
         {`${errorCode} `}
         <Link href="/" passHref>
-          Go back home
+          Go home
         </Link>
       </h1>
     </RootStyles>
@@ -32,9 +32,7 @@ const RootStyles = styled.main`
   width: 100%;
 
   > h1 {
-    font-size: 2rem;
     text-align: center;
-    margin-bottom: ${({ theme }) => theme.spaces.medium};
 
     > a {
       background-clip: text;
