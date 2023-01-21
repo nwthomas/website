@@ -146,7 +146,7 @@ const RootStyles = styled.div<StyleProps>`
               height: ${({ level, theme }) =>
                 level === 1 ? theme.spaces.xLarge : theme.spaces.medium};
               margin-bottom: ${({ level, theme }) =>
-                level === 1 ? theme.spaces.xSmall : theme.spaces.micro};
+                level === 1 ? theme.spaces.small : theme.spaces.micro};
               margin-right: ${({ theme }) => theme.spaces.small};
               width: ${({ level, theme }) =>
                 level === 1 ? theme.spaces.xLarge : theme.spaces.medium};
