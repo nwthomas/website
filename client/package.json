@@ -16,6 +16,7 @@
     "build": "next build",
     "export": "next export",
     "lint": "next lint",
+    "preinstall": "npx only-allow pnpm",
     "share": "~/ngrok http 3000",
     "start": "next start"
   },
