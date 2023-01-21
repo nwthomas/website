@@ -123,11 +123,12 @@ const GlobalStyle = css`
       -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial,
       Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
       Noto Color Emoji;
-    line-height: 1.4;
+    line-height: 1.5;
   }
 
   h1 {
     font-size: 3rem;
+    font-weight: bold;
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
@@ -137,6 +138,7 @@ const GlobalStyle = css`
 
   h2 {
     font-size: 2rem;
+    font-weight: bold;
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
@@ -155,7 +157,7 @@ const GlobalStyle = css`
     color: ${({ theme }) => theme.colors.text};
     font-display: swap;
     font-size: 1.6rem;
-    line-height: 1.4;
+    line-height: 1.5;
     overflow: break-word;
     font-family: "ObjectSans", Object Sans, Helvetica, ui-sans-serif, system-ui,
       -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial,
@@ -170,11 +172,6 @@ const GlobalStyle = css`
         system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
         Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
         Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-    }
-
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.tablet}) {
-      font-size: 2rem;
     }
   }
 
@@ -202,13 +199,9 @@ const GlobalStyle = css`
     text-decoration-style: solid;
     text-decoration-line: underline;
     text-underline-offset: ${({ theme }) => theme.spaces.micro};
+    text-decoration-thickness: ${({ theme }) => theme.spaces.nano};
     transition: text-decoration-color ${({ theme }) => theme.transitions.short}
       ease-in-out;
-
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.tablet}) {
-      font-size: 2rem;
-    }
 
     &:hover {
       text-decoration-color: ${({ theme }) => theme.colors.textSecondary};

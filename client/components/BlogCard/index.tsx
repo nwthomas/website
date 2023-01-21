@@ -47,7 +47,7 @@ const RootStyles = styled.article`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 200px;
+    min-height: 150px;
     padding: ${({ theme }) => theme.spaces.medium};
     position: relative;
     transition: border ${({ theme }) => theme.transitions.short} ease-in-out;
@@ -56,18 +56,19 @@ const RootStyles = styled.article`
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
-      min-height: 300px;
+      min-height: 250px;
     }
 
-    > div {
+    > div:nth-child(1) {
       width: 100%;
 
       > h2 {
-        margin-bottom: ${({ theme }) => theme.spaces.medium};
+        margin-bottom: ${({ theme }) => theme.spaces.small};
       }
 
       > p {
         transition: color ${({ theme }) => theme.transitions.short} ease-in-out;
+        margin-bottom: ${({ theme }) => theme.spaces.medium};
       }
     }
 
