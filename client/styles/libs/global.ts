@@ -199,7 +199,6 @@ const GlobalStyle = css`
     text-decoration-style: solid;
     text-decoration-line: underline;
     text-underline-offset: ${({ theme }) => theme.spaces.micro};
-    text-decoration-thickness: ${({ theme }) => theme.spaces.nano};
     transition: text-decoration-color ${({ theme }) => theme.transitions.short}
       ease-in-out;
 
