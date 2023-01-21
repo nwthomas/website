@@ -59,12 +59,6 @@ const RootStyles = styled.div<StyleProps>`
     overflow: hidden;
     width: 100%;
 
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.tablet}) {
-      padding-top: ${({ isHeroImage, theme }) =>
-        !isHeroImage ? theme.spaces.large : 0};
-    }
-
     > img {
       border-radius: ${({ theme }) => theme.borderRadii.medium};
     }

@@ -203,6 +203,11 @@ const GlobalStyle = css`
     transition: text-decoration-color ${({ theme }) => theme.transitions.short}
       ease-in-out;
 
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.tablet}) {
+      font-size: 2rem;
+    }
+
     &:hover {
       text-decoration-color: ${({ theme }) => theme.colors.textSecondary};
     }

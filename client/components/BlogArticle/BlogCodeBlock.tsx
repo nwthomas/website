@@ -42,11 +42,6 @@ const BlockRootStyles = styled.div`
   margin-top: ${({ theme }) => theme.spaces.medium};
   width: 100%;
 
-  @media only screen and (min-width: ${({ theme }) =>
-      theme.breakpoints.tablet}) {
-    margin-top: ${({ theme }) => theme.spaces.large};
-  }
-
   > div {
     border-radius: ${({ theme }) => theme.borderRadii.medium};
     max-width: ${({ theme }) => theme.appDimensions.articleMaxWidth};

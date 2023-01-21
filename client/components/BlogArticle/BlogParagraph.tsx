@@ -20,11 +20,6 @@ const RootStyles = styled.div`
   padding-top: ${({ theme }) => theme.spaces.medium};
   width: 100%;
 
-  @media only screen and (min-width: ${({ theme }) =>
-      theme.breakpoints.tablet}) {
-    padding-top: ${({ theme }) => theme.spaces.large};
-  }
-
   > p {
     line-height: 1.8;
     max-width: ${({ theme }) => theme.appDimensions.articleMaxWidth};
