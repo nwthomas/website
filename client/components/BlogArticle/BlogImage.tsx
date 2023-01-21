@@ -55,9 +55,15 @@ const RootStyles = styled.div<StyleProps>`
     max-width: ${({ isHeroImage, theme }) =>
       isHeroImage ? "100%" : theme.appDimensions.articleMaxWidth};
     padding-top: ${({ isHeroImage, theme }) =>
-      !isHeroImage ? theme.spaces.large : 0};
+      !isHeroImage ? theme.spaces.medium : 0};
     overflow: hidden;
     width: 100%;
+
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.tablet}) {
+      padding-top: ${({ isHeroImage, theme }) =>
+        !isHeroImage ? theme.spaces.large : 0};
+    }
 
     > img {
       border-radius: ${({ theme }) => theme.borderRadii.medium};
