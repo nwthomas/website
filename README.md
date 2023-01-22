@@ -24,6 +24,7 @@ I use a [Trello board](https://trello.com/b/48bwZhhe/nathans-personal-website) t
   - [Formik](https://formik.org/)
   - [Next](https://nextjs.org/)
   - [Next SEO](https://github.com/garmeeh/next-seo)
+  - [Nodemailer](https://github.com/nodemailer/nodemailer)
   - [Redux](https://redux.js.org/)
   - [Sentry](https://sentry.io/welcome/)
   - [Styled Components](https://styled-components.com/)
@@ -31,10 +32,7 @@ I use a [Trello board](https://trello.com/b/48bwZhhe/nathans-personal-website) t
   - [Vercel](https://vercel.com/)
   - [Yup](https://github.com/jquense/yup)
 - Back-end:
-  - [Docker](https://www.docker.com/)
-  - [Express](https://expressjs.com/)
-  - [Nodemailer](https://github.com/nodemailer/nodemailer)
-  - [TypeScript](https://www.typescriptlang.org/)
+  - `FULL REBUILD COMING SOON`™
 
 ## UNIT TESTING
 
