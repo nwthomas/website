@@ -8,7 +8,6 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { Analytics } from "@vercel/analytics/react";
 import { AppProps } from "next/app";
 import { Hydrate } from "react-query/hydration";
-import Navbar from "../components/Navbar";
 import { Provider } from "react-redux";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { ThemeProvider } from "styled-components";
@@ -49,7 +48,6 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Hydrate state={pageProps.dehydratedState}>
             <ThemeProvider theme={mainTheme}>
               <GlobalStyle theme={mainTheme} />
-              <Navbar />
               <Component {...pageProps} />
             </ThemeProvider>
             {process.env.NEXT_PUBLIC_RUNTIME_ENV === "development" ? (
