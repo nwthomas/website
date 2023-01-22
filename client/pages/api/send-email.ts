@@ -9,7 +9,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method !== POST_METHOD) {
-    return res.status(501).send({
+    return res.status(405).send({
       message: "This request type is not supported.",
       success: false,
     });
