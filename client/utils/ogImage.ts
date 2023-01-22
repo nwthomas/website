@@ -3,7 +3,7 @@ import { ORIGIN } from "../constants/routes";
 import { createHash } from "crypto";
 import fs from "fs";
 import { isProductionEnvironment } from "./../constants/environments";
-import playwright from "playwright-aws-lambda";
+import { launchChromium } from "playwright-aws-lambda/dist/src";
 
 // While Vercel has an edge function way of rendering dynamic OG images, I didn't want to deal with edge function.
 // Instead, I generate OG images at build time and thereby offload any future costs of image generation to Vercel.
@@ -18,7 +18,7 @@ export async function getOgImage(path: string) {
 
   const url = `${ORIGIN}${path}`;
   const hash = createHash("md5").update(url).digest("hex");
-  const browser = await playwright.launchChromium({ headless: true });
+  const browser = await launchChromium({ headless: true });
   const context = await browser.newContext();
   const ogImageDir = `./public/images/og`;
   const imagePath = `${ogImageDir}/${hash}.png`;
