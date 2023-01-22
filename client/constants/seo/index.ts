@@ -40,14 +40,12 @@ export function buildSeoConfig(pageName: string, route?: string): SeoConfig {
       return {
         ...DEFAULT_SEO_VALUES,
         currentUrl: "https://www.nathanthomas.dev/blog",
-        imageUrl: "/images/og/all-blogs-page.webp",
         title: "Blog",
       };
     case CONTACT_PAGE_NAME:
       return {
         ...DEFAULT_SEO_VALUES,
         currentUrl: "https://www.nathanthomas.dev/contact",
-        imageUrl: "/images/og/contact-page.webp",
         title: "Contact",
       };
     case FOUR_OH_FOUR_PAGE_NAME:

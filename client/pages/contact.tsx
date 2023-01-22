@@ -14,6 +14,7 @@ import { MessageValues } from "../components/ContactForm";
 import { NewEmail } from "../utils/sendEmail";
 import { SEND_EMAIL } from "../constants/routes";
 import axios from "axios";
+import { getOgImage } from "../utils/ogImage";
 import { selectContactFormMessageValues } from "../store/selectors/contactFormSelectors";
 import styled from "styled-components";
 import { updateModalValues } from "../store/reducers/modalSlice";
@@ -22,8 +23,14 @@ import { useMutation } from "react-query";
 const TWITTER_LINK_ARIA_LABEL = "Link to Nathan's Twitter profile";
 
 export async function getStaticProps() {
+  // Dynamic og image creation at build time
+  const ogImageBuildUrl = `/og-image?title=${CONTACT_PAGE_NAME}%20Form`;
+  const ogImage = getOgImage(ogImageBuildUrl);
+
   return {
-    props: {},
+    props: {
+      ogImage,
+    },
   };
 }
 
@@ -31,7 +38,7 @@ async function sendMessage(email: NewEmail) {
   return axios.post(SEND_EMAIL, email);
 }
 
-function Contact() {
+function Contact({ ogImage }) {
   const dispatch = useDispatch();
   const initialMessageValues = useSelector(selectContactFormMessageValues);
 
@@ -69,7 +76,12 @@ function Contact() {
   };
 
   return (
-    <Layout pageName={CONTACT_PAGE_NAME} withFooter withPageNameEmojis>
+    <Layout
+      customSEOImageUrl={ogImage}
+      pageName={CONTACT_PAGE_NAME}
+      withFooter
+      withPageNameEmojis
+    >
       <RootStyles>
         <main id={CONTENTS_ID}>
           <section>

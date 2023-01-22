@@ -11,6 +11,7 @@ import BlogCardSection from "../../components/BlogCardSection";
 import { CONTENTS_ID } from "../../constants/routes";
 import Layout from "../../components/Layout";
 import { getDirectoryFiles } from "../../utils/readBlogFiles";
+import { getOgImage } from "../../utils/ogImage";
 import styled from "styled-components";
 
 export async function getStaticProps() {
@@ -23,15 +24,20 @@ export async function getStaticProps() {
   const tags = Object.keys(blogPostsByTags);
   const sortedTags = getSortedTagsList(tags);
 
+  // Dynamic og image creation at build time
+  const ogImageBuildUrl = `/og-image?title=All%20${BLOG_PAGE_NAME}%20Posts`;
+  const ogImage = getOgImage(ogImageBuildUrl);
+
   return {
     props: {
       blogPostsByTags,
+      ogImage,
       sortedTags,
     },
   };
 }
 
-function Blogs({ blogPostsByTags, sortedTags }) {
+function Blogs({ blogPostsByTags, ogImage, sortedTags }) {
   const blogCardSections = React.useMemo(() => {
     const sections: JSX.Element[] = [];
 
@@ -48,7 +54,12 @@ function Blogs({ blogPostsByTags, sortedTags }) {
   }, [blogPostsByTags, sortedTags]);
 
   return (
-    <Layout pageName={BLOG_PAGE_NAME} withFooter withPageNameEmojis>
+    <Layout
+      customSEOImageUrl={ogImage}
+      pageName={BLOG_PAGE_NAME}
+      withFooter
+      withPageNameEmojis
+    >
       <RootStyles>
         <main id={CONTENTS_ID}>{blogCardSections}</main>
       </RootStyles>
