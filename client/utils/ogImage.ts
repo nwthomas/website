@@ -3,7 +3,9 @@ import { ORIGIN } from "../constants/routes";
 import { createHash } from "crypto";
 import fs from "fs";
 import { isProductionEnvironment } from "./../constants/environments";
-import { launchChromium } from "playwright-aws-lambda/dist/src";
+// This solution was pulled from:
+// https://github.com/JupiterOne/playwright-aws-lambda/issues/15#issuecomment-1243395780
+import { launchChromium } from "playwright-aws-lambda/dist/src/chromium";
 
 // While Vercel has an edge function way of rendering dynamic OG images, I didn't want to deal with edge function.
 // Instead, I generate OG images at build time and thereby offload any future costs of image generation to Vercel.
