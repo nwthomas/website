@@ -25,7 +25,7 @@ const TWITTER_LINK_ARIA_LABEL = "Link to Nathan's Twitter profile";
 export async function getStaticProps() {
   // Dynamic og image creation at build time
   const ogImageBuildUrl = `/og-image?title=${CONTACT_PAGE_NAME}%20Form`;
-  const ogImage = getOgImage(ogImageBuildUrl);
+  const ogImage = await getOgImage(ogImageBuildUrl);
 
   return {
     props: {
