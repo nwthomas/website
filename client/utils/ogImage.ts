@@ -1,3 +1,5 @@
+import { OG_IMAGE_HEIGHT, OG_IMAGE_WIDTH } from "../pages/og-image";
+
 import { DEFAULT_SEO_VALUES } from "../constants/seo";
 import { ORIGIN } from "../constants/routes";
 import { createHash } from "crypto";
@@ -21,13 +23,15 @@ export async function getOgImage(path: string) {
   const url = `${ORIGIN}${path}`;
   const hash = createHash("md5").update(url).digest("hex");
   const browser = await launchChromium({ headless: true });
-  const context = await browser.newContext();
-  const ogImageDir = `./public/images/og`;
+  const ogImageDir = `/images/og`;
+
+  console.log("Creating new og image at: ", ogImageDir);
   const imagePath = `${ogImageDir}/${hash}.png`;
-  const publicPath = `${ORIGIN}/images/og/${hash}.png`;
+  const publicPath = `/images/og/${hash}.png`;
 
   try {
     fs.statSync(imagePath);
+    console.log("Image already created. Returning.");
 
     return publicPath;
   } catch (error) {
@@ -35,12 +39,17 @@ export async function getOgImage(path: string) {
     // the rest of the function will run
   }
 
-  const page = await context.newPage();
-  await page.setViewportSize({ width: 1200, height: 630 });
+  console.log("Taking screenshot.");
+  const page = await browser.newPage();
+  await page.setViewportSize({
+    width: OG_IMAGE_WIDTH,
+    height: OG_IMAGE_HEIGHT,
+  });
   await page.goto(url, { waitUntil: "networkidle" });
   const buffer = await page.screenshot({ type: "png" });
   await browser.close();
 
+  console.log("Writing to file: ", imagePath);
   fs.mkdirSync(ogImageDir, { recursive: true });
   fs.writeFileSync(imagePath, buffer);
 
