@@ -4,24 +4,34 @@ import { BlogMarkdownRenderer } from "../../components/BlogArticle";
 import { CONTENTS_ID } from "../../constants/routes";
 import Layout from "../../components/Layout";
 import { getDirectoryFiles } from "../../utils/readBlogFiles";
+import { getOgImage } from "../../utils/ogImage";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 
-export async function getStaticProps() {
+export async function getStaticProps({ params: { blogId } }) {
+  // Get and sort blog posts
   const blogPosts = getDirectoryFiles("/constants/blogs");
   const blogPostContent = blogPosts.map(
     (blogPost) => blogPost.fileContents
   ) as BlogPosts;
   const slugToBlogPostMap = buildSlugToBlogPostMap(blogPostContent);
 
+  // Dynamic og image creation at build time
+  const currentBlog = slugToBlogPostMap[blogId] || {};
+  const ogImageBuildUrl = `/og-image?title=${currentBlog?.data.title}`;
+
+  const ogImage = await getOgImage(ogImageBuildUrl);
+
   return {
     props: {
+      ogImage,
       slugToBlogPostMap,
     },
   };
 }
 
 export async function getStaticPaths() {
+  // Get all blog posts paths from blog post directory
   const blogPosts = getDirectoryFiles("/constants/blogs");
   const blogPostContent = blogPosts.map(
     (blogPost) => blogPost.fileContents
@@ -37,7 +47,7 @@ export async function getStaticPaths() {
   };
 }
 
-function BlogPost({ slugToBlogPostMap }) {
+function BlogPost({ ogImage, slugToBlogPostMap }) {
   const {
     query: { blogId },
   } = useRouter();
@@ -48,7 +58,7 @@ function BlogPost({ slugToBlogPostMap }) {
   return (
     <Layout
       customSEODescription={metaDescription}
-      customSEOImageUrl={heroImageUrl}
+      customSEOImageUrl={ogImage}
       isArticle
       pageName={blogPost.data.title}
       withFooter

@@ -4,6 +4,10 @@ import { sendEmail } from "../../utils/sendEmail";
 
 const POST_METHOD = "POST";
 
+export const config = {
+  runtime: "edge",
+};
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
