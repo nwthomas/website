@@ -18,7 +18,7 @@ interface SeoConfig {
   title: string;
 }
 
-const DEFAULT_SEO_VALUES: SeoConfig = {
+export const DEFAULT_SEO_VALUES: SeoConfig = {
   author: {
     name: "Nathan W Thomas",
   },
