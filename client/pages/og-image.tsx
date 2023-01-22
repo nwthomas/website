@@ -6,12 +6,6 @@ import { useRouter } from "next/router";
 export const OG_IMAGE_HEIGHT = 600;
 export const OG_IMAGE_WIDTH = 1200;
 
-export async function getStaticProps() {
-  return {
-    props: {},
-  };
-}
-
 // While Vercel has an edge function way of rendering dynamic OG images, I didn't want to deal with edge function.
 // Instead, I generate OG images at build time and thereby offload any future costs of image generation to Vercel.
 //

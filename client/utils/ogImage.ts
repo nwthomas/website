@@ -20,7 +20,7 @@ export async function getOgImage(path: string) {
     return DEFAULT_SEO_VALUES.imageUrl;
   }
 
-  const url = `${ORIGIN}${path}`;
+  const url = `${ORIGIN}/contact`;
   const hash = createHash("md5").update(url).digest("hex");
   const browser = await launchChromium({ headless: true });
   const ogImageDir = `./public/images/og`;
