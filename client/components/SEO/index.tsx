@@ -30,7 +30,7 @@ function SEO({
   pageName,
 }: Props) {
   const [currentTheme] = useGetPreferredTheme();
-  const { colors } = React.useContext(ThemeContext);
+  const { colorsHex } = React.useContext(ThemeContext);
 
   const currentPageMetadata = React.useMemo(() => {
     return buildSeoConfig(pageName);
@@ -81,8 +81,13 @@ function SEO({
               : lightModeFaviconPath
           }
         />
-        {/* This handles the color for the "safe area" notch on iOS */}
-        <meta name="theme-color" content={colors.bodyBackground}></meta>
+        {/* This handles the color for the "safe area" notch on iOS. This also can't be a CSS var. */}
+        <meta
+          name="theme-color"
+          content={
+            currentTheme === DARK_THEME ? colorsHex.black : colorsHex.white
+          }
+        ></meta>
       </Head>
     </>
   );
