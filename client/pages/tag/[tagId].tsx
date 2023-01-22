@@ -65,7 +65,7 @@ function TagIdPage({ blogPostsByTags }) {
     }
 
     return null;
-  }, [tagIdParam]);
+  }, [blogPostsByTags, tagIdParam]);
 
   return (
     <Layout

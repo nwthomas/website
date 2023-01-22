@@ -27,7 +27,7 @@ function BlogHeading({ contents, level, linkPath, routeId }: Props) {
 
   const handleHeadingClicked = React.useCallback(() => {
     document.getElementById(routeId)?.scrollIntoView();
-  }, []);
+  }, [routeId]);
 
   const headingHandlers = React.useMemo(() => {
     return {
@@ -73,7 +73,7 @@ function BlogHeading({ contents, level, linkPath, routeId }: Props) {
           </h1>
         );
     }
-  }, [contents, headingHandlers, level, linkPath]);
+  }, [contents, headingHandlers, level, linkPath, routeId]);
 
   return (
     <RootStyles isSelected={isSelected} level={level}>
