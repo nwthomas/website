@@ -1,4 +1,4 @@
-# Personal Website
+# Nathan Thomas' Website
 
 ## Table of Contents
 
@@ -10,7 +10,7 @@
 
 ## Getting Started
 
-This is the Github repository for my personal website. Making this site gave me the opportunity to really stretch out and craft a site that I felt was mine. It will evolve and grow with time.
+This is the Github repository for my website. Making this site gave me the opportunity to really stretch out and craft a site that I felt was mine. It will evolve and grow with time to be used as a playground for projects, blogging, and courses.
 
 ## Project Management
 
@@ -44,7 +44,7 @@ I use a [Trello board](https://trello.com/b/48bwZhhe/nathans-personal-website) t
 
 ## ACKNOWLEDGEMENTS
 
-- Thanks to my parents for supporting my journey of learning to code. I couldn't have done it without you.
-- Thanks to [Zach Cole](http://zcole.me/index.html) for some of the inspiration behind my site.
+- Thanks to my parents for supporting my journey of learning to code (I couldn't have done it without you)
+- Thanks to [Zach Cole](http://zcole.me/index.html) for some of the inspiration behind my site
 - Thanks to [Uniswap](https://uniswap.org/) for the inspiration on my contact form
 - Thanks to [Josh Cormeau](https://www.joshwcomeau.com/) for the inspiration for my blog page card layout
