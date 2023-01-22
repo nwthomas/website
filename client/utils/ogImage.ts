@@ -25,13 +25,13 @@ export async function getOgImage(path: string) {
   const browser = await launchChromium({ headless: true });
   const ogImageDir = `./public/images/og`;
 
-  console.log("Creating new og image at: ", ogImageDir);
+  console.log(`Creating new og image for ${hash} at: `, ogImageDir);
   const imagePath = `${ogImageDir}/${hash}.png`;
   const publicPath = `/images/og/${hash}.png`;
 
   try {
     fs.statSync(imagePath);
-    console.log("Image already created. Returning.");
+    console.log(`Image already created for ${hash}. Returning.`);
 
     return publicPath;
   } catch (error) {
@@ -39,7 +39,7 @@ export async function getOgImage(path: string) {
     // the rest of the function will run
   }
 
-  console.log("Taking screenshot.");
+  console.log(`Taking screenshot for ${hash}.`);
   const page = await browser.newPage();
   await page.setViewportSize({
     width: OG_IMAGE_WIDTH,
@@ -49,7 +49,7 @@ export async function getOgImage(path: string) {
   const buffer = await page.screenshot({ type: "png" });
   await browser.close();
 
-  console.log("Writing to file: ", imagePath);
+  console.log(`Writing to file for ${hash}: `, imagePath);
   fs.mkdirSync(ogImageDir, { recursive: true });
   fs.writeFileSync(imagePath, buffer);
 
