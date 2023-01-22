@@ -54,12 +54,7 @@ function Blogs({ blogPostsByTags, ogImage, sortedTags }) {
   }, [blogPostsByTags, sortedTags]);
 
   return (
-    <Layout
-      customSEOImageUrl={ogImage}
-      pageName={BLOG_PAGE_NAME}
-      withFooter
-      withPageNameEmojis
-    >
+    <Layout customSEOImageUrl={ogImage} pageName={BLOG_PAGE_NAME} withFooter>
       <RootStyles>
         <main id={CONTENTS_ID}>{blogCardSections}</main>
       </RootStyles>

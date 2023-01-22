@@ -84,7 +84,6 @@ function TagIdPage({ blogPostsByTags, ogImage }) {
       customSEOImageUrl={ogImage}
       pageName={buildTagIdPageName(pageName)}
       withFooter
-      withPageNameEmojis
     >
       <RootStyles>
         <main id={CONTENTS_ID}>{tagIdBlogSection}</main>
