@@ -117,7 +117,7 @@ const RootStyles = styled.div`
         display: flex;
         flex-wrap: wrap;
         padding-bottom: ${({ theme }) =>
-          `calc(${theme.spaces.large} - ${theme.spaces.small})`};
+          `calc(${theme.spaces.medium} - ${theme.spaces.small})`};
         width: 100%;
 
         @media only screen and (min-width: ${({ theme }) =>
