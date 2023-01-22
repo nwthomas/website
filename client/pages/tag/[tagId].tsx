@@ -10,6 +10,7 @@ import { CONTENTS_ID } from "../../constants/routes";
 import Layout from "../../components/Layout";
 import { buildKebabCaseParam } from "../../utils/routes";
 import { getDirectoryFiles } from "../../utils/readBlogFiles";
+import { getOgImage } from "../../utils/ogImage";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 
@@ -17,16 +18,21 @@ function buildTagIdPageName(tag: string) {
   return `${tag} Articles`;
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({ params: { tagId } }) {
   const blogPosts = getDirectoryFiles("/constants/blogs");
   const blogPostContent = blogPosts.map(
     (blogPost) => blogPost.fileContents
   ) as BlogPosts;
   const blogPostsByTags = bucketAndSortBlogPostsByTags(blogPostContent);
 
+  // Dynamic og image creation at build time
+  const ogImageBuildUrl = `/og-image?title=${tagId}`;
+  const ogImage = await getOgImage(ogImageBuildUrl);
+
   return {
     props: {
       blogPostsByTags,
+      ogImage,
     },
   };
 }
@@ -49,7 +55,7 @@ export async function getStaticPaths() {
   };
 }
 
-function TagIdPage({ blogPostsByTags }) {
+function TagIdPage({ blogPostsByTags, ogImage }) {
   const [pageName, setPageName] = React.useState<string>("");
   const {
     query: { tagId: tagIdParam },
@@ -69,6 +75,7 @@ function TagIdPage({ blogPostsByTags }) {
 
   return (
     <Layout
+      customSEOImageUrl={ogImage}
       pageName={buildTagIdPageName(pageName)}
       withFooter
       withPageNameEmojis
