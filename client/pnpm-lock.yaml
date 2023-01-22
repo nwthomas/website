@@ -31,6 +31,7 @@ specifiers:
   nodemailer: ^6.6.5
   npm: ^9.2.0
   playwright-aws-lambda: ^0.9.0
+  playwright-core: ^1.29.2
   react: 18.2.0
   react-dom: 18.2.0
   react-markdown: ^8.0.4
@@ -93,7 +94,8 @@ devDependencies:
   eslint-config-next: 13.1.2_eslint@8.32.0+typescript@4.9.4
   eslint-plugin-jsx-a11y: 6.7.1_eslint@8.32.0
   eslint-plugin-react-hooks: 4.6.0_eslint@8.32.0
-  playwright-aws-lambda: 0.9.0
+  playwright-aws-lambda: 0.9.0_playwright-core@1.29.2
+  playwright-core: 1.29.2
   rehype-accessible-emojis: 0.3.2
   remark-unwrap-images: 3.0.1
   typescript: 4.9.4
@@ -3984,13 +3986,20 @@ packages:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
     engines: {node: '>=8.6'}
 
-  /playwright-aws-lambda/0.9.0:
+  /playwright-aws-lambda/0.9.0_playwright-core@1.29.2:
     resolution: {integrity: sha512-MnzLTZ4B9I4JdWJ+eq7BbrhFjL6VyT0bF+ccNjBCwjwlBNQaTEXOcrkAe+p8YkOXnYUqBbsrZj5Ene8PqKosiw==}
     engines: {node: '>= 8.0.0'}
     peerDependencies:
       playwright-core: ^1
     dependencies:
       lambdafs: 2.1.1
+      playwright-core: 1.29.2
+    dev: true
+
+  /playwright-core/1.29.2:
+    resolution: {integrity: sha512-94QXm4PMgFoHAhlCuoWyaBYKb92yOcGVHdQLoxQ7Wjlc7Flg4aC/jbFW7xMR52OfXMVkWicue4WXE7QEegbIRA==}
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /postcss-value-parser/4.2.0:

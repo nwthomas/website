@@ -1,3 +1,4 @@
+import { DEFAULT_SEO_VALUES } from "../constants/seo";
 import { ORIGIN } from "../constants/routes";
 import { createHash } from "crypto";
 import fs from "fs";
@@ -10,8 +11,9 @@ import playwright from "playwright-aws-lambda";
 // See: https://phiilu.com/generate-open-graph-images-for-your-static-next-js-site
 // Also: /pages/og.tsx
 export async function getOgImage(path: string) {
+  // Dynamic OG images are only build at build time for production
   if (!isProductionEnvironment) {
-    return "An og image will be generated in production";
+    return DEFAULT_SEO_VALUES.imageUrl;
   }
 
   const url = `${ORIGIN}${path}`;
