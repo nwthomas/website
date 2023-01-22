@@ -23,7 +23,7 @@ export async function getOgImage(path: string) {
   const url = `${ORIGIN}${path}`;
   const hash = createHash("md5").update(url).digest("hex");
   const browser = await launchChromium({ headless: true });
-  const ogImageDir = `/images/og`;
+  const ogImageDir = `./public/images/og`;
 
   console.log("Creating new og image at: ", ogImageDir);
   const imagePath = `${ogImageDir}/${hash}.png`;
