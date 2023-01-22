@@ -19,6 +19,7 @@ export async function getOgImage(path: string) {
   const url = `${ORIGIN}${path}`;
   const hash = createHash("md5").update(url).digest("hex");
   const browser = await playwright.launchChromium({ headless: true });
+  const context = await browser.newContext();
   const ogImageDir = `./public/images/og`;
   const imagePath = `${ogImageDir}/${hash}.png`;
   const publicPath = `${ORIGIN}/images/og/${hash}.png`;
@@ -32,7 +33,7 @@ export async function getOgImage(path: string) {
     // the rest of the function will run
   }
 
-  const page = await browser.newPage();
+  const page = await context.newPage();
   await page.setViewportSize({ width: 1200, height: 630 });
   await page.goto(url, { waitUntil: "networkidle" });
   const buffer = await page.screenshot({ type: "png" });

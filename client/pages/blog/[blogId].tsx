@@ -19,6 +19,7 @@ export async function getStaticProps({ params: { blogId } }) {
   // Dynamic og image creation at build time
   const currentBlog = slugToBlogPostMap[blogId] || {};
   const ogImageBuildUrl = `/og?title=${currentBlog?.data.title}`;
+
   const ogImage = await getOgImage(ogImageBuildUrl);
 
   return {
