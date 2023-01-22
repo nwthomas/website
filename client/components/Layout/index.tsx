@@ -2,6 +2,7 @@ import * as React from "react";
 
 import Footer from "../Footer";
 import Modal from "../Modal";
+import Navbar from "../Navbar";
 import SEO from "../SEO";
 import { selectShouldShowModal } from "../../store/selectors/modalSelectors";
 import styled from "styled-components";
@@ -58,6 +59,7 @@ function Layout({
         withPageNameEmojis={withPageNameEmojis}
       />
       <RootStyles>
+        <Navbar />
         {children}
         {withFooter ? <Footer /> : null}
         {shouldShowModal ? <Modal /> : null}

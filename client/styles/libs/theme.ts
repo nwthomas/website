@@ -1,5 +1,7 @@
 import { DARK_THEME, ThemeEnum } from "../../store/reducers/themeSlice";
 
+// A good source for gradients is: https://webgradients.com
+
 // ===================================== Color Assignment Variables
 // All color names pulled directly from http://chir.ag/projects/name-that-color/
 // To change the assignment of colors --> CSS variables, go to: styles/libs/global.ts
