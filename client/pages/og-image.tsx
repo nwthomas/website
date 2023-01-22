@@ -25,15 +25,14 @@ function DynamicOGImage() {
   return (
     <RootStyles>
       <h1>{title || ""}</h1>
-      <div>
-        <div />
-        <h2>Nathan Thomas</h2>
-      </div>
+
+      <div />
     </RootStyles>
   );
 }
 
 const RootStyles = styled.div`
+  background-color: ${({ theme }) => theme.colors.bodyBackground};
   display: flex;
   flex-direction: column;
   height: ${OG_IMAGE_HEIGHT}px;
