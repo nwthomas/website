@@ -57,21 +57,20 @@ const RootStyles = styled.div`
   }
 
   > div {
-    align-items: center;
+    align-items: flex-end;
     display: flex;
 
     > div:first-child {
       background-color: ${({ theme }) => theme.colors.text};
       border-radius: ${({ theme }) => theme.borderRadii.micro};
-      height: 24px;
+      height: 36px;
       margin-right: ${({ theme }) => theme.spaces.small};
-      width: 24px;
+      width: 36px;
     }
 
     > h2 {
-      font-size: 3rem;
+      font-size: 5rem;
       line-height: 0.5;
-      margin-bottom: ${({ theme }) => `-${theme.spaces.xxSmall}`};
     }
   }
 `;
