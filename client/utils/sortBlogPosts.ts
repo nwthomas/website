@@ -1,8 +1,25 @@
 import { GrayMatterFile } from "gray-matter";
+import { buildKebabCaseParam } from "./routes";
 
 export type BlogPost = Omit<GrayMatterFile<string>, "orig">;
 
 export type BlogPosts = Array<BlogPost>;
+
+// Handles comparison of tagId to tags and returns the normal tag title
+export function getTagTitleFromTagId(
+  tagId: string,
+  tags: Array<string>
+): string {
+  for (const tag of tags) {
+    const convertedTag = buildKebabCaseParam(tag);
+
+    if (convertedTag === tagId) {
+      return tag;
+    }
+  }
+
+  return "";
+}
 
 // Takes in any list of tags and returns them fully sorted
 export function getSortedTagsList(tags: Array<string>): Array<string> {

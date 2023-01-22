@@ -3,6 +3,8 @@ import * as React from "react";
 import {
   BlogPosts,
   bucketAndSortBlogPostsByTags,
+  getSortedTagsList,
+  getTagTitleFromTagId,
 } from "../../utils/sortBlogPosts";
 
 import BlogCardSection from "../../components/BlogCardSection";
@@ -25,8 +27,12 @@ export async function getStaticProps({ params: { tagId } }) {
   ) as BlogPosts;
   const blogPostsByTags = bucketAndSortBlogPostsByTags(blogPostContent);
 
+  const tags = Object.keys(blogPostsByTags);
+  const sortedTags = getSortedTagsList(tags);
+
   // Dynamic og image creation at build time
-  const ogImageBuildUrl = `/og-image?title=${tagId}`;
+  const tagTitle = getTagTitleFromTagId(tagId, sortedTags);
+  const ogImageBuildUrl = `/og-image?title=${buildTagIdPageName(tagTitle)}`;
   const ogImage = await getOgImage(ogImageBuildUrl);
 
   return {
