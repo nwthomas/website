@@ -13,9 +13,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "install-chromium": "npx playwright install chromium",
     "build": "install-chromium && next build",
     "export": "next export",
-    "install-chromium": "npx playwright install chromium",
     "lint": "next lint",
     "preinstall": "npx only-allow pnpm",
     "share": "~/ngrok http 3000",
