@@ -3,8 +3,8 @@ import * as React from "react";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 
-const OG_IMAGE_HEIGHT = 600;
-const OG_IMAGE_WIDTH = 1200;
+export const OG_IMAGE_HEIGHT = 600;
+export const OG_IMAGE_WIDTH = 1200;
 
 export async function getStaticProps() {
   return {
