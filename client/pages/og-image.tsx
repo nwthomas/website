@@ -39,7 +39,7 @@ const RootStyles = styled.div`
   height: ${OG_IMAGE_HEIGHT}px;
   justify-content: space-between;
   overflow: hidden;
-  padding: ${({ theme }) => theme.spaces.xLarge};
+  padding: ${({ theme }) => theme.spaces.xxLarge};
   width: ${OG_IMAGE_WIDTH}px;
 
   > h1 {
