@@ -1,19 +1,20 @@
-import applyMiddleware from "./middleware";
-import express from "express";
-import { sendEmail } from "../utils/sendEmail";
+import { NextApiRequest, NextApiResponse } from "next";
 
-const server = express();
+import { sendEmail } from "../../utils/sendEmail";
 
-applyMiddleware(server);
+const POST_METHOD = "POST";
 
-server.get("/", (_, res) => {
-  res.status(200).send({
-    message: "The server is currently online",
-    success: true,
-  });
-});
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  if (req.method !== POST_METHOD) {
+    return res.status(501).send({
+      message: "This request type is not supported.",
+      success: false,
+    });
+  }
 
-server.post("/api/send-message", async (req, res) => {
   const { email, fax, message, name } = req.body;
 
   if (fax?.length) {
@@ -23,7 +24,7 @@ server.post("/api/send-message", async (req, res) => {
     });
   }
 
-  const result = sendEmail({ name, email, message });
+  const result = await sendEmail({ name, email, message });
 
   if (result) {
     return res.status(200).send({
@@ -36,6 +37,4 @@ server.post("/api/send-message", async (req, res) => {
       success: false,
     });
   }
-});
-
-export default server;
+}

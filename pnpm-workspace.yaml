@@ -1,3 +1,0 @@
-packages:
-  # all files in subdirs of client/
-  - "client/**"

@@ -1,5 +1,6 @@
-export const LOCALHOST_ORIGIN = "http://localhost:3000";
-export const PRODUCTION_ORIGIN = "https://www.nathanthomas.dev";
+export const ORIGIN = process.env.NEXT_PUBLIC_SERVER_URL || "";
+
+export const SEND_EMAIL = `${ORIGIN}/api/send-email`;
 
 export const BLOG_PAGE = "/blog";
 export const BLOG_ARTICLE_PAGE = "/blog/[blogId]";

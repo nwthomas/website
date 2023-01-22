@@ -11,8 +11,10 @@ import { CONTENTS_ID } from "../constants/routes";
 import ContactForm from "../components/ContactForm";
 import Layout from "../components/Layout";
 import { MessageValues } from "../components/ContactForm";
+import { NewEmail } from "../utils/sendEmail";
+import { SEND_EMAIL } from "../constants/routes";
+import axios from "axios";
 import { selectContactFormMessageValues } from "../store/selectors/contactFormSelectors";
-import { sendMessage } from "./api/message";
 import styled from "styled-components";
 import { updateModalValues } from "../store/reducers/modalSlice";
 import { useMutation } from "react-query";
@@ -23,6 +25,10 @@ export async function getStaticProps() {
   return {
     props: {},
   };
+}
+
+async function sendMessage(email: NewEmail) {
+  return axios.post(SEND_EMAIL, email);
 }
 
 function Contact() {
