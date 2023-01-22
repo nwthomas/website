@@ -1,23 +1,17 @@
 import * as React from "react";
 
-import { LOCALHOST_ORIGIN, PRODUCTION_ORIGIN } from "../../constants/routes";
-
 import { DARK_THEME } from "../../store/reducers/themeSlice";
 import Head from "next/head";
 import { NextSeo } from "next-seo";
+import { ORIGIN } from "../../constants/routes";
 import { buildSeoConfig } from "../../constants/seo";
-import { isProductionEnvironment } from "../../constants/environments";
 import { useGetPreferredTheme } from "../../hooks";
 
 const darkModeFaviconPath = "/dark-mode-favicon.ico";
 const lightModeFaviconPath = "/light-mode-favicon.ico";
 
 function buildUrlWithOrigin(currentUrl: string): string {
-  const currentOrigin = isProductionEnvironment
-    ? PRODUCTION_ORIGIN
-    : LOCALHOST_ORIGIN;
-
-  return `${currentOrigin}${currentUrl}`;
+  return `${ORIGIN}${currentUrl}`;
 }
 
 interface Props {
