@@ -37,6 +37,7 @@ function ThemeTransitionSwitch() {
             ref={inputRef}
             tabIndex={0}
           />
+          {/* eslint-disable-next-line */}
           <div onClick={handleThemeSwitchClick}>
             <MoonIcon color={colorsHex.brightSun} />
             <SunIcon color={colorsHex.brightSun} />
