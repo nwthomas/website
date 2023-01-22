@@ -20,7 +20,6 @@ interface Props {
   customImageUrl?: string;
   isArticle?: boolean;
   pageName: string;
-  withPageNameEmojis?: boolean;
 }
 
 function SEO({

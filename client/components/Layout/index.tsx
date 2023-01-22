@@ -16,7 +16,6 @@ interface Props {
   isArticle?: boolean;
   pageName: string;
   withFooter?: boolean;
-  withPageNameEmojis?: boolean;
 }
 
 function Layout({
@@ -26,7 +25,6 @@ function Layout({
   isArticle,
   pageName,
   withFooter,
-  withPageNameEmojis,
 }: Props) {
   const { availableHeight } = useGetScreenDimensions();
   const shouldShowModal = useSelector(selectShouldShowModal);
@@ -52,7 +50,6 @@ function Layout({
         customDescription={customSEODescription}
         isArticle={isArticle}
         pageName={pageName}
-        withPageNameEmojis={withPageNameEmojis}
       />
       <RootStyles>
         <Navbar />

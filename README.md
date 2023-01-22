@@ -18,7 +18,7 @@ I use a [Trello board](https://trello.com/b/48bwZhhe/nathans-personal-website) t
 
 ## Technology Stack
 
-- Front-End:
+- Client:
   - [Axios](https://axios-http.com/docs/intro)
   - [Focus Trap React](https://github.com/focus-trap/focus-trap-react)
   - [Formik](https://formik.org/)
@@ -31,14 +31,15 @@ I use a [Trello board](https://trello.com/b/48bwZhhe/nathans-personal-website) t
   - [TypeScript](https://www.typescriptlang.org/)
   - [Vercel](https://vercel.com/)
   - [Yup](https://github.com/jquense/yup)
-- Back-end:
-  - `FULL REBUILD COMING SOON`™
+- Model Service:
+  - [Django](https://www.djangoproject.com/)
+  - [Poetry](https://python-poetry.org/)
 
 ## UNIT TESTING
 
-- Front-end:
+- Client:
   - `COMING SOON`™
-- Back-end:
+- Model Service:
   - `COMING SOON`™
 
 ## ACKNOWLEDGEMENTS
