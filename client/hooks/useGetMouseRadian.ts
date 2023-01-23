@@ -29,6 +29,10 @@ export function useGetMouseRadian(ref: React.RefObject<HTMLElement>): number {
     y?: number;
   }>({});
 
+  // I want to use this throttle, so be careful for any future changes here as ESLint can't
+  // really lint the use of the dependency array.
+  //
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const getMouseCoordinates = React.useCallback(
     throttle(
       ({ clientX, clientY }: MouseEvent) => {
@@ -41,7 +45,9 @@ export function useGetMouseRadian(ref: React.RefObject<HTMLElement>): number {
   );
 
   React.useEffect(() => {
-    document.addEventListener("mousemove", getMouseCoordinates);
+    document.addEventListener("mousemove", getMouseCoordinates, {
+      passive: true,
+    });
 
     return () => {
       document.removeEventListener("mousemove", getMouseCoordinates);

@@ -28,17 +28,13 @@ function Layout({
   withFooter,
   withPageNameEmojis,
 }: Props) {
-  const { availableHeight, availableWidth } = useGetScreenDimensions();
+  const { availableHeight } = useGetScreenDimensions();
   const shouldShowModal = useSelector(selectShouldShowModal);
 
   // This is a bit of a hack to get around the fact that mobile devices don't play nicely
   // with 100vh. This will pin the footer to the bottom of any screen on mobile.
   React.useEffect(() => {
-    if (
-      typeof availableHeight === "number" &&
-      typeof availableWidth === "number" &&
-      typeof window !== "undefined"
-    ) {
+    if (typeof availableHeight === "number" && typeof window !== "undefined") {
       const { documentElement } = document;
       const newAvailableHeightPx = `${availableHeight}px`;
 
@@ -47,7 +43,7 @@ function Layout({
         newAvailableHeightPx
       );
     }
-  }, [availableHeight, availableWidth]);
+  }, [availableHeight]);
 
   return (
     <>
