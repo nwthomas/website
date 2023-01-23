@@ -96,13 +96,14 @@ const RootStyles = styled.section`
           `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
         border-radius: ${({ theme }) => theme.borderRadii.infinity};
         display: flex;
-        height: 38px;
+        height: ${({ theme }) => theme.spaces.large};
+        width: ${({ theme }) => theme.spaces.large};
         justify-content: center;
         margin-left: ${({ theme }) => theme.spaces.micro};
+        padding: 0;
         outline: none;
         transition: border-color ${({ theme }) => theme.transitions.short}
           ease-in-out;
-        width: 38px;
 
         @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.tablet}) {
@@ -110,8 +111,8 @@ const RootStyles = styled.section`
         }
 
         > svg {
-          height: 50px;
-          width: 50px;
+          height: ${({ theme }) => theme.spaces.medium};
+          width: ${({ theme }) => theme.spaces.medium};
         }
 
         &:hover,
@@ -119,6 +120,7 @@ const RootStyles = styled.section`
         &:active {
           border: ${({ theme }) =>
             `${theme.spaces.nano} solid ${theme.colorsHex.pictonBlue}`};
+          opacity: ${({ theme }) => theme.opacity.opacity100};
         }
       }
     }
