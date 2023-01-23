@@ -96,8 +96,9 @@ const GlobalStyle = css`
     --button-primary-bg: ${colors.pictonBlue};
     --error: ${colors.scarlet};
     --text: ${colors.mercury};
-    --selection: ${colors.woodsmoke};
     --text-secondary: ${colors.rollingStone};
+    --text-on-contrast: ${colors.black};
+    --selection: ${colors.woodsmoke};
     --transparent: ${colors.transparent};
   }
   body.light {
@@ -107,8 +108,9 @@ const GlobalStyle = css`
     --button-primary-bg: ${colors.pictonBlue};
     --error: ${colors.scarlet};
     --text: ${colors.mineShaft};
-    --selection: ${colors.alabaster};
     --text-secondary: ${colors.doveGray};
+    --text-on-contrast: ${colors.white};
+    --selection: ${colors.alabaster};
     --transparent: ${colors.transparent};
   }
 
