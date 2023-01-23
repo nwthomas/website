@@ -30,9 +30,7 @@ function Navbar() {
                   href={HOME_PAGE}
                   passHref
                 >
-                  <div>
-                    <p>{">_"}</p>
-                  </div>
+                  <div />
                 </Link>
               </li>
             </div>
@@ -168,13 +166,6 @@ const RootStyles = styled.div`
                 display: flex;
                 overflow: hidden;
                 text-decoration: none;
-
-                > div > p {
-                  color: ${({ theme }) => theme.colors.textOnContrast};
-                  font-weight: bold;
-                  margin-left: ${({ theme }) => theme.spaces.micro};
-                  user-select: none;
-                }
 
                 &:focus,
                 &:active {
