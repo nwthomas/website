@@ -88,6 +88,7 @@ const RootStyles = styled.section`
   > div {
     align-items: center;
     display: flex;
+    height: ${({ theme }) => theme.spaces.large};
     justify-content: space-between;
     margin-bottom: ${({ theme }) => theme.spaces.micro};
 
@@ -102,24 +103,19 @@ const RootStyles = styled.section`
 
       > button {
         align-items: center;
+        background: none;
         background-color: ${({ theme }) => theme.colors.transparent};
         border: ${({ theme }) =>
           `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
         border-radius: ${({ theme }) => theme.borderRadii.infinity};
         display: flex;
-        height: 38px;
-        width: 38px;
+        height: 42px;
+        width: 42px;
         justify-content: center;
-        margin-left: ${({ theme }) => theme.spaces.micro};
         padding: 0;
         outline: none;
         transition: border-color ${({ theme }) => theme.transitions.short}
           ease-in-out;
-
-        @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.tablet}) {
-          margin-left: ${({ theme }) => theme.spaces.small};
-        }
 
         > svg {
           height: ${({ theme }) => theme.spaces.medium};
