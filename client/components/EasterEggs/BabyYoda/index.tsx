@@ -21,7 +21,7 @@ const RootStyles = styled.div`
   display: none;
 
   @media only screen and (min-width: ${({ theme }) =>
-      theme.breakpoints.tablet}) {
+      theme.breakpoints.desktop}) {
     bottom: 0;
     display: flex;
     height: 150px;
