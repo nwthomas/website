@@ -12,7 +12,7 @@
   },
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "nvm use 18 && next dev",
     "build": "pnpm install-chromium && next build",
     "export": "next export",
     "install-chromium": "npx playwright install chromium",
