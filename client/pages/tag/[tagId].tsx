@@ -72,7 +72,13 @@ function TagIdPage({ blogPostsByTags, ogImage }) {
       if (buildKebabCaseParam(tag) === tagIdParam) {
         setPageName(tag);
 
-        return <BlogCardSection blogPosts={blogPostsByTags[tag]} tag={tag} />;
+        return (
+          <BlogCardSection
+            blogPosts={blogPostsByTags[tag]}
+            tag={tag}
+            withCloseButton
+          />
+        );
       }
     }
 

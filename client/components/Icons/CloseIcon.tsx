@@ -6,17 +6,17 @@ interface Props {
   title?: string;
 }
 
-function ArrowForwardsIcon({ color, isAriaHidden, title }: Props) {
+function CloseIcon({ color, isAriaHidden, title }: Props) {
   return (
     <RootStyles aria-hidden={isAriaHidden} color={color} viewBox="0 0 512 512">
-      <title>{title || "Arrow Forwards"}</title>
+      <title>{title || "Close"}</title>
       <path
         fill="none"
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="48"
-        d="M268 112l144 144-144 144M392 256H100"
+        strokeWidth="70"
+        d="M368 368L144 144M368 144L144 368"
       />
     </RootStyles>
   );
@@ -30,4 +30,4 @@ const RootStyles = styled.svg<StyleProps>`
   stroke: ${({ color }) => color};
 `;
 
-export default ArrowForwardsIcon;
+export default CloseIcon;
