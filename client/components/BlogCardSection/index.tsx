@@ -96,8 +96,8 @@ const RootStyles = styled.section`
           `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
         border-radius: ${({ theme }) => theme.borderRadii.infinity};
         display: flex;
-        height: ${({ theme }) => theme.spaces.large};
-        width: ${({ theme }) => theme.spaces.large};
+        height: 39px;
+        width: 39px;
         justify-content: center;
         margin-left: ${({ theme }) => theme.spaces.micro};
         padding: 0;
