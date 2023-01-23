@@ -46,7 +46,7 @@ export async function getOgImage(path: string) {
     height: OG_IMAGE_HEIGHT,
   });
   await page.goto(url, { waitUntil: "networkidle" });
-  const buffer = await page.screenshot({ type: "png" });
+  const buffer = await page.screenshot({ quality: 75, type: "png" });
   await browser.close();
 
   console.log(`Writing to file for ${hash}: `, imagePath);
