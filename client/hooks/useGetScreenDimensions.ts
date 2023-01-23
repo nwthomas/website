@@ -34,6 +34,10 @@ export const useGetScreenDimensions = (): ScreenDimensions => {
       : undefined
   );
 
+  // I want to use this throttle, so be careful for any future changes here as ESLint can't
+  // really lint the use of the dependency array.
+  //
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleMeasureWindowDimensions = React.useCallback(
     throttle(
       () => {
@@ -44,7 +48,7 @@ export const useGetScreenDimensions = (): ScreenDimensions => {
             innerWidth: newViewportWidth,
           } = window;
 
-          // Viewport - scrollbars if they exist
+          // This includes scrollbars if they exist
           const {
             clientHeight: newAvailableHeight,
             clientWidth: newAvailableWidth,
@@ -70,17 +74,20 @@ export const useGetScreenDimensions = (): ScreenDimensions => {
       THROTTLE_WAIT_TIME_MS,
       { trailing: true }
     ),
-    []
+    [availableHeight, availableWidth, viewportHeight, viewportWidth]
   );
 
   React.useEffect(() => {
     handleMeasureWindowDimensions();
 
     if (typeof window !== "undefined") {
-      window.addEventListener("resize", handleMeasureWindowDimensions);
+      window.addEventListener("resize", handleMeasureWindowDimensions, {
+        passive: true,
+      });
       window.addEventListener(
         "orientationchange",
-        handleMeasureWindowDimensions
+        handleMeasureWindowDimensions,
+        { passive: true }
       );
 
       return () => {
@@ -91,7 +98,7 @@ export const useGetScreenDimensions = (): ScreenDimensions => {
         );
       };
     }
-  }, []);
+  }, [handleMeasureWindowDimensions]);
 
   return { viewportHeight, viewportWidth, availableHeight, availableWidth };
 };
