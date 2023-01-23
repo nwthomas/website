@@ -26,7 +26,9 @@ function DynamicOGImage() {
     <RootStyles>
       <h1>{title || ""}</h1>
       <div>
-        <div />
+        <div>
+          <p>{">_"}</p>
+        </div>
         <h2>Nathan Thomas</h2>
       </div>
     </RootStyles>
@@ -60,12 +62,18 @@ const RootStyles = styled.div`
     align-items: flex-end;
     display: flex;
 
-    > div:first-child {
+    > div {
       background-color: ${({ theme }) => theme.colors.text};
       border-radius: ${({ theme }) => theme.borderRadii.micro};
       height: 36px;
       margin-right: ${({ theme }) => theme.spaces.small};
       width: 36px;
+
+      > p {
+        color: ${({ theme }) => theme.colors.textOnContrast};
+        font-weight: bold;
+        margin-left: ${({ theme }) => `calc(${theme.spaces.nano} * 2)`};
+      }
     }
 
     > h2 {
