@@ -26,8 +26,8 @@ export async function getOgImage(path: string) {
   const ogImageDir = `./public/images/og`;
 
   console.log(`Creating new og image for ${hash} at: `, ogImageDir);
-  const imagePath = `${ogImageDir}/${hash}.png`;
-  const publicPath = `/images/og/${hash}.png`;
+  const imagePath = `${ogImageDir}/${hash}.jpeg`;
+  const publicPath = `/images/og/${hash}.jpeg`;
 
   try {
     fs.statSync(imagePath);
@@ -46,7 +46,7 @@ export async function getOgImage(path: string) {
     height: OG_IMAGE_HEIGHT,
   });
   await page.goto(url, { waitUntil: "networkidle" });
-  const buffer = await page.screenshot({ quality: 75, type: "png" });
+  const buffer = await page.screenshot({ quality: 75, type: "jpeg" });
   await browser.close();
 
   console.log(`Writing to file for ${hash}: `, imagePath);

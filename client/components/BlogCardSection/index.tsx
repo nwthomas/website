@@ -17,8 +17,18 @@ interface Props {
   withCloseButton?: boolean;
 }
 
-function buildBlogPostsCountText(blogPostsCount: number) {
-  return `${blogPostsCount} Article${blogPostsCount > 1 ? "s" : ""}`;
+function buildBlogPostsCountText(
+  blogPostsCount: number,
+  tag: string,
+  withTagName?: boolean
+) {
+  const pluralBlogPostCountEndin = blogPostsCount > 1 ? "s" : "";
+
+  if (withTagName) {
+    return `${blogPostsCount} ${tag} Article${pluralBlogPostCountEndin}`;
+  }
+
+  return `${blogPostsCount} Article${pluralBlogPostCountEndin}`;
 }
 
 function BlogCardSection({ blogPosts, tag, withCloseButton }: Props) {
@@ -50,7 +60,6 @@ function BlogCardSection({ blogPosts, tag, withCloseButton }: Props) {
     <RootStyles>
       <div>
         <div>
-          <Tag text={tag} />
           {withCloseButton ? (
             <button
               aria-label={CLOSE_BUTTON_ARIA_LABEL}
@@ -59,9 +68,11 @@ function BlogCardSection({ blogPosts, tag, withCloseButton }: Props) {
             >
               <CloseIcon color={colors.error} isAriaHidden />
             </button>
-          ) : null}
+          ) : (
+            <Tag text={tag} />
+          )}
         </div>
-        <p>{buildBlogPostsCountText(blogPosts.length)}</p>
+        <p>{buildBlogPostsCountText(blogPosts.length, tag, withCloseButton)}</p>
       </div>
       <ul>{blogCards}</ul>
     </RootStyles>
@@ -96,8 +107,8 @@ const RootStyles = styled.section`
           `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
         border-radius: ${({ theme }) => theme.borderRadii.infinity};
         display: flex;
-        height: 39px;
-        width: 39px;
+        height: 38px;
+        width: 38px;
         justify-content: center;
         margin-left: ${({ theme }) => theme.spaces.micro};
         padding: 0;
