@@ -10,14 +10,17 @@ interface Props {
   language?: string;
 }
 
-// Some of the syntax and setup of this component was pulled from:
+// The inline code styling inspiration was pulled from:
 // https://www.thefullstackblog.com/highlight-code-blocks-in-markdown-files-with-react-markdown-and-react-syntax-highlighter-libraries
+//
+// The main code block tooling was inspired by:
+// https://www.joshwcomeau.com/blog/how-i-built-my-blog/
 function BlogCodeBlock({ contents, isInline, language }: Props) {
   if (isInline) {
     return <InlineRootStyles>{contents}</InlineRootStyles>;
   }
 
-  // Trim new line escaped character '\n' off end of string
+  // Trim new line escaped character '\n' off end of string which is always present for some reason
   const normalizedContent = contents.slice(0, contents.length - 1);
 
   return (

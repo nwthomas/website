@@ -17,16 +17,8 @@ interface Props {
   withCloseButton?: boolean;
 }
 
-function buildBlogPostsCountText(
-  blogPostsCount: number,
-  tag: string,
-  withTagName?: boolean
-) {
+function buildBlogPostsCountText(blogPostsCount: number) {
   const pluralBlogPostCountEndin = blogPostsCount > 1 ? "s" : "";
-
-  if (withTagName) {
-    return `${blogPostsCount} ${tag} Article${pluralBlogPostCountEndin}`;
-  }
 
   return `${blogPostsCount} Article${pluralBlogPostCountEndin}`;
 }
@@ -60,19 +52,24 @@ function BlogCardSection({ blogPosts, tag, withCloseButton }: Props) {
     <RootStyles>
       <div>
         <div>
-          {withCloseButton ? (
-            <button
-              aria-label={CLOSE_BUTTON_ARIA_LABEL}
-              onClick={handleOnCloseButtonClick}
-              type="button"
-            >
-              <CloseIcon color={colors.error} isAriaHidden />
-            </button>
-          ) : (
-            <Tag text={tag} />
-          )}
+          <div>
+            {withCloseButton ? (
+              <>
+                <button
+                  aria-label={CLOSE_BUTTON_ARIA_LABEL}
+                  onClick={handleOnCloseButtonClick}
+                  type="button"
+                >
+                  <CloseIcon color={colors.error} isAriaHidden />
+                </button>
+                <p>{tag}</p>
+              </>
+            ) : (
+              <Tag text={tag} />
+            )}
+          </div>
         </div>
-        <p>{buildBlogPostsCountText(blogPosts.length, tag, withCloseButton)}</p>
+        <p>{buildBlogPostsCountText(blogPosts.length)}</p>
       </div>
       <ul>{blogCards}</ul>
     </RootStyles>
@@ -101,33 +98,58 @@ const RootStyles = styled.section`
       align-items: center;
       display: flex;
 
-      > button {
+      > div {
         align-items: center;
-        background: none;
-        background-color: ${({ theme }) => theme.colors.transparent};
-        border: ${({ theme }) =>
-          `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
-        border-radius: ${({ theme }) => theme.borderRadii.infinity};
         display: flex;
-        height: 42px;
-        width: 42px;
-        justify-content: center;
-        padding: 0;
-        outline: none;
-        transition: border-color ${({ theme }) => theme.transitions.short}
-          ease-in-out;
 
-        > svg {
-          height: ${({ theme }) => theme.spaces.medium};
-          width: ${({ theme }) => theme.spaces.medium};
+        > button {
+          align-items: center;
+          background: none;
+          background-color: ${({ theme }) => theme.colors.transparent};
+          border: ${({ theme }) =>
+            `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
+          border-radius: ${({ theme }) => theme.borderRadii.infinity};
+          display: flex;
+          height: 38px;
+          width: 38px;
+          justify-content: center;
+          padding: 0;
+          outline: none;
+          transition: border-color ${({ theme }) => theme.transitions.short}
+            ease-in-out;
+
+          @media only screen and (min-width: ${({ theme }) =>
+              theme.breakpoints.tablet}) {
+            height: 42px;
+            width: 42px;
+          }
+
+          > svg {
+            height: ${({ theme }) => theme.spaces.medium};
+            width: ${({ theme }) => theme.spaces.medium};
+          }
+
+          &:hover,
+          &:focus,
+          &:active {
+            border: ${({ theme }) =>
+              `${theme.spaces.nano} solid ${theme.colorsHex.pictonBlue}`};
+            opacity: ${({ theme }) => theme.opacity.opacity100};
+          }
         }
 
-        &:hover,
-        &:focus,
-        &:active {
-          border: ${({ theme }) =>
-            `${theme.spaces.nano} solid ${theme.colorsHex.pictonBlue}`};
-          opacity: ${({ theme }) => theme.opacity.opacity100};
+        > p {
+          font-size: 1.6rem;
+          line-height: 1;
+          margin-left: ${({ theme }) => theme.spaces.xxSmall};
+          margin-top: ${({ theme }) => theme.spaces.nano};
+
+          @media only screen and (min-width: ${({ theme }) =>
+              theme.breakpoints.tablet}) {
+            font-size: 2rem;
+            margin-left: ${({ theme }) => theme.spaces.small};
+            margin-top: ${({ theme }) => theme.spaces.micro};
+          }
         }
       }
     }
