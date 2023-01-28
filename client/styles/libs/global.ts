@@ -54,7 +54,7 @@ const GlobalStyle = css`
   See: https://css-tricks.com/platform-news-using-focus-visible-bbcs-new-typeface-declarative-shadow-doms-a11y-and-placeholders/#now-may-be-a-good-time-to-start-using-focus-visible
   */
   :focus {
-    outline-color: ${({ theme }) => theme.colorsHex.pictonBlue};
+    outline-color: ${({ theme }) => theme.colors.selection};
     outline-style: solid;
     outline-width: ${({ theme }) => theme.spaces.nano};
   }
@@ -98,19 +98,19 @@ const GlobalStyle = css`
     --text: ${colors.mercury};
     --text-secondary: ${colors.rollingStone};
     --text-on-contrast: ${colors.black};
-    --selection: ${colors.woodsmoke};
+    --selection: ${colors.pictonBlue};
     --transparent: ${colors.transparent};
   }
   body.light {
     --body-bg: ${colors.white};
-    --body-bg-accent-one: ${colors.alabaster};
+    --body-bg-accent-one: ${colors.wildSand};
     --body-bg-accent-two: ${colors.alto};
     --button-primary-bg: ${colors.pictonBlue};
     --error: ${colors.scarlet};
     --text: ${colors.mineShaft};
     --text-secondary: ${colors.doveGray};
     --text-on-contrast: ${colors.white};
-    --selection: ${colors.alabaster};
+    --selection: ${colors.pictonBlue};
     --transparent: ${colors.transparent};
   }
 

@@ -6,7 +6,6 @@ import { DARK_THEME, ThemeEnum } from "../../store/reducers/themeSlice";
 // All color names pulled directly from http://chir.ag/projects/name-that-color/
 // To change the assignment of colors --> CSS variables, go to: styles/libs/global.ts
 interface Colors {
-  alabaster: "#F8F8F8";
   alto: "#DBDBDB";
   black: "#000000";
   blueRibbon: "#3156F6";
@@ -31,11 +30,11 @@ interface Colors {
   transparent: "transparent";
   turquoise: "#37ecba";
   white: "#FFFFFF";
+  wildSand: "#F5F5F5";
   woodsmoke: "#131416";
 }
 
 export const colors: Colors = {
-  alabaster: "#F8F8F8",
   alto: "#DBDBDB",
   black: "#000000",
   blueRibbon: "#3156F6",
@@ -60,6 +59,7 @@ export const colors: Colors = {
   transparent: "transparent",
   turquoise: "#37ecba",
   white: "#FFFFFF",
+  wildSand: "#F5F5F5",
   woodsmoke: "#131416",
 };
 
