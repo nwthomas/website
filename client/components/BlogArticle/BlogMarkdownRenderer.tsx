@@ -21,7 +21,7 @@ import remarkUnwrapImages from "remark-unwrap-images";
 import { useRouter } from "next/router";
 
 interface Props {
-  date: string;
+  date?: string;
   content: string;
   heroImageUrl?: string;
 }
@@ -60,7 +60,7 @@ function BlogMarkdownRenderer({ content, date, heroImageUrl }: Props) {
     });
   }, []);
 
-  const dateLabel = getBlogPostFullDate(date);
+  const dateLabel = getBlogPostFullDate(date || "");
 
   return (
     <ReactMarkdown
