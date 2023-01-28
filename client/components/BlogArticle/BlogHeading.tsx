@@ -123,7 +123,7 @@ const RootStyles = styled.div<StyleProps>`
     padding-right: 0;
   }
 
-  > div:first-child {
+  > div:nth-child(1) {
     display: grid;
     grid-template-columns: ${({ theme }) =>
       `1fr minmax(1px, ${theme.appDimensions.articleMaxWidth}) 1fr`};
@@ -198,7 +198,7 @@ const RootStyles = styled.div<StyleProps>`
     }
   }
 
-  > div {
+  > div:nth-child(2) {
     display: flex;
     max-width: ${({ theme }) => theme.appDimensions.articleMaxWidth};
     padding-top: ${({ theme }) => theme.spaces.small};
