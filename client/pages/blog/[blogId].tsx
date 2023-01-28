@@ -1,26 +1,24 @@
 import { BlogPosts, buildSlugToBlogPostMap } from "../../utils/sortBlogPosts";
 
+import { BLOG_FILES_PATH } from "../../utils/readBlogFiles";
 import { BlogMarkdownRenderer } from "../../components/BlogArticle";
 import { CONTENTS_ID } from "../../constants/routes";
 import Layout from "../../components/Layout";
+import { createOgImage } from "../../utils/ogImage";
 import { getDirectoryFiles } from "../../utils/readBlogFiles";
-import { getOgImage } from "../../utils/ogImage";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 
 export async function getStaticProps({ params: { blogId } }) {
   // Get and sort blog posts
-  const blogPosts = getDirectoryFiles("/constants/blogs");
-  const blogPostContent = blogPosts.map(
-    (blogPost) => blogPost.fileContents
-  ) as BlogPosts;
-  const slugToBlogPostMap = buildSlugToBlogPostMap(blogPostContent);
+  const blogPosts = getDirectoryFiles(BLOG_FILES_PATH);
+  const slugToBlogPostMap = buildSlugToBlogPostMap(blogPosts);
 
   // Dynamic og image creation at build time
   const currentBlog = slugToBlogPostMap[blogId] || {};
   const ogImageBuildUrl = `/og-image?title=${currentBlog?.data.title}`;
 
-  const ogImage = await getOgImage(ogImageBuildUrl);
+  const ogImage = await createOgImage(ogImageBuildUrl);
 
   return {
     props: {
@@ -32,7 +30,7 @@ export async function getStaticProps({ params: { blogId } }) {
 
 export async function getStaticPaths() {
   // Get all blog posts paths from blog post directory
-  const blogPosts = getDirectoryFiles("/constants/blogs");
+  const blogPosts = getDirectoryFiles(BLOG_FILES_PATH);
   const blogPostContent = blogPosts.map(
     (blogPost) => blogPost.fileContents
   ) as BlogPosts;
@@ -53,11 +51,11 @@ function BlogPost({ ogImage, slugToBlogPostMap }) {
   } = useRouter();
 
   const blogPost = slugToBlogPostMap[blogId as string];
-  const { imageUrl: heroImageUrl, metaDescription } = blogPost.data;
+  const { imageUrl: heroImageUrl, description } = blogPost.data;
 
   return (
     <Layout
-      customSEODescription={metaDescription}
+      customSEODescription={description}
       customSEOImageUrl={ogImage}
       isArticle
       pageName={blogPost.data.title}

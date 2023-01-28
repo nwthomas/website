@@ -6,16 +6,17 @@ import {
   getSortedTagsList,
 } from "../../utils/sortBlogPosts";
 
+import { BLOG_FILES_PATH } from "../../utils/readBlogFiles";
 import { BLOG_PAGE_NAME } from "../../constants/seo";
 import BlogCardSection from "../../components/BlogCardSection";
 import { CONTENTS_ID } from "../../constants/routes";
 import Layout from "../../components/Layout";
+import { createOgImage } from "../../utils/ogImage";
 import { getDirectoryFiles } from "../../utils/readBlogFiles";
-import { getOgImage } from "../../utils/ogImage";
 import styled from "styled-components";
 
 export async function getStaticProps() {
-  const blogPosts = getDirectoryFiles("/constants/blogs");
+  const blogPosts = getDirectoryFiles(BLOG_FILES_PATH);
   const blogPostContent = blogPosts.map(
     (blogPost) => blogPost.fileContents
   ) as BlogPosts;
@@ -26,7 +27,7 @@ export async function getStaticProps() {
 
   // Dynamic og image creation at build time
   const ogImageBuildUrl = `/og-image?title=All%20${BLOG_PAGE_NAME}%20Posts`;
-  const ogImage = await getOgImage(ogImageBuildUrl);
+  const ogImage = await createOgImage(ogImageBuildUrl);
 
   return {
     props: {

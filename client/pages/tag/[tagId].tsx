@@ -11,8 +11,8 @@ import BlogCardSection from "../../components/BlogCardSection";
 import { CONTENTS_ID } from "../../constants/routes";
 import Layout from "../../components/Layout";
 import { buildKebabCaseParam } from "../../utils/routes";
+import { createOgImage } from "../../utils/ogImage";
 import { getDirectoryFiles } from "../../utils/readBlogFiles";
-import { getOgImage } from "../../utils/ogImage";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 
@@ -33,7 +33,7 @@ export async function getStaticProps({ params: { tagId } }) {
   // Dynamic og image creation at build time
   const tagTitle = getTagTitleFromTagId(tagId, sortedTags);
   const ogImageBuildUrl = `/og-image?title=${buildTagIdPageName(tagTitle)}`;
-  const ogImage = await getOgImage(ogImageBuildUrl);
+  const ogImage = await createOgImage(ogImageBuildUrl);
 
   return {
     props: {

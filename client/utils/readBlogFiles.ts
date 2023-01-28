@@ -4,8 +4,10 @@ import getConfig from "next/config";
 import matter from "gray-matter";
 import path from "path";
 
-type Files = Array<{
-  fileContents: BlogPost | null;
+export const BLOG_FILES_PATH = "/constants/blogs";
+
+export type Files = Array<{
+  fileContents: BlogPost;
   filePath: string;
   name: string;
 }>;
@@ -27,7 +29,10 @@ export function getDirectoryFiles(relativeDirectoryPath: string): Files {
     const name = path.parse(filename).name;
     const fileContents = readFileContentsObject(filePath);
 
-    if (!fileContents?.data?.isDraft) {
+    if (fileContents && !fileContents?.data?.isDraft) {
+      // Mutate a new slug value on data for ease of use on pages
+      fileContents.data.slug = name;
+
       files.push({
         fileContents,
         filePath,
