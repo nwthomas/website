@@ -20,5 +20,5 @@ export function getBlogPostFullDate(rawDate: string): string {
 }
 
 export function buildLastUpdatedDateLabel(date: string): string {
-  return `Last Edited: ${date}`;
+  return `Last edited: ${date}`;
 }

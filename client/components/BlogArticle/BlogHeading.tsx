@@ -98,11 +98,9 @@ function BlogHeading({ contents, date, level, linkPath, routeId }: Props) {
         {headingContent}
       </div>
       {date ? (
-        <ArticleMetadataStyles>
-          <div>
-            <p>{buildLastUpdatedDateLabel(date)}</p>
-          </div>
-        </ArticleMetadataStyles>
+        <div>
+          <p>{buildLastUpdatedDateLabel(date)}</p>
+        </div>
       ) : null}
     </RootStyles>
   );
@@ -199,16 +197,11 @@ const RootStyles = styled.div<StyleProps>`
       }
     }
   }
-`;
-
-const ArticleMetadataStyles = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100%;
 
   > div {
     display: flex;
     max-width: ${({ theme }) => theme.appDimensions.articleMaxWidth};
+    padding-top: ${({ theme }) => theme.spaces.small};
     width: 100%;
 
     > p {
@@ -217,6 +210,11 @@ const ArticleMetadataStyles = styled.div`
       font-size: 1.4rem;
       padding: ${({ theme }) =>
         `${theme.spaces.micro} calc(${theme.spaces.micro} * 2)`};
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.tablet}) {
+        font-size: 1.6rem;
+      }
     }
   }
 `;

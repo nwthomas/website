@@ -68,6 +68,7 @@ const InlineRootStyles = styled.code`
     Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
     Noto Color Emoji;
   font-size: 1.4rem;
+  line-height: 1.8;
   padding: ${({ theme }) =>
     `${theme.spaces.micro} calc(${theme.spaces.micro} * 2)`};
   white-space: nowrap;
