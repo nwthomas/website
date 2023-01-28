@@ -29,7 +29,7 @@ function BlogImage({
           draggable={false}
           height={Number(height)}
           priority={isHeroImage}
-          quality={60}
+          quality={100}
           src={src}
           width={Number(width)}
         />
