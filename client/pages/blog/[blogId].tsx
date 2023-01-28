@@ -4,7 +4,6 @@ import { BLOG_FILES_PATH } from "../../utils/readBlogFiles";
 import { BlogMarkdownRenderer } from "../../components/BlogArticle";
 import { CONTENTS_ID } from "../../constants/routes";
 import Layout from "../../components/Layout";
-import { createOgImage } from "../../utils/ogImage";
 import { getDirectoryFiles } from "../../utils/readBlogFiles";
 import styled from "styled-components";
 import { useRouter } from "next/router";
@@ -14,15 +13,8 @@ export async function getStaticProps({ params: { blogId } }) {
   const blogPosts = getDirectoryFiles(BLOG_FILES_PATH);
   const slugToBlogPostMap = buildSlugToBlogPostMap(blogPosts);
 
-  // Dynamic og image creation at build time
-  const currentBlog = slugToBlogPostMap[blogId] || {};
-  const ogImageBuildUrl = `/og-image?title=${currentBlog?.data.title}`;
-
-  const ogImage = await createOgImage(ogImageBuildUrl);
-
   return {
     props: {
-      ogImage,
       slugToBlogPostMap,
     },
   };
@@ -45,7 +37,7 @@ export async function getStaticPaths() {
   };
 }
 
-function BlogPost({ ogImage, slugToBlogPostMap }) {
+function BlogPost({ slugToBlogPostMap }) {
   const {
     query: { blogId },
   } = useRouter();
@@ -56,7 +48,7 @@ function BlogPost({ ogImage, slugToBlogPostMap }) {
   return (
     <Layout
       customSEODescription={description}
-      customSEOImageUrl={ogImage}
+      customSEOImageUrl={heroImageUrl}
       isArticle
       pageName={blogPost.data.title}
       withFooter
