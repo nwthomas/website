@@ -27,11 +27,13 @@ export function getDirectoryFiles(relativeDirectoryPath: string): Files {
     const name = path.parse(filename).name;
     const fileContents = readFileContentsObject(filePath);
 
-    files.push({
-      fileContents,
-      filePath,
-      name,
-    });
+    if (!fileContents?.data?.isDraft) {
+      files.push({
+        fileContents,
+        filePath,
+        name,
+      });
+    }
   }
 
   return files;
