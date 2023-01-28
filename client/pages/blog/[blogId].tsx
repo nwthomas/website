@@ -43,7 +43,7 @@ function BlogPost({ slugToBlogPostMap }) {
   } = useRouter();
 
   const blogPost = slugToBlogPostMap[blogId as string];
-  const { imageUrl: heroImageUrl, description } = blogPost.data;
+  const { imageUrl: heroImageUrl, description, lastUpdated } = blogPost.data;
 
   return (
     <Layout
@@ -57,6 +57,7 @@ function BlogPost({ slugToBlogPostMap }) {
         <main id={CONTENTS_ID}>
           <article>
             <BlogMarkdownRenderer
+              date={lastUpdated}
               content={blogPost.content}
               heroImageUrl={heroImageUrl}
             />

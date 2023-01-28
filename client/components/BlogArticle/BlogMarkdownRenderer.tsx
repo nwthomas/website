@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import {
   BlogBlockQuote,
   BlogCodeBlock,
@@ -11,6 +12,7 @@ import {
 
 import ReactMarkdown from "react-markdown";
 import { buildKebabCaseParam } from "../../utils/routes";
+import { getBlogPostFullDate } from "../../utils/dates";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 import rehypeExternalLinks from "rehype-external-links";
 import rehypeRaw from "rehype-raw";
@@ -19,6 +21,7 @@ import remarkUnwrapImages from "remark-unwrap-images";
 import { useRouter } from "next/router";
 
 interface Props {
+  date: string;
   content: string;
   heroImageUrl?: string;
 }
@@ -40,7 +43,7 @@ function buildBlogArticlePath(blogId: string): string {
   return `/blog/${blogId}`;
 }
 
-function BlogMarkdownRenderer({ content, heroImageUrl }: Props) {
+function BlogMarkdownRenderer({ content, date, heroImageUrl }: Props) {
   const {
     query: { blogId },
   } = useRouter();
@@ -57,6 +60,8 @@ function BlogMarkdownRenderer({ content, heroImageUrl }: Props) {
     });
   }, []);
 
+  const dateLabel = getBlogPostFullDate(date);
+
   return (
     <ReactMarkdown
       children={content}
@@ -68,6 +73,7 @@ function BlogMarkdownRenderer({ content, heroImageUrl }: Props) {
           return (
             <>
               <BlogHeading
+                date={dateLabel}
                 contents={children}
                 level={1}
                 linkPath={headingLinkPath}
