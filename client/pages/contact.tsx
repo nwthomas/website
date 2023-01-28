@@ -14,7 +14,7 @@ import { MessageValues } from "../components/ContactForm";
 import { NewEmail } from "../utils/sendEmail";
 import { SEND_EMAIL } from "../constants/routes";
 import axios from "axios";
-import { getOgImage } from "../utils/ogImage";
+import { createOgImage } from "../utils/ogImage";
 import { selectContactFormMessageValues } from "../store/selectors/contactFormSelectors";
 import styled from "styled-components";
 import { updateModalValues } from "../store/reducers/modalSlice";
@@ -25,7 +25,7 @@ const TWITTER_LINK_ARIA_LABEL = "Link to Nathan's Twitter profile";
 export async function getStaticProps() {
   // Dynamic og image creation at build time
   const ogImageBuildUrl = `/og-image?title=${CONTACT_PAGE_NAME}%20Form`;
-  const ogImage = await getOgImage(ogImageBuildUrl);
+  const ogImage = await createOgImage(ogImageBuildUrl);
 
   return {
     props: {

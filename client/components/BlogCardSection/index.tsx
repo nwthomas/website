@@ -29,16 +29,11 @@ function BlogCardSection({ blogPosts, tag, withCloseButton }: Props) {
 
   const blogCards = React.useMemo(() => {
     return blogPosts.map((blogPost, i) => {
-      const { metaDescription, metaTitle, slug } = blogPost.data;
+      const { description, title, slug } = blogPost.data;
 
       return (
         <li key={i}>
-          <Card
-            description={metaDescription}
-            title={metaTitle}
-            url={slug}
-            key={i}
-          />
+          <Card description={description} title={title} url={slug} key={i} />
         </li>
       );
     });

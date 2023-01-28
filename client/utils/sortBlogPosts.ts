@@ -1,3 +1,4 @@
+import { Files } from "./readBlogFiles";
 import { GrayMatterFile } from "gray-matter";
 import { buildKebabCaseParam } from "./routes";
 
@@ -33,17 +34,13 @@ export function getSortedTagsList(tags: Array<string>): Array<string> {
 }
 
 // Keys all blog posts by associated slug for quick selection
-export function buildSlugToBlogPostMap(blogPosts: BlogPosts): {
+export function buildSlugToBlogPostMap(files: Files): {
   [key: string]: BlogPost;
 } {
   const slugToBlogPostMap: { [key: string]: BlogPost } = {};
 
-  for (const blogPost of blogPosts) {
-    const {
-      data: { slug },
-    } = blogPost;
-
-    slugToBlogPostMap[slug] = blogPost;
+  for (const { fileContents } of files) {
+    slugToBlogPostMap[fileContents.data.slug] = fileContents;
   }
 
   return slugToBlogPostMap;
