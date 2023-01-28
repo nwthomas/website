@@ -6,7 +6,7 @@ import {
   selectModalMessage,
 } from "../../store/selectors/modalSelectors";
 import { useDispatch, useSelector } from "react-redux";
-import { useGetPreferredTheme, useLockBodyScroll } from "../../hooks";
+import { useLockBodyScroll, useTheme } from "../../hooks";
 
 import FocusTrap from "focus-trap-react";
 import styled from "styled-components";
@@ -14,7 +14,7 @@ import { updateModalValues } from "../../store/reducers/modalSlice";
 
 function Modal() {
   const dispatch = useDispatch();
-  const [currentTheme] = useGetPreferredTheme();
+  const [currentTheme] = useTheme();
   const modalMessage = useSelector(selectModalMessage);
   const modalButtonLabel = useSelector(selectModalButtonLabel);
 
