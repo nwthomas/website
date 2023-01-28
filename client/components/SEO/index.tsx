@@ -6,7 +6,7 @@ import { NextSeo } from "next-seo";
 import { ORIGIN } from "../../constants/routes";
 import { ThemeContext } from "styled-components";
 import { buildSeoConfig } from "../../constants/seo";
-import { useGetPreferredTheme } from "../../hooks";
+import { useTheme } from "../../hooks";
 
 const darkModeFaviconPath = "/dark-mode-favicon.ico";
 const lightModeFaviconPath = "/light-mode-favicon.ico";
@@ -29,7 +29,7 @@ function SEO({
   isArticle,
   pageName,
 }: Props) {
-  const [currentTheme] = useGetPreferredTheme();
+  const [currentTheme] = useTheme();
   const { colorsHex } = React.useContext(ThemeContext);
 
   const currentPageMetadata = React.useMemo(() => {

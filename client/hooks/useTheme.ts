@@ -42,7 +42,7 @@ export function getThemeFromWindowObject(): ThemeEnum | null {
 }
 
 // Updates the theme using the JavaScript code defined in the _document.tsx file
-export function useGetPreferredTheme(): [ThemeEnum | null, () => void] {
+export function useTheme(): [ThemeEnum | null, () => void] {
   const dispatch = useDispatch();
   // Theme value from Redux (starts as null)
   const userPreferredTheme = useSelector(selectCurrentTheme);
