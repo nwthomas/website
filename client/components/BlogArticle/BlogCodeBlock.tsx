@@ -51,10 +51,7 @@ const BlockRootStyles = styled.div`
     width: 100%;
 
     span {
-      font-family: "ObjectSans", Object Sans, Helvetica, ui-sans-serif,
-        system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-        Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
-        Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+      font-family: monospace, monospace;
       flex-wrap: wrap;
     }
   }
@@ -63,10 +60,7 @@ const BlockRootStyles = styled.div`
 const InlineRootStyles = styled.code`
   background-color: ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
   border-radius: ${({ theme }) => theme.borderRadii.small};
-  font-family: "ObjectSans", Object Sans, Helvetica, ui-sans-serif, system-ui,
-    -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial,
-    Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
-    Noto Color Emoji;
+  font-family: monospace, monospace;
   font-size: 1.4rem;
   line-height: 1.8;
   padding: ${({ theme }) =>
