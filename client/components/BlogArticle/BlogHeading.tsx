@@ -3,17 +3,19 @@ import * as React from "react";
 import styled, { ThemeContext } from "styled-components";
 
 import { CopyLinkIcon } from "../Icons";
+import { buildLastUpdatedDateLabel } from "../../utils/dates";
 
 type HeadingLevel = 1 | 2 | 3 | 4 | 5;
 
 interface Props {
   contents: React.ReactNode & Array<React.ReactNode>;
+  date?: string;
   level: HeadingLevel;
   linkPath: string;
   routeId: string;
 }
 
-function BlogHeading({ contents, level, linkPath, routeId }: Props) {
+function BlogHeading({ contents, date, level, linkPath, routeId }: Props) {
   const [isSelected, setIsSelected] = React.useState<boolean>(false);
   const { colors } = React.useContext(ThemeContext);
 
@@ -95,6 +97,13 @@ function BlogHeading({ contents, level, linkPath, routeId }: Props) {
         </div>
         {headingContent}
       </div>
+      {date ? (
+        <ArticleMetadataStyles>
+          <div>
+            <p>{buildLastUpdatedDateLabel(date)}</p>
+          </div>
+        </ArticleMetadataStyles>
+      ) : null}
     </RootStyles>
   );
 }
@@ -105,8 +114,9 @@ interface StyleProps {
 }
 
 const RootStyles = styled.div<StyleProps>`
+  align-items: center;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   width: 100%;
 
   @media only screen and (min-width: ${({ theme }) =>
@@ -115,7 +125,7 @@ const RootStyles = styled.div<StyleProps>`
     padding-right: 0;
   }
 
-  > div {
+  > div:first-child {
     display: grid;
     grid-template-columns: ${({ theme }) =>
       `1fr minmax(1px, ${theme.appDimensions.articleMaxWidth}) 1fr`};
@@ -187,6 +197,26 @@ const RootStyles = styled.div<StyleProps>`
           theme.breakpoints.ultraWide}) {
         grid-column-end: 4;
       }
+    }
+  }
+`;
+
+const ArticleMetadataStyles = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  > div {
+    display: flex;
+    max-width: ${({ theme }) => theme.appDimensions.articleMaxWidth};
+    width: 100%;
+
+    > p {
+      background-color: ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
+      border-radius: ${({ theme }) => theme.borderRadii.small};
+      font-size: 1.4rem;
+      padding: ${({ theme }) =>
+        `${theme.spaces.micro} calc(${theme.spaces.micro} * 2)`};
     }
   }
 `;
