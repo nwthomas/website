@@ -30,7 +30,7 @@ const RootStyles = styled.div`
       -moz-background-clip: text;
       -webkit-background-clip: text;
       background-image: ${({ theme }) =>
-        `linear-gradient(90deg, ${theme.colorsHex.lavender} 0%, ${theme.colorsHex.orchid} 33%, ${theme.colorsHex.brilliantRose} 66%, ${theme.colorsHex.brilliantRose} 100%)`};
+        `linear-gradient(90deg, ${theme.colorsHex.royalBlue} 0%, ${theme.colorsHex.pictonBlue} 65%, ${theme.colorsHex.brightTurquoise} 100%)`};
       background-size: 100%;
       font-size: inherit;
       padding: ${({ theme }) => `${theme.spaces.micro} 0`};

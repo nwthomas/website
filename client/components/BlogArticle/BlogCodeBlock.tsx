@@ -49,7 +49,7 @@ const BlockRootStyles = styled.div`
 
     code,
     span {
-      font-family: monospace, monospace;
+      font-family: "RobotoMono", monospace;
       flex-wrap: wrap;
     }
   }
@@ -58,11 +58,11 @@ const BlockRootStyles = styled.div`
 const InlineRootStyles = styled.code`
   background-color: ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
   border-radius: ${({ theme }) => theme.borderRadii.small};
-  font-family: monospace, monospace;
+  font-family: "RobotoMono", monospace;
   font-size: 1.4rem;
   line-height: 1.8;
   padding: ${({ theme }) =>
-    `${theme.spaces.nano} calc(${theme.spaces.micro} * 2)`};
+    `${theme.spaces.nano} calc(${theme.spaces.micro} * 2) ${theme.spaces.micro}`};
   white-space: nowrap;
 
   @media only screen and (min-width: ${({ theme }) =>

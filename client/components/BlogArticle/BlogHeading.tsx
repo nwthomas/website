@@ -208,8 +208,9 @@ const RootStyles = styled.div<StyleProps>`
       background-color: ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
       border-radius: ${({ theme }) => theme.borderRadii.small};
       font-size: 1.4rem;
+      font-family: "RobotoMono", monospace;
       padding: ${({ theme }) =>
-        `${theme.spaces.micro} calc(${theme.spaces.micro} * 2) ${theme.spaces.nano}`};
+        `${theme.spaces.nano} calc(${theme.spaces.micro} * 2) ${theme.spaces.micro}`};
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
