@@ -67,6 +67,14 @@ function Layout({
 const RootStyles = styled.div`
   display: flex;
   justify-content: center;
+  /**
+    * If I told you how long I spent figuring out why my code blog <pre> tags weren't respecting
+    * 'overflow-x: auto;', you wouldn't believe me. Let's just say this 'min-width: 0;' is
+    * really really necessary.
+    *
+    * See: https://weblog.west-wind.com/posts/2016/feb/15/flexbox-containers-pre-tags-and-managing-overflow
+    */
+  min-width: 0;
   padding-top: ${({ theme }) => theme.appDimensions.navbarMobileHeight};
   padding-bottom: ${({ theme }) => theme.appDimensions.footerMobileHeight};
   min-height: ${({ theme }) => theme.appDimensions.appMinHeight};

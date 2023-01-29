@@ -28,10 +28,7 @@ function BlogCodeBlock({ contents, isInline, language }: Props) {
       <SyntaxHighlighter
         language={language}
         style={undefinedTheme}
-        PreTag="div"
         showLineNumbers
-        showInlineLineNumbers
-        wrapLongLines
       >
         {normalizedContent}
       </SyntaxHighlighter>
@@ -45,11 +42,12 @@ const BlockRootStyles = styled.div`
   margin-top: ${({ theme }) => theme.spaces.medium};
   width: 100%;
 
-  > div {
+  > pre {
     border-radius: ${({ theme }) => theme.borderRadii.medium};
     max-width: ${({ theme }) => theme.appDimensions.articleMaxWidth};
     width: 100%;
 
+    code,
     span {
       font-family: monospace, monospace;
       flex-wrap: wrap;
