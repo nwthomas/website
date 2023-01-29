@@ -13,6 +13,7 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import { ThemeProvider } from "styled-components";
 import { getThemeFromWindowObject } from "../hooks";
 import { store } from "../store";
+import { useTheme } from "../hooks";
 
 // We don't care about cache invalidation given the needs of this app, so data isn't stale
 // until >= 1 day
@@ -27,6 +28,7 @@ const client = new QueryClient({
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = React.useState(() => client);
+  const [currentTheme] = useTheme();
 
   // See global.tx .preload class for an explanation on why this is needed
   React.useEffect(() => {
@@ -36,10 +38,14 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   const mainTheme = React.useMemo(() => {
-    const currentTheme = getThemeFromWindowObject();
+    if (currentTheme === null) {
+      const windowCurrentTheme = getThemeFromWindowObject();
+
+      return makeMainTheme(windowCurrentTheme);
+    }
 
     return makeMainTheme(currentTheme);
-  }, []);
+  }, [currentTheme]);
 
   return (
     <>
