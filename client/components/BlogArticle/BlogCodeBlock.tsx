@@ -62,7 +62,7 @@ const InlineRootStyles = styled.code`
   font-size: 1.4rem;
   line-height: 1.8;
   padding: ${({ theme }) =>
-    `${theme.spaces.micro} calc(${theme.spaces.micro} * 2)`};
+    `${theme.spaces.nano} calc(${theme.spaces.micro} * 2)`};
   white-space: nowrap;
 
   @media only screen and (min-width: ${({ theme }) =>

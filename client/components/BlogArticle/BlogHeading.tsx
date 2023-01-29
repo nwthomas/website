@@ -209,7 +209,7 @@ const RootStyles = styled.div<StyleProps>`
       border-radius: ${({ theme }) => theme.borderRadii.small};
       font-size: 1.4rem;
       padding: ${({ theme }) =>
-        `${theme.spaces.micro} calc(${theme.spaces.micro} * 2)`};
+        `${theme.spaces.micro} calc(${theme.spaces.micro} * 2) ${theme.spaces.nano}`};
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
