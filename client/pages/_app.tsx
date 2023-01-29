@@ -26,9 +26,31 @@ const client = new QueryClient({
   },
 });
 
-function MyApp({ Component, pageProps }: AppProps) {
+// This abstraction of logic is necessary in order to grab the redux currentTheme value
+// which is required to trigger updates of the mainTheme after the initial load
+function App({ Component, pageProps }: AppProps) {
+  const [currentThemeFromRedux] = useTheme();
+
+  const mainTheme = React.useMemo(() => {
+    if (!currentThemeFromRedux) {
+      const currentThemeFromWindow = getThemeFromWindowObject();
+
+      return makeMainTheme(currentThemeFromWindow);
+    }
+
+    return makeMainTheme(currentThemeFromRedux);
+  }, [currentThemeFromRedux]);
+
+  return (
+    <ThemeProvider theme={mainTheme}>
+      <GlobalStyle />
+      <Component {...pageProps} />
+    </ThemeProvider>
+  );
+}
+
+function MyApp(appProps: AppProps) {
   const [queryClient] = React.useState(() => client);
-  const [currentTheme] = useTheme();
 
   // See global.tx .preload class for an explanation on why this is needed
   React.useEffect(() => {
@@ -37,25 +59,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }, []);
 
-  const mainTheme = React.useMemo(() => {
-    if (currentTheme === null) {
-      const windowCurrentTheme = getThemeFromWindowObject();
-
-      return makeMainTheme(windowCurrentTheme);
-    }
-
-    return makeMainTheme(currentTheme);
-  }, [currentTheme]);
-
   return (
     <>
       <Provider store={store}>
         <QueryClientProvider client={queryClient}>
-          <Hydrate state={pageProps.dehydratedState}>
-            <ThemeProvider theme={mainTheme}>
-              <GlobalStyle theme={mainTheme} />
-              <Component {...pageProps} />
-            </ThemeProvider>
+          <Hydrate state={appProps.pageProps.dehydratedState}>
+            <App {...appProps} />
             {process.env.NEXT_PUBLIC_RUNTIME_ENV === "development" ? (
               <ReactQueryDevtools />
             ) : null}
