@@ -30,14 +30,14 @@ const GlobalStyle = css`
     --app-min-height: 100vh;
   }
 
-  html {
-    background: ${({ theme }) => theme.colors.bodyBackground};
+  html,
+  body {
+    /* Using 'background-color' will make sure this value is applied to the iPhone notch area */
+    background-color: ${({ theme }) => theme.colors.bodyBackground};
     font-size: 62.5%;
   }
 
   body {
-    background: ${({ theme }) => theme.colors.bodyBackground};
-    font-size: 62.5%;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
