@@ -4,6 +4,7 @@ import { DARK_THEME } from "../../store/reducers/themeSlice";
 import Head from "next/head";
 import { NextSeo } from "next-seo";
 import { ORIGIN } from "../../constants/routes";
+import { ThemeContext } from "styled-components";
 import { buildSeoConfig } from "../../constants/seo";
 import { useTheme } from "../../hooks";
 
@@ -29,6 +30,7 @@ function SEO({
   pageName,
 }: Props) {
   const [currentTheme] = useTheme();
+  const { colorsHex } = React.useContext(ThemeContext);
 
   const currentPageMetadata = React.useMemo(() => {
     return buildSeoConfig(pageName);
@@ -79,6 +81,15 @@ function SEO({
               : lightModeFaviconPath
           }
         />
+        {/* This handles the color for the "safe area" notch on iOS */}
+        {currentTheme ? (
+          <meta
+            name="theme-color"
+            content={
+              currentTheme === DARK_THEME ? colorsHex.black : colorsHex.white
+            }
+          ></meta>
+        ) : null}
       </Head>
     </>
   );
