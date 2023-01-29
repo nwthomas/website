@@ -31,8 +31,6 @@ const client = new QueryClient({
 function App({ Component, pageProps }: AppProps) {
   const [currentThemeFromRedux] = useTheme();
 
-  console.log(currentThemeFromRedux);
-
   const mainTheme = React.useMemo(() => {
     if (!currentThemeFromRedux) {
       const currentThemeFromWindow = getThemeFromWindowObject();
