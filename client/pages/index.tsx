@@ -59,7 +59,7 @@ const RootStyles = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
+  padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
   width: 100%;
 
   > main {
