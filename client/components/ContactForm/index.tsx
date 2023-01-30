@@ -12,7 +12,7 @@ import { useGetMouseRadian } from "../../hooks";
 const contactFormRef = React.createRef<HTMLDivElement>();
 
 function getContactFormBorder(radians: number) {
-  return `linear-gradient(calc(${radians}rad), ${colors.turquoise} 0%, ${colors.danube} 50%, rgba(121,40,202,0) 75%)`;
+  return `linear-gradient(calc(${radians}rad), ${colors.royalBlue} 0%, ${colors.brightTurquoise} 50%, rgba(121,40,202,0) 75%)`;
 }
 
 export interface MessageValues {

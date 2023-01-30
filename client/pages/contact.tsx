@@ -138,7 +138,7 @@ const RootStyles = styled.div`
       > h1 > a {
         background-clip: text;
         background-image: ${({ theme }) =>
-          `linear-gradient(90deg, ${theme.colorsHex.danube} 0%, ${theme.colorsHex.turquoise} 100%)`};
+          `linear-gradient(90deg, ${theme.colorsHex.royalBlue} 0%, ${theme.colorsHex.pictonBlue} 65%, ${theme.colorsHex.brightTurquoise} 100%)`};
         background-size: 100%;
         -webkit-background-clip: text;
         -moz-background-clip: text;
