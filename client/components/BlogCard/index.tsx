@@ -56,7 +56,7 @@ const RootStyles = styled.article`
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
-      min-height: 250px;
+      min-height: 200px;
     }
 
     > div:nth-child(1) {
@@ -77,7 +77,7 @@ const RootStyles = styled.article`
       -moz-background-clip: text;
       -webkit-background-clip: text;
       background-image: ${({ theme }) =>
-        `linear-gradient(90deg, ${theme.colorsHex.lavender} 0%, ${theme.colorsHex.orchid} 33%, ${theme.colorsHex.brilliantRose} 66%, ${theme.colorsHex.brilliantRose} 100%)`};
+        `linear-gradient(90deg, ${theme.colorsHex.royalBlue} 0%, ${theme.colorsHex.pictonBlue} 65%, ${theme.colorsHex.brightTurquoise} 100%)`};
       background-size: 100%;
       left: 0;
       opacity: ${({ theme }) => theme.opacity.opacity00};

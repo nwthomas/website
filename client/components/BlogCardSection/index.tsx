@@ -176,11 +176,6 @@ const RootStyles = styled.section`
       grid-template-columns: 1fr 1fr;
     }
 
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.desktop}) {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-
     > li {
       line-height: 1;
       list-style-type: none;
