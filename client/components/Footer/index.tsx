@@ -61,16 +61,6 @@ function Footer() {
             </li>
             <li>
               <a
-                href="https://www.polywork.com/nwthomas"
-                aria-label="Link to Nathan's Polywork"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Polywork
-              </a>
-            </li>
-            <li>
-              <a
                 href="https://nathanthomas.substack.com/"
                 aria-label="Link to Nathan's Substack"
                 rel="noopener noreferrer"

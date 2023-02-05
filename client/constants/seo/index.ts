@@ -51,7 +51,6 @@ export function buildSeoConfig(pageName: string, route?: string): SeoConfig {
     case FOUR_OH_FOUR_PAGE_NAME:
       return {
         ...DEFAULT_SEO_VALUES,
-        imageUrl: "/images/og/404-page.webp",
         title: "404",
       };
     case HOME_PAGE_NAME:

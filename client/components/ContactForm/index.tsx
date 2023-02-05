@@ -203,14 +203,6 @@ const RootStyles = styled.div<StyleProps>`
           transition: border-color ${({ theme }) => theme.transitions.short}
             ease-in-out;
           width: 100%;
-
-          &:hover,
-          &:active,
-          &:focus {
-            outline: none;
-            border: ${({ theme }) =>
-              `${theme.spaces.nano} solid ${theme.colorsHex.pictonBlue}`};
-          }
         }
 
         > textarea {
@@ -226,14 +218,6 @@ const RootStyles = styled.div<StyleProps>`
           transition: border-color ${({ theme }) => theme.transitions.short}
             ease-in-out;
           width: 100%;
-
-          &:hover,
-          &:active,
-          &:focus {
-            outline: none;
-            border: ${({ theme }) =>
-              `${theme.spaces.nano} solid ${theme.colorsHex.pictonBlue}`};
-          }
         }
 
         &:nth-of-type(3) {
