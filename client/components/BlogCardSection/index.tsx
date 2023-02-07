@@ -55,7 +55,7 @@ function BlogCardSection({ blogPosts, tag, withCloseButton }: Props) {
                   onClick={handleOnCloseButtonClick}
                   type="button"
                 >
-                  <CloseIcon color={colors.error} isAriaHidden />
+                  <CloseIcon color={colors.text} isAriaHidden />
                 </button>
                 <p>{tag}</p>
               </>
@@ -124,9 +124,7 @@ const RootStyles = styled.section`
             width: ${({ theme }) => theme.spaces.medium};
           }
 
-          &:hover,
-          &:focus,
-          &:active {
+          &:hover {
             border: ${({ theme }) =>
               `${theme.spaces.nano} solid ${theme.colorsHex.pictonBlue}`};
             opacity: ${({ theme }) => theme.opacity.opacity100};
@@ -137,13 +135,11 @@ const RootStyles = styled.section`
           font-size: 1.6rem;
           line-height: 1;
           margin-left: ${({ theme }) => theme.spaces.xxSmall};
-          margin-top: ${({ theme }) => theme.spaces.nano};
 
           @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.tablet}) {
             font-size: 2rem;
             margin-left: ${({ theme }) => theme.spaces.small};
-            margin-top: ${({ theme }) => theme.spaces.micro};
           }
         }
       }
@@ -152,12 +148,10 @@ const RootStyles = styled.section`
     > p {
       font-size: 1.6rem;
       line-height: 1;
-      margin-top: ${({ theme }) => theme.spaces.nano};
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
         font-size: 2rem;
-        margin-top: ${({ theme }) => theme.spaces.micro};
       }
     }
   }

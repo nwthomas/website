@@ -2,30 +2,45 @@
 
 /* These two @font-face rules stack thanks to truetype format */
 @font-face {
-  font-family: "ObjectSans";
+  font-family: "Libre Baskerville";
   font-style: normal;
   font-display: swap;
   font-weight: 400;
-  src: url(/fonts/ObjectSans400.woff2) format("truetype");
+  src: url(/fonts/LibreBaskervilleRegular.woff2) format("truetype");
 }
 @font-face {
-  font-family: "ObjectSans";
+  font-family: "Libre Baskerville";
   font-style: bold;
   font-display: swap;
   font-weight: 700;
-  src: url(/fonts/ObjectSans700.woff2) format("truetype");
+  src: url(/fonts/LibreBaskervilleBold.woff2) format("truetype");
 }
 @font-face {
-  font-family: "RobotoMono";
+  font-family: "Libre Baskerville";
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400;
+  src: url(/fonts/LibreBaskervilleItalic.woff2) format("truetype");
+}
+
+@font-face {
+  font-family: "Open Sans";
   font-style: normal;
   font-display: swap;
   font-weight: 400;
-  src: url(/fonts/RobotoMono400.woff2) format("truetype");
+  src: url(/fonts/OpenSansRegular.woff2) format("truetype");
 }
 @font-face {
-  font-family: "RobotoMono";
+  font-family: "Open Sans";
   font-style: bold;
   font-display: swap;
   font-weight: 700;
-  src: url(/fonts/RobotoMono700.woff2) format("truetype");
+  src: url(/fonts/OpenSansBold.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400;
+  src: url(/fonts/OpenSansItalic.woff2) format("truetype");
 }

@@ -93,7 +93,7 @@ const GlobalStyle = css`
     --body-bg: ${colors.black};
     --body-bg-accent-one: ${colors.shark};
     --body-bg-accent-two: ${colors.outerSpace};
-    --button-primary-bg: ${colors.pictonBlue};
+    --button-primary-bg: ${colors.rollingStone};
     --error: ${colors.scarlet};
     --text: ${colors.mercury};
     --text-secondary: ${colors.rollingStone};
@@ -105,7 +105,7 @@ const GlobalStyle = css`
     --body-bg: ${colors.white};
     --body-bg-accent-one: ${colors.wildSand};
     --body-bg-accent-two: ${colors.alto};
-    --button-primary-bg: ${colors.pictonBlue};
+    --button-primary-bg: ${colors.doveGray};
     --error: ${colors.scarlet};
     --text: ${colors.mineShaft};
     --text-secondary: ${colors.doveGray};
@@ -121,10 +121,9 @@ const GlobalStyle = css`
   h5 {
     color: ${({ theme }) => theme.colors.text};
     font-display: swap;
-    font-family: "ObjectSans", Object Sans, Helvetica, ui-sans-serif, system-ui,
-      -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial,
-      Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
-      Noto Color Emoji;
+    font-family: "Libre Baskerville", Constantia, "Lucida Bright", Lucidabright,
+      "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif",
+      "Liberation Serif", Georgia, serif;
     line-height: 1.5;
   }
 
@@ -134,7 +133,7 @@ const GlobalStyle = css`
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
-      font-size: 5rem;
+      font-size: 4rem;
     }
   }
 
@@ -159,21 +158,21 @@ const GlobalStyle = css`
     color: ${({ theme }) => theme.colors.text};
     font-display: swap;
     font-size: 1.6rem;
-    line-height: 1.5;
+    line-height: 1.8;
     overflow: break-word;
-    font-family: "ObjectSans", Object Sans, Helvetica, ui-sans-serif, system-ui,
-      -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial,
-      Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
+    font-family: "Open Sans", ui-sans-serif, system-ui, -apple-system,
+      BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
+      sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
       Noto Color Emoji;
 
     &::placeholder {
       color: ${({ theme }) => theme.colors.text};
       opacity: ${({ theme }) => theme.opacity.opacity70};
       font-size: 1.6rem;
-      font-family: "ObjectSans", Object Sans, Helvetica, ui-sans-serif,
-        system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-        Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
-        Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+      font-family: "Open Sans", ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
+        sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
+        Noto Color Emoji;
     }
   }
 
@@ -191,9 +190,9 @@ const GlobalStyle = css`
     color: ${({ theme }) => theme.colors.textSecondary};
     cursor: pointer;
     font-display: swap;
-    font-family: "ObjectSans", Object Sans, Helvetica, ui-sans-serif, system-ui,
-      -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial,
-      Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
+    font-family: "Open Sans", ui-sans-serif, system-ui, -apple-system,
+      BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
+      sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
       Noto Color Emoji;
     font-size: 1.6rem;
     overflow: break-word;

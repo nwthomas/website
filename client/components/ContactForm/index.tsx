@@ -5,14 +5,14 @@ import styled, { ThemeContext } from "styled-components";
 
 import Spinner from "../Spinner";
 import { ThemeEnum } from "../../store/reducers/themeSlice";
-import { colors } from "../../styles/libs/theme";
+import { themeColorValues } from "../../styles/libs/theme";
 import { useFormik } from "formik";
 import { useGetMouseRadian } from "../../hooks";
 
 const contactFormRef = React.createRef<HTMLDivElement>();
 
 function getContactFormBorder(radians: number) {
-  return `linear-gradient(calc(${radians}rad), ${colors.royalBlue} 0%, ${colors.brightTurquoise} 50%, rgba(121,40,202,0) 75%)`;
+  return `linear-gradient(calc(${radians}rad), ${themeColorValues.bodyBackgroundAccentTwo} 0%, ${themeColorValues.bodyBackgroundAccentOne} 50%, rgba(121,40,202,0) 75%)`;
 }
 
 export interface MessageValues {

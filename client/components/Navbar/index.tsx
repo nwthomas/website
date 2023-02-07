@@ -1,10 +1,13 @@
 import * as React from "react";
 
-import { BLOG_PAGE, CONTACT_PAGE } from "../../constants/routes";
+import {
+  BLOG_PAGE,
+  CONTACT_PAGE,
+  HOME_PAGE,
+  PLAYGROUND_PAGE,
+} from "../../constants/routes";
 
 import { CONTENTS_ID } from "../../constants/routes";
-import { HOME_PAGE } from "../../constants/routes";
-import Link from "next/link";
 import NavbarLink from "./NavbarLink";
 import ThemeTransitionSwitch from "../ThemeTransitionSwitch";
 import styled from "styled-components";
@@ -13,6 +16,7 @@ import { useRouter } from "next/router";
 const BLOG_LINK_ARIA_LABEL = "Go to all blog posts page";
 const CONTACT_LINK_ARIA_LABEL = "Go to contact form page";
 const HOME_LINK_ARIA_LABEL = "Go to home page";
+const PLAYGROUND_LINK_ARIA_LABEL = "Go to playground page";
 const SKIP_TO_CONTENT_ARIA_LABEL = "Skip to the page's main content";
 
 function Navbar() {
@@ -25,24 +29,14 @@ function Navbar() {
           <ul>
             <div>
               <li>
-                <Link
-                  aria-label={HOME_LINK_ARIA_LABEL}
-                  href={HOME_PAGE}
-                  passHref
+                <NavbarLink
+                  ariaLabel={HOME_LINK_ARIA_LABEL}
+                  currentPath={currentPath}
+                  route={HOME_PAGE}
                 >
-                  <div />
-                </Link>
+                  Home
+                </NavbarLink>
               </li>
-            </div>
-            <li>
-              <a
-                aria-label={SKIP_TO_CONTENT_ARIA_LABEL}
-                href={`#${CONTENTS_ID}`}
-              >
-                Skip to Content
-              </a>
-            </li>
-            <div>
               <li>
                 <NavbarLink
                   ariaLabel={BLOG_LINK_ARIA_LABEL}
@@ -54,6 +48,15 @@ function Navbar() {
               </li>
               <li>
                 <NavbarLink
+                  ariaLabel={PLAYGROUND_LINK_ARIA_LABEL}
+                  currentPath={currentPath}
+                  route={PLAYGROUND_PAGE}
+                >
+                  Playground
+                </NavbarLink>
+              </li>
+              <li>
+                <NavbarLink
                   ariaLabel={CONTACT_LINK_ARIA_LABEL}
                   currentPath={currentPath}
                   route={CONTACT_PAGE}
@@ -61,10 +64,18 @@ function Navbar() {
                   Contact
                 </NavbarLink>
               </li>
-              <li>
-                <ThemeTransitionSwitch />
-              </li>
             </div>
+            <li>
+              <a
+                aria-label={SKIP_TO_CONTENT_ARIA_LABEL}
+                href={`#${CONTENTS_ID}`}
+              >
+                Skip to Content
+              </a>
+            </li>
+            <li>
+              <ThemeTransitionSwitch />
+            </li>
           </ul>
         </nav>
       </header>
@@ -158,28 +169,6 @@ const RootStyles = styled.div`
             @media only screen and (min-width: ${({ theme }) =>
                 theme.breakpoints.tablet}) {
               margin-left: ${({ theme }) => theme.spaces.large};
-            }
-
-            > a {
-              &:has(div) {
-                border-radius: ${({ theme }) => theme.borderRadii.nano};
-                display: flex;
-                overflow: hidden;
-                text-decoration: none;
-
-                &:focus,
-                &:active {
-                  outline-color: ${({ theme }) => theme.colorsHex.pictonBlue};
-                  outline-style: solid;
-                  outline-width: ${({ theme }) => theme.spaces.nano};
-                }
-              }
-
-              div {
-                background-color: ${({ theme }) => theme.colors.text};
-                height: ${({ theme }) => theme.spaces.large};
-                width: ${({ theme }) => theme.spaces.large};
-              }
             }
           }
 

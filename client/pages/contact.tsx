@@ -136,22 +136,8 @@ const RootStyles = styled.div`
       }
 
       > h1 > a {
-        background-clip: text;
-        background-image: ${({ theme }) =>
-          `linear-gradient(90deg, ${theme.colorsHex.royalBlue} 0%, ${theme.colorsHex.pictonBlue} 65%, ${theme.colorsHex.brightTurquoise} 100%)`};
-        background-size: 100%;
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        -moz-text-fill-color: transparent;
+        font-family: inherit;
         font-size: inherit;
-        text-decoration: none;
-        transition: opacity ${({ theme }) => theme.transitions.short}
-          ease-in-out;
-
-        &:hover {
-          opacity: ${({ theme }) => theme.opacity.opacity80};
-        }
       }
 
       span {

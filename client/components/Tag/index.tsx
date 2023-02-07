@@ -18,7 +18,6 @@ function Tag({ text }: Props) {
       passHref
     >
       <h1>{text}</h1>
-      <h1 aria-hidden>{text}</h1>
     </StyledLink>
   );
 }
@@ -42,50 +41,18 @@ const StyledLink = styled(Link)`
     display: block;
     height: 100%;
     line-height: 1;
-    margin-top: ${({ theme }) => theme.spaces.nano};
     width: 100%;
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
       font-size: 2rem;
-      margin-top: ${({ theme }) => theme.spaces.micro};
     }
   }
 
-  > h1:nth-child(2) {
-    background-clip: text;
-    -moz-background-clip: text;
-    -webkit-background-clip: text;
-    background-image: ${({ theme }) =>
-      `linear-gradient(90deg, ${theme.colorsHex.royalBlue} 0%, ${theme.colorsHex.pictonBlue} 65%, ${theme.colorsHex.brightTurquoise} 100%)`};
-    background-size: 100%;
-    left: 0;
-    opacity: ${({ theme }) => theme.opacity.opacity00};
-    padding: ${({ theme }) => `${theme.spaces.xSmall} ${theme.spaces.medium}`};
-    position: absolute;
-    right: 0;
-    -moz-text-fill-color: transparent;
-    -webkit-text-fill-color: transparent;
-    text-decoration: none;
-    top: 0;
-    transition: opacity ${({ theme }) => theme.transitions.short} ease-in-out;
-  }
-
-  &:hover,
-  &:focus {
-    border: ${({ theme }) =>
-      `${theme.spaces.nano} solid ${theme.colorsHex.pictonBlue}`};
+  &:hover {
+    border: ${({ theme }) => `${theme.spaces.nano} solid ${theme.colors.text}`};
     outline: none;
     text-decoration: none;
-
-    > h1:nth-child(2) {
-      opacity: ${({ theme }) => theme.opacity.opacity100};
-    }
-  }
-
-  &:hover,
-  &:select,
-  &:focus {
     text-decoration-underline: none;
   }
 `;

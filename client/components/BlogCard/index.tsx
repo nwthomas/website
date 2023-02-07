@@ -21,9 +21,6 @@ function BlogCard({ description, title, url }: Props) {
           <h2>{title}</h2>
           <p>{description}</p>
         </div>
-        <div aria-hidden>
-          <h2>{title}</h2>
-        </div>
         <div>
           <p>Read more</p>
           <ArrowForwardsIcon color={colors.textSecondary} isAriaHidden />
@@ -73,25 +70,6 @@ const RootStyles = styled.article`
     }
 
     > div:nth-child(2) {
-      background-clip: text;
-      -moz-background-clip: text;
-      -webkit-background-clip: text;
-      background-image: ${({ theme }) =>
-        `linear-gradient(90deg, ${theme.colorsHex.royalBlue} 0%, ${theme.colorsHex.pictonBlue} 65%, ${theme.colorsHex.brightTurquoise} 100%)`};
-      background-size: 100%;
-      left: 0;
-      opacity: ${({ theme }) => theme.opacity.opacity00};
-      padding: ${({ theme }) => theme.spaces.medium};
-      position: absolute;
-      right: 0;
-      -moz-text-fill-color: transparent;
-      -webkit-text-fill-color: transparent;
-      text-decoration: none;
-      top: 0;
-      transition: opacity ${({ theme }) => theme.transitions.short} ease-in-out;
-    }
-
-    > div:nth-child(3) {
       align-items: center;
       display: flex;
       margin-top: ${({ theme }) => theme.spaces.medium};
@@ -110,18 +88,13 @@ const RootStyles = styled.article`
       }
     }
 
-    &:focus,
     &:hover {
       border: ${({ theme }) =>
-        `${theme.spaces.nano} solid ${theme.colorsHex.pictonBlue}`};
+        `${theme.spaces.nano} solid ${theme.colors.text}`};
       border-radius: ${({ theme }) => theme.borderRadii.medium};
       outline: none;
 
-      > div:nth-child(2) {
-        opacity: ${({ theme }) => theme.opacity.opacity100};
-      }
-
-      > div:nth-child(3) > svg {
+      > div:nth-child(2) > svg {
         opacity: ${({ theme }) => theme.opacity.opacity100};
       }
     }
