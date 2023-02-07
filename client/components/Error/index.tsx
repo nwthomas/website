@@ -35,16 +35,8 @@ const RootStyles = styled.main`
     text-align: center;
 
     > a {
-      background-clip: text;
-      background-image: ${({ theme }) =>
-        `linear-gradient(90deg, ${theme.colorsHex.royalBlue} 0%, ${theme.colorsHex.pictonBlue} 65%, ${theme.colorsHex.brightTurquoise} 100%)`};
-      -moz-background-clip: text;
-      -webkit-background-clip: text;
-      background-size: 100%;
+      font-family: inherit;
       font-size: inherit;
-      padding: ${({ theme }) => `${theme.spaces.micro} 0`};
-      -moz-text-fill-color: transparent;
-      -webkit-text-fill-color: transparent;
       text-decoration: none;
       transition: opacity ${({ theme }) => theme.transitions.short} ease-in-out;
 

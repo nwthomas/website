@@ -153,8 +153,7 @@ const RootStyles = styled.div<StyleProps>`
             svg {
               height: ${({ level, theme }) =>
                 level === 1 ? theme.spaces.xLarge : theme.spaces.medium};
-              margin-bottom: ${({ level, theme }) =>
-                level === 1 ? theme.spaces.small : theme.spaces.micro};
+              margin-bottom: ${({ theme }) => theme.spaces.micro};
               margin-right: ${({ theme }) => theme.spaces.small};
               width: ${({ level, theme }) =>
                 level === 1 ? theme.spaces.xLarge : theme.spaces.medium};
@@ -176,6 +175,9 @@ const RootStyles = styled.div<StyleProps>`
 
       > a {
         color: inherit;
+        font-family: "Libre Baskerville", Constantia, "Lucida Bright",
+          Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif",
+          "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
         font-size: inherit;
         text-decoration-color: none;
         text-decoration-style: none;
@@ -208,7 +210,6 @@ const RootStyles = styled.div<StyleProps>`
       background-color: ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
       border-radius: ${({ theme }) => theme.borderRadii.small};
       font-size: 1.4rem;
-      font-family: "RobotoMono", monospace;
       padding: ${({ theme }) =>
         `${theme.spaces.nano} calc(${theme.spaces.micro} * 2) ${theme.spaces.micro}`};
 

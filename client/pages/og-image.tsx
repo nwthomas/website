@@ -43,17 +43,8 @@ const RootStyles = styled.div`
   width: ${OG_IMAGE_WIDTH}px;
 
   > h1 {
-    background-clip: text;
-    -moz-background-clip: text;
-    -webkit-background-clip: text;
-    background-image: ${({ theme }) =>
-      `linear-gradient(90deg, ${theme.colorsHex.royalBlue} 0%, ${theme.colorsHex.pictonBlue} 65%, ${theme.colorsHex.brightTurquoise} 100%)`};
-    color: ${({ theme }) => theme.colorsHex.mercury};
-    font-size: 10rem;
-    line-height: 1.3;
-    background-size: 100%;
-    -moz-text-fill-color: transparent;
-    -webkit-text-fill-color: transparent;
+    font-family: inherit;
+    font-size: inherit;
   }
 
   > div {

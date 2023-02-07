@@ -21,27 +21,12 @@ const RootStyles = styled.div`
   width: 100%;
 
   > p {
-    line-height: 1.8;
     max-width: ${({ theme }) => theme.appDimensions.articleMaxWidth};
     width: 100%;
 
     a {
-      background-clip: text;
-      -moz-background-clip: text;
-      -webkit-background-clip: text;
-      background-image: ${({ theme }) =>
-        `linear-gradient(90deg, ${theme.colorsHex.royalBlue} 0%, ${theme.colorsHex.pictonBlue} 65%, ${theme.colorsHex.brightTurquoise} 100%)`};
-      background-size: 100%;
+      font-family: inherit;
       font-size: inherit;
-      padding: ${({ theme }) => `${theme.spaces.micro} 0`};
-      -moz-text-fill-color: transparent;
-      -webkit-text-fill-color: transparent;
-      text-decoration: none;
-      transition: opacity ${({ theme }) => theme.transitions.short} ease-in-out;
-
-      &:hover {
-        opacity: ${({ theme }) => theme.opacity.opacity80};
-      }
     }
 
     em,

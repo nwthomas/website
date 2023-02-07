@@ -31,25 +31,8 @@ const RootStyles = styled.div`
       margin-top: ${({ theme }) => theme.spaces.medium};
 
       > a {
-        background-clip: text;
-        -moz-background-clip: text;
-        -webkit-background-clip: text;
-        background-image: ${({ theme }) =>
-          `linear-gradient(90deg, ${theme.colorsHex.lavender} 0%, ${theme.colorsHex.orchid} 33%, ${theme.colorsHex.brilliantRose} 66%, ${theme.colorsHex.brilliantRose} 100%)`};
-        background-size: 100%;
+        font-family: inherit;
         font-size: inherit;
-        margin-right: -0.4em;
-        padding: ${({ theme }) =>
-          `${theme.spaces.micro} 0.4em ${theme.spaces.micro} 0`};
-        -moz-text-fill-color: transparent;
-        -webkit-text-fill-color: transparent;
-        text-decoration: none;
-        transition: opacity ${({ theme }) => theme.transitions.short}
-          ease-in-out;
-
-        &:hover {
-          opacity: ${({ theme }) => theme.opacity.opacity80};
-        }
       }
     }
 
