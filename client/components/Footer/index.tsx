@@ -129,11 +129,6 @@ const RootStyles = styled.div`
             margin-bottom: ${({ theme }) => theme.spaces.medium};
             margin-right: ${({ theme }) => theme.spaces.large};
           }
-
-          > a:focus {
-            outline: none;
-            text-decoration-color: ${({ theme }) => theme.colors.textSecondary};
-          }
         }
       }
     }

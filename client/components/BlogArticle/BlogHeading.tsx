@@ -118,7 +118,7 @@ const RootStyles = styled.div<StyleProps>`
   width: 100%;
 
   @media only screen and (min-width: ${({ theme }) =>
-      theme.breakpoints.ultraWide}) {
+      theme.breakpoints.desktop}) {
     padding-left: 0;
     padding-right: 0;
   }
@@ -194,7 +194,7 @@ const RootStyles = styled.div<StyleProps>`
       grid-column-end: 3;
 
       @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.ultraWide}) {
+          theme.breakpoints.desktop}) {
         grid-column-end: 4;
       }
     }
@@ -207,7 +207,7 @@ const RootStyles = styled.div<StyleProps>`
     width: 100%;
 
     > p {
-      background-color: ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
+      background-color: ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
       border-radius: ${({ theme }) => theme.borderRadii.small};
       font-size: 1.4rem;
       padding: ${({ theme }) =>

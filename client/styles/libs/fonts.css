@@ -24,23 +24,23 @@
 }
 
 @font-face {
-  font-family: "Open Sans";
+  font-family: "Fira Sans";
   font-style: normal;
   font-display: swap;
   font-weight: 400;
-  src: url(/fonts/OpenSansRegular.woff2) format("truetype");
+  src: url(/fonts/FiraSansRegular.woff2) format("truetype");
 }
 @font-face {
-  font-family: "Open Sans";
+  font-family: "Fira Sans";
   font-style: bold;
   font-display: swap;
   font-weight: 700;
-  src: url(/fonts/OpenSansBold.woff2) format("truetype");
+  src: url(/fonts/FiraSansBold.woff2) format("truetype");
 }
 @font-face {
-  font-family: "Open Sans";
+  font-family: "Fira Sans";
   font-style: italic;
   font-display: swap;
   font-weight: 400;
-  src: url(/fonts/OpenSansItalic.woff2) format("truetype");
+  src: url(/fonts/FiraSansItalic.woff2) format("truetype");
 }
