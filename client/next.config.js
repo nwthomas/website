@@ -7,16 +7,11 @@ const moduleExports = {
   },
   async redirects() {
     return [
-      {
-        source: "/tag",
-        destination: "/blog",
-        permanent: false,
-      },
-      {
-        source: "/playground",
-        destination: "/",
-        permanent: false,
-      },
+      // {
+      //   source: "/playground",
+      //   destination: "/",
+      //   permanent: false,
+      // },
     ];
   },
   sentry: {

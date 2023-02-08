@@ -30,16 +30,11 @@ const RootStyles = styled.div<StyleProps>`
   > a {
     ${({ isCurrentPage, theme }) => {
       if (isCurrentPage) {
-        return `text-decoration-color: ${theme.colors.textSecondary};`;
+        return `color: ${theme.colors.text};`;
       }
 
       return "";
     }}
-
-    &:focus {
-      outline: none;
-      text-decoration-color: ${({ theme }) => theme.colors.textSecondary};
-    }
   }
 `;
 

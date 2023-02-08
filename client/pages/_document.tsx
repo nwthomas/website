@@ -56,21 +56,21 @@ export default class MyDocument extends Document {
           />
           <link
             rel="preload"
-            href="/fonts/OpenSansBold.woff2"
+            href="/fonts/FiraSansBold.woff2"
             as="font"
             type="font/woff2"
             crossOrigin="anonymous"
           />
           <link
             rel="preload"
-            href="/fonts/OpenSansRegular.woff2"
+            href="/fonts/FiraSansRegular.woff2"
             as="font"
             type="font/woff2"
             crossOrigin="anonymous"
           />
           <link
             rel="preload"
-            href="/fonts/OpenSansItalic.woff2"
+            href="/fonts/FiraSansItalic.woff2"
             as="font"
             type="font/woff2"
             crossOrigin="anonymous"

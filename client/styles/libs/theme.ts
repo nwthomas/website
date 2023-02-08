@@ -23,6 +23,7 @@ interface Colors {
   orchid: "#cf6cc9";
   outerSpace: "#373A3D";
   pictonBlue: "#4597EC";
+  silverChalice: "#A3A3A3";
   royalBlue: "#5f63EC";
   rollingStone: "#717579";
   scarlet: "#FF3700";
@@ -52,8 +53,9 @@ export const colors: Colors = {
   orchid: "#cf6cc9",
   outerSpace: "#373A3D",
   pictonBlue: "#4597EC",
-  rollingStone: "#717579",
+  silverChalice: "#A3A3A3",
   royalBlue: "#5f63EC",
+  rollingStone: "#717579",
   scarlet: "#FF3700",
   shark: "#202325",
   transparent: "transparent",
@@ -160,20 +162,17 @@ interface BreakpointsInt {
   mini: number;
   tablet: number;
   desktop: number;
-  ultraWide: number;
 }
 const breakpointsInt: BreakpointsInt = {
   mini: 400,
   tablet: 600,
   desktop: 1000,
-  ultraWide: 1200,
 };
 
 interface Breakpoints {
   mini: string;
   tablet: string;
   desktop: string;
-  ultraWide: string;
 }
 const breakpoints: Breakpoints = (function buildBreakpoints() {
   // Empty strings here are to keep TypeScript happy prior to assignment
@@ -181,7 +180,6 @@ const breakpoints: Breakpoints = (function buildBreakpoints() {
     mini: "",
     tablet: "",
     desktop: "",
-    ultraWide: "",
   };
 
   for (const key in breakpointsInt) {
