@@ -16,8 +16,8 @@ const undefinedTheme = {
     MozHyphens: "none",
     msHyphens: "none",
     hyphens: "none",
-    background: themeColorValues.transparent,
-    color: colors.royalBlue,
+    background: "transparent",
+    color: colors.pictonBlue,
   },
   'pre[class*="language-"]': {
     fontSize: "14px",
@@ -34,9 +34,9 @@ const undefinedTheme = {
     MozHyphens: "none",
     msHyphens: "none",
     hyphens: "none",
-    background: themeColorValues.transparent,
+    background: "transparent",
     border: `${spaces.nano} solid ${themeColorValues.bodyBackgroundAccentTwo}`,
-    color: colors.royalBlue,
+    color: colors.pictonBlue,
     padding: "1em",
     margin: "0.5em 0",
     overflow: "auto",
@@ -46,35 +46,35 @@ const undefinedTheme = {
   },
   'pre[class*="language-"]::-moz-selection': {
     textShadow: "none",
-    background: colors.royalBlue,
+    background: colors.pictonBlue,
   },
   'pre[class*="language-"] ::-moz-selection': {
     textShadow: "none",
-    background: colors.royalBlue,
+    background: colors.pictonBlue,
   },
   'code[class*="language-"]::-moz-selection': {
     textShadow: "none",
-    background: colors.royalBlue,
+    background: colors.pictonBlue,
   },
   'code[class*="language-"] ::-moz-selection': {
     textShadow: "none",
-    background: colors.royalBlue,
+    background: colors.pictonBlue,
   },
   'pre[class*="language-"]::selection': {
     textShadow: "none",
-    background: colors.royalBlue,
+    background: colors.pictonBlue,
   },
   'pre[class*="language-"] ::selection': {
     textShadow: "none",
-    background: colors.royalBlue,
+    background: colors.pictonBlue,
   },
   'code[class*="language-"]::selection': {
     textShadow: "none",
-    background: colors.royalBlue,
+    background: colors.pictonBlue,
   },
   'code[class*="language-"] ::selection': {
     textShadow: "none",
-    background: colors.royalBlue,
+    background: colors.pictonBlue,
   },
   ':not(pre) > code[class*="language-"]': {
     padding: ".1em",
@@ -108,7 +108,7 @@ const undefinedTheme = {
     color: colors.pictonBlue,
   },
   property: {
-    color: colors.royalBlue,
+    color: colors.pictonBlue,
   },
   function: {
     color: colors.pictonBlue,
@@ -204,7 +204,7 @@ const undefinedTheme = {
     fontWeight: "bold",
   },
   "pre > code.highlight": {
-    Outline: `.4em solid ${colors.royalBlue}`,
+    Outline: `.4em solid ${colors.pictonBlue}`,
     OutlineOffset: ".4em",
   },
   ".line-numbers.line-numbers .line-numbers-rows": {

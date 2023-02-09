@@ -55,9 +55,9 @@ function BlogCardSection({ blogPosts, tag, withCloseButton }: Props) {
                   onClick={handleOnCloseButtonClick}
                   type="button"
                 >
-                  <CloseIcon color={colors.text} isAriaHidden />
+                  <CloseIcon color={colors.error} isAriaHidden />
                 </button>
-                <p>{tag}</p>
+                <h1>{tag}</h1>
               </>
             ) : (
               <Tag text={tag} />
@@ -100,7 +100,7 @@ const RootStyles = styled.section`
         > button {
           align-items: center;
           background: none;
-          background-color: ${({ theme }) => theme.colors.transparent};
+          background-color: transparent;
           border: ${({ theme }) =>
             `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
           border-radius: ${({ theme }) => theme.borderRadii.infinity};
@@ -126,12 +126,12 @@ const RootStyles = styled.section`
 
           &:hover {
             border: ${({ theme }) =>
-              `${theme.spaces.nano} solid ${theme.colorsHex.pictonBlue}`};
+              `${theme.spaces.nano} solid ${theme.colors.text}`};
             opacity: ${({ theme }) => theme.opacity.opacity100};
           }
         }
 
-        > p {
+        > h1 {
           font-size: 1.6rem;
           line-height: 1;
           margin-left: ${({ theme }) => theme.spaces.xxSmall};

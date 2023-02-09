@@ -6,63 +6,43 @@ import { DARK_THEME, ThemeEnum } from "../../store/reducers/themeSlice";
 // All color names pulled directly from http://chir.ag/projects/name-that-color/
 // To change the assignment of colors --> CSS variables, go to: styles/libs/global.ts
 interface Colors {
+  alabaster: "#FAFAFA";
   alto: "#DBDBDB";
   black: "#000000";
-  blueRibbon: "#3156F6";
-  brightTurquoise: "#0acffe";
-  brilliantRose: "#ee609c";
+  boulder: "#7C7C7C";
   brightSun: "#FACF3D";
-  crownOfThorns: "#752522";
-  danube: "#72afd3";
-  doveGray: "#707070";
-  electricViolet: "#b721ff";
-  everglade: "##285231";
-  lavender: "#b465da";
+  codGray: "#111010";
+  hookersGreen: "#5F8181";
+  juniper: "#729797";
+  manatee: "#8E8E90";
   mercury: "#E1E1E1";
   mineShaft: "#333333";
-  orchid: "#cf6cc9";
   outerSpace: "#373A3D";
   pictonBlue: "#4597EC";
-  silverChalice: "#A3A3A3";
-  royalBlue: "#5f63EC";
-  rollingStone: "#717579";
   scarlet: "#FF3700";
   shark: "#202325";
-  transparent: "transparent";
-  turquoise: "#37ecba";
   white: "#FFFFFF";
   wildSand: "#F5F5F5";
-  woodsmoke: "#131416";
 }
 
 export const colors: Colors = {
+  alabaster: "#FAFAFA",
   alto: "#DBDBDB",
   black: "#000000",
-  blueRibbon: "#3156F6",
-  brightTurquoise: "#0acffe",
-  brilliantRose: "#ee609c",
+  boulder: "#7C7C7C",
   brightSun: "#FACF3D",
-  crownOfThorns: "#752522",
-  danube: "#72afd3",
-  doveGray: "#707070",
-  electricViolet: "#b721ff",
-  everglade: "##285231",
-  lavender: "#b465da",
+  codGray: "#111010",
+  hookersGreen: "#5F8181",
+  juniper: "#729797",
+  manatee: "#8E8E90",
   mercury: "#E1E1E1",
   mineShaft: "#333333",
-  orchid: "#cf6cc9",
   outerSpace: "#373A3D",
   pictonBlue: "#4597EC",
-  silverChalice: "#A3A3A3",
-  royalBlue: "#5f63EC",
-  rollingStone: "#717579",
   scarlet: "#FF3700",
   shark: "#202325",
-  transparent: "transparent",
-  turquoise: "#37ecba",
   white: "#FFFFFF",
   wildSand: "#F5F5F5",
-  woodsmoke: "#131416",
 };
 
 // A crucial tool for testing out dropshadows is: https://www.cssmatic.com/box-shadow
@@ -84,10 +64,10 @@ interface ThemeColorValues {
   buttonPrimaryBackground: string;
   error: string;
   text: string;
+  textAccentOne: string;
+  textAccentTwo: string;
   textSecondary: string;
-  textOnContrast: string;
   selection: string;
-  transparent: string;
 }
 export const themeColorValues: ThemeColorValues = {
   bodyBackground: "var(--body-bg)",
@@ -96,10 +76,10 @@ export const themeColorValues: ThemeColorValues = {
   buttonPrimaryBackground: "var(--button-primary-bg)",
   error: "var(--error)",
   text: "var(--text)",
+  textAccentOne: "var(--text-accent-one)",
+  textAccentTwo: "var(--text-accent-two)",
   textSecondary: "var(--text-secondary)",
-  textOnContrast: "var(--text-on-contrast)",
   selection: "var(--selection)",
-  transparent: "var(--transparent)",
 };
 
 // ===================================== Space Variables
@@ -121,10 +101,10 @@ interface AppDimensions {
 }
 export const appDimensions: AppDimensions = {
   appHorizontalGutters: "3%",
-  appMaxWidth: "1000px",
+  appMaxWidth: "1200px",
   // This value is set in the global.ts file for the :root selector
   appMinHeight: "var(--app-min-height)",
-  articleHeroImageMaxWidth: "1000px",
+  articleHeroImageMaxWidth: "1200px",
   articleMaxWidth: "600px",
   contactFormMaxWidth: "600px",
   footerDesktopHeight: "102px",
