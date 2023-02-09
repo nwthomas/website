@@ -40,7 +40,7 @@ const RootStyles = styled.article`
   > a {
     border: ${({ theme }) =>
       `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
-    border-radius: ${({ theme }) => theme.borderRadii.small};
+    border-radius: ${({ theme }) => theme.borderRadii.medium};
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -91,7 +91,7 @@ const RootStyles = styled.article`
     &:hover {
       border: ${({ theme }) =>
         `${theme.spaces.nano} solid ${theme.colors.text}`};
-      border-radius: ${({ theme }) => theme.borderRadii.small};
+      border-radius: ${({ theme }) => theme.borderRadii.medium};
       outline: none;
 
       > div:nth-child(2) > svg {

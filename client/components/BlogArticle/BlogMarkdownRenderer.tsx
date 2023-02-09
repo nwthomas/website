@@ -20,12 +20,6 @@ import remarkGfm from "remark-gfm";
 import remarkUnwrapImages from "remark-unwrap-images";
 import { useRouter } from "next/router";
 
-interface Props {
-  date?: string;
-  content: string;
-  heroImageUrl?: string;
-}
-
 function buildHeadingId(childrenNodes): string {
   return childrenNodes.reduce((accum: string, child) => {
     if (child.type === "text") {
@@ -43,7 +37,19 @@ function buildBlogArticlePath(blogId: string): string {
   return `/blog/${blogId}`;
 }
 
-function BlogMarkdownRenderer({ content, date, heroImageUrl }: Props) {
+interface Props {
+  content: string;
+  dateUpdated?: string;
+  dateWritten?: string;
+  heroImageUrl?: string;
+}
+
+function BlogMarkdownRenderer({
+  content,
+  dateUpdated,
+  dateWritten,
+  heroImageUrl,
+}: Props) {
   const {
     query: { blogId },
   } = useRouter();
@@ -60,7 +66,10 @@ function BlogMarkdownRenderer({ content, date, heroImageUrl }: Props) {
     });
   }, []);
 
-  const dateLabel = getBlogPostFullDate(date || "");
+  const dateUpdatedLabel = getBlogPostFullDate(dateUpdated || "");
+  const dateWrittenLabel = getBlogPostFullDate(dateWritten || "");
+
+  console.log(dateUpdatedLabel, dateWrittenLabel);
 
   return (
     <ReactMarkdown
@@ -73,7 +82,8 @@ function BlogMarkdownRenderer({ content, date, heroImageUrl }: Props) {
           return (
             <>
               <BlogHeading
-                date={dateLabel}
+                dateUpdated={dateUpdatedLabel}
+                dateWritten={dateWrittenLabel}
                 contents={children}
                 level={1}
                 linkPath={headingLinkPath}

@@ -12,6 +12,7 @@ interface Colors {
   boulder: "#7C7C7C";
   brightSun: "#FACF3D";
   codGray: "#111010";
+  eerieBlack: "#171717";
   hookersGreen: "#5F8181";
   juniper: "#729797";
   manatee: "#8E8E90";
@@ -32,6 +33,7 @@ export const colors: Colors = {
   boulder: "#7C7C7C",
   brightSun: "#FACF3D",
   codGray: "#111010",
+  eerieBlack: "#171717",
   hookersGreen: "#5F8181",
   juniper: "#729797",
   manatee: "#8E8E90",
@@ -62,6 +64,7 @@ interface ThemeColorValues {
   bodyBackgroundAccentOne: string;
   bodyBackgroundAccentTwo: string;
   buttonPrimaryBackground: string;
+  codeBackground: string;
   error: string;
   text: string;
   textAccentOne: string;
@@ -74,6 +77,7 @@ export const themeColorValues: ThemeColorValues = {
   bodyBackgroundAccentOne: "var(--body-bg-accent-one)",
   bodyBackgroundAccentTwo: "var(--body-bg-accent-two)",
   buttonPrimaryBackground: "var(--button-primary-bg)",
+  codeBackground: "var(--code-bg)",
   error: "var(--error)",
   text: "var(--text)",
   textAccentOne: "var(--text-accent-one)",
@@ -127,7 +131,7 @@ interface BorderRadii {
   xxLarge: string;
   infinity: string;
 }
-const borderRadii: BorderRadii = {
+export const borderRadii: BorderRadii = {
   nano: "2px",
   micro: "3px",
   small: "5px",

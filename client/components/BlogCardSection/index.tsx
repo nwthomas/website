@@ -82,12 +82,7 @@ const RootStyles = styled.section`
     display: flex;
     height: ${({ theme }) => theme.spaces.large};
     justify-content: space-between;
-    margin-bottom: ${({ theme }) => theme.spaces.micro};
-
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.tablet}) {
-      margin-bottom: ${({ theme }) => theme.spaces.small};
-    }
+    margin-bottom: ${({ theme }) => theme.spaces.small};
 
     > div {
       align-items: center;

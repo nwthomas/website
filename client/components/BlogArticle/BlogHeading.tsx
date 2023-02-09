@@ -1,21 +1,32 @@
 import * as React from "react";
 
+import {
+  buildDateUpdatedLabel,
+  buildDateWrittenLabel,
+} from "../../utils/dates";
 import styled, { ThemeContext } from "styled-components";
 
 import { CopyLinkIcon } from "../Icons";
-import { buildLastUpdatedDateLabel } from "../../utils/dates";
 
 type HeadingLevel = 1 | 2 | 3 | 4 | 5;
 
 interface Props {
   contents: React.ReactNode & Array<React.ReactNode>;
-  date?: string;
+  dateUpdated?: string;
+  dateWritten?: string;
   level: HeadingLevel;
   linkPath: string;
   routeId: string;
 }
 
-function BlogHeading({ contents, date, level, linkPath, routeId }: Props) {
+function BlogHeading({
+  contents,
+  dateUpdated,
+  dateWritten,
+  level,
+  linkPath,
+  routeId,
+}: Props) {
   const [isSelected, setIsSelected] = React.useState<boolean>(false);
   const { colors } = React.useContext(ThemeContext);
 
@@ -97,9 +108,10 @@ function BlogHeading({ contents, date, level, linkPath, routeId }: Props) {
         </div>
         {headingContent}
       </div>
-      {date ? (
+      {dateUpdated || dateWritten ? (
         <div>
-          <p>{buildLastUpdatedDateLabel(date)}</p>
+          {dateWritten ? <p>{buildDateWrittenLabel(dateWritten)}</p> : null}
+          {dateUpdated ? <p>{buildDateUpdatedLabel(dateUpdated)}</p> : null}
         </div>
       ) : null}
     </RootStyles>
@@ -132,8 +144,10 @@ const RootStyles = styled.div<StyleProps>`
     width: 100%;
 
     > div {
-      align-items: flex-end;
       display: flex;
+      margin-top: ${({ theme }) => theme.spaces.large};
+      padding-top: ${({ level, theme }) =>
+        level === 1 ? theme.spaces.medium : theme.spaces.xSmall};
       opacity: ${({ theme }) => theme.opacity.opacity00};
       transition: opacity ${({ theme }) => theme.transitions.short} ease-in-out;
     }
@@ -171,7 +185,7 @@ const RootStyles = styled.div<StyleProps>`
       cursor: pointer;
       grid-column-start: 2;
       grid-column-end: 3;
-      padding-top: ${({ theme }) => theme.spaces.medium};
+      margin-top: ${({ theme }) => theme.spaces.large};
 
       > a {
         color: inherit;
@@ -203,13 +217,14 @@ const RootStyles = styled.div<StyleProps>`
   > div:nth-child(2) {
     display: flex;
     max-width: ${({ theme }) => theme.appDimensions.articleMaxWidth};
-    padding-top: ${({ theme }) => theme.spaces.small};
+    margin-top: ${({ theme }) => theme.spaces.medium};
     width: 100%;
 
     > p {
-      background-color: ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
+      background-color: ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
       border-radius: ${({ theme }) => theme.borderRadii.small};
       font-size: 1.4rem;
+      margin-right: ${({ theme }) => theme.spaces.small};
       padding: ${({ theme }) =>
         `${theme.spaces.nano} calc(${theme.spaces.micro} * 2) ${theme.spaces.micro}`};
 
@@ -217,6 +232,10 @@ const RootStyles = styled.div<StyleProps>`
           theme.breakpoints.tablet}) {
         font-size: 1.6rem;
       }
+    }
+
+    > p:last-of-type {
+      margin-right: 0;
     }
   }
 `;

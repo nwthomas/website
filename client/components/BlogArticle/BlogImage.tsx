@@ -54,11 +54,13 @@ const RootStyles = styled.div<StyleProps>`
     flex-direction: column;
     max-width: ${({ isHeroImage, theme }) =>
       isHeroImage ? "100%" : theme.appDimensions.articleMaxWidth};
+    margin-top: ${({ isHeroImage, theme }) =>
+      isHeroImage ? 0 : theme.spaces.medium};
     overflow: hidden;
     width: 100%;
 
     > img {
-      border-radius: ${({ theme }) => theme.borderRadii.small};
+      border-radius: ${({ theme }) => theme.borderRadii.medium};
     }
 
     > div:nth-child(2) {

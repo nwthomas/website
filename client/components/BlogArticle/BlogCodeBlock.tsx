@@ -1,8 +1,8 @@
 import * as React from "react";
 
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import oneDark from "../../constants/codeThemes/oneDark";
 import styled from "styled-components";
-import undefinedTheme from "../../constants/codeThemes/undefinedTheme";
 
 interface Props {
   contents: string;
@@ -25,11 +25,7 @@ function BlogCodeBlock({ contents, isInline, language }: Props) {
 
   return (
     <BlockRootStyles>
-      <SyntaxHighlighter
-        language={language}
-        style={undefinedTheme}
-        showLineNumbers
-      >
+      <SyntaxHighlighter language={language} style={oneDark}>
         {normalizedContent}
       </SyntaxHighlighter>
     </BlockRootStyles>
@@ -43,13 +39,13 @@ const BlockRootStyles = styled.div`
   width: 100%;
 
   > pre {
-    border-radius: ${({ theme }) => theme.borderRadii.medium};
     max-width: ${({ theme }) => theme.appDimensions.articleMaxWidth};
     width: 100%;
 
     code,
     span {
-      font-family: "RobotoMono", monospace;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        Liberation Mono, Courier New, monospace;
       flex-wrap: wrap;
     }
   }
@@ -58,7 +54,8 @@ const BlockRootStyles = styled.div`
 const InlineRootStyles = styled.code`
   background-color: ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
   border-radius: ${({ theme }) => theme.borderRadii.small};
-  font-family: "RobotoMono", monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    Liberation Mono, Courier New, monospace;
   font-size: 1.4rem;
   line-height: 1.8;
   padding: ${({ theme }) =>
