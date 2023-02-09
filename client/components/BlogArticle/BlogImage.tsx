@@ -63,15 +63,9 @@ const RootStyles = styled.div<StyleProps>`
       border-radius: ${({ theme }) => theme.borderRadii.medium};
     }
 
-    > div:nth-child(2) {
+    > div {
       display: flex;
       justify-content: center;
-      padding-top: ${({ theme }) => theme.spaces.small};
-
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.tablet}) {
-        padding-top: ${({ theme }) => theme.spaces.medium};
-      }
 
       p {
         color: ${({ theme }) => theme.colors.textSecondary};
