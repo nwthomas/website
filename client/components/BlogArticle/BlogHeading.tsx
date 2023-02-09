@@ -221,8 +221,9 @@ const RootStyles = styled.div<StyleProps>`
     width: 100%;
 
     > p {
-      background-color: ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
+      background-color: ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
       border-radius: ${({ theme }) => theme.borderRadii.small};
+      color: ${({ theme }) => theme.colors.textSecondary};
       font-size: 1.4rem;
       margin-right: ${({ theme }) => theme.spaces.small};
       padding: ${({ theme }) =>
