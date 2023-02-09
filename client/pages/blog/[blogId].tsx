@@ -51,7 +51,6 @@ function BlogPost({ slugToBlogPostMap }) {
       customSEOImageUrl={heroImageUrl}
       isArticle
       pageName={blogPost.data.title}
-      withFooter
     >
       <RootStyles>
         <main id={CONTENTS_ID}>

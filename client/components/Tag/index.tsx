@@ -33,7 +33,7 @@ const StyledLink = styled(Link)`
   padding: ${({ theme }) => `${theme.spaces.xSmall} ${theme.spaces.medium}`};
   position: relative;
   text-decoration: none;
-  transition: border-color ${({ theme }) => theme.transitions.short} ease-in-out;
+  transition: border ${({ theme }) => theme.transitions.short} ease-in-out;
 
   > h1 {
     color: ${({ theme }) => theme.colors.text};

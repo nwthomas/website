@@ -31,7 +31,7 @@ function BlogCard({ description, title, url }: Props) {
 }
 
 const RootStyles = styled.article`
-  border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
+  border-radius: ${({ theme }) => theme.borderRadii.medium};
   display: flex;
   flex: 1;
   height: 100%;
@@ -40,7 +40,7 @@ const RootStyles = styled.article`
   > a {
     border: ${({ theme }) =>
       `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
-    border-radius: ${({ theme }) => theme.borderRadii.medium};
+    border-radius: ${({ theme }) => theme.borderRadii.small};
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -91,7 +91,7 @@ const RootStyles = styled.article`
     &:hover {
       border: ${({ theme }) =>
         `${theme.spaces.nano} solid ${theme.colors.text}`};
-      border-radius: ${({ theme }) => theme.borderRadii.medium};
+      border-radius: ${({ theme }) => theme.borderRadii.small};
       outline: none;
 
       > div:nth-child(2) > svg {

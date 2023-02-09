@@ -4,12 +4,6 @@ import { css } from "styled-components";
 const GlobalStyle = css`
   * {
     box-sizing: border-box;
-    transition: ${({
-      theme: {
-        transitions: { short },
-      },
-    }) =>
-      `background ${short} ease-in-out, background-color ${short} ease-in-out, color ${short} ease-in-out, fill ${short} ease-in-out, stroke ${short} ease-in-out, border-color ${short} ease-in-out`};
   }
 
   /*
@@ -44,6 +38,30 @@ const GlobalStyle = css`
     -moz-osx-font-smoothing: grayscale;
   }
 
+  /* To change the colors in the colors object, go to styles/libs/theme.ts */
+  body.dark {
+    --body-bg: ${colors.codGray};
+    --body-bg-accent-one: ${colors.shark};
+    --body-bg-accent-two: ${colors.outerSpace};
+    --error: ${colors.scarlet};
+    --selection: ${colors.pictonBlue};
+    --text: ${colors.mercury};
+    --text-accent-one: ${colors.hookersGreen};
+    --text-accent-two: ${colors.juniper};
+    --text-secondary: ${colors.manatee};
+  }
+  body.light {
+    --body-bg: ${colors.alabaster};
+    --body-bg-accent-one: ${colors.wildSand};
+    --body-bg-accent-two: ${colors.alto};
+    --error: ${colors.scarlet};
+    --selection: ${colors.pictonBlue};
+    --text: ${colors.mineShaft};
+    --text-accent-one: ${colors.juniper};
+    --text-accent-two: ${colors.hookersGreen};
+    --text-secondary: ${colors.boulder};
+  }
+
   /* 
   The focus-visible psuedo class is used by UAs when focus is helpful
   to the user. It has decent browser support (not great), but I decided to
@@ -60,7 +78,7 @@ const GlobalStyle = css`
   }
 
   :focus:not(:focus-visible) {
-    outline-color: ${({ theme }) => theme.colors.transparent};
+    outline-color: transparent;
   }
 
   /* Code for Firefox */
@@ -86,28 +104,6 @@ const GlobalStyle = css`
     -moz-background-clip: border-box;
     -webkit-text-fill-color: currentColor;
     -moz-text-fill-color: currentColor;
-  }
-
-  /* To change the colors in the colors object, go to styles/libs/theme.ts */
-  body.dark {
-    --body-bg: ${colors.black};
-    --body-bg-accent-one: ${colors.shark};
-    --body-bg-accent-two: ${colors.outerSpace};
-    --text: ${colors.mercury};
-    --text-secondary: ${colors.rollingStone};
-    --text-on-contrast: ${colors.black};
-    --selection: ${colors.pictonBlue};
-    --transparent: ${colors.transparent};
-  }
-  body.light {
-    --body-bg: ${colors.white};
-    --body-bg-accent-one: ${colors.wildSand};
-    --body-bg-accent-two: ${colors.alto};
-    --text: ${colors.mineShaft};
-    --text-secondary: ${colors.silverChalice};
-    --text-on-contrast: ${colors.white};
-    --selection: ${colors.pictonBlue};
-    --transparent: ${colors.transparent};
   }
 
   h1,
@@ -200,16 +196,10 @@ const GlobalStyle = css`
       font-size: 2rem;
     }
 
-    &:hover {
-      color: ${({ theme }) => theme.colors.text};
-    }
-
+    &:hover,
     &:active {
       color: ${({ theme }) => theme.colors.text};
-    }
-
-    &:focus {
-      color: ${({ theme }) => theme.colors.text};
+      outline: none;
     }
   }
 

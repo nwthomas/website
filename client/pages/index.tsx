@@ -24,7 +24,7 @@ const Home: NextPage = () => {
         <main id={CONTENTS_ID}>
           <section>
             <h1>
-              Hi 👋🏻 I'm Nathan, a{" "}
+              Hi 👋🏻 I'm a{" "}
               <a
                 href="https://github.com/nwthomas"
                 aria-label={GITHUB_LINK_ARIA_LABEL}
@@ -46,7 +46,7 @@ const Home: NextPage = () => {
               >
                 teacher
               </a>{" "}
-              living in San Francisco
+              living in <span>San Francisco</span>
             </h1>
           </section>
         </main>
@@ -79,14 +79,22 @@ const RootStyles = styled.div`
         margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
       }
 
-      > h1 > a {
-        color: ${({ theme }) => theme.colors.textSecondary};
-        font-family: inherit;
-        font-size: inherit;
-        transition: color ${({ theme }) => theme.transitions.short} ease-in-out;
+      > h1 {
+        > a {
+          color: ${({ theme }) => theme.colors.textAccentOne};
+          font-family: inherit;
+          font-size: inherit;
+          transition: color ${({ theme }) => theme.transitions.short}
+            ease-in-out;
 
-        &:hover {
-          color: ${({ theme }) => theme.colors.text};
+          &:hover {
+            color: ${({ theme }) => theme.colors.textAccentTwo};
+          }
+        }
+
+        > span {
+          font-family: inherit;
+          white-space: nowrap;
         }
       }
     }
