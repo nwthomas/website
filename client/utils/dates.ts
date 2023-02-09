@@ -19,6 +19,10 @@ export function getBlogPostFullDate(rawDate: string): string {
   return `${monthName} ${day}, ${year}`;
 }
 
-export function buildLastUpdatedDateLabel(date: string): string {
+export function buildDateUpdatedLabel(date: string): string {
   return `Last edited: ${date}`;
+}
+
+export function buildDateWrittenLabel(date: string): string {
+  return `Written: ${date}`;
 }

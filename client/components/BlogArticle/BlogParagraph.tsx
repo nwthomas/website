@@ -17,7 +17,7 @@ function BlogParagraph({ contents }: Props) {
 const RootStyles = styled.div`
   display: flex;
   justify-content: center;
-  padding-top: ${({ theme }) => theme.spaces.medium};
+  margin-top: ${({ theme }) => theme.spaces.medium};
   width: 100%;
 
   > p {

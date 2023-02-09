@@ -2,7 +2,8 @@
 title: "Building Your First GraphQL Server"
 description: "This article will teach you GraphQL as well as how to build a small JavaScript server."
 imageUrl: /images/blog/building-your-first-graphql-server/graphql-logo.webp
-lastUpdated: "2023-01-28"
+dateWritten: "2019-08-18"
+dateUpdated: "2023-02-08"
 isDraft: false
 tags:
   - GraphQL
@@ -12,13 +13,9 @@ tags:
 
 # Building Your First GraphQL Server
 
----
-
 > I love building server architecture. While front-end might be a canvas of color that users associate with their favorite brands, the back-end is the secret sauce of any successful application.
 >
 > This article will teach you BOTH ExpressJS as well as GraphQL. I hope you enjoy reading it.
-
----
 
 ## Getting Started with GraphQL
 
@@ -35,8 +32,6 @@ This is where GraphQL comes in. GraphQL is fast replacing RESTful APIs everywher
 As always, grab a cup of something good. ☕️
 
 Strap in. This one’s crazy, but I think you’ll find it‘s worth it in the end.
-
----
 
 ## It's Time to Start Thinking in Edges
 
@@ -102,13 +97,9 @@ When we fire this off (which we’ll see how to do soon), we get the following J
 
 Notice how the data directly parallels the query that we made? That’s super declarative code. We’ll talk more about that in a bit. For now, let’s hop directly into the deep end and set up a server. 🔥
 
----
-
 > “Whatever affects one directly, affects all indirectly.”
 >
 > — Martin Luther King Jr.
-
----
 
 ## Setting Up the Server and Postgres Database
 
@@ -128,13 +119,9 @@ Go ahead and run the command `yarn server` in the root directory. You should see
 
 However, our server isn’t fully wired up yet. Before we go any further, let’s head into our next section and hook up some good old-fashioned `PostgreSQL`.
 
----
-
 > “We are all now connected by the Internet, like neurons in a giant brain.”
 >
 > — Stephen Hawking
-
----
 
 ## Setting Up Supabase ⚡️
 
@@ -178,11 +165,7 @@ Ready?
 
 Let’s go. 💪
 
----
-
 <img alg="Orange sky with clouds" height="800" src="/images/blog/building-your-first-graphql-server/orange-clouds.webp" width="1200">
-
----
 
 ## GraphQL Structure
 
@@ -231,13 +214,9 @@ Doesn’t that dark mode in `GraphQL Playground` look amazing? If you’re seein
 
 Let’s flip over to the next section and get to work on our GraphQL server structure.
 
----
-
 > “When one tugs at a single thing in nature, he finds it attached to the rest of the world.”
 >
 > — John Muir
-
----
 
 ## GraphQL Types
 
@@ -384,11 +363,7 @@ We’ve now completed the circle. We have a `CandyType` that will pull informati
 
 We’re about to see how useful all of this is. The next sections will be crazy, but they’ll go really fast. We’ll have your server finished in no time. 🔥 🚒
 
----
-
 <img alg="Dark water" height="801" src="/images/blog/building-your-first-graphql-server/dark-water.webp" width="1200">
-
----
 
 ## GraphQL Queries
 
@@ -508,13 +483,9 @@ We just imported the queries from query.js and placed it into our schema setup. 
 
 Hold onto your butts. 👍
 
----
-
 > “Invisible threads are the strongest ties.”
 >
 > — Friedrich Nietzsche
-
----
 
 ## GraphQL Mutations
 
@@ -620,8 +591,6 @@ module.exports = new GraphQLSchema({
 });
 ```
 
----
-
 ## Using GraphQL Playground
 
 It’s time to enjoy using our GraphQL server. 🍾 🎉 🎊 🙌
@@ -694,8 +663,6 @@ See if you can write other mutations and queries out. You can check out the vari
 
 <img alt="GraphQL Playground setup for introspecting types, mutations, and queries" height="923" src="/images/blog/building-your-first-graphql-server/graphql-playground-introspection.webp" width="1200">
 
----
-
 ## Conclusion
 
 Now that we’ve been through a full tour of duty with GraphQL, hopefully you can see why people enjoy using it. It’s simple (once you get it set up), and it’s honestly a lot of fun.
@@ -705,8 +672,6 @@ See if you can go back to the `mutations.js` file and make all of the mutations 
 Finally, as you continue to build out APIs, GraphQL is a great choice; pairing it with `ExpressJS` makes middleware implementation easy, and our PostgreSQL setup means you can now scale this framework with one of the most popular databases out there.
 
 If you end up building something awesome, feel free to tweet me with it. I’d love to see what you can create. 🏗
-
----
 
 ## Additional Resources for Your Journey
 
