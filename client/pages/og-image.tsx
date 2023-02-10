@@ -43,24 +43,22 @@ const RootStyles = styled.div`
   width: ${OG_IMAGE_WIDTH}px;
 
   > h1 {
+    color: ${({ theme }) => theme.colors.textAccentTwo};
     font-family: inherit;
-    font-size: inherit;
+    font-size: 8rem;
   }
 
   > div {
     align-items: flex-end;
     display: flex;
 
-    > div {
-      background-color: ${({ theme }) => theme.colors.text};
-      border-radius: ${({ theme }) => theme.borderRadii.micro};
-      height: 36px;
-      margin-right: ${({ theme }) => theme.spaces.small};
-      width: 36px;
-    }
-
     > h2 {
-      font-size: 5rem;
+      color: ${({ theme }) => theme.colors.textSecondary};
+      font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
+        sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
+        Noto Color Emoji;
+      font-size: 4rem;
       line-height: 0.5;
     }
   }

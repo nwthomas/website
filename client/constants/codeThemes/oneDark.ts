@@ -7,7 +7,7 @@ import {
 
 const oneDark = {
   'code[class*="language-"]': {
-    fontSize: "12px",
+    fontSize: "14px",
     background: themeColorValues.codeBackground,
     color: "hsl(220, 14%, 71%)",
     textShadow: "0 1px rgba(0, 0, 0, 0.3)",
@@ -29,7 +29,7 @@ const oneDark = {
     background: themeColorValues.codeBackground,
     color: "hsl(220, 14%, 71%)",
     textShadow: "0 1px rgba(0, 0, 0, 0.3)",
-    fontSize: "12px",
+    fontSize: "14px",
     direction: "ltr",
     textAlign: "left",
     whiteSpace: "pre",
