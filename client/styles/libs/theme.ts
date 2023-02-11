@@ -9,9 +9,9 @@ interface Colors {
   alabaster: "#FAFAFA";
   alto: "#DBDBDB";
   black: "#000000";
-  boulder: "#7C7C7C";
   brightSun: "#FACF3D";
   codGray: "#111010";
+  doveGray: "#707070";
   eerieBlack: "#171717";
   hookersGreen: "#5F8181";
   juniper: "#729797";
@@ -30,9 +30,9 @@ export const colors: Colors = {
   alabaster: "#FAFAFA",
   alto: "#DBDBDB",
   black: "#000000",
-  boulder: "#7C7C7C",
   brightSun: "#FACF3D",
   codGray: "#111010",
+  doveGray: "#707070",
   eerieBlack: "#171717",
   hookersGreen: "#5F8181",
   juniper: "#729797",

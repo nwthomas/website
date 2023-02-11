@@ -52,7 +52,7 @@ const GlobalStyle = css`
     --text-secondary: ${colors.manatee};
   }
   body.light {
-    --body-bg: ${colors.alabaster};
+    --body-bg: ${colors.white};
     --body-bg-accent-one: ${colors.wildSand};
     --body-bg-accent-two: ${colors.alto};
     --code-bg: ${colors.eerieBlack};
@@ -61,7 +61,7 @@ const GlobalStyle = css`
     --text: ${colors.mineShaft};
     --text-accent-one: ${colors.juniper};
     --text-accent-two: ${colors.hookersGreen};
-    --text-secondary: ${colors.boulder};
+    --text-secondary: ${colors.doveGray};
   }
 
   /* 
