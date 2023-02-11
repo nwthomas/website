@@ -1,7 +1,7 @@
 ---
 title: "Debounce Versus Throttle"
 description: "While they might seem the same, debounce and throttle actually have different use cases. Let's learn what they are! 🔥"
-imageUrl: /images/blog/debounce-versus-throttle/hello-sign.webp
+imageUrl: /images/blog/debounce-versus-throttle/stoplight.webp
 dateWritten: "2023-02-10"
 dateUpdated: "2023-02-10"
 isDraft: false
@@ -9,7 +9,7 @@ tags:
   - TypeScript
 ---
 
-<img alt="Neon 'Hello' sign on a black background" src="/images/blog/debounce-versus-throttle/hello-sign.webp" width="1446" height="964">
+<img alt="Neon 'Hello' sign on a black background" src="/images/blog/debounce-versus-throttle/stoplight.webp" width="1499" height="1000" title="Image by [Tim Gouw](https://unsplash.com/@punttim) on [Unsplash](https://unsplash.com/)">
 
 # Debounce Versus Throttle
 
