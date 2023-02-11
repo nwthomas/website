@@ -34,8 +34,9 @@ const RootStyles = styled.div`
       font-style: italic;
     }
 
-    b {
-      font-style: bold;
+    b,
+    strong {
+      font-weight: bold;
     }
   }
 `;

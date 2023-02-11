@@ -66,6 +66,7 @@ const RootStyles = styled.div<StyleProps>`
     > div {
       display: flex;
       justify-content: center;
+      margin-top: ${({ theme }) => theme.spaces.small};
 
       p {
         color: ${({ theme }) => theme.colors.textSecondary};

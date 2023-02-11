@@ -44,6 +44,7 @@ const BlockRootStyles = styled.div`
 
     code,
     span {
+      color: ${({ theme }) => theme.colorsHex.white};
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
         Liberation Mono, Courier New, monospace;
       flex-wrap: wrap;
@@ -52,7 +53,7 @@ const BlockRootStyles = styled.div`
 `;
 
 const InlineRootStyles = styled.code`
-  background-color: ${({ theme }) => theme.colors.bodyBackgroundAccentTwo};
+  background-color: ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
   border-radius: ${({ theme }) => theme.borderRadii.small};
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     Liberation Mono, Courier New, monospace;
