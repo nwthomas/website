@@ -13,11 +13,11 @@ tags:
 
 # Debounce Versus Throttle
 
-> I wrote this article because debounce and throttle are super annoying to keep straight. I hope this will help you in your learning journey.
+> I wrote this article because debounce and throttle are super hard to keep straight and visualize in your head. I hope this will help you in your learning journey.
 
 ## Introduction
 
-When I was trying to learn the difference between what a `debounce` function (like this one from [lodash](https://lodash.com/docs/4.17.15#debounce)) and `throttle` function (again, from [lodash](https://lodash.com/docs/4.17.15#throttle)) were, I found it hard to find materials that were crystal clear on _exactly_ how they functioned.
+When I was trying to learn the difference between what a `debounce` function (like this one from [lodash](https://lodash.com/docs/4.17.15#debounce)) and `throttle` function were (again, here's one from [lodash](https://lodash.com/docs/4.17.15#throttle)), it turned out to be annoying to find materials that were crystal clear on _exactly_ how they functioned.
 
 This article is going to correct that for you so you don't suffer the same fate. 😌
 
@@ -35,7 +35,11 @@ Nice. Let's get started.
 
 At it's core, `debounce` is a process for calling a function _exactly_ once for any group of calls (the term `debounce` was [coined by John Hann](http://unscriptable.com/2009/03/20/debouncing-javascript-methods/)). What this means is that, for a given group of actions (such as typing a lot of characters in an input), the `debounce` function will be called exactly once (typically either at the start or the end of the group).
 
-For instance, let's say we have this custom `debounce` function:
+Here's a nifty little diagram that might explain this concept:
+
+<img alt="A cluster of function calls with the words 'Function is repeatedly called' over if with a 250ms wait and then a box symbolizing a funciton call that says 'When the function actually runs'" src="/images/blog/debounce-versus-throttle/debounce.webp" width="852" height="639">
+
+For instance, let's say we have this custom `debounce` function written in TypeScript:
 
 ```typescript
 const TIMEOUT_MS = 250;
@@ -120,5 +124,42 @@ If we were to check the dev console, we'd see _exactly_ one log of "Hello World!
 This is because we're only running our debounced function (the logger) once the group of functions has finished running (defined by a gap of `TIMEOUT_MS`).
 
 ## Throttle
+
+I have good news for you! If you were able to make it through the `debounce` section with your sanity in tact, you're home free.
+
+The `throttle` function is, by comparison, really really easy to grasp. That's because `throttle` merely calls a `callback` exactly once within a specified time frame _throughout_ any a series of calls to the `callback`.
+
+You can think of `throttle` like a stoplight that only lets a single car through for every **X** amount of time (even if there are thousands of cars waiting at the stoplight).
+
+A picture is worth a thousand words, so here you go:
+
+<img alt="A cluster of function calls where the function is only allowed to actually run once within the timeout time" src="/images/blog/debounce-versus-throttle/throttle.webp" width="932" height="409">
+
+Here's a custom example of one of these bad boys:
+
+```typescript
+const TIMEOUT_MS = 250;
+
+function throttle(callback: (...args: unknown) => unknown) {
+  let timeoutId: ReturnType<typeof setTimeout> | null = null;
+
+  return () => {
+    if (timeout) {
+      return;
+    }
+
+    timeoutId = setTimeout(() => {
+      clearTimeout(timeoutId);
+      callback();
+    }, TIMEOUT_MS);
+  };
+}
+```
+
+The first part of this function is set up exactly like before (the `TIMEOUT_MS` variable, `callback` parameter, and `timeoutId` variable). We'll skip over those.
+
+The part that differs is where we merely `return` if `timeout` is truthy.
+
+Wait. What? 🤨
 
 ## Conclusion
