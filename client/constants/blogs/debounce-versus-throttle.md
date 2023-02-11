@@ -163,9 +163,9 @@ function throttle(callback: (...args: unknown[]) => unknown) {
 }
 ```
 
-The first part of this function is set up exactly like before (the `TIMEOUT_MS` variable, `callback` function parameter, and `timeoutId` variable). We'll skip over those.
+The first part of this function is set up exactly like before (our `TIMEOUT_MS` variable, `callback` function parameter, and `timeoutId` variable). We'll skip over those.
 
-Once again, I'm hard-coding the timeout time to be 250 milliseconds.
+Once again, we're hard-coding the timeout time to be 250 milliseconds.
 
 The part where our `throttle` differs from `debounce` is that we just return early if we have a `timeoutId` set already inside the anonymous arrow function that we're creating and returning.
 
@@ -176,6 +176,18 @@ I know. It seems a bit off. But what we're essentially doing is building a funct
 Nice, right?
 
 This works like a charm, and it means that we are gauranteed that our `throttle`-ed function will only be called once per `TIMEOUT_MS`.
+
+Once again, let's walk through a quick example of this code in action. First, we create our `throttle`-ed function:
+
+```typescript
+const handleThrottledLog = throttle(() => console.log("Hello World!"));
+```
+
+Next, we're going to write a funky little delayed loop that will call this function once every 50 milliseconds:
+
+```typescript
+// finish
+```
 
 ## Conclusion
 
