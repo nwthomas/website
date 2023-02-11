@@ -35,11 +35,13 @@ Nice. Let's get started.
 
 At it's core, `debounce` is a process for calling a function _exactly_ once for any group of calls (the term `debounce` was [coined by John Hann](http://unscriptable.com/2009/03/20/debouncing-javascript-methods/)). What this means is that, for a given group of actions (such as typing a lot of characters in an input), the `debounce` function will be called exactly once (typically either at the start or the end of the group).
 
+A `debounce` function is often used when a user does a _lot_ of some sort of action and we only want to act on that when they've finished; a good example of this might be when a user is entering in text into a search input. We don't want to do a search each time they type a character, so we wait until they're done typing before firing off a request for data.
+
 Here's a nifty little diagram that might explain this concept:
 
 <img alt="A cluster of function calls with the words 'Function is repeatedly called' over if with a 250ms wait and then a box symbolizing a funciton call that says 'When the function actually runs'" src="/images/blog/debounce-versus-throttle/debounce.webp" width="852" height="639">
 
-For instance, let's say we have this custom `debounce` function written in TypeScript:
+For instance, let's say we have this `debounce` function written in TypeScript:
 
 ```typescript
 const TIMEOUT_MS = 250;
@@ -57,11 +59,11 @@ function debounce(callback: (...args: unknown[]) => unknown) {
 }
 ```
 
-I know, that's a lot to digest. But don't worry w're going to walk through it together.
+I know, that's a lot to digest. But we're going to walk through it together.
 
-First off, I've defined a variable called `TIMEOUT_MS`. A `debounce` (and also `throttle`) function will typically allow you to set your _own_ timeout, but I'm just hard-coding it to make things easier. 👍🏻
+First off, we've defined a variable called `TIMEOUT_MS`. A `debounce` (and also `throttle`) function will typically allow you to set your _own_ timeout, but we're just hard-coding it to make things easier. 👍🏻
 
-Next, we have our very own custom `debounce` function. For its parameter, notice that it takes in a `callback` which can be a function that takes in any number of `args` of `unknown` type and returns an `unknown` type (we might want to change this for a production application, but it works for us here):
+Next, we have our very own custom `debounce` function. For its parameter, notice that it takes in a `callback` function. We don't know what this function will be, so we've defined it to take in any number of `args` of `unknown` type and returns an `unknown` type (we might want to change this for a production application, but it works for us here):
 
 ```typescript
 function debounce(callback: (...args: unknown[]) => unknown) {
@@ -69,7 +71,9 @@ function debounce(callback: (...args: unknown[]) => unknown) {
 }
 ```
 
-This `callback` function is what will eventually be called by our `debounce` function (and is the root action we want performed exactly **once** for any group of attempted calls to it).
+This code has more to do with TypeScript than learning about our `debounce` function, so let's move on (although you can read more about TypeScript [here](https://www.nathanthomas.dev/blog/becoming-a-typescript-badass)).
+
+This `callback` function we're taking in as a function parameter is what we're going to `debounce`! Nice, right?
 
 Next, we have this line of code which will track a `timeoutId`:
 
@@ -77,7 +81,7 @@ Next, we have this line of code which will track a `timeoutId`:
 let timeoutId: ReturnType<typeof setTimeout> | null = null;
 ```
 
-Don't get distracted by the TypeScript types here. All this is doing is declaring a `timeoutId` variable, saying it can either by the type of the returned value of any `setTimeout` call or `null`, and then we set it to `null`.
+Don't get too hung up by the TypeScript types here. All this is doing is declaring a `timeoutId` variable, saying it can either by the type of the returned value of a `setTimeout` call (which returns a `number` ID for the timeout) or `null`, and then we initialize the variable to `null`.
 
 The next thing we're going to do is return a function with the guts of our logic:
 
@@ -91,25 +95,27 @@ return () => {
 };
 ```
 
-The first thing it's doing is checking if `timeoutId` is truthy (e.g. not `null`). If it is, that means our `debounce` has previously been called. We will go ahead and clear the `timeoutId` (for reasons that will become apparent in just a few sentences).
+The first thing it's doing is checking if `timeoutId` is truthy (e.g. not `null`, which was its initial value). If it is, that means our `debounce` has previously been called. We will go ahead and clear the `timeoutId` (for reasons that will become apparent in just a few sentences).
 
-Next, we want to call `setTimeout` and assign the return value to `timeoutId`. This `setTimeout` will call `callback` whenever it times out (which should happen after `TIMEOUT_MS` which we created earlier).
+Next, we want to call `setTimeout` and assign the return value to `timeoutId`. This `setTimeout` will call `callback` whenever it gets a chance to time out (which should happen after 250 milliseconds which we set earlier as `TIMEOUT_MS`).
+
+_Whew_
 
 This was a lot.
 
-The TLDR for the code above is that
+The TLDR for the code above is that we're clearing our previously-set timeout each time we call our `debounce`-ed function. If we go long enough (250 milliseconds) without a call to our `debounce-ed` function, we'll finally get a chance to call our `callback` function.
 
 Let's walk through an example of it being used.
 
 First, let's go ahead and set up our `debounce` function:
 
 ```typescript
-function handleDebouncedLog() {
-  debounce(() => console.log("Hello World!"));
-}
+const handleDebouncedLog() = debounce(() => console.log("Hello World!"));
 ```
 
-From here, we can write a quick loop to run 100 times and call our `handleDebouncedLog` function each time:
+This will define the `callback` and return an anonymous arrow function as we saw before.
+
+From here, we can write a quick loop to run 100 times and call our `handleDebouncedLog` function each time to check that we only see a `console.log` once:
 
 ```typescript
 for (let i = 0; i < 100; i++) {
@@ -119,7 +125,7 @@ for (let i = 0; i < 100; i++) {
 
 If we were to check the dev console, we'd see _exactly_ one log of "Hello World!" when this code was done running.
 
-This is because we're only running our debounced function (the logger) once the group of functions has finished running (defined by a gap of `TIMEOUT_MS`).
+This is because we don't allow our timeout to finish when we quickly and repeatedly call our `debounce`-ed function. It is only allowed to finish at the end (when our 250 millisecond `TIMEOUT_MS` time runs out).
 
 ## Throttle
 
