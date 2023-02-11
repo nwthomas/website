@@ -158,6 +158,7 @@ function throttle(callback: (...args: unknown[]) => unknown) {
 
     timeoutId = setTimeout(() => {
       callback();
+      timeoutId = null;
     }, TIMEOUT_MS);
   };
 }
@@ -180,14 +181,26 @@ This works like a charm, and it means that we are gauranteed that our `throttle`
 Once again, let's walk through a quick example of this code in action. First, we create our `throttle`-ed function:
 
 ```typescript
-const handleThrottledLog = throttle(() => console.log("Hello World!"));
+const handleThrottledLogger = throttle(() => console.log("Hello World!"));
 ```
 
-Next, we're going to write a funky little delayed loop that will call this function once every 50 milliseconds:
+Next, we're going to write a funky little loop that will call this function a hundred times.
 
 ```typescript
-// finish
+for (let i = 0; i < 1000; i++) {
+  setTimeout(() => {
+    handleThrottledLogger();
+  }, i);
+}
 ```
+
+All this is doing is staggering our calls by `i` milliseconds. We're setting 1000 timeouts here (each one staggered by 1 millisecond).
+
+If we were to run this code and check our dev console, we'd see exactly for logs of `"Hello World!"`. Can you think of why?
+
+That's right! It's our `throttle` function in action. We're only allowing on function call to get through every 250 milliseconds.
+
+This is exactly how a `throttle`-ed functions works. It drastically decreases the rate at which some other function (our `callback`) can be called.
 
 ## Conclusion
 
