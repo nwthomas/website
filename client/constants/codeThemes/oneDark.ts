@@ -44,7 +44,6 @@ const oneDark = {
     msHyphens: "none",
     hyphens: "none",
     padding: spaces.medium,
-    margin: "0.5em 0",
     overflow: "auto",
     borderRadius: borderRadii.medium,
     border: `${spaces.nano} solid ${colors.outerSpace}`,
