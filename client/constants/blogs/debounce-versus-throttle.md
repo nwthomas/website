@@ -171,7 +171,7 @@ I know. It seems a bit off. But what we're essentially doing is building a funct
 
 Nice, right?
 
-This works like a charm, and it means that we are gauranteed
+This works like a charm, and it means that we are gauranteed that our `throttle`-ed function will only be called once per `TIMEOUT_MS`.
 
 ## Conclusion
 
@@ -185,6 +185,6 @@ These are all possible with code, and I have a sneaking supicion that you'll be 
 
 In any case, I hope this article helped you grasp the differences between these two types of functions.
 
-As always, thanks for reading my articles. I hope you have a good one.
+As always, thanks for reading my articles.
 
 Nathan ☕️
