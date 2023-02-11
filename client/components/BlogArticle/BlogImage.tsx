@@ -26,7 +26,6 @@ function BlogImage({
       <div>
         <Image
           alt={alt}
-          draggable={false}
           height={Number(height)}
           priority={isHeroImage}
           quality={100}
