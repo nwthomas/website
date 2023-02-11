@@ -69,8 +69,6 @@ function BlogMarkdownRenderer({
   const dateUpdatedLabel = getBlogPostFullDate(dateUpdated || "");
   const dateWrittenLabel = getBlogPostFullDate(dateWritten || "");
 
-  console.log(dateUpdatedLabel, dateWrittenLabel);
-
   return (
     <ReactMarkdown
       children={content}
