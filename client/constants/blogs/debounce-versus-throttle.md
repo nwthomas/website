@@ -2,8 +2,8 @@
 title: "Debounce Versus Throttle"
 description: "While they might seem the same, debounce and throttle actually have different use cases. Let's learn what they are! 🔥"
 imageUrl: /images/blog/debounce-versus-throttle/stoplight.webp
-dateWritten: "2023-02-10"
-dateUpdated: "2023-02-10"
+dateWritten: "2023-02-11"
+dateUpdated: ""
 isDraft: false
 tags:
   - TypeScript
@@ -44,7 +44,7 @@ For instance, let's say we have this custom `debounce` function written in TypeS
 ```typescript
 const TIMEOUT_MS = 250;
 
-function debounce(callback: (...args: unknown) => unknown) {
+function debounce(callback: (...args: unknown[]) => unknown) {
   let timeoutId: ReturnType<typeof setTimeout> | null = null;
 
   return () => {
@@ -57,16 +57,14 @@ function debounce(callback: (...args: unknown) => unknown) {
 }
 ```
 
-I know, that's a lot to digest.
+I know, that's a lot to digest. But don't worry w're going to walk through it together.
 
-But don't worry w're going to walk through it together.
-
-First off, I've defined a variable called `TIMEOUT_MS`. A `debounce` function will typically allow you to set your _own_ timeout, but I'm just hard-coding it to make things easier. 👍🏻
+First off, I've defined a variable called `TIMEOUT_MS`. A `debounce` (and also `throttle`) function will typically allow you to set your _own_ timeout, but I'm just hard-coding it to make things easier. 👍🏻
 
 Next, we have our very own custom `debounce` function. For its parameter, notice that it takes in a `callback` which can be a function that takes in any number of `args` of `unknown` type and returns an `unknown` type (we might want to change this for a production application, but it works for us here):
 
 ```typescript
-function debounce(callback: (...args: unknown) => unknown) {
+function debounce(callback: (...args: unknown[]) => unknown) {
   // ... code goes here
 }
 ```
@@ -144,7 +142,7 @@ And, right on schedule, here's a TypeScript example of one of these bad boys:
 ```typescript
 const TIMEOUT_MS = 250;
 
-function throttle(callback: (...args: Array<unknown>) => unknown) {
+function throttle(callback: (...args: unknown[]) => unknown) {
   let timeoutId: ReturnType<typeof setTimeout> | null = null;
 
   return () => {
