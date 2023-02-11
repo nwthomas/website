@@ -127,39 +127,64 @@ This is because we're only running our debounced function (the logger) once the 
 
 I have good news for you! If you were able to make it through the `debounce` section with your sanity in tact, you're home free.
 
-The `throttle` function is, by comparison, really really easy to grasp. That's because `throttle` merely calls a `callback` exactly once within a specified time frame _throughout_ any a series of calls to the `callback`.
+The `throttle` function is, by comparison, really easy to grasp. This is because `throttle` merely calls a `callback` function _exactly_ once within a time span (which we'll set using our `TIMEOUT_MS` variable).
 
-You can think of `throttle` like a stoplight that only lets a single car through for every **X** amount of time (even if there are thousands of cars waiting at the stoplight).
+It's basically saying, "Hey function. You're doing too much. Let's just dial that activity back to one function call every **X** amount of time to tone things down a little bit."
 
-A picture is worth a thousand words, so here you go:
+Does that make sense?
+
+Another way of thinking about it is that using `throttle` is like a stoplight that only lets a single car through for every **X** amount of time (even if there are thousands of cars that tried to get through the intersection at the same time).
+
+A picture is worth a lot of words, so here's another diagram:
 
 <img alt="A cluster of function calls where the function is only allowed to actually run once within the timeout time" src="/images/blog/debounce-versus-throttle/throttle.webp" width="932" height="409">
 
-Here's a custom example of one of these bad boys:
+And, right on schedule, here's a TypeScript example of one of these bad boys:
 
 ```typescript
 const TIMEOUT_MS = 250;
 
-function throttle(callback: (...args: unknown) => unknown) {
+function throttle(callback: (...args: Array<unknown>) => unknown) {
   let timeoutId: ReturnType<typeof setTimeout> | null = null;
 
   return () => {
-    if (timeout) {
+    if (timeoutId) {
       return;
     }
 
     timeoutId = setTimeout(() => {
-      clearTimeout(timeoutId);
       callback();
     }, TIMEOUT_MS);
   };
 }
 ```
 
-The first part of this function is set up exactly like before (the `TIMEOUT_MS` variable, `callback` parameter, and `timeoutId` variable). We'll skip over those.
+The first part of this function is set up exactly like before (the `TIMEOUT_MS` variable, `callback` function parameter, and `timeoutId` variable). We'll skip over those.
 
-The part that differs is where we merely `return` if `timeout` is truthy.
+Once again, I'm hard-coding the timeout time to be 250 milliseconds.
+
+The part where our `throttle` differs from `debounce` is that we just return early if we have a `timeoutId` set already inside the anonymous arrow function that we're creating and returning.
 
 Wait. What? 🤨
 
+I know. It seems a bit off. But what we're essentially doing is building a function that will set a timeout and save a `timeoutId` the first time it runs. Thereafter (until the timeout finishes and calls the `callback`), any further attempts to call our `throttle`-ed function will merely return and not run.
+
+Nice, right?
+
+This works like a charm, and it means that we are gauranteed
+
 ## Conclusion
+
+Now that you have a great idea of the difference between `debounce` and `throttle`, you can go one step further.
+
+What happens if you want the function call at the _end_ of your `throttle`-ed function to run instead of the _start_ (called the "trailing edge" call rather than the "leading edge" which is what this article talked you through)?
+
+What happens if you're `debounce`-ing a function for user input on a search bar and you want the eventual function call to run with the _newest_ data from the _last_ function call (again, "trailing edge" versus "leading edge")?
+
+These are all possible with code, and I have a sneaking supicion that you'll be able to implement them now!
+
+In any case, I hope this article helped you grasp the differences between these two types of functions.
+
+As always, thanks for reading my articles. I hope you have a good one.
+
+Nathan ☕️
