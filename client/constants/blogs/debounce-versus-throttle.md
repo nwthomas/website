@@ -110,7 +110,7 @@ Let's walk through an example of it being used.
 First, let's go ahead and set up our `debounce` function:
 
 ```typescript
-const handleDebouncedLog() = debounce(() => console.log("Hello World!"));
+const handleDebouncedLog = debounce(() => console.log("Hello World!"));
 ```
 
 This will define the `callback` and return an anonymous arrow function as we saw before.
