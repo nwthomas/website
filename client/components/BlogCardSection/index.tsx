@@ -153,15 +153,13 @@ const RootStyles = styled.section`
 
   > ul {
     display: grid;
-    grid-column-gap: ${({ theme }) => theme.spaces.micro};
-    grid-row-gap: ${({ theme }) => theme.spaces.micro};
+    grid-column-gap: ${({ theme }) => theme.spaces.small};
+    grid-row-gap: ${({ theme }) => theme.spaces.small};
     grid-template-columns: 1fr;
     grid-auto-rows: 1fr;
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
-      grid-column-gap: ${({ theme }) => theme.spaces.small};
-      grid-row-gap: ${({ theme }) => theme.spaces.small};
       grid-template-columns: 1fr 1fr;
     }
 
