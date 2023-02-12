@@ -60,6 +60,16 @@ function Footer() {
             </li>
             <li>
               <a
+                href="https://open.spotify.com/user/nathanwthomas"
+                aria-label="Link to Nathan's Spotify"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Spotify
+              </a>
+            </li>
+            <li>
+              <a
                 href="https://nathanthomas.substack.com/"
                 aria-label="Link to Nathan's Substack"
                 rel="noopener noreferrer"
