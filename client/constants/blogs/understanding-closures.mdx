@@ -19,7 +19,7 @@ tags:
 
 ## Starting From the Outside In
 
-Explaining closures is a frequently-used JavaScript interview question, but many engineers still don’t fully understand how they work. There’s a fog that surrounds it, much like the feeling you get when you eat too much during the holidays. 🥧
+Explaining closures is a frequently-used JavaScript and TypeScript interview question, but many engineers still don’t fully understand how they work. There’s a fog that surrounds it, much like the feeling you get when you eat too much during the holidays. 🥧
 
 When I first started learning closures, my first impulse was to close my laptop screen and go stare existentially at the local pond. But don’t worry; closures trip up a lot of people, but you’ll understand how they work and the concepts behind them by the end of this article.
 
@@ -33,13 +33,13 @@ Grab your favorite coffee, apple cider, hot chocolate, or wintery beverage, and 
 
 ## Grab Your Backpack
 
-Closures are an interesting concept. They are truly invisible in your code, and yet they are very real. If you've written any JavaScript, you've almost certainly used them without even realizing it.
+Closures are an interesting concept. They are truly invisible in your code, and yet they are very real. If you've written any JavaScript or TypeScript, you've almost certainly used them without even realizing it.
 
 If nothing else, that should give you comfort; if you're already accidentally using them successfully, half the battle will just be learning the ideas behind them to fill in the gaps of how they work.
 
 At a very base level, a closure is an invisible compartmentalization of variables that are accessible to your code at various levels (e.g. the global scope, local function scope, etc.).
 
-Each time you write a function, a closure is created for the scope available to it. JavaScript does this automatically, so all we need to do is understand it.
+Each time you write a function, a closure is created for the scope available to it. Our compiler does this automatically, so all we need to do is understand it.
 
 For instance, let's say we have the following code:
 
@@ -59,7 +59,7 @@ const closure = createClosure();
 console.log(closure()); // returns 3
 ```
 
-This code will log the number `3` to the console. JavaScript has created multiple scopes for your code behind the scenes; there is a global scope with the `globalVariable` in it and local scopes with the `localVariable` and `globalVariable` accessible in them.
+This code will log the number `3` to the console. Multiple scopes have been created for your code behind the scenes; there is a global scope with the `globalVariable` in it and local scopes with the `localVariable` and `globalVariable` accessible in them.
 
 Here's the same code with comments included to indicate which parts are global and local scopes:
 
@@ -186,7 +186,7 @@ We then proceed to declare three functions:
 1. `increment`, which increases the value of `num` and returns its value
 2. `decrement`, which decreases the value of `num` and returns its value
 3. `getNum`, which returns the current value of `num`
-4. Finally, we return these three functions inside an array. As functions are "first class citizens" in JavaScript, we can pass functions around like this to be returned from our function and used elsewhere.
+4. Finally, we return these three functions inside an array. As functions are "first class citizens" in JavaScript and TypeScript, we can pass functions around like this to be returned from our function and used elsewhere.
 
 This is why, later on, we can invoke createCountingClosure and destructure out these three functions:
 
