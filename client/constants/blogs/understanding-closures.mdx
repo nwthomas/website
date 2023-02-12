@@ -82,7 +82,7 @@ const closure = createClosure();
 console.log(closure()); // returns 3
 ```
 
-Stop and think about what's happening here for a moment; the createClosure function can access both variables.
+Stop and think about what's happening here for a moment; the `createClosure` function can access both variables.
 
 What if I told you that this ability of closures to access all variables in scope at time of the function's creation could be used later when the function is used elsewhere, even another file?
 
