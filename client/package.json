@@ -22,6 +22,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@prisma/client": "^4.10.1",
     "@reduxjs/toolkit": "^1.6.2",
     "@sentry/nextjs": "^7.30.0",
     "@vercel/analytics": "^0.1.8",
@@ -69,6 +70,7 @@
     "playwright": "^1.29.2",
     "playwright-aws-lambda": "^0.9.0",
     "playwright-core": "^1.29.2",
+    "prisma": "^4.10.1",
     "rehype-accessible-emojis": "^0.3.2",
     "remark-unwrap-images": "^3.0.1",
     "typescript": "4.9.4"
