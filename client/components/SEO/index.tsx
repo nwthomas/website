@@ -86,9 +86,7 @@ function SEO({
           <meta
             name="theme-color"
             content={
-              currentTheme === DARK_THEME
-                ? colorsHex.codGray
-                : colorsHex.alabaster
+              currentTheme === DARK_THEME ? colorsHex.codGray : colorsHex.white
             }
           ></meta>
         ) : null}
