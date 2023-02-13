@@ -44,16 +44,5 @@ const RootStyles = styled.main`
         theme.breakpoints.tablet}) {
       font-size: 2rem;
     }
-
-    > a {
-      font-family: inherit;
-      font-size: inherit;
-      text-decoration: none;
-      transition: opacity ${({ theme }) => theme.transitions.short} ease-in-out;
-
-      &:hover {
-        opacity: ${({ theme }) => theme.opacity.opacity80};
-      }
-    }
   }
 `;

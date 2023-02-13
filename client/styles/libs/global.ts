@@ -205,19 +205,6 @@ const GlobalStyle = css`
     }
   }
 
-  button {
-    background-color: ${({ theme }) => theme.colors.buttonPrimaryBackground};
-    color: ${({ theme }) => theme.colorsHex.white};
-    cursor: pointer;
-    font-size: 1.6rem;
-    font-weight: bold;
-    transition: opacity ${({ theme }) => theme.transitions.short} ease-in-out;
-
-    &:hover {
-      opacity: ${({ theme }) => theme.opacity.opacity80};
-    }
-  }
-
   img {
     aspect-ratio: attr(width) / attr(height);
     height: auto;

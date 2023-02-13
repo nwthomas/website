@@ -145,11 +145,23 @@ const RootStyles = styled.div<StyleProps>`
 
     > div {
       display: flex;
+      grid-column-start: 1;
+      grid-column-end: 2;
+      justify-content: flex-end;
       margin-top: ${({ theme }) => theme.spaces.large};
       padding-top: ${({ level, theme }) =>
         level === 1 ? theme.spaces.medium : theme.spaces.xSmall};
       opacity: ${({ theme }) => theme.opacity.opacity00};
       transition: opacity ${({ theme }) => theme.transitions.short} ease-in-out;
+
+      svg {
+        height: ${({ level, theme }) =>
+          level === 1 ? theme.spaces.xLarge : theme.spaces.medium};
+        margin-bottom: ${({ theme }) => theme.spaces.micro};
+        margin-right: ${({ theme }) => theme.spaces.small};
+        width: ${({ level, theme }) =>
+          level === 1 ? theme.spaces.xLarge : theme.spaces.medium};
+      }
     }
 
     @media only screen and (min-width: ${({ theme }) =>
@@ -159,19 +171,7 @@ const RootStyles = styled.div<StyleProps>`
         @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.desktop}) {
           > div {
-            grid-column-start: 1;
-            grid-column-end: 2;
-            justify-content: flex-end;
             opacity: ${({ theme }) => theme.opacity.opacity100};
-
-            svg {
-              height: ${({ level, theme }) =>
-                level === 1 ? theme.spaces.xLarge : theme.spaces.medium};
-              margin-bottom: ${({ theme }) => theme.spaces.micro};
-              margin-right: ${({ theme }) => theme.spaces.small};
-              width: ${({ level, theme }) =>
-                level === 1 ? theme.spaces.xLarge : theme.spaces.medium};
-            }
           }
         }
       }
