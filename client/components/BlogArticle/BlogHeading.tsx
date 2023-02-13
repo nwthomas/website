@@ -155,23 +155,28 @@ const RootStyles = styled.div<StyleProps>`
       transition: opacity ${({ theme }) => theme.transitions.short} ease-in-out;
 
       svg {
-        height: ${({ level, theme }) =>
-          level === 1 ? theme.spaces.xLarge : theme.spaces.medium};
-        margin-bottom: ${({ theme }) => theme.spaces.micro};
-        margin-right: ${({ theme }) => theme.spaces.small};
-        width: ${({ level, theme }) =>
-          level === 1 ? theme.spaces.xLarge : theme.spaces.medium};
+        display: none;
       }
-    }
 
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.desktop}) {
-      &:active,
-      &:hover {
-        @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.desktop}) {
-          > div {
-            opacity: ${({ theme }) => theme.opacity.opacity100};
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.desktop}) {
+        svg {
+          display: block;
+          height: ${({ level, theme }) =>
+            level === 1 ? theme.spaces.xLarge : theme.spaces.medium};
+          margin-bottom: ${({ theme }) => theme.spaces.micro};
+          margin-right: ${({ theme }) => theme.spaces.small};
+          width: ${({ level, theme }) =>
+            level === 1 ? theme.spaces.xLarge : theme.spaces.medium};
+        }
+
+        &:active,
+        &:hover {
+          @media only screen and (min-width: ${({ theme }) =>
+              theme.breakpoints.desktop}) {
+            > div {
+              opacity: ${({ theme }) => theme.opacity.opacity100};
+            }
           }
         }
       }
