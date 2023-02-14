@@ -2,7 +2,7 @@
 title: "Debounce Versus Throttle"
 description: "While they might seem the same, debounce and throttle actually have different use cases. Let's learn what they are! 🔥"
 imageUrl: /images/blog/debounce-versus-throttle/stoplight.webp
-dateWritten: "2023-02-11"
+dateWritten: "2023-02-14"
 dateUpdated: ""
 isDraft: false
 tags:
@@ -17,11 +17,11 @@ tags:
 
 ## Introduction
 
-When I was trying to learn the difference between what a `debounce` function (like this one from [lodash](https://lodash.com/docs/4.17.15#debounce)) and `throttle` function were (again, here's one from [lodash](https://lodash.com/docs/4.17.15#throttle)), it turned out to be annoying to find materials that were crystal clear on _exactly_ how they functioned.
+Back when I was trying to learn the difference between what a `debounce` function (like this one from [lodash](https://lodash.com/docs/4.17.15#debounce)) and `throttle` function were (again, here's one from [lodash](https://lodash.com/docs/4.17.15#throttle)), it turned out to be annoying to find materials that were crystal clear on _exactly_ how they functioned.
 
-This article is going to correct that for you so you don't suffer the same fate. 😌
+I decided to write an article to correct that for you so you don't suffer the same fate! 😌
 
-The main source of confusion is that, at face value, the two of them seem to even behave a little bit the same. If you're reading this, I'm sure you've noticed the same thing.
+The main source of confusion is that, at face value, the two of them seem to behave a bit the same. If you're here reading this, I'm sure you've noticed the same thing.
 
 What we're going to do is take them one at a time and walk through some **real** code examples that will show you exactly what they do (and how they're different).
 
@@ -33,7 +33,7 @@ Nice. Let's get started.
 
 ## Debounce
 
-At it's core, `debounce` is a process for calling a function _exactly_ once for any group of calls (the term `debounce` was [coined by John Hann](http://unscriptable.com/2009/03/20/debouncing-javascript-methods/)). What this means is that, for a given group of actions (such as typing a lot of characters in an input), the `debounce` function will be called exactly once (typically either at the start or the end of the group).
+At it's core, `debounce` is a process for calling a function _exactly_ once for any group of calls (the term `debounce` was [coined by John Hann](http://unscriptable.com/2009/03/20/debouncing-javascript-methods/)).
 
 A `debounce` function is often used when a user does a _lot_ of some sort of action and we only want to act on that when they've finished; a good example of this might be when a user is entering in text into a search input. We don't want to do a search each time they type a character, so we wait until they're done typing before firing off a request for data.
 
@@ -61,7 +61,7 @@ function debounce(callback: (...args: unknown[]) => unknown) {
 
 I know, that's a lot to digest. But we're going to walk through it together.
 
-First off, we've defined a variable called `TIMEOUT_MS`. A `debounce` (and also `throttle`) function will typically allow you to set your _own_ timeout, but we're just hard-coding it to make things easier. 👍🏻
+First off, we've defined a variable called `TIMEOUT_MS`. A `debounce` (and also `throttle`) function you'd actually use in a real app would typically allow you to set your _own_ timeout, but we're just hard-coding it here to make things easier. 👍🏻
 
 Next, we have our very own custom `debounce` function. For its parameter, notice that it takes in a `callback` function. We don't know what this function will be, so we've defined it to take in any number of `args` of `unknown` type and returns an `unknown` type (we might want to change this for a production application, but it works for us here):
 
@@ -95,11 +95,11 @@ return () => {
 };
 ```
 
-The first thing it's doing is checking if `timeoutId` is truthy (e.g. not `null`, which was its initial value). If it is, that means our `debounce` has previously been called. We will go ahead and clear the `timeoutId` (for reasons that will become apparent in just a few sentences).
+The first thing it's doing is checking if `timeoutId` is truthy (e.g. not `null`, which was its initial value). If it is, that means our `debounce` has previously been called. We will go ahead and clear the `timeoutId` for reasons that will become apparent in the next few sentences.
 
 Next, we want to call `setTimeout` and assign the return value to `timeoutId`. This `setTimeout` will call `callback` whenever it gets a chance to time out (which should happen after 250 milliseconds which we set earlier as `TIMEOUT_MS`).
 
-_Whew_
+_Whew_.
 
 This was a lot.
 
@@ -113,9 +113,9 @@ First, let's go ahead and set up our `debounce` function:
 const handleDebouncedLog = debounce(() => console.log("Hello World!"));
 ```
 
-This will define the `callback` and return an anonymous arrow function as we saw before.
+This passes in a `callback` function into `debounce` and returns an anonymous arrow function as we saw before.
 
-From here, we can write a quick loop to run 100 times and call our `handleDebouncedLog` function each time to check that we only see a `console.log` once:
+From here, we can write a quick loop to run 100 times and call our `handleDebouncedLog` function each time:
 
 ```typescript
 for (let i = 0; i < 100; i++) {
@@ -125,7 +125,11 @@ for (let i = 0; i < 100; i++) {
 
 If we were to check the dev console, we'd see _exactly_ one log of "Hello World!" when this code was done running.
 
-This is because we don't allow our timeout to finish when we quickly and repeatedly call our `debounce`-ed function. It is only allowed to finish at the end (when our 250 millisecond `TIMEOUT_MS` time runs out).
+This is because we don't allow our timeout to finish when we quickly and repeatedly call our `debounce`-ed function. Each time it's called, it's clearing out the previous `timeoutId` and then setting a new one. It's only allowed to finish at the end when our 250 millisecond `TIMEOUT_MS` time runs out.
+
+Make sense? Nice.
+
+Let's move on to `throttle`.
 
 ## Throttle
 
