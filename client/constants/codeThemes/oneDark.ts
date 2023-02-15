@@ -84,7 +84,7 @@ const oneDark = {
     whiteSpace: "normal",
   },
   comment: {
-    color: "hsl(220, 10%, 40%)",
+    color: colors.manatee,
     fontStyle: "italic",
   },
   prolog: {
