@@ -87,10 +87,13 @@ The next thing we're going to do is return a function with the guts of our logic
 
 ```typescript
 return () => {
+  // If we've previously set a timeoutId, that means we've called
+  // this function within the timeout time limit
   if (timeoutId) {
     clearTimeout(timeoutId);
   }
 
+  // Whether or not we clear the timeoutId above, set new timeout
   timeoutId = setTimeout(() => callback(), TIMEOUT_MS);
 };
 ```
