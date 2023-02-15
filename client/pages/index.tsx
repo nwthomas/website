@@ -84,6 +84,12 @@ const RootStyles = styled.div`
           color: ${({ theme }) => theme.colors.textAccentOne};
           font-family: inherit;
           font-size: inherit;
+          transition: color ${({ theme }) => theme.transitions.short}
+            ease-in-out;
+
+          &:hover {
+            color: ${({ theme }) => theme.colors.textAccentTwo};
+          }
         }
 
         > span {

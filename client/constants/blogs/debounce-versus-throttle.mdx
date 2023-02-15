@@ -1,6 +1,6 @@
 ---
 title: "Debounce Versus Throttle"
-description: "While they might seem the same, debounce and throttle actually have different use cases. Let's learn what they are! 🔥"
+description: "While they might seem the same, debounce and throttle actually have different use cases. Let's learn what they are!"
 imageUrl: /images/blog/debounce-versus-throttle/stoplight.webp
 dateWritten: "2023-02-14"
 dateUpdated: ""
@@ -97,13 +97,13 @@ return () => {
 
 The first thing it's doing is checking if `timeoutId` is truthy (e.g. not `null`, which was its initial value). If it is, that means our `debounce` has previously been called. We will go ahead and clear the `timeoutId` for reasons that will become apparent in the next few sentences.
 
-Next, we want to call `setTimeout` and assign the return value to `timeoutId`. This `setTimeout` will call `callback` whenever it gets a chance to time out (which should happen after 250 milliseconds which we set earlier as `TIMEOUT_MS`).
+Next, we want to call `setTimeout` and assign the return value to `timeoutId`. This `setTimeout` will call `callback` whenever it gets a chance to time out (which should happen after `250` milliseconds which we set earlier as `TIMEOUT_MS`).
 
 _Whew_.
 
 This was a lot.
 
-The TLDR for the code above is that we're clearing our previously-set timeout each time we call our `debounce`-ed function. If we go long enough (250 milliseconds) without a call to our `debounce-ed` function, we'll finally get a chance to call our `callback` function.
+The TLDR for the code above is that we're clearing our previously-set timeout each time we call our `debounce`-ed function. If we go long enough (`250` milliseconds) without a call to our `debounce-ed` function, we'll finally get a chance to call our `callback` function.
 
 Let's walk through an example of it being used.
 
@@ -125,7 +125,7 @@ for (let i = 0; i < 100; i++) {
 
 If we were to check the dev console, we'd see _exactly_ one log of "Hello World!" when this code was done running.
 
-This is because we don't allow our timeout to finish when we quickly and repeatedly call our `debounce`-ed function. Each time it's called, it's clearing out the previous `timeoutId` and then setting a new one. It's only allowed to finish at the end when our 250 millisecond `TIMEOUT_MS` time runs out.
+This is because we don't allow our timeout to finish when we quickly and repeatedly call our `debounce`-ed function. Each time it's called, it's clearing out the previous `timeoutId` and then setting a new one. It's only allowed to finish at the end when our `250` millisecond `TIMEOUT_MS` time runs out.
 
 Make sense? Nice.
 
@@ -137,20 +137,22 @@ I have good news for you! If you were able to make it through the `debounce` sec
 
 The `throttle` function is, by comparison, really easy to grasp. This is because `throttle` merely calls a `callback` function _exactly_ once within a time span (which we'll set using our `TIMEOUT_MS` variable).
 
-It's basically saying, "Hey function. You're doing too much. Let's just dial that activity back to one function call every **X** amount of time to tone things down a little bit."
+If that sounds the same as `debounce`, well... hang with me. Let's discuss it.
+
+A `throttle` fuction is basically saying to a `callback` function it's given, "Hey. You're doing too much. Let's just dial that activity back to one function call every **X** amount of time to tone things down a little bit."
 
 Does that make sense?
 
 Another way of thinking about it is that using `throttle` is like a stoplight that only lets a single car through for every **X** amount of time (even if there are thousands of cars that tried to get through the intersection at the same time).
 
-A picture is worth a lot of words, so here's another diagram:
+A picture is worth a thousand words, so here's another one:
 
 <img alt="A cluster of function calls where the function is only allowed to actually run once within the timeout time" src="/images/blog/debounce-versus-throttle/throttle.webp" width="932" height="409">
 
 And, right on schedule, here's a TypeScript example of one of these bad boys:
 
 ```typescript
-const TIMEOUT_MS = 250;
+const TIMEOUT_MS = 10;
 
 function throttle(callback: (...args: unknown[]) => unknown) {
   let timeoutId: ReturnType<typeof setTimeout> | null = null;
@@ -170,17 +172,32 @@ function throttle(callback: (...args: unknown[]) => unknown) {
 
 The first part of this function is set up exactly like before (our `TIMEOUT_MS` variable, `callback` function parameter, and `timeoutId` variable). We'll skip over those.
 
-Once again, we're hard-coding the timeout time to be 250 milliseconds.
+I've hard-coded the timeout milliseconds to be `10` this time. That's to reflect the fact that `throttle` is often used to juuuust barely take the edge off some user-initiated action (like moving a mouse or typing into an input) which we want to not run as often.
 
-The part where our `throttle` differs from `debounce` is that we just return early if we have a `timeoutId` set already inside the anonymous arrow function that we're creating and returning.
+However, this is where our `throttle` differs from `debounce`. We just return early if we have a `timeoutId` set already inside the anonymous arrow function that we're creating and returning:
+
+```typescript
+return () => {
+  // This ensures we return if we've previously called the
+  // function to kick off the timeout
+  if (timeoutId) {
+    return;
+  }
+
+  // Else, we set the timout which will eventually call our
+  // callback and reset timeoutId to null
+  timeoutId = setTimeout(() => {
+    callback();
+    timeoutId = null;
+  }, TIMEOUT_MS);
+};
+```
 
 Wait. What? 🤨
 
-I know. It seems a bit off. But what we're essentially doing is building a function that will set a timeout and save a `timeoutId` the first time it runs. Thereafter (until the timeout finishes and calls the `callback`), any further attempts to call our `throttle`-ed function will merely return and not run.
+I know. It seems a bit off. But what we're essentially doing is building a function that will set a timeout and save a `timeoutId` the first time it runs. Thereafter (until the timeout finishes `10` milliseconds later and calls the `callback`), any further attempts to call our `throttle`-ed function will merely return and not run.
 
-Nice, right?
-
-This works like a charm, and it means that we are gauranteed that our `throttle`-ed function will only be called once per `TIMEOUT_MS`.
+This works like a charm, and it means that we are guaranteed that our `throttle`-ed function will only be called once per `TIMEOUT_MS`.
 
 Once again, let's walk through a quick example of this code in action. First, we create our `throttle`-ed function:
 
@@ -191,20 +208,20 @@ const handleThrottledLogger = throttle(() => console.log("Hello World!"));
 Next, we're going to write a funky little loop that will call this function a hundred times.
 
 ```typescript
-for (let i = 0; i < 1000; i++) {
+for (let i = 0; i < 100; i++) {
   setTimeout(() => {
     handleThrottledLogger();
   }, i);
 }
 ```
 
-All this is doing is staggering our calls by `i` milliseconds. We're setting 1000 timeouts here (each one staggered by 1 millisecond).
+All this is doing is staggering our calls by `i` milliseconds. We're setting `100` timeouts here (each one staggered by `1` millisecond).
 
-If we were to run this code and check our dev console, we'd see exactly for logs of `"Hello World!"`. Can you think of why?
+If we were to run this code and check our dev console, we'd see exactly `10` logs of `"Hello World!"`. Can you think of why?
 
-That's right! It's our `throttle` function in action. We're only allowing on function call to get through every 250 milliseconds.
+That's right! It's our `throttle` function in action. We're only allowing on function call to get through once every `10` milliseconds.
 
-This is exactly how a `throttle`-ed functions works. It drastically decreases the rate at which some other function (our `callback`) can be called.
+This is exactly how a `throttle`-ed functions works. It drastically decreases the rate at which the `callback` function inside it can be called.
 
 ## Conclusion
 
