@@ -29,7 +29,9 @@ By the end, you'll be a pro.
 
 Sound good?
 
-Nice. Let's get started.
+Nice. If you want to follow along with live code, check out [this CodeSandbox link](https://codesandbox.io/p/sandbox/debounce-versus-throttle-sandbox-ltxep3?file=%2Fsrc%2Findex.ts&selection=%5B%7B%22endColumn%22%3A1%2C%22endLineNumber%22%3A11%2C%22startColumn%22%3A1%2C%22startLineNumber%22%3A11%7D%5D).
+
+Let's get started.
 
 ## Debounce
 
@@ -208,21 +210,21 @@ Once again, let's walk through a quick example of this code in action. First, we
 const handleThrottledLogger = throttle(() => console.log("Hello World!"));
 ```
 
-Next, we're going to write a funky little loop that will call this function a hundred times.
+Next, we're going to write a funky little loop that will call this function `20` times.
 
 ```typescript
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 20; i++) {
   setTimeout(() => {
     handleThrottledLogger();
   }, i);
 }
 ```
 
-All this is doing is staggering our calls by `i` milliseconds. We're setting `100` timeouts here (each one staggered by `1` millisecond).
+All this is doing is staggering our calls by `i` milliseconds. We're setting `20` timeouts here (each one staggered by `1` millisecond so they run one after another).
 
-If we were to run this code and check our dev console, we'd see exactly `10` logs of `"Hello World!"`. Can you think of why?
+If we were to run this code and check our dev console, we'd see exactly `2` logs of `"Hello World!"`. Can you think of why?
 
-That's right! It's our `throttle` function in action. We're only allowing on function call to get through once every `10` milliseconds.
+That's right! It's our `throttle` function in action. We're only allowing one function call to get through once every `2` milliseconds.
 
 This is exactly how a `throttle`-ed functions works. It drastically decreases the rate at which the `callback` function inside it can be called.
 
