@@ -43,7 +43,7 @@ Here's a nifty little diagram that might explain this concept:
 
 <img alt="A cluster of function calls with the words 'Function is repeatedly called' over if with a 250ms wait and then a box symbolizing a funciton call that says 'When the function actually runs'" src="/images/blog/debounce-versus-throttle/debounce.webp" width="852" height="639">
 
-For instance, let's say we have this `debounce` function written in TypeScript:
+For instance, let's say we have this simplified `debounce` function written in TypeScript:
 
 ```typescript
 const TIMEOUT_MS = 250;
@@ -152,9 +152,9 @@ Another way of thinking about it is that using `throttle` is like a stoplight th
 
 A picture is worth a thousand words, so here's another one:
 
-<img alt="A cluster of function calls where the function is only allowed to actually run once within the timeout time" src="/images/blog/debounce-versus-throttle/throttle.webp" width="932" height="409">
+<img alt="A cluster of function calls where the function is only allowed to actually run once within the timeout time" src="/images/blog/debounce-versus-throttle/throttle.webp" width="932" height="419">
 
-And, right on schedule, here's a TypeScript example of one of these bad boys:
+And, right on schedule, here's a simplified TypeScript example of one of these bad boys:
 
 ```typescript
 const TIMEOUT_MS = 10;
