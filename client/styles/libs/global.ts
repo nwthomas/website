@@ -47,8 +47,8 @@ const GlobalStyle = css`
     --error: ${colors.scarlet};
     --selection: ${colors.pictonBlue};
     --text: ${colors.mercury};
-    --text-accent-one: ${colors.hookersGreen};
-    --text-accent-two: ${colors.juniper};
+    --text-accent-one: ${colors.juniper};
+    --text-accent-two: ${colors.hookersGreen};
     --text-secondary: ${colors.manatee};
   }
   body.light {
@@ -59,8 +59,8 @@ const GlobalStyle = css`
     --error: ${colors.scarlet};
     --selection: ${colors.pictonBlue};
     --text: ${colors.mineShaft};
-    --text-accent-one: ${colors.juniper};
-    --text-accent-two: ${colors.hookersGreen};
+    --text-accent-one: ${colors.hookersGreen};
+    --text-accent-two: ${colors.juniper};
     --text-secondary: ${colors.doveGray};
   }
 
