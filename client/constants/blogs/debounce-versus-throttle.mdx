@@ -3,7 +3,7 @@ title: "Debounce Versus Throttle"
 description: "While they might seem the same, debounce and throttle actually have different use cases. Let's learn what they are!"
 imageUrl: /images/blog/debounce-versus-throttle/stoplight.webp
 dateWritten: "2023-02-14"
-dateUpdated: ""
+dateUpdated: "2023-02-15"
 isDraft: false
 tags:
   - TypeScript
@@ -51,12 +51,12 @@ const TIMEOUT_MS = 250;
 function debounce(callback: (...args: unknown[]) => unknown) {
   let timeoutId: ReturnType<typeof setTimeout> | null = null;
 
-  return () => {
+  return (...args: unknown[]) => {
     if (timeoutId) {
       clearTimeout(timeoutId);
     }
 
-    timeoutId = setTimeout(() => callback(), TIMEOUT_MS);
+    timeoutId = setTimeout(() => callback(...args), TIMEOUT_MS);
   };
 }
 ```
@@ -88,7 +88,7 @@ Don't get too hung up by the TypeScript types here. All this is doing is declari
 The next thing we're going to do is return a function with the guts of our logic:
 
 ```typescript
-return () => {
+return (...args: unknown[]) => {
   // If we've previously set a timeoutId, that means we've called
   // this function within the timeout time limit
   if (timeoutId) {
@@ -96,7 +96,7 @@ return () => {
   }
 
   // Whether or not we clear the timeoutId above, set new timeout
-  timeoutId = setTimeout(() => callback(), TIMEOUT_MS);
+  timeoutId = setTimeout(() => callback(...args), TIMEOUT_MS);
 };
 ```
 
@@ -162,13 +162,13 @@ const TIMEOUT_MS = 10;
 function throttle(callback: (...args: unknown[]) => unknown) {
   let timeoutId: ReturnType<typeof setTimeout> | null = null;
 
-  return () => {
+  return (...args: unknown[]) => {
     if (timeoutId) {
       return;
     }
 
     timeoutId = setTimeout(() => {
-      callback();
+      callback(...args);
       timeoutId = null;
     }, TIMEOUT_MS);
   };
@@ -182,7 +182,7 @@ I've hard-coded the timeout milliseconds to be `10` this time. That's to reflect
 However, this is where our `throttle` differs from `debounce`. We just return early if we have a `timeoutId` set already inside the anonymous arrow function that we're creating and returning:
 
 ```typescript
-return () => {
+return (...args: unknown[]) => {
   // This ensures we return if we've previously called the
   // function to kick off the timeout
   if (timeoutId) {
@@ -192,7 +192,7 @@ return () => {
   // Else, we set the timout which will eventually call our
   // callback and reset timeoutId to null
   timeoutId = setTimeout(() => {
-    callback();
+    callback(...args);
     timeoutId = null;
   }, TIMEOUT_MS);
 };
