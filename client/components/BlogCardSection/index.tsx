@@ -99,9 +99,10 @@ const RootStyles = styled.section`
           border: ${({ theme }) =>
             `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
           border-radius: ${({ theme }) => theme.borderRadii.infinity};
+          cursor: pointer;
           display: flex;
-          height: 38px;
-          width: 38px;
+          height: ${({ theme }) => theme.spaces.large};
+          width: ${({ theme }) => theme.spaces.large};
           justify-content: center;
           padding: 0;
           outline: none;

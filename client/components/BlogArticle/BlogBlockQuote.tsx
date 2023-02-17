@@ -18,8 +18,13 @@ const RootStyles = styled.div`
     border-left: ${({ theme }) =>
       `calc(${theme.spaces.nano} * 2) solid ${theme.colors.bodyBackgroundAccentOne}`};
     max-width: ${({ theme }) => theme.appDimensions.articleMaxWidth};
-    margin-top: ${({ theme }) => theme.spaces.large};
+    margin-top: ${({ theme }) => theme.spaces.medium};
     width: 100%;
+
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.tablet}) {
+      margin-top: ${({ theme }) => theme.spaces.large};
+    }
 
     > div {
       &:first-of-type {
