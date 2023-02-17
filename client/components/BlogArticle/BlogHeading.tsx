@@ -193,7 +193,12 @@ const RootStyles = styled.div<StyleProps>`
       cursor: pointer;
       grid-column-start: 2;
       grid-column-end: 3;
-      margin-top: ${({ theme }) => theme.spaces.large};
+      margin-top: ${({ theme }) => theme.spaces.medium};
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.tablet}) {
+        margin-top: ${({ theme }) => theme.spaces.large};
+      }
 
       > a {
         color: inherit;

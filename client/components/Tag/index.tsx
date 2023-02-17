@@ -29,6 +29,7 @@ const StyledLink = styled(Link)`
   border-radius: ${({ theme }) => theme.borderRadii.infinity};
   cursor: pointer;
   display: flex;
+  height: ${({ theme }) => theme.spaces.large};
   justify-content: center;
   padding: ${({ theme }) => `${theme.spaces.xSmall} ${theme.spaces.medium}`};
   position: relative;
@@ -39,8 +40,8 @@ const StyledLink = styled(Link)`
     color: ${({ theme }) => theme.colors.text};
     font-size: 1.6rem;
     display: block;
-    height: 100%;
     line-height: 1;
+    text-align: center;
     width: 100%;
 
     @media only screen and (min-width: ${({ theme }) =>
