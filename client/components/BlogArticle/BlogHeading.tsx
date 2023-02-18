@@ -229,8 +229,10 @@ const RootStyles = styled.div<StyleProps>`
 
   > div:nth-child(2) {
     display: flex;
+    flex-wrap: wrap;
+    margin-top: ${({ theme }) =>
+      `calc(${theme.spaces.medium} - ${theme.spaces.xxSmall})`};
     max-width: ${({ theme }) => theme.appDimensions.articleMaxWidth};
-    margin-top: ${({ theme }) => theme.spaces.medium};
     width: 100%;
 
     > p {
@@ -239,6 +241,7 @@ const RootStyles = styled.div<StyleProps>`
       color: ${({ theme }) => theme.colors.textSecondary};
       font-size: 1.4rem;
       margin-right: ${({ theme }) => theme.spaces.small};
+      margin-top: ${({ theme }) => theme.spaces.xxSmall};
       padding: ${({ theme }) =>
         `${theme.spaces.nano} calc(${theme.spaces.micro} * 2) ${theme.spaces.micro}`};
 
