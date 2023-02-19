@@ -127,6 +127,11 @@ const GlobalStyle = css`
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
+      font-size: 4.5rem;
+    }
+
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.desktop}) {
       font-size: 6rem;
     }
   }
