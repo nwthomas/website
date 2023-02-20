@@ -60,7 +60,6 @@ function Layout({
         withPageNameEmojis={withPageNameEmojis}
       />
       <RootStyles isDarkMode={isDarkMode}>
-        <div />
         <Navbar />
         {children}
         {withFooter ? <Footer /> : null}
@@ -101,19 +100,6 @@ const RootStyles = styled.div<StyleProps>`
       theme.breakpoints.desktop}) {
     padding-top: ${({ theme }) => theme.appDimensions.navbarDesktopHeight};
     padding-bottom: ${({ theme }) => theme.appDimensions.footerDesktopHeight};
-  }
-
-  /* This controls the gritty background. Different opacities are needed for different themes. */
-  > div:first-child {
-    background-image: url(/noise.png);
-    bottom: 0;
-    left: 0;
-    right: 0;
-    opacity: ${({ isDarkMode, theme }) =>
-      isDarkMode ? theme.opacity.opacity10 : theme.opacity.opacity50};
-    position: fixed;
-    top: 0;
-    z-index: -1;
   }
 `;
 

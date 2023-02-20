@@ -7,7 +7,6 @@ import { DARK_THEME, ThemeEnum } from "../../store/reducers/themeSlice";
 // To change the assignment of colors --> CSS variables, go to: styles/libs/global.ts
 interface Colors {
   alto: "#DBDBDB";
-  athensGray: "#EDEEF1";
   black: "#000000";
   brightSun: "#FACF3D";
   codGray: "#111010";
@@ -27,7 +26,6 @@ interface Colors {
 }
 
 export const colors: Colors = {
-  athensGray: "#EDEEF1",
   alto: "#DBDBDB",
   black: "#000000",
   brightSun: "#FACF3D",
