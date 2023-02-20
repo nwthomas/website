@@ -106,7 +106,7 @@ const RootStyles = styled.div<StyleProps>`
   /* This controls the gritty background. Different opacities are needed for different themes. */
   > div:first-child {
     background-image: url(/noise.png);
-    bottom: ${({ theme }) => `calc(-${theme.spaces.jumbo})`};
+    bottom: 0;
     left: 0;
     right: 0;
     opacity: ${({ isDarkMode, theme }) =>
