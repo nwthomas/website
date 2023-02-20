@@ -53,8 +53,8 @@ const GlobalStyle = css`
   }
   body.light {
     --body-bg: ${colors.athensGray};
-    --body-bg-accent-one: ${colors.wildSand};
-    --body-bg-accent-two: ${colors.alto};
+    --body-bg-accent-one: ${colors.alto};
+    --body-bg-accent-two: ${colors.silver};
     --code-bg: ${colors.eerieBlack};
     --error: ${colors.scarlet};
     --selection: ${colors.pictonBlue};

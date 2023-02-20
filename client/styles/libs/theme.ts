@@ -22,8 +22,8 @@ interface Colors {
   pictonBlue: "#4597EC";
   scarlet: "#FF3700";
   shark: "#202325";
+  silver: "#C2C2C2";
   white: "#FFFFFF";
-  wildSand: "#F5F5F5";
 }
 
 export const colors: Colors = {
@@ -42,9 +42,9 @@ export const colors: Colors = {
   outerSpace: "#373A3D",
   pictonBlue: "#4597EC",
   scarlet: "#FF3700",
+  silver: "#C2C2C2",
   shark: "#202325",
   white: "#FFFFFF",
-  wildSand: "#F5F5F5",
 };
 
 // A crucial tool for testing out dropshadows is: https://www.cssmatic.com/box-shadow
