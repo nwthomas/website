@@ -1,12 +1,14 @@
 import * as React from "react";
 
+import { useGetScreenDimensions, useTheme } from "../../hooks";
+
+import { DARK_THEME } from "../../store/reducers/themeSlice";
 import Footer from "../Footer";
 import Modal from "../Modal";
 import Navbar from "../Navbar";
 import SEO from "../SEO";
 import { selectShouldShowModal } from "../../store/selectors/modalSelectors";
 import styled from "styled-components";
-import { useGetScreenDimensions } from "../../hooks";
 import { useSelector } from "react-redux";
 
 interface Props {
@@ -28,8 +30,11 @@ function Layout({
   withFooter,
   withPageNameEmojis,
 }: Props) {
-  const { availableHeight } = useGetScreenDimensions();
   const shouldShowModal = useSelector(selectShouldShowModal);
+  const { availableHeight } = useGetScreenDimensions();
+  const [currentTheme] = useTheme();
+
+  const isDarkMode = currentTheme === DARK_THEME;
 
   // This is a bit of a hack to get around the fact that mobile devices don't play nicely
   // with 100vh. This will pin the footer to the bottom of any screen on mobile.
@@ -54,7 +59,8 @@ function Layout({
         pageName={pageName}
         withPageNameEmojis={withPageNameEmojis}
       />
-      <RootStyles>
+      <RootStyles isDarkMode={isDarkMode}>
+        <div />
         <Navbar />
         {children}
         {withFooter ? <Footer /> : null}
@@ -64,7 +70,11 @@ function Layout({
   );
 }
 
-const RootStyles = styled.div`
+interface StyleProps {
+  isDarkMode: boolean;
+}
+
+const RootStyles = styled.div<StyleProps>`
   display: flex;
   justify-content: center;
   /**
@@ -91,6 +101,19 @@ const RootStyles = styled.div`
       theme.breakpoints.desktop}) {
     padding-top: ${({ theme }) => theme.appDimensions.navbarDesktopHeight};
     padding-bottom: ${({ theme }) => theme.appDimensions.footerDesktopHeight};
+  }
+
+  /* This controls the gritty background. Different opacities are needed for different themes. */
+  > div:first-child {
+    background-image: url(/noise.png);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: ${({ isDarkMode, theme }) =>
+      isDarkMode ? theme.opacity.opacity10 : theme.opacity.opacity50};
+    position: absolute;
+    top: 0;
+    z-index: -1;
   }
 `;
 
