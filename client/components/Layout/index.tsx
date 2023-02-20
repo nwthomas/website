@@ -111,7 +111,7 @@ const RootStyles = styled.div<StyleProps>`
     right: 0;
     opacity: ${({ isDarkMode, theme }) =>
       isDarkMode ? theme.opacity.opacity10 : theme.opacity.opacity50};
-    position: absolute;
+    position: fixed;
     top: 0;
     z-index: -1;
   }
