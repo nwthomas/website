@@ -33,7 +33,7 @@ const RootStyles = styled.div`
 
   li {
     line-height: 1.8;
-    list-style-type: number;
+    list-style-type: decimal;
     list-style-position: inside;
     margin-top: ${({ theme }) => theme.spaces.nano};
     /* Offset the bullets to not have text wrap underneath */
