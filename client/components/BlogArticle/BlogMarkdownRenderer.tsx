@@ -169,7 +169,7 @@ function BlogMarkdownRenderer({
           return <BlogList isOrderedList contents={children} />;
         },
         ul({ children }) {
-          return <BlogList isOrderedList={false} contents={children} />;
+          return <BlogList contents={children} />;
         },
         code({ className, inline, children }) {
           const language =
