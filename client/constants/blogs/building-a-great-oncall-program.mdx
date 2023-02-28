@@ -1,18 +1,18 @@
 ---
 title: "Building a Great Oncall Program"
-description: "With careful preparation, you can build a world-class software engineering oncall program with great training, runbooks, and a healthy schedule."
-imageUrl: "/images/blog/building-a-great--oncall-program/placeholder.webp"
-dateWritten: "2020-02-24"
+description: "With careful preparation, you can build a world-class software engineering oncall program with great training, runbooks, and prepared engineers."
+imageUrl: "/images/blog/building-a-great-oncall-program/fireman.webp"
+dateWritten: "2020-02-28"
 isDraft: false
 tags:
-  - Organizational
+  - Process Management
 ---
 
-<img alt="" src="/images/blog/building-a-great--oncall-program/placeholder.webp" title="" height="600" width="1200">
+<img alt="" src="/images/blog/building-a-great-oncall-program/fireman.webp" title="" height="908" width="1520">
 
 # Building a Great Oncall Program
 
-> You may disagree with some of the ideas in this article. That's good. Always question processes and try to find ways to improve them.
+> Many of these ideas were taken from my time leading the oncall program for Twitter's web app. You may disagree with some of this article. That's good. Always question processes and try to find ways to improve them.
 >
 > Nothing should be sacred, and diversity in perspective builds a strong software engineering team. I'd encourage you to adapt the processes outlined here for your own team and to make it your own.
 
@@ -20,16 +20,59 @@ tags:
 
 If you're reading this, it probably means that you have been through the fire of leading or participating in incidents and
 
-## Primaries and Secondaries
-
 ## Training Your Team
+
+Training materials
+
+Importance of a shadow Rotations
 
 ## Building a Schedule
 
+Minimum of 8 people
+
+Perfect balance is somewhere between 12 and 25
+
 ## Big Scope or More Rotations
 
-## Constructing Runbooks
+You will never reach perfection here. You will always have people who would prefer more rotations and people who would rather have more scope. The key is to kick a direction and stick strongly to it.
+
+If you choose more scope, you'll be able to have a large bullpen of engineers and they will be oncall much less frequently. This will equate to less oncall burnout, engineers getting more done on feature work, and engineers not being tied to their laptops a lot. However, engineers may complain that they lose knowledge on how to perform their oncall duties given a large gap in between rotations.
+
+In contrast, having a smaller rotation with less scope will mean that your engineers get intimately familiar with the subject matter area they're responsible for and run no risk of forgetting it. They will also experience less stress related to a wide domain they have to cover while oncall. However, your engineers will also be oncall more often which could lead to burnout and prevent them from taking vacations or really decompressing from their job.
+
+Your rotation will likely fluctuate over time. Startups and big corporations will have to make different trade-offs.
+
+Again, the important part is to pick a direction with your team and stick to it (at least until it becomes obvious a change is needed).
+
+## Primaries and Secondaries
+
+The buck stops with the primary
+
+They should be empowered to make the calls while oncall
+
+They should be responsible for all deploys in their team area (e.g. they are "point" so everyone knows who to go to during the week)
+
+Primaries should be expected to be within 15 minutes of their computer at all times in case they receive a page. Missing a page should be a big deal. The buck stops with oncall.
+
+Secondaries should be within 30 minutes of their latop (unless they let their primary know they'll be out) in case something happens and a page gets escalated to them
+
+Use something like PagerDuty (industry standard as of this writing) to install on engineers' phones and make sure everyone has sound override turned on
 
 ## Providing Support (or "How to Direct Lightning")
 
-## Empowering Your Oncall
+Develop a culture of "chip in to help oncall"
+
+If oncall is stumped (or if they get a page in the early AM and it's a P0 page), manually page in key team members for breaking commit
+
+Oncall should be able to pull in whatever resources they need to get a job done
+
+## Constructing Runbooks
+
+Everybody forgets things, so it's crucial to develop decent runbooks that are _easy to flip through in the heat of the moment_
+
+These should include at a minimum:
+
+1. How to deploy
+2. How to rollback
+3. Most basic manual processes for the above
+4. Leads on teams and the channels associated with those teams
