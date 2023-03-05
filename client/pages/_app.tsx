@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 
 import { Analytics } from "@vercel/analytics/react";
 import { AppProps } from "next/app";
+import Head from "next/head";
 import { Hydrate } from "react-query/hydration";
 import { Provider } from "react-redux";
 import { ReactQueryDevtools } from "react-query/devtools";
@@ -61,6 +62,12 @@ function MyApp(appProps: AppProps) {
 
   return (
     <>
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0"
+        ></meta>
+      </Head>
       <Provider store={store}>
         <QueryClientProvider client={queryClient}>
           <Hydrate state={appProps.pageProps.dehydratedState}>
