@@ -32,14 +32,14 @@ function Modal() {
   };
 
   return (
-    <RootStyles currentTheme={currentTheme} onClick={handleDismissClick}>
-      <FocusTrap>
+    <FocusTrap>
+      <RootStyles currentTheme={currentTheme} onClick={handleDismissClick}>
         <dialog>
           <h1>{modalMessage}</h1>
           <button onClick={handleDismissClick}>{modalButtonLabel}</button>
         </dialog>
-      </FocusTrap>
-    </RootStyles>
+      </RootStyles>
+    </FocusTrap>
   );
 }
 
@@ -124,6 +124,37 @@ const RootStyles = styled.div<StyleProps>`
 
       &:hover {
         opacity: ${({ theme }) => theme.opacity.opacity80};
+      }
+    }
+
+    > button {
+      align-items: center;
+      border-radius: ${({ theme }) => theme.borderRadii.medium};
+      background-color: ${({ theme }) => theme.colors.textAccentOne};
+      border: 2px solid ${({ theme }) => theme.colors.buttonPrimaryBackground};
+      color: ${({ theme }) => theme.colorsHex.white};
+      cursor: pointer;
+      display: flex;
+      font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
+        sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
+        Noto Color Emoji;
+      font-weight: bold;
+      height: ${({ theme }) => theme.spaces.xLarge};
+      justify-content: center;
+      margin-top: ${({ theme }) => theme.spaces.nano};
+      transition: background-color ${({ theme }) => theme.transitions.short}
+        ease-in-out;
+      width: ${({ theme }) =>
+        `calc(100% - (${theme.appDimensions.appHorizontalGutters} + ${theme.spaces.small}))`};
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.tablet}) {
+        width: 70%;
+      }
+
+      &:hover {
+        background-color: ${({ theme }) => theme.colors.textAccentTwo};
       }
     }
   }
