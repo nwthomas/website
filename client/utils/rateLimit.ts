@@ -1,15 +1,18 @@
-import { Request, RequestHandler, Response } from "express";
-
-import rateLimit from "express-rate-limit";
-import slowDown from "express-slow-down";
+import { NextFunction, Request, RequestHandler, Response } from "express";
+import rateLimit, {
+  MemoryStore as RateLimitMemoryStore,
+} from "express-rate-limit";
+import slowDown, {
+  MemoryStore as SlowDownMemoryStore,
+} from "express-slow-down";
 
 // A lot of this work is pulled from an excellent article I found on rate limiting in NextJS:
 // https://kittygiraudel.com/2022/05/16/rate-limit-nextjs-api-routes/
 const FALLBACK_IP_STRING_NAME = "fallback";
 export const RATE_LIMIT = 10;
-export const RATE_LIMIT_WINDOW_MS = 60 * 1_000;
+export const RATE_LIMIT_WINDOW_MS = 1000 * 60 * 15; // 15 minutes
 export const RATE_LIMIT_DELAY_AFTER = Math.round(RATE_LIMIT / 2);
-export const RATE_LIMIT_DELAY_MS = 500;
+export const RATE_LIMIT_DELAY_MS = 1000;
 
 const getIP = (request: Request): string => {
   const ipAddress =
@@ -40,8 +43,19 @@ const getRateLimitMiddlewares = ({
   delayAfter = RATE_LIMIT_DELAY_AFTER,
   delayMs = RATE_LIMIT_DELAY_MS,
 } = {}) => [
-  slowDown({ keyGenerator: getIP, windowMs, delayAfter, delayMs }),
-  rateLimit({ keyGenerator: getIP, windowMs, max: limit }),
+  slowDown({
+    keyGenerator: getIP,
+    windowMs,
+    delayAfter,
+    delayMs,
+    store: new SlowDownMemoryStore(),
+  }),
+  rateLimit({
+    keyGenerator: getIP,
+    windowMs,
+    max: limit,
+    store: new RateLimitMemoryStore(),
+  }),
 ];
 
 // This function could move to a more generalized file in the future if more express middleware
