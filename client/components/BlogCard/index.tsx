@@ -90,7 +90,7 @@ const RootStyles = styled.article`
 
     &:hover {
       border: ${({ theme }) =>
-        `${theme.spaces.nano} solid ${theme.colors.text}`};
+        `${theme.spaces.nano} solid ${theme.colorsHex.pictonBlue}`};
       border-radius: ${({ theme }) => theme.borderRadii.medium};
       outline: none;
 
