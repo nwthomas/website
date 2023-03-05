@@ -122,7 +122,7 @@ const RootStyles = styled.section`
 
           &:hover {
             border: ${({ theme }) =>
-              `${theme.spaces.nano} solid ${theme.colors.text}`};
+              `${theme.spaces.nano} solid ${theme.colorsHex.pictonBlue}`};
             opacity: ${({ theme }) => theme.opacity.opacity100};
           }
         }
