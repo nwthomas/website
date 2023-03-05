@@ -24,9 +24,13 @@ function Navbar() {
           <ul>
             <div>
               <li>
-                <Link aria-label={HOME_LINK_ARIA_LABEL} href={HOME_PAGE}>
+                <NavbarLink
+                  ariaLabel={HOME_LINK_ARIA_LABEL}
+                  currentPath={currentPath}
+                  route={HOME_PAGE}
+                >
                   Nathan Thomas
-                </Link>
+                </NavbarLink>
               </li>
             </div>
             <li>
@@ -38,15 +42,6 @@ function Navbar() {
               </a>
             </li>
             <div>
-              <li>
-                <NavbarLink
-                  ariaLabel={HOME_LINK_ARIA_LABEL}
-                  currentPath={currentPath}
-                  route={HOME_PAGE}
-                >
-                  Home
-                </NavbarLink>
-              </li>
               <li>
                 <NavbarLink
                   ariaLabel={BLOG_LINK_ARIA_LABEL}
