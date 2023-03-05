@@ -63,11 +63,7 @@ function ContactForm({
       message: Yup.string().required("Required"),
     }),
     onSubmit: (messageValues: MessageValues) => {
-      for (let i = 0; i < 10; i++) {
-        setTimeout(() => {
-          onSendMessageClick(messageValues, formik.resetForm);
-        }, 0 + i);
-      }
+      onSendMessageClick(messageValues, formik.resetForm);
     },
   });
 
