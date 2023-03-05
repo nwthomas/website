@@ -276,6 +276,7 @@ const RootStyles = styled.div<StyleProps>`
           BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
           sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
           Noto Color Emoji;
+        font-size: 1.6rem;
         font-weight: bold;
         height: ${({ theme }) => theme.spaces.xLarge};
         justify-content: center;
