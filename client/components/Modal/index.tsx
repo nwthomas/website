@@ -111,6 +111,7 @@ const RootStyles = styled.div<StyleProps>`
       border: 2px solid ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
       color: ${({ theme }) => theme.colorsHex.white};
       display: flex;
+      font-size: 1.6rem;
       justify-content: center;
       margin-top: ${({ theme }) => theme.spaces.nano};
       height: ${({ theme }) => theme.spaces.xLarge};
