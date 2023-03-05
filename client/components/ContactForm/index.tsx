@@ -270,8 +270,7 @@ const RootStyles = styled.div<StyleProps>`
         background-color: ${({ theme }) => theme.colors.textAccentOne};
         border: 2px solid ${({ theme }) => theme.colors.buttonPrimaryBackground};
         color: ${({ theme }) => theme.colorsHex.white};
-        cursor: ${({ isFormButtonDisabled }) =>
-          isFormButtonDisabled ? "default" : "pointer"};
+        cursor: pointer;
         display: flex;
         font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system,
           BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
@@ -281,15 +280,16 @@ const RootStyles = styled.div<StyleProps>`
         height: ${({ theme }) => theme.spaces.xLarge};
         justify-content: center;
         margin-top: ${({ theme }) => theme.spaces.nano};
-        opacity: ${({ isFormButtonDisabled, theme }) =>
-          isFormButtonDisabled
-            ? theme.opacity.opacity50
-            : theme.opacity.opacity100};
+        opacity: ${({ isFormButtonDisabled }) =>
+          isFormButtonDisabled ? "0.5" : "1"};
         transition: background-color ${({ theme }) => theme.transitions.short}
           ease-in-out;
 
         &:hover {
-          background-color: ${({ theme }) => theme.colors.textAccentTwo};
+          background-color: ${({ isFormButtonDisabled, theme }) =>
+            isFormButtonDisabled
+              ? theme.colors.textAccentOne
+              : theme.colors.textAccentTwo};
         }
       }
     }
