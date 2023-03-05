@@ -3,7 +3,6 @@ import * as React from "react";
 import { BLOG_PAGE, CONTACT_PAGE, HOME_PAGE } from "../../constants/routes";
 
 import { CONTENTS_ID } from "../../constants/routes";
-import Link from "next/link";
 import NavbarLink from "./NavbarLink";
 import ThemeTransitionSwitch from "../ThemeTransitionSwitch";
 import styled from "styled-components";
