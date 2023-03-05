@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { BLOG_PAGE, HOME_PAGE } from "../../constants/routes";
+import { BLOG_PAGE, CONTACT_PAGE, HOME_PAGE } from "../../constants/routes";
 
 import { CONTENTS_ID } from "../../constants/routes";
 import Link from "next/link";
@@ -10,6 +10,7 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 
 const BLOG_LINK_ARIA_LABEL = "Go to all blog posts page";
+const CONTACT_LINK_ARIA_LABEL = "Go to contact page";
 const HOME_LINK_ARIA_LABEL = "Go to home page";
 const SKIP_TO_CONTENT_ARIA_LABEL = "Skip to the page's main content";
 
@@ -53,6 +54,15 @@ function Navbar() {
                   route={BLOG_PAGE}
                 >
                   Blog
+                </NavbarLink>
+              </li>
+              <li>
+                <NavbarLink
+                  ariaLabel={CONTACT_LINK_ARIA_LABEL}
+                  currentPath={currentPath}
+                  route={CONTACT_PAGE}
+                >
+                  Contact
                 </NavbarLink>
               </li>
               <li>
