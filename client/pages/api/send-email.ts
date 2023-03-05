@@ -1,4 +1,5 @@
-import { NextApiRequest, NextApiResponse } from "next";
+// This is not ideal as it would be better to use the NextJS-defined types
+import { Request, Response } from "express";
 
 import { applyRateLimit } from "./../../utils/rateLimit";
 import { sendEmail } from "../../utils/sendEmail";
@@ -10,10 +11,7 @@ const STATUS_405 = "This request type is not supported.";
 const STATUS_429 = "Too many requests";
 const STATUS_502 = "An error occurred while sending the message.";
 
-export default async function handler(
-  request: NextApiRequest,
-  response: NextApiResponse
-) {
+export default async function handler(request: Request, response: Response) {
   if (request.method !== POST_METHOD) {
     return response.status(405).send({
       message: STATUS_405,
