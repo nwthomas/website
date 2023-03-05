@@ -24,7 +24,7 @@ export default async function handler(
   try {
     await applyRateLimit(request, response);
   } catch (error) {
-    return response.status(429).send(STATUS_429);
+    return response.status(429).send({ message: STATUS_429, success: false });
   }
 
   const { email, fax, message, name } = request.body;
