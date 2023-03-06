@@ -46,7 +46,7 @@ const Home: NextPage = () => {
               >
                 teacher
               </a>{" "}
-              living in <span>San Francisco</span>
+              from <span>San Francisco</span>
             </h1>
           </section>
         </main>
