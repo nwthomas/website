@@ -29,7 +29,6 @@ export default async function handler(request: Request, response: Response) {
   try {
     await applyRateLimit(request, response);
   } catch (error) {
-    console.log({ error });
     return response.status(429).send({
       message: STATUS_429,
       success: false,

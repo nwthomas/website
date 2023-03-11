@@ -19,8 +19,10 @@ interface Colors {
   mineShaft: "#333333";
   outerSpace: "#373A3D";
   pictonBlue: "#4597EC";
-  scarlet: "#FF3700";
+  redViolet: "#d41872";
+  rose: "#ff0066";
   shark: "#202325";
+  studio: "#a445b2";
   silver: "#C2C2C2";
   white: "#FFFFFF";
 }
@@ -39,9 +41,11 @@ export const colors: Colors = {
   mineShaft: "#333333",
   outerSpace: "#373A3D",
   pictonBlue: "#4597EC",
-  scarlet: "#FF3700",
+  redViolet: "#d41872",
+  rose: "#ff0066",
   silver: "#C2C2C2",
   shark: "#202325",
+  studio: "#a445b2",
   white: "#FFFFFF",
 };
 

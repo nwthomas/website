@@ -159,6 +159,9 @@ function BlogMarkdownRenderer({
               alt={alt}
               height={height}
               isHeroImage={isHeroImage}
+              // Placeholder images are generated using plaiceholder. This happens in the page getStaticProps()
+              // https://dev.to/arrofirezasatria/creating-blur-placeholder-images-using-next-js-and-plaiceholder-5ckh
+              placeholderImage="testing.jpeg"
               src={src}
               title={title}
               width={width}

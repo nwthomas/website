@@ -5,14 +5,14 @@ import styled, { ThemeContext } from "styled-components";
 
 import Spinner from "../Spinner";
 import { ThemeEnum } from "../../store/reducers/themeSlice";
-import { themeColorValues } from "../../styles/libs/theme";
+import { colors } from "../../styles/libs/theme";
 import { useFormik } from "formik";
 import { useGetMouseRadian } from "../../hooks";
 
 const contactFormRef = React.createRef<HTMLDivElement>();
 
 function getContactFormBorder(radians: number) {
-  return `linear-gradient(calc(${radians}rad), ${themeColorValues.bodyBackgroundAccentTwo} 0%, ${themeColorValues.bodyBackgroundAccentTwo} 50%, rgba(121,40,202,0) 75%)`;
+  return `linear-gradient(calc(${radians}rad), ${colors.studio} 0%, ${colors.redViolet} 25%, ${colors.rose} 50%, rgba(121,40,202,0) 75%)`;
 }
 
 export interface MessageValues {
@@ -267,8 +267,8 @@ const RootStyles = styled.div<StyleProps>`
       > button {
         align-items: center;
         border-radius: ${({ theme }) => theme.borderRadii.medium};
-        background-color: ${({ theme }) => theme.colors.textAccentOne};
-        border: 2px solid ${({ theme }) => theme.colors.buttonPrimaryBackground};
+        background-color: ${({ theme }) => theme.colorsHex.pictonBlue};
+        border: 2px solid ${({ theme }) => theme.colorsHex.pictonBlue};
         color: ${({ theme }) => theme.colorsHex.white};
         cursor: pointer;
         display: flex;
@@ -284,13 +284,12 @@ const RootStyles = styled.div<StyleProps>`
         opacity: ${({ isFormButtonDisabled }) =>
           isFormButtonDisabled ? "0.5" : "1"};
         transition: background-color ${({ theme }) => theme.transitions.short}
-          ease-in-out;
+            ease-in-out,
+          color ${({ theme }) => theme.transitions.short} ease-in-out;
 
         &:hover {
-          background-color: ${({ isFormButtonDisabled, theme }) =>
-            isFormButtonDisabled
-              ? theme.colors.textAccentOne
-              : theme.colors.textAccentTwo};
+          background-color: transparent;
+          color: ${({ theme }) => theme.colorsHex.pictonBlue};
         }
       }
     }
