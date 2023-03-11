@@ -79,23 +79,31 @@ const RootStyles = styled.div`
         margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
       }
 
-      > h1 {
-        > a {
-          color: ${({ theme }) => theme.colors.textAccentOne};
-          font-family: inherit;
-          font-size: inherit;
-          transition: color ${({ theme }) => theme.transitions.short}
-            ease-in-out;
+      > h1 a {
+        background-clip: text;
+        -moz-background-clip: text;
+        -webkit-background-clip: text;
+        background-image: ${({ theme: { colorsHex } }) => {
+          return `linear-gradient(100deg, ${colorsHex.studio} 0%, ${colorsHex.redViolet} 52%, ${colorsHex.rose} 100%)`;
+        }};
+        background-size: 100%;
+        font-family: inherit;
+        font-size: inherit;
+        padding: ${({ theme }) => `${theme.spaces.micro} 0`};
+        -moz-text-fill-color: transparent;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none;
+        transition: opacity ${({ theme }) => theme.transitions.short}
+          ease-in-out;
 
-          &:hover {
-            color: ${({ theme }) => theme.colors.textAccentTwo};
-          }
+        &:hover {
+          opacity: ${({ theme }) => theme.opacity.opacity80};
         }
+      }
 
-        > span {
-          font-family: inherit;
-          white-space: nowrap;
-        }
+      > h1 span {
+        font-family: inherit;
+        white-space: nowrap;
       }
     }
   }

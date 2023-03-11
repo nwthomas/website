@@ -44,7 +44,7 @@ const GlobalStyle = css`
     --body-bg-accent-one: ${colors.shark};
     --body-bg-accent-two: ${colors.outerSpace};
     --code-bg: ${colors.eerieBlack};
-    --error: ${colors.scarlet};
+    --error: ${colors.redViolet};
     --selection: ${colors.pictonBlue};
     --text: ${colors.mercury};
     --text-accent-one: ${colors.juniper};
@@ -56,7 +56,7 @@ const GlobalStyle = css`
     --body-bg-accent-one: ${colors.alto};
     --body-bg-accent-two: ${colors.silver};
     --code-bg: ${colors.eerieBlack};
-    --error: ${colors.scarlet};
+    --error: ${colors.redViolet};
     --selection: ${colors.pictonBlue};
     --text: ${colors.mineShaft};
     --text-accent-one: ${colors.hookersGreen};

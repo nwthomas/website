@@ -6,26 +6,25 @@ import { CONTENTS_ID } from "../../constants/routes";
 import Layout from "../../components/Layout";
 import { getDirectoryFiles } from "../../utils/readBlogFiles";
 import styled from "styled-components";
-import { useRouter } from "next/router";
 
 export async function getStaticProps({ params: { blogId } }) {
-  // Get and sort blog posts
   const blogPosts = getDirectoryFiles(BLOG_FILES_PATH);
   const slugToBlogPostMap = buildSlugToBlogPostMap(blogPosts);
 
+  const blogPost = slugToBlogPostMap[blogId as string];
+
   return {
     props: {
-      slugToBlogPostMap,
+      blogPost,
     },
   };
 }
 
 export async function getStaticPaths() {
-  // Get all blog posts paths from blog post directory
   const blogPosts = getDirectoryFiles(BLOG_FILES_PATH);
-  const blogPostContent = blogPosts.map(
+  const blogPostContent: BlogPosts = blogPosts.map(
     (blogPost) => blogPost.fileContents
-  ) as BlogPosts;
+  );
 
   const paths = blogPostContent.map((blogPost) => {
     return { params: { blogId: blogPost.data.slug } };
@@ -37,12 +36,7 @@ export async function getStaticPaths() {
   };
 }
 
-function BlogPost({ slugToBlogPostMap }) {
-  const {
-    query: { blogId },
-  } = useRouter();
-
-  const blogPost = slugToBlogPostMap[blogId as string];
+function BlogPost({ blogPost }) {
   const {
     imageUrl: heroImageUrl,
     description,
