@@ -44,8 +44,10 @@ const RootStyles = styled.div`
 
   > h1 {
     color: ${({ theme }) => theme.colors.textAccentTwo};
-    font-family: inherit;
     font-size: 8rem;
+    font-family: "Libre Baskerville", Constantia, "Lucida Bright", Lucidabright,
+      "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif",
+      "Liberation Serif", Georgia, serif;
   }
 
   > div {
@@ -53,13 +55,20 @@ const RootStyles = styled.div`
     display: flex;
 
     > h2 {
-      color: ${({ theme }) => theme.colors.textSecondary};
+      background-clip: text;
+      -moz-background-clip: text;
+      -webkit-background-clip: text;
+      background-image: url(/noise.webp);
+      background-size: 50px;
       font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system,
         BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
         sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
         Noto Color Emoji;
-      font-size: 4rem;
-      line-height: 0.5;
+      font-size: 5rem;
+      padding: ${({ theme }) => `${theme.spaces.micro} 0`};
+      -moz-text-fill-color: transparent;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
     }
   }
 `;
