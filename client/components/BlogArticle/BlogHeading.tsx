@@ -7,6 +7,7 @@ import {
 import styled, { ThemeContext } from "styled-components";
 
 import { CopyLinkIcon } from "../Icons";
+import MetadataTag from "../MetadataTag";
 
 type HeadingLevel = 1 | 2 | 3 | 4 | 5;
 
@@ -110,8 +111,12 @@ function BlogHeading({
       </div>
       {dateUpdated || dateWritten ? (
         <div>
-          {dateWritten ? <p>{buildDateWrittenLabel(dateWritten)}</p> : null}
-          {dateUpdated ? <p>{buildDateUpdatedLabel(dateUpdated)}</p> : null}
+          {dateWritten ? (
+            <MetadataTag contents={buildDateWrittenLabel(dateWritten)} />
+          ) : null}
+          {dateUpdated ? (
+            <MetadataTag contents={buildDateUpdatedLabel(dateUpdated)} />
+          ) : null}
         </div>
       ) : null}
     </RootStyles>

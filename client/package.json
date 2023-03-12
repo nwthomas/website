@@ -22,7 +22,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@plaiceholder/next": "^2.5.0",
     "@reduxjs/toolkit": "^1.6.2",
     "@sentry/nextjs": "^7.30.0",
     "@vercel/analytics": "^0.1.8",
