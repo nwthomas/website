@@ -44,11 +44,9 @@ const GlobalStyle = css`
     --body-bg-accent-one: ${colors.shark};
     --body-bg-accent-two: ${colors.outerSpace};
     --code-bg: ${colors.eerieBlack};
-    --error: ${colors.redViolet};
+    --error: ${colors.red};
     --selection: ${colors.pictonBlue};
     --text: ${colors.mercury};
-    --text-accent-one: ${colors.juniper};
-    --text-accent-two: ${colors.hookersGreen};
     --text-secondary: ${colors.manatee};
   }
   body.light {
@@ -56,11 +54,9 @@ const GlobalStyle = css`
     --body-bg-accent-one: ${colors.alto};
     --body-bg-accent-two: ${colors.silver};
     --code-bg: ${colors.eerieBlack};
-    --error: ${colors.redViolet};
+    --error: ${colors.red};
     --selection: ${colors.pictonBlue};
     --text: ${colors.mineShaft};
-    --text-accent-one: ${colors.hookersGreen};
-    --text-accent-two: ${colors.juniper};
     --text-secondary: ${colors.doveGray};
   }
 
@@ -122,17 +118,17 @@ const GlobalStyle = css`
   }
 
   h1 {
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: bold;
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
-      font-size: 4.5rem;
+      font-size: 5rem;
     }
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.desktop}) {
-      font-size: 6rem;
+      font-size: 6.5rem;
     }
   }
 

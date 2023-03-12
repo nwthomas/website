@@ -1,7 +1,5 @@
 import * as React from "react";
 
-import { buildImageElement, getDominantRGB } from "../../utils/images";
-
 import { BlogMarkdownRenderer } from "./";
 import Image from "next/image";
 import styled from "styled-components";
@@ -29,22 +27,6 @@ function BlogImage({
   const imageHeight = Number(height);
   const imageWidth = Number(width);
 
-  const imageElement = buildImageElement(src, imageHeight, imageWidth);
-  const { r, g, b } = getDominantRGB(imageElement);
-
-  const cssColorValue = `rgb(${r} ${g} ${b})`;
-
-  const placeholderElementStyles: React.CSSProperties = {
-    backgroundColor: cssColorValue,
-    bottom: 0,
-    left: 0,
-    marginTop: 0,
-    position: "absolute",
-    right: 0,
-    top: 0,
-    zIndex: 1,
-  };
-
   const handleOnLoad = () => {
     setShowImage(true);
   };
@@ -64,7 +46,7 @@ function BlogImage({
           src={src}
           width={imageWidth}
         />
-        {!showImage ? <div style={placeholderElementStyles} /> : null}
+        {!showImage ? <div /> : null}
         {title ? <BlogMarkdownRenderer content={title} /> : null}
       </div>
     </RootStyles>

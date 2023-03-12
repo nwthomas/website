@@ -12,17 +12,13 @@ interface Colors {
   codGray: "#111010";
   doveGray: "#707070";
   eerieBlack: "#171717";
-  hookersGreen: "#5F8181";
-  juniper: "#729797";
   manatee: "#8E8E90";
   mercury: "#E1E1E1";
   mineShaft: "#333333";
   outerSpace: "#373A3D";
   pictonBlue: "#4597EC";
-  redViolet: "#d41872";
-  rose: "#ff0066";
+  red: "red";
   shark: "#202325";
-  studio: "#a445b2";
   silver: "#C2C2C2";
   white: "#FFFFFF";
 }
@@ -34,18 +30,14 @@ export const colors: Colors = {
   codGray: "#111010",
   doveGray: "#707070",
   eerieBlack: "#171717",
-  hookersGreen: "#5F8181",
-  juniper: "#729797",
   manatee: "#8E8E90",
   mercury: "#E1E1E1",
   mineShaft: "#333333",
   outerSpace: "#373A3D",
   pictonBlue: "#4597EC",
-  redViolet: "#d41872",
-  rose: "#ff0066",
+  red: "red",
   silver: "#C2C2C2",
   shark: "#202325",
-  studio: "#a445b2",
   white: "#FFFFFF",
 };
 
@@ -69,8 +61,6 @@ interface ThemeColorValues {
   codeBackground: string;
   error: string;
   text: string;
-  textAccentOne: string;
-  textAccentTwo: string;
   textSecondary: string;
   selection: string;
 }
@@ -82,8 +72,6 @@ export const themeColorValues: ThemeColorValues = {
   codeBackground: "var(--code-bg)",
   error: "var(--error)",
   text: "var(--text)",
-  textAccentOne: "var(--text-accent-one)",
-  textAccentTwo: "var(--text-accent-two)",
   textSecondary: "var(--text-secondary)",
   selection: "var(--selection)",
 };
@@ -107,12 +95,12 @@ interface AppDimensions {
 }
 export const appDimensions: AppDimensions = {
   appHorizontalGutters: "3%",
-  appMaxWidth: "1200px",
+  appMaxWidth: "1400px",
   // This value is set in the global.ts file for the :root selector
   appMinHeight: "var(--app-min-height)",
-  articleHeroImageMaxWidth: "1200px",
-  articleMaxWidth: "600px",
-  contactFormMaxWidth: "600px",
+  articleHeroImageMaxWidth: "1400px",
+  articleMaxWidth: "650px",
+  contactFormMaxWidth: "650px",
   footerDesktopHeight: "108px",
   footerTabletHeight: "164px",
   footerMobileHeight: "90px",

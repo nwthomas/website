@@ -138,10 +138,8 @@ const RootStyles = styled.div`
         background-clip: text;
         -moz-background-clip: text;
         -webkit-background-clip: text;
-        background-image: ${({ theme: { colorsHex } }) => {
-          return `linear-gradient(100deg, ${colorsHex.studio} 0%, ${colorsHex.redViolet} 52%, ${colorsHex.rose} 100%)`;
-        }};
-        background-size: 100%;
+        background-image: url(noise.webp);
+        background-size: 50px;
         font-family: inherit;
         font-size: inherit;
         padding: ${({ theme }) => `${theme.spaces.micro} 0`};
