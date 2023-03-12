@@ -23,13 +23,8 @@ function BlogImage({
   title,
   width = 0,
 }: Props) {
-  const [showImage, setShowImage] = React.useState<boolean>(false);
   const imageHeight = Number(height);
   const imageWidth = Number(width);
-
-  const handleOnLoad = () => {
-    setShowImage(true);
-  };
 
   return (
     <RootStyles isHeroImage={isHeroImage}>
@@ -39,14 +34,12 @@ function BlogImage({
           blurDataURL={placeholderImage}
           height={imageHeight}
           loading={isHeroImage ? "eager" : "lazy"}
-          onLoad={handleOnLoad}
           placeholder="blur"
           priority={isHeroImage}
           quality={100}
           src={src}
           width={imageWidth}
         />
-        {!showImage ? <div /> : null}
         {title ? <BlogMarkdownRenderer content={title} /> : null}
       </div>
     </RootStyles>
