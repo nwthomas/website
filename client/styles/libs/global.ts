@@ -118,7 +118,7 @@ const GlobalStyle = css`
   }
 
   h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     font-weight: bold;
 
     @media only screen and (min-width: ${({ theme }) =>
