@@ -131,8 +131,8 @@ const RootStyles = styled.div<StyleProps>`
     > button {
       align-items: center;
       border-radius: ${({ theme }) => theme.borderRadii.medium};
-      background-color: ${({ theme }) => theme.colors.textAccentOne};
-      border: 2px solid ${({ theme }) => theme.colors.buttonPrimaryBackground};
+      background-color: ${({ theme }) => theme.colorsHex.pictonBlue};
+      border: 2px solid ${({ theme }) => theme.colorsHex.pictonBlue};
       color: ${({ theme }) => theme.colorsHex.white};
       cursor: pointer;
       display: flex;
@@ -140,22 +140,25 @@ const RootStyles = styled.div<StyleProps>`
         BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
         sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
         Noto Color Emoji;
+      font-size: 1.6rem;
       font-weight: bold;
       height: ${({ theme }) => theme.spaces.xLarge};
       justify-content: center;
       margin-top: ${({ theme }) => theme.spaces.nano};
       transition: background-color ${({ theme }) => theme.transitions.short}
-        ease-in-out;
+          ease-in-out,
+        color ${({ theme }) => theme.transitions.short} ease-in-out;
       width: ${({ theme }) =>
         `calc(100% - (${theme.appDimensions.appHorizontalGutters} + ${theme.spaces.small}))`};
+
+      &:hover {
+        background-color: transparent;
+        color: ${({ theme }) => theme.colorsHex.pictonBlue};
+      }
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
         width: 70%;
-      }
-
-      &:hover {
-        background-color: ${({ theme }) => theme.colors.textAccentTwo};
       }
     }
   }
