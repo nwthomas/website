@@ -83,7 +83,7 @@ const RootStyles = styled.div`
         background-clip: text;
         -moz-background-clip: text;
         -webkit-background-clip: text;
-        background-image: url(noise.webp);
+        background-image: url(/noise.webp);
         background-size: 50px;
         font-family: inherit;
         font-size: inherit;
