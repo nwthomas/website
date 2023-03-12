@@ -109,6 +109,7 @@ const RootStyles = styled.div`
   > main {
     max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
     margin-bottom: ${({ theme }) => theme.spaces.medium};
+    width: 100%;
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
