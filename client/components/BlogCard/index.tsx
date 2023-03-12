@@ -4,14 +4,16 @@ import styled, { ThemeContext } from "styled-components";
 
 import { ArrowForwardsIcon } from "../Icons";
 import Link from "next/link";
+import MetadataTag from "../MetadataTag";
 
 interface Props {
+  dateWritten?: string;
   description: string;
   title: string;
   url: string;
 }
 
-function BlogCard({ description, title, url }: Props) {
+function BlogCard({ dateWritten, description, title, url }: Props) {
   const { colors } = React.useContext(ThemeContext);
 
   return (
@@ -22,8 +24,11 @@ function BlogCard({ description, title, url }: Props) {
           <p>{description}</p>
         </div>
         <div>
-          <p>Read more</p>
-          <ArrowForwardsIcon color={colors.textSecondary} isAriaHidden />
+          <div>
+            <p>Read more</p>
+            <ArrowForwardsIcon color={colors.textSecondary} isAriaHidden />
+          </div>
+          {dateWritten ? <MetadataTag contents={dateWritten} /> : null}
         </div>
       </Link>
     </RootStyles>
@@ -70,21 +75,26 @@ const RootStyles = styled.article`
     }
 
     > div:nth-child(2) {
-      align-items: center;
       display: flex;
+      justify-content: space-between;
       margin-top: ${({ theme }) => theme.spaces.medium};
 
-      > p {
-        color: ${({ theme }) => theme.colors.textSecondary};
-      }
+      > div {
+        align-items: center;
+        display: flex;
 
-      > svg {
-        height: ${({ theme }) => theme.spaces.medium};
-        margin-left: ${({ theme }) => theme.spaces.micro};
-        opacity: ${({ theme }) => theme.opacity.opacity00};
-        transition: opacity ${({ theme }) => theme.transitions.short}
-          ease-in-out;
-        width: ${({ theme }) => theme.spaces.medium};
+        > p {
+          color: ${({ theme }) => theme.colors.textSecondary};
+        }
+
+        > svg {
+          height: ${({ theme }) => theme.spaces.medium};
+          margin-left: ${({ theme }) => theme.spaces.micro};
+          opacity: ${({ theme }) => theme.opacity.opacity00};
+          transition: opacity ${({ theme }) => theme.transitions.short}
+            ease-in-out;
+          width: ${({ theme }) => theme.spaces.medium};
+        }
       }
     }
 
@@ -94,7 +104,7 @@ const RootStyles = styled.article`
       border-radius: ${({ theme }) => theme.borderRadii.medium};
       outline: none;
 
-      > div:nth-child(2) > svg {
+      > div:nth-child(2) > div > svg {
         opacity: ${({ theme }) => theme.opacity.opacity100};
       }
     }

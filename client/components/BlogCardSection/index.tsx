@@ -7,6 +7,8 @@ import { BlogPosts } from "../../utils/sortBlogPosts";
 import Card from "../BlogCard";
 import { CloseIcon } from "../Icons";
 import Tag from "../Tag";
+import { buildDateWrittenLabel } from "../../utils/dates";
+import { getBlogPostFullDate } from "../../utils/dates";
 import { useRouter } from "next/router";
 
 const CLOSE_BUTTON_ARIA_LABEL = "Go back to all blogs page";
@@ -29,11 +31,19 @@ function BlogCardSection({ blogPosts, tag, withCloseButton }: Props) {
 
   const blogCards = React.useMemo(() => {
     return blogPosts.map((blogPost, i) => {
-      const { description, title, slug } = blogPost.data;
+      const { dateWritten, description, title, slug } = blogPost.data;
+      const dateWrittenLabel = getBlogPostFullDate(dateWritten || "");
+      const normalizedDateWritten = buildDateWrittenLabel(dateWrittenLabel);
 
       return (
         <li key={i}>
-          <Card description={description} title={title} url={slug} key={i} />
+          <Card
+            dateWritten={normalizedDateWritten}
+            description={description}
+            title={title}
+            url={slug}
+            key={i}
+          />
         </li>
       );
     });

@@ -1,12 +1,6 @@
-const { withPlaiceholder } = require("@plaiceholder/next");
 const { withSentryConfig } = require("@sentry/nextjs");
 
 const nextConfig = {
-  // Plaiceholder configurations
-  experimental: { externalDir: true },
-  images: {
-    domains: [__dirname], // nathanthomas.dev
-  },
   // NextJS generic configurations
   reactStrictMode: true,
   serverRuntimeConfig: {
@@ -39,10 +33,5 @@ const sentryWebpackPluginOptions = {
   target: "experimental-serverless-trace",
 };
 
-const withPlaiceholderConfig = withPlaiceholder(nextConfig);
-
 // The Sentry function must run last before exporting
-module.exports = withSentryConfig(
-  withPlaiceholderConfig,
-  sentryWebpackPluginOptions
-);
+module.exports = withSentryConfig(nextConfig, sentryWebpackPluginOptions);
