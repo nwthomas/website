@@ -170,12 +170,12 @@ const RootStyles = styled.section`
     grid-auto-rows: 1fr;
 
     @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.tablet}) {
+        theme.breakpoints.desktop}) {
       grid-template-columns: 1fr 1fr;
     }
 
     @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.desktop}) {
+        theme.breakpoints.ultrawide}) {
       grid-template-columns: 1fr 1fr 1fr;
     }
 

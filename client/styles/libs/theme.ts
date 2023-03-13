@@ -136,17 +136,20 @@ interface BreakpointsInt {
   mini: number;
   tablet: number;
   desktop: number;
+  ultrawide: number;
 }
 const breakpointsInt: BreakpointsInt = {
   mini: 400,
   tablet: 600,
   desktop: 1000,
+  ultrawide: 1400,
 };
 
 interface Breakpoints {
   mini: string;
   tablet: string;
   desktop: string;
+  ultrawide: string;
 }
 const breakpoints: Breakpoints = (function buildBreakpoints() {
   // Empty strings here are to keep TypeScript happy prior to assignment
@@ -154,6 +157,7 @@ const breakpoints: Breakpoints = (function buildBreakpoints() {
     mini: "",
     tablet: "",
     desktop: "",
+    ultrawide: "",
   };
 
   for (const key in breakpointsInt) {
