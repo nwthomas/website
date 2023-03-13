@@ -132,7 +132,7 @@ const RootStyles = styled.section`
 
           &:hover {
             border: ${({ theme }) =>
-              `${theme.spaces.nano} solid ${theme.colorsHex.pictonBlue}`};
+              `${theme.spaces.nano} solid ${theme.colorsHex.royalBlue}`};
             opacity: ${({ theme }) => theme.opacity.opacity100};
           }
         }
@@ -172,6 +172,11 @@ const RootStyles = styled.section`
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
       grid-template-columns: 1fr 1fr;
+    }
+
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.desktop}) {
+      grid-template-columns: 1fr 1fr 1fr;
     }
 
     > li {

@@ -13,7 +13,6 @@ const RootStyles = styled.p`
   border-radius: ${({ theme }) => theme.borderRadii.small};
   color: ${({ theme }) => theme.colors.textSecondary};
   font-size: 1.4rem;
-  margin-right: ${({ theme }) => theme.spaces.small};
   margin-top: ${({ theme }) => theme.spaces.xxSmall};
   padding: ${({ theme }) =>
     `${theme.spaces.nano} calc(${theme.spaces.micro} * 2) ${theme.spaces.micro}`};

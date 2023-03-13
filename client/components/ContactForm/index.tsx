@@ -209,7 +209,7 @@ const RootStyles = styled.div<StyleProps>`
           &:focus {
             outline: none;
             border: ${({ theme }) =>
-              `${theme.spaces.nano} solid ${theme.colorsHex.pictonBlue}`};
+              `${theme.spaces.nano} solid ${theme.colorsHex.royalBlue}`};
           }
         }
 
@@ -232,7 +232,7 @@ const RootStyles = styled.div<StyleProps>`
           &:focus {
             outline: none;
             border: ${({ theme }) =>
-              `${theme.spaces.nano} solid ${theme.colorsHex.pictonBlue}`};
+              `${theme.spaces.nano} solid ${theme.colorsHex.royalBlue}`};
           }
         }
 
@@ -267,10 +267,11 @@ const RootStyles = styled.div<StyleProps>`
       > button {
         align-items: center;
         border-radius: ${({ theme }) => theme.borderRadii.medium};
-        background-color: ${({ theme }) => theme.colorsHex.pictonBlue};
-        border: 2px solid ${({ theme }) => theme.colorsHex.pictonBlue};
+        background-color: ${({ theme }) => theme.colorsHex.royalBlue};
+        border: 2px solid ${({ theme }) => theme.colorsHex.royalBlue};
         color: ${({ theme }) => theme.colorsHex.white};
-        cursor: pointer;
+        cursor: ${({ isFormButtonDisabled }) =>
+          isFormButtonDisabled ? "wait" : "pointer"};
         display: flex;
         font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system,
           BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
@@ -288,8 +289,9 @@ const RootStyles = styled.div<StyleProps>`
           color ${({ theme }) => theme.transitions.short} ease-in-out;
 
         &:hover {
-          background-color: transparent;
-          color: ${({ theme }) => theme.colorsHex.pictonBlue};
+          background-color: ${({ isFormButtonDisabled, theme }) =>
+            isFormButtonDisabled ? theme.colorsHex.royalBlue : "transparent"};
+          color: ${({ theme }) => theme.colorsHex.royalBlue};
         }
       }
     }

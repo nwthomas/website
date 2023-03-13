@@ -75,6 +75,7 @@ const RootStyles = styled.article`
     }
 
     > div:nth-child(2) {
+      align-items: center;
       display: flex;
       justify-content: space-between;
       margin-top: ${({ theme }) => theme.spaces.medium};
@@ -100,7 +101,7 @@ const RootStyles = styled.article`
 
     &:hover {
       border: ${({ theme }) =>
-        `${theme.spaces.nano} solid ${theme.colorsHex.pictonBlue}`};
+        `${theme.spaces.nano} solid ${theme.colorsHex.royalBlue}`};
       border-radius: ${({ theme }) => theme.borderRadii.medium};
       outline: none;
 

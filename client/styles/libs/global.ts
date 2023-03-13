@@ -45,7 +45,7 @@ const GlobalStyle = css`
     --body-bg-accent-two: ${colors.outerSpace};
     --code-bg: ${colors.eerieBlack};
     --error: ${colors.red};
-    --selection: ${colors.pictonBlue};
+    --selection: ${colors.royalBlue};
     --text: ${colors.mercury};
     --text-secondary: ${colors.manatee};
   }
@@ -55,7 +55,7 @@ const GlobalStyle = css`
     --body-bg-accent-two: ${colors.silver};
     --code-bg: ${colors.eerieBlack};
     --error: ${colors.red};
-    --selection: ${colors.pictonBlue};
+    --selection: ${colors.royalBlue};
     --text: ${colors.mineShaft};
     --text-secondary: ${colors.doveGray};
   }
@@ -82,7 +82,7 @@ const GlobalStyle = css`
   /* Code for Firefox */
   ::-moz-selection {
     color: ${({ theme }) => theme.colorsHex.white};
-    background: ${({ theme }) => theme.colorsHex.pictonBlue};
+    background: ${({ theme }) => theme.colorsHex.royalBlue};
     background-clip: border-box;
     background-image: none;
     background-size: 100%;
@@ -94,7 +94,7 @@ const GlobalStyle = css`
 
   ::selection {
     color: ${({ theme }) => theme.colorsHex.white};
-    background: ${({ theme }) => theme.colorsHex.pictonBlue};
+    background: ${({ theme }) => theme.colorsHex.royalBlue};
     background-clip: border-box;
     background-image: none;
     background-size: 100%;
