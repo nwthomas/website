@@ -11,7 +11,7 @@ function MetadataTag({ contents }: Props) {
 const RootStyles = styled.p`
   background-color: ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
   border-radius: ${({ theme }) => theme.borderRadii.small};
-  color: ${({ theme }) => theme.colors.textSecondary};
+  color: ${({ theme }) => theme.colors.text};
   font-size: 1.4rem;
   margin-top: ${({ theme }) => theme.spaces.xxSmall};
   padding: ${({ theme }) =>
