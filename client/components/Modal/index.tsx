@@ -131,8 +131,8 @@ const RootStyles = styled.div<StyleProps>`
     > button {
       align-items: center;
       border-radius: ${({ theme }) => theme.borderRadii.medium};
-      background-color: ${({ theme }) => theme.colorsHex.pictonBlue};
-      border: 2px solid ${({ theme }) => theme.colorsHex.pictonBlue};
+      background-color: ${({ theme }) => theme.colorsHex.royalBlue};
+      border: 2px solid ${({ theme }) => theme.colorsHex.royalBlue};
       color: ${({ theme }) => theme.colorsHex.white};
       cursor: pointer;
       display: flex;
@@ -153,7 +153,7 @@ const RootStyles = styled.div<StyleProps>`
 
       &:hover {
         background-color: transparent;
-        color: ${({ theme }) => theme.colorsHex.pictonBlue};
+        color: ${({ theme }) => theme.colorsHex.royalBlue};
       }
 
       @media only screen and (min-width: ${({ theme }) =>

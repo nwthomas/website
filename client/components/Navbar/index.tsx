@@ -4,7 +4,6 @@ import {
   BLOG_PAGE,
   CONTACT_PAGE,
   HOME_PAGE,
-  PLAYGROUND_PAGE,
 } from "../../constants/routes";
 
 import { CONTENTS_ID } from "../../constants/routes";
@@ -16,7 +15,7 @@ import { useRouter } from "next/router";
 const BLOG_LINK_ARIA_LABEL = "Go to all blog posts page";
 const CONTACT_LINK_ARIA_LABEL = "Go to contact page";
 const HOME_LINK_ARIA_LABEL = "Go to home page";
-const PLAYGROUND_LINK_ARIA_LABEL = "Go to playground page";
+// const PLAYGROUND_LINK_ARIA_LABEL = "Go to playground page";
 const SKIP_TO_CONTENT_ARIA_LABEL = "Skip to the page's main content";
 
 function Navbar() {
@@ -47,7 +46,7 @@ function Navbar() {
               </a>
             </li>
             <div>
-              <li>
+              {/* <li>
                 <NavbarLink
                   ariaLabel={PLAYGROUND_LINK_ARIA_LABEL}
                   currentPath={currentPath}
@@ -55,7 +54,7 @@ function Navbar() {
                 >
                   Playground
                 </NavbarLink>
-              </li>
+              </li> */}
               <li>
                 <NavbarLink
                   ariaLabel={BLOG_LINK_ARIA_LABEL}

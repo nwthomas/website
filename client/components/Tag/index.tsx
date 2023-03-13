@@ -52,7 +52,7 @@ const StyledLink = styled(Link)`
 
   &:hover {
     border: ${({ theme }) =>
-      `${theme.spaces.nano} solid ${theme.colorsHex.pictonBlue}`};
+      `${theme.spaces.nano} solid ${theme.colorsHex.royalBlue}`};
     outline: none;
     text-decoration: none;
     text-decoration-underline: none;

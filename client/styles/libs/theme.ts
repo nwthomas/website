@@ -16,8 +16,8 @@ interface Colors {
   mercury: "#E1E1E1";
   mineShaft: "#333333";
   outerSpace: "#373A3D";
-  pictonBlue: "#4597EC";
   red: "red";
+  royalBlue: "#2D6EEE";
   shark: "#202325";
   silver: "#C2C2C2";
   white: "#FFFFFF";
@@ -34,8 +34,8 @@ export const colors: Colors = {
   mercury: "#E1E1E1",
   mineShaft: "#333333",
   outerSpace: "#373A3D",
-  pictonBlue: "#4597EC",
   red: "red",
+  royalBlue: "#2D6EEE",
   silver: "#C2C2C2",
   shark: "#202325",
   white: "#FFFFFF",
