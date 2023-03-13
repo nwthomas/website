@@ -77,6 +77,7 @@ const RootStyles = styled.article`
     > div:nth-child(2) {
       align-items: center;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       margin-top: ${({ theme }) => theme.spaces.medium};
 
