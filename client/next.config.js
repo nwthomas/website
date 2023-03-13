@@ -11,7 +11,12 @@ const nextConfig = {
       {
         source: "/tag",
         destination: "/blog",
-        permanent: false,
+        permanent: true,
+      },
+      {
+        source: "/tag/soft-skills",
+        destination: "/tag/personal",
+        permanent: true,
       },
     ];
   },
