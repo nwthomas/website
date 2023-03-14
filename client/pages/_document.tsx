@@ -76,6 +76,24 @@ export default class MyDocument extends Document {
             type="font/woff2"
             crossOrigin="anonymous"
           />
+          <link rel="shortcut icon" href="/images/favicon/favicon.ico" />
+          <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/favicon/favicon.ico"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/favicon/favicon.ico"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/favicon/favicon.ico"
+          />
         </Head>
         <body>
           <script
