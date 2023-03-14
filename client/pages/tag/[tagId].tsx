@@ -17,7 +17,7 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 
 function buildTagIdPageName(tag: string) {
-  return `${tag} Articles`;
+  return `Nathan Thomas | ${tag} Posts`;
 }
 
 export async function getStaticProps({ params: { tagId } }) {
