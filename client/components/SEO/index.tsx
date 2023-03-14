@@ -8,9 +8,6 @@ import { ThemeContext } from "styled-components";
 import { buildSeoConfig } from "../../constants/seo";
 import { useTheme } from "../../hooks";
 
-const darkModeFaviconPath = "/dark-mode-favicon.ico";
-const lightModeFaviconPath = "/light-mode-favicon.ico";
-
 function buildUrlWithOrigin(currentUrl: string): string {
   return `${ORIGIN}${currentUrl}`;
 }
@@ -73,14 +70,7 @@ function SEO({
         }}
       />
       <Head>
-        <link
-          rel="icon"
-          href={
-            currentTheme === DARK_THEME
-              ? darkModeFaviconPath
-              : lightModeFaviconPath
-          }
-        />
+        <link rel="icon" href="/favicon.ico" />
         {/* This handles the color for the "safe area" notch on iOS */}
         {currentTheme ? (
           <meta
