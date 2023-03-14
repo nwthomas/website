@@ -70,7 +70,6 @@ function SEO({
         }}
       />
       <Head>
-        <link rel="icon" href="/favicon.ico" />
         {/* This handles the color for the "safe area" notch on iOS */}
         {currentTheme ? (
           <meta
