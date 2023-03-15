@@ -98,15 +98,27 @@ const Home: NextPage = () => {
                 />
               </div>
               <div>
-                <Image
-                  alt="iPhone displaying Twitter web app"
-                  height="979"
-                  loading="eager"
-                  priority
-                  quality={100}
-                  src="/images/backgrounds/iphone-14-pro-max-bezel.webp"
-                  width="483"
-                />
+                <div>
+                  <Image
+                    alt=""
+                    aria-hidden={true}
+                    height="979"
+                    loading="eager"
+                    priority
+                    quality={100}
+                    src="/images/backgrounds/iphone-14-pro-max-bezel.webp"
+                    width="483"
+                  />
+                  <Image
+                    alt="iPhone displaying Twitter web app"
+                    height="928"
+                    loading="eager"
+                    priority
+                    quality={100}
+                    src="/images/backgrounds/twitter-web-app.webp"
+                    width="926"
+                  />
+                </div>
               </div>
             </section>
           </main>
@@ -233,12 +245,32 @@ const RootStyles = styled.div`
         z-index: 2;
       }
 
+      /* Iphone demo */
       > div:nth-child(5) {
         position: absolute;
         left: 10%;
         top: ${({ theme }) => theme.spaces.xLarge};
         width: 25%;
         z-index: 3;
+
+        > div {
+          height: 100%;
+          padding: 5%;
+          position: relative;
+          width: 100%;
+
+          > img:nth-child(1) {
+            bottom: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+          }
+
+          > img:nth-child(2) {
+            border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
+            overflow: hidden;
+          }
+        }
       }
     }
   }
