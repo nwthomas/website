@@ -15,7 +15,7 @@ function NavbarLink({ ariaLabel, children, currentPath, route }: Props) {
 
   return (
     <RootStyles isCurrentPage={isCurrentPage}>
-      <Link aria-label={ariaLabel} href={route}>
+      <Link aria-label={ariaLabel} href={route} prefetch={false}>
         {children}
       </Link>
     </RootStyles>

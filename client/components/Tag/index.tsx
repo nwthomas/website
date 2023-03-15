@@ -16,6 +16,7 @@ function Tag({ text }: Props) {
       aria-label={buildTagLinkAriaLabel(text)}
       href={buildLinkHref(text)}
       passHref
+      prefetch={false}
     >
       <h1>{text}</h1>
     </StyledLink>

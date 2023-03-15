@@ -18,7 +18,7 @@ function BlogCard({ dateWritten, description, title, url }: Props) {
 
   return (
     <RootStyles>
-      <Link href={`/blog/${url}`} passHref>
+      <Link href={`/blog/${url}`} passHref prefetch={false}>
         <div>
           <h2>{title}</h2>
           <p>{description}</p>
