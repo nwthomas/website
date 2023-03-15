@@ -12,8 +12,12 @@ import Link from "next/link";
 import { NextPage } from "next";
 
 const GITHUB_LINK_ARIA_LABEL = "Link to Nathan's GitHub page";
-const WRITING_LINK_ARIA_LABEL = "Link to Nathan's blog page";
 const TEACHING_LINK_ARIA_LABEL = "Link to presentation from Nathan on YouTube";
+const WRITING_LINK_ARIA_LABEL = "Link to Nathan's blog page";
+
+const COMPUTER_ALT_TEXT =
+  "Computer screen displaying Loom web app video trimming";
+const IPHONE_ALT_TEXT = "iPhone displaying Twitter web app";
 
 export async function getStaticProps() {
   return {
@@ -91,7 +95,7 @@ const Home: NextPage = () => {
                   />
                 </div>
                 <ComputerScreen
-                  imageAlt="Computer screen displaying Loom web app video trimming"
+                  imageAlt={COMPUTER_ALT_TEXT}
                   imageHeight={481}
                   imageSrc="/images/backgrounds/loom-multi-clip-editing.webp"
                   imageWidth={768}
@@ -110,7 +114,7 @@ const Home: NextPage = () => {
                     width="483"
                   />
                   <Image
-                    alt="iPhone displaying Twitter web app"
+                    alt={IPHONE_ALT_TEXT}
                     height="928"
                     loading="eager"
                     priority
@@ -186,28 +190,38 @@ const RootStyles = styled.div`
 
     > section:nth-child(2) {
       display: flex;
-      height: 750px;
+      height: 1200px;
       margin-bottom: ${({ theme }) => theme.spaces.medium};
       position: relative;
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
+        height: 750px;
         margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
       }
 
       /* Gradient background */
       > div:nth-child(1) {
-        border-radius: ${({ theme }) => theme.borderRadii.large};
-        -webkit-box-shadow: ${({ theme }) => theme.dropshadows.small};
-        -moz-box-shadow: ${({ theme }) => theme.dropshadows.small};
-        box-shadow: ${({ theme }) => theme.dropshadows.small};
-        height: 35%;
-        left: ${({ theme }) => theme.spaces.medium};
+        border-radius: ${({ theme }) => theme.borderRadii.medium};
+        height: auto;
+        left: 0;
         overflow: hidden;
         position: absolute;
-        top: ${({ theme }) => theme.spaces.xxLarge};
-        width: 60%;
+        top: ${({ theme }) => theme.spaces.large};
+        width: 100%;
         z-index: 1;
+
+        @media only screen and (min-width: ${({ theme }) =>
+            theme.breakpoints.desktop}) {
+          border-radius: ${({ theme }) => theme.borderRadii.large};
+          -webkit-box-shadow: ${({ theme }) => theme.dropshadows.small};
+          -moz-box-shadow: ${({ theme }) => theme.dropshadows.small};
+          box-shadow: ${({ theme }) => theme.dropshadows.small};
+          height: 40%;
+          left: ${({ theme }) => theme.spaces.medium};
+          top: ${({ theme }) => theme.spaces.xxLarge};
+          width: 60%;
+        }
       }
 
       /* Solid color background */
@@ -215,14 +229,20 @@ const RootStyles = styled.div`
         background-color: ${({ theme }) =>
           theme.colors.bodyBackgroundAccentThree};
         border-radius: ${({ theme }) => theme.borderRadii.large};
-        -webkit-box-shadow: ${({ theme }) => theme.dropshadows.small};
-        -moz-box-shadow: ${({ theme }) => theme.dropshadows.small};
-        box-shadow: ${({ theme }) => theme.dropshadows.small};
         bottom: ${({ theme }) => theme.spaces.xxLarge};
-        height: 60%;
+        height: 50%;
         position: absolute;
-        right: ${({ theme }) => theme.spaces.large};
-        width: 55%;
+        right: 0;
+        width: 100%;
+
+        @media only screen and (min-width: ${({ theme }) =>
+            theme.breakpoints.desktop}) {
+          -webkit-box-shadow: ${({ theme }) => theme.dropshadows.small};
+          -moz-box-shadow: ${({ theme }) => theme.dropshadows.small};
+          box-shadow: ${({ theme }) => theme.dropshadows.small};
+          right: ${({ theme }) => theme.spaces.large};
+          width: 55%;
+        }
       }
 
       /* Mock computer window */
@@ -230,34 +250,69 @@ const RootStyles = styled.div`
         bottom: ${({ theme }) =>
           `calc(${theme.spaces.xxLarge} + ${theme.spaces.medium})`};
         position: absolute;
-        right: ${({ theme }) =>
-          `calc(${theme.spaces.large} + ${theme.spaces.medium})`};
-        width: calc(55% - ${({ theme }) => theme.spaces.medium} * 2);
+        right: 0;
+        width: 100%;
         z-index: 2;
+
+        @media only screen and (min-width: ${({ theme }) =>
+            theme.breakpoints.desktop}) {
+          right: ${({ theme }) =>
+            `calc(${theme.spaces.large} + ${theme.spaces.medium})`};
+          width: calc(55% - ${({ theme }) => theme.spaces.medium} * 2);
+        }
 
         /* Rotating Loom logo */
         > div:nth-child(1) {
           animation: ${rotateAnimation} 60s linear infinite;
           position: absolute;
-          right: ${({ theme }) => `-${theme.spaces.xLarge}`};
+          right: 0;
           top: ${({ theme }) => `calc(-${theme.spaces.large} * 2)`};
           z-index: -1;
+
+          @media only screen and (min-width: ${({ theme }) =>
+              theme.breakpoints.desktop}) {
+            top: ${({ theme }) => `calc(-${theme.spaces.xLarge} * 3)`};
+            width: 50%;
+          }
+
+          @media only screen and (min-width: ${({ theme }) =>
+              theme.breakpoints.ultrawide}) {
+            right: ${({ theme }) => `-${theme.spaces.xLarge}`};
+            width: 40%;
+          }
         }
       }
 
       /* Iphone demo */
       > div:nth-child(4) {
+        display: flex;
         position: absolute;
-        left: 10%;
+        left: 0;
+        justify-content: center;
+        padding: 0 ${({ theme }) => theme.spaces.xxLarge};
         top: ${({ theme }) => theme.spaces.medium};
-        width: 25%;
+        width: 100%;
         z-index: 3;
+
+        @media only screen and (min-width: ${({ theme }) =>
+            theme.breakpoints.desktop}) {
+          display: block;
+          left: 10%;
+          padding: 0;
+          width: 25%;
+        }
 
         > div {
           height: 100%;
-          padding: 5%;
+          padding: 4%;
           position: relative;
-          width: 100%;
+          width: 75%;
+
+          @media only screen and (min-width: ${({ theme }) =>
+              theme.breakpoints.desktop}) {
+            padding: 5%;
+            width: 100%;
+          }
 
           > img:nth-child(1) {
             bottom: 0;
@@ -269,6 +324,7 @@ const RootStyles = styled.div`
           > img:nth-child(2) {
             border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
             overflow: hidden;
+            width: 100%;
           }
         }
       }
