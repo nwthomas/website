@@ -43,6 +43,7 @@ const GlobalStyle = css`
     --body-bg: ${colors.black};
     --body-bg-accent-one: ${colors.shark};
     --body-bg-accent-two: ${colors.outerSpace};
+    --body-bg-accent-three: ${colors.codGray};
     --code-bg: ${colors.eerieBlack};
     --error: ${colors.red};
     --selection: ${colors.royalBlue};
@@ -53,6 +54,7 @@ const GlobalStyle = css`
     --body-bg: ${colors.white};
     --body-bg-accent-one: ${colors.alto};
     --body-bg-accent-two: ${colors.silver};
+    --body-bg-accent-three: ${colors.alabaster};
     --code-bg: ${colors.eerieBlack};
     --error: ${colors.red};
     --selection: ${colors.royalBlue};
