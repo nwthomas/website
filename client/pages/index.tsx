@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import styled, { keyframes } from "styled-components";
+
 import { CONTENTS_ID } from "../constants/routes";
 import { HOME_PAGE_NAME } from "../constants/seo";
 import Head from "next/head";
@@ -7,7 +9,6 @@ import Image from "next/image";
 import Layout from "../components/Layout";
 import Link from "next/link";
 import { NextPage } from "next";
-import styled from "styled-components";
 
 const GITHUB_LINK_ARIA_LABEL = "Link to Nathan's GitHub page";
 const WRITING_LINK_ARIA_LABEL = "Link to Nathan's blog page";
@@ -75,7 +76,34 @@ const Home: NextPage = () => {
                   width="1365"
                 />
               </div>
+              <div>
+                <Image
+                  alt="Loom logo"
+                  height="333"
+                  loading="eager"
+                  priority
+                  quality={100}
+                  src="/images/backgrounds/loom-logo.webp"
+                  width="333"
+                />
+              </div>
               <div />
+              <div>
+                <div>
+                  <div />
+                  <div />
+                  <div />
+                </div>
+                <Image
+                  alt="Loom logo"
+                  height="333"
+                  loading="eager"
+                  priority
+                  quality={100}
+                  src="/images/backgrounds/loom-logo.webp"
+                  width="333"
+                />
+              </div>
             </section>
           </main>
         </RootStyles>
@@ -83,6 +111,12 @@ const Home: NextPage = () => {
     </>
   );
 };
+
+const rotateAnimation = keyframes`
+  100% {
+    transform: rotate(360deg);
+  };
+`;
 
 const RootStyles = styled.div`
   align-items: center;
@@ -146,6 +180,10 @@ const RootStyles = styled.div`
       }
 
       > div:nth-child(1) {
+        border-radius: ${({ theme }) => theme.borderRadii.medium};
+        -webkit-box-shadow: ${({ theme }) => theme.dropshadows.small};
+        -moz-box-shadow: ${({ theme }) => theme.dropshadows.small};
+        box-shadow: ${({ theme }) => theme.dropshadows.small};
         height: 35%;
         left: ${({ theme }) => theme.spaces.medium};
         overflow: hidden;
@@ -156,8 +194,20 @@ const RootStyles = styled.div`
       }
 
       > div:nth-child(2) {
+        animation: ${rotateAnimation} 60s linear infinite;
+        position: absolute;
+        right: 0;
+        top: ${({ theme }) => `calc(${theme.spaces.xLarge} * 2)`};
+        z-index: -1;
+      }
+
+      > div:nth-child(3) {
         background-color: ${({ theme }) =>
           theme.colors.bodyBackgroundAccentThree};
+        border-radius: ${({ theme }) => theme.borderRadii.medium};
+        -webkit-box-shadow: ${({ theme }) => theme.dropshadows.small};
+        -moz-box-shadow: ${({ theme }) => theme.dropshadows.small};
+        box-shadow: ${({ theme }) => theme.dropshadows.small};
         bottom: ${({ theme }) => theme.spaces.xxLarge};
         height: 52%;
         position: absolute;
@@ -165,11 +215,10 @@ const RootStyles = styled.div`
         width: 55%;
       }
 
-      > div {
-        border-radius: ${({ theme }) => theme.borderRadii.medium};
-        -webkit-box-shadow: ${({ theme }) => theme.dropshadows.small};
-        -moz-box-shadow: ${({ theme }) => theme.dropshadows.small};
-        box-shadow: ${({ theme }) => theme.dropshadows.small};
+      > div:nth-child(4) {
+        position: absolute;
+        right: 0;
+        z-index: 2;
       }
     }
   }

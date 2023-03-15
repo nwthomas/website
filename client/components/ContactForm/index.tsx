@@ -16,7 +16,7 @@ function getContactFormBorder(radians: number) {
 }
 
 function getBoxShadowPartialMask(radians: number) {
-  return `-webkit-gradient(${radians}rad, color-stop(10%,rgba(168,214,255,0)), color-stop(80%,rgba(168,214,255,1))) 50 50 stretch`;
+  return `-webkit-gradient(${radians}rad, color-stop(10%,rgba(168,214,255,0)) 0%, color-stop(80%,rgba(168,214,255,1))) 50 50 stretch`;
 }
 
 export interface MessageValues {
