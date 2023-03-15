@@ -15,10 +15,6 @@ function getContactFormBorder(radians: number) {
   return `linear-gradient(calc(${radians}rad), ${themeColorValues.bodyBackgroundAccentTwo} 0%, ${themeColorValues.bodyBackgroundAccentTwo} 50%, rgba(121,40,202,0) 75%)`;
 }
 
-function getBoxShadowPartialMask(radians: number) {
-  return `-webkit-gradient(${radians}rad, color-stop(10%,rgba(168,214,255,0)) 0%, color-stop(80%,rgba(168,214,255,1))) 50 50 stretch`;
-}
-
 export interface MessageValues {
   email: string;
   message: string;
@@ -82,7 +78,6 @@ function ContactForm({
       isFormButtonDisabled={withSpinner}
       style={{
         backgroundImage: getContactFormBorder(radians),
-        borderImage: getBoxShadowPartialMask(radians),
       }}
     >
       <div ref={contactFormRef}>
