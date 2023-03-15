@@ -190,14 +190,19 @@ const RootStyles = styled.div`
 
     > section:nth-child(2) {
       display: flex;
-      height: 1200px;
-      margin-bottom: ${({ theme }) => theme.spaces.medium};
+      height: 1100px;
+      justify-content: center;
       position: relative;
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        height: 750px;
+        height: 700px;
         margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
+      }
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.ultrawide}) {
+        height: 750px;
       }
 
       /* Gradient background */
@@ -263,10 +268,11 @@ const RootStyles = styled.div`
 
         /* Rotating Loom logo */
         > div:nth-child(1) {
-          animation: ${rotateAnimation} 60s linear infinite;
+          animation: ${rotateAnimation} 70s linear infinite;
           position: absolute;
           right: 0;
-          top: ${({ theme }) => `calc(-${theme.spaces.large} * 2)`};
+          top: ${({ theme }) => `calc(-${theme.spaces.large} * 3)`};
+          width: 50%;
           z-index: -1;
 
           @media only screen and (min-width: ${({ theme }) =>
@@ -277,7 +283,7 @@ const RootStyles = styled.div`
 
           @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.ultrawide}) {
-            right: ${({ theme }) => `-${theme.spaces.xLarge}`};
+            right: ${({ theme }) => `-${theme.spaces.large}`};
             width: 40%;
           }
         }
