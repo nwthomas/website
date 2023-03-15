@@ -10,10 +10,13 @@ interface Colors {
   alto: "#DBDBDB";
   black: "#000000";
   brightSun: "#FACF3D";
+  burntSienna: "#ED6A5E";
+  casablanca: "#F5BF4F";
   codGray: "#111010";
   doveGray: "#707070";
   eerieBlack: "#171717";
   manatee: "#8E8E90";
+  mantis: "#62C554";
   mercury: "#E1E1E1";
   mineShaft: "#333333";
   outerSpace: "#373A3D";
@@ -30,10 +33,13 @@ export const colors: Colors = {
   alto: "#DBDBDB",
   black: "#000000",
   brightSun: "#FACF3D",
+  burntSienna: "#ED6A5E",
+  casablanca: "#F5BF4F",
   codGray: "#111010",
   doveGray: "#707070",
   eerieBlack: "#171717",
   manatee: "#8E8E90",
+  mantis: "#62C554",
   mercury: "#E1E1E1",
   mineShaft: "#333333",
   outerSpace: "#373A3D",

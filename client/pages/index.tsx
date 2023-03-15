@@ -96,12 +96,12 @@ const Home: NextPage = () => {
                 </div>
                 <Image
                   alt="Loom logo"
-                  height="333"
+                  height="481"
                   loading="eager"
                   priority
                   quality={100}
-                  src="/images/backgrounds/loom-logo.webp"
-                  width="333"
+                  src="/images/backgrounds/loom-multi-clip-editing.webp"
+                  width="768"
                 />
               </div>
             </section>
@@ -179,8 +179,9 @@ const RootStyles = styled.div`
         margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
       }
 
+      /* Gradient background */
       > div:nth-child(1) {
-        border-radius: ${({ theme }) => theme.borderRadii.medium};
+        border-radius: ${({ theme }) => theme.borderRadii.large};
         -webkit-box-shadow: ${({ theme }) => theme.dropshadows.small};
         -moz-box-shadow: ${({ theme }) => theme.dropshadows.small};
         box-shadow: ${({ theme }) => theme.dropshadows.small};
@@ -193,32 +194,83 @@ const RootStyles = styled.div`
         z-index: 1;
       }
 
+      /* Rotating Loom logo */
       > div:nth-child(2) {
         animation: ${rotateAnimation} 60s linear infinite;
         position: absolute;
-        right: 0;
-        top: ${({ theme }) => `calc(${theme.spaces.xLarge} * 2)`};
-        z-index: -1;
+        right: ${({ theme }) => theme.spaces.nano};
+        top: ${({ theme }) => `calc(${theme.spaces.xLarge} * 3)`};
+        z-index: 1;
       }
 
+      /* Solid color background */
       > div:nth-child(3) {
         background-color: ${({ theme }) =>
           theme.colors.bodyBackgroundAccentThree};
-        border-radius: ${({ theme }) => theme.borderRadii.medium};
+        border-radius: ${({ theme }) => theme.borderRadii.large};
         -webkit-box-shadow: ${({ theme }) => theme.dropshadows.small};
         -moz-box-shadow: ${({ theme }) => theme.dropshadows.small};
         box-shadow: ${({ theme }) => theme.dropshadows.small};
         bottom: ${({ theme }) => theme.spaces.xxLarge};
-        height: 52%;
+        height: 60%;
         position: absolute;
         right: ${({ theme }) => theme.spaces.large};
         width: 55%;
       }
 
+      /* Mock computer window */
       > div:nth-child(4) {
+        background-color: ${({ theme }) => theme.colorsHex.white};
+        border: ${({ theme }) =>
+          `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentOne}`};
+        border-radius: ${({ theme }) => theme.borderRadii.medium};
+        bottom: ${({ theme }) =>
+          `calc(${theme.spaces.xxLarge} + ${theme.spaces.medium})`};
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
         position: absolute;
-        right: 0;
+        right: ${({ theme }) =>
+          `calc(${theme.spaces.large} + ${theme.spaces.medium})`};
+        width: calc(55% - ${({ theme }) => theme.spaces.medium} * 2);
         z-index: 2;
+
+        /* Top bar on computer window */
+        > div {
+          align-items: center;
+          background-color: ${({ theme }) => theme.colorsHex.white};
+          border-bottom: ${({ theme }) =>
+            `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentOne}`};
+          display: flex;
+          height: ${({ theme }) => theme.spaces.medium};
+          padding-left: ${({ theme }) => theme.spaces.xSmall};
+          width: 100%;
+
+          /* Top bar buttons */
+          > div {
+            border-radius: ${({ theme }) => theme.borderRadii.infinity};
+            height: ${({ theme }) => theme.spaces.small};
+            margin-right: ${({ theme }) => theme.spaces.xxSmall};
+            width: ${({ theme }) => theme.spaces.small};
+          }
+
+          > div:nth-child(1) {
+            background-color: ${({ theme }) => theme.colorsHex.burntSienna};
+          }
+
+          > div:nth-child(2) {
+            background-color: ${({ theme }) => theme.colorsHex.casablanca};
+          }
+
+          > div:nth-child(3) {
+            background-color: ${({ theme }) => theme.colorsHex.mantis};
+          }
+        }
+
+        /* Image on computer screen - display: flex is to remove CSS bottom margin */
+        > image {
+          display: flex;
+        }
       }
     }
   }
