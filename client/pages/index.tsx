@@ -34,7 +34,11 @@ const Home: NextPage = () => {
                 software engineer
               </a>
               ,{" "}
-              <Link aria-label={WRITING_LINK_ARIA_LABEL} href="/blog">
+              <Link
+                aria-label={WRITING_LINK_ARIA_LABEL}
+                href="/blog"
+                prefetch={false}
+              >
                 writer
               </Link>
               , and{" "}

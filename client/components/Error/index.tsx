@@ -10,7 +10,7 @@ export default function Error({ errorCode }: Props) {
     <RootStyles>
       <h1>
         {`${errorCode} `}
-        <Link href="/" passHref>
+        <Link href="/" passHref prefetch={false}>
           Go home
         </Link>
       </h1>
