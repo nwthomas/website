@@ -3,6 +3,7 @@ import * as React from "react";
 import styled, { keyframes } from "styled-components";
 
 import { CONTENTS_ID } from "../constants/routes";
+import ComputerScreen from "../components/ComputerScreen";
 import { HOME_PAGE_NAME } from "../constants/seo";
 import Head from "next/head";
 import Image from "next/image";
@@ -89,19 +90,22 @@ const Home: NextPage = () => {
               </div>
               <div />
               <div>
-                <div>
-                  <div />
-                  <div />
-                  <div />
-                </div>
+                <ComputerScreen
+                  imageAlt="Computer screen displaying Loom web app video trimming"
+                  imageHeight={481}
+                  imageSrc="/images/backgrounds/loom-multi-clip-editing.webp"
+                  imageWidth={768}
+                />
+              </div>
+              <div>
                 <Image
-                  alt="Loom logo"
-                  height="481"
+                  alt="iPhone displaying Twitter web app"
+                  height="979"
                   loading="eager"
                   priority
                   quality={100}
-                  src="/images/backgrounds/loom-multi-clip-editing.webp"
-                  width="768"
+                  src="/images/backgrounds/iphone-14-pro-max-bezel.webp"
+                  width="483"
                 />
               </div>
             </section>
@@ -220,57 +224,21 @@ const RootStyles = styled.div`
 
       /* Mock computer window */
       > div:nth-child(4) {
-        background-color: ${({ theme }) => theme.colorsHex.white};
-        border: ${({ theme }) =>
-          `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentOne}`};
-        border-radius: ${({ theme }) => theme.borderRadii.medium};
         bottom: ${({ theme }) =>
           `calc(${theme.spaces.xxLarge} + ${theme.spaces.medium})`};
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
         position: absolute;
         right: ${({ theme }) =>
           `calc(${theme.spaces.large} + ${theme.spaces.medium})`};
         width: calc(55% - ${({ theme }) => theme.spaces.medium} * 2);
         z-index: 2;
+      }
 
-        /* Top bar on computer window */
-        > div {
-          align-items: center;
-          background-color: ${({ theme }) => theme.colorsHex.white};
-          border-bottom: ${({ theme }) =>
-            `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentOne}`};
-          display: flex;
-          height: ${({ theme }) => theme.spaces.medium};
-          padding-left: ${({ theme }) => theme.spaces.xSmall};
-          width: 100%;
-
-          /* Top bar buttons */
-          > div {
-            border-radius: ${({ theme }) => theme.borderRadii.infinity};
-            height: ${({ theme }) => theme.spaces.small};
-            margin-right: ${({ theme }) => theme.spaces.xxSmall};
-            width: ${({ theme }) => theme.spaces.small};
-          }
-
-          > div:nth-child(1) {
-            background-color: ${({ theme }) => theme.colorsHex.burntSienna};
-          }
-
-          > div:nth-child(2) {
-            background-color: ${({ theme }) => theme.colorsHex.casablanca};
-          }
-
-          > div:nth-child(3) {
-            background-color: ${({ theme }) => theme.colorsHex.mantis};
-          }
-        }
-
-        /* Image on computer screen - display: flex is to remove CSS bottom margin */
-        > image {
-          display: flex;
-        }
+      > div:nth-child(5) {
+        position: absolute;
+        left: 10%;
+        top: ${({ theme }) => theme.spaces.xLarge};
+        width: 25%;
+        z-index: 3;
       }
     }
   }
