@@ -240,7 +240,7 @@ const RootStyles = styled.div`
       > div:nth-child(2) {
         display: flex;
         justify-content: center;
-        margin-bottom: ${({ theme }) => theme.spaces.jumbo};
+        margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
         padding: 0 ${({ theme }) => theme.spaces.xxLarge};
         width: 100%;
         z-index: 3;
@@ -314,7 +314,7 @@ const RootStyles = styled.div`
           animation: ${rotateAnimation} 70s linear infinite;
           position: absolute;
           right: 10%;
-          top: ${({ theme }) => `calc(${theme.spaces.jumbo} * 4.5)`};
+          top: ${({ theme }) => `calc(${theme.spaces.jumbo} * 4)`};
           width: ${({ theme }) => `calc(${theme.spaces.jumbo} * 2)`};
           z-index: -1;
 
