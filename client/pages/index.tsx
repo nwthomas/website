@@ -16,8 +16,9 @@ const TEACHING_LINK_ARIA_LABEL = "Link to presentation from Nathan on YouTube";
 const WRITING_LINK_ARIA_LABEL = "Link to Nathan's blog page";
 
 const COMPUTER_ALT_TEXT =
-  "Computer screen displaying Loom web app video trimming";
-const IPHONE_ALT_TEXT = "iPhone displaying Twitter web app";
+  "Computer screen displaying Loom web app video trimming, and example of Nathan's work";
+const IPHONE_ALT_TEXT =
+  "iPhone displaying Twitter web app, and example of Nathan's work";
 
 export async function getStaticProps() {
   return {
@@ -194,16 +195,25 @@ const RootStyles = styled.div`
     > section:nth-child(2) {
       align-items: center;
       display: flex;
-      flex-direction: column;
+      flex-direction: column-reverse;
       margin-bottom: ${({ theme }) => theme.spaces.large};
       position: relative;
 
       @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.mobile}) {
+        overflow: visible;
+      }
+
+      @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        height: 700px;
         flex-direction: column-reverse;
         margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
         overflow: visible;
+      }
+
+      @media only screen and (min-width: ${({ theme }) =>
+          theme.breakpoints.desktop}) {
+        height: 700px;
       }
 
       @media only screen and (min-width: ${({ theme }) =>
