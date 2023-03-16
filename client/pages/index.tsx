@@ -82,27 +82,6 @@ const Home: NextPage = () => {
                   width="1365"
                 />
               </div>
-              <div />
-              <div>
-                <div>
-                  <Image
-                    alt="Loom logo"
-                    draggable={false}
-                    height="333"
-                    loading="eager"
-                    priority
-                    quality={100}
-                    src="/images/backgrounds/loom-logo.webp"
-                    width="333"
-                  />
-                </div>
-                <ComputerScreen
-                  imageAlt={COMPUTER_ALT_TEXT}
-                  imageHeight={962}
-                  imageSrc="/images/backgrounds/loom-multi-clip-editing.webp"
-                  imageWidth={1536}
-                />
-              </div>
               <div>
                 <div>
                   <Image
@@ -127,6 +106,26 @@ const Home: NextPage = () => {
                     width="642"
                   />
                 </div>
+              </div>
+              <div>
+                <div>
+                  <Image
+                    alt="Loom logo"
+                    draggable={false}
+                    height="333"
+                    loading="eager"
+                    priority
+                    quality={100}
+                    src="/images/backgrounds/loom-logo.webp"
+                    width="333"
+                  />
+                </div>
+                <ComputerScreen
+                  imageAlt={COMPUTER_ALT_TEXT}
+                  imageHeight={962}
+                  imageSrc="/images/backgrounds/loom-multi-clip-editing.webp"
+                  imageWidth={1536}
+                />
               </div>
             </section>
           </main>
@@ -193,15 +192,17 @@ const RootStyles = styled.div`
     }
 
     > section:nth-child(2) {
+      align-items: center;
       display: flex;
-      height: 1100px;
-      justify-content: center;
+      flex-direction: column;
+      margin-bottom: ${({ theme }) => theme.spaces.large};
       position: relative;
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
         height: 700px;
         margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
+        overflow: visible;
       }
 
       @media only screen and (min-width: ${({ theme }) =>
@@ -212,97 +213,45 @@ const RootStyles = styled.div`
       /* Gradient background */
       > div:nth-child(1) {
         border-radius: ${({ theme }) => theme.borderRadii.medium};
-        filter: blur(${({ theme }) => theme.spaces.jumbo});
+        filter: blur(${({ theme }) => theme.spaces.xxLarge});
         height: auto;
         left: 0;
-        overflow: hidden;
+        opacity: ${({ theme }) => theme.opacity.opacity50};
         position: absolute;
-        top: ${({ theme }) => theme.spaces.large};
-        transform: rotate(-10deg);
+        right: 0;
+        top: ${({ theme }) => `calc(${theme.spaces.jumbo} * 2)`};
         width: 100%;
         z-index: 0;
 
         @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.desktop}) {
+          filter: blur(${({ theme }) => theme.spaces.jumbo});
           border-radius: ${({ theme }) => theme.borderRadii.large};
           height: 50%;
           left: ${({ theme }) => theme.spaces.medium};
           opacity: ${({ theme }) => theme.opacity.opacity30};
           top: ${({ theme }) => theme.spaces.xxLarge};
+          transform: rotate(-10deg);
           width: 55%;
-        }
-      }
-
-      /* Solid color background */
-      > div:nth-child(2) {
-        background-color: ${({ theme }) =>
-          theme.colors.bodyBackgroundAccentThree};
-        border-radius: ${({ theme }) => theme.borderRadii.large};
-        bottom: ${({ theme }) => theme.spaces.xxLarge};
-        height: 45%;
-        position: absolute;
-        right: 0;
-        width: 100%;
-
-        @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.desktop}) {
-          -webkit-box-shadow: ${({ theme }) => theme.dropshadows.small};
-          -moz-box-shadow: ${({ theme }) => theme.dropshadows.small};
-          box-shadow: ${({ theme }) => theme.dropshadows.small};
-          right: ${({ theme }) => theme.spaces.large};
-          width: 55%;
-        }
-      }
-
-      /* Mock computer window */
-      > div:nth-child(3) {
-        bottom: ${({ theme }) =>
-          `calc(${theme.spaces.xxLarge} + ${theme.spaces.medium})`};
-        position: absolute;
-        right: 0;
-        width: 100%;
-        z-index: 2;
-
-        @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.desktop}) {
-          right: ${({ theme }) =>
-            `calc(${theme.spaces.large} + ${theme.spaces.medium})`};
-          width: calc(55% - ${({ theme }) => theme.spaces.medium} * 2);
-        }
-
-        /* Rotating Loom logo */
-        > div:nth-child(1) {
-          animation: ${rotateAnimation} 70s linear infinite;
-          position: absolute;
-          right: 0;
-          top: ${({ theme }) => `calc(-${theme.spaces.large} * 3)`};
-          width: 50%;
-          z-index: -1;
-
-          @media only screen and (min-width: ${({ theme }) =>
-              theme.breakpoints.desktop}) {
-            top: ${({ theme }) => `calc(-${theme.spaces.xLarge} * 3)`};
-            width: 50%;
-          }
-
-          @media only screen and (min-width: ${({ theme }) =>
-              theme.breakpoints.ultrawide}) {
-            right: ${({ theme }) => `-${theme.spaces.large}`};
-            width: 40%;
-          }
         }
       }
 
       /* Iphone demo */
-      > div:nth-child(4) {
+      > div:nth-child(2) {
         display: flex;
-        position: absolute;
-        left: 0;
         justify-content: center;
+        margin-bottom: ${({ theme }) => theme.spaces.jumbo};
         padding: 0 ${({ theme }) => theme.spaces.xxLarge};
-        top: ${({ theme }) => theme.spaces.small};
         width: 100%;
         z-index: 3;
+
+        @media only screen and (min-width: ${({ theme }) =>
+            theme.breakpoints.tablet}) {
+          left: 0;
+          margin-bottom: 0;
+          position: absolute;
+          top: ${({ theme }) => theme.spaces.small};
+        }
 
         @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.desktop}) {
@@ -314,13 +263,15 @@ const RootStyles = styled.div`
 
         > div {
           height: 100%;
-          padding: 4.7%;
+          padding: 16px 13px 0;
           position: relative;
-          width: 75%;
+          width: 220px;
+          transform: rotate(2deg);
 
           @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.desktop}) {
             padding: 5% 5.5% 0;
+            transform: rotate(-2deg);
             width: 100%;
           }
 
@@ -335,6 +286,50 @@ const RootStyles = styled.div`
             border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
             overflow: hidden;
             width: 100%;
+          }
+        }
+      }
+
+      /* Mock computer window */
+      > div:nth-child(3) {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        z-index: 2;
+
+        @media only screen and (min-width: ${({ theme }) =>
+            theme.breakpoints.desktop}) {
+          bottom: ${({ theme }) =>
+            `calc(${theme.spaces.xxLarge} + ${theme.spaces.medium})`};
+          display: block;
+          max-width: none;
+          position: absolute;
+          right: ${({ theme }) =>
+            `calc(${theme.spaces.large} + ${theme.spaces.medium})`};
+          width: calc(55% - ${({ theme }) => theme.spaces.medium} * 2);
+        }
+
+        /* Rotating Loom logo */
+        > div:nth-child(1) {
+          animation: ${rotateAnimation} 70s linear infinite;
+          position: absolute;
+          right: 10%;
+          top: ${({ theme }) => `calc(${theme.spaces.jumbo} * 4.5)`};
+          width: ${({ theme }) => `calc(${theme.spaces.jumbo} * 2)`};
+          z-index: -1;
+
+          @media only screen and (min-width: ${({ theme }) =>
+              theme.breakpoints.desktop}) {
+            bottom: none;
+            right: ${({ theme }) => theme.spaces.medium};
+            top: ${({ theme }) => `calc(-${theme.spaces.xLarge} * 3)`};
+            width: 50%;
+          }
+
+          @media only screen and (min-width: ${({ theme }) =>
+              theme.breakpoints.ultrawide}) {
+            right: ${({ theme }) => `-${theme.spaces.large}`};
+            width: 40%;
           }
         }
       }
