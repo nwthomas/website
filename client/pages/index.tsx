@@ -73,6 +73,7 @@ const Home: NextPage = () => {
               <div>
                 <Image
                   alt="Gradient colors"
+                  draggable={false}
                   height="910"
                   loading="eager"
                   priority
@@ -86,6 +87,7 @@ const Home: NextPage = () => {
                 <div>
                   <Image
                     alt="Loom logo"
+                    draggable={false}
                     height="333"
                     loading="eager"
                     priority
@@ -106,6 +108,7 @@ const Home: NextPage = () => {
                   <Image
                     alt=""
                     aria-hidden={true}
+                    draggable={false}
                     height="979"
                     loading="eager"
                     priority
@@ -115,6 +118,7 @@ const Home: NextPage = () => {
                   />
                   <Image
                     alt={IPHONE_ALT_TEXT}
+                    draggable={false}
                     height="928"
                     loading="eager"
                     priority
@@ -208,24 +212,24 @@ const RootStyles = styled.div`
       /* Gradient background */
       > div:nth-child(1) {
         border-radius: ${({ theme }) => theme.borderRadii.medium};
+        filter: blur(${({ theme }) => theme.spaces.jumbo});
         height: auto;
         left: 0;
         overflow: hidden;
         position: absolute;
         top: ${({ theme }) => theme.spaces.large};
+        transform: rotate(-10deg);
         width: 100%;
-        z-index: 1;
+        z-index: 0;
 
         @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.desktop}) {
           border-radius: ${({ theme }) => theme.borderRadii.large};
-          -webkit-box-shadow: ${({ theme }) => theme.dropshadows.small};
-          -moz-box-shadow: ${({ theme }) => theme.dropshadows.small};
-          box-shadow: ${({ theme }) => theme.dropshadows.small};
-          height: 40%;
+          height: 50%;
           left: ${({ theme }) => theme.spaces.medium};
+          opacity: ${({ theme }) => theme.opacity.opacity30};
           top: ${({ theme }) => theme.spaces.xxLarge};
-          width: 60%;
+          width: 55%;
         }
       }
 
@@ -235,7 +239,7 @@ const RootStyles = styled.div`
           theme.colors.bodyBackgroundAccentThree};
         border-radius: ${({ theme }) => theme.borderRadii.large};
         bottom: ${({ theme }) => theme.spaces.xxLarge};
-        height: 50%;
+        height: 45%;
         position: absolute;
         right: 0;
         width: 100%;
@@ -296,7 +300,7 @@ const RootStyles = styled.div`
         left: 0;
         justify-content: center;
         padding: 0 ${({ theme }) => theme.spaces.xxLarge};
-        top: ${({ theme }) => theme.spaces.medium};
+        top: ${({ theme }) => theme.spaces.small};
         width: 100%;
         z-index: 3;
 

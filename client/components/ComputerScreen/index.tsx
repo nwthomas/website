@@ -16,8 +16,6 @@ function ComputerScreen({
   imageSrc,
   imageWidth,
 }: Props) {
-  // finish
-
   return (
     <RootStyles>
       <div>
@@ -27,6 +25,7 @@ function ComputerScreen({
       </div>
       <Image
         alt={imageAlt || ""}
+        draggable={false}
         height={imageHeight}
         loading="eager"
         priority

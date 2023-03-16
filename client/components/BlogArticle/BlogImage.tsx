@@ -32,6 +32,7 @@ function BlogImage({
         <Image
           alt={alt}
           blurDataURL={placeholderImage}
+          draggable={false}
           height={imageHeight}
           loading={isHeroImage ? "eager" : "lazy"}
           placeholder="blur"
@@ -61,7 +62,9 @@ const RootStyles = styled.div<StyleProps>`
     display: flex;
     flex-direction: column;
     max-width: ${({ isHeroImage, theme }) =>
-      isHeroImage ? "100%" : theme.appDimensions.articleMaxWidth};
+      isHeroImage
+        ? theme.appDimensions.articleHeroImageMaxWidth
+        : theme.appDimensions.articleMaxWidth};
     margin-top: ${({ isHeroImage, theme }) =>
       isHeroImage ? 0 : theme.spaces.medium};
     overflow: hidden;
