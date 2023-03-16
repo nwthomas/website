@@ -98,9 +98,9 @@ const Home: NextPage = () => {
                 </div>
                 <ComputerScreen
                   imageAlt={COMPUTER_ALT_TEXT}
-                  imageHeight={481}
+                  imageHeight={962}
                   imageSrc="/images/backgrounds/loom-multi-clip-editing.webp"
-                  imageWidth={768}
+                  imageWidth={1536}
                 />
               </div>
               <div>
