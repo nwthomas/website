@@ -201,6 +201,7 @@ const RootStyles = styled.div`
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
         height: 700px;
+        flex-direction: column-reverse;
         margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
         overflow: visible;
       }
@@ -224,12 +225,16 @@ const RootStyles = styled.div`
         z-index: 0;
 
         @media only screen and (min-width: ${({ theme }) =>
+            theme.breakpoints.tablet}) {
+          opacity: ${({ theme }) => theme.opacity.opacity30};
+        }
+
+        @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.desktop}) {
           filter: blur(${({ theme }) => theme.spaces.jumbo});
           border-radius: ${({ theme }) => theme.borderRadii.large};
           height: 50%;
           left: ${({ theme }) => theme.spaces.medium};
-          opacity: ${({ theme }) => theme.opacity.opacity30};
           top: ${({ theme }) => theme.spaces.xxLarge};
           transform: rotate(-10deg);
           width: 55%;
@@ -247,9 +252,7 @@ const RootStyles = styled.div`
 
         @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.tablet}) {
-          left: 0;
           margin-bottom: 0;
-          position: absolute;
           top: ${({ theme }) => theme.spaces.small};
         }
 
@@ -258,6 +261,7 @@ const RootStyles = styled.div`
           display: block;
           left: 10%;
           padding: 0;
+          position: absolute;
           width: 25%;
         }
 
@@ -296,6 +300,11 @@ const RootStyles = styled.div`
         justify-content: center;
         width: 100%;
         z-index: 2;
+
+        @media only screen and (min-width: ${({ theme }) =>
+            theme.breakpoints.tablet}) {
+          width: 90%;
+        }
 
         @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.desktop}) {
