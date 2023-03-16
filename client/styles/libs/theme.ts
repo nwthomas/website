@@ -131,6 +131,7 @@ interface BorderRadii {
   large: string;
   xLarge: string;
   xxLarge: string;
+  jumbo: string;
   infinity: string;
 }
 export const borderRadii: BorderRadii = {
@@ -141,6 +142,7 @@ export const borderRadii: BorderRadii = {
   large: "15px",
   xLarge: "20px",
   xxLarge: "25px",
+  jumbo: "35px",
   infinity: "9999px",
 };
 

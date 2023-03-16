@@ -119,12 +119,12 @@ const Home: NextPage = () => {
                   <Image
                     alt={IPHONE_ALT_TEXT}
                     draggable={false}
-                    height="928"
+                    height="1389"
                     loading="eager"
                     priority
                     quality={100}
                     src="/images/backgrounds/twitter-web-app.webp"
-                    width="926"
+                    width="642"
                   />
                 </div>
               </div>
@@ -314,13 +314,13 @@ const RootStyles = styled.div`
 
         > div {
           height: 100%;
-          padding: 4%;
+          padding: 4.7%;
           position: relative;
           width: 75%;
 
           @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.desktop}) {
-            padding: 5%;
+            padding: 5% 5.5% 0;
             width: 100%;
           }
 
