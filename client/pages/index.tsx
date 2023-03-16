@@ -206,7 +206,6 @@ const RootStyles = styled.div`
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        flex-direction: column-reverse;
         margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
         overflow: visible;
       }
@@ -255,14 +254,12 @@ const RootStyles = styled.div`
       > div:nth-child(2) {
         display: flex;
         justify-content: center;
-        margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
         padding: 0 ${({ theme }) => theme.spaces.xxLarge};
         width: 100%;
         z-index: 3;
 
         @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.tablet}) {
-          margin-bottom: 0;
           top: ${({ theme }) => theme.spaces.small};
         }
 
@@ -279,13 +276,12 @@ const RootStyles = styled.div`
           height: 100%;
           padding: 16px 13px 0;
           position: relative;
-          width: 220px;
-          transform: rotate(2deg);
+          width: 250px;
+          transform: rotate(-2deg);
 
           @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.desktop}) {
             padding: 5% 5.5% 0;
-            transform: rotate(-2deg);
             width: 100%;
           }
 
@@ -308,11 +304,13 @@ const RootStyles = styled.div`
       > div:nth-child(3) {
         display: flex;
         justify-content: center;
+        margin-bottom: ${({ theme }) => theme.spaces.medium};
         width: 100%;
         z-index: 2;
 
         @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.tablet}) {
+          margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
           width: 90%;
         }
 
@@ -321,6 +319,7 @@ const RootStyles = styled.div`
           bottom: ${({ theme }) =>
             `calc(${theme.spaces.xxLarge} + ${theme.spaces.medium})`};
           display: block;
+          margin-bottom: 0;
           max-width: none;
           position: absolute;
           right: ${({ theme }) =>

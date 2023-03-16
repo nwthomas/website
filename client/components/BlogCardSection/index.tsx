@@ -109,6 +109,9 @@ const RootStyles = styled.section`
           border: ${({ theme }) =>
             `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
           border-radius: ${({ theme }) => theme.borderRadii.infinity};
+          -webkit-box-shadow: ${({ theme }) => theme.dropshadows.small};
+          -moz-box-shadow: ${({ theme }) => theme.dropshadows.small};
+          box-shadow: ${({ theme }) => theme.dropshadows.small};
           cursor: pointer;
           display: flex;
           height: ${({ theme }) => theme.spaces.large};
