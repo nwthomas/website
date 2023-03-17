@@ -128,6 +128,18 @@ const Home: NextPage = () => {
                   imageWidth={1536}
                 />
               </div>
+              <div>
+                <Image
+                  alt="Twitter logo"
+                  draggable={false}
+                  height="834"
+                  loading="eager"
+                  priority
+                  quality={100}
+                  src="/images/backgrounds/twitter-logo.png"
+                  width="1026"
+                />
+              </div>
             </section>
           </main>
         </RootStyles>
@@ -192,6 +204,7 @@ const RootStyles = styled.div`
       }
     }
 
+    /* This whole section is relatively messy CSS. Forgive me. It was a long week when I wrote it */
     > section:nth-child(2) {
       align-items: center;
       display: flex;
@@ -235,7 +248,10 @@ const RootStyles = styled.div`
 
         @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.tablet}) {
-          opacity: ${({ theme }) => theme.opacity.opacity30};
+          opacity: ${({ theme }) => theme.opacity.opacity20};
+          left: 10%;
+          transform: rotate(-30deg);
+          width: 80%;
         }
 
         @media only screen and (min-width: ${({ theme }) =>
@@ -244,6 +260,7 @@ const RootStyles = styled.div`
           border-radius: ${({ theme }) => theme.borderRadii.large};
           height: 50%;
           left: ${({ theme }) => theme.spaces.medium};
+          opacity: ${({ theme }) => theme.opacity.opacity30};
           top: ${({ theme }) => theme.spaces.xxLarge};
           transform: rotate(-10deg);
           width: 55%;
@@ -260,15 +277,17 @@ const RootStyles = styled.div`
 
         @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.tablet}) {
-          top: ${({ theme }) => theme.spaces.small};
+          justify-content: flex-start;
+          margin-bottom: ${({ theme }) => theme.spaces.medium};
         }
 
         @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.desktop}) {
           display: block;
-          left: 10%;
+          left: 7%;
           padding: 0;
           position: absolute;
+          top: ${({ theme }) => theme.spaces.small};
           width: 25%;
         }
 
@@ -280,8 +299,17 @@ const RootStyles = styled.div`
           transform: rotate(-2deg);
 
           @media only screen and (min-width: ${({ theme }) =>
+              theme.breakpoints.tablet}) {
+            margin-left: 10%;
+            padding: 15px 18px 0;
+            transform: rotate(-5deg);
+            width: 350px;
+          }
+
+          @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.desktop}) {
             padding: 5% 5.5% 0;
+            transform: rotate(-2deg);
             width: 100%;
           }
 
@@ -337,6 +365,13 @@ const RootStyles = styled.div`
           z-index: -1;
 
           @media only screen and (min-width: ${({ theme }) =>
+              theme.breakpoints.tablet}) {
+            right: ${({ theme }) => theme.spaces.xLarge};
+            top: 30%;
+            width: ${({ theme }) => `calc(${theme.spaces.jumbo} * 3)`};
+          }
+
+          @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.desktop}) {
             bottom: none;
             right: ${({ theme }) => theme.spaces.medium};
@@ -349,6 +384,19 @@ const RootStyles = styled.div`
             right: ${({ theme }) => `-${theme.spaces.large}`};
             width: 40%;
           }
+        }
+      }
+
+      /* Twitter logo */
+      > div:nth-child(4) {
+        bottom: ${({ theme }) => theme.spaces.jumbo};
+        position: absolute;
+        right: 15%;
+        width: 40%;
+
+        @media only screen and (min-width: ${({ theme }) =>
+            theme.breakpoints.ultrawide}) {
+          display: none;
         }
       }
     }
