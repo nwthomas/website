@@ -22,7 +22,7 @@ interface Props {
 function buildBlogPostsCountText(blogPostsCount: number) {
   const pluralBlogPostCountEndin = blogPostsCount > 1 ? "s" : "";
 
-  return `${blogPostsCount} Article${pluralBlogPostCountEndin}`;
+  return `${blogPostsCount} Item${pluralBlogPostCountEndin}`;
 }
 
 function BlogCardSection({ blogPosts, tag, withCloseButton }: Props) {
