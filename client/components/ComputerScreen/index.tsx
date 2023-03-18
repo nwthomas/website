@@ -42,9 +42,6 @@ const RootStyles = styled.div`
   border: ${({ theme }) =>
     `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentOne}`};
   border-radius: ${({ theme }) => theme.borderRadii.medium};
-  -webkit-box-shadow: ${({ theme }) => theme.dropshadows.small};
-  -moz-box-shadow: ${({ theme }) => theme.dropshadows.small};
-  box-shadow: ${({ theme }) => theme.dropshadows.small};
   display: flex;
   flex-direction: column;
   overflow: hidden;
