@@ -266,7 +266,7 @@ const RootStyles = styled.div`
       > div:nth-child(2) {
         display: flex;
         justify-content: flex-start;
-        padding-left: 15%;
+        padding-left: 12%;
         width: 100%;
         z-index: 3;
 
