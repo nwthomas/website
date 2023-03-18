@@ -23,8 +23,6 @@ function BlogCard({
 }: Props) {
   const { colors, colorsHex } = React.useContext(ThemeContext);
 
-  console.log({ dateWritten, description, title, url, youTubeLink });
-
   const routeOutLabel = youTubeLink ? "Watch video" : "Read more";
   const routeOutUrl = youTubeLink || `/blog/${url}`;
   const showYouTubeIcon = youTubeLink && !dateWritten;
