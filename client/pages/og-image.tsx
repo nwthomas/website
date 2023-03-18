@@ -26,7 +26,14 @@ function DynamicOGImage() {
     <RootStyles>
       <h1>{title || ""}</h1>
       <div>
-        <div />
+        <div>
+          <img
+            alt=""
+            height="100"
+            src="/nathan-thomas-pfp.jpg"
+            width="100"
+          ></img>
+        </div>
         <h2>Nathan Thomas</h2>
       </div>
     </RootStyles>
@@ -34,41 +41,60 @@ function DynamicOGImage() {
 }
 
 const RootStyles = styled.div`
+  align-items: center;
+  background-image: url(/images/backgrounds/gradient.webp);
   display: flex;
   flex-direction: column;
   height: ${OG_IMAGE_HEIGHT}px;
   justify-content: space-between;
   overflow: hidden;
-  padding: ${({ theme }) => theme.spaces.xxLarge};
+  padding: ${({ theme }) => theme.spaces.xLarge};
+  position: relative;
   width: ${OG_IMAGE_WIDTH}px;
 
+  &::after {
+    bottom: 0;
+    background-image: url(/transparent-noise.png);
+    content: "";
+    left: 0;
+    position: absolute;
+    opacity: 0.6;
+    right: 0;
+    top: 0;
+  }
+
   > h1 {
-    color: ${({ theme }) => theme.colors.textAccentTwo};
+    color: ${({ theme }) => theme.colors.text};
     font-family: "Libre Baskerville", Constantia, "Lucida Bright", Lucidabright,
       "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif",
       "Liberation Serif", Georgia, serif;
     font-size: 8rem;
+    text-align: center;
+    z-index: 1;
   }
 
   > div {
-    align-items: flex-end;
+    align-items: center;
     display: flex;
+    flex-direction: column;
+    z-index: 1;
+
+    > div {
+      border-radius: ${({ theme }) => theme.borderRadii.infinity};
+      display: flex;
+      height: auto;
+      margin-bottom: ${({ theme }) => theme.spaces.medium};
+      overflow: hidden;
+      width: 150px;
+    }
 
     > h2 {
-      background-clip: text;
-      -moz-background-clip: text;
-      -webkit-background-clip: text;
-      background-image: url(/noise.webp);
-      background-size: 50px;
       font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system,
         BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
         sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
         Noto Color Emoji;
-      font-size: 5rem;
+      font-size: 4rem;
       padding: ${({ theme }) => `${theme.spaces.micro} 0`};
-      -moz-text-fill-color: transparent;
-      -webkit-text-fill-color: transparent;
-      text-decoration: none;
     }
   }
 `;

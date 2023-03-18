@@ -106,6 +106,18 @@ const Home: NextPage = () => {
                     src="/images/backgrounds/twitter-web-app.webp"
                     width="642"
                   />
+                  <div>
+                    <Image
+                      alt="Twitter logo"
+                      draggable={false}
+                      height="834"
+                      loading="eager"
+                      priority
+                      quality={100}
+                      src="/images/backgrounds/twitter-logo.png"
+                      width="1026"
+                    />
+                  </div>
                 </div>
               </div>
               <div>
@@ -126,18 +138,6 @@ const Home: NextPage = () => {
                   imageHeight={962}
                   imageSrc="/images/backgrounds/loom-multi-clip-editing.webp"
                   imageWidth={1536}
-                />
-              </div>
-              <div>
-                <Image
-                  alt="Twitter logo"
-                  draggable={false}
-                  height="834"
-                  loading="eager"
-                  priority
-                  quality={100}
-                  src="/images/backgrounds/twitter-logo.png"
-                  width="1026"
                 />
               </div>
             </section>
@@ -204,7 +204,7 @@ const RootStyles = styled.div`
       }
     }
 
-    /* This whole section is relatively messy CSS. Forgive me. It was a long week when I wrote it */
+    /* This whole section is messy CSS. Forgive me. It was a long week when I wrote it. */
     > section:nth-child(2) {
       align-items: center;
       display: flex;
@@ -213,19 +213,14 @@ const RootStyles = styled.div`
       position: relative;
 
       @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.mobile}) {
-        overflow: visible;
-      }
-
-      @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
         margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
-        overflow: visible;
       }
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.desktop}) {
-        height: 700px;
+        display: block;
+        height: 650px;
       }
 
       @media only screen and (min-width: ${({ theme }) =>
@@ -243,8 +238,8 @@ const RootStyles = styled.div`
         position: absolute;
         right: 0;
         top: ${({ theme }) => `calc(${theme.spaces.jumbo} * 2)`};
-        width: 100%;
-        z-index: 0;
+        width: 80%;
+        z-index: -1;
 
         @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.tablet}) {
@@ -267,17 +262,23 @@ const RootStyles = styled.div`
         }
       }
 
-      /* Iphone demo */
+      /* Mock iPhone screen */
       > div:nth-child(2) {
         display: flex;
-        justify-content: center;
-        padding: 0 ${({ theme }) => theme.spaces.xxLarge};
+        justify-content: flex-start;
+        padding-left: 15%;
         width: 100%;
         z-index: 3;
 
         @media only screen and (min-width: ${({ theme }) =>
+            theme.breakpoints.mini}) {
+          justify-content: center;
+          margin-left: -40%;
+          width: 100%;
+        }
+
+        @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.tablet}) {
-          justify-content: flex-start;
           margin-bottom: ${({ theme }) => theme.spaces.medium};
         }
 
@@ -285,25 +286,38 @@ const RootStyles = styled.div`
             theme.breakpoints.desktop}) {
           display: block;
           left: 7%;
+          margin-left: 0;
           padding: 0;
           position: absolute;
           top: ${({ theme }) => theme.spaces.small};
           width: 25%;
         }
 
-        > div {
+        > div:nth-child(1) {
           height: 100%;
-          padding: 16px 13px 0;
+          padding: 7px 8px 0;
           position: relative;
-          width: 250px;
-          transform: rotate(-2deg);
+          width: 150px;
+          transform: rotate(-5deg);
+
+          @media only screen and (min-width: ${({ theme }) =>
+              theme.breakpoints.mini}) {
+            padding: 9px 11px 0;
+            width: 200px;
+          }
+
+          @media only screen and (min-width: ${({ theme }) =>
+              theme.breakpoints.mobile}) {
+            padding: 16px 13px 0;
+            width: 250px;
+          }
 
           @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.tablet}) {
             margin-left: 10%;
-            padding: 15px 18px 0;
+            padding: 15px 17px 0;
             transform: rotate(-5deg);
-            width: 350px;
+            width: 320px;
           }
 
           @media only screen and (min-width: ${({ theme }) =>
@@ -321,9 +335,45 @@ const RootStyles = styled.div`
           }
 
           > img:nth-child(2) {
-            border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
+            border-radius: ${({ theme }) => theme.borderRadii.large};
             overflow: hidden;
             width: 100%;
+
+            @media only screen and (min-width: ${({ theme }) =>
+                theme.breakpoints.mini}) {
+              border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
+            }
+          }
+
+          /* Twitter logo */
+          > div {
+            bottom: ${({ theme }) => theme.spaces.large};
+            position: absolute;
+            left: ${({ theme }) => `calc(${theme.spaces.jumbo} * 1.1)`};
+            width: 150px;
+            z-index: -1;
+
+            @media only screen and (min-width: ${({ theme }) =>
+                theme.breakpoints.mini}) {
+              left: ${({ theme }) => `calc(${theme.spaces.jumbo} * 1.5)`};
+              width: 180px;
+            }
+
+            @media only screen and (min-width: ${({ theme }) =>
+                theme.breakpoints.mobile}) {
+              left: ${({ theme }) => `calc(${theme.spaces.jumbo} * 1.1)`};
+            }
+
+            @media only screen and (min-width: ${({ theme }) =>
+                theme.breakpoints.tablet}) {
+              left: ${({ theme }) => `calc(${theme.spaces.jumbo} * 1.8)`};
+              width: 280px;
+            }
+
+            @media only screen and (min-width: ${({ theme }) =>
+                theme.breakpoints.desktop}) {
+              display: none;
+            }
           }
         }
       }
@@ -332,13 +382,20 @@ const RootStyles = styled.div`
       > div:nth-child(3) {
         display: flex;
         justify-content: center;
-        margin-bottom: ${({ theme }) => theme.spaces.medium};
+        margin-bottom: ${({ theme }) => theme.spaces.large};
+        position: relative;
         width: 100%;
         z-index: 2;
 
         @media only screen and (min-width: ${({ theme }) =>
+            theme.breakpoints.mini}) {
+          max-width: 500px;
+        }
+
+        @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.tablet}) {
           margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
+          max-width: none;
           width: 90%;
         }
 
@@ -348,7 +405,6 @@ const RootStyles = styled.div`
             `calc(${theme.spaces.xxLarge} + ${theme.spaces.medium})`};
           display: block;
           margin-bottom: 0;
-          max-width: none;
           position: absolute;
           right: ${({ theme }) =>
             `calc(${theme.spaces.large} + ${theme.spaces.medium})`};
@@ -359,21 +415,28 @@ const RootStyles = styled.div`
         > div:nth-child(1) {
           animation: ${rotateAnimation} 70s linear infinite;
           position: absolute;
-          right: 10%;
-          top: ${({ theme }) => `calc(${theme.spaces.jumbo} * 4)`};
-          width: ${({ theme }) => `calc(${theme.spaces.jumbo} * 2)`};
+          right: 5%;
+          bottom: ${({ theme }) => `-${theme.spaces.xxLarge}`};
+          width: ${({ theme }) => `calc(${theme.spaces.xxLarge} * 2)`};
           z-index: -1;
 
           @media only screen and (min-width: ${({ theme }) =>
+              theme.breakpoints.mini}) {
+            bottom: ${({ theme }) => `-${theme.spaces.jumbo}`};
+            right: 10%;
+            width: ${({ theme }) => `calc(${theme.spaces.xxLarge} * 3)`};
+          }
+
+          @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.tablet}) {
-            right: ${({ theme }) => theme.spaces.xLarge};
-            top: 30%;
+            bottom: ${({ theme }) => `calc(-${theme.spaces.jumbo} * 1.5)`};
+            right: 5%;
             width: ${({ theme }) => `calc(${theme.spaces.jumbo} * 3)`};
           }
 
           @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.desktop}) {
-            bottom: none;
+            bottom: auto;
             right: ${({ theme }) => theme.spaces.medium};
             top: ${({ theme }) => `calc(-${theme.spaces.xLarge} * 3)`};
             width: 50%;
@@ -384,19 +447,6 @@ const RootStyles = styled.div`
             right: ${({ theme }) => `-${theme.spaces.large}`};
             width: 40%;
           }
-        }
-      }
-
-      /* Twitter logo */
-      > div:nth-child(4) {
-        bottom: ${({ theme }) => theme.spaces.jumbo};
-        position: absolute;
-        right: 15%;
-        width: 40%;
-
-        @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.ultrawide}) {
-          display: none;
         }
       }
     }
