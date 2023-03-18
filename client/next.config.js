@@ -6,9 +6,6 @@ const nextConfig = {
   serverRuntimeConfig: {
     PROJECT_ROOT: __dirname,
   },
-  images: {
-    deviceSizes: [400, 600, 1000, 1400],
-  },
   async redirects() {
     return [
       {
