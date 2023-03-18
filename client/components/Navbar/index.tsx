@@ -1,10 +1,6 @@
 import * as React from "react";
 
-import {
-  BLOG_PAGE,
-  CONTACT_PAGE,
-  HOME_PAGE,
-} from "../../constants/routes";
+import { BLOG_PAGE, CONTACT_PAGE, HOME_PAGE } from "../../constants/routes";
 
 import { CONTENTS_ID } from "../../constants/routes";
 import NavbarLink from "./NavbarLink";

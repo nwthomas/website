@@ -6,13 +6,17 @@ import { DARK_THEME, ThemeEnum } from "../../store/reducers/themeSlice";
 // All color names pulled directly from http://chir.ag/projects/name-that-color/
 // To change the assignment of colors --> CSS variables, go to: styles/libs/global.ts
 interface Colors {
+  alabaster: "#fafafa";
   alto: "#DBDBDB";
   black: "#000000";
   brightSun: "#FACF3D";
+  burntSienna: "#ED6A5E";
+  casablanca: "#F5BF4F";
   codGray: "#111010";
   doveGray: "#707070";
   eerieBlack: "#171717";
   manatee: "#8E8E90";
+  mantis: "#62C554";
   mercury: "#E1E1E1";
   mineShaft: "#333333";
   outerSpace: "#373A3D";
@@ -20,17 +24,22 @@ interface Colors {
   royalBlue: "#2D6EEE";
   shark: "#202325";
   silver: "#C2C2C2";
+  tan: "#D2B48C";
   white: "#FFFFFF";
 }
 
 export const colors: Colors = {
+  alabaster: "#fafafa",
   alto: "#DBDBDB",
   black: "#000000",
   brightSun: "#FACF3D",
+  burntSienna: "#ED6A5E",
+  casablanca: "#F5BF4F",
   codGray: "#111010",
   doveGray: "#707070",
   eerieBlack: "#171717",
   manatee: "#8E8E90",
+  mantis: "#62C554",
   mercury: "#E1E1E1",
   mineShaft: "#333333",
   outerSpace: "#373A3D",
@@ -38,6 +47,7 @@ export const colors: Colors = {
   royalBlue: "#2D6EEE",
   silver: "#C2C2C2",
   shark: "#202325",
+  tan: "#D2B48C",
   white: "#FFFFFF",
 };
 
@@ -57,6 +67,7 @@ interface ThemeColorValues {
   bodyBackground: string;
   bodyBackgroundAccentOne: string;
   bodyBackgroundAccentTwo: string;
+  bodyBackgroundAccentThree: string;
   buttonPrimaryBackground: string;
   codeBackground: string;
   error: string;
@@ -68,6 +79,7 @@ export const themeColorValues: ThemeColorValues = {
   bodyBackground: "var(--body-bg)",
   bodyBackgroundAccentOne: "var(--body-bg-accent-one)",
   bodyBackgroundAccentTwo: "var(--body-bg-accent-two)",
+  bodyBackgroundAccentThree: "var(--body-bg-accent-three)",
   buttonPrimaryBackground: "var(--button-primary-bg)",
   codeBackground: "var(--code-bg)",
   error: "var(--error)",
@@ -119,6 +131,7 @@ interface BorderRadii {
   large: string;
   xLarge: string;
   xxLarge: string;
+  jumbo: string;
   infinity: string;
 }
 export const borderRadii: BorderRadii = {
@@ -129,6 +142,7 @@ export const borderRadii: BorderRadii = {
   large: "15px",
   xLarge: "20px",
   xxLarge: "25px",
+  jumbo: "35px",
   infinity: "9999px",
 };
 

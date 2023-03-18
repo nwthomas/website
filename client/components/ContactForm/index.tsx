@@ -157,6 +157,9 @@ interface StyleProps {
 
 const RootStyles = styled.div<StyleProps>`
   border-radius: ${({ theme }) => theme.borderRadii.large};
+  -webkit-box-shadow: ${({ theme }) => theme.dropshadows.small};
+  -moz-box-shadow: ${({ theme }) => theme.dropshadows.small};
+  box-shadow: ${({ theme }) => theme.dropshadows.small};
   padding: ${({ theme }) => theme.spaces.nano};
   width: 100%;
 
@@ -194,7 +197,7 @@ const RootStyles = styled.div<StyleProps>`
         width: 100%;
 
         > input {
-          background: ${({ theme }) => theme.colors.bodyBackground};
+          background-color: ${({ theme }) => theme.colors.bodyBackground};
           border: ${({ theme }) =>
             `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
           border-radius: ${({ theme }) => theme.borderRadii.medium};
