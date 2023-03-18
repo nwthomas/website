@@ -84,9 +84,6 @@ const RootStyles = styled.div<StyleProps>`
         theme.breakpoints.tablet}) {
       border-radius: ${({ theme }) => theme.borderRadii.large};
       background: ${({ theme }) => theme.colors.bodyBackground};
-      -webkit-box-shadow: ${({ theme }) => theme.dropshadows.small};
-      -moz-box-shadow: ${({ theme }) => theme.dropshadows.small};
-      box-shadow: ${({ theme }) => theme.dropshadows.small};
       height: initial;
       max-width: ${({ theme }) => theme.appDimensions.modalMaxWidth};
       padding: ${({ theme }) => theme.spaces.xLarge};
