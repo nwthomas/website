@@ -243,7 +243,7 @@ const RootStyles = styled.div`
 
         @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.tablet}) {
-          opacity: ${({ theme }) => theme.opacity.opacity20};
+          opacity: ${({ theme }) => theme.opacity.opacity40};
           left: 10%;
           transform: rotate(-30deg);
           width: 80%;
@@ -255,7 +255,6 @@ const RootStyles = styled.div`
           border-radius: ${({ theme }) => theme.borderRadii.large};
           height: 50%;
           left: ${({ theme }) => theme.spaces.medium};
-          opacity: ${({ theme }) => theme.opacity.opacity30};
           top: ${({ theme }) => theme.spaces.xxLarge};
           transform: rotate(-10deg);
           width: 55%;
