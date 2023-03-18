@@ -152,7 +152,7 @@ interface BreakpointsInt {
   desktop: number;
   ultrawide: number;
 }
-const breakpointsInt: BreakpointsInt = {
+export const breakpointsInt: BreakpointsInt = {
   mini: 400,
   tablet: 600,
   desktop: 1000,
