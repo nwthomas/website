@@ -1,8 +1,8 @@
 import * as React from "react";
 
+import { ArrowForwardsIcon, YouTubeIcon } from "../Icons";
 import styled, { ThemeContext } from "styled-components";
 
-import { ArrowForwardsIcon } from "../Icons";
 import Link from "next/link";
 import MetadataTag from "../MetadataTag";
 
@@ -11,24 +11,38 @@ interface Props {
   description: string;
   title: string;
   url: string;
+  youTubeLink?: string;
 }
 
-function BlogCard({ dateWritten, description, title, url }: Props) {
-  const { colors } = React.useContext(ThemeContext);
+function BlogCard({
+  dateWritten,
+  description,
+  title,
+  url,
+  youTubeLink,
+}: Props) {
+  const { colors, colorsHex } = React.useContext(ThemeContext);
+
+  console.log({ dateWritten, description, title, url, youTubeLink });
+
+  const routeOutLabel = youTubeLink ? "Watch video" : "Read more";
+  const routeOutUrl = youTubeLink || `/blog/${url}`;
+  const showYouTubeIcon = youTubeLink && !dateWritten;
 
   return (
     <RootStyles>
-      <Link href={`/blog/${url}`} passHref prefetch={false}>
+      <Link href={routeOutUrl} passHref prefetch={false}>
         <div>
           <h2>{title}</h2>
           <p>{description}</p>
         </div>
         <div>
           <div>
-            <p>Read more</p>
+            <p>{routeOutLabel}</p>
             <ArrowForwardsIcon color={colors.textSecondary} isAriaHidden />
           </div>
           {dateWritten ? <MetadataTag contents={dateWritten} /> : null}
+          {showYouTubeIcon ? <YouTubeIcon color={colorsHex.red} /> : null}
         </div>
       </Link>
     </RootStyles>
@@ -97,6 +111,11 @@ const RootStyles = styled.article`
             ease-in-out;
           width: ${({ theme }) => theme.spaces.medium};
         }
+      }
+
+      > svg {
+        height: auto;
+        width: ${({ theme }) => theme.spaces.large};
       }
     }
 
