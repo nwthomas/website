@@ -35,6 +35,31 @@ const Home: NextPage = () => {
           href="/images/backgrounds/gradient.webp"
           as="image"
         />
+        <link
+          rel="preload"
+          href="/images/backgrounds/loom-multi-clip-editing.webp"
+          as="image"
+        />
+        <link
+          rel="preload"
+          href="/images/backgrounds/loom-logo.webp"
+          as="image"
+        />
+        <link
+          rel="preload"
+          href="/images/backgrounds/twitter-logo.png"
+          as="image"
+        />
+        <link
+          rel="preload"
+          href="/images/backgrounds/iphone-14-pro-max-bezel.webp"
+          as="image"
+        />
+        <link
+          rel="preload"
+          href="/images/backgrounds/twitter-web-app.webp"
+          as="image"
+        />
       </Head>
       <Layout pageName={HOME_PAGE_NAME} withFooter withPageNameEmojis>
         <RootStyles>
@@ -234,7 +259,7 @@ const RootStyles = styled.div`
         filter: blur(${({ theme }) => theme.spaces.xxLarge});
         height: auto;
         left: 0;
-        opacity: ${({ theme }) => theme.opacity.opacity50};
+        opacity: ${({ theme }) => theme.opacity.opacity80};
         position: absolute;
         right: 0;
         top: ${({ theme }) => `calc(${theme.spaces.jumbo} * 2)`};

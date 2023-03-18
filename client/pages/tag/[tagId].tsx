@@ -32,7 +32,7 @@ export async function getStaticProps({ params: { tagId } }) {
 
   // Dynamic og image creation at build time
   const tagTitle = getTagTitleFromTagId(tagId, sortedTags);
-  const ogImageBuildUrl = `/og-image?title=${buildTagIdPageName(tagTitle)}`;
+  const ogImageBuildUrl = `/og-image?title=All%20${tagTitle}%20Posts`;
   const ogImage = await createOgImage(ogImageBuildUrl);
 
   return {
