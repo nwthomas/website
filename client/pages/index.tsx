@@ -47,7 +47,7 @@ const Home: NextPage = () => {
         />
         <link
           rel="preload"
-          href="/images/backgrounds/twitter-logo.png"
+          href="/images/backgrounds/twitter-logo.webp"
           as="image"
         />
         <link
@@ -139,7 +139,7 @@ const Home: NextPage = () => {
                       loading="eager"
                       priority
                       quality={100}
-                      src="/images/backgrounds/twitter-logo.png"
+                      src="/images/backgrounds/twitter-logo.webp"
                       width="1026"
                     />
                   </div>
