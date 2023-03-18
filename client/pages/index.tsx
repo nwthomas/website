@@ -12,7 +12,8 @@ import Link from "next/link";
 import { NextPage } from "next";
 
 const GITHUB_LINK_ARIA_LABEL = "Link to Nathan's GitHub page";
-const TEACHING_LINK_ARIA_LABEL = "Link to presentation from Nathan on YouTube";
+const TEACHING_LINK_ARIA_LABEL =
+  "Link to the Code Tenderloin free bootcamp Nathan volunteers at";
 const WRITING_LINK_ARIA_LABEL = "Link to Nathan's blog page";
 
 const COMPUTER_ALT_TEXT =
@@ -85,7 +86,7 @@ const Home: NextPage = () => {
                 </Link>
                 , and{" "}
                 <a
-                  href="https://www.youtube.com/watch?v=GNrQTbIFsG4&t=2909s"
+                  href="https://www.codetenderloin.org/code-ramp-course"
                   aria-label={TEACHING_LINK_ARIA_LABEL}
                   rel="noopener noreferrer"
                   target="_target"

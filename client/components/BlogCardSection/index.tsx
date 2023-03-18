@@ -31,18 +31,20 @@ function BlogCardSection({ blogPosts, tag, withCloseButton }: Props) {
 
   const blogCards = React.useMemo(() => {
     return blogPosts.map((blogPost, i) => {
-      const { dateWritten, description, title, slug } = blogPost.data;
+      const { dateWritten, description, title, slug, youTubeLink } =
+        blogPost.data;
       const dateWrittenLabel = getBlogPostFullDate(dateWritten || "");
       const normalizedDateWritten = buildDateWrittenLabel(dateWrittenLabel);
 
       return (
         <li key={i}>
           <Card
-            dateWritten={normalizedDateWritten}
+            dateWritten={!youTubeLink ? normalizedDateWritten : undefined}
             description={description}
+            key={i}
             title={title}
             url={slug}
-            key={i}
+            youTubeLink={youTubeLink}
           />
         </li>
       );
