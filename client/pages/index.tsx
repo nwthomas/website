@@ -100,9 +100,11 @@ const Home: NextPage = () => {
               <div>
                 <Image
                   alt="Gradient colors"
+                  blurDataURL="/images/backgrounds/gradient.webp"
                   draggable={false}
                   height="910"
                   loading="eager"
+                  placeholder="blur"
                   priority
                   quality={100}
                   src="/images/backgrounds/gradient.webp"
@@ -114,9 +116,11 @@ const Home: NextPage = () => {
                   <Image
                     alt=""
                     aria-hidden={true}
+                    blurDataURL="/images/backgrounds/iphone-14-pro-max-bezel.webp"
                     draggable={false}
                     height="979"
                     loading="eager"
+                    placeholder="blur"
                     priority
                     quality={100}
                     src="/images/backgrounds/iphone-14-pro-max-bezel.webp"
@@ -124,9 +128,11 @@ const Home: NextPage = () => {
                   />
                   <Image
                     alt={IPHONE_ALT_TEXT}
+                    blurDataURL="/images/backgrounds/twitter-web-app.webp"
                     draggable={false}
                     height="1389"
                     loading="eager"
+                    placeholder="blur"
                     priority
                     quality={100}
                     src="/images/backgrounds/twitter-web-app.webp"
@@ -135,9 +141,11 @@ const Home: NextPage = () => {
                   <div>
                     <Image
                       alt="Twitter logo"
+                      blurDataURL="/images/backgrounds/twitter-logo.webp"
                       draggable={false}
                       height="834"
                       loading="eager"
+                      placeholder="blur"
                       priority
                       quality={100}
                       src="/images/backgrounds/twitter-logo.webp"
@@ -150,9 +158,11 @@ const Home: NextPage = () => {
                 <div>
                   <Image
                     alt="Loom logo"
+                    blurDataURL="/images/backgrounds/loom-logo.webp"
                     draggable={false}
                     height="333"
                     loading="eager"
+                    placeholder="blur"
                     priority
                     quality={100}
                     src="/images/backgrounds/loom-logo.webp"
