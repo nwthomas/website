@@ -1,8 +1,8 @@
-export const BLOG_PAGE_NAME = "Nathan Thomas | Blog";
-export const CONTACT_PAGE_NAME = "Nathan Thomas | Contact";
-export const FOUR_OH_FOUR_PAGE_NAME = "Nathan Thomas | 404";
-export const HOME_PAGE_NAME = "Nathan Thomas | Home";
-export const PLAYGROUND_PAGE_NAME = "Nathan Thomas | Playground";
+export const BLOG_PAGE_NAME = "Blog";
+export const CONTACT_PAGE_NAME = "Contact";
+export const FOUR_OH_FOUR_PAGE_NAME = "404";
+export const HOME_PAGE_NAME = "Home";
+export const PLAYGROUND_PAGE_NAME = "Playground";
 
 interface SeoConfig {
   author: {
