@@ -321,7 +321,7 @@ const RootStyles = styled.div`
         @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.desktop}) {
           display: block;
-          left: 7%;
+          left: 5%;
           margin-left: 0;
           padding: 0;
           position: absolute;
@@ -352,14 +352,14 @@ const RootStyles = styled.div`
               theme.breakpoints.tablet}) {
             margin-left: 10%;
             padding: 15px 17px 0;
-            transform: rotate(-5deg);
+            transform: rotate(-3deg);
             width: 320px;
           }
 
           @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.desktop}) {
+            margin-left: 3%;
             padding: 5% 5.5% 0;
-            transform: rotate(-2deg);
             width: 100%;
           }
 
@@ -408,7 +408,10 @@ const RootStyles = styled.div`
 
             @media only screen and (min-width: ${({ theme }) =>
                 theme.breakpoints.desktop}) {
-              display: none;
+              bottom: auto;
+              left: 70%;
+              top: ${({ theme }) => theme.spaces.xLarge};
+              width: 220px;
             }
           }
         }
