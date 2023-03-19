@@ -100,11 +100,9 @@ const Home: NextPage = () => {
               <div>
                 <Image
                   alt="Gradient colors"
-                  blurDataURL="/images/backgrounds/gradient.webp"
                   draggable={false}
                   height="910"
                   loading="eager"
-                  placeholder="blur"
                   priority
                   quality={100}
                   src="/images/backgrounds/gradient.webp"
@@ -116,11 +114,9 @@ const Home: NextPage = () => {
                   <Image
                     alt=""
                     aria-hidden={true}
-                    blurDataURL="/images/backgrounds/iphone-14-pro-max-bezel.webp"
                     draggable={false}
                     height="979"
                     loading="eager"
-                    placeholder="blur"
                     priority
                     quality={100}
                     src="/images/backgrounds/iphone-14-pro-max-bezel.webp"
@@ -128,11 +124,9 @@ const Home: NextPage = () => {
                   />
                   <Image
                     alt={IPHONE_ALT_TEXT}
-                    blurDataURL="/images/backgrounds/twitter-web-app.webp"
                     draggable={false}
                     height="1389"
                     loading="eager"
-                    placeholder="blur"
                     priority
                     quality={100}
                     src="/images/backgrounds/twitter-web-app.webp"
@@ -141,11 +135,9 @@ const Home: NextPage = () => {
                   <div>
                     <Image
                       alt="Twitter logo"
-                      blurDataURL="/images/backgrounds/twitter-logo.webp"
                       draggable={false}
                       height="834"
                       loading="eager"
-                      placeholder="blur"
                       priority
                       quality={100}
                       src="/images/backgrounds/twitter-logo.webp"
@@ -266,34 +258,42 @@ const RootStyles = styled.div`
 
       /* Gradient background */
       > div:nth-child(1) {
-        border-radius: ${({ theme }) => theme.borderRadii.medium};
-        filter: blur(${({ theme }) => theme.spaces.xxLarge});
-        height: auto;
+        bottom: 0;
         left: 0;
-        opacity: ${({ theme }) => theme.opacity.opacity80};
         position: absolute;
         right: 0;
-        top: ${({ theme }) => `calc(${theme.spaces.jumbo} * 2)`};
-        width: 80%;
-        z-index: -1;
+        top: 0;
 
-        @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.tablet}) {
-          opacity: ${({ theme }) => theme.opacity.opacity40};
-          left: 10%;
-          transform: rotate(-30deg);
+        > img {
+          border-radius: ${({ theme }) => theme.borderRadii.medium};
+          filter: blur(${({ theme }) => theme.spaces.xxLarge});
+          height: auto;
+          left: 0;
+          opacity: ${({ theme }) => theme.opacity.opacity80};
+          position: absolute;
+          right: 0;
+          top: ${({ theme }) => `calc(${theme.spaces.jumbo} * 2)`};
           width: 80%;
-        }
+          z-index: -1;
 
-        @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.desktop}) {
-          filter: blur(${({ theme }) => theme.spaces.jumbo});
-          border-radius: ${({ theme }) => theme.borderRadii.large};
-          height: 50%;
-          left: ${({ theme }) => theme.spaces.medium};
-          top: ${({ theme }) => theme.spaces.xxLarge};
-          transform: rotate(-10deg);
-          width: 55%;
+          @media only screen and (min-width: ${({ theme }) =>
+              theme.breakpoints.tablet}) {
+            opacity: ${({ theme }) => theme.opacity.opacity40};
+            left: 10%;
+            transform: rotate(-30deg);
+            width: 80%;
+          }
+
+          @media only screen and (min-width: ${({ theme }) =>
+              theme.breakpoints.desktop}) {
+            filter: blur(${({ theme }) => theme.spaces.jumbo});
+            border-radius: ${({ theme }) => theme.borderRadii.large};
+            height: 50%;
+            left: ${({ theme }) => theme.spaces.medium};
+            top: ${({ theme }) => theme.spaces.xxLarge};
+            transform: rotate(-10deg);
+            width: 55%;
+          }
         }
       }
 
