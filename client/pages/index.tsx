@@ -280,7 +280,6 @@ const RootStyles = styled.div`
 
           @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.tablet}) {
-            opacity: ${({ theme }) => theme.opacity.opacity40};
             left: 10%;
             transform: rotate(-30deg) translate3d(0, 0, 0);
             width: 80%;
