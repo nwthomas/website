@@ -273,6 +273,8 @@ const RootStyles = styled.div`
           position: absolute;
           right: 0;
           top: ${({ theme }) => `calc(${theme.spaces.jumbo} * 2)`};
+          /* https://graffino.com/til/CjT2jrcLHP-how-to-fix-filter-blur-performance-issue-in-safari */
+          transform: translate3d(0, 0, 0);
           width: 80%;
           z-index: -1;
 
@@ -280,7 +282,7 @@ const RootStyles = styled.div`
               theme.breakpoints.tablet}) {
             opacity: ${({ theme }) => theme.opacity.opacity40};
             left: 10%;
-            transform: rotate(-30deg);
+            transform: rotate(-30deg) translate3d(0, 0, 0);
             width: 80%;
           }
 
@@ -291,7 +293,7 @@ const RootStyles = styled.div`
             height: 50%;
             left: ${({ theme }) => theme.spaces.medium};
             top: ${({ theme }) => theme.spaces.xxLarge};
-            transform: rotate(-10deg);
+            transform: rotate(-10deg) translate3d(0, 0, 0);
             width: 55%;
           }
         }
