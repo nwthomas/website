@@ -101,12 +101,11 @@ const Home: NextPage = () => {
                 <Image
                   alt="Gradient colors"
                   draggable={false}
-                  height="910"
+                  height="228"
                   loading="eager"
                   priority
-                  quality={100}
                   src="/images/backgrounds/gradient.webp"
-                  width="1365"
+                  width="341"
                 />
               </div>
               <div>
@@ -118,7 +117,6 @@ const Home: NextPage = () => {
                     height="979"
                     loading="eager"
                     priority
-                    quality={100}
                     src="/images/backgrounds/iphone-14-pro-max-bezel.webp"
                     width="483"
                   />
@@ -128,7 +126,6 @@ const Home: NextPage = () => {
                     height="1389"
                     loading="eager"
                     priority
-                    quality={100}
                     src="/images/backgrounds/twitter-web-app.webp"
                     width="642"
                   />
@@ -139,7 +136,6 @@ const Home: NextPage = () => {
                       height="834"
                       loading="eager"
                       priority
-                      quality={100}
                       src="/images/backgrounds/twitter-logo.webp"
                       width="1026"
                     />
@@ -156,7 +152,6 @@ const Home: NextPage = () => {
                     loading="eager"
                     placeholder="blur"
                     priority
-                    quality={100}
                     src="/images/backgrounds/loom-logo.webp"
                     width="333"
                   />

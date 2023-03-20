@@ -31,7 +31,6 @@ function ComputerScreen({
         loading="eager"
         placeholder="blur"
         priority
-        quality={100}
         src={imageSrc}
         width={imageWidth}
       />
