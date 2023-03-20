@@ -25,11 +25,9 @@ function ComputerScreen({
       </div>
       <Image
         alt={imageAlt || ""}
-        blurDataURL={imageSrc}
         draggable={false}
         height={imageHeight}
         loading="eager"
-        placeholder="blur"
         priority
         src={imageSrc}
         width={imageWidth}
