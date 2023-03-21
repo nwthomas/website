@@ -1,7 +1,0 @@
-# Allow all users for all pages
-User-agent: *
-Allow: /
-
-# Block crawlers for og image generation page
-User-agent: *
-Disallow: /og
