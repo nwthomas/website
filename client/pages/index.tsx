@@ -264,7 +264,7 @@ const RootStyles = styled.div`
           filter: blur(${({ theme }) => theme.spaces.xxLarge});
           height: auto;
           left: 0;
-          opacity: ${({ theme }) => theme.opacity.opacity30};
+          opacity: ${({ theme }) => theme.opacity.opacity20};
           position: absolute;
           right: 0;
           top: ${({ theme }) => `calc(${theme.spaces.jumbo} * 2)`};
