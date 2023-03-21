@@ -378,7 +378,10 @@ const RootStyles = styled.div`
 
           /* Twitter logo */
           > div {
+            border-bottom-right-radius: ${({ theme }) =>
+              theme.borderRadii.jumbo};
             bottom: ${({ theme }) => theme.spaces.large};
+            overflow: hidden;
             position: absolute;
             left: ${({ theme }) => `calc(${theme.spaces.jumbo} * 1.1)`};
             width: 150px;
@@ -448,6 +451,8 @@ const RootStyles = styled.div`
         /* Rotating Loom logo */
         > div:nth-child(1) {
           animation: ${rotateAnimation} 70s linear infinite;
+          border-radius: ${({ theme }) => theme.borderRadii.infinity};
+          overflow: hidden;
           position: absolute;
           right: 5%;
           bottom: ${({ theme }) => `-${theme.spaces.xxLarge}`};
