@@ -19,7 +19,7 @@
     "install-chromium": "npx playwright install chromium",
     "lint": "next lint",
     "preinstall": "npx only-allow pnpm",
-    "share": "~/ngrok http 3000",
+    "share": "ngrok http 3000",
     "start": "next start"
   },
   "dependencies": {

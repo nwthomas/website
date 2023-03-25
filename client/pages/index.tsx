@@ -5,7 +5,6 @@ import styled, { keyframes } from "styled-components";
 import { CONTENTS_ID } from "../constants/routes";
 import ComputerScreen from "../components/ComputerScreen";
 import { HOME_PAGE_NAME } from "../constants/seo";
-import Head from "next/head";
 import Image from "next/image";
 import Layout from "../components/Layout";
 import Link from "next/link";
@@ -29,145 +28,111 @@ export async function getStaticProps() {
 
 const Home: NextPage = () => {
   return (
-    <>
-      <Head>
-        <link
-          rel="preload"
-          href="/images/backgrounds/gradient.webp"
-          as="image"
-        />
-        <link
-          rel="preload"
-          href="/images/backgrounds/loom-multi-clip-editing.webp"
-          as="image"
-        />
-        <link
-          rel="preload"
-          href="/images/backgrounds/loom-logo.webp"
-          as="image"
-        />
-        <link
-          rel="preload"
-          href="/images/backgrounds/twitter-logo.webp"
-          as="image"
-        />
-        <link
-          rel="preload"
-          href="/images/backgrounds/iphone-14-pro-max-bezel.webp"
-          as="image"
-        />
-        <link
-          rel="preload"
-          href="/images/backgrounds/twitter-web-app.webp"
-          as="image"
-        />
-      </Head>
-      <Layout pageName={HOME_PAGE_NAME} withFooter withPageNameEmojis>
-        <RootStyles>
-          <main id={CONTENTS_ID}>
-            <section>
-              <h1>
-                Hi 👋🏻 I'm Nathan, a{" "}
-                <a
-                  href="https://github.com/nwthomas"
-                  aria-label={GITHUB_LINK_ARIA_LABEL}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  software engineer
-                </a>
-                ,{" "}
-                <Link
-                  aria-label={WRITING_LINK_ARIA_LABEL}
-                  href="/blog"
-                  prefetch={false}
-                >
-                  writer
-                </Link>
-                , and{" "}
-                <a
-                  href="https://www.codetenderloin.org/code-ramp-course"
-                  aria-label={TEACHING_LINK_ARIA_LABEL}
-                  rel="noopener noreferrer"
-                  target="_target"
-                >
-                  teacher
-                </a>{" "}
-                from <span>San Francisco</span>
-              </h1>
-            </section>
-            <section>
+    <Layout pageName={HOME_PAGE_NAME} withFooter withPageNameEmojis>
+      <RootStyles>
+        <main id={CONTENTS_ID}>
+          <section>
+            <h1>
+              Hi 👋🏻 I'm Nathan, a{" "}
+              <a
+                href="https://github.com/nwthomas"
+                aria-label={GITHUB_LINK_ARIA_LABEL}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                software engineer
+              </a>
+              ,{" "}
+              <Link
+                aria-label={WRITING_LINK_ARIA_LABEL}
+                href="/blog"
+                prefetch={false}
+              >
+                writer
+              </Link>
+              , and{" "}
+              <a
+                href="https://www.codetenderloin.org/code-ramp-course"
+                aria-label={TEACHING_LINK_ARIA_LABEL}
+                rel="noopener noreferrer"
+                target="_target"
+              >
+                teacher
+              </a>{" "}
+              from <span>San Francisco</span>
+            </h1>
+          </section>
+          <section>
+            <div>
+              <Image
+                alt="Gradient colors"
+                draggable={false}
+                height="228"
+                loading="eager"
+                priority
+                src="/images/backgrounds/gradient.webp"
+                width="341"
+              />
+            </div>
+            <div>
               <div>
                 <Image
-                  alt="Gradient colors"
+                  alt=""
+                  aria-hidden={true}
                   draggable={false}
-                  height="228"
+                  height="979"
                   loading="eager"
                   priority
-                  src="/images/backgrounds/gradient.webp"
-                  width="341"
+                  src="/images/backgrounds/iphone-14-pro-max-bezel.webp"
+                  width="483"
                 />
-              </div>
-              <div>
+                <Image
+                  alt={IPHONE_ALT_TEXT}
+                  draggable={false}
+                  height="1389"
+                  loading="eager"
+                  priority
+                  src="/images/backgrounds/twitter-web-app.webp"
+                  width="642"
+                />
                 <div>
                   <Image
-                    alt=""
-                    aria-hidden={true}
+                    alt="Twitter logo"
                     draggable={false}
-                    height="979"
+                    height="834"
                     loading="eager"
                     priority
-                    src="/images/backgrounds/iphone-14-pro-max-bezel.webp"
-                    width="483"
+                    src="/images/backgrounds/twitter-logo.webp"
+                    width="1026"
                   />
-                  <Image
-                    alt={IPHONE_ALT_TEXT}
-                    draggable={false}
-                    height="1389"
-                    loading="eager"
-                    priority
-                    src="/images/backgrounds/twitter-web-app.webp"
-                    width="642"
-                  />
-                  <div>
-                    <Image
-                      alt="Twitter logo"
-                      draggable={false}
-                      height="834"
-                      loading="eager"
-                      priority
-                      src="/images/backgrounds/twitter-logo.webp"
-                      width="1026"
-                    />
-                  </div>
                 </div>
               </div>
+            </div>
+            <div>
               <div>
-                <div>
-                  <Image
-                    alt="Loom logo"
-                    blurDataURL="/images/backgrounds/loom-logo.webp"
-                    draggable={false}
-                    height="333"
-                    loading="eager"
-                    placeholder="blur"
-                    priority
-                    src="/images/backgrounds/loom-logo.webp"
-                    width="333"
-                  />
-                </div>
-                <ComputerScreen
-                  imageAlt={COMPUTER_ALT_TEXT}
-                  imageHeight={962}
-                  imageSrc="/images/backgrounds/loom-multi-clip-editing.webp"
-                  imageWidth={1536}
+                <Image
+                  alt="Loom logo"
+                  blurDataURL="/images/backgrounds/loom-logo.webp"
+                  draggable={false}
+                  height="333"
+                  loading="eager"
+                  placeholder="blur"
+                  priority
+                  src="/images/backgrounds/loom-logo.webp"
+                  width="333"
                 />
               </div>
-            </section>
-          </main>
-        </RootStyles>
-      </Layout>
-    </>
+              <ComputerScreen
+                imageAlt={COMPUTER_ALT_TEXT}
+                imageHeight={962}
+                imageSrc="/images/backgrounds/loom-multi-clip-editing.webp"
+                imageWidth={1536}
+              />
+            </div>
+          </section>
+        </main>
+      </RootStyles>
+    </Layout>
   );
 };
 
@@ -261,10 +226,10 @@ const RootStyles = styled.div`
 
         > img {
           border-radius: ${({ theme }) => theme.borderRadii.medium};
-          filter: blur(${({ theme }) => theme.spaces.xxLarge});
+          filter: blur(${({ theme }) => theme.spaces.jumbo}) invert(20%);
           height: auto;
           left: 0;
-          opacity: ${({ theme }) => theme.opacity.opacity20};
+          opacity: ${({ theme }) => theme.opacity.opacity30};
           position: absolute;
           right: 0;
           top: ${({ theme }) => `calc(${theme.spaces.jumbo} * 2)`};
@@ -282,7 +247,6 @@ const RootStyles = styled.div`
 
           @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.desktop}) {
-            filter: blur(${({ theme }) => theme.spaces.jumbo});
             border-radius: ${({ theme }) => theme.borderRadii.large};
             height: 50%;
             left: ${({ theme }) => theme.spaces.medium};
