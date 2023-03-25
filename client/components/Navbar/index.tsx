@@ -81,15 +81,21 @@ function Navbar() {
 }
 
 const RootStyles = styled.div`
+  background-color: ${({ theme }) => theme.colors.bodyBackground};
   display: flex;
   left: 0;
   padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
-  position: absolute;
+  position: fixed;
   justify-content: center;
   right: 0;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 2147483647;
+
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.breakpoints.tablet}) {
+    position: absolute;
+  }
 
   > header {
     align-items: center;
