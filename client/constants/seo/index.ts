@@ -8,7 +8,7 @@ interface SeoConfig {
   author: {
     name: String;
   };
-  currentUrl: string;
+  baseUrl: string;
   description: string;
   imageUrl: string;
   siteName: string;
@@ -23,7 +23,7 @@ export const DEFAULT_SEO_VALUES: SeoConfig = {
   author: {
     name: "Nathan W Thomas",
   },
-  currentUrl: "https://www.nathanthomas.dev",
+  baseUrl: "https://www.nathanthomas.dev",
   description:
     "Internet home for Nathan Thomas. Focus on articles and projects.",
   imageUrl: "/images/og/home-page.webp",
@@ -37,34 +37,15 @@ export const DEFAULT_SEO_VALUES: SeoConfig = {
 
 export function buildSeoConfig(pageName: string, route?: string): SeoConfig {
   switch (pageName) {
-    case BLOG_PAGE_NAME:
-      return {
-        ...DEFAULT_SEO_VALUES,
-        currentUrl: "https://www.nathanthomas.dev/blog",
-        title: pageName,
-      };
-    case CONTACT_PAGE_NAME:
-      return {
-        ...DEFAULT_SEO_VALUES,
-        currentUrl: "https://www.nathanthomas.dev/contact",
-        title: pageName,
-      };
-    case FOUR_OH_FOUR_PAGE_NAME:
-      return {
-        ...DEFAULT_SEO_VALUES,
-        title: pageName,
-      };
     case HOME_PAGE_NAME:
       return {
         ...DEFAULT_SEO_VALUES,
-        currentUrl: "https://www.nathanthomas.dev",
         imageUrl: "/images/og/home-page.webp",
         title: pageName,
       };
     default:
       return {
         ...DEFAULT_SEO_VALUES,
-        currentUrl: route || DEFAULT_SEO_VALUES.currentUrl,
         title: pageName,
       };
   }
