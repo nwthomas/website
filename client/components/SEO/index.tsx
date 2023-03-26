@@ -6,6 +6,7 @@ import { NextSeo } from "next-seo";
 import { ORIGIN } from "../../constants/routes";
 import { ThemeContext } from "styled-components";
 import { buildSeoConfig } from "../../constants/seo";
+import { useRouter } from "next/router";
 import { useTheme } from "../../hooks";
 
 function buildUrlWithOrigin(currentUrl: string): string {
@@ -26,6 +27,7 @@ function SEO({
   isArticle,
   pageName,
 }: Props) {
+  const { asPath } = useRouter();
   const [currentTheme] = useTheme();
   const { colorsHex } = React.useContext(ThemeContext);
 
@@ -34,7 +36,7 @@ function SEO({
   }, [pageName]);
 
   const {
-    currentUrl,
+    baseUrl,
     description,
     imageUrl,
     siteName,
@@ -43,6 +45,8 @@ function SEO({
     },
     title,
   } = currentPageMetadata;
+
+  const currentUrl = `${baseUrl}${asPath}`;
 
   return (
     <>
