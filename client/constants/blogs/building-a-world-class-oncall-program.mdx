@@ -20,15 +20,15 @@ tags:
 
 If you're taking the time to read this, it probably means that you've been scorched a time or two by the fire of leading or participating in really tough incidents at work.
 
-Perhaps your team has a good oncall program and you're looking to improve it. Perhaps your team doesn't even have a dedicated oncall program yet.
+Perhaps your team has a good oncall program and you're looking to improve it. Perhaps your team doesn't have a dedicated oncall program yet.
 
 Whatever the case, you're here for a reason. I'll make it worth your while.
 
-In 2021, I was put in charge of leading the oncall program for all of [Twitter.com](https://twitter.com), the Twitter web app (a ~30 engineer rotation at the time pulled from a team of ~120). Our engineers were oncall roughly 4 times a year (2 times as primary and 2 times as secondary, something we will discuss shortly).
+In 2021, I was put in charge of leading the oncall program for all of [Twitter.com](https://twitter.com), the Twitter web app (a ~30 engineer rotation at the time pulled from a team of ~120). Our engineers were oncall roughly 4 times per year (2 times as primary and 2 times as secondary, something we will discuss shortly).
 
-Our engineers faced regressions from new feature or infra launches, problems with internal microservices that challenged the partition tolerance of Twitter, natural disasters affecting our data centers, and even wild curveballs like a DDoS attack out of mainland China (which is a story for another time).
+Our engineers faced regressions from new feature or infra launches, problems caused by internal microservices failures that challenged the partition tolerance of Twitter, natural disasters affecting our data centers, and even wild curveballs like a DDoS attack out of mainland China (which is a story for another time).
 
-Above all, they had to "keep the ship pointed forward in the storm" no matter what so that the web app was available for any of the hundreds of millions of active users every day who wanted to use it.
+Above all, our oncall engineers had to "keep the ship pointed forward in the storm" no matter what so that the web app was available for any of the hundreds of millions of active users every day who wanted to use it.
 
 To say this was stressful for engineers while oncall is an understatement.
 
@@ -38,25 +38,25 @@ Let's get to it. 🔥
 
 ## Oncall Philosophy
 
-You might be surprised to see that this first section is more of an abstract discussion about _what_ oncall even is. But some organizations seem to muddle what oncall should be responsible for and what their tasks should be.
+You might be surprised to see that this first section is more of an abstract discussion about _what_ oncall even is. But some organizations seem to muddle what oncall should be responsible for and what their tasks should be, so this is a good place to start.
 
-As a general rule, your oncall rotation should either be domain- or team-specific. There needs to be clear boundaries between what they are (and are not) responsible for.
+As a general rule, your oncall rotation should either be domain- or team-specific. There needs to be clear boundaries between what your oncall engineers are (and are not) responsible for.
 
-Once those rules are established, it's important to make clear that "the buck stops with oncall" when it comes to emergencies. The oncall gets to make the call about if a rollback (deploying a prior version of the code), revert (reverting a problematic pull request), forward fix (deploying with a revert/code fix instead of a rollback), or other action is necessary. The only time this should be overruled is if management or executives want to make a decision on an incident.
+Once those rules are established, it's important to make clear that "the buck stops with oncall" when it comes to emergencies. The oncall gets to make the call about if a rollback (deploying a prior version of the code), revert (reverting a problematic pull request), forward fix (deploying with a revert/code fix instead of a rollback), or other action is necessary. The only time this should be overruled is if management or executives want to make a decision on what happens in an incident.
 
-In other words, your primary oncall is the captain in the room in any incident (I'll explain more on the concept of primary and secondary oncalls in a bit). One of the worst feelings as oncall is being responsible for everything (getting pages in the middle of the night) but not _really_ being empowered to make final decisions on any of it. It creates a feeling of helplessness and resentment that will weigh on your oncall program like a stone in water.
+In other words, your primary oncall is the captain in the room in any incident (I'll explain more on the concept of primary and secondary oncalls in a bit). One of the worst feelings as oncall is being responsible for everything (getting pages in the middle of the night) but not _really_ being empowered to make final decisions on any of it. It creates a feeling of helplessness and resentment that will weigh on your oncall program like a stone sinking through water.
 
 In addition to leading incidents and making decisions on them, oncall should be responsible for the following tasks:
 
 - Leading _all_ deploys on the team for the week
-- Handling pages for the week (and it should be a big deal if these are missed)
+- Handling pages for the week
 - Analyzing health trends on metrics/logging dashboards for the service(s) they're responsible for
 - Triaging new errors that are reported by the support team or error monitoring services
 - Creating (and working on) tickets for new errors or oncall-related tasks
 - Training new oncall engineers who are shadowing the rotation
 - Writing all postmortem documents for any incidents they lead
 
-This seems like a lot, and that's because it is. Some of these tasks can be divvied up between primary and secondary oncalls. What are those, you might ask?
+This seems like a lot, and that's because it is. Some of these tasks can be divvied up between primary and secondary oncall roles. What are those, you might ask?
 
 Good question. Let me explain right now.
 
@@ -66,11 +66,11 @@ I've previously said that "the buck stops with oncall." However, what I really m
 
 If you have a small engineering team (5-6 people), disregard everything that this section has to say (although I'll have a lot more to talk about with scope versus number of rotations soon). If this is you, your rotation is already so small that having a staggered primary/secondary oncall program would _increase_ engineer burnout.
 
-Got it?
+If that's you, go ahead and skip to the next section.
 
-Okay. If you're still here, that means you should build two rotations on your team. Each rotation will have the same engineers in it, but they should be staggered (so that an engineer is primary oncall and then maybe secondary half a month later).
+Okay. If you're still here, that means you should build two rotations on your team. Each rotation will have the same engineers in it, but their shifts should be staggered (so that an engineer is primary oncall and then secondary something like half a month later).
 
-Primary oncall should get pages first, lead incidents, be point on training new oncall, and generally be the one in charge of oncall for the entire week.
+The primary oncall should get pages first, lead incidents, be point on training new oncall, and just generally be the one in charge of oncall for the entire week.
 
 Secondary oncall should be back up (both with pages if primary misses them as well as with covering oncall if the primary has to be out). You can also choose to divide tasks like writing postmortem documents, traiging some errors, and other lower priority tasks to the secondary oncall.
 
@@ -88,15 +88,17 @@ As I mentioned above, you should make every attempt to place your engineers into
 
 Let's dig into this scheduling process a bit more.
 
-In an _ideal_ world, your oncall rotation should be a minimum of 8 people and a maximum of around 25. The reason for this is simple - 8 engineers is a primary oncall shift of around once every 2 months, and 25 engineers is an primary oncall shift around twice a year.
+Oncall shifts should run 24/7 for a week straight. The specifics (like start and stop days/times) can be between you and your team. If you have enough engineers distributed across the globe, you could also experiment with having some engineers cover while others are asleep.
 
-Any less than 8 engineers and you'll be a _big_ risk of burning your oncall engineers out from being oncall all the time (and believe me, feeling like the world is on your shoulders multiple times a month is not fun); any more than 25 and you run the risk of having your engineers forget _how_ to perform their oncall duties (although this can be mitigated with a strong secondary rotation where the secondary oncall engineer actually performs some duties).
+In an _ideal_ world, your oncall rotations should be a minimum of 8 people and a maximum of around 25. The reason for this is simple - 8 engineers equals people having a primary oncall shift of once every 2 months and 25 engineers is a primary oncall shift around twice a year.
+
+Any less than 8 engineers and you'll run a _big_ risk of burning your oncall engineers out from being oncall all the time (and believe me, feeling like the world is on your shoulders multiple times a month is not fun); any more than 25 and you run the risk of having your engineers forget _how_ to perform their oncall duties (although this can be mitigated with a strong secondary rotation where the secondary oncall engineer actually performs some duties - more on this soon).
 
 Engineers who perform their primary oncall rotation duties should have a week or two off (at minimum) before they do their secondary oncall shift. Having someone oncall for two weeks in a row (primary and then secondary) where they're tied down to their laptop is fairly cruel. This can (rightfully) lead to anger, frustration, and even turnover if it continues despite complaints.
 
-Instead, add new engineers to the rotation at least several months out and give the entire team a heads up publicly when you do it. Tell people to review their future shifts _immediately_ and to let you know if their newly scheduled times (almost a quarter out) don't work. In this instance, the right thing to do is be the one to find them coverage.
+Add new engineers to the rotation at least several months out and give the entire team a heads up publicly when you do it. This helps mitigate problems with the schedule shifting. You don't want an enginer to find coverage for their shift only to have it shift around multiple times. When you update the schedule, tell people to review their future shifts _immediately_ and to let you know if their newly scheduled times (almost a quarter out) don't work. In this instance, the right thing to do is for you to be the one to find them coverage.
 
-Speaking of finding coverage on your schedule, oncall engineers should be responsible at all _other_ times when they need swaps for weeks they can't work their oncall shifts. It should be a **big deal** if someone goes out on vacation and miss getting coverage for their shift.
+Speaking of finding coverage on your schedule, oncall engineers should be responsible at all _other_ times when they need swaps for weeks they can't work their oncall shifts. It should be a **big deal** if someone goes out on vacation and misses getting coverage for their shift.
 
 The final piece of this scheduling puzzle is to do with trainings; you should make a third (and rarely-used) rotation for shadowing engineers. This component needs its own section (further below), so I'll end this one by saying that no team is complete without being people being simultaneously teachers and learners.
 
@@ -147,7 +149,7 @@ As you bring on new engineers, it will become more-and-more important to have a 
 
 In the TV show [Avatar: The Last Airbender](https://en.wikipedia.org/wiki/Avatar:_The_Last_Airbender), there is a very wise character named Uncle Iroh. One of the surprising skills he reveals during the show is that he can redirect lightning that is fired at him.
 
-<img alt="Uncle Iroh from the 'Avatar: The Last Airbender' cartoon series bending lightning to his will" height="283" src="/images/blog/building-a-world-class-oncall-program/iroh-lightning.gif" width="380">
+<img alt="Uncle Iroh from the 'Avatar: The Last Airbender' cartoon series bending lightning to his will" height="289" src="/images/blog/building-a-world-class-oncall-program/iroh-lightning.gif" width="370">
 
 Your team should view the oncall engineers (and particularly the primary oncall for each week) as mainly responsible for redirecting lightning in times of crisis. This means that they need to find the right fix, the right people to work on it, and the right short-term mitigation techniques for an issue (which may be a rollback, quick patch, revert of code, etc.). The buck does stop with oncall, but the team needs to be ready to chip in when required.
 
