@@ -147,21 +147,39 @@ As you bring on new engineers, it will become more-and-more important to have a 
 
 In the TV show [Avatar: The Last Airbender](https://en.wikipedia.org/wiki/Avatar:_The_Last_Airbender), there is a very wise character named Uncle Iroh. One of the surprising skills he reveals during the show is that he can redirect lightning that is fired at him.
 
-<img alt="Uncle Iroh from the Last Airbender cartoon series bending lightning to his will" height="283" src="/images/blog/building-a-world-class-oncall-program/iroh-lightning.gif" width="380">
+<img alt="Uncle Iroh from the 'Avatar: The Last Airbender' cartoon series bending lightning to his will" height="283" src="/images/blog/building-a-world-class-oncall-program/iroh-lightning.gif" width="380">
 
 Your team should view the oncall engineers (and particularly the primary oncall for each week) as mainly responsible for redirecting lightning in times of crisis. This means that they find the right fix, the right people to work on it, and the right short-term mitigation techniques for an issue. The buck does stop with oncall, but the team needs to be ready to chip in when required. In other words, develop a culture of "it's good to chip in to help oncall."
 
-If oncall is stumped (since no one can possible know everything about this field), a high priority page may warrant manually paging in other key team members for fixing a problem that the oncall engineers have not been able to isolate. This should only be used under extreme circumstances.
+If oncall is stumped (since no one can possibly know _everything_ about this field), a high priority issue they receive a page about may also warrant manually paging in _other_ key team members for fixing the problem. You should advise your oncall engineers in their runbooks that this should only be used under extreme circumstances (more on runbooks in just a second).
 
-However, oncall should always be able to pull in whatever resources they need to get a job done (depending on the severity of the problem).
+However, oncall should always be able to pull in whatever resources they need to get a job done (depending on the severity of the problem). If the ship is headed in the wrong way and it's high priority, oncall should be able to ask for (and receive) the help they need in order to right the course.
 
 ## Constructing Runbooks
 
-Everybody forgets things, so it's crucial to develop decent runbooks that are _easy_ to flip through in the heat of the moment\_
+Everybody forgets things, so it's **crucial** to develop decent runbooks that are easy to flip through in the heat of the moment. These will be useful for both new engineers and also oncall veterans who may not have had a shift in a while.
 
-These should include at a minimum:
+These runbooks should include (at a minimum):
 
-1. How to deploy
-2. How to rollback
-3. Most basic manual processes for the above
-4. Leads on teams and the channels associated with those teams
+- How to deploy builds
+- How to rollback builds
+- If the team uses a GUI for the above, also a guide on _manual_ processes via CLI for them
+- General oncall processes (such as what we've been discussing in this article)
+- A breakdown of company structure (which other teams/oncalls are responsible for what parts of the company's architecture)
+- How to use your paging system (and how to perform manual pages)
+- How to schedule a postmortem (assuming your team does them for [SOC II compliance](https://secureframe.com/hub/soc-2/what-is-soc-2))
+- How to create a postmortem document for incidents and what to do with it
+
+As time goes on, you and your oncall team will need to reevaluate these runbooks in order to add new ones, update old ones, and keep an FAQ of edge cases that occur for your oncall program.
+
+Please make sure to empower your oncall engineers to make active modifications to these runbooks when they deem it necessary. The team should view these as living documents; if you take it entirely on yourself (or a specific group) to periodically review these documents, you will almost certainly find them frequently falling out of use because the information is stale.
+
+## Conclusion
+
+It's not easy to build good team processes, and it's _especially_ not easy when a high degree of stress is involved.
+
+You should take everything in this article and use it as a **foundation** to start your own oncall program. Over time, you'll come up with new best practices; this may feel like a moving target, but I mentioned before that perfection (in many cases) is impossible. Instead,
+
+As always, thanks for reading.
+
+Nathan ☕️
