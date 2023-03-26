@@ -106,7 +106,7 @@ Before we get into a discussion of training your team, I'd like to momentarily d
 
 If you choose more scope, you'll be able to have a large roster of engineers who will be oncall less frequently. This would be on the high end of the roster size (>= 25 people) that I mentioned earlier and would equate to less oncall burnout and engineers not being tied down to their laptops 24/7 a lot of weeks every year (which can build frustration). However, the cons to this approach are that engineers may complain they're losing knowledge on how to properly perform their oncall duties given the large gap in between rotations.
 
-In contrast, having a smaller rotation with much less scope will mean that your engineers get intimately familiar with the subject matter area they're responsible for and run no risk of forgetting it. They will also experience less stress related to a wide domain they have to cover while oncall. However, your engineers will also be oncall more often which could lead to burnout and prevent them from taking vacations or really decompressing from their job.
+In contrast, having a smaller rotation with much less scope will mean that your engineers get intimately familiar with the subject matter area they're responsible for and run no risk of forgetting it. They will also experience less stress from being responsible for covering a smaller domain while oncall. The main con for this approach is that your engineers will also be oncall more often; this could lead to burnout and prevent them from taking vacations or decompressing when needed from their normal (non-oncall) work.
 
 You should avoid having _both_ large scope and frequent oncall (although you may be forced into it - startups and big corporations will have to make very different trade-offs).
 
@@ -118,19 +118,42 @@ The important part is to pick a direction with your team and stick to it (at lea
 
 ## How to Train Your Team
 
-Training materials
+I've previously mentioned that you should create a "shadow" rotation. Let's expound on that (and other training processes) right now.
 
-Importance of a shadow Rotations
+I would recommend not adding an engineer to your oncall rotation unless they have met the following qualifications (roughly):
 
-## Providing Support (or "How to Direct Lightning")
+- They are a senior (or higher) engineer and have been on the team for >= 3 months
+- They are a junior/mid-level engineer and have been on the team for >= 6 months
 
-Develop a culture of "chip in to help oncall"
+This allows these new team members to get used to the codebase, the way your architecture is set up, and the organization itself. However (and as I've mentioned all along), this will need to be shorter if your team is quite small.
 
-If oncall is stumped (or if they get a page in the early AM and it's a P0 page), manually page in key team members for breaking commit
+Once you've deemed an engineer ready to go into the rotation, you should either meet with them in person/over video chat or have some training materials ready that do the following:
 
-Oncall should be able to pull in whatever resources they need to get a job done
+1. Give a breakdown of the philosophy of oncall at your company
+2. Describe what primary and secondary oncall are at your company
+3. Describe what the tasks are for engineers while they're oncall (and the breakdowns for primary/secondary)
+
+The engineer should then immediately go into the shadow rotation. You should link them up with the primary engineers for the weeks they will be shadowing and make introductions (if they don't already know each other).
+
+I would recommend you put your new oncall engineer through 2 weeks of the shadow rotation. In the first week, they should merely shadow and be a fly on the wall in all incidents, investigations, deploys, rollbacks, and anything else the primary engineer does.
+
+In the second week of shadowing, you should flip the schedule so the shadowing engineer is "primary" from 9-5 pm their local time. They should receive all pages and otherwise function as a primary engineer, but they should have the _full_ support of the training engineer (the "real" primay engineer) in case they have questions. You will need to temporarily modify the paging schedule for this week so the shadowing engineer receives pages during 9-5 pm their local time.
+
+Once an engineer has completed this training, you should view them as ready to go into the full rotation. Place them in the primary and secondary schedules while respecting the issues with adjusting a schedule that I mentioned previously.
+
+## The Art of Redirecting Lightning
+
+As you bring on new engineers, it will become more-and-more important to have a culture where oncall engineers are properly supported by their team.
+
+In the TV show [Avatar: The Last Airbender](https://en.wikipedia.org/wiki/Avatar:_The_Last_Airbender), there is a very wise character named Uncle Iroh. One of the surprising skills he reveals during the show is that he can redirect lightning that is fired at him.
 
 <img alt="Uncle Iroh from the Last Airbender cartoon series bending lightning to his will" height="283" src="/images/blog/building-a-world-class-oncall-program/iroh-lightning.gif" width="380">
+
+Your team should view the oncall engineers (and particularly the primary oncall for each week) as mainly responsible for redirecting lightning in times of crisis. This means that they find the right fix, the right people to work on it, and the right short-term mitigation techniques for an issue. The buck does stop with oncall, but the team needs to be ready to chip in when required. In other words, develop a culture of "it's good to chip in to help oncall."
+
+If oncall is stumped (since no one can possible know everything about this field), a high priority page may warrant manually paging in other key team members for fixing a problem that the oncall engineers have not been able to isolate. This should only be used under extreme circumstances.
+
+However, oncall should always be able to pull in whatever resources they need to get a job done (depending on the severity of the problem).
 
 ## Constructing Runbooks
 
