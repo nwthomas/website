@@ -149,9 +149,11 @@ In the TV show [Avatar: The Last Airbender](https://en.wikipedia.org/wiki/Avatar
 
 <img alt="Uncle Iroh from the 'Avatar: The Last Airbender' cartoon series bending lightning to his will" height="283" src="/images/blog/building-a-world-class-oncall-program/iroh-lightning.gif" width="380">
 
-Your team should view the oncall engineers (and particularly the primary oncall for each week) as mainly responsible for redirecting lightning in times of crisis. This means that they find the right fix, the right people to work on it, and the right short-term mitigation techniques for an issue. The buck does stop with oncall, but the team needs to be ready to chip in when required. In other words, develop a culture of "it's good to chip in to help oncall."
+Your team should view the oncall engineers (and particularly the primary oncall for each week) as mainly responsible for redirecting lightning in times of crisis. This means that they need to find the right fix, the right people to work on it, and the right short-term mitigation techniques for an issue (which may be a rollback, quick patch, revert of code, etc.). The buck does stop with oncall, but the team needs to be ready to chip in when required.
 
-If oncall is stumped (since no one can possibly know _everything_ about this field), a high priority issue they receive a page about may also warrant manually paging in _other_ key team members for fixing the problem. You should advise your oncall engineers in their runbooks that this should only be used under extreme circumstances (more on runbooks in just a second).
+In other words, develop a culture of "it's good to chip in to help oncall."
+
+If oncall is stumped (since no one can possibly know _everything_ about this field), a high priority issue they got a page about may also warrant manually paging in _other_ key team members for fixing the problem (such as with a page in the middle of the night when no one else is online yet). You should advise your oncall engineers in their runbooks and oncall training that this should only be used under **extreme** circumstances (more on runbooks in just a second).
 
 However, oncall should always be able to pull in whatever resources they need to get a job done (depending on the severity of the problem). If the ship is headed in the wrong way and it's high priority, oncall should be able to ask for (and receive) the help they need in order to right the course.
 
@@ -159,7 +161,11 @@ However, oncall should always be able to pull in whatever resources they need to
 
 Everybody forgets things, so it's **crucial** to develop decent runbooks that are easy to flip through in the heat of the moment. These will be useful for both new engineers and also oncall veterans who may not have had a shift in a while.
 
-These runbooks should include (at a minimum):
+It's also important to note here that these runbooks should not be self-hosted. You should use [Google docs](https://www.google.com/docs/about), [Notion](https://www.notion.so), or some other provider for them. The reason here is simple - the last thing you want in the middle of a very high severity incident (such as the entire architecture being down) is for the runbooks to be down as well because you decided to run this documentation off the same servers.
+
+In addition, these runbooks should be designed for speed. They should be written by recognizing they might be flipped through under times of extreme stress. The last thing an oncall needs during a crucial incident is to feel like they're combing the secret dusty vaults of a lost civilization while trying to decipher what previous engineers wrote down.
+
+I would advise that your runbooks should include (at a minimum):
 
 - How to deploy builds
 - How to rollback builds
@@ -170,15 +176,19 @@ These runbooks should include (at a minimum):
 - How to schedule a postmortem (assuming your team does them for [SOC II compliance](https://secureframe.com/hub/soc-2/what-is-soc-2))
 - How to create a postmortem document for incidents and what to do with it
 
+Try to keep a flat structure for this documentation, and favor a bigger initial main table of contents over lots of nested pages with nested sub-categories (which is harder to search in the heat of the moment).
+
 As time goes on, you and your oncall team will need to reevaluate these runbooks in order to add new ones, update old ones, and keep an FAQ of edge cases that occur for your oncall program.
 
-Please make sure to empower your oncall engineers to make active modifications to these runbooks when they deem it necessary. The team should view these as living documents; if you take it entirely on yourself (or a specific group) to periodically review these documents, you will almost certainly find them frequently falling out of use because the information is stale.
+In any case, please make sure to empower your oncall engineers to make active modifications to these runbooks when _they_ deem it necessary. Your team should view these as living documents; if you take it entirely on yourself (or a specific static group) to be the gatekeepers to periodically update this documentation, you will almost certainly find them frequently falling out of use by oncall because the information is stale.
+
+There is a lot more I could say here about runbooks, but most of it would be wasted. Anything worth talking about from this point forward will revolve around your company's specific needs, culture, and codebase. Just follow the north star of making documentation quick, informative, and easy to parse through for your oncall engineers, and your documentation will likely turn out okay.
 
 ## Conclusion
 
-It's not easy to build good team processes, and it's _especially_ not easy when a high degree of stress is involved.
+You should take everything we just discussed in this article as a **foundation** to start your own oncall program.
 
-You should take everything in this article and use it as a **foundation** to start your own oncall program. Over time, you'll come up with new best practices; this may feel like a moving target, but I mentioned before that perfection (in many cases) is impossible. Instead,
+Over time, you'll come up with new best practices of your own. When that happens, I hope you'll get back in touch with me so I can learn too.
 
 As always, thanks for reading.
 
