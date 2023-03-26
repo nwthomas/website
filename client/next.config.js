@@ -18,6 +18,11 @@ const nextConfig = {
         destination: "/tag/personal",
         permanent: true,
       },
+      {
+        source: "/tag/soft-skills",
+        destination: "/tag/personal",
+        permanent: true,
+      },
     ];
   },
   // Sentry configurations
