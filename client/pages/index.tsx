@@ -70,7 +70,7 @@ const Home: NextPage = () => {
                 height="228"
                 loading="eager"
                 priority
-                src="/images/backgrounds/gradient.webp"
+                src="/images/backgrounds/gradient-low.webp"
                 width="341"
               />
             </div>

@@ -42,7 +42,7 @@ function DynamicOGImage() {
 
 const RootStyles = styled.div`
   align-items: center;
-  background-image: url(/images/backgrounds/gradient.webp);
+  background-image: url(/images/backgrounds/gradient-high.webp);
   display: flex;
   flex-direction: column;
   height: ${OG_IMAGE_HEIGHT}px;
