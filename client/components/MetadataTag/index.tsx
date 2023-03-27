@@ -9,13 +9,12 @@ function MetadataTag({ contents }: Props) {
 }
 
 const RootStyles = styled.p`
-  background-color: ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
-  border-radius: ${({ theme }) => theme.borderRadii.small};
-  color: ${({ theme }) => theme.colors.text};
+  background-color: var(--body-bg-accent-one);
+  border-radius: var(--border-radius-small);
+  color: var(--text);
   font-size: 1.4rem;
-  margin-top: ${({ theme }) => theme.spaces.xxSmall};
-  padding: ${({ theme }) =>
-    `${theme.spaces.nano} calc(${theme.spaces.micro} * 2) ${theme.spaces.micro}`};
+  margin-top: var(--space-xxsmall);
+  padding: var(--space-nano) calc(var(--space-micro) * 2) var(--space-micro);
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.tablet}) {
