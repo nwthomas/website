@@ -35,7 +35,7 @@ interface StyleProps {
 const RootStyles = styled.div<StyleProps>`
   height: ${({ theme }) => `calc(${theme.spaces.xxSmall} * 3)`};
   position: relative;
-  width: ${({ theme }) => `calc(${theme.spaces.xxSmall} * 5)`};
+  width: ${({ theme }) => `calc(${theme.spaces.xxSmall} * 7)`};
 
   > div {
     height: ${({ theme }) => `calc(${theme.spaces.xxSmall} * 3)`};
