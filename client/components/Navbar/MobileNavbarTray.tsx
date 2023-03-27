@@ -73,7 +73,7 @@ function MobileNavbarTray({ currentPath }: Props) {
 }
 
 const RootStyles = styled.div`
-  backdrop-filter: blur(${({ theme }) => theme.spaces.xxSmall});
+  backdrop-filter: blur(var(--space-xxsmall));
   bottom: 0;
   left: 0;
   position: fixed;
@@ -83,12 +83,12 @@ const RootStyles = styled.div`
   transform: translate3d(0, 0, 0);
 
   &::before {
-    background-color: ${({ theme }) => theme.colors.bodyBackground};
+    background-color: var(--body-bg);
     bottom: 0;
     content: "";
     backdrop-filter: blur(10px);
     left: 0;
-    opacity: ${({ theme }) => theme.opacity.opacity90};
+    opacity: 0.9;
     position: fixed;
     right: 0;
     top: 0;
@@ -96,20 +96,20 @@ const RootStyles = styled.div`
   }
 
   > nav {
-    padding-top: ${({ theme }) => theme.appDimensions.navbarMobileHeight};
-    padding-right: ${({ theme }) => theme.appDimensions.appHorizontalGutters};
+    padding-top: var(--navbar-mobile-height);
+    padding-right: var(--app-horizontal-gutters);
     width: 100%;
 
     > ul {
       align-items: flex-end;
       display: flex;
       flex-direction: column;
-      margin-top: ${({ theme }) => theme.spaces.xSmall};
+      margin-top: var(--space-xsmall);
       width: 100%;
 
       > li {
         list-style-type: none;
-        margin-bottom: ${({ theme }) => theme.spaces.medium};
+        margin-bottom: var(--space-medium);
 
         a {
           font-family: "Libre Baskerville", Constantia, "Lucida Bright",
@@ -122,7 +122,7 @@ const RootStyles = styled.div`
       }
 
       > li:last-child {
-        margin-top: ${({ theme }) => theme.spaces.xxSmall};
+        margin-top: var(--space-xxsmall);
       }
     }
   }
