@@ -45,6 +45,28 @@ const GlobalStyle = css`
     -webkit-text-size-adjust: 100%;
     -moz-osx-font-smoothing: grayscale;
 
+    /* Color raw hex variables */
+    --color-alabaster: ${colors.alabaster};
+    --color-alto: ${colors.alto};
+    --color-black: ${colors.black};
+    --color-bright-sun: ${colors.brightSun};
+    --color-burnt-sienna: ${colors.burntSienna};
+    --color-casablanca: ${colors.casablanca};
+    --color-cod-gray: ${colors.codGray};
+    --color-dove-gray: ${colors.doveGray};
+    --color-errie-black: ${colors.eerieBlack};
+    --color-manatee: ${colors.manatee};
+    --color-mantis: ${colors.mantis};
+    --color-mercury: ${colors.mercury};
+    --color-mineshaft: ${colors.mineShaft};
+    --color-outer-space: ${colors.outerSpace};
+    --color-red: ${colors.red};
+    --color-royal-blue: ${colors.royalBlue};
+    --color-shark: ${colors.shark};
+    --color-silver: ${colors.silver};
+    --color-tan: ${colors.tan};
+    --color-white: ${colors.white};
+
     /* General app variables */
     --app-horizontal-gutters: ${appDimensions.appHorizontalGutters};
     --app-max-width: ${appDimensions.appMaxWidth};
