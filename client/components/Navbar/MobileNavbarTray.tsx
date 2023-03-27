@@ -79,6 +79,8 @@ const RootStyles = styled.div`
   position: fixed;
   right: 0;
   top: 0;
+  /* https://graffino.com/til/CjT2jrcLHP-how-to-fix-filter-blur-performance-issue-in-safari */
+  transform: translate3d(0, 0, 0);
 
   &::before {
     background-color: ${({ theme }) => theme.colors.bodyBackground};
