@@ -58,32 +58,43 @@ function BlogHeading({
       case 2:
         return (
           <h2 {...headingHandlers} id={routeId}>
-            <a href={linkPath}>{contents}</a>
+            <a href={linkPath}>
+              {/* The span is to allow contents to show up in reader mode: https://www.leereamsnyder.com/blog/making-headings-with-links-show-up-in-safari-reader */}
+              <span>{contents}</span>
+            </a>
           </h2>
         );
       case 3:
         return (
           <h3 {...headingHandlers} id={routeId}>
-            <a href={linkPath}>{contents}</a>
+            <a href={linkPath}>
+              <span>{contents}</span>
+            </a>
           </h3>
         );
       case 4:
         return (
           <h4 {...headingHandlers} id={routeId}>
-            <a href={linkPath}>{contents}</a>
+            <a href={linkPath}>
+              <span>{contents}</span>
+            </a>
           </h4>
         );
       case 5:
         return (
           <h5 {...headingHandlers} id={routeId}>
-            <a href={linkPath}>{contents}</a>
+            <a href={linkPath}>
+              <span>{contents}</span>
+            </a>
           </h5>
         );
       case 1:
       default:
         return (
           <h1 {...headingHandlers} id={routeId}>
-            <a href={linkPath}>{contents}</a>
+            <a href={linkPath}>
+              <span>{contents}</span>
+            </a>
           </h1>
         );
     }
@@ -217,6 +228,13 @@ const RootStyles = styled.div<StyleProps>`
 
         &:hover {
           text-decoration: none;
+        }
+
+        > span {
+          color: inherit;
+          font-family: inherit;
+          font-size: inherit;
+          line-height: inherit;
         }
       }
     }
