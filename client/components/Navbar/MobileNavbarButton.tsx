@@ -4,11 +4,15 @@ import FocusTrap from "focus-trap-react";
 import MobileNavbarTray from "./MobileNavbarTray";
 import styled from "styled-components";
 
+const BUTTON_NAME_LABEL = "Navbar button";
+const CLOSED_ARIA_LABEL = "Click to open the mobile navbar menu";
+const OPEN_ARIA_LABEL = "Click to close the mobile navbar menu";
+
 interface Props {
   currentPath: string;
 }
 
-function MobileNavbar({ currentPath }: Props) {
+function MobileNavbarButton({ currentPath }: Props) {
   const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
 
   const handleOnClick = () => setIsMenuOpen(!isMenuOpen);
@@ -17,7 +21,12 @@ function MobileNavbar({ currentPath }: Props) {
     <RootStyles isMenuOpen={isMenuOpen}>
       <FocusTrap active={isMenuOpen}>
         <div>
-          <button onClick={handleOnClick}>
+          <button
+            aria-label={isMenuOpen ? OPEN_ARIA_LABEL : CLOSED_ARIA_LABEL}
+            name={BUTTON_NAME_LABEL}
+            onClick={handleOnClick}
+            type="button"
+          >
             <div />
             <div />
           </button>
@@ -103,4 +112,4 @@ const RootStyles = styled.div<StyleProps>`
   }
 `;
 
-export default MobileNavbar;
+export default MobileNavbarButton;
