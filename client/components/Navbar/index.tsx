@@ -15,7 +15,7 @@ import {
 } from "../../constants/routes";
 
 import { CONTENTS_ID } from "../../constants/routes";
-import MobileNavbar from "./MobileNavbar";
+import MobileNavbarButton from "./MobileNavbarButton";
 import NavbarLink from "./NavbarLink";
 import ThemeTransitionSwitch from "../ThemeTransitionSwitch";
 import { breakpointsInt } from "../../styles/libs/theme";
@@ -96,7 +96,7 @@ function Navbar() {
               </div>
             ) : null}
             {shouldShowMenu && isDesktopLayout ? (
-              <MobileNavbar currentPath={currentPath} />
+              <MobileNavbarButton currentPath={currentPath} />
             ) : null}
           </ul>
         </nav>
