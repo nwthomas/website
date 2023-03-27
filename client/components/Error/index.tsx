@@ -26,7 +26,7 @@ const RootStyles = styled.main`
   justify-content: center;
   left: 0;
   position: absolute;
-  padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
+  padding: 0 var(--app-horizontal-gutters);
   right: 0;
   top: 0;
   width: 100%;
