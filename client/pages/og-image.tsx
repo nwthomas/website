@@ -30,7 +30,7 @@ function DynamicOGImage() {
           <img
             alt=""
             height="100"
-            src="/nathan-thomas-pfp.jpg"
+            src="/images/pfp/nathan-thomas-pfp.jpg"
             width="100"
           ></img>
         </div>
@@ -54,7 +54,7 @@ const RootStyles = styled.div`
 
   &::after {
     bottom: 0;
-    background-image: url(/transparent-noise.png);
+    background-image: url(/images/backgrounds/transparent-noise.png);
     content: "";
     left: 0;
     position: absolute;
