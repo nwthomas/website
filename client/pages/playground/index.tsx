@@ -4,15 +4,11 @@ import Layout from "../../components/Layout";
 import { PLAYGROUND_PAGE_NAME } from "../../constants/seo";
 import styled from "styled-components";
 
-interface Props {
-  // finish
-}
-
-function Playground(props: Props) {
+function Playground() {
   return (
     <Layout pageName={PLAYGROUND_PAGE_NAME} withFooter>
       <RootStyles>
-        <h1>Coming Soon</h1>
+        <h1>Coming Soon™</h1>
       </RootStyles>
     </Layout>
   );
