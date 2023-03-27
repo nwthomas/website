@@ -1,6 +1,13 @@
 import * as React from "react";
 
 import {
+  BLOG_LINK_ARIA_LABEL,
+  CONTACT_LINK_ARIA_LABEL,
+  HOME_LINK_ARIA_LABEL,
+  PLAYGROUND_LINK_ARIA_LABEL,
+  SKIP_TO_CONTENT_ARIA_LABEL,
+} from "../../constants/ariaLabels";
+import {
   BLOG_PAGE,
   CONTACT_PAGE,
   HOME_PAGE,
@@ -15,12 +22,6 @@ import { breakpointsInt } from "../../styles/libs/theme";
 import styled from "styled-components";
 import { useGetScreenDimensions } from "../../hooks";
 import { useRouter } from "next/router";
-
-const BLOG_LINK_ARIA_LABEL = "Go to all blog posts page";
-const CONTACT_LINK_ARIA_LABEL = "Go to contact page";
-const HOME_LINK_ARIA_LABEL = "Go to home page";
-const PLAYGROUND_LINK_ARIA_LABEL = "Go to playground page";
-const SKIP_TO_CONTENT_ARIA_LABEL = "Skip to the page's main content";
 
 function Navbar() {
   const [shouldShowMenu, setShouldShowMenu] = React.useState<boolean>(false);
