@@ -42,17 +42,15 @@ function Navbar() {
       <header>
         <nav>
           <ul>
-            <div>
-              <li>
-                <NavbarLink
-                  ariaLabel={HOME_LINK_ARIA_LABEL}
-                  currentPath={currentPath}
-                  route={HOME_PAGE}
-                >
-                  Nathan Thomas
-                </NavbarLink>
-              </li>
-            </div>
+            <li>
+              <NavbarLink
+                ariaLabel={HOME_LINK_ARIA_LABEL}
+                currentPath={currentPath}
+                route={HOME_PAGE}
+              >
+                Nathan Thomas
+              </NavbarLink>
+            </li>
             <li>
               <a
                 aria-label={SKIP_TO_CONTENT_ARIA_LABEL}
@@ -96,7 +94,9 @@ function Navbar() {
               </div>
             ) : null}
             {shouldShowMenu && isDesktopLayout ? (
-              <MobileNavbarButton currentPath={currentPath} />
+              <li>
+                <MobileNavbarButton currentPath={currentPath} />
+              </li>
             ) : null}
           </ul>
         </nav>
