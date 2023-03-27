@@ -48,7 +48,7 @@ const RootStyles = styled.div`
   height: ${OG_IMAGE_HEIGHT}px;
   justify-content: space-between;
   overflow: hidden;
-  padding: ${({ theme }) => theme.spaces.xLarge};
+  padding: var(--space-xlarge);
   position: relative;
   width: ${OG_IMAGE_WIDTH}px;
 
@@ -80,10 +80,10 @@ const RootStyles = styled.div`
     z-index: 1;
 
     > div {
-      border-radius: ${({ theme }) => theme.borderRadii.infinity};
+      border-radius: var(--border-radius-infinity);
       display: flex;
       height: auto;
-      margin-bottom: ${({ theme }) => theme.spaces.medium};
+      margin-bottom: var(--space-medium);
       overflow: hidden;
       width: 150px;
     }
@@ -94,7 +94,7 @@ const RootStyles = styled.div`
         sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
         Noto Color Emoji;
       font-size: 4rem;
-      padding: ${({ theme }) => `${theme.spaces.micro} 0`};
+      padding: var(--space-micro) 0;
     }
   }
 `;

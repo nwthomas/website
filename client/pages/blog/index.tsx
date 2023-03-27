@@ -72,24 +72,24 @@ const RootStyles = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
+  padding: 0 var(--app-horizontal-gutters);
   width: 100%;
 
   > main {
-    max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
-    margin-bottom: ${({ theme }) => theme.spaces.medium};
+    max-width: var(--app-max-width);
+    margin-bottom: var(--space-medium);
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
-      margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
+      margin-bottom: var(--space-xxlarge);
     }
 
     > div {
-      margin-bottom: ${({ theme }) => theme.spaces.medium};
+      margin-bottom: var(--space-medium);
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
+        margin-bottom: var(--space-xxlarge);
       }
     }
 
