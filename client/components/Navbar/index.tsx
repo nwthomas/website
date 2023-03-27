@@ -108,7 +108,7 @@ function Navbar() {
 const RootStyles = styled.div`
   display: flex;
   left: 0;
-  padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
+  padding: 0 var(--app-horizontal-gutters);
   position: absolute;
   justify-content: center;
   right: 0;
@@ -120,13 +120,13 @@ const RootStyles = styled.div`
     align-items: center;
     display: flex;
     justify-content: center;
-    max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
-    padding: ${({ theme }) => `${theme.spaces.medium} 0 `};
+    max-width: var(--app-max-width);
+    padding: var(--space-medium) 0;
     width: 100%;
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
-      padding: ${({ theme }) => `${theme.spaces.xxLarge} 0`};
+      padding: var(--space-xxlarge) 0;
     }
 
     > nav {
@@ -150,7 +150,7 @@ const RootStyles = styled.div`
             align-items: center;
             display: flex;
             height: 100%;
-            left: ${({ theme }) => `calc(${theme.spaces.large} * 3)`};
+            left: calc(var(--space-large) * 3);
             position: absolute;
             overflow: hidden;
             top: 0;
@@ -159,7 +159,7 @@ const RootStyles = styled.div`
 
             @media only screen and (min-width: ${({ theme }) =>
                 theme.breakpoints.tablet}) {
-              left: ${({ theme }) => `calc(${theme.spaces.large} * 4)`};
+              left: calc(var(--space-large) * 4);
             }
 
             :focus {
@@ -177,17 +177,17 @@ const RootStyles = styled.div`
             align-items: center;
             display: flex;
             list-style-type: none;
-            margin-left: ${({ theme }) => theme.spaces.small};
+            margin-left: var(--space-small);
             justify-content: center;
 
             @media only screen and (min-width: ${({ theme }) =>
                 theme.breakpoints.mini}) {
-              margin-left: ${({ theme }) => theme.spaces.medium};
+              margin-left: var(--space-medium);
             }
 
             @media only screen and (min-width: ${({ theme }) =>
                 theme.breakpoints.tablet}) {
-              margin-left: ${({ theme }) => theme.spaces.large};
+              margin-left: var(--space-large);
             }
           }
 
