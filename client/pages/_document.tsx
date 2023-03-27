@@ -33,7 +33,11 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link rel="preload" href="/noise.webp" as="image" />
+          <link
+            rel="preload"
+            href="/images/backgrounds/noise.webp"
+            as="image"
+          />
           <link
             rel="preload"
             href="/fonts/LibreBaskervilleBold.woff2"
