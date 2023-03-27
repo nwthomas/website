@@ -100,11 +100,11 @@ const RootStyles = styled.div`
   display: flex;
   justify-content: center;
   position: absolute;
-  padding: 0 ${({ theme }) => theme.appDimensions.appHorizontalGutters};
+  padding: 0 var(--app-horizontal-gutters);
   width: 100%;
 
   footer {
-    max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
+    max-width: var(--app-max-width);
     width: 100%;
 
     > nav {
@@ -114,30 +114,28 @@ const RootStyles = styled.div`
       > ul {
         display: flex;
         flex-wrap: wrap;
-        padding-bottom: ${({ theme }) =>
-          `calc(${theme.spaces.medium} - ${theme.spaces.small})`};
+        padding-bottom: calc(var(--space-medium) - var(--space-small));
         width: 100%;
 
         @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.tablet}) {
-          padding-bottom: ${({ theme }) =>
-            `calc(${theme.spaces.xxLarge} - ${theme.spaces.medium})`};
+          padding-bottom: calc(var(--space-xxlarge) - var(--space-medium));
         }
 
         > li {
           display: flex;
-          margin-bottom: ${({ theme }) => theme.spaces.small};
-          margin-right: ${({ theme }) => theme.spaces.small};
+          margin-bottom: var(--space-small);
+          margin-right: var(--space-small);
 
           @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.mini}) {
-            margin-right: ${({ theme }) => theme.spaces.medium};
+            margin-right: var(--space-medium);
           }
 
           @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.tablet}) {
-            margin-bottom: ${({ theme }) => theme.spaces.medium};
-            margin-right: ${({ theme }) => theme.spaces.large};
+            margin-bottom: var(--space-medium);
+            margin-right: var(--space-large);
           }
         }
       }
