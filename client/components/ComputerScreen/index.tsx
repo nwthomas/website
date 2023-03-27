@@ -37,10 +37,9 @@ function ComputerScreen({
 }
 
 const RootStyles = styled.div`
-  background-color: ${({ theme }) => theme.colorsHex.white};
-  border: ${({ theme }) =>
-    `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentOne}`};
-  border-radius: ${({ theme }) => theme.borderRadii.medium};
+  background-color: var(--color-white);
+  border: var(--space-nano) solid var(--body-bg);
+  border-radius: var(--border-radius-medium);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -49,36 +48,35 @@ const RootStyles = styled.div`
   /* Top bar on computer window */
   > div {
     align-items: center;
-    background-color: ${({ theme }) => theme.colorsHex.white};
-    border-bottom: ${({ theme }) =>
-      `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentOne}`};
+    background-color: var(--color-white);
+    border-bottom: var(--space-nano) solid var(--body-bg);
     display: flex;
-    height: ${({ theme }) => theme.spaces.medium};
-    padding-left: ${({ theme }) => theme.spaces.xSmall};
+    height: var(--space-medium);
+    padding-left: var(--space-xsmall);
     width: 100%;
 
     /* Top bar buttons */
     > div {
-      border-radius: ${({ theme }) => theme.borderRadii.infinity};
-      height: ${({ theme }) => theme.spaces.small};
-      margin-right: ${({ theme }) => theme.spaces.xxSmall};
-      width: ${({ theme }) => theme.spaces.small};
+      border-radius: var(--border-radius-infinity);
+      height: var(--space-small);
+      margin-right: var(--space-xxsmall);
+      width: var(--space-small);
     }
 
     > div:nth-child(1) {
-      background-color: ${({ theme }) => theme.colorsHex.burntSienna};
+      background-color: var(--color-burnt-sienna);
     }
 
     > div:nth-child(2) {
-      background-color: ${({ theme }) => theme.colorsHex.casablanca};
+      background-color: var(--color-casablanca);
     }
 
     > div:nth-child(3) {
-      background-color: ${({ theme }) => theme.colorsHex.mantis};
+      background-color: var(--color-mantis);
     }
   }
 
-  /* Image on computer screen - display: flex is to remove CSS bottom margin */
+  /* Image on computer screen - display: flex is to remove bottom spacing CSS adds */
   > image {
     display: flex;
   }
