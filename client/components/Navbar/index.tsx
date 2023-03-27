@@ -106,7 +106,6 @@ function Navbar() {
 }
 
 const RootStyles = styled.div`
-  background-color: ${({ theme }) => theme.colors.bodyBackground};
   display: flex;
   left: 0;
   padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
@@ -137,6 +136,7 @@ const RootStyles = styled.div`
       width: 100%;
 
       > ul {
+        align-items: center;
         display: flex;
         justify-content: space-between;
         position: relative;
