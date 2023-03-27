@@ -14,28 +14,31 @@ function MobileNavbar({ currentPath }: Props) {
   const handleOnClick = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <>
-      <RootStyles>
-        <FocusTrap active={isMenuOpen}>
-          <div>
-            <button onClick={handleOnClick}>
-              <div />
-              <div />
-            </button>
-            {isMenuOpen ? <MobileNavbarTray currentPath={currentPath} /> : null}
-          </div>
-        </FocusTrap>
-      </RootStyles>
-    </>
+    <RootStyles isMenuOpen={isMenuOpen}>
+      <FocusTrap active={isMenuOpen}>
+        <div>
+          <button onClick={handleOnClick}>
+            <div />
+            <div />
+          </button>
+          {isMenuOpen ? <MobileNavbarTray currentPath={currentPath} /> : null}
+        </div>
+      </FocusTrap>
+    </RootStyles>
   );
 }
 
-const RootStyles = styled.div`
+interface StyleProps {
+  isMenuOpen: boolean;
+}
+
+const RootStyles = styled.div<StyleProps>`
   height: ${({ theme }) => `calc(${theme.spaces.xxSmall} * 3)`};
   position: relative;
   width: ${({ theme }) => `calc(${theme.spaces.xxSmall} * 5)`};
 
   > div {
+    height: ${({ theme }) => `calc(${theme.spaces.xxSmall} * 3)`};
     width: 100%;
 
     button {
@@ -61,7 +64,15 @@ const RootStyles = styled.div`
         position: absolute;
         right: 0;
         top: 0;
-        transform: translateY(${({ theme }) => theme.spaces.micro});
+        transform: translateY(
+          ${({ isMenuOpen, theme }) => {
+            if (!isMenuOpen) {
+              return theme.spaces.micro;
+            }
+
+            return `none`;
+          }}
+        );
         transition: transform ${({ theme }) => theme.transitions.medium}
           cubic-bezier(0.23, 1, 0.32, 1);
         width: 100%;
@@ -75,7 +86,15 @@ const RootStyles = styled.div`
         position: absolute;
         right: 0;
         height: ${({ theme }) => theme.spaces.micro};
-        transform: translateY(${({ theme }) => `-${theme.spaces.micro}`});
+        transform: translateY(
+          ${({ isMenuOpen, theme }) => {
+            if (!isMenuOpen) {
+              return `-${theme.spaces.micro}`;
+            }
+
+            return "none";
+          }}
+        );
         transition: transform ${({ theme }) => theme.transitions.short}
           cubic-bezier(0.23, 1, 0.32, 1);
         width: 100%;

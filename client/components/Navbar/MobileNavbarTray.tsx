@@ -73,12 +73,25 @@ function MobileNavbarTray({ currentPath }: Props) {
 }
 
 const RootStyles = styled.div`
-  background-color: ${({ theme }) => theme.colors.bodyBackground};
+  backdrop-filter: blur(${({ theme }) => theme.spaces.small});
   bottom: 0;
   left: 0;
   position: fixed;
   right: 0;
   top: 0;
+
+  &::before {
+    background-color: ${({ theme }) => theme.colors.bodyBackground};
+    bottom: 0;
+    content: "";
+    backdrop-filter: blur(10px);
+    left: 0;
+    opacity: ${({ theme }) => theme.opacity.opacity90};
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
 
   > nav {
     padding-top: ${({ theme }) => theme.appDimensions.navbarMobileHeight};
@@ -89,6 +102,7 @@ const RootStyles = styled.div`
       align-items: flex-end;
       display: flex;
       flex-direction: column;
+      margin-top: ${({ theme }) => theme.spaces.xSmall};
       width: 100%;
 
       > li {
@@ -103,6 +117,10 @@ const RootStyles = styled.div`
           font-weight: bold;
           line-height: 1;
         }
+      }
+
+      > li:last-child {
+        margin-top: ${({ theme }) => theme.spaces.xxSmall};
       }
     }
   }
