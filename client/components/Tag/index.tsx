@@ -25,20 +25,19 @@ function Tag({ text }: Props) {
 
 const StyledLink = styled(Link)`
   align-items: center;
-  border: ${({ theme }) =>
-    `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
-  border-radius: ${({ theme }) => theme.borderRadii.infinity};
+  border: var(--space-nano) solid var(--body-bg-accent-two);
+  border-radius: var(--border-radius-infinity);
   cursor: pointer;
   display: flex;
-  height: ${({ theme }) => theme.spaces.large};
+  height: var(--space-large);
   justify-content: center;
-  padding: ${({ theme }) => `${theme.spaces.xSmall} ${theme.spaces.medium}`};
+  padding: var(--space-xsmall) var(--space-medium);
   position: relative;
   text-decoration: none;
-  transition: border ${({ theme }) => theme.transitions.short} ease-in-out;
+  transition: border var(--transition-short) ease-in-out;
 
   > h1 {
-    color: ${({ theme }) => theme.colors.text};
+    color: var(--text);
     font-size: 1.6rem;
     display: block;
     line-height: 1;
@@ -52,8 +51,7 @@ const StyledLink = styled(Link)`
   }
 
   &:hover {
-    border: ${({ theme }) =>
-      `${theme.spaces.nano} solid ${theme.colorsHex.royalBlue}`};
+    border: var(--space-nano) solid var(--color-royal-blue);
     outline: none;
     text-decoration: none;
     text-decoration-underline: none;
