@@ -118,20 +118,20 @@ const RootStyles = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
+  padding: 0 var(--app-horizontal-gutters);
   width: 100%;
 
   > main {
-    max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
+    max-width: var(--app-max-width);
     width: 100%;
 
     > section:nth-child(1) {
       display: flex;
-      margin-bottom: ${({ theme }) => theme.spaces.medium};
+      margin-bottom: var(--space-medium);
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        margin-bottom: ${({ theme }) => theme.spaces.large};
+        margin-bottom: var(--space-large);
       }
 
       > h1 > a {
@@ -142,15 +142,14 @@ const RootStyles = styled.div`
         background-size: 50px;
         font-family: inherit;
         font-size: inherit;
-        padding: ${({ theme }) => `${theme.spaces.micro} 0`};
+        padding: var(--space-micro) 0;
         -moz-text-fill-color: transparent;
         -webkit-text-fill-color: transparent;
         text-decoration: none;
-        transition: opacity ${({ theme }) => theme.transitions.short}
-          ease-in-out;
+        transition: opacity var(--transition-short) ease-in-out;
 
         &:hover {
-          opacity: ${({ theme }) => theme.opacity.opacity80};
+          opacity: 0.8;
         }
       }
 
@@ -160,11 +159,11 @@ const RootStyles = styled.div`
     }
 
     > section:nth-child(2) {
-      margin-bottom: ${({ theme }) => theme.spaces.medium};
+      margin-bottom: var(--space-medium);
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
+        margin-bottom: var(--space-xxlarge);
       }
 
       > div {
@@ -173,7 +172,7 @@ const RootStyles = styled.div`
 
         @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.tablet}) {
-          max-width: ${({ theme }) => theme.appDimensions.contactFormMaxWidth};
+          max-width: var(--contact-form-max-width);
         }
       }
     }
