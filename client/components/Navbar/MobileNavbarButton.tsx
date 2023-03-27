@@ -42,12 +42,12 @@ interface StyleProps {
 }
 
 const RootStyles = styled.div<StyleProps>`
-  height: ${({ theme }) => `calc(${theme.spaces.xxSmall} * 3)`};
+  height: calc(var(--space-xxsmall) * 3);
   position: relative;
-  width: ${({ theme }) => `calc(${theme.spaces.xxSmall} * 7)`};
+  width: calc(var(--space-xxsmall) * 7);
 
   > div {
-    height: ${({ theme }) => `calc(${theme.spaces.xxSmall} * 3)`};
+    height: calc(var(--space-xxsmall) * 3);
     width: 100%;
 
     button {
@@ -59,16 +59,16 @@ const RootStyles = styled.div<StyleProps>`
       height: 100%;
       justify-content: space-between;
       margin: 0;
-      outline-offset: ${({ theme }) => theme.spaces.micro};
+      outline-offset: var(--space-micro);
       padding: 0;
       position: absolute;
       width: 100%;
       z-index: 2147483647;
 
       > div:first-child {
-        background-color: ${({ theme }) => theme.colors.text};
-        border-radius: ${({ theme }) => theme.borderRadii.large};
-        height: ${({ theme }) => theme.spaces.micro};
+        background-color: var(--text);
+        border-radius: var(--space-large);
+        height: var(--space-micro);
         left: 0;
         position: absolute;
         right: 0;
@@ -76,35 +76,35 @@ const RootStyles = styled.div<StyleProps>`
         transform: translateY(
           ${({ isMenuOpen, theme }) => {
             if (!isMenuOpen) {
-              return theme.spaces.micro;
+              return "var(--space-micro)";
             }
 
             return `none`;
           }}
         );
-        transition: transform ${({ theme }) => theme.transitions.medium}
+        transition: transform var(--transition-short)
           cubic-bezier(0.23, 1, 0.32, 1);
         width: 100%;
       }
 
       > div:last-child {
-        background-color: ${({ theme }) => theme.colors.text};
-        border-radius: ${({ theme }) => theme.borderRadii.large};
+        background-color: var(--text);
+        border-radius: var(--border-radius-large);
         bottom: 0;
         left: 0;
         position: absolute;
         right: 0;
-        height: ${({ theme }) => theme.spaces.micro};
+        height: var(--space-micro);
         transform: translateY(
-          ${({ isMenuOpen, theme }) => {
+          ${({ isMenuOpen }) => {
             if (!isMenuOpen) {
-              return `-${theme.spaces.micro}`;
+              return `calc(var(--space-micro) * -1)`;
             }
 
             return "none";
           }}
         );
-        transition: transform ${({ theme }) => theme.transitions.short}
+        transition: transform var(--transition-short)
           cubic-bezier(0.23, 1, 0.32, 1);
         width: 100%;
       }

@@ -27,10 +27,10 @@ interface StyleProps {
 }
 
 const RootStyles = styled.div<StyleProps>`
-  > a {
-    ${({ isCurrentPage, theme }) => {
+  a {
+    ${({ isCurrentPage }) => {
       if (isCurrentPage) {
-        return `color: ${theme.colors.text};`;
+        return `color: var(--text);`;
       }
 
       return "";
