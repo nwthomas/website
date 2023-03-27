@@ -73,7 +73,7 @@ function MobileNavbarTray({ currentPath }: Props) {
 }
 
 const RootStyles = styled.div`
-  backdrop-filter: blur(${({ theme }) => theme.spaces.small});
+  backdrop-filter: blur(${({ theme }) => theme.spaces.xxSmall});
   bottom: 0;
   left: 0;
   position: fixed;
