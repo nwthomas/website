@@ -70,15 +70,14 @@ const RootStyles = styled.div<StyleProps>`
 
     &:active + div > div,
     &:focus + div > div {
-      box-shadow: 0 0 3px 3px ${({ theme }) => theme.colorsHex.royalBlue};
+      box-shadow: 0 0 3px 3px var(--color-royal-blue);
     }
   }
 
   > div {
-    background-color: ${({ theme }) => theme.colorsHex.black};
-    border: ${({ theme }) =>
-      `${theme.spaces.nano} solid ${theme.colors.textSecondary}`};
-    border-radius: ${({ theme }) => theme.borderRadii.infinity};
+    background-color: var(--color-black);
+    border: var(--space-nano) solid var(--text-secondary);
+    border-radius: var(--border-radius-infinity);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -95,19 +94,19 @@ const RootStyles = styled.div<StyleProps>`
     }
 
     > div {
-      background-color: ${({ theme }) => theme.colorsHex.white};
-      border-radius: ${({ theme }) => theme.borderRadii.infinity};
+      background-color: var(--color-white);
+      border-radius: var(--border-radius-infinity);
       height: 18px;
       position: absolute;
       left: 2px;
       top: 2px;
       transform: translateX(${({ isDarkMode }) => (isDarkMode ? "24px" : 0)});
-      transition: transform ${({ theme }) => theme.transitions.short}
+      transition: transform var(--transition-short)
         cubic-bezier(0.23, 1, 0.32, 1);
       width: 18px;
 
       &:focus-within {
-        box-shadow: 0 0 3px 3px ${({ theme }) => theme.colorsHex.royalBlue};
+        box-shadow: 0 0 3px 3px var(--color-royal-blue);
       }
     }
   }

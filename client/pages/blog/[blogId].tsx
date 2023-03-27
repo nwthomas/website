@@ -78,7 +78,7 @@ const RootStyles = styled.div`
     * See: https://weblog.west-wind.com/posts/2016/feb/15/flexbox-containers-pre-tags-and-managing-overflow
     */
   min-width: 0;
-  padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
+  padding: 0 var(--app-horizontal-gutters);
   width: 100%;
 
   > main {
@@ -93,12 +93,12 @@ const RootStyles = styled.div`
       * See: https://weblog.west-wind.com/posts/2016/feb/15/flexbox-containers-pre-tags-and-managing-overflow
       */
     min-width: 0;
-    max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
-    margin-bottom: ${({ theme }) => theme.spaces.medium};
+    max-width: var(--app-max-width);
+    margin-bottom: var(--space-medium);
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
-      margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
+      margin-bottom: var(--space-xxlarge);
     }
 
     @media only screen and (min-width: ${({ theme }) =>
