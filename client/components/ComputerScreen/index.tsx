@@ -38,7 +38,7 @@ function ComputerScreen({
 
 const RootStyles = styled.div`
   background-color: var(--color-white);
-  border: var(--space-nano) solid var(--body-bg);
+  border: var(--space-nano) solid var(--body-bg-accent-one);
   border-radius: var(--border-radius-medium);
   display: flex;
   flex-direction: column;
@@ -49,7 +49,7 @@ const RootStyles = styled.div`
   > div {
     align-items: center;
     background-color: var(--color-white);
-    border-bottom: var(--space-nano) solid var(--body-bg);
+    border-bottom: var(--space-nano) solid var(--body-bg-accent-one);
     display: flex;
     height: var(--space-medium);
     padding-left: var(--space-xsmall);
