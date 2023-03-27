@@ -13,9 +13,9 @@ import {
 import ReactMarkdown from "react-markdown";
 import { buildKebabCaseParam } from "../../utils/routes";
 import { getBlogPostFullDate } from "../../utils/dates";
-import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 import rehypeExternalLinks from "rehype-external-links";
 import rehypeRaw from "rehype-raw";
+import remarkA11yEmoji from "@fec/remark-a11y-emoji";
 import remarkGfm from "remark-gfm";
 import remarkUnwrapImages from "remark-unwrap-images";
 import { useRouter } from "next/router";
@@ -191,12 +191,8 @@ function BlogMarkdownRenderer({
           );
         },
       }}
-      rehypePlugins={[
-        rehypeAccessibleEmojis,
-        handleRehypeExternalLinks,
-        rehypeRaw,
-      ]}
-      remarkPlugins={[remarkGfm, remarkUnwrapImages]}
+      rehypePlugins={[rehypeRaw, handleRehypeExternalLinks]}
+      remarkPlugins={[remarkGfm, remarkUnwrapImages, remarkA11yEmoji]}
     />
   );
 }

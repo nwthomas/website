@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@fec/remark-a11y-emoji': ^3.1.0
   '@next/eslint-plugin-next': ^13.1.2
   '@reduxjs/toolkit': ^1.6.2
   '@sentry/nextjs': ^7.30.0
@@ -44,7 +45,6 @@ specifiers:
   react-query: ^3.24.5
   react-redux: ^8.0.5
   react-syntax-highlighter: ^15.5.0
-  rehype-accessible-emojis: ^0.3.2
   rehype-external-links: ^2.0.1
   rehype-highlight: ^6.0.0
   rehype-raw: ^6.1.1
@@ -87,6 +87,7 @@ dependencies:
   yup: 0.32.11
 
 devDependencies:
+  '@fec/remark-a11y-emoji': 3.1.0
   '@next/eslint-plugin-next': 13.2.3
   '@types/express': 4.17.17
   '@types/express-slow-down': 1.3.2
@@ -107,7 +108,6 @@ devDependencies:
   playwright: 1.31.2
   playwright-aws-lambda: 0.9.0_playwright-core@1.31.2
   playwright-core: 1.31.2
-  rehype-accessible-emojis: 0.3.2
   remark-unwrap-images: 3.0.1
   sharp: 0.31.3
   typescript: 4.9.4
@@ -575,6 +575,16 @@ packages:
       '@ethersproject/properties': 5.7.0
       '@ethersproject/strings': 5.7.0
     dev: false
+
+  /@fec/remark-a11y-emoji/3.1.0:
+    resolution: {integrity: sha512-cYjCutvrValbQ2dykKhEE6OBTsEGpAJzeJnDtGKXhk2JYkMNSlKPnUk/kRFHH+PHmrAF+FlNIU28XKD+nYy7jQ==}
+    engines: {node: '>=10.0'}
+    dependencies:
+      emoji-regex: 9.2.2
+      gemoji: 6.1.0
+      mdast-util-find-and-replace: 1.1.1
+      unist-util-visit: 2.0.3
+    dev: true
 
   /@humanwhocodes/config-array/0.11.8:
     resolution: {integrity: sha512-UybHIJzJnR5Qc/MsD9Kr+RpO2h+/P1GhOwdiLPXK5TWk5sgTdu88bTD9UP+CKbPPh5Rni1u0GjAdYQLemG8g+g==}
@@ -1923,10 +1933,6 @@ packages:
       minimalistic-crypto-utils: 1.0.1
     dev: false
 
-  /emoji-regex/8.0.0:
-    resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
-    dev: true
-
   /emoji-regex/9.2.2:
     resolution: {integrity: sha512-L18DaJsXSUk2+42pv8mLs5jJT2hqFkFE4j21wOmgbUqsZ2hL72NsUU785g9RXgo3s0ZNgVl42TiHp3ZtOv/Vyg==}
     dev: true
@@ -2661,8 +2667,8 @@ packages:
     resolution: {integrity: sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==}
     dev: true
 
-  /gemoji/4.2.1:
-    resolution: {integrity: sha512-V9lUpRSn+KQGavZx8Pk+6mxG3kaz21ae2kTCXuT36KaRPNgYU8eHtj/RcUCNFVvmwppsYYz3nnNS9lmcP5kTsg==}
+  /gemoji/6.1.0:
+    resolution: {integrity: sha512-MOlX3doQ1fsfzxQX8Y+u6bC5Ssc1pBUBIPVyrS69EzKt+5LIZAOm0G5XGVNhwXFgkBF3r+Yk88ONyrFHo8iNFA==}
     dev: true
 
   /get-intrinsic/1.2.0:
@@ -2865,10 +2871,6 @@ packages:
       vfile-location: 4.1.0
       web-namespaces: 2.0.1
     dev: false
-
-  /hast-util-is-element/1.1.0:
-    resolution: {integrity: sha512-oUmNua0bFbdrD/ELDSSEadRVtWZOf3iF6Lbv81naqsIV99RnSCieTbWuWCY8BAeEfKJTKl0gRdokv+dELutHGQ==}
-    dev: true
 
   /hast-util-is-element/2.1.3:
     resolution: {integrity: sha512-O1bKah6mhgEq2WtVMk+Ta5K7pPMqsBBlmzysLdcwKVrqzZQ0CHqUPiIVspNhAG1rvxpvJjtGee17XfauZYKqVA==}
@@ -3460,6 +3462,14 @@ packages:
       '@types/unist': 2.0.6
       unist-util-visit: 4.1.2
     dev: false
+
+  /mdast-util-find-and-replace/1.1.1:
+    resolution: {integrity: sha512-9cKl33Y21lyckGzpSmEQnIDjEfeeWelN5s1kUW1LwdB0Fkuq2u+4GdqcGEygYxJE8GVqCl0741bYXHgamfWAZA==}
+    dependencies:
+      escape-string-regexp: 4.0.0
+      unist-util-is: 4.1.0
+      unist-util-visit-parents: 3.1.1
+    dev: true
 
   /mdast-util-find-and-replace/2.2.2:
     resolution: {integrity: sha512-MTtdFRz/eMDHXzeK6W3dO7mXUlF82Gom4y0oOgvHhh/HXZAGvIQDUvQ0SuUx+j2tv44b8xTHOm8K/9OoRFnXKw==}
@@ -4643,15 +4653,6 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /rehype-accessible-emojis/0.3.2:
-    resolution: {integrity: sha512-kChZo+EZsuFQYHUPu6kOZFjDrG7UtQdGxkrCvHBVo9ariKPL6S68QdPVxLxwcAtZSRZIXZhDuTJHgIM8KW24Qw==}
-    dependencies:
-      emoji-regex: 8.0.0
-      gemoji: 4.2.1
-      hast-util-is-element: 1.1.0
-      unist-util-flatmap: 1.0.0
-    dev: true
-
   /rehype-external-links/2.0.1:
     resolution: {integrity: sha512-u2dNypma+ps12SJWlS23zvbqwNx0Hl24t0YHXSM/6FCZj/pqWETCO3WyyrvALv4JYvRtuPjhiv2Lpen15ESqbA==}
     dependencies:
@@ -5268,13 +5269,13 @@ packages:
       unist-util-is: 5.2.1
     dev: false
 
-  /unist-util-flatmap/1.0.0:
-    resolution: {integrity: sha512-IG32jcKJlhARCYT2LsYPJWdoXYkzz3ESAdl1aa2hn9Auh+cgUmU6wgkII4yCc/1GgeWibRdELdCZh/p3QKQ1dQ==}
-    dev: true
-
   /unist-util-generated/2.0.1:
     resolution: {integrity: sha512-qF72kLmPxAw0oN2fwpWIqbXAVyEqUzDHMsbtPvOudIlUzXYFIeQIuxXQCRCFh22B7cixvU0MG7m3MW8FTq/S+A==}
     dev: false
+
+  /unist-util-is/4.1.0:
+    resolution: {integrity: sha512-ZOQSsnce92GrxSqlnEEseX0gi7GH9zTJZ0p9dtu87WRb/37mMPO2Ilx1s/t9vBHrFhbgweUwb+t7cIn5dxPhZg==}
+    dev: true
 
   /unist-util-is/5.2.1:
     resolution: {integrity: sha512-u9njyyfEh43npf1M+yGKDGVPbY/JWEemg5nH05ncKPfi+kBbKBJoTdsogMu33uhytuLlv9y0O7GH7fEdwLdLQw==}
@@ -5292,11 +5293,26 @@ packages:
     dependencies:
       '@types/unist': 2.0.6
 
+  /unist-util-visit-parents/3.1.1:
+    resolution: {integrity: sha512-1KROIZWo6bcMrZEwiH2UrXDyalAa0uqzWCxCJj6lPOvTve2WkfgCytoDTPaMnodXh1WrXOq0haVYHj99ynJlsg==}
+    dependencies:
+      '@types/unist': 2.0.6
+      unist-util-is: 4.1.0
+    dev: true
+
   /unist-util-visit-parents/5.1.3:
     resolution: {integrity: sha512-x6+y8g7wWMyQhL1iZfhIPhDAs7Xwbn9nRosDXl7qoPTSCy0yNxnKc+hWokFifWQIDGi154rdUqKvbCa4+1kLhg==}
     dependencies:
       '@types/unist': 2.0.6
       unist-util-is: 5.2.1
+
+  /unist-util-visit/2.0.3:
+    resolution: {integrity: sha512-iJ4/RczbJMkD0712mGktuGpm/U4By4FfDonL7N/9tATGIF4imikjOuagyMY53tnZq3NP6BcmlrHhEKAfGWjh7Q==}
+    dependencies:
+      '@types/unist': 2.0.6
+      unist-util-is: 4.1.0
+      unist-util-visit-parents: 3.1.1
+    dev: true
 
   /unist-util-visit/4.1.2:
     resolution: {integrity: sha512-MSd8OUGISqHdVvfY9TPhyK2VdUrPgxkUtWSuMHF6XAAFuL4LokseigBnZtPnJMu+FbynTkFNnFlyjxpVKujMRg==}
