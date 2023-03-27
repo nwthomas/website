@@ -55,7 +55,9 @@ export const colors: Colors = {
 interface Dropshadows {
   small: string;
 }
+
 type DropshadowsFunction = (currentTheme: ThemeEnum | null) => Dropshadows;
+
 const dropshadows: DropshadowsFunction = (currentTheme) => ({
   small: `0px 2px 19px -2px rgba(${
     currentTheme === DARK_THEME ? "255, 255, 255" : "0, 0, 0"
@@ -75,6 +77,7 @@ interface ThemeColorValues {
   textSecondary: string;
   selection: string;
 }
+
 export const themeColorValues: ThemeColorValues = {
   bodyBackground: "var(--body-bg)",
   bodyBackgroundAccentOne: "var(--body-bg-accent-one)",
@@ -103,8 +106,8 @@ interface AppDimensions {
   navbarDesktopHeight: string;
   navbarTabletHeight: string;
   navbarMobileHeight: string;
-  navbarLinkWidth: string;
 }
+
 export const appDimensions: AppDimensions = {
   appHorizontalGutters: "3%",
   appMaxWidth: "1400px",
@@ -120,7 +123,6 @@ export const appDimensions: AppDimensions = {
   navbarDesktopHeight: "179px",
   navbarTabletHeight: "179px",
   navbarMobileHeight: "71px",
-  navbarLinkWidth: "120px",
 };
 
 interface BorderRadii {
@@ -134,6 +136,7 @@ interface BorderRadii {
   jumbo: string;
   infinity: string;
 }
+
 export const borderRadii: BorderRadii = {
   nano: "2px",
   micro: "3px",
@@ -165,7 +168,8 @@ interface Breakpoints {
   desktop: string;
   ultrawide: string;
 }
-const breakpoints: Breakpoints = (function buildBreakpoints() {
+
+export const breakpoints: Breakpoints = (function buildBreakpoints() {
   // Empty strings here are to keep TypeScript happy prior to assignment
   const breakpoints = {
     mini: "",
@@ -194,6 +198,7 @@ interface Opacity {
   opacity90: number;
   opacity100: number;
 }
+
 const opacity: Opacity = {
   opacity00: 0,
   opacity10: 0.1,
@@ -220,6 +225,7 @@ interface Spaces {
   xxLarge: string;
   jumbo: string;
 }
+
 export const spaces: Spaces = {
   nano: "2px",
   micro: "3px",
@@ -238,7 +244,8 @@ interface Transitions {
   medium: string;
   long: string;
 }
-const transitions: Transitions = {
+
+export const transitions: Transitions = {
   short: "0.1s",
   medium: "0.3s",
   long: "0.5s",

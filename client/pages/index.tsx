@@ -146,11 +146,11 @@ const RootStyles = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
+  padding: 0 var(--app-horizontal-gutters);
   width: 100%;
 
   > main {
-    max-width: ${({ theme }) => theme.appDimensions.appMaxWidth};
+    max-width: var(--app-max-width);
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
@@ -159,11 +159,11 @@ const RootStyles = styled.div`
 
     > section:nth-child(1) {
       display: flex;
-      margin-bottom: ${({ theme }) => theme.spaces.medium};
+      margin-bottom: var(--space-medium);
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
+        margin-bottom: var(--space-xxlarge);
       }
 
       > h1 a {
@@ -174,15 +174,14 @@ const RootStyles = styled.div`
         background-size: 50px;
         font-family: inherit;
         font-size: inherit;
-        padding: ${({ theme }) => `${theme.spaces.micro} 0`};
+        padding: var(--space-micro) 0;
         -moz-text-fill-color: transparent;
         -webkit-text-fill-color: transparent;
         text-decoration: none;
-        transition: opacity ${({ theme }) => theme.transitions.short}
-          ease-in-out;
+        transition: opacity var(--transition-short) ease-in-out;
 
         &:hover {
-          opacity: ${({ theme }) => theme.opacity.opacity80};
+          opacity: 0.8;
         }
       }
 
@@ -197,12 +196,12 @@ const RootStyles = styled.div`
       align-items: center;
       display: flex;
       flex-direction: column-reverse;
-      margin-bottom: ${({ theme }) => theme.spaces.large};
+      margin-bottom: var(--space-large);
       position: relative;
 
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
+        margin-bottom: var(--space-xxlarge);
       }
 
       @media only screen and (min-width: ${({ theme }) =>
@@ -226,13 +225,13 @@ const RootStyles = styled.div`
 
         > img {
           border-radius: ${({ theme }) => theme.borderRadii.medium};
-          filter: blur(${({ theme }) => theme.spaces.jumbo}) invert(20%);
+          filter: blur(var(--space-jumbo)) invert(20%);
           height: auto;
           left: 0;
-          opacity: ${({ theme }) => theme.opacity.opacity30};
+          opacity: 0.3;
           position: absolute;
           right: 0;
-          top: ${({ theme }) => `calc(${theme.spaces.jumbo} * 2)`};
+          top: calc(var(--space-jumbo));
           /* https://graffino.com/til/CjT2jrcLHP-how-to-fix-filter-blur-performance-issue-in-safari */
           transform: translate3d(0, 0, 0);
           width: 80%;
@@ -247,10 +246,10 @@ const RootStyles = styled.div`
 
           @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.desktop}) {
-            border-radius: ${({ theme }) => theme.borderRadii.large};
+            border-radius: var(--border-radius-large);
             height: 50%;
-            left: ${({ theme }) => theme.spaces.medium};
-            top: ${({ theme }) => theme.spaces.xxLarge};
+            left: var(--space-medium);
+            top: var(--space-xxlarge);
             transform: rotate(-10deg) translate3d(0, 0, 0);
             width: 55%;
           }
@@ -274,7 +273,7 @@ const RootStyles = styled.div`
 
         @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.tablet}) {
-          margin-bottom: ${({ theme }) => theme.spaces.medium};
+          margin-bottom: var(--space-medium);
         }
 
         @media only screen and (min-width: ${({ theme }) =>
@@ -284,7 +283,7 @@ const RootStyles = styled.div`
           margin-left: 0;
           padding: 0;
           position: absolute;
-          top: ${({ theme }) => theme.spaces.small};
+          top: var(--space-small);
           width: 25%;
         }
 
@@ -330,41 +329,39 @@ const RootStyles = styled.div`
           }
 
           > img:nth-child(2) {
-            border-radius: ${({ theme }) => theme.borderRadii.large};
+            border-radius: var(--border-radius-large);
             overflow: hidden;
             width: 100%;
 
             @media only screen and (min-width: ${({ theme }) =>
                 theme.breakpoints.mini}) {
-              border-radius: ${({ theme }) => theme.borderRadii.xxLarge};
+              border-radius: var(--border-radius-xxlarge);
             }
           }
 
           /* Twitter logo */
           > div {
-            border-bottom-right-radius: ${({ theme }) =>
-              theme.borderRadii.jumbo};
-            bottom: ${({ theme }) => theme.spaces.large};
+            bottom: var(--space-large);
             overflow: hidden;
             position: absolute;
-            left: ${({ theme }) => `calc(${theme.spaces.jumbo} * 1.1)`};
+            left: calc(var(--space-jumbo) * 1.1);
             width: 150px;
             z-index: -1;
 
             @media only screen and (min-width: ${({ theme }) =>
                 theme.breakpoints.mini}) {
-              left: ${({ theme }) => `calc(${theme.spaces.jumbo} * 1.5)`};
+              left: calc(var(--space-jumbo) * 1.5);
               width: 180px;
             }
 
             @media only screen and (min-width: ${({ theme }) =>
                 theme.breakpoints.mobile}) {
-              left: ${({ theme }) => `calc(${theme.spaces.jumbo} * 1.1)`};
+              left: calc(var(--space-jumbo) * 1.1);
             }
 
             @media only screen and (min-width: ${({ theme }) =>
                 theme.breakpoints.tablet}) {
-              left: ${({ theme }) => `calc(${theme.spaces.jumbo} * 1.8)`};
+              left: calc(var(--space-jumbo) * 1.8);
               width: 280px;
             }
 
@@ -372,7 +369,7 @@ const RootStyles = styled.div`
                 theme.breakpoints.desktop}) {
               bottom: auto;
               left: 70%;
-              top: ${({ theme }) => theme.spaces.xLarge};
+              top: var(--space-xlarge);
               width: 220px;
             }
           }
@@ -383,7 +380,7 @@ const RootStyles = styled.div`
       > div:nth-child(3) {
         display: flex;
         justify-content: center;
-        margin-bottom: ${({ theme }) => theme.spaces.large};
+        margin-bottom: var(--space-large);
         position: relative;
         width: 100%;
         z-index: 2;
@@ -395,59 +392,57 @@ const RootStyles = styled.div`
 
         @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.tablet}) {
-          margin-bottom: ${({ theme }) => theme.spaces.xxLarge};
+          margin-bottom: var(--space-xxlarge);
           max-width: none;
           width: 90%;
         }
 
         @media only screen and (min-width: ${({ theme }) =>
             theme.breakpoints.desktop}) {
-          bottom: ${({ theme }) =>
-            `calc(${theme.spaces.xxLarge} + ${theme.spaces.medium})`};
+          bottom: calc(var(--space-xxlarge) + var(--space-medium));
           display: block;
           margin-bottom: 0;
           position: absolute;
-          right: ${({ theme }) =>
-            `calc(${theme.spaces.large} + ${theme.spaces.medium})`};
-          width: calc(55% - ${({ theme }) => theme.spaces.medium} * 2);
+          right: calc(var(--space-large) + var(--space-medium));
+          width: calc(55% - var(--space-medium) * 2);
         }
 
         /* Rotating Loom logo */
         > div:nth-child(1) {
           animation: ${rotateAnimation} 70s linear infinite;
-          border-radius: ${({ theme }) => theme.borderRadii.infinity};
+          border-radius: var(--border-radius-infinity);
           overflow: hidden;
           position: absolute;
           right: 5%;
-          bottom: ${({ theme }) => `-${theme.spaces.xxLarge}`};
-          width: ${({ theme }) => `calc(${theme.spaces.xxLarge} * 2)`};
+          bottom: calc(var(--space-xxlarge) * -1);
+          width: calc(var(--space-xxlarge) * 2);
           z-index: -1;
 
           @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.mini}) {
-            bottom: ${({ theme }) => `-${theme.spaces.jumbo}`};
+            bottom: calc(var(--space-jumbo) * -1);
             right: 10%;
-            width: ${({ theme }) => `calc(${theme.spaces.xxLarge} * 3)`};
+            width: calc(var(--space-xxlarge) * 3);
           }
 
           @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.tablet}) {
-            bottom: ${({ theme }) => `calc(-${theme.spaces.jumbo} * 1.5)`};
+            bottom: calc(var(--space-jumbo) * -1.5);
             right: 5%;
-            width: ${({ theme }) => `calc(${theme.spaces.jumbo} * 3)`};
+            width: calc(var(--space-jumbo) * 3);
           }
 
           @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.desktop}) {
             bottom: auto;
-            right: ${({ theme }) => theme.spaces.medium};
-            top: ${({ theme }) => `calc(-${theme.spaces.xLarge} * 3)`};
+            right: var(--space-medium);
+            top: calc(var(--space-xlarge) * -3);
             width: 50%;
           }
 
           @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.ultrawide}) {
-            right: ${({ theme }) => `-${theme.spaces.large}`};
+            right: calc(var(--space-large) * -1);
             width: 40%;
           }
         }

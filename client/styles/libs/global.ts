@@ -1,4 +1,12 @@
-import { colors } from "./theme";
+import {
+  appDimensions,
+  borderRadii,
+  breakpoints,
+  colors,
+  spaces,
+  transitions,
+} from "./theme";
+
 import { css } from "styled-components";
 
 const GlobalStyle = css`
@@ -19,8 +27,8 @@ const GlobalStyle = css`
     -o-transition: none !important;
   }
 
-  /* This value can be modified in the theme.ts file's appDimensions object */
   :root {
+    /* This value can be modified in the theme.ts file's appDimensions object */
     --app-min-height: 100vh;
   }
 
@@ -36,6 +44,47 @@ const GlobalStyle = css`
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
     -moz-osx-font-smoothing: grayscale;
+
+    /* General app variables */
+    --app-horizontal-gutters: ${appDimensions.appHorizontalGutters};
+    --app-max-width: ${appDimensions.appMaxWidth};
+    --article-hero-image-max-width: ${appDimensions.articleHeroImageMaxWidth};
+    --article-max-width: ${appDimensions.articleMaxWidth};
+    --contact-form-max-width: ${appDimensions.contactFormMaxWidth};
+    --footer-desktop-height: ${appDimensions.footerDesktopHeight};
+    --footer-tablet-height: ${appDimensions.footerTabletHeight};
+    --footer-mobile-height: ${appDimensions.footerMobileHeight};
+    --navbar-desktop-height: ${appDimensions.navbarDesktopHeight};
+    --navbar-tablet-height: ${appDimensions.navbarTabletHeight};
+    --navbar-mobile-height: ${appDimensions.navbarMobileHeight};
+
+    /* Size and space variables */
+    --border-radius-nano: ${borderRadii.nano};
+    --border-radius-micro: ${borderRadii.micro};
+    --border-radius-small: ${borderRadii.small};
+    --border-radius-medium: ${borderRadii.medium};
+    --border-radius-large: ${borderRadii.large};
+    --border-radius-xlarge: ${borderRadii.xLarge};
+    --border-radius-xxlarge: ${borderRadii.xxLarge};
+    --border-radius-jumbo: ${borderRadii.jumbo};
+    --border-radius-infinity: ${borderRadii.infinity};
+    --breakpoint-mini: ${breakpoints.mini};
+    --breakpoint-tablet: ${breakpoints.tablet};
+    --breakpoint-desktop: ${breakpoints.desktop};
+    --breakpoint-ultrawide: ${breakpoints.ultrawide};
+    --space-nano: ${spaces.nano};
+    --space-micro: ${spaces.micro};
+    --space-xxsmall: ${spaces.xxSmall};
+    --space-xsmall: ${spaces.xSmall};
+    --space-small: ${spaces.small};
+    --space-medium: ${spaces.medium};
+    --space-large: ${spaces.large};
+    --space-xlarge: ${spaces.xLarge};
+    --space-xxlarge: ${spaces.xxLarge};
+    --space-jumbo: ${spaces.jumbo};
+    --transition-short: ${transitions.short};
+    --transition-medium: ${transitions.medium};
+    --transition-long: ${transitions.long};
   }
 
   /* To change the colors in the colors object, go to styles/libs/theme.ts */
