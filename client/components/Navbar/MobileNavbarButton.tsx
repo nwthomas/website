@@ -79,7 +79,7 @@ const RootStyles = styled.div<StyleProps>`
               return "var(--space-micro)";
             }
 
-            return `none`;
+            return "calc(var(--space-nano) * -1)";
           }}
         );
         transition: transform var(--transition-short)
@@ -101,7 +101,7 @@ const RootStyles = styled.div<StyleProps>`
               return `calc(var(--space-micro) * -1)`;
             }
 
-            return "none";
+            return "var(--space-nano)";
           }}
         );
         transition: transform var(--transition-short)
