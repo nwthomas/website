@@ -84,22 +84,22 @@ const RootStyles = styled.div<StyleProps>`
     * See: https://weblog.west-wind.com/posts/2016/feb/15/flexbox-containers-pre-tags-and-managing-overflow
     */
   min-width: 0;
-  padding-top: ${({ theme }) => theme.appDimensions.navbarMobileHeight};
-  padding-bottom: ${({ theme }) => theme.appDimensions.footerMobileHeight};
-  min-height: ${({ theme }) => theme.appDimensions.appMinHeight};
+  padding-top: var(--navbar-mobile-height);
+  padding-bottom: var(--footer-mobile-height);
+  min-height: var(--app-min-height);
   position: relative;
   width: 100%;
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.tablet}) {
-    padding-top: ${({ theme }) => theme.appDimensions.navbarTabletHeight};
-    padding-bottom: ${({ theme }) => theme.appDimensions.footerTabletHeight};
+    padding-top: var(--navbar-tablet-height);
+    padding-bottom: var(--footer-tablet-height);
   }
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.desktop}) {
-    padding-top: ${({ theme }) => theme.appDimensions.navbarDesktopHeight};
-    padding-bottom: ${({ theme }) => theme.appDimensions.footerDesktopHeight};
+    padding-top: var(--navbar-desktop-height);
+    padding-bottom: var(--footer-desktop-height);
   }
 `;
 
