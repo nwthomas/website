@@ -3,6 +3,7 @@ title: "Building a World-Class Oncall Program"
 description: "With careful preparation, you can build a best-in-class software engineering oncall program with great training, runbooks, and prepared engineers."
 imageUrl: "/images/blog/building-a-world-class-oncall-program/fireman.webp"
 dateWritten: "2023-03-27"
+dateUpdated: "2023-03-28"
 isDraft: false
 tags:
   - Processes
@@ -187,6 +188,24 @@ As time goes on, you and your oncall team will need to reevaluate these runbooks
 In any case, please make sure to empower your oncall engineers to make active modifications to these runbooks when _they_ deem it necessary. Your team should view these as living documents; if you take it entirely on yourself (or a specific static group) to be the gatekeepers of periodically updating this documentation, you will almost certainly find them frequently falling out of use by oncall because the information in them is stale.
 
 There is a lot more I could say here about runbooks, but most of it would be wasted. Anything worth talking about from this point forward will revolve around your company's specific needs, culture, and codebase. Just follow the north star of making documentation quick, informative, and easy to parse through for your oncall engineers, and your runbooks will likely be quite useful.
+
+## Alerts, Incidents, and a Lack of Sleep
+
+If there is one section in this article that will be contentious, it's what should qualify as a page (and an incident) for your oncall engineers.
+
+In addition to clearly delineating boundaries for what your engineers are responsible for being oncall for, you should also attempt to define levels of severity for pages. There is nothing more hearbreaking for the soul than multiple pages in the middle of the night for what is the equivalent of a warning log, especially if the engineer already had a busy schedule of incidents the day before.
+
+A rough placement of alerts into low, medium, and high severity is generally appropriate. You can experiment with having all alerts page during normal business hours and only high ones page in the middle of the night. You can also try only having low priority log to an alert channel somewhere (although this is only worth doing if people actually pay attention to it). Whatever you decide on, you must have an agreement with your oncall rotations that _pages will not be ignored_. Ignoring pages points to bad alert setups, ambivalent oncall engineers, or both.
+
+If pages are for a certain error are repeatedly ignored, I would suggest addressing the situation with oncall engineers but also examining if the page should be kept around.
+
+I would also recommend that you avoid wiring up alerts that depend on a certain level of traffic to present clean data. If not, your traffic levels could drop due to normal workday/weekend fluctuations and an alert will be fired off to trigger a page.
+
+For non alert-reported incidents (from employees or your users), this will fall to primary oncall to decide if an incident is worth calling. I would emphasize that this should be _their_ call - your oncall engineers will hone this sense over time which will also make them much better engineers. A little trial by fire never hurt anyone and is generally how people learn _very_ quickly (whether they want to admit it or not).
+
+The bar for what qualifies as an incident will be different for every organization and the quality bar you want. I would urge you to have your oncall engineers always err on the side of caution and immediate fixes. However, you will only be able to have your oncall engineers enforce a quality bar that your management supports. Should oncall call an incident for UI regressions? Does it need to be a deeper infrastructure issue to warrant a full blown incident? Make sure you set a standard in your runbooks as to the approximate levels that must be met for an incident.
+
+Once a forward fix/revert/rollback has happened, your team (including your oncall engineers) can focus on the long-term fix.
 
 ## Conclusion
 
