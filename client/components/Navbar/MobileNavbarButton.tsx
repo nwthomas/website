@@ -44,7 +44,7 @@ interface StyleProps {
 const RootStyles = styled.div<StyleProps>`
   height: calc(var(--space-xxsmall) * 3);
   position: relative;
-  width: calc(var(--space-xxsmall) * 7);
+  width: calc(var(--space-xxsmall) * 6);
 
   > div {
     height: calc(var(--space-xxsmall) * 3);
@@ -74,14 +74,16 @@ const RootStyles = styled.div<StyleProps>`
         right: 0;
         top: 0;
         transform: translateY(
-          ${({ isMenuOpen, theme }) => {
-            if (!isMenuOpen) {
-              return "var(--space-micro)";
-            }
+            ${({ isMenuOpen }) => {
+              if (!isMenuOpen) {
+                return "var(--space-micro)";
+              }
 
-            return "calc(var(--space-nano) * -1)";
-          }}
-        );
+              return "calc(var(--space-nano))";
+            }}
+          )
+          rotate(25deg);
+        transform-origin: top left;
         transition: transform var(--transition-short)
           cubic-bezier(0.23, 1, 0.32, 1);
         width: 100%;
@@ -96,14 +98,16 @@ const RootStyles = styled.div<StyleProps>`
         right: 0;
         height: var(--space-micro);
         transform: translateY(
-          ${({ isMenuOpen }) => {
-            if (!isMenuOpen) {
-              return `calc(var(--space-micro) * -1)`;
-            }
+            ${({ isMenuOpen }) => {
+              if (!isMenuOpen) {
+                return `calc(var(--space-micro) * -1)`;
+              }
 
-            return "var(--space-nano)";
-          }}
-        );
+              return "var(--space-nano)";
+            }}
+          )
+          rotate(-25deg);
+        transform-origin: top left;
         transition: transform var(--transition-short)
           cubic-bezier(0.23, 1, 0.32, 1);
         width: 100%;
