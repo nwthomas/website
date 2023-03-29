@@ -74,16 +74,14 @@ const RootStyles = styled.div<StyleProps>`
         right: 0;
         top: 0;
         transform: translateY(
-            ${({ isMenuOpen }) => {
-              if (!isMenuOpen) {
-                return "var(--space-micro)";
-              }
+          ${({ isMenuOpen, theme }) => {
+            if (!isMenuOpen) {
+              return "var(--space-micro)";
+            }
 
-              return "calc(var(--space-nano))";
-            }}
-          )
-          rotate(25deg);
-        transform-origin: top left;
+            return "calc(var(--space-nano) * -1)";
+          }}
+        );
         transition: transform var(--transition-short)
           cubic-bezier(0.23, 1, 0.32, 1);
         width: 100%;
@@ -98,16 +96,14 @@ const RootStyles = styled.div<StyleProps>`
         right: 0;
         height: var(--space-micro);
         transform: translateY(
-            ${({ isMenuOpen }) => {
-              if (!isMenuOpen) {
-                return `calc(var(--space-micro) * -1)`;
-              }
+          ${({ isMenuOpen }) => {
+            if (!isMenuOpen) {
+              return `calc(var(--space-micro) * -1)`;
+            }
 
-              return "var(--space-nano)";
-            }}
-          )
-          rotate(-25deg);
-        transform-origin: top left;
+            return "var(--space-nano)";
+          }}
+        );
         transition: transform var(--transition-short)
           cubic-bezier(0.23, 1, 0.32, 1);
         width: 100%;
