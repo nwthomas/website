@@ -140,7 +140,7 @@ The engineer should then immediately go into the shadow rotation. You should lin
 
 I would recommend you put your new oncall engineer through 2 weeks of the shadow rotation. In the first week, they should merely shadow and be a fly on the wall in all incidents, investigations, deploys, rollbacks, and anything else the primary engineer does.
 
-In the second week of shadowing, you should flip the schedule so the shadowing engineer is "primary" from 9 AM to 5 PM their local time. They should receive all pages and otherwise function as a primary engineer, but they should have the _full_ support of the training engineer (the "real" primay engineer) in case they have questions. You will need to temporarily modify the paging schedule for this week so the shadowing engineer receives pages during 9 AM to 5 PM their local time.
+In the second week of shadowing, you should flip the schedule so the shadowing engineer is "primary" from 9 AM to 5 PM their local time. They should receive all pages and otherwise function as a primary engineer, but they should have the _full_ support of the training engineer (the "real" primary engineer) in case they have questions. You will need to temporarily modify the paging schedule for this week so the shadowing engineer receives pages during 9 AM to 5 PM their local time.
 
 Once an engineer has completed this training, you should view them as ready to go into the full rotation. Place them in the primary and secondary schedules while respecting the issues with adjusting a schedule that I mentioned previously.
 
@@ -191,11 +191,11 @@ There is a lot more I could say here about runbooks, but most of it would be was
 
 If there is one section in this article that will be contentious, it's what should qualify as a page (or an incident) for your oncall engineers.
 
-In addition to clearly delineating boundaries for what your oncall engineers are responsible for, you should also attempt to define levels of severity for pages. There is nothing more crushing for the soul than multiple pages in the middle of the night on what is the equivalent of a light warning, especially if the oncall engineer already had a busy schedule of big incidents the day before.
+In addition to clearly delineating boundaries for what your oncall engineers are responsible for, you should also attempt to define levels of severity for pages. There is nothing more crushing for the soul than multiple pages in the middle of the night for what is the equivalent of a light warning, especially if the oncall engineer already had a busy schedule of big incidents the day before.
 
-A rough placement of alerts into low, medium, and high severity is generally appropriate. You can experiment with having all alerts page during normal business hours and only high ones page in the middle of the night. You can also try only having low priority alerts log to an alert channel somewhere (although this is only worth doing if people _actually_ read it). Whatever you decide on, you must have an agreement with your oncall rotations that _pages will not be ignored_.
+A rough placement of alerts into low, medium, and high severity is generally appropriate. You can experiment with having all alerts page during normal business hours and only high ones page in the middle of the night. You can also try having low priority alerts log to an alert channel somewhere (although this is only worth doing if people _actually_ read it). Whatever you decide on, you must have an agreement with your oncall rotations that _pages will not be ignored_.
 
-Ignoring pages points to bad alert setups, ambivalent oncall engineers, or both. If pages are for a certain error are repeatedly ignored, I would suggest addressing the situation with oncall engineers but also examining if the page should be kept around.
+Ignoring pages points to bad alert setups, ambivalent oncall engineers, or both. If pages for a certain error are repeatedly ignored, I would suggest addressing the situation with oncall engineers but also examining if the page should be kept around.
 
 I would also recommend that you avoid wiring up alerts that depend on a certain level of traffic to validate data. If not, your traffic levels could drop due to normal workday/weekend fluctuations and an alert will be fired off to trigger a page.
 
@@ -203,7 +203,17 @@ For non-alert-reported incidents (in other words, issues that are reported by em
 
 The bar for what qualifies as an incident will be different for every organization. I would urge you to have your oncall engineers always err on the side of caution and to prioritize immediate fixes for a problem. However, you will only be able to have your oncall engineers enforce a quality bar that management supports. Should oncall call an incident for UI regressions? Does it need to be a deeper infrastructure issue to warrant a full blown incident? These sorts of questions should be decided _ahead of time_ and examples should in your training materials and runbooks.
 
-Once a forward fix/revert/rollback has happened, your team (including your oncall engineers) can focus on the long-term fix.
+Once a forward fix/revert/rollback has happened, your team (including your oncall engineers) can focus on the long-term solution.
+
+## Handoff Meetings
+
+At the end of every week, the cycle will reset and your new primary and secondary oncall engineers will take over. I would highly recommend that you do an **in-person** oncall handoff meeting. You may have people push back on this, but I truly believe this is crucial.
+
+All the video recordings and notes in the world can't replace being in a room (Zoom or real life) with someone and being able to pepper them with questions about what happened last week, why it happened, and what problems are still ongoing. This meeting should be a mind meld of information from the departing oncalls to the incoming ones.
+
+A good process here will mean that ongoing incidents have a smooth handoff to an incoming oncall who will then take it over and run with it. This also ensures that you don't end up with oncalls who are working on oncall tasks for _weeks_ after their shift ended because your company didn't have a good handoff process.
+
+I would recommend that you spend no more than 30 minutes in a meeting like this and end immediately once the communication is done and the incoming primary and secondary oncalls have no more questions.
 
 ## Conclusion
 
