@@ -76,6 +76,7 @@ const GlobalStyle = css`
     --footer-desktop-height: ${appDimensions.footerDesktopHeight};
     --footer-tablet-height: ${appDimensions.footerTabletHeight};
     --footer-mobile-height: ${appDimensions.footerMobileHeight};
+    --modal-max-width: ${appDimensions.modalMaxWidth};
     --navbar-desktop-height: ${appDimensions.navbarDesktopHeight};
     --navbar-tablet-height: ${appDimensions.navbarTabletHeight};
     --navbar-mobile-height: ${appDimensions.navbarMobileHeight};

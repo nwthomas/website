@@ -78,17 +78,17 @@ const RootStyles = styled.div<StyleProps>`
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
-      border-radius: ${({ theme }) => theme.borderRadii.large};
-      background: ${({ theme }) => theme.colors.bodyBackground};
+      border-radius: var(--border-radius-large);
+      background: var(--body-bg);
       height: initial;
-      max-width: ${({ theme }) => theme.appDimensions.modalMaxWidth};
-      padding: ${({ theme }) => theme.spaces.xLarge};
+      max-width: var(--modal-max-width);
+      padding: var(--space-large);
       width: 100%;
     }
 
     > h1 {
       font-size: 1.6rem;
-      margin-bottom: ${({ theme }) => theme.spaces.medium};
+      margin-bottom: var(--space-medium);
       text-align: center;
 
       @media only screen and (min-width: ${({ theme }) =>
