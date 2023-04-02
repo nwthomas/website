@@ -1,4 +1,4 @@
-import { DARK_THEME, ThemeEnum } from "../../store/reducers/themeSlice";
+import { ThemeEnum } from "../../store/reducers/themeSlice";
 
 // A good source for gradients is: https://webgradients.com
 
@@ -24,7 +24,6 @@ interface Colors {
   royalBlue: "#2D6EEE";
   shark: "#202325";
   silver: "#C2C2C2";
-  tan: "#D2B48C";
   white: "#FFFFFF";
 }
 
@@ -47,48 +46,7 @@ export const colors: Colors = {
   royalBlue: "#2D6EEE",
   silver: "#C2C2C2",
   shark: "#202325",
-  tan: "#D2B48C",
   white: "#FFFFFF",
-};
-
-// A crucial tool for testing out dropshadows is: https://www.cssmatic.com/box-shadow
-interface Dropshadows {
-  small: string;
-}
-
-type DropshadowsFunction = (currentTheme: ThemeEnum | null) => Dropshadows;
-
-const dropshadows: DropshadowsFunction = (currentTheme) => ({
-  small: `0px 2px 19px -2px rgba(${
-    currentTheme === DARK_THEME ? "255, 255, 255" : "0, 0, 0"
-  }, 0.14)`,
-});
-
-// ===================================== Color Theme
-interface ThemeColorValues {
-  bodyBackground: string;
-  bodyBackgroundAccentOne: string;
-  bodyBackgroundAccentTwo: string;
-  bodyBackgroundAccentThree: string;
-  buttonPrimaryBackground: string;
-  codeBackground: string;
-  error: string;
-  text: string;
-  textSecondary: string;
-  selection: string;
-}
-
-export const themeColorValues: ThemeColorValues = {
-  bodyBackground: "var(--body-bg)",
-  bodyBackgroundAccentOne: "var(--body-bg-accent-one)",
-  bodyBackgroundAccentTwo: "var(--body-bg-accent-two)",
-  bodyBackgroundAccentThree: "var(--body-bg-accent-three)",
-  buttonPrimaryBackground: "var(--button-primary-bg)",
-  codeBackground: "var(--code-bg)",
-  error: "var(--error)",
-  text: "var(--text)",
-  textSecondary: "var(--text-secondary)",
-  selection: "var(--selection)",
 };
 
 // ===================================== Space Variables
@@ -256,10 +214,8 @@ export interface Theme {
   breakpoints: Breakpoints;
   breakpointsInt: BreakpointsInt;
   borderRadii: BorderRadii;
-  colors: ThemeColorValues;
   colorsHex: Colors;
   currentTheme: ThemeEnum | null;
-  dropshadows: Dropshadows;
   opacity: Opacity;
   spaces: Spaces;
   transitions: Transitions;
@@ -272,10 +228,8 @@ function makeMainTheme(currentTheme: ThemeEnum | null): Theme {
     breakpoints,
     breakpointsInt,
     borderRadii,
-    colors: themeColorValues,
     colorsHex: colors,
     currentTheme,
-    dropshadows: dropshadows(currentTheme),
     opacity,
     spaces,
     transitions,
