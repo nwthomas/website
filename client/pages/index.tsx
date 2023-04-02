@@ -28,7 +28,7 @@ export async function getStaticProps() {
 
 const Home: NextPage = () => {
   return (
-    <Layout pageName={HOME_PAGE_NAME} withFooter withPageNameEmojis>
+    <Layout pageName={HOME_PAGE_NAME} withFooter>
       <RootStyles>
         <main id={CONTENTS_ID}>
           <section>

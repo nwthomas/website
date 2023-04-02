@@ -2,11 +2,28 @@ import * as React from "react";
 
 import Layout from "../../components/Layout";
 import { PLAYGROUND_PAGE_NAME } from "../../constants/seo";
+import { createOgImage } from "../../utils/ogImage";
 import styled from "styled-components";
 
-function Playground() {
+export async function getStaticProps() {
+  // Dynamic og image creation at build time
+  const ogImageBuildUrl = `/og-image?title=All%20Playground%20Projects`;
+  const ogImage = await createOgImage(ogImageBuildUrl);
+
+  return {
+    props: {
+      ogImage,
+    },
+  };
+}
+
+function Playground({ ogImage }) {
   return (
-    <Layout pageName={PLAYGROUND_PAGE_NAME} withFooter>
+    <Layout
+      customSEOImageUrl={ogImage}
+      pageName={PLAYGROUND_PAGE_NAME}
+      withFooter
+    >
       <RootStyles>
         <h1>Coming Soon™</h1>
       </RootStyles>
