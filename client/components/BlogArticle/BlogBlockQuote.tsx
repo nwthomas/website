@@ -17,15 +17,14 @@ const RootStyles = styled.div`
   width: 100%;
 
   > blockquote {
-    border-left: ${({ theme }) =>
-      `calc(${theme.spaces.nano} * 2) solid ${theme.colors.bodyBackgroundAccentOne}`};
-    max-width: ${({ theme }) => theme.appDimensions.articleMaxWidth};
-    margin-top: ${({ theme }) => theme.spaces.medium};
+    border-left: calc(var(--space-nano) * 2) solid var(--body-bg-accent-one);
+    max-width: var(--article-max-width);
+    margin-top: var(--space-medium);
     width: 100%;
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
-      margin-top: ${({ theme }) => theme.spaces.large};
+      margin-top: var(--space-large);
     }
 
     > div {
@@ -34,8 +33,8 @@ const RootStyles = styled.div`
       }
 
       > p {
-        padding: 0 ${({ theme }) => theme.appDimensions.appHorizontalGutters};
-        color: ${({ theme }) => theme.colors.textSecondary};
+        padding: 0 var(--app-horizontal-gutters);
+        color: var(--text-secondary);
         font-style: italic;
       }
     }

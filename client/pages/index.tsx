@@ -64,17 +64,6 @@ const Home: NextPage = () => {
           </section>
           <section>
             <div>
-              <Image
-                alt="Gradient colors"
-                draggable={false}
-                height="228"
-                loading="eager"
-                priority
-                src="/images/backgrounds/gradient-low.webp"
-                width="341"
-              />
-            </div>
-            <div>
               <div>
                 <Image
                   alt=""
@@ -215,49 +204,8 @@ const RootStyles = styled.div`
         height: 750px;
       }
 
-      /* Gradient background */
-      > div:nth-child(1) {
-        bottom: 0;
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-
-        > img {
-          border-radius: ${({ theme }) => theme.borderRadii.medium};
-          filter: blur(var(--space-jumbo)) invert(20%);
-          height: auto;
-          left: 0;
-          opacity: 0.3;
-          position: absolute;
-          right: 0;
-          top: calc(var(--space-jumbo));
-          /* https://graffino.com/til/CjT2jrcLHP-how-to-fix-filter-blur-performance-issue-in-safari */
-          transform: translate3d(0, 0, 0);
-          width: 80%;
-          z-index: -1;
-
-          @media only screen and (min-width: ${({ theme }) =>
-              theme.breakpoints.tablet}) {
-            left: 10%;
-            transform: rotate(-30deg) translate3d(0, 0, 0);
-            width: 80%;
-          }
-
-          @media only screen and (min-width: ${({ theme }) =>
-              theme.breakpoints.desktop}) {
-            border-radius: var(--border-radius-large);
-            height: 50%;
-            left: var(--space-medium);
-            top: var(--space-xxlarge);
-            transform: rotate(-10deg) translate3d(0, 0, 0);
-            width: 55%;
-          }
-        }
-      }
-
       /* Mock iPhone screen */
-      > div:nth-child(2) {
+      > div:nth-child(1) {
         display: flex;
         justify-content: flex-start;
         padding-left: 12%;
@@ -377,7 +325,7 @@ const RootStyles = styled.div`
       }
 
       /* Mock computer window */
-      > div:nth-child(3) {
+      > div:nth-child(2) {
         display: flex;
         justify-content: center;
         margin-bottom: var(--space-large);

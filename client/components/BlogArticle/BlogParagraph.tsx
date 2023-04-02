@@ -17,11 +17,11 @@ function BlogParagraph({ contents }: Props) {
 const RootStyles = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: ${({ theme }) => theme.spaces.medium};
+  margin-top: var(--space-medium);
   width: 100%;
 
   > p {
-    max-width: ${({ theme }) => theme.appDimensions.articleMaxWidth};
+    max-width: var(--article-max-width);
     width: 100%;
 
     a {

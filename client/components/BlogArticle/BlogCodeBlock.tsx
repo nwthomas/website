@@ -35,16 +35,16 @@ function BlogCodeBlock({ contents, isInline, language }: Props) {
 const BlockRootStyles = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: ${({ theme }) => theme.spaces.medium};
+  margin-top: var(--space-medium);
   width: 100%;
 
   > pre {
-    max-width: ${({ theme }) => theme.appDimensions.articleMaxWidth};
+    max-width: var(--article-max-width);
     width: 100%;
 
     code,
     span {
-      color: ${({ theme }) => theme.colorsHex.white};
+      color: var(--color-white);
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
         Liberation Mono, Courier New, monospace;
       flex-wrap: wrap;
@@ -53,14 +53,13 @@ const BlockRootStyles = styled.div`
 `;
 
 const InlineRootStyles = styled.code`
-  background-color: ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
-  border-radius: ${({ theme }) => theme.borderRadii.small};
+  background-color: var(--body-bg-accent-one);
+  border-radius: var(--border-radius-small);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     Liberation Mono, Courier New, monospace;
   font-size: 1.4rem;
   line-height: 1.8;
-  padding: ${({ theme }) =>
-    `${theme.spaces.nano} calc(${theme.spaces.micro} * 2) ${theme.spaces.micro}`};
+  padding: var(--space-nano) calc(var(--space-micro) * 2) var(--space-micro);
   white-space: nowrap;
 
   @media only screen and (min-width: ${({ theme }) =>

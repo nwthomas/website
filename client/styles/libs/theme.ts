@@ -114,7 +114,7 @@ export const appDimensions: AppDimensions = {
   // This value is set in the global.ts file for the :root selector
   appMinHeight: "var(--app-min-height)",
   articleHeroImageMaxWidth: "1400px",
-  articleMaxWidth: "650px",
+  articleMaxWidth: "600px",
   contactFormMaxWidth: "650px",
   footerDesktopHeight: "108px",
   footerTabletHeight: "164px",
