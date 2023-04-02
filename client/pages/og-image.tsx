@@ -64,7 +64,7 @@ const RootStyles = styled.div`
   }
 
   > h1 {
-    color: ${({ theme }) => theme.colors.text};
+    color: var(--text);
     font-family: "Libre Baskerville", Constantia, "Lucida Bright", Lucidabright,
       "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif",
       "Liberation Serif", Georgia, serif;

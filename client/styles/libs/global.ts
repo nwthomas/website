@@ -35,7 +35,7 @@ const GlobalStyle = css`
   html,
   body {
     /* Using 'background-color' will make sure this value is applied to the iPhone notch area */
-    background-color: ${({ theme }) => theme.colors.bodyBackground};
+    background-color: var(--body-bg);
     font-size: 62.5%;
   }
 
@@ -143,9 +143,9 @@ const GlobalStyle = css`
   See: https://css-tricks.com/platform-news-using-focus-visible-bbcs-new-typeface-declarative-shadow-doms-a11y-and-placeholders/#now-may-be-a-good-time-to-start-using-focus-visible
   */
   :focus {
-    outline-color: ${({ theme }) => theme.colors.selection};
+    outline-color: var(--selection);
     outline-style: solid;
-    outline-width: ${({ theme }) => theme.spaces.nano};
+    outline-width: var(--space-nano);
   }
 
   :focus:not(:focus-visible) {
@@ -154,8 +154,8 @@ const GlobalStyle = css`
 
   /* Code for Firefox */
   ::-moz-selection {
-    color: ${({ theme }) => theme.colorsHex.white};
-    background: ${({ theme }) => theme.colorsHex.royalBlue};
+    color: var(--color-white);
+    background: var(--color-royal-blue);
     background-clip: border-box;
     background-image: none;
     background-size: 100%;
@@ -166,8 +166,8 @@ const GlobalStyle = css`
   }
 
   ::selection {
-    color: ${({ theme }) => theme.colorsHex.white};
-    background: ${({ theme }) => theme.colorsHex.royalBlue};
+    color: var(--color-white);
+    background: var(--color-royal-blue);
     background-clip: border-box;
     background-image: none;
     background-size: 100%;
@@ -182,7 +182,7 @@ const GlobalStyle = css`
   h3,
   h4,
   h5 {
-    color: ${({ theme }) => theme.colors.text};
+    color: var(--text)
     font-display: swap;
     font-family: "Libre Baskerville", Constantia, "Lucida Bright", Lucidabright,
       "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif",
@@ -195,12 +195,12 @@ const GlobalStyle = css`
     font-weight: bold;
 
     @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.tablet}) {
+      theme.breakpoints.tablet}) {
       font-size: 5rem;
     }
 
     @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.desktop}) {
+      theme.breakpoints.desktop}) {
       font-size: 6.5rem;
     }
   }
@@ -210,7 +210,7 @@ const GlobalStyle = css`
     font-weight: bold;
 
     @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.tablet}) {
+      theme.breakpoints.tablet}) {
       font-size: 2.4rem;
     }
   }
@@ -223,7 +223,7 @@ const GlobalStyle = css`
   li,
   input,
   textarea {
-    color: ${({ theme }) => theme.colors.text};
+    color: var(--text);
     font-display: swap;
     font-size: 1.6rem;
     line-height: 1.8;
@@ -234,8 +234,8 @@ const GlobalStyle = css`
       Noto Color Emoji;
 
     &::placeholder {
-      color: ${({ theme }) => theme.colors.text};
-      opacity: ${({ theme }) => theme.opacity.opacity70};
+      color: var(--text);
+      opacity: 0.7;
       font-size: 1.6rem;
       font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system,
         BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
@@ -255,7 +255,7 @@ const GlobalStyle = css`
   a {
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
-    color: ${({ theme }) => theme.colors.textSecondary};
+    color: var(--text-secondary);
     cursor: pointer;
     font-display: swap;
     font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system,
@@ -265,16 +265,16 @@ const GlobalStyle = css`
     font-size: 1.6rem;
     overflow: break-word;
     text-decoration: none;
-    transition: color ${({ theme }) => theme.transitions.short} ease-in-out;
+    transition: color var(--transition-short) ease-in-out;
 
     @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.tablet}) {
+      theme.breakpoints.tablet}) {
       font-size: 2rem;
     }
 
     &:hover,
     &:active {
-      color: ${({ theme }) => theme.colors.text};
+      color: var(--text);
       outline: none;
     }
   }
@@ -291,19 +291,19 @@ const GlobalStyle = css`
 
     &::placeholder {
       /* Chrome, Firefox, Opera, Safari 10.1+ */
-      color: ${({ theme }) => theme.colors.textSecondary};
+      color: var(--text-secondary);
       /* Firefox */
-      opacity: ${({ theme }) => theme.opacity.opacity100};
+      opacity: 1;
     }
 
     &:-ms-input-placeholder {
       /* Internet Explorer 10-11 */
-      color: ${({ theme }) => theme.colors.textSecondary};
+      color: var(--text-secondary);
     }
 
     &::-ms-input-placeholder {
       /* Microsoft Edge */
-      color: ${({ theme }) => theme.colors.textSecondary};
+      color: var(--text-secondary);
     }
   }
 `;
