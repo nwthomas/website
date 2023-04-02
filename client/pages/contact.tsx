@@ -76,12 +76,7 @@ function Contact({ ogImage }) {
   };
 
   return (
-    <Layout
-      customSEOImageUrl={ogImage}
-      pageName={CONTACT_PAGE_NAME}
-      withFooter
-      withPageNameEmojis
-    >
+    <Layout customSEOImageUrl={ogImage} pageName={CONTACT_PAGE_NAME} withFooter>
       <RootStyles>
         <main id={CONTENTS_ID}>
           <section>
