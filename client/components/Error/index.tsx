@@ -32,7 +32,7 @@ const RootStyles = styled.main`
   width: 100%;
 
   > h1 {
-    color: ${({ theme }) => theme.colors.text};
+    color: var(--text);
     font-display: swap;
     font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system,
       BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,

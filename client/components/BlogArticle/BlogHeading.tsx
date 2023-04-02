@@ -167,7 +167,7 @@ const RootStyles = styled.div<StyleProps>`
       padding-top: ${({ level }) =>
         level === 1 ? "var(--space-medium)" : "var(--space-xsmall)"};
       opacity: 0;
-      transition: opacity ${({ theme }) => theme.transitions.short} ease-in-out;
+      transition: opacity var(--transition-short) ease-in-out;
 
       svg {
         display: none;
