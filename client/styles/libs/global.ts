@@ -64,7 +64,6 @@ const GlobalStyle = css`
     --color-royal-blue: ${colors.royalBlue};
     --color-shark: ${colors.shark};
     --color-silver: ${colors.silver};
-    --color-tan: ${colors.tan};
     --color-white: ${colors.white};
 
     /* General app variables */
