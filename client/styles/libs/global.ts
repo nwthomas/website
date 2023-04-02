@@ -182,7 +182,7 @@ const GlobalStyle = css`
   h3,
   h4,
   h5 {
-    color: var(--text)
+    color: var(--text);
     font-display: swap;
     font-family: "Libre Baskerville", Constantia, "Lucida Bright", Lucidabright,
       "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif",
@@ -195,12 +195,12 @@ const GlobalStyle = css`
     font-weight: bold;
 
     @media only screen and (min-width: ${({ theme }) =>
-      theme.breakpoints.tablet}) {
+        theme.breakpoints.tablet}) {
       font-size: 5rem;
     }
 
     @media only screen and (min-width: ${({ theme }) =>
-      theme.breakpoints.desktop}) {
+        theme.breakpoints.desktop}) {
       font-size: 6.5rem;
     }
   }
@@ -210,7 +210,7 @@ const GlobalStyle = css`
     font-weight: bold;
 
     @media only screen and (min-width: ${({ theme }) =>
-      theme.breakpoints.tablet}) {
+        theme.breakpoints.tablet}) {
       font-size: 2.4rem;
     }
   }
@@ -268,7 +268,7 @@ const GlobalStyle = css`
     transition: color var(--transition-short) ease-in-out;
 
     @media only screen and (min-width: ${({ theme }) =>
-      theme.breakpoints.tablet}) {
+        theme.breakpoints.tablet}) {
       font-size: 2rem;
     }
 

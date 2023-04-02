@@ -48,21 +48,20 @@ function BlogCard({
 }
 
 const RootStyles = styled.article`
-  border-radius: ${({ theme }) => theme.borderRadii.medium};
+  border-radius: var(--border-radius-medium);
   display: flex;
   flex: 1;
   height: 100%;
   width: 100%;
 
   > a {
-    border: ${({ theme }) =>
-      `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
-    border-radius: ${({ theme }) => theme.borderRadii.medium};
+    border: var(--space-nano) solid var(--body-bg-accent-two);
+    border-radius: var(--border-radius-medium);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-height: 150px;
-    padding: ${({ theme }) => theme.spaces.medium};
+    padding: var(--space-medium);
     position: relative;
     transition: border ${({ theme }) => theme.transitions.short} ease-in-out;
     text-decoration: none;
