@@ -58,15 +58,15 @@ const RootStyles = styled.div<StyleProps>`
 
   > div {
     align-items: center;
-    border-radius: ${({ theme }) => theme.borderRadii.medium};
+    border-radius: var(--border-radius-medium);
     display: flex;
     flex-direction: column;
-    max-width: ${({ isHeroImage, theme }) =>
+    max-width: ${({ isHeroImage }) =>
       isHeroImage
-        ? theme.appDimensions.articleHeroImageMaxWidth
-        : theme.appDimensions.articleMaxWidth};
-    margin-top: ${({ isHeroImage, theme }) =>
-      isHeroImage ? 0 : theme.spaces.medium};
+        ? "var(--article-hero-image-max-width)"
+        : "var(--article-max-width)"};
+    margin-top: ${({ isHeroImage }) =>
+      isHeroImage ? 0 : "var(--space-medium)"};
     overflow: hidden;
     position: relative;
     width: 100%;
@@ -74,10 +74,10 @@ const RootStyles = styled.div<StyleProps>`
     > div {
       display: flex;
       justify-content: center;
-      margin-top: ${({ theme }) => theme.spaces.small};
+      margin-top: var(--space-small);
 
       p {
-        color: ${({ theme }) => theme.colors.textSecondary};
+        color: var(--text-secondary);
         text-align: center;
         z-index: 9;
       }

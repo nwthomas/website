@@ -153,8 +153,7 @@ const RootStyles = styled.div<StyleProps>`
 
   > div:nth-child(1) {
     display: grid;
-    grid-template-columns: ${({ theme }) =>
-      `1fr minmax(1px, ${theme.appDimensions.articleMaxWidth}) 1fr`};
+    grid-template-columns: 1fr minmax(1px, var(--article-max-width)) 1fr;
     grid-template-rows: 1fr;
     position: relative;
     width: 100%;
@@ -164,20 +163,20 @@ const RootStyles = styled.div<StyleProps>`
       grid-column-start: 1;
       grid-column-end: 2;
       justify-content: flex-end;
-      margin-top: ${({ theme }) => theme.spaces.large};
-      padding-top: ${({ level, theme }) =>
-        level === 1 ? theme.spaces.medium : theme.spaces.xSmall};
-      opacity: ${({ theme }) => theme.opacity.opacity00};
+      margin-top: var(--space-large);
+      padding-top: ${({ level }) =>
+        level === 1 ? "var(--space-medium)" : "var(--space-xsmall)"};
+      opacity: 0;
       transition: opacity ${({ theme }) => theme.transitions.short} ease-in-out;
 
       svg {
         display: none;
-        height: ${({ level, theme }) =>
-          level === 1 ? theme.spaces.xLarge : theme.spaces.medium};
-        margin-bottom: ${({ theme }) => theme.spaces.micro};
-        margin-right: ${({ theme }) => theme.spaces.small};
-        width: ${({ level, theme }) =>
-          level === 1 ? theme.spaces.xLarge : theme.spaces.medium};
+        height: ${({ level }) =>
+          level === 1 ? "var(--space-xlarge)" : "var(--space-medium)"};
+        margin-bottom: var(--space-micro);
+        margin-right: var(--space-small);
+        width: ${({ level }) =>
+          level === 1 ? "var(--space-xlarge)" : "var(--space-medium)"};
       }
 
       @media only screen and (min-width: ${({ theme }) =>
@@ -192,11 +191,8 @@ const RootStyles = styled.div<StyleProps>`
         theme.breakpoints.desktop}) {
       &:active,
       &:hover {
-        @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.desktop}) {
-          > div {
-            opacity: ${({ theme }) => theme.opacity.opacity100};
-          }
+        > div {
+          opacity: 1;
         }
       }
     }
@@ -209,11 +205,10 @@ const RootStyles = styled.div<StyleProps>`
       cursor: pointer;
       grid-column-start: 2;
       grid-column-end: 3;
-      margin-top: ${({ theme }) => theme.spaces.medium};
-
+      margin-top: var(--space-medium);
       @media only screen and (min-width: ${({ theme }) =>
           theme.breakpoints.tablet}) {
-        margin-top: ${({ theme }) => theme.spaces.large};
+        margin-top: var(--space-large);
       }
 
       > a {
@@ -253,13 +248,12 @@ const RootStyles = styled.div<StyleProps>`
   > div:nth-child(2) {
     display: flex;
     flex-wrap: wrap;
-    margin-top: ${({ theme }) =>
-      `calc(${theme.spaces.medium} - ${theme.spaces.xxSmall})`};
-    max-width: ${({ theme }) => theme.appDimensions.articleMaxWidth};
+    margin-top: calc(var(--space-medium) - var(--space-xxsmall));
+    max-width: var(--article-max-width);
     width: 100%;
 
     > p {
-      margin-right: ${({ theme }) => theme.spaces.small};
+      margin-right: var(--space-small);
     }
 
     > p:last-of-type {

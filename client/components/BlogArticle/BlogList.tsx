@@ -22,12 +22,12 @@ function BlogList({ contents, isOrderedList }: Props) {
 const RootStyles = styled.div`
   display: flex;
   justify-content: center;
-  padding-top: ${({ theme }) => theme.spaces.medium};
+  padding-top: var(--space-medium);
   width: 100%;
 
   > ol,
   ul {
-    max-width: ${({ theme }) => theme.appDimensions.articleMaxWidth};
+    max-width: var(--article-max-width);
     width: 100%;
   }
 
@@ -35,7 +35,7 @@ const RootStyles = styled.div`
     line-height: 1.8;
     list-style-type: decimal;
     list-style-position: inside;
-    margin-top: ${({ theme }) => theme.spaces.nano};
+    margin-top: var(--space-nano);
     /* Offset the bullets to not have text wrap underneath */
     padding-left: 1em;
     text-indent: -1em;

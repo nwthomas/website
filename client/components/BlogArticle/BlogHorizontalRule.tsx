@@ -11,13 +11,12 @@ function BlogHorizontalRule() {
 const RootStyles = styled.div`
   display: flex;
   justify-content: center;
-  padding-top: ${({ theme }) => theme.spaces.medium};
+  padding-top: var(--space-medium);
   width: 100%;
 
   > hr {
-    border: ${({ theme }) =>
-      `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentOne}`};
-    max-width: ${({ theme }) => theme.appDimensions.articleMaxWidth};
+    border: var(--space-nano) solid var(--body-bg-accent-one);
+    max-width: var(--article-max-width);
     width: 100%;
   }
 `;
