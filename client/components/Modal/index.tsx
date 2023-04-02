@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLockBodyScroll, useTheme } from "../../hooks";
 
 import FocusTrap from "focus-trap-react";
+import { colors } from "../../styles/libs/theme";
 import styled from "styled-components";
 import { updateModalValues } from "../../store/reducers/modalSlice";
 
@@ -49,12 +50,8 @@ interface StyleProps {
 
 const RootStyles = styled.div<StyleProps>`
   align-items: center;
-  background-color: ${({ currentTheme, theme }) =>
-    `${
-      currentTheme === DARK_THEME
-        ? theme.colorsHex.white
-        : theme.colorsHex.black
-    }40`};
+  background-color: ${({ currentTheme }) =>
+    `${currentTheme === DARK_THEME ? colors.white : colors.black}40`};
   display: flex;
   justify-content: center;
   position: fixed;
@@ -62,22 +59,21 @@ const RootStyles = styled.div<StyleProps>`
   top: 0;
   left: 0;
   right: 0;
-  z-index: 999;
+  z-index: 2147483647;
 
   @media only screen and (min-width: ${({ theme }) =>
       theme.breakpoints.tablet}) {
-    padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
+    padding: 0 var(--app-horizontal-gutters);
   }
 
   > dialog {
     align-items: center;
-    background-color: ${({ theme }) => theme.colors.bodyBackground};
+    background-color: var(--body-bg);
     border: none;
     display: flex;
     flex-direction: column;
     height: 100%;
     justify-content: center;
-    padding: ${({ theme }) => `0 ${theme.appDimensions.appHorizontalGutters}`};
     width: 100%;
 
     @media only screen and (min-width: ${({ theme }) =>
@@ -103,34 +99,10 @@ const RootStyles = styled.div<StyleProps>`
 
     > button {
       align-items: center;
-      background: ${({ theme }) => theme.colors.buttonPrimaryBackground};
-      border-radius: ${({ theme }) => theme.borderRadii.medium};
-      border: 2px solid ${({ theme }) => theme.colors.bodyBackgroundAccentOne};
-      color: ${({ theme }) => theme.colorsHex.white};
-      display: flex;
-      font-size: 1.6rem;
-      justify-content: center;
-      margin-top: ${({ theme }) => theme.spaces.nano};
-      height: ${({ theme }) => theme.spaces.xLarge};
-      width: ${({ theme }) =>
-        `calc(100% - (${theme.appDimensions.appHorizontalGutters} + ${theme.spaces.small}))`};
-
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.tablet}) {
-        width: 70%;
-      }
-
-      &:hover {
-        opacity: ${({ theme }) => theme.opacity.opacity80};
-      }
-    }
-
-    > button {
-      align-items: center;
-      border-radius: ${({ theme }) => theme.borderRadii.medium};
-      background-color: ${({ theme }) => theme.colorsHex.royalBlue};
-      border: 2px solid ${({ theme }) => theme.colorsHex.royalBlue};
-      color: ${({ theme }) => theme.colorsHex.white};
+      border-radius: var(--border-radius-medium);
+      background-color: var(--color-royal-blue);
+      border: 2px solid var(--color-royal-blue);
+      color: var(--color-white);
       cursor: pointer;
       display: flex;
       font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system,
@@ -139,18 +111,16 @@ const RootStyles = styled.div<StyleProps>`
         Noto Color Emoji;
       font-size: 1.6rem;
       font-weight: bold;
-      height: ${({ theme }) => theme.spaces.xLarge};
+      height: var(--space-xlarge);
       justify-content: center;
-      margin-top: ${({ theme }) => theme.spaces.nano};
-      transition: background-color ${({ theme }) => theme.transitions.short}
-          ease-in-out,
-        color ${({ theme }) => theme.transitions.short} ease-in-out;
-      width: ${({ theme }) =>
-        `calc(100% - (${theme.appDimensions.appHorizontalGutters} + ${theme.spaces.small}))`};
+      margin-top: var(--space-nano);
+      transition: background-color var(--transition-short) ease-in-out,
+        color var(--transition-short) ease-in-out;
+      width: calc(100% - (var(--app-horizontal-gutters) + var(--space-small)));
 
       &:hover {
         background-color: transparent;
-        color: ${({ theme }) => theme.colorsHex.royalBlue};
+        color: var(--color-royal-blue);
       }
 
       @media only screen and (min-width: ${({ theme }) =>

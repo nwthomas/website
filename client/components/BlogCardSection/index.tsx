@@ -92,9 +92,9 @@ const RootStyles = styled.section`
   > div {
     align-items: center;
     display: flex;
-    height: ${({ theme }) => theme.spaces.large};
+    height: var(--space-large);
     justify-content: space-between;
-    margin-bottom: ${({ theme }) => theme.spaces.small};
+    margin-bottom: var(--space-small);
 
     > div {
       align-items: center;
@@ -108,18 +108,16 @@ const RootStyles = styled.section`
           align-items: center;
           background: none;
           background-color: transparent;
-          border: ${({ theme }) =>
-            `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
-          border-radius: ${({ theme }) => theme.borderRadii.infinity};
+          border: var(--space-nano) solid var(--body-bg-accent-two);
+          border-radius: var(--border-radius-infinity);
           cursor: pointer;
           display: flex;
-          height: ${({ theme }) => theme.spaces.large};
-          width: ${({ theme }) => theme.spaces.large};
+          height: var(--space-large);
+          width: var(--space-large);
           justify-content: center;
           padding: 0;
           outline: none;
-          transition: border-color ${({ theme }) => theme.transitions.short}
-            ease-in-out;
+          transition: border-color var(--transition-short) ease-in-out;
 
           @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.tablet}) {
@@ -128,26 +126,25 @@ const RootStyles = styled.section`
           }
 
           > svg {
-            height: ${({ theme }) => theme.spaces.medium};
-            width: ${({ theme }) => theme.spaces.medium};
+            height: var(--space-medium);
+            width: var(--space-medium);
           }
 
           &:hover {
-            border: ${({ theme }) =>
-              `${theme.spaces.nano} solid ${theme.colorsHex.royalBlue}`};
-            opacity: ${({ theme }) => theme.opacity.opacity100};
+            border: var(--space-nano) solid var(--color-royal-blue);
+            opacity: 1;
           }
         }
 
         > h1 {
           font-size: 1.6rem;
           line-height: 1;
-          margin-left: ${({ theme }) => theme.spaces.xxSmall};
+          margin-left: var(--space-xxsmall);
 
           @media only screen and (min-width: ${({ theme }) =>
               theme.breakpoints.tablet}) {
             font-size: 2rem;
-            margin-left: ${({ theme }) => theme.spaces.small};
+            margin-left: var(--space-small);
           }
         }
       }
@@ -166,8 +163,8 @@ const RootStyles = styled.section`
 
   > ul {
     display: grid;
-    grid-column-gap: ${({ theme }) => theme.spaces.small};
-    grid-row-gap: ${({ theme }) => theme.spaces.small};
+    grid-column-gap: var(--space-small);
+    grid-row-gap: var(--space-small);
     grid-template-columns: 1fr;
     grid-auto-rows: 1fr;
 

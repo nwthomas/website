@@ -63,12 +63,12 @@ const RootStyles = styled.article`
     min-height: 150px;
     padding: var(--space-medium);
     position: relative;
-    transition: border ${({ theme }) => theme.transitions.short} ease-in-out;
+    transition: border var(--transition-short) ease-in-out;
     text-decoration: none;
     width: 100%;
 
     @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.tablet}) {
+      theme.breakpoints.tablet}) {
       min-height: 200px;
     }
 
@@ -76,12 +76,12 @@ const RootStyles = styled.article`
       width: 100%;
 
       > h2 {
-        margin-bottom: ${({ theme }) => theme.spaces.small};
+        margin-bottom: var(--space-small);
       }
 
       > p {
-        transition: color ${({ theme }) => theme.transitions.short} ease-in-out;
-        margin-bottom: ${({ theme }) => theme.spaces.medium};
+        transition: color var(--transition-short) ease-in-out;
+        margin-bottom: var(--space-medium);
       }
     }
 
@@ -90,41 +90,38 @@ const RootStyles = styled.article`
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      margin-top: ${({ theme }) => theme.spaces.medium};
+      margin-top: var(--space-medium);
 
       > div {
         align-items: center;
         display: flex;
 
         > p {
-          color: ${({ theme }) => theme.colors.textSecondary};
+          color: var(--text-secondary);
         }
 
         > svg {
-          height: ${({ theme }) => theme.spaces.medium};
-          margin-left: ${({ theme }) => theme.spaces.micro};
-          opacity: ${({ theme }) => theme.opacity.opacity00};
-          transition: opacity ${({ theme }) => theme.transitions.short}
-            ease-in-out;
-          width: ${({ theme }) => theme.spaces.medium};
+          height: var(--space-medium);
+          margin-left: var(--space-micro);
+          opacity: 0;
+          transition: opacity var(--transition-short) ease-in-out;
+          width: var(--space-medium);
         }
       }
 
       > svg {
         height: auto;
-        width: ${({ theme }) => theme.spaces.large};
+        width: var(--space-large);
       }
     }
 
     &:hover {
-      border: ${({ theme }) =>
-        `${theme.spaces.nano} solid ${theme.colorsHex.royalBlue}`};
-      border-radius: ${({ theme }) => theme.borderRadii.medium};
+      border: var(--space-nano) solid var(--color-royal-blue);
+      border-radius: var(--border-radius-medium);
       outline: none;
 
       > div:nth-child(2) > div > svg {
-        opacity: ${({ theme }) => theme.opacity.opacity100};
-      }
+        opacity: 1;
     }
   }
 `;
