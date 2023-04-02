@@ -30,7 +30,17 @@ export function getSortedTagsList(tags: Array<string>): Array<string> {
     return tag as string;
   }
 
-  return mergeSort(tags, getTagTitle);
+  function compareTags(a: Date | string, b: Date | string): number {
+    if (a < b) {
+      return -1;
+    } else if (b < a) {
+      return 1;
+    }
+
+    return 0;
+  }
+
+  return mergeSort(tags, getTagTitle, compareTags);
 }
 
 // Keys all blog posts by associated slug for quick selection
@@ -75,10 +85,25 @@ export function bucketAndSortBlogPostsByTags(
     return new Date(blogPostAuthoredDateString);
   }
 
+  // Comparison function against different types of strings
+  function compareBlogPostAuthoredDates(
+    a: Date | string,
+    b: Date | string
+  ): -1 | 0 | 1 {
+    if (a < b) {
+      return 1;
+    } else if (b < a) {
+      return -1;
+    }
+
+    return 0;
+  }
+
   for (const tag in blogPostsByTags) {
     blogPostsByTags[tag] = mergeSort(
       blogPostsByTags[tag],
-      getBlogPostAuthoredDate
+      getBlogPostAuthoredDate,
+      compareBlogPostAuthoredDates
     );
   }
 
@@ -88,7 +113,8 @@ export function bucketAndSortBlogPostsByTags(
 // Merge sort for sorting any list of items into an ordered group
 export function mergeSort(
   items: any,
-  getComparator: (item: BlogPost) => Date | string
+  getComparator: (item: BlogPost) => Date | string,
+  compareValues: (a: Date | string, b: Date | string) => number
 ) {
   if (items.length <= 1) {
     return items;
@@ -99,9 +125,10 @@ export function mergeSort(
   const rightHalf = items.slice(pivot);
 
   return mergeItems(
-    mergeSort(leftHalf, getComparator),
-    mergeSort(rightHalf, getComparator),
-    getComparator
+    mergeSort(leftHalf, getComparator, compareValues),
+    mergeSort(rightHalf, getComparator, compareValues),
+    getComparator,
+    compareValues
   );
 }
 
@@ -109,7 +136,8 @@ export function mergeSort(
 function mergeItems(
   firstArray: any,
   secondArray: any,
-  getComparator: (item: BlogPost) => Date | string
+  getComparator: (item: BlogPost) => Date | string,
+  compareValues: (a: Date | string, b: Date | string) => number
 ) {
   const result: BlogPosts = [];
   let firstIndex = 0;
@@ -126,7 +154,7 @@ function mergeItems(
       const firstComparator = getComparator(firstArray[firstIndex]);
       const secondComparator = getComparator(secondArray[secondIndex]);
 
-      if (compareValuesFromComparator(firstComparator, secondComparator) < 0) {
+      if (compareValues(firstComparator, secondComparator) < 0) {
         result.push(firstArray[firstIndex]);
         firstIndex += 1;
       } else {
@@ -137,18 +165,4 @@ function mergeItems(
   }
 
   return result;
-}
-
-// Comparison function against different types of strings
-function compareValuesFromComparator(
-  a: Date | string,
-  b: Date | string
-): -1 | 0 | 1 {
-  if (a < b) {
-    return 1;
-  } else if (b < a) {
-    return -1;
-  }
-
-  return 0;
 }
