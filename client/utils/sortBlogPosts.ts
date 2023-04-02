@@ -68,20 +68,28 @@ export function bucketAndSortBlogPostsByTags(
     }
   }
 
-  // This merely pulls the graymatter title for use in comparisons
-  function getBlogPostTitle(blogPost: any): string {
-    return (blogPost as BlogPost).data.title;
+  // This merely pulls the graymatter date for use in comparisons
+  function getBlogPostAuthoredDate(blogPost: BlogPost): Date {
+    const blogPostAuthoredDateString = blogPost.data.dateWritten;
+
+    return new Date(blogPostAuthoredDateString);
   }
 
   for (const tag in blogPostsByTags) {
-    blogPostsByTags[tag] = mergeSort(blogPostsByTags[tag], getBlogPostTitle);
+    blogPostsByTags[tag] = mergeSort(
+      blogPostsByTags[tag],
+      getBlogPostAuthoredDate
+    );
   }
 
   return blogPostsByTags;
 }
 
 // Merge sort for sorting any list of items into an ordered group
-export function mergeSort(items: any, getComparator: (item: any) => string) {
+export function mergeSort(
+  items: any,
+  getComparator: (item: BlogPost) => Date | string
+) {
   if (items.length <= 1) {
     return items;
   }
@@ -101,7 +109,7 @@ export function mergeSort(items: any, getComparator: (item: any) => string) {
 function mergeItems(
   firstArray: any,
   secondArray: any,
-  getComparator: (item: any) => string
+  getComparator: (item: BlogPost) => Date | string
 ) {
   const result: BlogPosts = [];
   let firstIndex = 0;
@@ -118,7 +126,7 @@ function mergeItems(
       const firstComparator = getComparator(firstArray[firstIndex]);
       const secondComparator = getComparator(secondArray[secondIndex]);
 
-      if (compareStrings(firstComparator, secondComparator) < 0) {
+      if (compareValuesFromComparator(firstComparator, secondComparator) < 0) {
         result.push(firstArray[firstIndex]);
         firstIndex += 1;
       } else {
@@ -132,11 +140,14 @@ function mergeItems(
 }
 
 // Comparison function against different types of strings
-function compareStrings(a: string, b: string): -1 | 0 | 1 {
+function compareValuesFromComparator(
+  a: Date | string,
+  b: Date | string
+): -1 | 0 | 1 {
   if (a < b) {
-    return -1;
-  } else if (b < a) {
     return 1;
+  } else if (b < a) {
+    return -1;
   }
 
   return 0;
