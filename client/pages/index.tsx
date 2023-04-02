@@ -15,11 +15,6 @@ const TEACHING_LINK_ARIA_LABEL =
   "Link to the Code Tenderloin free bootcamp Nathan volunteers at";
 const WRITING_LINK_ARIA_LABEL = "Link to Nathan's blog page";
 
-const COMPUTER_ALT_TEXT =
-  "Computer screen displaying Loom web app video trimming, and example of Nathan's work";
-const IPHONE_ALT_TEXT =
-  "iPhone displaying Twitter web app, and example of Nathan's work";
-
 export async function getStaticProps() {
   return {
     props: {},
@@ -62,12 +57,11 @@ const Home: NextPage = () => {
               from <span>San Francisco</span>
             </h1>
           </section>
-          <section>
+          <section aria-hidden={true}>
             <div>
               <div>
                 <Image
                   alt=""
-                  aria-hidden={true}
                   draggable={false}
                   height="979"
                   loading="eager"
@@ -76,7 +70,7 @@ const Home: NextPage = () => {
                   width="483"
                 />
                 <Image
-                  alt={IPHONE_ALT_TEXT}
+                  alt=""
                   draggable={false}
                   height="1389"
                   loading="eager"
@@ -86,7 +80,7 @@ const Home: NextPage = () => {
                 />
                 <div>
                   <Image
-                    alt="Twitter logo"
+                    alt=""
                     draggable={false}
                     height="834"
                     loading="eager"
@@ -100,7 +94,7 @@ const Home: NextPage = () => {
             <div>
               <div>
                 <Image
-                  alt="Loom logo"
+                  alt=""
                   blurDataURL="/images/backgrounds/loom-logo.webp"
                   draggable={false}
                   height="333"
@@ -112,7 +106,7 @@ const Home: NextPage = () => {
                 />
               </div>
               <ComputerScreen
-                imageAlt={COMPUTER_ALT_TEXT}
+                imageAlt=""
                 imageHeight={962}
                 imageSrc="/images/backgrounds/loom-multi-clip-editing.webp"
                 imageWidth={1536}
