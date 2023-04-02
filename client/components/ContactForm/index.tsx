@@ -156,25 +156,24 @@ interface StyleProps {
 }
 
 const RootStyles = styled.div<StyleProps>`
-  border-radius: ${({ theme }) => theme.borderRadii.large};
-  padding: ${({ theme }) => theme.spaces.nano};
+  border-radius: var(--border-radius-large);
+  padding: var(--space-nano);
   width: 100%;
 
   > div {
     /* Compensate for the inner curve of this element against its parent */
-    border-radius: ${({ theme }) =>
-      `calc(${theme.borderRadii.large} - ${theme.spaces.nano})`};
-    background-color: ${({ theme }) => theme.colors.bodyBackground};
-    padding: ${({ theme }) => theme.spaces.small};
+    border-radius: calc(var(--border-radius-large) - var(--space-nano));
+    background-color: var(--body-bg);
+    padding: var(--space-small);
     width: 100%;
 
     > div {
       align-items: center;
       display: flex;
       justify-content: space-between;
-      margin-bottom: ${({ theme }) => theme.spaces.small};
-      margin-top: ${({ theme }) => theme.spaces.micro};
-      padding: 0 ${({ theme }) => theme.spaces.small};
+      margin-bottom: var(--space-small);
+      margin-top: var(--space-micro);
+      padding: 0 var(--space-small);
 
       > h2 {
         font-size: 1.6rem;
@@ -187,58 +186,52 @@ const RootStyles = styled.div<StyleProps>`
 
       > div {
         border: none;
-        border-radius: ${({ theme }) => theme.borderRadii.medium};
-        margin-bottom: ${({ theme }) => theme.spaces.micro};
-        min-height: ${({ theme }) => theme.spaces.xxLarge};
+        border-radius: var(--border-radius-medium);
+        margin-bottom: var(--space-micro);
+        min-height: var(--space-xxlarge);
         position: relative;
         width: 100%;
 
         > input {
-          background-color: ${({ theme }) => theme.colors.bodyBackground};
-          border: ${({ theme }) =>
-            `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
-          border-radius: ${({ theme }) => theme.borderRadii.medium};
-          min-height: ${({ theme }) => theme.spaces.xxLarge};
-          padding: ${({ theme }) => theme.spaces.medium};
-          transition: border-color ${({ theme }) => theme.transitions.short}
-            ease-in-out;
+          background-color: var(--body-bg);
+          border: var(--space-nano) solid var(--body-bg-accent-two);
+          border-radius: var(--border-radius-medium);
+          min-height: var(--space-xxlarge);
+          padding: var(--space-medium);
+          transition: border-color var(--transition-short) ease-in-out;
           width: 100%;
 
           &:hover,
           &:active,
           &:focus {
             outline: none;
-            border: ${({ theme }) =>
-              `${theme.spaces.nano} solid ${theme.colorsHex.royalBlue}`};
+            border: var(--space-nano) solid var(--color-royal-blue);
           }
         }
 
         > textarea {
-          background: ${({ theme }) => theme.colors.bodyBackground};
-          border: ${({ theme }) =>
-            `${theme.spaces.nano} solid ${theme.colors.bodyBackgroundAccentTwo}`};
-          border-top-left-radius: ${({ theme }) => theme.borderRadii.medium};
-          border-bottom-left-radius: ${({ theme }) => theme.borderRadii.medium};
-          border-top-right-radius: ${({ theme }) => theme.borderRadii.medium};
-          min-height: ${({ theme }) => theme.spaces.xxLarge};
-          padding: ${({ theme }) => theme.spaces.medium};
+          background: var(--body-bg);
+          border: var(--space-nano) solid var(--body-bg-accent-two);
+          border-top-left-radius: var(--border-radius-medium);
+          border-bottom-left-radius: var(--border-radius-medium);
+          border-top-right-radius: var(--border-radius-medium);
+          min-height: var(--space-xxlarge);
+          padding: var(--space-medium);
           resize: vertical;
-          transition: border-color ${({ theme }) => theme.transitions.short}
-            ease-in-out;
+          transition: border-color var(--transition-short) ease-in-out;
           width: 100%;
 
           &:hover,
           &:active,
           &:focus {
             outline: none;
-            border: ${({ theme }) =>
-              `${theme.spaces.nano} solid ${theme.colorsHex.royalBlue}`};
+            border: var(--space-nano) solid var(--color-royal-blue);
           }
         }
 
         &:nth-of-type(3) {
           border-bottom-right-radius: 0;
-          margin-bottom: ${({ theme }) => theme.spaces.micro};
+          margin-bottom: var(--space-micro);
         }
 
         &:last-of-type {
@@ -247,16 +240,16 @@ const RootStyles = styled.div<StyleProps>`
 
         > p {
           align-items: center;
-          background-color: ${({ theme }) => theme.colors.bodyBackground};
-          border-radius: ${({ theme }) => theme.borderRadii.large};
+          background-color: var(--body-bg);
+          border-radius: var(--border-radius-large);
           bottom: 0;
-          color: ${({ theme }) => theme.colors.error};
+          color: var(--error);
           display: flex;
           font-size: 1.6rem;
-          height: ${({ theme }) => theme.spaces.xLarge};
-          margin-right: ${({ theme }) => theme.spaces.micro};
-          margin-top: ${({ theme }) => theme.spaces.small};
-          padding: 0 ${({ theme }) => theme.spaces.small};
+          height: var(--space-xlarge);
+          margin-right: var(--space-micro);
+          margin-top: var(--space-small);
+          padding: 0 var(--space-small);
           position: absolute;
           right: 0;
           user-select: none;
@@ -266,10 +259,10 @@ const RootStyles = styled.div<StyleProps>`
 
       > button {
         align-items: center;
-        border-radius: ${({ theme }) => theme.borderRadii.medium};
-        background-color: ${({ theme }) => theme.colorsHex.royalBlue};
-        border: 2px solid ${({ theme }) => theme.colorsHex.royalBlue};
-        color: ${({ theme }) => theme.colorsHex.white};
+        border-radius: var(--border-radius-medium);
+        background-color: var(--color-royal-blue);
+        border: var(--space-nano) solid var(--color-royal-blue);
+        color: var(--color-white);
         cursor: ${({ isFormButtonDisabled }) =>
           isFormButtonDisabled ? "wait" : "pointer"};
         display: flex;
@@ -279,19 +272,18 @@ const RootStyles = styled.div<StyleProps>`
           Noto Color Emoji;
         font-size: 1.6rem;
         font-weight: bold;
-        height: ${({ theme }) => theme.spaces.xLarge};
+        height: var(--space-xlarge);
         justify-content: center;
-        margin-top: ${({ theme }) => theme.spaces.nano};
+        margin-top: var(--space-nano);
         opacity: ${({ isFormButtonDisabled }) =>
           isFormButtonDisabled ? "0.5" : "1"};
-        transition: background-color ${({ theme }) => theme.transitions.short}
-            ease-in-out,
-          color ${({ theme }) => theme.transitions.short} ease-in-out;
+        transition: background-color var(--transition-short) ease-in-out,
+          color var(--transition-short) ease-in-out;
 
         &:hover {
-          background-color: ${({ isFormButtonDisabled, theme }) =>
-            isFormButtonDisabled ? theme.colorsHex.royalBlue : "transparent"};
-          color: ${({ theme }) => theme.colorsHex.royalBlue};
+          background-color: ${({ isFormButtonDisabled }) =>
+            isFormButtonDisabled ? "var(--color-royal-blue)" : "transparent"};
+          color: var(--color-royal-blue);
         }
       }
     }
