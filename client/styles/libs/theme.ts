@@ -128,7 +128,8 @@ interface Breakpoints {
 }
 
 export const breakpoints: Breakpoints = (function buildBreakpoints() {
-  // Empty strings here are to keep TypeScript happy prior to assignment
+  // Empty strings here are to keep TypeScript happy prior to assignment, but this will always
+  // be valid pixel values in a string for actual use due to the IIFE invocation.
   const breakpoints = {
     mini: "",
     tablet: "",
@@ -142,34 +143,6 @@ export const breakpoints: Breakpoints = (function buildBreakpoints() {
 
   return breakpoints;
 })();
-
-interface Opacity {
-  opacity00: number;
-  opacity10: number;
-  opacity20: number;
-  opacity30: number;
-  opacity40: number;
-  opacity50: number;
-  opacity60: number;
-  opacity70: number;
-  opacity80: number;
-  opacity90: number;
-  opacity100: number;
-}
-
-const opacity: Opacity = {
-  opacity00: 0,
-  opacity10: 0.1,
-  opacity20: 0.2,
-  opacity30: 0.3,
-  opacity40: 0.4,
-  opacity50: 0.5,
-  opacity60: 0.6,
-  opacity70: 0.7,
-  opacity80: 0.8,
-  opacity90: 0.9,
-  opacity100: 1,
-};
 
 interface Spaces {
   nano: string;
@@ -216,7 +189,6 @@ export interface Theme {
   borderRadii: BorderRadii;
   colorsHex: Colors;
   currentTheme: ThemeEnum | null;
-  opacity: Opacity;
   spaces: Spaces;
   transitions: Transitions;
 }
@@ -230,7 +202,6 @@ function makeMainTheme(currentTheme: ThemeEnum | null): Theme {
     borderRadii,
     colorsHex: colors,
     currentTheme,
-    opacity,
     spaces,
     transitions,
   };

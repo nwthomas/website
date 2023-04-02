@@ -1,7 +1,5 @@
 import * as React from "react";
 
-import styled, { ThemeContext } from "styled-components";
-
 import { BLOG_PAGE } from "../../constants/routes";
 import { BlogPosts } from "../../utils/sortBlogPosts";
 import Card from "../BlogCard";
@@ -9,6 +7,7 @@ import { CloseIcon } from "../Icons";
 import Tag from "../Tag";
 import { buildDateWrittenLabel } from "../../utils/dates";
 import { getBlogPostFullDate } from "../../utils/dates";
+import styled from "styled-components";
 import { useRouter } from "next/router";
 
 const CLOSE_BUTTON_ARIA_LABEL = "Go back to all blogs page";
@@ -26,7 +25,6 @@ function buildBlogPostsCountText(blogPostsCount: number) {
 }
 
 function BlogCardSection({ blogPosts, tag, withCloseButton }: Props) {
-  const { colors } = React.useContext(ThemeContext);
   const router = useRouter();
 
   const blogCards = React.useMemo(() => {
@@ -67,7 +65,7 @@ function BlogCardSection({ blogPosts, tag, withCloseButton }: Props) {
                   onClick={handleOnCloseButtonClick}
                   type="button"
                 >
-                  <CloseIcon color={colors.error} isAriaHidden />
+                  <CloseIcon color="var(--color-red)" isAriaHidden />
                 </button>
                 <h1>{tag}</h1>
               </>

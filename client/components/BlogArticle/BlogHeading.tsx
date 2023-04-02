@@ -4,10 +4,10 @@ import {
   buildDateUpdatedLabel,
   buildDateWrittenLabel,
 } from "../../utils/dates";
-import styled, { ThemeContext } from "styled-components";
 
 import { CopyLinkIcon } from "../Icons";
 import MetadataTag from "../MetadataTag";
+import styled from "styled-components";
 
 type HeadingLevel = 1 | 2 | 3 | 4 | 5;
 
@@ -29,7 +29,6 @@ function BlogHeading({
   routeId,
 }: Props) {
   const [isSelected, setIsSelected] = React.useState<boolean>(false);
-  const { colors } = React.useContext(ThemeContext);
 
   const handleOnActivated = React.useCallback(() => {
     setIsSelected(true);
@@ -115,7 +114,7 @@ function BlogHeading({
             href={linkPath}
             tabIndex={-1}
           >
-            <CopyLinkIcon color={colors.textSecondary} />
+            <CopyLinkIcon color="var(--text-secondary)" />
           </a>
         </div>
         {headingContent}

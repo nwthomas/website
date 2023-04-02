@@ -1,10 +1,10 @@
 import * as React from "react";
 
 import { ArrowForwardsIcon, YouTubeIcon } from "../Icons";
-import styled, { ThemeContext } from "styled-components";
 
 import Link from "next/link";
 import MetadataTag from "../MetadataTag";
+import styled from "styled-components";
 
 interface Props {
   dateWritten?: string;
@@ -21,8 +21,6 @@ function BlogCard({
   url,
   youTubeLink,
 }: Props) {
-  const { colors, colorsHex } = React.useContext(ThemeContext);
-
   const routeOutLabel = youTubeLink ? "Watch video" : "Read more";
   const routeOutUrl = youTubeLink || `/blog/${url}`;
   const showYouTubeIcon = youTubeLink && !dateWritten;
@@ -37,10 +35,10 @@ function BlogCard({
         <div>
           <div>
             <p>{routeOutLabel}</p>
-            <ArrowForwardsIcon color={colors.textSecondary} isAriaHidden />
+            <ArrowForwardsIcon color="var(--text-secondary)" isAriaHidden />
           </div>
           {dateWritten ? <MetadataTag contents={dateWritten} /> : null}
-          {showYouTubeIcon ? <YouTubeIcon color={colorsHex.red} /> : null}
+          {showYouTubeIcon ? <YouTubeIcon color="var(--color-red)" /> : null}
         </div>
       </Link>
     </RootStyles>
