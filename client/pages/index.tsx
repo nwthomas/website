@@ -57,7 +57,7 @@ const Home: NextPage = () => {
               from <span>San Francisco</span>
             </h1>
           </section>
-          <section aria-hidden={true}>
+          <section aria-hidden>
             <div>
               <div>
                 <Image
