@@ -3,7 +3,7 @@ import { borderRadii, colors, spaces } from "../../styles/libs/theme";
 const oneDark = {
   'code[class*="language-"]': {
     fontSize: "14px",
-    background: "var(--code-background)",
+    background: "var(--code-bg)",
     color: "hsl(220, 14%, 71%)",
     textShadow: "0 1px rgba(0, 0, 0, 0.3)",
     direction: "ltr",
@@ -21,7 +21,7 @@ const oneDark = {
     hyphens: "none",
   },
   'pre[class*="language-"]': {
-    background: "var(--code-background)",
+    background: "var(--code-bg)",
     color: "hsl(220, 14%, 71%)",
     textShadow: "0 1px rgba(0, 0, 0, 0.3)",
     fontSize: "14px",
@@ -44,32 +44,32 @@ const oneDark = {
     border: `${spaces.nano} solid ${colors.outerSpace}`,
   },
   'code[class*="language-"]::-moz-selection': {
-    background: "var(--code-background)",
+    background: "var(--code-bg)",
     color: "inherit",
     textShadow: "none",
   },
   'code[class*="language-"] *::-moz-selection': {
-    background: "var(--code-background)",
+    background: "var(--code-bg)",
     color: "inherit",
     textShadow: "none",
   },
   'pre[class*="language-"] *::-moz-selection': {
-    background: "var(--code-background)",
+    background: "var(--code-bg)",
     color: "inherit",
     textShadow: "none",
   },
   'code[class*="language-"]::selection': {
-    background: "var(--code-background)",
+    background: "var(--code-bg)",
     color: "inherit",
     textShadow: "none",
   },
   'code[class*="language-"] *::selection': {
-    background: "var(--code-background)",
+    background: "var(--code-bg)",
     color: "inherit",
     textShadow: "none",
   },
   'pre[class*="language-"] *::selection': {
-    background: "var(--code-background)",
+    background: "var(--code-bg)",
     color: "inherit",
     textShadow: "none",
   },
@@ -304,27 +304,27 @@ const oneDark = {
     borderRadius: "0.3em",
   },
   "div.code-toolbar > .toolbar.toolbar > .toolbar-item > button:hover": {
-    background: "var(--code-background)",
+    background: "var(--code-bg)",
     color: "hsl(220, 14%, 71%)",
   },
   "div.code-toolbar > .toolbar.toolbar > .toolbar-item > button:focus": {
-    background: "var(--code-background)",
+    background: "var(--code-bg)",
     color: "hsl(220, 14%, 71%)",
   },
   "div.code-toolbar > .toolbar.toolbar > .toolbar-item > a:hover": {
-    background: "var(--code-background)",
+    background: "var(--code-bg)",
     color: "hsl(220, 14%, 71%)",
   },
   "div.code-toolbar > .toolbar.toolbar > .toolbar-item > a:focus": {
-    background: "var(--code-background)",
+    background: "var(--code-bg)",
     color: "hsl(220, 14%, 71%)",
   },
   "div.code-toolbar > .toolbar.toolbar > .toolbar-item > span:hover": {
-    background: "var(--code-background)",
+    background: "var(--code-bg)",
     color: "hsl(220, 14%, 71%)",
   },
   "div.code-toolbar > .toolbar.toolbar > .toolbar-item > span:focus": {
-    background: "var(--code-background)",
+    background: "var(--code-bg)",
     color: "hsl(220, 14%, 71%)",
   },
   ".line-highlight.line-highlight": {
