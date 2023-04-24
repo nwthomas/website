@@ -25,6 +25,7 @@ const GlobalStyle = css`
     -moz-transition: none !important;
     -ms-transition: none !important;
     -o-transition: none !important;
+    transition: none !important;
   }
 
   :root {
