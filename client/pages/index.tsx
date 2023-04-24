@@ -1,12 +1,11 @@
 import * as React from "react";
 
-import styled, { keyframes } from "styled-components";
-
 import { CONTENTS_ID } from "../constants/routes";
 import { HOME_PAGE_NAME } from "../constants/seo";
 import Layout from "../components/Layout";
 import Link from "next/link";
 import { NextPage } from "next";
+import styled from "styled-components";
 
 const GITHUB_LINK_ARIA_LABEL = "Link to Nathan's GitHub page";
 const TEACHING_LINK_ARIA_LABEL =
@@ -60,12 +59,6 @@ const Home: NextPage = () => {
     </Layout>
   );
 };
-
-const rotateAnimation = keyframes`
-  100% {
-    transform: rotate(360deg);
-  };
-`;
 
 const RootStyles = styled.div`
   align-items: center;
