@@ -4,7 +4,7 @@ import { DEFAULT_SEO_VALUES } from "../constants/seo";
 import { ORIGIN } from "../constants/routes";
 import { createHash } from "crypto";
 import fs from "fs";
-import { isProductionEnvironment } from "./../constants/environments";
+import { isProductionEnvironment } from "../constants/environments";
 // This solution was pulled from:
 // https://github.com/JupiterOne/playwright-aws-lambda/issues/15#issuecomment-1243395780
 import { launchChromium } from "playwright-aws-lambda/dist/src/chromium";

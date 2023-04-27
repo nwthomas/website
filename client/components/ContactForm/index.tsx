@@ -246,6 +246,7 @@ const RootStyles = styled.div<StyleProps>`
           display: flex;
           font-size: 1.6rem;
           height: var(--space-xlarge);
+          line-height: 1;
           margin-right: var(--space-micro);
           margin-top: var(--space-small);
           padding: 0 var(--space-small);

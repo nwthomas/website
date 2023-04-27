@@ -9,10 +9,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { CONTACT_PAGE_NAME } from "../constants/seo";
 import { CONTENTS_ID } from "../constants/routes";
 import ContactForm from "../components/ContactForm";
+import { EMAIL_ROUTE } from "../constants/routes";
 import Layout from "../components/Layout";
 import { MessageValues } from "../components/ContactForm";
 import { NewEmail } from "../utils/sendEmail";
-import { SEND_EMAIL } from "../constants/routes";
 import axios from "axios";
 import { createOgImage } from "../utils/ogImage";
 import { selectContactFormMessageValues } from "../store/selectors/contactFormSelectors";
@@ -35,7 +35,7 @@ export async function getStaticProps() {
 }
 
 async function sendMessage(email: NewEmail) {
-  return axios.post(SEND_EMAIL, email);
+  return axios.post(EMAIL_ROUTE, email);
 }
 
 function Contact({ ogImage }) {

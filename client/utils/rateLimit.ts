@@ -20,7 +20,7 @@ const getIP = (request: Request): string => {
 
   // A fallback string here is not ideal, but should not be hit. If it does, having the string be
   // truthy ("fallback") will still enable the rate limit. Worst case, multiple malicious users
-  // will hit the rate limit with is actually a positive outcome.
+  // will hit the rate limit via an empty string which is a positive outcome.
   return JSON.stringify(ipAddress || FALLBACK_IP_STRING_NAME);
 };
 
@@ -44,7 +44,7 @@ type RateLimitParameters = {
 // Even though this function is only used here and not exported, these parameters are kept here in
 // case this is used elsewhere in the future or even lifted quickly into another app (as a lot of
 // work in this repository is viewed as prep work and learning for another future app).
-export const getRateLimitMiddlewares = ({
+const getRateLimitMiddlewares = ({
   limit = RATE_LIMIT,
   windowMs = RATE_LIMIT_WINDOW_MS,
   delayAfter = RATE_LIMIT_DELAY_AFTER,

@@ -1,6 +1,7 @@
 export const ORIGIN = process.env.NEXT_PUBLIC_SERVER_URL || "";
 
-export const SEND_EMAIL = `${ORIGIN}/api/send-email`;
+export const EMAIL_ROUTE = `${ORIGIN}/api/send-email`;
+export const OPEN_AI_QUERY_ROUTE = `${ORIGIN}/api/open-ai`;
 
 export const BLOG_PAGE = "/blog";
 export const BLOG_ARTICLE_PAGE = "/blog/[blogId]";

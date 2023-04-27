@@ -1,6 +1,7 @@
 export const BLOG_PAGE_NAME = "Blog";
 export const CONTACT_PAGE_NAME = "Contact";
 export const FOUR_OH_FOUR_PAGE_NAME = "404";
+export const GARDENING_TIPS_PAGE_NAME = "Gardening Tips";
 export const HOME_PAGE_NAME = "Home";
 export const PLAYGROUND_PAGE_NAME = "Playground";
 
