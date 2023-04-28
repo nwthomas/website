@@ -60,6 +60,7 @@ export default async function handler(request: Request, response: Response) {
           role: "system",
           content: OPEN_AI_INITIAL_PROMPT,
         },
+        // TODO: spread in all user queries saved previously in DB
         {
           role: "user",
           content: query,

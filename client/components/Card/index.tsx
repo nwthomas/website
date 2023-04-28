@@ -7,23 +7,34 @@ import MetadataTag from "../MetadataTag";
 import styled from "styled-components";
 
 interface Props {
-  dateWritten?: string;
+  metadata?: Array<string>;
   description: string;
+  routeOutLabel: string;
   title: string;
   url: string;
   youTubeLink?: string;
 }
 
 function BlogCard({
-  dateWritten,
+  metadata,
   description,
+  routeOutLabel,
   title,
   url,
   youTubeLink,
 }: Props) {
-  const routeOutLabel = youTubeLink ? "Watch video" : "Read more";
   const routeOutUrl = youTubeLink || `/blog/${url}`;
-  const showYouTubeIcon = youTubeLink && !dateWritten;
+  const showYouTubeIcon = youTubeLink && (!metadata || metadata.length < 1);
+
+  const metadataTags = React.useMemo(() => {
+    if (!metadata) {
+      return [];
+    }
+
+    return metadata.map((value: string, i: number) => {
+      return <MetadataTag contents={value} key={i} />;
+    });
+  }, [metadata]);
 
   return (
     <RootStyles>
@@ -37,7 +48,7 @@ function BlogCard({
             <p>{routeOutLabel}</p>
             <ArrowForwardsIcon color="var(--text-secondary)" isAriaHidden />
           </div>
-          {dateWritten ? <MetadataTag contents={dateWritten} /> : null}
+          {metadata && metadata.length > 0 ? metadataTags : null}
           {showYouTubeIcon ? <YouTubeIcon color="var(--color-red)" /> : null}
         </div>
       </Link>

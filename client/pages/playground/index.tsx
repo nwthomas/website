@@ -1,5 +1,6 @@
 import * as React from "react";
 
+import Card from "../../components/Card";
 import Layout from "../../components/Layout";
 import { PLAYGROUND_PAGE_NAME } from "../../constants/seo";
 import { createOgImage } from "../../utils/ogImage";
@@ -25,37 +26,39 @@ function Playground({ ogImage }) {
       withFooter
     >
       <RootStyles>
-        <h1>Coming Soon™</h1>
+        <main>
+          <div>
+            <Card
+              description="A chatbot to help you will all your gardening needs"
+              metadata={[]}
+              routeOutLabel="Try it out"
+              title="Gardening Chatbot"
+              url="/playground/gardening-tips"
+            />
+          </div>
+        </main>
       </RootStyles>
     </Layout>
   );
 }
 
-const RootStyles = styled.main`
+const RootStyles = styled.div`
   align-items: center;
-  bottom: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  left: 0;
-  position: absolute;
   padding: 0 var(--app-horizontal-gutters);
-  right: 0;
-  top: 0;
   width: 100%;
 
-  > h1 {
-    color: var(--text);
-    font-display: swap;
-    font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system,
-      BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
-      sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
-      Noto Color Emoji;
-    font-size: 1.6rem;
+  > main {
+    max-width: var(--app-max-width);
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
-      font-size: 2rem;
+      width: 100%;
+    }
+
+    > div {
+      max-width: 400px;
     }
   }
 `;

@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { BLOG_PAGE } from "../../constants/routes";
 import { BlogPosts } from "../../utils/sortBlogPosts";
-import Card from "../BlogCard";
+import Card from "../Card";
 import { CloseIcon } from "../Icons";
 import Tag from "../Tag";
 import { buildDateWrittenLabel } from "../../utils/dates";
@@ -31,15 +31,18 @@ function BlogCardSection({ blogPosts, tag, withCloseButton }: Props) {
     return blogPosts.map((blogPost, i) => {
       const { dateWritten, description, title, slug, youTubeLink } =
         blogPost.data;
+
       const dateWrittenLabel = getBlogPostFullDate(dateWritten || "");
       const normalizedDateWritten = buildDateWrittenLabel(dateWrittenLabel);
+      const routeOutLabel = youTubeLink ? "Watch video" : "Read more";
 
       return (
         <li key={i}>
           <Card
-            dateWritten={!youTubeLink ? normalizedDateWritten : undefined}
+            metadata={!youTubeLink ? [normalizedDateWritten] : undefined}
             description={description}
             key={i}
+            routeOutLabel={routeOutLabel}
             title={title}
             url={slug}
             youTubeLink={youTubeLink}

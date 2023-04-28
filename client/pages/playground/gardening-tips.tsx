@@ -18,19 +18,27 @@ export async function getStaticProps() {
   };
 }
 
-// (async function () {
-//   try {
-//     await sendOpenAIQuery("testing testing");
-//   } catch (error) {
-//     // finish
-//   }
-// })();
+(async function () {
+  try {
+    const result = await sendOpenAIQuery("");
+    console.log({ result });
+  } catch (error) {
+    // finish
+  }
+})();
 
 function GardeningTips({ ogImage }) {
   return (
     <Layout customSEOImageUrl={ogImage} pageName={GARDENING_TIPS_PAGE_NAME}>
       <RootStyles>
-        <h1>Hola</h1>
+        <div>
+          <aside>
+            <p>Testing</p>
+          </aside>
+          <div>
+            <p>Testing</p>
+          </div>
+        </div>
       </RootStyles>
     </Layout>
   );
@@ -49,18 +57,18 @@ const RootStyles = styled.main`
   top: 0;
   width: 100%;
 
-  > h1 {
-    color: var(--text);
-    font-display: swap;
-    font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system,
-      BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
-      sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
-      Noto Color Emoji;
-    font-size: 1.6rem;
+  > div {
+    display: flex;
+    height: 100%;
+    margin-top: var(--navbar-desktop-height);
+    margin-bottom: var(--footer-desktop-height);
+    width: 100%;
 
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.tablet}) {
-      font-size: 2rem;
+    > aside {
+      background-color: var(--body-bg-accent-one);
+      border-radius: var(--border-radius-small);
+      height: 100%;
+      width: 100%;
     }
   }
 `;
