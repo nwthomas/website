@@ -29,16 +29,20 @@ export async function getStaticProps() {
 
 function GardeningTips({ ogImage }) {
   return (
-    <Layout customSEOImageUrl={ogImage} pageName={GARDENING_TIPS_PAGE_NAME}>
+    <Layout
+      customSEOImageUrl={ogImage}
+      pageName={GARDENING_TIPS_PAGE_NAME}
+      withFooter
+    >
       <RootStyles>
-        <div>
+        <section>
           <aside>
             <p>Testing</p>
           </aside>
           <div>
             <p>Testing</p>
           </div>
-        </div>
+        </section>
       </RootStyles>
     </Layout>
   );
@@ -46,27 +50,27 @@ function GardeningTips({ ogImage }) {
 
 const RootStyles = styled.main`
   align-items: center;
-  bottom: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  left: 0;
-  position: absolute;
   padding: 0 var(--app-horizontal-gutters);
-  right: 0;
-  top: 0;
   width: 100%;
 
-  > div {
-    display: flex;
+  > section {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
     height: 100%;
-    margin-top: var(--navbar-desktop-height);
-    margin-bottom: var(--footer-desktop-height);
+    margin-bottom: var(--space-medium);
+    max-width: var(--app-max-width);
     width: 100%;
 
+    @media only screen and (min-width: ${({ theme }) =>
+        theme.breakpoints.tablet}) {
+      margin-bottom: var(--space-xxlarge);
+    }
+
     > aside {
-      background-color: var(--body-bg-accent-one);
-      border-radius: var(--border-radius-small);
+      border: var(--space-nano) solid var(--body-bg-accent-two);
+      border-radius: var(--border-radius-medium);
       height: 100%;
       width: 100%;
     }

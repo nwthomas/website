@@ -30,7 +30,6 @@ function Playground({ ogImage }) {
           <div>
             <Card
               description="A chatbot to help you will all your gardening needs"
-              metadata={[]}
               routeOutLabel="Try it out"
               title="Gardening Chatbot"
               url="/playground/gardening-tips"

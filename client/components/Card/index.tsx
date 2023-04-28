@@ -12,7 +12,7 @@ interface Props {
   routeOutLabel: string;
   title: string;
   url: string;
-  youTubeLink?: string;
+  withYouTubeIcon?: boolean;
 }
 
 function BlogCard({
@@ -21,11 +21,8 @@ function BlogCard({
   routeOutLabel,
   title,
   url,
-  youTubeLink,
+  withYouTubeIcon,
 }: Props) {
-  const routeOutUrl = youTubeLink || `/blog/${url}`;
-  const showYouTubeIcon = youTubeLink && (!metadata || metadata.length < 1);
-
   const metadataTags = React.useMemo(() => {
     if (!metadata) {
       return [];
@@ -38,7 +35,7 @@ function BlogCard({
 
   return (
     <RootStyles>
-      <Link href={routeOutUrl} passHref prefetch={false}>
+      <Link href={url} passHref prefetch={false}>
         <div>
           <h2>{title}</h2>
           <p>{description}</p>
@@ -48,8 +45,10 @@ function BlogCard({
             <p>{routeOutLabel}</p>
             <ArrowForwardsIcon color="var(--text-secondary)" isAriaHidden />
           </div>
-          {metadata && metadata.length > 0 ? metadataTags : null}
-          {showYouTubeIcon ? <YouTubeIcon color="var(--color-red)" /> : null}
+          {!withYouTubeIcon && metadata && metadata.length > 0
+            ? metadataTags
+            : null}
+          {withYouTubeIcon ? <YouTubeIcon color="var(--color-red)" /> : null}
         </div>
       </Link>
     </RootStyles>

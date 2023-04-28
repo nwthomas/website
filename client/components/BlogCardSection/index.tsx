@@ -35,6 +35,7 @@ function BlogCardSection({ blogPosts, tag, withCloseButton }: Props) {
       const dateWrittenLabel = getBlogPostFullDate(dateWritten || "");
       const normalizedDateWritten = buildDateWrittenLabel(dateWrittenLabel);
       const routeOutLabel = youTubeLink ? "Watch video" : "Read more";
+      const url = `/blog/${slug}`;
 
       return (
         <li key={i}>
@@ -44,8 +45,8 @@ function BlogCardSection({ blogPosts, tag, withCloseButton }: Props) {
             key={i}
             routeOutLabel={routeOutLabel}
             title={title}
-            url={slug}
-            youTubeLink={youTubeLink}
+            url={youTubeLink || url}
+            withYouTubeIcon={Boolean(youTubeLink)}
           />
         </li>
       );
