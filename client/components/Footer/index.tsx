@@ -10,6 +10,16 @@ function Footer() {
           <ul>
             <li>
               <a
+                href="https://staging.bsky.app/profile/chewbacca.bsky.social"
+                aria-label="Link to Nathan's Bluesky"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Bluesky
+              </a>
+            </li>
+            <li>
+              <a
                 href="https://dev.to/nwthomas"
                 aria-label="Link to Nathan's Dev.to"
                 rel="noopener noreferrer"
@@ -76,6 +86,16 @@ function Footer() {
                 target="_blank"
               >
                 Substack
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.twitch.tv/codingwithnate"
+                aria-label="Link to Nathan's Twitch"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Twitch
               </a>
             </li>
             <li>
