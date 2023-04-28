@@ -18,7 +18,7 @@ import { applyRateLimit } from "./../../utils/rateLimit";
 const OPEN_AI_API_KEY = process.env.OPEN_AI_SECRET_KEY || "";
 const OPEN_AI_INITIAL_PROMPT = "You are a helpful assistant for gardeners";
 const OPEN_AI_MODEL = "gpt-3.5-turbo";
-const OPEN_AI_ORGANIZATION_NAME = "org-rBZRppIgcA6PWxO5qPDONshX";
+const OPEN_AI_ORGANIZATION_NAME = process.env.OPEN_AI_ORGANIZATION || "";
 
 const CONFIGURATION_OPTIONS = {
   organization: OPEN_AI_ORGANIZATION_NAME,

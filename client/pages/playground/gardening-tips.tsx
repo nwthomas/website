@@ -20,8 +20,8 @@ export async function getStaticProps() {
 
 (async function () {
   try {
-    const result = await sendOpenAIQuery("");
-    console.log({ result });
+    // const result = await sendOpenAIQuery("");
+    // console.log({ result });
   } catch (error) {
     // finish
   }
