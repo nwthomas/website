@@ -18,15 +18,6 @@ export async function getStaticProps() {
   };
 }
 
-(async function () {
-  try {
-    // const result = await sendOpenAIQuery("");
-    // console.log({ result });
-  } catch (error) {
-    // finish
-  }
-})();
-
 function GardeningTips({ ogImage }) {
   return (
     <Layout
@@ -36,9 +27,7 @@ function GardeningTips({ ogImage }) {
     >
       <RootStyles>
         <section>
-          <aside>
-            <p>Testing</p>
-          </aside>
+          <aside></aside>
           <div>
             <p>Testing</p>
           </div>
@@ -58,6 +47,7 @@ const RootStyles = styled.main`
   > section {
     display: grid;
     grid-template-columns: 1fr 2fr;
+    grid-gap: var(--space-large);
     height: 100%;
     margin-bottom: var(--space-medium);
     max-width: var(--app-max-width);
@@ -71,8 +61,14 @@ const RootStyles = styled.main`
     > aside {
       border: var(--space-nano) solid var(--body-bg-accent-two);
       border-radius: var(--border-radius-medium);
+      padding: var(--space-small);
       height: 100%;
       width: 100%;
+    }
+
+    > div {
+      border: var(--space-nano) solid var(--body-bg);
+      padding: var(--space-small) 0;
     }
   }
 `;

@@ -106,6 +106,7 @@ const RootStyles = styled.article`
 
         > p {
           color: var(--text-secondary);
+          line-height: 1;
         }
 
         > svg {

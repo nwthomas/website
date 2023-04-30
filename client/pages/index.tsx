@@ -21,7 +21,7 @@ export async function getStaticProps() {
 const Home: NextPage = () => {
   return (
     <Layout pageName={HOME_PAGE_NAME} withFooter>
-      <RootStyles>
+      <div className="flex flex-col items-center">
         <main id={CONTENTS_ID}>
           <section>
             <h1>
@@ -51,11 +51,11 @@ const Home: NextPage = () => {
               >
                 teacher
               </a>{" "}
-              from <span>San Francisco</span>
+              from <span className="font-inherit">San Francisco</span>
             </h1>
           </section>
         </main>
-      </RootStyles>
+      </div>
     </Layout>
   );
 };
@@ -101,11 +101,6 @@ const RootStyles = styled.div`
         &:hover {
           opacity: 0.8;
         }
-      }
-
-      > h1 span {
-        font-family: inherit;
-        white-space: nowrap;
       }
     }
   }
