@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.2",
-    "@sentry/nextjs": "^7.30.0",
+    "@sentry/nextjs": "^7.50.0",
     "@vercel/analytics": "^0.1.8",
     "axios": "^1.2.3",
     "ethers": "^5.4.7",
