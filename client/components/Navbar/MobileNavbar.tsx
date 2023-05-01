@@ -178,14 +178,14 @@ const topMenuBarAnimationForwards = keyframes`
   }
   100% {
     top: calc(50% - var(--space-micro) / 2);
-    transform: rotate(45deg);
+    transform: rotate(40deg);
   }
 `;
 
 const topMenuBarAnimationReverse = keyframes`
   0% {
     top: calc(50% - var(--space-micro) / 2);
-    transform: rotate(45deg);
+    transform: rotate(40deg);
   }
   100% {
     top: 20%;
@@ -198,14 +198,14 @@ const bottomMenuBarAnimationForwards = keyframes`
   }
   100% {
     bottom: calc(50% - var(--space-micro) / 2);
-    transform: rotate(-45deg);
+    transform: rotate(-40deg);
   }
 `;
 
 const bottomMenuBarAnimationReverse = keyframes`
   0% {
     bottom: calc(50% - var(--space-micro) / 2);
-    transform: rotate(-45deg);
+    transform: rotate(-40deg);
   }
   100% {
     bottom: 20%;
