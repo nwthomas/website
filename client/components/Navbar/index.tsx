@@ -18,24 +18,11 @@ import { CONTENTS_ID } from "../../constants/routes";
 import MobileNavbarButton from "./MobileNavbarButton";
 import NavbarLink from "./NavbarLink";
 import ThemeTransitionSwitch from "../ThemeTransitionSwitch";
-import { breakpointsInt } from "../../styles/libs/theme";
 import styled from "styled-components";
-import { useGetScreenDimensions } from "../../hooks";
 import { useRouter } from "next/router";
 
 function Navbar() {
-  const [shouldShowMenu, setShouldShowMenu] = React.useState<boolean>(false);
   const { asPath: currentPath } = useRouter();
-  const { viewportWidth } = useGetScreenDimensions();
-
-  const isDesktopLayout =
-    viewportWidth && viewportWidth <= breakpointsInt.tablet;
-
-  React.useEffect(() => {
-    if (viewportWidth) {
-      setShouldShowMenu(true);
-    }
-  }, [viewportWidth]);
 
   return (
     <RootStyles>
@@ -59,45 +46,43 @@ function Navbar() {
                 Skip to Content
               </a>
             </li>
-            {shouldShowMenu && !isDesktopLayout ? (
-              <div>
-                <li>
-                  <NavbarLink
-                    ariaLabel={PLAYGROUND_LINK_ARIA_LABEL}
-                    currentPath={currentPath}
-                    route={PLAYGROUND_PAGE}
-                  >
-                    Playground
-                  </NavbarLink>
-                </li>
-                <li>
-                  <NavbarLink
-                    ariaLabel={BLOG_LINK_ARIA_LABEL}
-                    currentPath={currentPath}
-                    route={BLOG_PAGE}
-                  >
-                    Blog
-                  </NavbarLink>
-                </li>
-                <li>
-                  <NavbarLink
-                    ariaLabel={CONTACT_LINK_ARIA_LABEL}
-                    currentPath={currentPath}
-                    route={CONTACT_PAGE}
-                  >
-                    Contact
-                  </NavbarLink>
-                </li>
-                <li>
-                  <ThemeTransitionSwitch />
-                </li>
-              </div>
-            ) : null}
-            {shouldShowMenu && isDesktopLayout ? (
+            <div className="desktop-navbar">
+              <li>
+                <NavbarLink
+                  ariaLabel={PLAYGROUND_LINK_ARIA_LABEL}
+                  currentPath={currentPath}
+                  route={PLAYGROUND_PAGE}
+                >
+                  Playground
+                </NavbarLink>
+              </li>
+              <li>
+                <NavbarLink
+                  ariaLabel={BLOG_LINK_ARIA_LABEL}
+                  currentPath={currentPath}
+                  route={BLOG_PAGE}
+                >
+                  Blog
+                </NavbarLink>
+              </li>
+              <li>
+                <NavbarLink
+                  ariaLabel={CONTACT_LINK_ARIA_LABEL}
+                  currentPath={currentPath}
+                  route={CONTACT_PAGE}
+                >
+                  Contact
+                </NavbarLink>
+              </li>
+              <li>
+                <ThemeTransitionSwitch />
+              </li>
+            </div>
+            <div className="mobile-navbar">
               <li>
                 <MobileNavbarButton currentPath={currentPath} />
               </li>
-            ) : null}
+            </div>
           </ul>
         </nav>
       </header>
@@ -141,6 +126,22 @@ const RootStyles = styled.div`
         justify-content: space-between;
         position: relative;
         width: 100%;
+
+        /* I'm not particularly happy about these navbar classes. It will be refactored someday. */
+        .desktop-navbar {
+          display: none;
+        }
+
+        @media only screen and (min-width: ${({ theme }) =>
+            theme.breakpoints.tablet}) {
+          .desktop-navbar {
+            display: flex;
+          }
+
+          .mobile-navbar {
+            display: none;
+          }
+        }
 
         /* These styles are for the hidden content button */
         > li {
