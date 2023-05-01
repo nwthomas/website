@@ -21,7 +21,7 @@ export async function getStaticProps() {
 const Home: NextPage = () => {
   return (
     <Layout pageName={HOME_PAGE_NAME} withFooter>
-      <div className="flex flex-col items-center">
+      <RootStyles>
         <main id={CONTENTS_ID}>
           <section>
             <h1>
@@ -55,7 +55,7 @@ const Home: NextPage = () => {
             </h1>
           </section>
         </main>
-      </div>
+      </RootStyles>
     </Layout>
   );
 };
