@@ -102,6 +102,11 @@ const RootStyles = styled.div`
           opacity: 0.8;
         }
       }
+
+      > h1 span {
+        font-family: inherit;
+        white-space: nowrap;
+      }
     }
   }
 `;

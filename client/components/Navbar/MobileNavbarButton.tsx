@@ -1,8 +1,9 @@
 import * as React from "react";
 
+import styled, { css, keyframes } from "styled-components";
+
 import FocusTrap from "focus-trap-react";
 import MobileNavbarTray from "./MobileNavbarTray";
-import styled from "styled-components";
 
 const BUTTON_NAME_LABEL = "Navbar button";
 const CLOSED_ARIA_LABEL = "Click to open the mobile navbar menu";
@@ -14,11 +15,15 @@ interface Props {
 
 function MobileNavbarButton({ currentPath }: Props) {
   const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
+  const [withAnimation, setWithAnimation] = React.useState<boolean>(false);
 
-  const handleOnClick = () => setIsMenuOpen(!isMenuOpen);
+  const handleOnClick = () => {
+    setWithAnimation(true);
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
-    <RootStyles isMenuOpen={isMenuOpen}>
+    <RootStyles isMenuOpen={isMenuOpen} withAnimation={withAnimation}>
       <FocusTrap active={isMenuOpen}>
         <div>
           <button
@@ -39,10 +44,10 @@ function MobileNavbarButton({ currentPath }: Props) {
 
 interface StyleProps {
   isMenuOpen: boolean;
+  withAnimation: boolean;
 }
 
 const RootStyles = styled.div<StyleProps>`
-  height: calc(var(--space-xxsmall) * 3);
   position: relative;
   width: calc(var(--space-xxsmall) * 6);
 
@@ -72,43 +77,100 @@ const RootStyles = styled.div<StyleProps>`
         left: 0;
         position: absolute;
         right: 0;
-        top: 0;
-        transform: translateY(
-          ${({ isMenuOpen, theme }) => {
-            if (!isMenuOpen) {
-              return "var(--space-micro)";
-            }
-
-            return "calc(var(--space-nano) * -1)";
-          }}
-        );
-        transition: transform var(--transition-short)
-          cubic-bezier(0.23, 1, 0.32, 1);
+        top: 20%;
+        transition: top var(--transition-short) cubic-bezier(0.23, 1, 0.32, 1),
+          transform var(--transition-short) cubic-bezier(0.23, 1, 0.32, 1);
         width: 100%;
+
+        ${({ isMenuOpen, withAnimation }) => {
+          if (!withAnimation) {
+            return "";
+          } else if (isMenuOpen) {
+            return css`
+              animation: ${topMenuBarAnimationForwards} var(--transition-medium)
+                cubic-bezier(0.23, 1, 0.32, 1) forwards;
+            `;
+          }
+
+          return css`
+            animation: ${topMenuBarAnimationReverse} var(--transition-medium)
+              cubic-bezier(0.23, 1, 0.32, 1) forwards;
+          `;
+        }}
       }
 
       > div:last-child {
         background-color: var(--text);
         border-radius: var(--border-radius-large);
-        bottom: 0;
+        bottom: 20%;
         left: 0;
         position: absolute;
         right: 0;
         height: var(--space-micro);
-        transform: translateY(
-          ${({ isMenuOpen }) => {
-            if (!isMenuOpen) {
-              return `calc(var(--space-micro) * -1)`;
-            }
-
-            return "var(--space-nano)";
-          }}
-        );
-        transition: transform var(--transition-short)
-          cubic-bezier(0.23, 1, 0.32, 1);
+        transition: bottom var(--transition-short)
+            cubic-bezier(0.23, 1, 0.32, 1),
+          transform var(--transition-short) cubic-bezier(0.23, 1, 0.32, 1);
         width: 100%;
+
+        ${({ isMenuOpen, withAnimation }) => {
+          if (!withAnimation) {
+            return "";
+          } else if (isMenuOpen) {
+            return css`
+              animation: ${bottomMenuBarAnimationForwards}
+                var(--transition-medium) cubic-bezier(0.23, 1, 0.32, 1) forwards;
+            `;
+          }
+
+          return css`
+            animation: ${bottomMenuBarAnimationReverse} var(--transition-medium)
+              cubic-bezier(0.23, 1, 0.32, 1) forwards;
+          `;
+        }}
       }
     }
+  }
+`;
+
+// The duplication here is in order to get the CSS animations to run. It's not enough just to
+// reverse the animation-fill-mode. They must be different animations.
+const topMenuBarAnimationForwards = keyframes`
+  0% {
+    top: 20%;
+  }
+  100% {
+    top: calc(50% - var(--space-micro) / 2);
+    transform: rotate(40deg);
+  }
+`;
+
+const topMenuBarAnimationReverse = keyframes`
+  0% {
+    top: calc(50% - var(--space-micro) / 2);
+    transform: rotate(40deg);
+  }
+  100% {
+    top: 20%;
+  }
+`;
+
+const bottomMenuBarAnimationForwards = keyframes`
+  0% {
+    bottom: 20%;
+  }
+  100% {
+    bottom: calc(50% - var(--space-micro) / 2);
+    transform: rotate(-40deg);
+  }
+`;
+
+const bottomMenuBarAnimationReverse = keyframes`
+  0% {
+    bottom: calc(50% - var(--space-micro) / 2);
+    transform: rotate(-40deg);
+  }
+  100% {
+    bottom: 20%;
   }
 `;
 
