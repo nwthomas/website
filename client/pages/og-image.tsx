@@ -58,7 +58,7 @@ const RootStyles = styled.div`
     content: "";
     left: 0;
     position: absolute;
-    opacity: 0.6;
+    opacity: 0.3;
     right: 0;
     top: 0;
   }
