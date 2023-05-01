@@ -87,13 +87,13 @@ const RootStyles = styled.div<StyleProps>`
             return "";
           } else if (isMenuOpen) {
             return css`
-              animation: ${topMenuBarAnimationForwards} var(--transition-medium)
+              animation: ${topMenuBarAnimationForwards} var(--transition-short)
                 cubic-bezier(0.23, 1, 0.32, 1) forwards;
             `;
           }
 
           return css`
-            animation: ${topMenuBarAnimationReverse} var(--transition-medium)
+            animation: ${topMenuBarAnimationReverse} var(--transition-short)
               cubic-bezier(0.23, 1, 0.32, 1) forwards;
           `;
         }}
@@ -118,12 +118,12 @@ const RootStyles = styled.div<StyleProps>`
           } else if (isMenuOpen) {
             return css`
               animation: ${bottomMenuBarAnimationForwards}
-                var(--transition-medium) cubic-bezier(0.23, 1, 0.32, 1) forwards;
+                var(--transition-short) cubic-bezier(0.23, 1, 0.32, 1) forwards;
             `;
           }
 
           return css`
-            animation: ${bottomMenuBarAnimationReverse} var(--transition-medium)
+            animation: ${bottomMenuBarAnimationReverse} var(--transition-short)
               cubic-bezier(0.23, 1, 0.32, 1) forwards;
           `;
         }}
