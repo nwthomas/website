@@ -105,6 +105,7 @@ const GlobalStyle = css`
     --space-xlarge: ${spaces.xLarge};
     --space-xxlarge: ${spaces.xxLarge};
     --space-jumbo: ${spaces.jumbo};
+    --transition-mini: ${transitions.mini};
     --transition-short: ${transitions.short};
     --transition-medium: ${transitions.medium};
     --transition-long: ${transitions.long};

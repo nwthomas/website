@@ -168,12 +168,14 @@ export const spaces: Spaces = {
 };
 
 interface Transitions {
+  mini: string;
   short: string;
   medium: string;
   long: string;
 }
 
 export const transitions: Transitions = {
+  mini: "0.05s",
   short: "0.1s",
   medium: "0.3s",
   long: "0.5s",

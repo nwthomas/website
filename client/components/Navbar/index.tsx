@@ -3,10 +3,14 @@ import * as React from "react";
 import DesktopNavbar from "./DesktopNavbar";
 import MobileNavbar from "./MobileNavbar";
 import styled from "styled-components";
+import { useScrollPosition } from "../../hooks";
 
 function Navbar() {
+  const scrollPosition = useScrollPosition();
+  const withMinifiedNavbar = scrollPosition > 0;
+
   return (
-    <RootStyles>
+    <RootStyles withMinifiedNavbar={withMinifiedNavbar}>
       <header>
         <div>
           <MobileNavbar />
@@ -19,28 +23,52 @@ function Navbar() {
   );
 }
 
-const RootStyles = styled.div`
+interface StyleProps {
+  withMinifiedNavbar?: boolean;
+}
+
+const RootStyles = styled.div<StyleProps>`
   display: flex;
   left: 0;
   padding: 0 var(--app-horizontal-gutters);
-  position: absolute;
+  position: fixed;
   justify-content: center;
   right: 0;
   top: 0;
   width: 100%;
   z-index: 2147483647;
 
+  &::before {
+    backdrop-filter: blur(12px);
+    background-color: var(--body-bg);
+    bottom: 0;
+    content: "";
+    left: 0;
+    opacity: 0.9;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
+
   > header {
     align-items: center;
     display: flex;
+    height: var(--navbar-mobile-height);
     justify-content: center;
     max-width: var(--app-max-width);
-    padding: var(--space-medium) 0;
+    transition: height var(--transition-medium) ease-in-out;
     width: 100%;
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
-      padding: var(--space-xxlarge) 0;
+      ${({ withMinifiedNavbar }) => {
+        if (withMinifiedNavbar) {
+          return "";
+        }
+
+        return "height: var(--navbar-desktop-height)";
+      }};
     }
 
     > div {
