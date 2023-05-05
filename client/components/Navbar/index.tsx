@@ -7,7 +7,7 @@ import { useScrollPosition } from "../../hooks";
 
 function Navbar() {
   const scrollPosition = useScrollPosition();
-  const withMinifiedNavbar = scrollPosition > 0;
+  const withMinifiedNavbar = scrollPosition > 150;
 
   return (
     <RootStyles withMinifiedNavbar={withMinifiedNavbar}>
