@@ -1,4 +1,4 @@
-import "../styles/libs/fonts.css";
+import "../styles/globals.css";
 
 import * as React from "react";
 
