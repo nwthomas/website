@@ -66,7 +66,7 @@ const RootStyles = styled.article`
     width: 100%;
 
     @media only screen and (min-width: ${({ theme }) =>
-      theme.breakpoints.tablet}) {
+        theme.breakpoints.tablet}) {
       min-height: 200px;
     }
 
@@ -113,13 +113,16 @@ const RootStyles = styled.article`
       }
     }
 
-    &:hover {
+    &:hover,
+    &:active,
+    &:focus {
       border: var(--space-nano) solid var(--color-royal-blue);
       border-radius: var(--border-radius-medium);
       outline: none;
 
       > div:nth-child(2) > div > svg {
         opacity: 1;
+      }
     }
   }
 `;
