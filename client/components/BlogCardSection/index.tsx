@@ -128,9 +128,11 @@ const RootStyles = styled.section`
             width: var(--space-medium);
           }
 
-          &:hover {
+          &:hover,
+          &:active,
+          &:focus {
             border: var(--space-nano) solid var(--color-royal-blue);
-            opacity: 1;
+            outline: none;
           }
         }
 
