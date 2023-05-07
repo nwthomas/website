@@ -3,14 +3,18 @@ import * as React from "react";
 import { BLOG_PAGE } from "../../constants/routes";
 import { BlogPosts } from "../../utils/sortBlogPosts";
 import Card from "../BlogCard";
-import { CloseIcon } from "../Icons";
 import Tag from "../Tag";
 import { buildDateWrittenLabel } from "../../utils/dates";
+import { buildLinkHref } from "../../utils/routes";
 import { getBlogPostFullDate } from "../../utils/dates";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 
-const CLOSE_BUTTON_ARIA_LABEL = "Go back to all blogs page";
+const BACK_TO_BLOG_PAGE_ARIA_LABEL = "Return to all blog posts page";
+
+export function buildTagLinkAriaLabel(tagName: string): string {
+  return `${tagName} blog section, link is to page with only ${tagName} posts`;
+}
 
 interface Props {
   blogPosts: BlogPosts;
@@ -24,8 +28,12 @@ function buildBlogPostsCountText(blogPostsCount: number) {
   return `${blogPostsCount} Item${pluralBlogPostCountEndin}`;
 }
 
-function BlogCardSection({ blogPosts, tag, withCloseButton }: Props) {
+function BlogCardSection({ blogPosts, tag }: Props) {
   const router = useRouter();
+
+  const tagAriaLabel = buildTagLinkAriaLabel(tag);
+  const tagRoute = buildLinkHref(tag);
+  const isTagPage = router.asPath === tagRoute;
 
   const blogCards = React.useMemo(() => {
     return blogPosts.map((blogPost, i) => {
@@ -49,29 +57,19 @@ function BlogCardSection({ blogPosts, tag, withCloseButton }: Props) {
     });
   }, [blogPosts]);
 
-  const handleOnCloseButtonClick = () => {
-    router.push(BLOG_PAGE);
-  };
-
   return (
     <RootStyles>
       <div>
         <div>
           <div>
-            {withCloseButton ? (
-              <>
-                <button
-                  aria-label={CLOSE_BUTTON_ARIA_LABEL}
-                  onClick={handleOnCloseButtonClick}
-                  type="button"
-                >
-                  <CloseIcon color="var(--color-red)" isAriaHidden />
-                </button>
-                <h1>{tag}</h1>
-              </>
-            ) : (
-              <Tag text={tag} />
-            )}
+            <Tag
+              ariaLabel={
+                isTagPage ? BACK_TO_BLOG_PAGE_ARIA_LABEL : tagAriaLabel
+              }
+              text={tag}
+              url={isTagPage ? BLOG_PAGE : tagRoute}
+              withCloseIcon={isTagPage}
+            />
           </div>
         </div>
         <p>{buildBlogPostsCountText(blogPosts.length)}</p>
@@ -101,52 +99,6 @@ const RootStyles = styled.section`
       > div {
         align-items: center;
         display: flex;
-
-        > button {
-          align-items: center;
-          background: none;
-          background-color: transparent;
-          border: var(--space-nano) solid var(--body-bg-accent-two);
-          border-radius: var(--border-radius-infinity);
-          cursor: pointer;
-          display: flex;
-          height: var(--space-large);
-          width: var(--space-large);
-          justify-content: center;
-          padding: 0;
-          outline: none;
-          transition: border-color var(--transition-short) ease-in-out;
-
-          @media only screen and (min-width: ${({ theme }) =>
-              theme.breakpoints.tablet}) {
-            height: 42px;
-            width: 42px;
-          }
-
-          > svg {
-            height: var(--space-medium);
-            width: var(--space-medium);
-          }
-
-          &:hover,
-          &:active,
-          &:focus {
-            border: var(--space-nano) solid var(--color-royal-blue);
-            outline: none;
-          }
-        }
-
-        > h1 {
-          font-size: 1.6rem;
-          line-height: 1;
-          margin-left: var(--space-xxsmall);
-
-          @media only screen and (min-width: ${({ theme }) =>
-              theme.breakpoints.tablet}) {
-            font-size: 2rem;
-            margin-left: var(--space-small);
-          }
-        }
       }
     }
 
