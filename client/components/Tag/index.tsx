@@ -1,23 +1,22 @@
+import { CloseIcon } from "../Icons";
 import Link from "next/link";
-import { buildLinkHref } from "../../utils/routes";
 import styled from "styled-components";
 
-export function buildTagLinkAriaLabel(tagName: string): string {
-  return `${tagName} blog section, link is to page with only ${tagName}`;
-}
-
 interface Props {
+  ariaLabel?: string;
   text: string;
+  url: string;
+  withCloseIcon?: boolean;
 }
 
-function Tag({ text }: Props) {
+function Tag({ ariaLabel, text, url, withCloseIcon }: Props) {
   return (
-    <StyledLink
-      aria-label={buildTagLinkAriaLabel(text)}
-      href={buildLinkHref(text)}
-      passHref
-      prefetch={false}
-    >
+    <StyledLink aria-label={ariaLabel} href={url} passHref prefetch={false}>
+      {withCloseIcon ? (
+        <div>
+          <CloseIcon color="var(--color-red)" />
+        </div>
+      ) : null}
       <h1>{text}</h1>
     </StyledLink>
   );
@@ -35,6 +34,18 @@ const StyledLink = styled(Link)`
   position: relative;
   text-decoration: none;
   transition: border var(--transition-short) ease-in-out;
+
+  > div {
+    align-items: center;
+    display: flex;
+    position: relative;
+
+    > svg {
+      height: calc(var(--space-xxlarge) / 2);
+      padding-right: var(--space-xxsmall);
+      width: calc(var(--space-xxlarge) / 2);
+    }
+  }
 
   > h1 {
     color: var(--text);
