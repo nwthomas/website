@@ -68,11 +68,13 @@ interface StyleProps {
 }
 
 const RootStyles = styled.div<StyleProps>`
+  height: 100%;
   width: 100%;
 
   > ul {
     align-items: center;
     display: flex;
+    height: 100%;
     justify-content: space-between;
     width: 100%;
 
