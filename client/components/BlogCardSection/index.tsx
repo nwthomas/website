@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { BLOG_PAGE } from "../../constants/routes";
-import { BLogPostsFrontMatter } from "../../utils/sortBlogPosts";
+import { BlogPostsFrontMatter } from "../../utils/sortBlogPosts";
 import Card from "../BlogCard";
 import Tag from "../Tag";
 import { buildDateWrittenLabel } from "../../utils/dates";
@@ -17,7 +17,7 @@ export function buildTagLinkAriaLabel(tagName: string): string {
 }
 
 interface Props {
-  blogPosts: BLogPostsFrontMatter;
+  blogPosts: BlogPostsFrontMatter;
   tag: string;
   withCloseButton?: boolean;
 }

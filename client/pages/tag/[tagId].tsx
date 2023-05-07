@@ -1,8 +1,8 @@
 import * as React from "react";
 
 import {
-  BLogPostsFrontMatter,
   BlogPosts,
+  BlogPostsFrontMatter,
   bucketAndSortBlogPostsByTags,
   getSortedTagsList,
   getTagTitleFromTagId,
@@ -28,7 +28,7 @@ export async function getStaticProps({ params: { tagId } }) {
   ) as BlogPosts;
   const blogPostsFrontMatter = blogPostContent.map((blogPost) => {
     return blogPost.data;
-  }) as BLogPostsFrontMatter;
+  }) as BlogPostsFrontMatter;
 
   const blogPostsByTags = bucketAndSortBlogPostsByTags(blogPostsFrontMatter);
 
@@ -55,7 +55,7 @@ export async function getStaticPaths() {
   ) as BlogPosts;
   const blogPostsFrontMatter = blogPostContent.map((blogPost) => {
     return blogPost.data;
-  }) as BLogPostsFrontMatter;
+  }) as BlogPostsFrontMatter;
 
   const bucketedBlogPosts = bucketAndSortBlogPostsByTags(blogPostsFrontMatter);
 

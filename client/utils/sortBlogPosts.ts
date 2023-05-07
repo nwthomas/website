@@ -18,7 +18,7 @@ type BlogPostFrontMatter = {
   youTubeLink?: string;
 };
 
-export type BLogPostsFrontMatter = Array<BlogPostFrontMatter>;
+export type BlogPostsFrontMatter = Array<BlogPostFrontMatter>;
 
 // Handles comparison of tagId to tags and returns the normal tag title
 export function getTagTitleFromTagId(
@@ -76,7 +76,7 @@ interface BlogPostsByTags {
 
 // Organizes blog posts by tags
 export function bucketAndSortBlogPostsByTags(
-  blogPostsFrontMatter: BLogPostsFrontMatterArray
+  blogPostsFrontMatter: BlogPostsFrontMatter
 ): BlogPostsByTags {
   const blogPostsByTags = {};
 
