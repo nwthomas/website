@@ -83,8 +83,8 @@ const RootStyles = styled.div`
   transform: translate3d(0, 0, 0);
 
   &::before {
-    backdrop-filter: blur(12px);
-    background-color: var(--body-bg);
+    backdrop-filter: blur(15px);
+    background-color: var(--body-bg-blur);
     bottom: 0;
     content: "";
     left: 0;

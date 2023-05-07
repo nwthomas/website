@@ -7,7 +7,7 @@ import { useScrollPosition } from "../../hooks";
 
 function Navbar() {
   const scrollPosition = useScrollPosition();
-  const withMinifiedNavbar = scrollPosition > 150;
+  const withMinifiedNavbar = scrollPosition > 0;
 
   return (
     <RootStyles withMinifiedNavbar={withMinifiedNavbar}>
@@ -39,8 +39,8 @@ const RootStyles = styled.div<StyleProps>`
   z-index: 2147483647;
 
   &::before {
-    backdrop-filter: blur(12px);
-    background-color: var(--body-bg);
+    backdrop-filter: blur(15px);
+    background-color: var(--body-bg-blur);
     bottom: 0;
     content: "";
     left: 0;
