@@ -92,7 +92,7 @@ const RootStyles = styled.div`
         background-size: 50px;
         font-family: inherit;
         font-size: inherit;
-        padding: var(--space-micro) 0;
+        padding: var(--space-micro) var(--space-nano);
         -moz-text-fill-color: transparent;
         -webkit-text-fill-color: transparent;
         -webkit-text-stroke: 0.25px var(--text);
