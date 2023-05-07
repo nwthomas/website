@@ -31,6 +31,7 @@ const GlobalStyle = css`
   :root {
     /* This value can be modified in the theme.ts file's appDimensions object */
     --app-min-height: 100vh;
+    color-scheme: ${({ theme }) => theme.currentTheme};
   }
 
   html,
@@ -117,6 +118,7 @@ const GlobalStyle = css`
     --body-bg-accent-one: ${colors.shark};
     --body-bg-accent-two: ${colors.outerSpace};
     --body-bg-accent-three: ${colors.codGray};
+    --body-bg-blur: rgba(0, 0, 0, 0.7);
     --code-bg: ${colors.eerieBlack};
     --error: ${colors.red};
     --selection: ${colors.royalBlue};
@@ -128,6 +130,7 @@ const GlobalStyle = css`
     --body-bg-accent-one: ${colors.alto};
     --body-bg-accent-two: ${colors.silver};
     --body-bg-accent-three: ${colors.alabaster};
+    --body-bg-blur: rgba(255, 255, 255, 0.7);
     --code-bg: ${colors.eerieBlack};
     --error: ${colors.red};
     --selection: ${colors.royalBlue};
