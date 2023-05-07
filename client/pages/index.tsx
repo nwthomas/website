@@ -95,6 +95,7 @@ const RootStyles = styled.div`
         padding: var(--space-micro) 0;
         -moz-text-fill-color: transparent;
         -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: 0.25px var(--text);
         text-decoration: none;
         transition: opacity var(--transition-short) ease-in-out;
 
