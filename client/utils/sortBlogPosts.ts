@@ -6,6 +6,20 @@ export type BlogPost = Omit<GrayMatterFile<string>, "orig">;
 
 export type BlogPosts = Array<BlogPost>;
 
+type BlogPostFrontMatter = {
+  description: string;
+  dateUpdated?: string;
+  dateWritten: string;
+  imageUrl?: string;
+  isDraft: boolean;
+  slug: string;
+  tags: Array<string>;
+  title: string;
+  youTubeLink?: string;
+};
+
+export type BLogPostsFrontMatter = Array<BlogPostFrontMatter>;
+
 // Handles comparison of tagId to tags and returns the normal tag title
 export function getTagTitleFromTagId(
   tagId: string,
@@ -62,14 +76,12 @@ interface BlogPostsByTags {
 
 // Organizes blog posts by tags
 export function bucketAndSortBlogPostsByTags(
-  blogPosts: BlogPosts
+  blogPostsFrontMatter: BLogPostsFrontMatterArray
 ): BlogPostsByTags {
   const blogPostsByTags = {};
 
-  for (const blogPost of blogPosts) {
-    const {
-      data: { tags },
-    } = blogPost;
+  for (const blogPost of blogPostsFrontMatter) {
+    const { tags } = blogPost;
 
     for (const tag of tags) {
       blogPostsByTags[tag] = blogPostsByTags[tag] || [];
@@ -79,8 +91,8 @@ export function bucketAndSortBlogPostsByTags(
   }
 
   // This merely pulls the graymatter date for use in comparisons
-  function getBlogPostAuthoredDate(blogPost: BlogPost): Date {
-    const blogPostAuthoredDateString = blogPost.data.dateWritten;
+  function getBlogPostAuthoredDate(blogPost: BlogPostFrontMatter): Date {
+    const blogPostAuthoredDateString = blogPost.dateWritten;
 
     return new Date(blogPostAuthoredDateString);
   }
@@ -113,7 +125,7 @@ export function bucketAndSortBlogPostsByTags(
 // Merge sort for sorting any list of items into an ordered group
 export function mergeSort(
   items: any,
-  getComparator: (item: BlogPost) => Date | string,
+  getComparator: (item: BlogPostFrontMatter) => Date | string,
   compareValues: (a: Date | string, b: Date | string) => number
 ) {
   if (items.length <= 1) {
@@ -136,7 +148,7 @@ export function mergeSort(
 function mergeItems(
   firstArray: any,
   secondArray: any,
-  getComparator: (item: BlogPost) => Date | string,
+  getComparator: (item: BlogPostFrontMatter) => Date | string,
   compareValues: (a: Date | string, b: Date | string) => number
 ) {
   const result: BlogPosts = [];
