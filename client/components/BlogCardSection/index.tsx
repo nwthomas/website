@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { BLOG_PAGE } from "../../constants/routes";
-import { BlogPosts } from "../../utils/sortBlogPosts";
+import { BLogPostsFrontMatter } from "../../utils/sortBlogPosts";
 import Card from "../BlogCard";
 import Tag from "../Tag";
 import { buildDateWrittenLabel } from "../../utils/dates";
@@ -17,7 +17,7 @@ export function buildTagLinkAriaLabel(tagName: string): string {
 }
 
 interface Props {
-  blogPosts: BlogPosts;
+  blogPosts: BLogPostsFrontMatter;
   tag: string;
   withCloseButton?: boolean;
 }
@@ -37,8 +37,7 @@ function BlogCardSection({ blogPosts, tag }: Props) {
 
   const blogCards = React.useMemo(() => {
     return blogPosts.map((blogPost, i) => {
-      const { dateWritten, description, title, slug, youTubeLink } =
-        blogPost.data;
+      const { dateWritten, description, title, slug, youTubeLink } = blogPost;
       const dateWrittenLabel = getBlogPostFullDate(dateWritten || "");
       const normalizedDateWritten = buildDateWrittenLabel(dateWrittenLabel);
 

@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import {
+  BLogPostsFrontMatter,
   BlogPosts,
   bucketAndSortBlogPostsByTags,
   getSortedTagsList,
@@ -20,7 +21,10 @@ export async function getStaticProps() {
   const blogPostContent = blogPosts.map(
     (blogPost) => blogPost.fileContents
   ) as BlogPosts;
-  const blogPostsByTags = bucketAndSortBlogPostsByTags(blogPostContent);
+  const blogPostsFrontMatter = blogPostContent.map((blogPost) => {
+    return blogPost.data;
+  }) as BLogPostsFrontMatter;
+  const blogPostsByTags = bucketAndSortBlogPostsByTags(blogPostsFrontMatter);
 
   const tags = Object.keys(blogPostsByTags);
   const sortedTags = getSortedTagsList(tags);

@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import {
+  BLogPostsFrontMatter,
   BlogPosts,
   bucketAndSortBlogPostsByTags,
   getSortedTagsList,
@@ -25,7 +26,11 @@ export async function getStaticProps({ params: { tagId } }) {
   const blogPostContent = blogPosts.map(
     (blogPost) => blogPost.fileContents
   ) as BlogPosts;
-  const blogPostsByTags = bucketAndSortBlogPostsByTags(blogPostContent);
+  const blogPostsFrontMatter = blogPostContent.map((blogPost) => {
+    return blogPost.data;
+  }) as BLogPostsFrontMatter;
+
+  const blogPostsByTags = bucketAndSortBlogPostsByTags(blogPostsFrontMatter);
 
   const tags = Object.keys(blogPostsByTags);
   const sortedTags = getSortedTagsList(tags);
@@ -48,8 +53,11 @@ export async function getStaticPaths() {
   const blogPostContent = blogCardPosts.map(
     (blogPost) => blogPost.fileContents
   ) as BlogPosts;
+  const blogPostsFrontMatter = blogPostContent.map((blogPost) => {
+    return blogPost.data;
+  }) as BLogPostsFrontMatter;
 
-  const bucketedBlogPosts = bucketAndSortBlogPostsByTags(blogPostContent);
+  const bucketedBlogPosts = bucketAndSortBlogPostsByTags(blogPostsFrontMatter);
 
   const paths = Object.keys(bucketedBlogPosts).map((tag) => {
     return { params: { tagId: buildKebabCaseParam(tag) } };
