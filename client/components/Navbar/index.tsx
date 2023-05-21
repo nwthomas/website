@@ -28,7 +28,6 @@ interface StyleProps {
 }
 
 const RootStyles = styled.div<StyleProps>`
-  border-bottom: var(--space-nano) solid transparent;
   display: flex;
   left: 0;
   padding: 0 var(--app-horizontal-gutters);
@@ -36,17 +35,8 @@ const RootStyles = styled.div<StyleProps>`
   justify-content: center;
   right: 0;
   top: 0;
-  transition: border-bottom var(--transition-medium) ease-in-out;
   width: 100%;
   z-index: 10;
-
-  ${({ withMinifiedNavbar }) => {
-    if (withMinifiedNavbar) {
-      return `
-        border-bottom: var(--space-nano) solid var(--body-bg-accent-two);
-      `;
-    }
-  }}
 
   &::before {
     backdrop-filter: blur(15px);
