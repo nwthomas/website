@@ -23,9 +23,9 @@ export async function createOgImage(path: string) {
   const url = `${ORIGIN}${path}`;
   const hash = createHash("md5").update(url).digest("hex");
   const browser = await launchChromium({ headless: true });
-  const ogImageDir = `./public/images/og`;
+  const ogImageDir = "./public/images/og";
 
-  console.log(`Creating new og image for ${hash} at: `, ogImageDir);
+  console.log(`Creating new og image for ${hash} at: ${ogImageDir}`);
   const imagePath = `${ogImageDir}/${hash}.jpeg`;
   const publicPath = `/images/og/${hash}.jpeg`;
 
