@@ -2,16 +2,20 @@ import * as React from "react";
 import * as Yup from "yup";
 
 import styled, { ThemeContext } from "styled-components";
+import { useGetMouseRadian, useGetScreenDimensions } from "../../hooks";
 
 import Spinner from "../Spinner";
 import { ThemeEnum } from "../../store/reducers/themeSlice";
 import { useFormik } from "formik";
-import { useGetMouseRadian } from "../../hooks";
 
 const contactFormRef = React.createRef<HTMLDivElement>();
 
-function getContactFormBorder(radians: number) {
-  return `linear-gradient(calc(${radians}rad), var(--body-bg-accent-two) 0%, var(--body-bg-accent-two) 50%, rgba(121,40,202,0) 75%)`;
+function getContactFormBorder(radians: number, isDesktopLayout: boolean) {
+  if (isDesktopLayout) {
+    return `linear-gradient(calc(${radians}rad), var(--body-bg-accent-two) 0%, var(--body-bg-accent-two) 50%, rgba(121,40,202,0) 75%)`;
+  }
+
+  return "linear-gradient(to right, var(--body-bg-accent-two) 0%, var(--body-bg-accent-two) 100%)";
 }
 
 export interface MessageValues {
@@ -42,7 +46,12 @@ function ContactForm({
   onSendMessageClick,
   withSpinner,
 }: Props) {
-  const { currentTheme } = React.useContext(ThemeContext);
+  const { breakpointsInt, currentTheme } = React.useContext(ThemeContext);
+  const { viewportWidth } = useGetScreenDimensions();
+
+  const isDesktopLayout = Boolean(
+    viewportWidth && viewportWidth > breakpointsInt.tablet
+  );
 
   const radians = useGetMouseRadian(contactFormRef);
 
@@ -76,7 +85,7 @@ function ContactForm({
       currentTheme={currentTheme}
       isFormButtonDisabled={withSpinner}
       style={{
-        backgroundImage: getContactFormBorder(radians),
+        backgroundImage: getContactFormBorder(radians, isDesktopLayout),
       }}
     >
       <div ref={contactFormRef}>
