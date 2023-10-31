@@ -12,3 +12,122 @@ tags:
 <img alt="Bitcoin logo overlaid on a desert picture" src="/images/blog/building-your-own-bitcoin-node/desert-bitcoin-logo.webp" width="1680" height="1120">
 
 # Building Your Own Bitcoin Node
+
+Welcome, fam.
+
+If you're here, I think you're in for a really awesome ride. I'm going to teach you how to build your very own Bitcoin node. 🔥
+
+By the end, you'll have something that you can open on your computer that will look like this:
+
+<img alt="The Umbrel GUI for a Bitcoin node" src="/images/blog/building-your-own-bitcoin-node/finished-bitcoin-node.webp" width="1898" height="1299">
+
+Nice, right?
+
+Don't worry, you'll be there shortly too.
+
+I always like to let people know what they're getting into before going very far in my articles, so here it is:
+
+- This entire project will definitely cost some money (about $250 USD at time of writing, although you should be able to shop around for something _much_ cheaper and used if you really want to)
+- You don't need to know how to code
+- You _do_ need some great computer literacy (installing programs, feeling confident working with SD cards, etc.)
+- Once you have the parts (more on that below) you'll need several hours of time to set everything up
+
+You know I'm all about typing up code to build awesome things, but that's for another day. This tutorial doesn't require code because I want everyone to be able to participate! 🙌🏻
+
+Okay fam. Let's get to it.
+
+> “I think the internet is going to be one of the major forces for reducing the role of government. The one thing that's missing, but that will soon be developed, is a reliable e-cash, a method whereby on the Internet you can transfer funds from A to B without A knowing B or B knowing A…”
+>
+> — Milton Friedman, Economist
+
+## Time to Buy Some Stuff
+
+If you don't have them already, you'll need two main things — a Raspberry Pi, and an external SSD. Here's what I recommend:
+
+1. [Raspberry Pi 4 kit from Amazon](https://www.amazon.com/RasTech-Raspberry-Starter-Heatsinks-Screwdriver/dp/B0C8LV6VNZ/ref=sr_1_2_sspa?keywords=raspberry+pi+kit+amazon&qid=1698733502&sr=8-2-spons&ufe=app_do%3Aamzn1.fos.f5122f16-c3e8-4386-bf32-63e904010ad0&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1) ~ $130 USD
+2. [Samsung 1TB external SSD from Amazon](https://www.amazon.com/SAMSUNG-Portable-SSD-1TB-MU-PC1T0T/dp/B0874XN4D8/ref=sr_1_3?crid=2FDW6FN513AYP&keywords=1tb%2Bssd%2Bexternal&qid=1651259081&sprefix=1tb%2Bssd%2Bexte%2Caps%2C275&sr=8-3&th=1) ~ $95 USD
+
+Don't worry, those aren't sponsored links. They're just recommendations.
+
+I make my money from other ways without having to write articles that trick you into buying stuff. 👍🏻
+
+Also, as a fairly frugal person myself, I know it's not fun to spend lots of money. 💸
+
+The great thing about what you're buying here is that none of these parts are specific to Bitcoin. You'll be able to reuse the Raspberry Pi if you want for some really [crazy projects](https://pimylifeup.com/category/projects/) in the future, and who can't use a good external SSD for storage? Where else are you going to put all those photos of your great uncle's third wedding from 2015?
+
+If you decide not to get the Raspberry Pi kit I linked, just make sure to collect the following parts:
+
+- Raspberry Pi 4
+- Raspberry Pi 4 case & fan
+- Raspberry Pi 4 power supply
+- Ethernet cable
+- 16GB or larger microSD card
+- 1TB or larger SSD (with a USB A-type connection cord)
+
+I realize it might take days for you to get these parts togethers, so go ahead and do your thing.
+
+I'll be waiting for you just down below when you get back.
+
+> “We are all now connected by the Internet, like neurons in a giant brain.”
+>
+> — Stephen Hawking, theoretical physicist
+
+## Setting Up the Hardware
+
+Now that you have the parts you need, there's nothing standing in the way of getting your Bitcoin node up and running!
+
+If you bought a Raspberry Pi kit, it should have instructions on putting it together. I'll let you follow those. 🏗
+
+If not, here's a [walkthrough of setting up a Raspberry Pi package](https://www.youtube.com/watch?v=7rcNjgVgc-I) that you can riff off of to try to set up any custom case/parts you might have bought.
+
+Done? Nice.
+
+The next thing you need to do is make sure your external SSD is formatted the right way. If you don't, [Umbrel](https://umbrel.com) (the software we'll be using to have a nice GUI dashboard for our Bitcoin node) won't be able to start downloading the Bitcoin blockchain.
+
+If you have a Windows machine, you'll need to format it for “Ext4” ([walkthrough](https://www.diskpart.com/articles/format-ext4-windows-7201.html)). If you have a Mac, format it for “Fat32” ([walkthrough](https://support.klipsch.com/hc/en-us/articles/360042962671-How-To-Format-Your-USB-Drive-to-FAT32-Mac)).
+
+Done? Awesome.
+
+Let's move on to software. 🙌🏻
+
+<img alt="Desert" src="/images/blog/building-your-own-bitcoin-node/desert.webp" width="1459" height="973">
+
+## Installing the Software
+
+First, you'll need to flash Umbrel's software onto your micro SSD card. To do this, install a SD card flasher like [BalenaEtcher](https://etcher.balena.io) (for Mac, Windows, and Linux).
+
+Next, [download the most recent version of Umbrel](https://umbrel.com). We'll be flashing that onto the SD card in a second. 😎
+
+Once you have the Umbrel OS image downloaded, connect your SD card and flash the image to it with BalenaEtcher:
+
+<img title="Flashing the Umbrel OS image to an SD Card with BalenaEtcher" alt="Flashing the Umbrel OS image to an SD Card with BalenaEtcher" src="/images/blog/building-your-own-bitcoin-node/balena-etcher.webp" width="4112" height="2578">
+
+On the first step here, you need to select the .img file that you just downloaded from the Umbrel website. Next, select the target as your SD card. Finally, you can go ahead and flash it!
+
+Once that's done, we're ready for the next step — installing it on the Raspberry Pi! 🔥
+
+> “Think of Bitcoin as a bank account in the cloud, and it's completely decentralized: not the Swiss government, not the American government. It's all the participants in the network enforcing.”
+>
+> — Naval Ravikant, former CEO of AngelList
+
+## Getting Your Node to Connect
+
+Believe it or not, this is now the easy part if everything is set up correctly. Here are the steps for connecting your Bitcoin node to the network:
+
+- Put your microSD card into the Raspberry Pi port. It will look like this:
+- Next, put the Raspberry Pi into its case and connect the power cord
+- Plug in the external SSD drive, making sure to use one of the USB ports here:
+- Next, plug the ethernet cord into the ethernet port right by where you plugged in the external SSD. Connect it to your router and plug the entire rig into the wall with the power supply.
+- Sit back and watch it turn on 🔌
+
+> “Bitcoin is a way to have programmable scarcity. The blockchain is the data structure that records the transfer of scarce objects.”
+>
+> — Balaji Srinivasan, former CTO of Coinbase
+
+## It's Aliiiiiive 🧟‍♀️
+
+Now that your small zombie child is all wired up, you can kick back and just enjoy the rest of this process as Umbrel's software does all the work.
+
+Once the Raspberry Pi turns on, Umbrel will automatically boot up from the microSD card and start doing its thing. You should be able to grab your computer and go to http://umbrel.local (your computer needs to be on the same Wifi network as your Bitcoin node).
+
+This is the front-end that will let you interact with your Bitcoin node. When you go there initially, this is likely what you'll see (as it's still setting up):
