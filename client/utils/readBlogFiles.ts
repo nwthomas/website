@@ -1,6 +1,7 @@
 import { BlogPost } from "./sortBlogPosts";
 import fs from "fs";
 import getConfig from "next/config";
+import { isProductionEnvironment } from "../constants/environments";
 import matter from "gray-matter";
 import path from "path";
 
@@ -29,7 +30,10 @@ export function getDirectoryFiles(relativeDirectoryPath: string): Files {
     const name = path.parse(filename).name;
     const fileContents = readFileContentsObject(filePath);
 
-    if (fileContents && !fileContents?.data?.isDraft) {
+    const isDraftInProduction =
+      isProductionEnvironment && fileContents?.data?.isDraft;
+
+    if (fileContents && !isDraftInProduction) {
       // Mutate a new slug value on data for ease of use on pages
       fileContents.data.slug = name;
 
