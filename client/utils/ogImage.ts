@@ -15,7 +15,7 @@ import { launchChromium } from "playwright-aws-lambda/dist/src/chromium";
 // See: https://phiilu.com/generate-open-graph-images-for-your-static-next-js-site
 // Also: /pages/og.tsx
 export async function createOgImage(path: string) {
-  // Dynamic OG images are only build at build time for production
+  // Dynamic OG images are only built at build time for production
   if (!isProductionEnvironment) {
     return DEFAULT_SEO_VALUES.imageUrl;
   }
