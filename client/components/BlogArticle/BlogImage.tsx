@@ -41,8 +41,8 @@ function BlogImage({
           src={src}
           width={imageWidth}
         />
-        {title ? <BlogMarkdownRenderer content={title} /> : null}
       </div>
+      {title ? <BlogMarkdownRenderer content={title} /> : null}
     </RootStyles>
   );
 }
@@ -52,11 +52,13 @@ interface StyleProps {
 }
 
 const RootStyles = styled.div<StyleProps>`
+  align-items: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   width: 100%;
 
-  > div {
+  > div:nth-child(1) {
     align-items: center;
     border-radius: var(--border-radius-medium);
     display: flex;
@@ -70,17 +72,17 @@ const RootStyles = styled.div<StyleProps>`
     overflow: hidden;
     position: relative;
     width: 100%;
+  }
 
-    > div {
-      display: flex;
-      justify-content: center;
-      margin-top: var(--space-small);
+  > div:nth-child(2) {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-small);
 
-      p {
-        color: var(--text-secondary);
-        text-align: center;
-        z-index: 9;
-      }
+    p {
+      color: var(--text-secondary);
+      text-align: center;
+      z-index: 9;
     }
   }
 `;
