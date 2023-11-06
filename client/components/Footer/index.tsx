@@ -71,11 +71,11 @@ function Footer() {
             <li>
               <a
                 href="https://twitter.com/nwthomas_"
-                aria-label="Link to Nathan's X account"
+                aria-label="Link to Nathan's Twitter"
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                X
+                Twitter
               </a>
             </li>
           </ul>
