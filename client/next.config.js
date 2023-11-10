@@ -6,6 +6,12 @@ const nextConfig = {
   serverRuntimeConfig: {
     PROJECT_ROOT: __dirname,
   },
+  experimental: {
+    ppr: true,
+  },
+  compiler: {
+    styledComponents: true,
+  },
   async redirects() {
     return [
       {
