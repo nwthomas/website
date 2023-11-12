@@ -49,7 +49,7 @@ const GlobalStyle = css`
 
     /* Color raw hex variables */
     --color-alabaster: ${colors.alabaster};
-    --color-alto: ${colors.alto};
+    --color-anti-flash-white: ${colors.antiFlashWhite};
     --color-black: ${colors.black};
     --color-bright-sun: ${colors.brightSun};
     --color-burnt-sienna: ${colors.burntSienna};
@@ -127,7 +127,7 @@ const GlobalStyle = css`
   }
   body.light {
     --body-bg: ${colors.white};
-    --body-bg-accent-one: ${colors.alto};
+    --body-bg-accent-one: ${colors.antiFlashWhite};
     --body-bg-accent-two: ${colors.silver};
     --body-bg-accent-three: ${colors.alabaster};
     --body-bg-blur: rgba(255, 255, 255, 0.7);
