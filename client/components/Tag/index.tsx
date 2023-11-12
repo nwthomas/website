@@ -4,14 +4,20 @@ import styled from "styled-components";
 
 interface Props {
   ariaLabel?: string;
+  shouldPrefetch?: boolean;
   text: string;
   url: string;
   withCloseIcon?: boolean;
 }
 
-function Tag({ ariaLabel, text, url, withCloseIcon }: Props) {
+function Tag({ ariaLabel, shouldPrefetch, text, url, withCloseIcon }: Props) {
   return (
-    <StyledLink aria-label={ariaLabel} href={url} passHref prefetch={false}>
+    <StyledLink
+      aria-label={ariaLabel}
+      href={url}
+      passHref
+      prefetch={Boolean(shouldPrefetch)}
+    >
       {withCloseIcon ? (
         <div>
           <CloseIcon color="var(--color-red)" />
