@@ -16,11 +16,7 @@ import ThemeTransitionSwitch from "../ThemeTransitionSwitch";
 import styled from "styled-components";
 import { useLockBodyScroll } from "../../hooks";
 
-interface Props {
-  currentPath: string;
-}
-
-function MobileNavbarTray({ currentPath }: Props) {
+function MobileNavbarTray() {
   useLockBodyScroll();
 
   return (
@@ -28,36 +24,26 @@ function MobileNavbarTray({ currentPath }: Props) {
       <nav>
         <ul>
           <li>
-            <NavbarLink
-              ariaLabel={HOME_LINK_ARIA_LABEL}
-              currentPath={currentPath}
-              route={HOME_PAGE}
-            >
+            <NavbarLink ariaLabel={HOME_LINK_ARIA_LABEL} route={HOME_PAGE}>
               Home
             </NavbarLink>
           </li>
           <li>
             <NavbarLink
               ariaLabel={PLAYGROUND_LINK_ARIA_LABEL}
-              currentPath={currentPath}
               route={PLAYGROUND_PAGE}
             >
               Playground
             </NavbarLink>
           </li>
           <li>
-            <NavbarLink
-              ariaLabel={BLOG_LINK_ARIA_LABEL}
-              currentPath={currentPath}
-              route={BLOG_PAGE}
-            >
+            <NavbarLink ariaLabel={BLOG_LINK_ARIA_LABEL} route={BLOG_PAGE}>
               Blog
             </NavbarLink>
           </li>
           <li>
             <NavbarLink
               ariaLabel={CONTACT_LINK_ARIA_LABEL}
-              currentPath={currentPath}
               route={CONTACT_PAGE}
             >
               Contact

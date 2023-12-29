@@ -18,20 +18,13 @@ import { CONTENTS_ID } from "../../constants/routes";
 import NavbarLink from "./NavbarLink";
 import ThemeTransitionSwitch from "../ThemeTransitionSwitch";
 import styled from "styled-components";
-import { useRouter } from "next/router";
 
 function DesktopNavbar() {
-  const { asPath: currentPath } = useRouter();
-
   return (
     <RootStyles>
       <ul>
         <li>
-          <NavbarLink
-            ariaLabel={HOME_LINK_ARIA_LABEL}
-            currentPath={currentPath}
-            route={HOME_PAGE}
-          >
+          <NavbarLink ariaLabel={HOME_LINK_ARIA_LABEL} route={HOME_PAGE}>
             Nathan Thomas
           </NavbarLink>
         </li>
@@ -44,25 +37,19 @@ function DesktopNavbar() {
           <li>
             <NavbarLink
               ariaLabel={PLAYGROUND_LINK_ARIA_LABEL}
-              currentPath={currentPath}
               route={PLAYGROUND_PAGE}
             >
               Playground
             </NavbarLink>
           </li>
           <li>
-            <NavbarLink
-              ariaLabel={BLOG_LINK_ARIA_LABEL}
-              currentPath={currentPath}
-              route={BLOG_PAGE}
-            >
+            <NavbarLink ariaLabel={BLOG_LINK_ARIA_LABEL} route={BLOG_PAGE}>
               Blog
             </NavbarLink>
           </li>
           <li>
             <NavbarLink
               ariaLabel={CONTACT_LINK_ARIA_LABEL}
-              currentPath={currentPath}
               route={CONTACT_PAGE}
             >
               Contact

@@ -11,12 +11,10 @@ import { HOME_LINK_ARIA_LABEL } from "../../constants/ariaLabels";
 import { HOME_PAGE } from "../../constants/routes";
 import MobileNavbarTray from "./MobileNavbarTray";
 import NavbarLink from "./NavbarLink";
-import { useRouter } from "next/router";
 
 export const NAVBAR_BUTTON_LABEL = "Navbar button";
 
 function MobileNavbar() {
-  const { asPath: currentPath } = useRouter();
   const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
   const [withAnimation, setWithAnimation] = React.useState<boolean>(false);
 
@@ -29,11 +27,7 @@ function MobileNavbar() {
     <RootStyles isMenuOpen={isMenuOpen} withAnimation={withAnimation}>
       <ul>
         <li>
-          <NavbarLink
-            ariaLabel={HOME_LINK_ARIA_LABEL}
-            currentPath={currentPath}
-            route={HOME_PAGE}
-          >
+          <NavbarLink ariaLabel={HOME_LINK_ARIA_LABEL} route={HOME_PAGE}>
             Nathan Thomas
           </NavbarLink>
         </li>
@@ -51,9 +45,7 @@ function MobileNavbar() {
                 <div />
                 <div />
               </button>
-              {isMenuOpen ? (
-                <MobileNavbarTray currentPath={currentPath} />
-              ) : null}
+              {isMenuOpen ? <MobileNavbarTray /> : null}
             </div>
           </FocusTrap>
         </li>
