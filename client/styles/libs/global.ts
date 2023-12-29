@@ -260,7 +260,7 @@ const GlobalStyle = css`
   a {
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
-    color: var(--text-secondary);
+    color: var(--text);
     cursor: pointer;
     font-display: swap;
     font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system,
@@ -279,7 +279,7 @@ const GlobalStyle = css`
 
     &:hover,
     &:active {
-      color: var(--text);
+      color: var(--text-secondary);
       outline: none;
     }
   }

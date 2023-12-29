@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import Link from "next/link";
-import styled from "styled-components";
 
 interface Props {
   ariaLabel?: string;
@@ -11,31 +10,13 @@ interface Props {
 }
 
 function NavbarLink({ ariaLabel, children, currentPath, route }: Props) {
-  const isCurrentPage = currentPath === route;
-
   return (
-    <RootStyles isCurrentPage={isCurrentPage}>
+    <div>
       <Link aria-label={ariaLabel} href={route} prefetch={false}>
         {children}
       </Link>
-    </RootStyles>
+    </div>
   );
 }
-
-interface StyleProps {
-  isCurrentPage: boolean;
-}
-
-const RootStyles = styled.div<StyleProps>`
-  a {
-    ${({ isCurrentPage }) => {
-      if (isCurrentPage) {
-        return `color: var(--text);`;
-      }
-
-      return "";
-    }}
-  }
-`;
 
 export default NavbarLink;
