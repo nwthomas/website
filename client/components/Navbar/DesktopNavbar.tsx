@@ -12,6 +12,7 @@ import {
   CONTACT_PAGE,
   HOME_PAGE,
   PLAYGROUND_PAGE,
+  PLAYGROUND_PAGE_ENABLED,
 } from "../../constants/routes";
 
 import { CONTENTS_ID } from "../../constants/routes";
@@ -35,12 +36,14 @@ function DesktopNavbar() {
         </li>
         <div>
           <li>
-            <NavbarLink
-              ariaLabel={PLAYGROUND_LINK_ARIA_LABEL}
-              route={PLAYGROUND_PAGE}
-            >
-              Playground
-            </NavbarLink>
+            {PLAYGROUND_PAGE_ENABLED ? (
+              <NavbarLink
+                ariaLabel={PLAYGROUND_LINK_ARIA_LABEL}
+                route={PLAYGROUND_PAGE}
+              >
+                Playground
+              </NavbarLink>
+            ) : null}
           </li>
           <li>
             <NavbarLink ariaLabel={BLOG_LINK_ARIA_LABEL} route={BLOG_PAGE}>
