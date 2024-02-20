@@ -42,22 +42,30 @@ function BlogImage({
     );
   };
 
+  const image = (
+    <Image
+      alt={alt}
+      blurDataURL={placeholderImage}
+      draggable={false}
+      height={imageHeight}
+      loading={isHeroImage ? "eager" : "lazy"}
+      placeholder="blur"
+      priority={isHeroImage}
+      quality={100}
+      src={src}
+      width={imageWidth}
+    />
+  );
+
   return (
     <RootStyles isHeroImage={isHeroImage}>
-      <div onClick={handleImageClick}>
-        <Image
-          alt={alt}
-          blurDataURL={placeholderImage}
-          draggable={false}
-          height={imageHeight}
-          loading={isHeroImage ? "eager" : "lazy"}
-          placeholder="blur"
-          priority={isHeroImage}
-          quality={100}
-          src={src}
-          width={imageWidth}
-        />
-      </div>
+      {!isHeroImage ? (
+        <button aria-label="Enlarge image" onClick={handleImageClick}>
+          {image}
+        </button>
+      ) : (
+        <div>{image}</div>
+      )}
       {title ? <BlogMarkdownRenderer content={title} /> : null}
     </RootStyles>
   );
@@ -74,7 +82,8 @@ const RootStyles = styled.div<StyleProps>`
   justify-content: center;
   width: 100%;
 
-  > div:nth-child(1) {
+  > button,
+  div {
     align-items: center;
     border-radius: var(--border-radius-medium);
     display: flex;
@@ -90,13 +99,19 @@ const RootStyles = styled.div<StyleProps>`
     transition: opacity var(--transition-short) ease-in-out;
     width: 100%;
 
-    &:hover {
-      cursor: zoom-in;
-      opacity: 0.8;
-    }
+    ${({ isHeroImage }) => {
+      if (!isHeroImage) {
+        return `
+          &:hover {
+            cursor: zoom-in;
+            opacity: 0.8;
+          }  
+        `;
+      }
+    }}
   }
 
-  > div:nth-child(2) {
+  > div {
     display: flex;
     justify-content: center;
     margin-top: var(--space-small);

@@ -29,7 +29,10 @@ function ImageOverlay() {
     <FocusTrap>
       <RootStyles currentTheme={currentTheme} onClick={handleCloseButtonClick}>
         <div>
-          <button onClick={handleCloseButtonClick}>
+          <button
+            aria-label="Close image overlay"
+            onClick={handleCloseButtonClick}
+          >
             <CloseIcon color="var(--text)" />
           </button>
           <div>
