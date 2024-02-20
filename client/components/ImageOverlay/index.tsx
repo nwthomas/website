@@ -72,13 +72,12 @@ const RootStyles = styled.div<StyleProps>`
     flex-direction: column;
     height: 100vh;
     justify-content: center;
-    padding: var(--space-medium);
+    padding: var(--space-small);
     width: 100%;
 
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.tablet}) {
-      padding-left: var(--space-medium);
-      padding-right: var(--space-medium);
+      padding: var(--space-medium);
     }
 
     > div {
@@ -86,14 +85,15 @@ const RootStyles = styled.div<StyleProps>`
     }
 
     > button {
-      position: absolute;
       height: var(--space-large);
-      width: var(--space-large);
-      top: var(--space-small);
-      right: var(--space-small);
-      z-index: 11;
-      padding: 0;
       margin: 0;
+      padding: 0;
+      position: absolute;
+      right: var(--space-small);
+      top: var(--space-small);
+      transition: opacity var(--transition-short) ease-in-out;
+      width: var(--space-large);
+      z-index: 11;
 
       &:hover {
         opacity: 0.8;
