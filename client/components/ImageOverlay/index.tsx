@@ -5,6 +5,7 @@ import { useLockBodyScroll, useTheme } from "../../hooks";
 import { CloseIcon } from "../Icons";
 import FocusTrap from "focus-trap-react";
 import Image from "next/image";
+import React from "react";
 import { colors } from "../../styles/libs/theme";
 import { hideImageOverlay } from "../../store/reducers/blogSlice";
 import { selectOverlayImage } from "../../store/selectors/blogSelector";
@@ -21,8 +22,14 @@ function ImageOverlay() {
     return null;
   }
 
-  const handleCloseButtonClick = () => {
-    dispatch(hideImageOverlay());
+  const handleCloseButtonClick = (
+    event:
+      | React.MouseEvent<HTMLDivElement, MouseEvent>
+      | React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    if (event.target instanceof HTMLImageElement === false) {
+      dispatch(hideImageOverlay());
+    }
   };
 
   return (
