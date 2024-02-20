@@ -87,7 +87,13 @@ const RootStyles = styled.div<StyleProps>`
       isHeroImage ? 0 : "var(--space-medium)"};
     overflow: hidden;
     position: relative;
+    transition: opacity var(--transition-short) ease-in-out;
     width: 100%;
+
+    &:hover {
+      cursor: zoom-in;
+      opacity: 0.8;
+    }
   }
 
   > div:nth-child(2) {
