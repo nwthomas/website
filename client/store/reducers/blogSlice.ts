@@ -9,12 +9,12 @@ export interface OverlayImage {
 }
 
 export interface BlogState {
-  showImageOverlay: boolean;
+  isShowingImageOverlay: boolean;
   image: OverlayImage | null;
 }
 
 const initialState: BlogState = {
-  showImageOverlay: false,
+  isShowingImageOverlay: false,
   image: null,
 };
 
@@ -23,11 +23,11 @@ export const blogSlice = createSlice({
   initialState,
   reducers: {
     showImageOverlay: (state, action: PayloadAction<OverlayImage>) => {
-      state.showImageOverlay = true;
+      state.isShowingImageOverlay = true;
       state.image = action.payload;
     },
     hideImageOverlay: (state) => {
-      state.showImageOverlay = false;
+      state.isShowingImageOverlay = false;
       state.image = null;
     },
   },
