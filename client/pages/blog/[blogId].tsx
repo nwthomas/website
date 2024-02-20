@@ -8,7 +8,7 @@ import ImageOverlay from "../../components/ImageOverlay";
 import Layout from "../../components/Layout";
 import { getDirectoryFiles } from "../../utils/readBlogFiles";
 import { hideImageOverlay } from "../../store/reducers/blogSlice";
-import { selectShowImageOverlay } from "../../store/selectors/blogSelector";
+import { selectIsShowingImageOverlay } from "../../store/selectors/blogSelector";
 import styled from "styled-components";
 import { useEffect } from "react";
 
@@ -51,7 +51,7 @@ function BlogPost({ blogPost }) {
 
   const dispatch = useDispatch();
 
-  const showImageOverlay = useSelector(selectShowImageOverlay);
+  const isShowingImageOverlay = useSelector(selectIsShowingImageOverlay);
 
   useEffect(() => {
     // On any navigation away from current blog page, clear blog image overlay state
@@ -67,7 +67,7 @@ function BlogPost({ blogPost }) {
       isArticle
       pageName={blogPost.data.title}
     >
-      {showImageOverlay ? <ImageOverlay /> : null}
+      {isShowingImageOverlay ? <ImageOverlay /> : null}
       <RootStyles>
         <main id={CONTENTS_ID}>
           <article>

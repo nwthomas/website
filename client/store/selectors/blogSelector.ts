@@ -6,10 +6,10 @@ const selectBlogState = (state: RootState): BlogState => {
   return state.blog;
 };
 
-export const selectShowImageOverlay = (state: RootState): boolean => {
+export const selectIsShowingImageOverlay = (state: RootState): boolean => {
   const blogState = selectBlogState(state);
 
-  return blogState.showImageOverlay;
+  return blogState.isShowingImageOverlay;
 };
 
 export const selectOverlayImage = (state: RootState): OverlayImage | null => {
