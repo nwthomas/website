@@ -27,6 +27,12 @@ const RootStyles = styled.div`
     a {
       font-family: inherit;
       font-size: inherit;
+      color: var(--selection);
+
+      &:hover,
+      &:active {
+        color: var(--text);
+      }
     }
 
     em,

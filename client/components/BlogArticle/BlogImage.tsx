@@ -2,7 +2,9 @@ import * as React from "react";
 
 import { BlogMarkdownRenderer } from "./";
 import Image from "next/image";
+import { showImageOverlay } from "../../store/reducers/blogSlice";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
 
 interface Props {
   alt?: string;
@@ -26,9 +28,23 @@ function BlogImage({
   const imageHeight = Number(height);
   const imageWidth = Number(width);
 
+  const dispatch = useDispatch();
+
+  const handleImageClick = () => {
+    dispatch(
+      showImageOverlay({
+        alt,
+        height: imageHeight,
+        placeholderImage,
+        width: imageWidth,
+        src,
+      })
+    );
+  };
+
   return (
     <RootStyles isHeroImage={isHeroImage}>
-      <div>
+      <div onClick={handleImageClick}>
         <Image
           alt={alt}
           blurDataURL={placeholderImage}
