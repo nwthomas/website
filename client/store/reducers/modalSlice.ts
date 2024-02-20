@@ -12,7 +12,7 @@ const initialState: ModalState = {
   shouldShowModal: false,
 };
 
-export const bannerSlice = createSlice({
+export const modalSlice = createSlice({
   name: "modal",
   initialState,
   reducers: {
@@ -32,5 +32,5 @@ export const bannerSlice = createSlice({
   },
 });
 
-export const { updateModalValues } = bannerSlice.actions;
-export default bannerSlice.reducer;
+export const { updateModalValues } = modalSlice.actions;
+export default modalSlice.reducer;
