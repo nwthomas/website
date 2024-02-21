@@ -59,13 +59,9 @@ function BlogImage({
 
   return (
     <RootStyles isHeroImage={isHeroImage}>
-      {!isHeroImage ? (
-        <button aria-label="Enlarge image" onClick={handleImageClick}>
-          {image}
-        </button>
-      ) : (
-        <div>{image}</div>
-      )}
+      <button aria-label="Enlarge image" onClick={handleImageClick}>
+        {image}
+      </button>
       {title ? <BlogMarkdownRenderer content={title} /> : null}
     </RootStyles>
   );
@@ -82,9 +78,9 @@ const RootStyles = styled.div<StyleProps>`
   justify-content: center;
   width: 100%;
 
-  > button,
-  div {
+  > button {
     align-items: center;
+    border: 1px solid var(--body-bg-accent-two);
     border-radius: var(--border-radius-medium);
     display: flex;
     flex-direction: column;
@@ -99,16 +95,10 @@ const RootStyles = styled.div<StyleProps>`
     transition: opacity var(--transition-short) ease-in-out;
     width: 100%;
 
-    ${({ isHeroImage }) => {
-      if (!isHeroImage) {
-        return `
-          &:hover {
-            cursor: zoom-in;
-            opacity: 0.8;
-          }  
-        `;
-      }
-    }}
+    &:hover {
+      cursor: zoom-in;
+      opacity: 0.8;
+    }
   }
 
   > div {

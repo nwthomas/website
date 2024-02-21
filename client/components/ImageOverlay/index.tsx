@@ -91,6 +91,7 @@ const RootStyles = styled.div<StyleProps>`
     }
 
     > div {
+      border: 1px solid var(--body-bg-accent-two);
       max-height: 100vh;
     }
 
