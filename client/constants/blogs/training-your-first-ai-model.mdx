@@ -2,7 +2,7 @@
 title: "Training Your First AI Model"
 description: "Get started with AI by quickly training your first image classifier AI model."
 imageUrl: "/images/blog/training-your-first-ai-model/album-covers.webp"
-dateWritten: "2024-02-20"
+dateWritten: "2024-02-21"
 isDraft: true
 tags:
   - Artificial Intelligence
@@ -11,6 +11,8 @@ tags:
 <img alt="Album covers from vinyl records on display on shelves" src="/images/blog/training-your-first-ai-model/album-covers.webp" width="1500" height="991">
 
 # Training Your First AI Model
+
+> Note: If you ever get stuck while implementing the directions in this article, you can refer to [this finished Kaggle notebook](https://www.kaggle.com/code/thnate/first-ai-model) for a solution.
 
 ## Start Your Engine
 
@@ -80,7 +82,7 @@ from fastbook import *
 from fastai.vision.widgets import *
 ```
 
-`FastAI` is a package developed by the company [FastAI](https://www.fast.ai/) as a wrapper around [PyTorch](https://pytorch.org/) with lots of sane defaults so that you and I can get to hacking.
+`fastai` is a package developed by the company [FastAI](https://www.fast.ai/) as a wrapper around [PyTorch](https://pytorch.org/) with lots of sane defaults so that you and I can get to hacking.
 
 This is what it should look like once you're done:
 
@@ -134,7 +136,7 @@ Nice. This is always a good idea to do as we're effectively sampling the image d
 Next, we need to setup all our queries. These will be other categories for images to fall into. I'm going to search for `"basses"` and `"harmonicas"` as well to keep with the whole music theme:
 
 ```python
-instrument_types = "guitars", "basses", "harmonicas"
+instrument_types = "guitar", "electric bass", "harmonica"
 path = Path("instruments")
 ```
 
@@ -191,7 +193,32 @@ Go ahead and jump into the next section to do that when you're ready.
 >
 > \- Alan Kay
 
-## Setup our Dataloaders
+## Setting Up Our Dataloaders
+
+In order to manipulate our data, we're going to use a class exported from `fastai` called a `Dataloader`.
+
+Go ahead and create (and, like always, run) this code block:
+
+```python
+instruments = DataBlock(
+    blocks=(ImageBlock, CategoryBlock),
+    get_items=get_image_files,
+    splitter=RandomSplitter(valid_pct=0.2, seed=42),
+    get_y=parent_label,
+    item_tfms=RandomResizedCrop(224, min_scale=0.5),
+    batch_tfms=aug_transforms(),
+)
+```
+
+Okay. What's going on here?
+
+Good question.
+
+First, we have this line
+
+```python
+dls = bears.dataloaders(path)
+```
 
 ## Train Your New Model
 
@@ -200,3 +227,13 @@ Go ahead and jump into the next section to do that when you're ready.
 ## Build an Interface Using Gradio
 
 ## Conclusion
+
+There you go. You've trained a new model to do what you want _and_ learned how to deploy it and turn it into an API.
+
+From here, the sky is the limit. I'd _highly_ recommend you go check out FastAI's [Practical Deep Learning for Coders](https://course.fast.ai/) course if you want to learn more. This article covers roughly the first two lectures.
+
+Feel free to shoot me a message on the contact form on this website with whatever you've created! I'd love to see it.
+
+As always, thanks for reading.
+
+Nathan ☕
