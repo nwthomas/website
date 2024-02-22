@@ -22,6 +22,10 @@ With the recent boom in artificial intelligence, we can take this once step furt
 
 A great course you can use to learn about this is one by FastAI called [Practical Deep Learning for Coders](https://course.fast.ai/). I'll be summarizing the first few chapters in a condensced format here that should get you up off the ground with your first model trained and deployed for use in no time.
 
+We'll be building an [image classifier](https://huggingface.co/docs/transformers/tasks/image_classification) in this article, which means you can upload an image to it and it will predict whether it's a certain animal, shape, car, or whatever you decide to build.
+
+I'd encourage you to think about what you want to make. Do you want to make an image classifier for dogs and cats? Perhaps you want to make one for [different types of food](https://www.youtube.com/watch?v=ACmydtFDTGs)?
+
 > "It is difficult to think of a major industry that AI will not transform. This includes healthcare, education, transportation, retail, communications, and agriculture. There are surprisingly clear paths for AI to make a big difference in all of these industries."
 >
 > \- Andrew Ng
@@ -76,6 +80,8 @@ from fastbook import *
 from fastai.vision.widgets import *
 ```
 
+`FastAI` is a package developed by the company [FastAI](https://www.fast.ai/) as a wrapper around [PyTorch](https://pytorch.org/) with lots of sane defaults so that you and I can get to hacking.
+
 This is what it should look like once you're done:
 
 <img alt="Final initial setup code cell in Kaggle notebook" src="/images/blog/training-your-first-ai-model/finished-initial-setup.webp" height="967" width="1600">
@@ -90,12 +96,107 @@ Now it's time to download some real data so that we can train our model!
 
 ## Download Your Data
 
+So far, we've only really been concerned with setup. But in this section, we're going to download the data we'll need to train our AI model!
+
+Remember earlier when I encouraged you to think of what kind of image classifier you were wanting to train? Well, it's time to use what you've decided on and jump in with both feet.
+
+Go ahead and write the following code in a new code block (replacing `"guitars"` with whatever you want your model to predict):
+
+```python
+results = search_images_ddg("guitars")
+len(results)
+```
+
+It should look like this:
+
+<img alt="DuckDuckGo initial search in code block" src="/images/blog/training-your-first-ai-model/duck-duck-go-initial-search.webp" height="967" width="1600">
+
+Once you run that, it should say something like `200` undernearth your code block. This is indicative of the number of results that were found matching your search!
+
+Next, go ahead and add the following two code blocks and run them both:
+
+```python
+destination = 'images/guitars.jpg'
+download_url(results[0], destination)
+```
+
+```python
+image = Image.open(destination)
+image.to_thumb(128,128)
+```
+
+It should look like this:
+
+<img alt="Sampling image data from DuckDuckGo" src="/images/blog/training-your-first-ai-model/sampling-image-data.webp" height="967" width="1600">
+
+Nice. This is always a good idea to do as we're effectively sampling the image data to make sure we're pulling in something that we'd expect from our search query term.
+
+Next, we need to setup all our queries. These will be other categories for images to fall into. I'm going to search for `"basses"` and `"harmonicas"` as well to keep with the whole music theme:
+
+```python
+instrument_types = "guitars", "basses", "harmonicas"
+path = Path("instruments")
+```
+
+This declares a list of instruments (or whatever you decide to train your model on) that our image classifier will place images into.
+
+Finally, we've defined an `instruments` path which will be our root directory where a separate folder for each `instrument_types` string will be created in to download its associated images into.
+
+Next, go ahead and make and run this code block (replacing "instrument" with whatever the parent category is for the type of images you're downloading):
+
+```python
+if not path.exists():
+    path.mkdir()
+
+for o in instrument_types:
+    dest = (path/o)
+    dest.mkdir(exist_ok=True)
+    results = search_images_ddg(f'{o} instrument')
+    download_images(dest, urls=results)
+```
+
+This will take quite a bit of time to run. You're using DuckDuckGo to download images. You can actually see them downloading in real time if you open up the right sidebar (with the array on the bottom-right part of your screen) and then dig down to the files here:
+
+<img alt="Downloading images from DuckDuckGo" src="/images/blog/training-your-first-ai-model/downloading-images.webp" height="967" width="1600">
+
+Once this code block finishes running, you now have your dataset for training your model!
+
+Before using this data, we should remove any errored image paths that failed to download.
+
+Go ahead and paste this code into a code block and then run it:
+
+```python
+fns = get_image_files(path)
+failed = verify_images(fns)
+len(failed)
+```
+
+Here's what it looked like for me when I ran it:
+
+<img alt="Checking how many image paths have errored out while downloading from DuckDuckGo" src="/images/blog/training-your-first-ai-model/errored-image-paths.webp" height="967" width="1600">
+
+Go ahead and remove those by putting this code into a code block and running it:
+
+> Note: This will unlink the errored images the first time you run it. If you run it a second time, it will error out as there aren't any image paths to remove anymore.
+
+```python
+failed.map(Path.unlink);
+```
+
+Next, we need to sample the data we've downloaded to make sure it's valid. In order to do that, we need to setup up some data loaders to manipulate our images.
+
+Go ahead and jump into the next section to do that when you're ready.
+
+> “Some people worry that artificial intelligence will make us feel inferior, but then, anybody in his right mind should have an inferiority complex every time he looks at a flower.”
+>
+> \- Alan Kay
+
+## Setup our Dataloaders
+
 ## Train Your New Model
 
 ## Export Your Model
 
-## Get Set Up With Gradio
-
-## Build an Interface
+## Build an Interface Using Gradio
 
 ## Conclusion
