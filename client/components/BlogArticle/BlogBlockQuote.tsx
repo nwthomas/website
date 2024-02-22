@@ -36,6 +36,10 @@ const RootStyles = styled.div`
         padding: 0 var(--app-horizontal-gutters);
         color: var(--text-secondary);
         font-style: italic;
+
+        > a:hover {
+          color: var(--text-secondary);
+        }
       }
     }
   }
