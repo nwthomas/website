@@ -102,10 +102,10 @@ So far, we've only really been concerned with setup. But in this section, we're 
 
 Remember earlier when I encouraged you to think of what kind of image classifier you were wanting to train? Well, it's time to use what you've decided on and jump in with both feet.
 
-Go ahead and write the following code in a new code block (replacing `"guitars"` with whatever you want your model to predict):
+Go ahead and write the following code in a new code block (replacing `"dogs"` with whatever you want your model to predict):
 
 ```python
-results = search_images_ddg("guitars")
+results = search_images_ddg("dogs")
 len(results)
 ```
 
@@ -118,7 +118,7 @@ Once you run that, it should say something like `200` undernearth your code bloc
 Next, go ahead and add the following two code blocks and run them both:
 
 ```python
-destination = 'images/guitars.jpg'
+destination = 'images/dogs.jpg'
 download_url(results[0], destination)
 ```
 
@@ -133,27 +133,27 @@ It should look like this:
 
 Nice. This is always a good idea to do as we're effectively sampling the image data to make sure we're pulling in something that we'd expect from our search query term.
 
-Next, we need to setup all our queries. These will be other categories for images to fall into. I'm going to search for `"basses"` and `"harmonicas"` as well to keep with the whole music theme:
+Next, we need to setup all our queries. These will be other categories for images to fall into. I'm going to search for `"dogs"` and `"cats"` as well to keep with the whole animal theme:
 
 ```python
-instrument_types = "guitar", "electric bass", "harmonica"
-path = Path("instruments")
+animal_types = "dogs", "cats"
+path = Path("animals")
 ```
 
-This declares a list of instruments (or whatever you decide to train your model on) that our image classifier will place images into.
+This declares a list of annimals (or whatever you decide to train your model on) that our image classifier will place images into.
 
-Finally, we've defined an `instruments` path which will be our root directory where a separate folder for each `instrument_types` string will be created in to download its associated images into.
+Finally, we've defined an `animals` path which will be our root directory where a separate folder for each `animal_types` string will be created in to download its associated images into.
 
-Next, go ahead and make and run this code block (replacing "instrument" with whatever the parent category is for the type of images you're downloading):
+Next, go ahead and make and run this code block (replacing `"animals"` with whatever the parent category is for the type of images you're downloading):
 
 ```python
 if not path.exists():
     path.mkdir()
 
-for o in instrument_types:
+for o in animal_types:
     dest = (path/o)
     dest.mkdir(exist_ok=True)
-    results = search_images_ddg(f'{o} instrument')
+    results = search_images_ddg(o)
     download_images(dest, urls=results)
 ```
 
@@ -200,7 +200,7 @@ In order to manipulate our data, we're going to use a class exported from `fasta
 Go ahead and create (and, like always, run) this code block:
 
 ```python
-instruments = DataBlock(
+animals = DataBlock(
     blocks=(ImageBlock, CategoryBlock),
     get_items=get_image_files,
     splitter=RandomSplitter(valid_pct=0.2, seed=42),
@@ -217,10 +217,51 @@ Good question.
 First, we have this line
 
 ```python
-dls = bears.dataloaders(path)
+dls = animals.dataloaders(path)
 ```
 
+> Note: If you see an error while running this (like in my image below) about "'has_mps' is deprecated", disregard it.
+
+Here's what this will looks like once you're done:
+
+<img alt="Dataloaders all set up for training" src="/images/blog/training-your-first-ai-model/dataloaders.webp" height="967" width="1600">
+
+Believe it or not, the hard part is done now. From here, we get to train our model!
+
+Let's get the party started 🥳
+
+> "We can build a much brighter future where humans are relieved of menial work using AI capabilities."
+>
+> \- Andrew Ng
+
 ## Train Your New Model
+
+In order to train our model, go ahead and put this code block in and run it (I'll explain what it's doing while it's running since it's going to take a while):
+
+```python
+learn = vision_learner(dls, resnet18, metrics=error_rate)
+learn.fine_tune(4)
+```
+
+When you run this, it's going to kick off actually training your model.
+
+First, we're defining a `vision_learner` (makes sense for an image classifier, right?) that takes in your new `dataloader` that you created in the last section.
+
+It's also using a pre-trained model, `resnet18`, to speed up the process of training. Using pre-trained models as a jumping off point is an excellent strategy and one widely used in the industry.
+
+Finally, we're telling the `vision_learner` how to define metrics for the training session. In our case, we're specifically using `error_rate`. We want to use the rate of errors of misclassified images to define our metrics.
+
+After we set up our `vision_learner`, we will go ahead and call `fine_tune` on it and run it for `4` epochs. An epoch is an iteration round of training the model, analyzing the error rate, and learning from it.
+
+Let's let this run for a bit. You should go make some coffee or tea. It could be a few minutes.
+
+Done?
+
+Okay. This is what it should look similar to (again, ignore the errors here):
+
+<img alt="FastAI's visual_learner all done training a model" src="/images/blog/training-your-first-ai-model/trained-model.webp" height="967" width="1600">
+
+Nice. It's time to export the model and fire it up for use!
 
 ## Export Your Model
 

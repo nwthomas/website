@@ -67,14 +67,28 @@ interface StyleProps {
 }
 
 const RootStyles = styled.div<StyleProps>`
-  background-color: ${({ currentTheme }) =>
-    currentTheme === DARK_THEME ? colors.black : colors.white};
+  backdrop-filter: blur(var(--space-xxsmall));
   bottom: 0;
-  position: absolute;
   left: 0;
+  position: fixed;
   right: 0;
   top: 0;
+  /* https://graffino.com/til/CjT2jrcLHP-how-to-fix-filter-blur-performance-issue-in-safari */
+  transform: translate3d(0, 0, 0);
   z-index: 10;
+
+  &::before {
+    backdrop-filter: blur(15px);
+    background-color: var(--body-bg-blur);
+    bottom: 0;
+    content: "";
+    left: 0;
+    opacity: 0.95;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
 
   > div {
     align-items: center;
