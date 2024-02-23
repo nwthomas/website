@@ -2,7 +2,9 @@ import * as React from "react";
 
 import { BlogMarkdownRenderer } from "./";
 import Image from "next/image";
+import { showImageOverlay } from "../../store/reducers/blogSlice";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
 
 interface Props {
   alt?: string;
@@ -26,22 +28,40 @@ function BlogImage({
   const imageHeight = Number(height);
   const imageWidth = Number(width);
 
+  const dispatch = useDispatch();
+
+  const handleImageClick = () => {
+    dispatch(
+      showImageOverlay({
+        alt,
+        height: imageHeight,
+        placeholderImage,
+        width: imageWidth,
+        src,
+      })
+    );
+  };
+
+  const image = (
+    <Image
+      alt={alt}
+      blurDataURL={placeholderImage}
+      draggable={false}
+      height={imageHeight}
+      loading={isHeroImage ? "eager" : "lazy"}
+      placeholder="blur"
+      priority={isHeroImage}
+      quality={100}
+      src={src}
+      width={imageWidth}
+    />
+  );
+
   return (
     <RootStyles isHeroImage={isHeroImage}>
-      <div>
-        <Image
-          alt={alt}
-          blurDataURL={placeholderImage}
-          draggable={false}
-          height={imageHeight}
-          loading={isHeroImage ? "eager" : "lazy"}
-          placeholder="blur"
-          priority={isHeroImage}
-          quality={100}
-          src={src}
-          width={imageWidth}
-        />
-      </div>
+      <button aria-label="Enlarge image" onClick={handleImageClick}>
+        {image}
+      </button>
       {title ? <BlogMarkdownRenderer content={title} /> : null}
     </RootStyles>
   );
@@ -58,8 +78,9 @@ const RootStyles = styled.div<StyleProps>`
   justify-content: center;
   width: 100%;
 
-  > div:nth-child(1) {
+  > button {
     align-items: center;
+    border: 1px solid var(--body-bg-accent-two);
     border-radius: var(--border-radius-medium);
     display: flex;
     flex-direction: column;
@@ -71,10 +92,16 @@ const RootStyles = styled.div<StyleProps>`
       isHeroImage ? 0 : "var(--space-medium)"};
     overflow: hidden;
     position: relative;
+    transition: opacity var(--transition-short) ease-in-out;
     width: 100%;
+
+    &:hover {
+      cursor: zoom-in;
+      opacity: 0.8;
+    }
   }
 
-  > div:nth-child(2) {
+  > div {
     display: flex;
     justify-content: center;
     margin-top: var(--space-small);
