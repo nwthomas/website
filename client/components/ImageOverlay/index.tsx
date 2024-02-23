@@ -1,18 +1,15 @@
-import { DARK_THEME, ThemeEnum } from "../../store/reducers/themeSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { useLockBodyScroll, useTheme } from "../../hooks";
 
 import { CloseIcon } from "../Icons";
 import FocusTrap from "focus-trap-react";
 import Image from "next/image";
 import React from "react";
-import { colors } from "../../styles/libs/theme";
 import { hideImageOverlay } from "../../store/reducers/blogSlice";
 import { selectOverlayImage } from "../../store/selectors/blogSelector";
 import styled from "styled-components";
+import { useLockBodyScroll } from "../../hooks";
 
 function ImageOverlay() {
-  const [currentTheme] = useTheme();
   const image = useSelector(selectOverlayImage);
   const dispatch = useDispatch();
 
@@ -34,7 +31,7 @@ function ImageOverlay() {
 
   return (
     <FocusTrap>
-      <RootStyles currentTheme={currentTheme} onClick={handleCloseButtonClick}>
+      <RootStyles onClick={handleCloseButtonClick}>
         <div>
           <button
             aria-label="Close image overlay"
@@ -62,11 +59,7 @@ function ImageOverlay() {
   );
 }
 
-interface StyleProps {
-  currentTheme: ThemeEnum | null;
-}
-
-const RootStyles = styled.div<StyleProps>`
+const RootStyles = styled.div`
   backdrop-filter: blur(var(--space-xxsmall));
   bottom: 0;
   left: 0;
