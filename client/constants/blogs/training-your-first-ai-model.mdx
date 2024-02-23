@@ -12,7 +12,7 @@ tags:
 
 # Training Your First AI Model
 
-> Note: If you ever get stuck while implementing the directions in this article, you can refer to [this finished Kaggle notebook](https://www.kaggle.com/code/thnate/first-ai-model) for a solution.
+> Note: If you ever get stuck while implementing the directions in this article, you can refer to [this finished Kaggle notebook](https://www.kaggle.com/code/thnate/first-ai-model) and [this finished Hugging Face space](https://huggingface.co/spaces/nwthomas/dogs-and-cats) for a solution.
 
 ## Start Your Engine
 
@@ -291,17 +291,88 @@ Congrats. You've just exported a full AI model. Let's go ahead and figure out ho
 >
 > \- Oren Etzioni
 
-## Get an API Using Hugging Face and Gradio
+## Get a Live Model Using Hugging Face and Gradio
 
-The final piece of the puzzle is to create a Hugging Face account and host your model there so you can interact with it (using the Hugging Face site) or get an API link for it that will allow you to directly send images to it like any other API you might use.
+The final piece of the puzzle is to create a Hugging Face account and host your model there so you can interact with it (using the Hugging Face site).
 
 First, go ahead and sign up for free account at [Hugging Face](https://huggingface.co).
 
-Once you're done, create a
+Once you're done, create a new "Space" (for running your model) by going to the "Spaces" page and clicking "Create new Space" which should look like this:
+
+<img alt="The Hugging Face homepage for Spaces" src="/images/blog/training-your-first-ai-model/hugging-face-spaces-page.webp" height="967" width="1600">
+
+Got ahead and give your Space a name and use a license like MIT for it:
+
+<img alt="Creating a new Hugging Space page" src="/images/blog/training-your-first-ai-model/hugging-face-new-space.webp" height="967" width="1600">
+
+Select "Gradio" as the Space SDK and leave the other settings as-is before clicking "Create Space"!
+
+Next, go ahead and clone down the Hugging Face repo you just created. The HTTPS or SSH cloning commands will be listed inside the page.
+
+Once you've done that, add these files to your repo:
+
+```python
+# In an app.py file
+import gradio as gr
+from fastai.vision.all import *
+
+learn = load_learner("export.pkl")
+
+# Update these to whatever your categories were for training
+categories = ("cats", "dogs")
+
+def classify_image(img):
+    """Takes in an image and classifies it using a model"""
+    pred, idx, probs = learn.predict(img)
+    return dict(zip(categories, map(float, probs)))
+
+image = gr.Image()
+label = gr.Label()
+
+demo = gr.Interface(fn=classify_image, inputs=image, outputs=label)
+demo.launch(inline=False)
+```
+
+```python
+# In a requirements.txt file
+fastai
+```
+
+Commit them and then push them up to the Space. Once it's done, refresh the Hugging Face Space; you should see something like this:
+
+<img alt="The Hugging Face space building" src="/images/blog/training-your-first-ai-model/hugging-face-space-building.webp" height="967" width="1600">
+
+Once it's done, the application will say that it's starting. This can take quite a bit of time, so be patient. Free tools aren't always the fastest.
+
+However, you'll eventually see something much like this:
+
+<img alt="The Hugging Face space build error" src="/images/blog/training-your-first-ai-model/hugging-face-space-build-error.webp" height="967" width="1600">
+
+Oh no! What happened?
+
+Don't worry. This was part of my plan. You see, trying to upload your `export.pkl` file with Git would have thrown an error becuase of how large the file is.
+
+You should head to the "Files" tab and then choose the "Add file" and "Upload files" option here:
+
+<img alt="The new Hugging Face space file upload process" src="/images/blog/training-your-first-ai-model/hugging-face-space-file-upload.webp" height="967" width="1600">
+
+On the next page, you'll be able to directly upload and then commit your `export.pkl` file. Do that, and then wait. Once again, you'll be presented with a building page for your Hugging Face Space.
+
+Once it's done, you should be presented with a beautiful UI for interacting with your model!
+
+<img alt="Your finished Hugging Face Space" src="/images/blog/training-your-first-ai-model/hugging-face-finished-space.webp" height="967" width="1600">
+
+Go ahead and upload an image for whatever category you trained your model on. I'm going to upload a dog picture. Check out this prediction:
+
+<img alt="First Hugging Face prediction" src="/images/blog/training-your-first-ai-model/hugging-face-first-prediction.webp" height="967" width="1600">
+
+Great job! You should be able to use your model now. Go back some steps and try experimenting with different models, uploading them here to interact with them once you're done training.
+
+The sky's the limit for you now.
 
 ## Conclusion
 
-There you go. You've trained a new model to do what you want _and_ learned how to deploy it and turn it into an API.
+There you go. You've trained a new model to do what you want _and_ learned how to deploy and interact with it.
 
 From here, the sky is the limit. I'd _highly_ recommend you go check out FastAI's [Practical Deep Learning for Coders](https://course.fast.ai/) course if you want to learn more. This article covers roughly the first two lectures.
 
