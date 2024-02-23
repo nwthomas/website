@@ -1,11 +1,16 @@
 import { BlogPosts, buildSlugToBlogPostMap } from "../../utils/sortBlogPosts";
+import { useDispatch, useSelector } from "react-redux";
 
 import { BLOG_FILES_PATH } from "../../utils/readBlogFiles";
 import { BlogMarkdownRenderer } from "../../components/BlogArticle";
 import { CONTENTS_ID } from "../../constants/routes";
+import ImageOverlay from "../../components/ImageOverlay";
 import Layout from "../../components/Layout";
 import { getDirectoryFiles } from "../../utils/readBlogFiles";
+import { hideImageOverlay } from "../../store/reducers/blogSlice";
+import { selectIsShowingImageOverlay } from "../../store/selectors/blogSelector";
 import styled from "styled-components";
+import { useEffect } from "react";
 
 export async function getStaticProps({ params: { blogId } }) {
   const blogPosts = getDirectoryFiles(BLOG_FILES_PATH);
@@ -44,6 +49,17 @@ function BlogPost({ blogPost }) {
     dateWritten,
   } = blogPost.data;
 
+  const dispatch = useDispatch();
+
+  const isShowingImageOverlay = useSelector(selectIsShowingImageOverlay);
+
+  useEffect(() => {
+    // On any navigation away from current blog page, clear blog image overlay state
+    return () => {
+      dispatch(hideImageOverlay());
+    };
+  }, [dispatch]);
+
   return (
     <Layout
       customSEODescription={description}
@@ -51,6 +67,7 @@ function BlogPost({ blogPost }) {
       isArticle
       pageName={blogPost.data.title}
     >
+      {isShowingImageOverlay ? <ImageOverlay /> : null}
       <RootStyles>
         <main id={CONTENTS_ID}>
           <article>
