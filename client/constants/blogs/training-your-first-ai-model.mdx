@@ -3,7 +3,7 @@ title: "Training Your First AI Model"
 description: "Get started with AI by quickly training your first image classifier AI model."
 imageUrl: "/images/blog/training-your-first-ai-model/album-covers.webp"
 dateWritten: "2024-02-22"
-dateUpdated: "2024-02-23"
+dateUpdated: "2024-02-24"
 isDraft: false
 tags:
   - Artificial Intelligence
@@ -215,15 +215,56 @@ Okay. What's going on here?
 
 Good question.
 
-First, we have this line
+First, we have this line:
+
+```python
+blocks=(ImageBlock, CategoryBlock)
+```
+
+This is telling the `DataBlocks` exactly what kinds of variables we're using - images are the "independent variable" (images don't change) and the categories ("dogs" and "cats", in my case) are the dependent variable (they change depending on the type of image fed in).
+
+Next, we have this line that will pull our downloaded images in for us:
+
+```python
+get_items=get_image_files
+```
+
+After that, we have a line that appears to be splitting something:
+
+```python
+splitter=RandomSplitter(valid_pct=0.2, seed=42)
+```
+
+This is a random generator (with a consistent seed) to split our data. The reason we need to split our data is to get a training and validation set. What are those? Great question.
+
+The training set is (as the name says) what's used to train our model. The validation (or testing) set of data is what's used to validate that the model's results are consistent and correct.
+
+For the `get_y` value, this line merely applies a label to the `Y` axis:
+
+```python
+get_y=parent_label
+```
+
+The final two lines of code arguments go hand-in-hand:
+
+```python
+item_tfms=RandomResizedCrop(224, min_scale=0.5),
+batch_tfms=aug_transforms()
+```
+
+The first one preps the images so they're the same size, the the second applies [data augmentation](<https://aws.amazon.com/what-is/data-augmentation/#:~:text=Data%20augmentation%20is%20the%20process,machine%20learning%20(ML)%20models.>) to the images so that we have some variety (as life has variety, and so our data set should reflect partial/varietal images of the categories we're training the model about).
+
+After we're done setting up this `DataBlock` class, we can create a `dataloader` to use for actual training:
 
 ```python
 dls = animals.dataloaders(path)
 ```
 
-> Note: If you see an error while running this (like in my image below) about "'has_mps' is deprecated", disregard it.
+As always, go ahead and run the code for the `DataBlock` class and your `dataloaders` function call.
 
 Here's what this will looks like once you're done:
+
+> Note: If you see an error while running this (like in my image below) about "'has_mps' is deprecated", disregard it.
 
 <img alt="Dataloaders all set up for training" src="/images/blog/training-your-first-ai-model/dataloaders.webp" height="967" width="1600">
 
