@@ -116,7 +116,7 @@ It should look like this:
 
 <img alt="DuckDuckGo initial search in code block" src="/images/blog/training-your-first-ai-model/duck-duck-go-initial-search.webp" height="967" width="1600">
 
-Once you run that, it should say something like `200` undernearth your code block. This is indicative of the number of results that were found matching your search!
+Once you run that, it should say something like `200` underneath your code block. This is indicative of the number of results that were found matching your search!
 
 Next, go ahead and add the following two code blocks and run them both:
 
@@ -291,7 +291,7 @@ When you run this, it's going to kick off actually training your model.
 
 First, we're defining a `vision_learner` (makes sense for an image classifier, right?) that takes in your new `dataloader` that you created in the last section.
 
-It's also using a pre-trained model, `resnet18`, to speed up the process of training. Using pre-trained models as a jumping off point is an excellent strategy and one widely used in the industry.
+It's also using a pre-trained model, `resnet18`, to speed up the process of training. Using pre-trained models as a jumping off point is an [excellent strategy and one widely used in the industry](https://www.tensorflow.org/tutorials/images/transfer_learning).
 
 Finally, we're telling the `vision_learner` how to define metrics for the training session. In our case, we're specifically using `error_rate`. We want to use the rate of errors of misclassified images to define our metrics.
 
@@ -305,7 +305,9 @@ Okay. This is what it should look similar to (again, ignore the errors here if y
 
 <img alt="FastAI's visual_learner all done training a model" src="/images/blog/training-your-first-ai-model/trained-model.webp" height="967" width="1600">
 
-Nice. It's time to export the model and fire it up for use!
+I'm going to skip over the nuances of training loss, valid loss, and error rates; for more on that, I'd highly recommend starting the FastAI course I mentioned at the start of this article.
+
+For now, it's time to export our model and fire it up for use!
 
 > "AI will probably most likely lead to the end of the world, but in the meantime, there'll be great companies."
 >
