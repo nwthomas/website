@@ -99,7 +99,9 @@ const RootStyles = styled.div`
 
     > div {
       border: 1px solid var(--body-bg-accent-two);
-      max-height: 100vh;
+      max-height: 80vh;
+      max-width: 120vh;
+      width: 100%;
     }
 
     > button {
