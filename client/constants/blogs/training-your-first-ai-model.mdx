@@ -412,6 +412,8 @@ Go ahead and upload an image for whatever category you trained your model on. I'
 
 <img alt="First Hugging Face prediction" src="/images/blog/training-your-first-ai-model/hugging-face-first-prediction.webp" height="967" width="1600">
 
+> NOTE: If you see the wrong predictions consistently and the model is very confident (e.g. 100% confident in it being a cat when it's a dog photo), it's likely that the order of `categories` in your `app.py` file is off compared to the order of probabilities (where you're zipping up probabilities against categories in your `dict(zip(categories, map(float, probs)))` line of code). Go back and fiddle with this (deploying iteratively to your Hugging Face space) until it's right. Contact me if you can't figure this out - I promise I'll respond.
+
 Great job! You should be able to use your model now. Go back some steps and try experimenting with different models, uploading them here to interact with them once you're done training.
 
 The sky's the limit for you now.
