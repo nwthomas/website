@@ -26,7 +26,6 @@
     "@reduxjs/toolkit": "^1.6.2",
     "@sentry/nextjs": "^7.50.0",
     "@vercel/analytics": "^0.1.8",
-    "@vercel/speed-insights": "^1.0.10",
     "axios": "^1.2.3",
     "ethers": "^5.4.7",
     "express-rate-limit": "^6.7.0",
