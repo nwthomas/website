@@ -7,7 +7,6 @@ import Footer from "../Footer";
 import Modal from "../Modal";
 import Navbar from "../Navbar";
 import SEO from "../SEO";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { selectShouldShowModal } from "../../store/selectors/modalSelectors";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
@@ -51,7 +50,6 @@ function Layout({
 
   return (
     <>
-      <SpeedInsights />
       <SEO
         customImageUrl={customSEOImageUrl}
         customDescription={customSEODescription}
