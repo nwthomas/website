@@ -2,16 +2,13 @@ import * as React from "react";
 
 import DesktopNavbar from "./DesktopNavbar";
 import MobileNavbar from "./MobileNavbar";
-import { selectIsShowingImageOverlay } from "../../store/selectors/blogSelector";
 import styled from "styled-components";
 import { useScrollPosition } from "../../hooks";
-import { useSelector } from "react-redux";
 
 function Navbar() {
   const scrollPosition = useScrollPosition();
-  const isShowingImageOverlay = useSelector(selectIsShowingImageOverlay);
 
-  const withMinifiedNavbar = scrollPosition > 0 || isShowingImageOverlay;
+  const withMinifiedNavbar = scrollPosition > 0;
 
   return (
     <RootStyles withMinifiedNavbar={withMinifiedNavbar}>
