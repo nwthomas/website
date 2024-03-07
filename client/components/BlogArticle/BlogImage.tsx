@@ -80,7 +80,8 @@ const RootStyles = styled.div<StyleProps>`
 
   > button {
     align-items: center;
-    border: 1px solid var(--body-bg-accent-two);
+    border: ${({ isHeroImage }) =>
+      isHeroImage ? "" : "1px solid var(--body-bg-accent-two)"};
     border-radius: var(--border-radius-medium);
     display: flex;
     flex-direction: column;
