@@ -8,7 +8,7 @@ on:
     #   - "client/constants/blogs"
 
 jobs:
-  your_job_name:
+  update-article-vector-store:
     runs-on: ubuntu-latest
 
     steps:
