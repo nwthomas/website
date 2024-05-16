@@ -1,0 +1,16 @@
+name: Update Article AI
+
+on:
+  push:
+    branches:
+      - "*"
+    # paths:
+    #   - "client/constants/blogs"
+
+jobs:
+  your_job_name:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
