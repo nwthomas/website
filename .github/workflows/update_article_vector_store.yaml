@@ -3,7 +3,7 @@ name: Update Article AI
 on:
   push:
     branches:
-      - "add-blog-article-chat"
+      - "*"
     # paths:
     #   - "client/constants/blogs"
 

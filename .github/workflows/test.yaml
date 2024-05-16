@@ -1,0 +1,22 @@
+name: README Update Automation
+
+on:
+  push:
+    branches:
+      - "*"
+
+jobs:
+  update-readme:
+    name: Update README after PR merge
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the repo to access its content
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Set up Python using the latest stable version
+      - name: Setup Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.12"
