@@ -1,5 +1,6 @@
 name: README Update Automation
 
+# Test
 on:
   push:
     branches:
