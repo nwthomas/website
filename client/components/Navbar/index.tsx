@@ -47,17 +47,21 @@ const RootStyles = styled.div<StyleProps>`
   width: 100%;
   z-index: 10;
 
-  &::before {
-    backdrop-filter: blur(15px);
-    background-color: var(--body-bg-blur);
-    bottom: 0;
-    content: "";
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: -1;
-  }
+  ${({ hideBackground }) => {
+    if (!hideBackground) {
+      return `  &::before {
+        backdrop-filter: blur(15px);
+        background-color: var(--body-bg-blur);
+        bottom: 0;
+        content: "";
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: -1;
+      }`;
+    }
+  }}
 
   > header {
     align-items: center;
