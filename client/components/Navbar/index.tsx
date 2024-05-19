@@ -5,13 +5,20 @@ import MobileNavbar from "./MobileNavbar";
 import styled from "styled-components";
 import { useScrollPosition } from "../../hooks";
 
-function Navbar() {
+interface Props {
+  hideBackground?: boolean;
+}
+
+function Navbar({ hideBackground }: Props) {
   const scrollPosition = useScrollPosition();
 
   const withMinifiedNavbar = scrollPosition > 0;
 
   return (
-    <RootStyles withMinifiedNavbar={withMinifiedNavbar}>
+    <RootStyles
+      hideBackground={hideBackground}
+      withMinifiedNavbar={withMinifiedNavbar}
+    >
       <header>
         <div>
           <MobileNavbar />
@@ -25,6 +32,7 @@ function Navbar() {
 }
 
 interface StyleProps {
+  hideBackground?: boolean;
   withMinifiedNavbar?: boolean;
 }
 
