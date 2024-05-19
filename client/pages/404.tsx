@@ -15,7 +15,7 @@ function FourOhFour() {
   return (
     <Layout pageName={FOUR_OH_FOUR_PAGE_NAME} withFooter>
       <main id={CONTENTS_ID}>
-        <Error errorCode="🦑 404" />
+        <Error errorCode="☕️ 404" />
       </main>
     </Layout>
   );
