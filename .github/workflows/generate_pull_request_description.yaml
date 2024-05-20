@@ -1,0 +1,43 @@
+name: Generate PR Description
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  generate-pull-request-description:
+    name: Write PR Description
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.12"
+
+      - name: Install Dependencies
+        run: |
+          cd ./ai
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Get PR Info
+        id: pr_info
+        run: |
+          pr_num=${{ github.event.pull_request.number }}
+          echo "pull_request_number=$pr_num" >> $GITHUB_ENV
+
+      - name: Generate PR Description
+        env:
+          BRANCH_NAME: ${{ github.event.pull_request.head.ref }}
+          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          PINECONE_API_KEY: ${{ secrets.PINECONE_API_KEY }}
+          PR_NUMBER: ${{ env.pull_request_number }}
+          REPO_PATH: ${{ github.repository }}
+        run: python ./ai/main.py
