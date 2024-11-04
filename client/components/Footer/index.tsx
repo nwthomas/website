@@ -10,6 +10,16 @@ function Footer() {
           <ul>
             <li>
               <a
+                href="https://bsky.app/profile/nathanthomas.dev"
+                aria-label="Link to Nathan's Bluesky Profile"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Bluesky
+              </a>
+            </li>
+            <li>
+              <a
                 href="https://github.com/nwthomas"
                 aria-label="Link to Nathan's GitHub"
                 rel="noopener noreferrer"
@@ -66,16 +76,6 @@ function Footer() {
                 target="_blank"
               >
                 Twitch
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://twitter.com/nwthomas_"
-                aria-label="Link to Nathan's Twitter Profile"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Twitter
               </a>
             </li>
           </ul>
