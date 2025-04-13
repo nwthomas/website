@@ -20,7 +20,8 @@ import styled from "styled-components";
 import { updateModalValues } from "../store/reducers/modalSlice";
 import { useMutation } from "react-query";
 
-const BLUESKY_LINK_ARIA_LABEL = "Link to Nathan's Bluesky profile";
+const BLUESKY_LINK_ARIA_LABEL = "Link to Nathan's profile on Bluesky";
+const X_LINK_ARIA_LABEL = "Link to Nathan's proflie on X";
 
 export async function getStaticProps() {
   // Dynamic og image creation at build time
@@ -89,8 +90,17 @@ function Contact({ ogImage }) {
                 target="_blank"
               >
                 Bluesky
-              </a>{" "}
-              or right here:
+              </a>
+              ,{" "}
+              <a
+                href="https://x.com/nwthomas_"
+                aria-label={X_LINK_ARIA_LABEL}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                X
+              </a>
+              , or right here:
             </h1>
           </section>
           <section>

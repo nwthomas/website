@@ -28,7 +28,7 @@ const Home: NextPage = () => {
         <main id={CONTENTS_ID}>
           <section>
             <h1>
-              Hi 👋🏻 I'm Nathan, a{" "}
+              I'm Nathan, a{" "}
               <a
                 href="https://github.com/nwthomas"
                 aria-label={GITHUB_LINK_ARIA_LABEL}
