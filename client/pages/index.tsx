@@ -47,7 +47,7 @@ const Home: NextPage = () => {
               </Link>
               , and{" "}
               <a
-                href="https://www.codetenderloin.org/code-ramp-course"
+                href="https://www.codetenderloin.org"
                 aria-label={TEACHING_LINK_ARIA_LABEL}
                 rel="noopener noreferrer"
                 target="_target"
