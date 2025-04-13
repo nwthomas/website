@@ -11,7 +11,7 @@ function Footer() {
             <li>
               <a
                 href="https://bsky.app/profile/nathanthomas.dev"
-                aria-label="Link to Nathan's Bluesky Profile"
+                aria-label="Link to Nathan's profile on Bluesky"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -21,7 +21,7 @@ function Footer() {
             <li>
               <a
                 href="https://github.com/nwthomas"
-                aria-label="Link to Nathan's GitHub"
+                aria-label="Link to Nathan's profile on GitHub"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -31,7 +31,7 @@ function Footer() {
             <li>
               <a
                 href="https://www.instagram.com/nwthomas/"
-                aria-label="Link to Nathan's Instagram"
+                aria-label="Link to Nathan's profile on Instagram"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -41,7 +41,7 @@ function Footer() {
             <li>
               <a
                 href="https://www.linkedin.com/in/nwthomas-dev/"
-                aria-label="Link to Nathan's LinkedIn"
+                aria-label="Link to Nathan's profile on LinkedIn"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -51,7 +51,7 @@ function Footer() {
             <li>
               <a
                 href="https://open.spotify.com/user/nathanwthomas"
-                aria-label="Link to Nathan's Spotify"
+                aria-label="Link to Nathan's profile on Spotify"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -61,7 +61,7 @@ function Footer() {
             <li>
               <a
                 href="https://nathanthomas.substack.com/"
-                aria-label="Link to Nathan's Substack"
+                aria-label="Link to Nathan's profile on Substack"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -71,11 +71,21 @@ function Footer() {
             <li>
               <a
                 href="https://www.twitch.tv/codingwithnate"
-                aria-label="Link to Nathan's Twitch"
+                aria-label="Link to Nathan's profile on Twitch"
                 rel="noopener noreferrer"
                 target="_blank"
               >
                 Twitch
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://x.com/nwthomas_"
+                aria-label="Link to Nathan's profile on X"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                X
               </a>
             </li>
           </ul>
