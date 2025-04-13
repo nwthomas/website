@@ -83,24 +83,29 @@ function Contact({ ogImage }) {
           <section>
             <h1>
               Reach me on{" "}
-              <a
-                href="https://bsky.app/profile/nathanthomas.dev"
-                aria-label={BLUESKY_LINK_ARIA_LABEL}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Bluesky
-              </a>
-              ,{" "}
-              <a
-                href="https://x.com/nwthomas_"
-                aria-label={X_LINK_ARIA_LABEL}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                X
-              </a>
-              , or right here:
+              <span>
+                <a
+                  href="https://bsky.app/profile/nathanthomas.dev"
+                  aria-label={BLUESKY_LINK_ARIA_LABEL}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Bluesky
+                </a>
+                ,
+              </span>{" "}
+              <span>
+                <a
+                  href="https://x.com/nwthomas_"
+                  aria-label={X_LINK_ARIA_LABEL}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  X
+                </a>
+                ,
+              </span>{" "}
+              or right here:
             </h1>
           </section>
           <section>
@@ -139,7 +144,7 @@ const RootStyles = styled.div`
         margin-bottom: var(--space-large);
       }
 
-      > h1 > a {
+      > h1 > span > a {
         background-clip: text;
         -moz-background-clip: text;
         -webkit-background-clip: text;
@@ -158,7 +163,8 @@ const RootStyles = styled.div`
         }
       }
 
-      span {
+      > h1 span {
+        font-family: inherit;
         white-space: nowrap;
       }
     }
