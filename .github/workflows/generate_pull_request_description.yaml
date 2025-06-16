@@ -8,6 +8,9 @@ jobs:
   generate-pull-request-description:
     name: Write PR Description
     runs-on: ubuntu-latest
+    concurrency:
+      group: website_workflow
+      cancel-in-progress: true
 
     steps:
       - name: Checkout Repository
@@ -18,7 +21,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v3
         with:
-          python-version: "3.12"
+          python-version: "3.11"
 
       - name: Install Dependencies
         run: |
