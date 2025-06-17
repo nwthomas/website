@@ -43,22 +43,28 @@ function BlogImage({
   };
 
   const image = (
-    <Image
-      alt={alt}
-      blurDataURL={placeholderImage}
-      draggable={false}
-      height={imageHeight}
-      loading={isHeroImage ? "eager" : "lazy"}
-      placeholder="blur"
-      priority={isHeroImage}
-      quality={100}
-      src={src}
-      width={imageWidth}
-    />
+    <div>
+      <Image
+        alt={alt}
+        blurDataURL={placeholderImage}
+        draggable={false}
+        height={imageHeight}
+        loading={isHeroImage ? "eager" : "lazy"}
+        placeholder="blur"
+        priority={isHeroImage}
+        quality={100}
+        src={src}
+        width={imageWidth}
+      />
+    </div>
   );
 
   return (
-    <RootStyles isHeroImage={isHeroImage}>
+    <RootStyles
+      isHeroImage={isHeroImage}
+      imageHeight={imageHeight}
+      imageWidth={imageWidth}
+    >
       <button aria-label="Enlarge image" onClick={handleImageClick}>
         {image}
       </button>
@@ -68,6 +74,8 @@ function BlogImage({
 }
 
 interface StyleProps {
+  imageHeight?: number;
+  imageWidth?: number;
   isHeroImage?: boolean;
 }
 
@@ -99,6 +107,13 @@ const RootStyles = styled.div<StyleProps>`
     &:hover {
       cursor: zoom-in;
       opacity: 0.8;
+    }
+
+    > div {
+      aspect-ratio: ${({ imageWidth, imageHeight }) =>
+        `${imageWidth} / ${imageHeight}`};
+      position: relative;
+      width: 100%;
     }
   }
 
