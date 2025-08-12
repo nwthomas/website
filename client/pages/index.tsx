@@ -10,6 +10,7 @@ import Layout from "../components/Layout";
 import Link from "next/link";
 import { NextPage } from "next";
 
+const ACTOR_LINK_ARIA_LABEL = "Link to American Conservatory Theater";
 const GITHUB_LINK_ARIA_LABEL = "Link to Nathan's GitHub page";
 const TEACHING_LINK_ARIA_LABEL =
   "Link to the Code Tenderloin free bootcamp Nathan volunteers at";
@@ -44,6 +45,14 @@ const Home: NextPage = () => {
                 prefetch={false}
               >
                 writer
+              </Link>
+              ,{" "}
+              <Link
+                aria-label={ACTOR_LINK_ARIA_LABEL}
+                href="https://www.act-sf.org"
+                prefetch={false}
+              >
+                actor
               </Link>
               , and{" "}
               <a
