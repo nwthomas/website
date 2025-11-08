@@ -60,6 +60,16 @@ function Footer() {
             </li>
             <li>
               <a
+                href="https://www.threads.com/@nwthomas"
+                aria-label="Link to Nathan's profile on Threads"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Threads
+              </a>
+            </li>
+            <li>
+              <a
                 href="https://www.twitch.tv/codingwithnate"
                 aria-label="Link to Nathan's profile on Twitch"
                 rel="noopener noreferrer"
