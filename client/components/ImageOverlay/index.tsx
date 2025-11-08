@@ -92,8 +92,7 @@ const RootStyles = styled.div`
     padding: var(--space-small);
     width: 100%;
 
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.tablet}) {
+    @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
       padding: var(--space-medium);
     }
 
@@ -119,8 +118,7 @@ const RootStyles = styled.div`
         opacity: 0.8;
       }
 
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.tablet}) {
+      @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
         top: var(--space-medium);
         right: var(--space-medium);
       }

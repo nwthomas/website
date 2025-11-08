@@ -61,8 +61,7 @@ const RootStyles = styled.div<StyleProps>`
   right: 0;
   z-index: 2147483647;
 
-  @media only screen and (min-width: ${({ theme }) =>
-      theme.breakpoints.tablet}) {
+  @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
     padding: 0 var(--app-horizontal-gutters);
   }
 
@@ -76,8 +75,7 @@ const RootStyles = styled.div<StyleProps>`
     justify-content: center;
     width: 100%;
 
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.tablet}) {
+    @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
       border-radius: var(--border-radius-large);
       background: var(--body-bg);
       height: initial;
@@ -91,8 +89,7 @@ const RootStyles = styled.div<StyleProps>`
       margin-bottom: var(--space-medium);
       text-align: center;
 
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.tablet}) {
+      @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
         font-size: 2rem;
       }
     }
@@ -123,8 +120,7 @@ const RootStyles = styled.div<StyleProps>`
         color: var(--color-royal-blue);
       }
 
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.tablet}) {
+      @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
         width: 70%;
       }
     }

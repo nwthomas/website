@@ -8,8 +8,6 @@ import {
   BLOG_PAGE,
   CONTACT_PAGE,
   HOME_PAGE,
-  PLAYGROUND_PAGE,
-  PLAYGROUND_PAGE_ENABLED,
 } from "../../constants/routes";
 
 import NavbarLink from "./NavbarLink";
@@ -29,16 +27,6 @@ function MobileNavbarTray() {
               Home
             </NavbarLink>
           </li>
-          {PLAYGROUND_PAGE_ENABLED ? (
-            <li>
-              <NavbarLink
-                ariaLabel={PLAYGROUND_LINK_ARIA_LABEL}
-                route={PLAYGROUND_PAGE}
-              >
-                Playground
-              </NavbarLink>
-            </li>
-          ) : null}
           <li>
             <NavbarLink ariaLabel={BLOG_LINK_ARIA_LABEL} route={BLOG_PAGE}>
               Blog

@@ -144,8 +144,7 @@ const RootStyles = styled.div<StyleProps>`
   flex-direction: column;
   width: 100%;
 
-  @media only screen and (min-width: ${({ theme }) =>
-      theme.breakpoints.desktop}) {
+  @media only screen and (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
     padding-left: 0;
     padding-right: 0;
   }
@@ -178,16 +177,14 @@ const RootStyles = styled.div<StyleProps>`
           level === 1 ? "var(--space-xlarge)" : "var(--space-medium)"};
       }
 
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.desktop}) {
+      @media only screen and (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
         svg {
           display: flex;
         }
       }
     }
 
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.desktop}) {
+    @media only screen and (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
       &:active,
       &:hover {
         > div {
@@ -205,8 +202,7 @@ const RootStyles = styled.div<StyleProps>`
       grid-column-start: 2;
       grid-column-end: 3;
       margin-top: var(--space-medium);
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.tablet}) {
+      @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
         margin-top: var(--space-large);
       }
 
@@ -237,8 +233,7 @@ const RootStyles = styled.div<StyleProps>`
       grid-column-start: 2;
       grid-column-end: 3;
 
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.desktop}) {
+      @media only screen and (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
         grid-column-end: 4;
       }
     }

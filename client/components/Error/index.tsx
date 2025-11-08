@@ -40,8 +40,7 @@ const RootStyles = styled.main`
       Noto Color Emoji;
     font-size: 1.6rem;
 
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.tablet}) {
+    @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
       font-size: 2rem;
     }
   }

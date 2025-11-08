@@ -62,8 +62,7 @@ const InlineRootStyles = styled.code`
   padding: var(--space-nano) calc(var(--space-micro) * 2) var(--space-micro);
   white-space: nowrap;
 
-  @media only screen and (min-width: ${({ theme }) =>
-      theme.breakpoints.tablet}) {
+  @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
     font-size: 1.6rem;
   }
 `;

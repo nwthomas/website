@@ -151,8 +151,7 @@ const RootStyles = styled.div`
       display: flex;
       margin-bottom: var(--space-medium);
 
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.tablet}) {
+      @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
         margin-bottom: var(--space-large);
       }
 
@@ -184,8 +183,7 @@ const RootStyles = styled.div`
     > section:nth-child(2) {
       margin-bottom: var(--space-medium);
 
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.tablet}) {
+      @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
         margin-bottom: var(--space-xxlarge);
       }
 
@@ -193,8 +191,7 @@ const RootStyles = styled.div`
         max-width: none;
         width: 100%;
 
-        @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.tablet}) {
+        @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
           max-width: var(--contact-form-max-width);
         }
       }

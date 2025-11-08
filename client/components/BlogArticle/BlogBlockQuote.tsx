@@ -22,8 +22,7 @@ const RootStyles = styled.div`
     margin-top: var(--space-medium);
     width: 100%;
 
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.tablet}) {
+    @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
       margin-top: var(--space-large);
     }
 
