@@ -2,7 +2,6 @@ import {
   BLOG_LINK_ARIA_LABEL,
   CONTACT_LINK_ARIA_LABEL,
   HOME_LINK_ARIA_LABEL,
-  PLAYGROUND_LINK_ARIA_LABEL,
 } from "../../constants/ariaLabels";
 import {
   BLOG_PAGE,
