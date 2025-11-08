@@ -199,13 +199,11 @@ const GlobalStyle = css`
     font-size: 3.5rem;
     font-weight: bold;
 
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.tablet}) {
+    @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
       font-size: 5rem;
     }
 
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.desktop}) {
+    @media only screen and (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
       font-size: 6.5rem;
     }
   }
@@ -214,8 +212,7 @@ const GlobalStyle = css`
     font-size: 2rem;
     font-weight: bold;
 
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.tablet}) {
+    @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
       font-size: 2.4rem;
     }
   }
@@ -272,8 +269,7 @@ const GlobalStyle = css`
     text-decoration: none;
     transition: color var(--transition-short) ease-in-out;
 
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.tablet}) {
+    @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
       font-size: 2rem;
     }
 
