@@ -20,10 +20,6 @@ import styled from "styled-components";
 import { updateModalValues } from "../store/reducers/modalSlice";
 import { useMutation } from "react-query";
 
-const INSTAGRAM_LINK_ARIA_LABEL = "Link to Nathan's profile on Instagram";
-const LINKEDIN_LINK_ARIA_LABEL = "Link to Nathan's profile on LinkedIn";
-const X_LINK_ARIA_LABEL = "Link to Nathan's proflie on X";
-
 export async function getStaticProps() {
   // Dynamic og image creation at build time
   const ogImageBuildUrl = `/og-image?title=${CONTACT_PAGE_NAME}%20Form`;
@@ -83,41 +79,7 @@ function Contact({ ogImage }) {
         <main id={CONTENTS_ID}>
           <section>
             <h1>
-              Reach me on{" "}
-              <span>
-                <a
-                  href="https://www.instagram.com/nwthomas"
-                  aria-label={INSTAGRAM_LINK_ARIA_LABEL}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  Instagram
-                </a>
-                ,
-              </span>{" "}
-              <span>
-                <a
-                  href="https://www.linkedin.com/in/nwthomas-dev/"
-                  aria-label={LINKEDIN_LINK_ARIA_LABEL}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  LinkedIn
-                </a>
-                ,
-              </span>{" "}
-              <span>
-                <a
-                  href="https://x.com/nwthomas_"
-                  aria-label={X_LINK_ARIA_LABEL}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  X
-                </a>
-                ,
-              </span>{" "}
-              or right here:
+              You know where you can reach me
             </h1>
           </section>
           <section>
