@@ -10,16 +10,6 @@ function Footer() {
           <ul>
             <li>
               <a
-                href="https://bsky.app/profile/nathanthomas.dev"
-                aria-label="Link to Nathan's profile on Bluesky"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Bluesky
-              </a>
-            </li>
-            <li>
-              <a
                 href="https://github.com/nwthomas"
                 aria-label="Link to Nathan's profile on GitHub"
                 rel="noopener noreferrer"

@@ -20,7 +20,8 @@ import styled from "styled-components";
 import { updateModalValues } from "../store/reducers/modalSlice";
 import { useMutation } from "react-query";
 
-const BLUESKY_LINK_ARIA_LABEL = "Link to Nathan's profile on Bluesky";
+const INSTAGRAM_LINK_ARIA_LABEL = "Link to Nathan's profile on Instagram";
+const LINKEDIN_LINK_ARIA_LABEL = "Link to Nathan's profile on LinkedIn";
 const X_LINK_ARIA_LABEL = "Link to Nathan's proflie on X";
 
 export async function getStaticProps() {
@@ -85,12 +86,23 @@ function Contact({ ogImage }) {
               Reach me on{" "}
               <span>
                 <a
-                  href="https://bsky.app/profile/nathanthomas.dev"
-                  aria-label={BLUESKY_LINK_ARIA_LABEL}
+                  href="https://www.instagram.com/nwthomas"
+                  aria-label={INSTAGRAM_LINK_ARIA_LABEL}
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  Bluesky
+                  Instagram
+                </a>
+                ,
+              </span>{" "}
+              <span>
+                <a
+                  href="https://www.linkedin.com/in/nwthomas-dev/"
+                  aria-label={LINKEDIN_LINK_ARIA_LABEL}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  LinkedIn
                 </a>
                 ,
               </span>{" "}
