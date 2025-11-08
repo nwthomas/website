@@ -73,8 +73,7 @@ const RootStyles = styled.div<StyleProps>`
     transition: height var(--transition-medium) ease-in-out;
     width: 100%;
 
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.tablet}) {
+    @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
       ${({ withMinifiedNavbar }) => {
         if (withMinifiedNavbar) {
           return "";
@@ -92,8 +91,7 @@ const RootStyles = styled.div<StyleProps>`
       display: none;
     }
 
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.tablet}) {
+    @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
       > div:first-child {
         display: none;
       }

@@ -105,8 +105,7 @@ const RootStyles = styled.section`
       font-size: 1.6rem;
       line-height: 1;
 
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.tablet}) {
+      @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
         font-size: 2rem;
       }
     }
@@ -119,13 +118,11 @@ const RootStyles = styled.section`
     grid-template-columns: 1fr;
     grid-auto-rows: 1fr;
 
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.desktop}) {
+    @media only screen and (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
       grid-template-columns: 1fr 1fr;
     }
 
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.ultrawide}) {
+    @media only screen and (min-width: ${({ theme }) => theme.breakpoints.ultrawide}) {
       grid-template-columns: 1fr 1fr 1fr;
     }
 

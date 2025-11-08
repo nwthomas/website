@@ -61,8 +61,7 @@ const StyledLink = styled(Link)`
     text-align: center;
     width: 100%;
 
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.tablet}) {
+    @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
       font-size: 2rem;
     }
   }
@@ -73,7 +72,6 @@ const StyledLink = styled(Link)`
     border: var(--space-nano) solid var(--color-royal-blue);
     outline: none;
     text-decoration: none;
-    text-decoration-underline: none;
   }
 `;
 

@@ -70,6 +70,16 @@ function Footer() {
             </li>
             <li>
               <a
+                href="https://www.tiktok.com/@nwthomas_"
+                aria-label="Link to Nathan's profile on TikTok"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                TikTok
+              </a>
+            </li>
+            <li>
+              <a
                 href="https://www.twitch.tv/codingwithnate"
                 aria-label="Link to Nathan's profile on Twitch"
                 rel="noopener noreferrer"
@@ -117,8 +127,7 @@ const RootStyles = styled.div`
         padding-bottom: calc(var(--space-medium) - var(--space-small));
         width: 100%;
 
-        @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.tablet}) {
+        @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
           padding-bottom: calc(var(--space-xxlarge) - var(--space-medium));
         }
 
@@ -127,13 +136,11 @@ const RootStyles = styled.div`
           margin-bottom: var(--space-small);
           margin-right: var(--space-small);
 
-          @media only screen and (min-width: ${({ theme }) =>
-              theme.breakpoints.mini}) {
+          @media only screen and (min-width: ${({ theme }) => theme.breakpoints.mini}) {
             margin-right: var(--space-medium);
           }
 
-          @media only screen and (min-width: ${({ theme }) =>
-              theme.breakpoints.tablet}) {
+          @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
             margin-bottom: var(--space-medium);
             margin-right: var(--space-large);
           }

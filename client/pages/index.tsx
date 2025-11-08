@@ -134,8 +134,7 @@ const RootStyles = styled.div`
   > main {
     max-width: var(--app-max-width);
 
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.tablet}) {
+    @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
       width: 100%;
     }
 
@@ -143,8 +142,7 @@ const RootStyles = styled.div`
       display: flex;
       margin-bottom: var(--space-medium);
 
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.tablet}) {
+      @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
         margin-bottom: var(--space-xxlarge);
       }
 
@@ -181,19 +179,16 @@ const RootStyles = styled.div`
       margin-bottom: var(--space-large);
       position: relative;
 
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.tablet}) {
+      @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
         margin-bottom: var(--space-xxlarge);
       }
 
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.desktop}) {
+      @media only screen and (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
         display: block;
         height: 650px;
       }
 
-      @media only screen and (min-width: ${({ theme }) =>
-          theme.breakpoints.ultrawide}) {
+      @media only screen and (min-width: ${({ theme }) => theme.breakpoints.ultrawide}) {
         height: 750px;
       }
 
@@ -205,20 +200,17 @@ const RootStyles = styled.div`
         width: 100%;
         z-index: 3;
 
-        @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.mini}) {
+        @media only screen and (min-width: ${({ theme }) => theme.breakpoints.mini}) {
           justify-content: center;
           margin-left: -40%;
           width: 100%;
         }
 
-        @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.tablet}) {
+        @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
           margin-bottom: var(--space-medium);
         }
 
-        @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.desktop}) {
+        @media only screen and (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
           display: block;
           left: 5%;
           margin-left: 0;
@@ -235,28 +227,24 @@ const RootStyles = styled.div`
           width: 150px;
           transform: rotate(-5deg);
 
-          @media only screen and (min-width: ${({ theme }) =>
-              theme.breakpoints.mini}) {
+          @media only screen and (min-width: ${({ theme }) => theme.breakpoints.mini}) {
             padding: 9px 11px 0;
             width: 200px;
           }
 
-          @media only screen and (min-width: ${({ theme }) =>
-              theme.breakpoints.mobile}) {
+          @media only screen and (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
             padding: 16px 13px 0;
             width: 250px;
           }
 
-          @media only screen and (min-width: ${({ theme }) =>
-              theme.breakpoints.tablet}) {
+          @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
             margin-left: 10%;
             padding: 15px 17px 0;
             transform: rotate(-3deg);
             width: 320px;
           }
 
-          @media only screen and (min-width: ${({ theme }) =>
-              theme.breakpoints.desktop}) {
+          @media only screen and (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
             margin-left: 3%;
             padding: 5% 5.5% 0;
             width: 100%;
@@ -274,8 +262,7 @@ const RootStyles = styled.div`
             overflow: hidden;
             width: 100%;
 
-            @media only screen and (min-width: ${({ theme }) =>
-                theme.breakpoints.mini}) {
+            @media only screen and (min-width: ${({ theme }) => theme.breakpoints.mini}) {
               border-radius: var(--border-radius-xxlarge);
             }
           }
@@ -289,25 +276,21 @@ const RootStyles = styled.div`
             width: 150px;
             z-index: -1;
 
-            @media only screen and (min-width: ${({ theme }) =>
-                theme.breakpoints.mini}) {
+            @media only screen and (min-width: ${({ theme }) => theme.breakpoints.mini}) {
               left: calc(var(--space-jumbo) * 1.5);
               width: 180px;
             }
 
-            @media only screen and (min-width: ${({ theme }) =>
-                theme.breakpoints.mobile}) {
+            @media only screen and (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
               left: calc(var(--space-jumbo) * 1.1);
             }
 
-            @media only screen and (min-width: ${({ theme }) =>
-                theme.breakpoints.tablet}) {
+            @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
               left: calc(var(--space-jumbo) * 1.8);
               width: 280px;
             }
 
-            @media only screen and (min-width: ${({ theme }) =>
-                theme.breakpoints.desktop}) {
+            @media only screen and (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
               bottom: auto;
               left: 70%;
               top: var(--space-xlarge);
@@ -326,20 +309,17 @@ const RootStyles = styled.div`
         width: 100%;
         z-index: 2;
 
-        @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.mini}) {
+        @media only screen and (min-width: ${({ theme }) => theme.breakpoints.mini}) {
           max-width: 500px;
         }
 
-        @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.tablet}) {
+        @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
           margin-bottom: var(--space-xxlarge);
           max-width: none;
           width: 90%;
         }
 
-        @media only screen and (min-width: ${({ theme }) =>
-            theme.breakpoints.desktop}) {
+        @media only screen and (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
           bottom: calc(var(--space-xxlarge) + var(--space-medium));
           display: block;
           margin-bottom: 0;
@@ -359,30 +339,26 @@ const RootStyles = styled.div`
           width: calc(var(--space-xxlarge) * 2);
           z-index: -1;
 
-          @media only screen and (min-width: ${({ theme }) =>
-              theme.breakpoints.mini}) {
+          @media only screen and (min-width: ${({ theme }) => theme.breakpoints.mini}) {
             bottom: calc(var(--space-jumbo) * -1);
             right: 10%;
             width: calc(var(--space-xxlarge) * 3);
           }
 
-          @media only screen and (min-width: ${({ theme }) =>
-              theme.breakpoints.tablet}) {
+          @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
             bottom: calc(var(--space-jumbo) * -1.5);
             right: 5%;
             width: calc(var(--space-jumbo) * 3);
           }
 
-          @media only screen and (min-width: ${({ theme }) =>
-              theme.breakpoints.desktop}) {
+          @media only screen and (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
             bottom: auto;
             right: var(--space-medium);
             top: calc(var(--space-xlarge) * -3);
             width: 50%;
           }
 
-          @media only screen and (min-width: ${({ theme }) =>
-              theme.breakpoints.ultrawide}) {
+          @media only screen and (min-width: ${({ theme }) => theme.breakpoints.ultrawide}) {
             right: calc(var(--space-large) * -1);
             width: 40%;
           }

@@ -6,7 +6,6 @@ import { DARK_THEME } from "../../store/reducers/themeSlice";
 import Footer from "../Footer";
 import Modal from "../Modal";
 import Navbar from "../Navbar";
-import { RIPPLE_PAGE_NAME } from "../../constants/seo";
 import SEO from "../SEO";
 import { selectShouldShowModal } from "../../store/selectors/modalSelectors";
 import styled from "styled-components";
@@ -58,7 +57,7 @@ function Layout({
         pageName={pageName}
       />
       <RootStyles isDarkMode={isDarkMode}>
-        <Navbar hideBackground={pageName === RIPPLE_PAGE_NAME} />
+        <Navbar />
         {children}
         {withFooter ? <Footer /> : null}
         {shouldShowModal ? <Modal /> : null}
@@ -88,14 +87,12 @@ const RootStyles = styled.div<StyleProps>`
   position: relative;
   width: 100%;
 
-  @media only screen and (min-width: ${({ theme }) =>
-      theme.breakpoints.tablet}) {
+  @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
     padding-top: var(--navbar-tablet-height);
     padding-bottom: var(--footer-tablet-height);
   }
 
-  @media only screen and (min-width: ${({ theme }) =>
-      theme.breakpoints.desktop}) {
+  @media only screen and (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
     padding-top: var(--navbar-desktop-height);
     padding-bottom: var(--footer-desktop-height);
   }

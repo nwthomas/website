@@ -65,8 +65,7 @@ const RootStyles = styled.article`
     text-decoration: none;
     width: 100%;
 
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.tablet}) {
+    @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
       min-height: 200px;
     }
 

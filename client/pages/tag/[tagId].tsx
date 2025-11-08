@@ -118,8 +118,7 @@ const RootStyles = styled.div`
     margin-bottom: var(--space-medium);
     width: 100%;
 
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.tablet}) {
+    @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
       margin-bottom: var(--space-xxlarge);
     }
   }
