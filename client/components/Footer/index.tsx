@@ -90,7 +90,7 @@ function Footer() {
             </li>
             <li>
               <a
-                href="https://x.com/nwthomas_"
+                href="https://x.com/nwthomas"
                 aria-label="Link to Nathan's profile on X"
                 rel="noopener noreferrer"
                 target="_blank"
