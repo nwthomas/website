@@ -28,7 +28,7 @@ export const DEFAULT_SEO_VALUES: SeoConfig = {
   imageUrl: "/images/og/home-page.webp",
   siteName: "Nathan Thomas",
   social: {
-    twitter: { handle: "@nwthomas_", site: "@nwthomas_" },
+    twitter: { handle: "@nwthomas", site: "@nwthomas" },
     instagram: { handle: "@nwthomas" },
   },
   title: "Nathan Thomas",
