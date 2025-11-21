@@ -3,12 +3,12 @@ const { withSentryConfig } = require("@sentry/nextjs");
 const nextConfig = {
   // NextJS generic configurations
   reactStrictMode: true,
-  serverRuntimeConfig: {
-    PROJECT_ROOT: __dirname,
-  },
-  experimental: {
-    ppr: true,
-  },
+  // serverRuntimeConfig: {
+  //   PROJECT_ROOT: __dirname,
+  // },
+  // experimental: {
+  //   ppr: true,
+  // },
   compiler: {
     styledComponents: true,
   },
