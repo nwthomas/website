@@ -121,7 +121,7 @@ importers:
         specifier: 13.1.2
         version: 13.1.2
       '@sparticuz/chromium':
-        specifier: ^138.0.2
+        specifier: 138.0.2
         version: 138.0.2
       '@types/express':
         specifier: 4.17.17
@@ -4386,7 +4386,7 @@ snapshots:
 
   '@react-three/fiber@8.16.6(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(three@0.149.0)':
     dependencies:
-      '@babel/runtime': 7.21.0
+      '@babel/runtime': 7.24.5
       '@types/react-reconciler': 0.26.7
       '@types/webxr': 0.5.16
       base64-js: 1.5.1
