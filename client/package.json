@@ -13,12 +13,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "pnpm install-chromium && next build",
+    "build": "bun run install-chromium && next build",
     "postbuild": "next-sitemap",
     "export": "next export",
     "install-chromium": "npx playwright install chromium",
     "lint": "next lint",
-    "preinstall": "npx only-allow pnpm",
+    "preinstall": "npx only-allow bun",
     "share": "ngrok http 3000",
     "start": "next start"
   },
