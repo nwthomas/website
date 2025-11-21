@@ -1,6 +1,5 @@
 import { BlogPost } from "./sortBlogPosts";
 import fs from "fs";
-import getConfig from "next/config";
 import { isProductionEnvironment } from "../constants/environments";
 import matter from "gray-matter";
 import path from "path";
@@ -14,10 +13,8 @@ export type Files = Array<{
 }>;
 
 export function getDirectoryFiles(relativeDirectoryPath: string): Files {
-  const { serverRuntimeConfig } = getConfig();
-
   const directory = path.join(
-    serverRuntimeConfig.PROJECT_ROOT,
+    process.cwd(),
     relativeDirectoryPath
   );
 
