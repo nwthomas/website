@@ -21,10 +21,7 @@ type BlogPostFrontMatter = {
 export type BlogPostsFrontMatter = Array<BlogPostFrontMatter>;
 
 // Handles comparison of tagId to tags and returns the normal tag title
-export function getTagTitleFromTagId(
-  tagId: string,
-  tags: Array<string>
-): string {
+export function getTagTitleFromTagId(tagId: string, tags: Array<string>): string {
   for (const tag of tags) {
     const convertedTag = buildKebabCaseParam(tag);
 
@@ -75,9 +72,7 @@ interface BlogPostsByTags {
 }
 
 // Organizes blog posts by tags
-export function bucketAndSortBlogPostsByTags(
-  blogPostsFrontMatter: BlogPostsFrontMatter
-): BlogPostsByTags {
+export function bucketAndSortBlogPostsByTags(blogPostsFrontMatter: BlogPostsFrontMatter): BlogPostsByTags {
   const blogPostsByTags = {};
 
   for (const blogPost of blogPostsFrontMatter) {
@@ -98,10 +93,7 @@ export function bucketAndSortBlogPostsByTags(
   }
 
   // Comparison function against different types of strings
-  function compareBlogPostAuthoredDates(
-    a: Date | string,
-    b: Date | string
-  ): -1 | 0 | 1 {
+  function compareBlogPostAuthoredDates(a: Date | string, b: Date | string): -1 | 0 | 1 {
     if (a < b) {
       return 1;
     } else if (b < a) {
@@ -112,11 +104,7 @@ export function bucketAndSortBlogPostsByTags(
   }
 
   for (const tag in blogPostsByTags) {
-    blogPostsByTags[tag] = mergeSort(
-      blogPostsByTags[tag],
-      getBlogPostAuthoredDate,
-      compareBlogPostAuthoredDates
-    );
+    blogPostsByTags[tag] = mergeSort(blogPostsByTags[tag], getBlogPostAuthoredDate, compareBlogPostAuthoredDates);
   }
 
   return blogPostsByTags;
@@ -126,7 +114,7 @@ export function bucketAndSortBlogPostsByTags(
 export function mergeSort(
   items: any,
   getComparator: (item: BlogPostFrontMatter) => Date | string,
-  compareValues: (a: Date | string, b: Date | string) => number
+  compareValues: (a: Date | string, b: Date | string) => number,
 ) {
   if (items.length <= 1) {
     return items;
@@ -140,7 +128,7 @@ export function mergeSort(
     mergeSort(leftHalf, getComparator, compareValues),
     mergeSort(rightHalf, getComparator, compareValues),
     getComparator,
-    compareValues
+    compareValues,
   );
 }
 
@@ -149,7 +137,7 @@ function mergeItems(
   firstArray: any,
   secondArray: any,
   getComparator: (item: BlogPostFrontMatter) => Date | string,
-  compareValues: (a: Date | string, b: Date | string) => number
+  compareValues: (a: Date | string, b: Date | string) => number,
 ) {
   const result: BlogPosts = [];
   let firstIndex = 0;

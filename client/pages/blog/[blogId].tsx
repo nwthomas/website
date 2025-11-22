@@ -27,9 +27,7 @@ export async function getStaticProps({ params: { blogId } }) {
 
 export async function getStaticPaths() {
   const blogPosts = getDirectoryFiles(BLOG_FILES_PATH);
-  const blogPostContent: BlogPosts = blogPosts.map(
-    (blogPost) => blogPost.fileContents
-  );
+  const blogPostContent: BlogPosts = blogPosts.map((blogPost) => blogPost.fileContents);
 
   const paths = blogPostContent.map((blogPost) => {
     return { params: { blogId: blogPost.data.slug } };
@@ -42,12 +40,7 @@ export async function getStaticPaths() {
 }
 
 function BlogPost({ blogPost }) {
-  const {
-    imageUrl: heroImageUrl,
-    description,
-    dateUpdated,
-    dateWritten,
-  } = blogPost.data;
+  const { imageUrl: heroImageUrl, description, dateUpdated, dateWritten } = blogPost.data;
 
   const dispatch = useDispatch();
 

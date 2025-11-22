@@ -1,9 +1,6 @@
 import * as React from "react";
 
-import {
-  buildDateUpdatedLabel,
-  buildDateWrittenLabel,
-} from "../../utils/dates";
+import { buildDateUpdatedLabel, buildDateWrittenLabel } from "../../utils/dates";
 
 import { CopyLinkIcon } from "../Icons";
 import MetadataTag from "../MetadataTag";
@@ -20,14 +17,7 @@ interface Props {
   routeId: string;
 }
 
-function BlogHeading({
-  contents,
-  dateUpdated,
-  dateWritten,
-  level,
-  linkPath,
-  routeId,
-}: Props) {
+function BlogHeading({ contents, dateUpdated, dateWritten, level, linkPath, routeId }: Props) {
   const [isSelected, setIsSelected] = React.useState<boolean>(false);
 
   const handleOnActivated = React.useCallback(() => {
@@ -108,12 +98,7 @@ function BlogHeading({
           onMouseEnter={handleOnActivated}
           onMouseLeave={handleOnUnactivated}
         >
-          <a
-            {...headingHandlers}
-            aria-hidden="true"
-            href={linkPath}
-            tabIndex={-1}
-          >
+          <a {...headingHandlers} aria-hidden="true" href={linkPath} tabIndex={-1}>
             <CopyLinkIcon color="var(--text-secondary)" />
           </a>
         </div>
@@ -121,12 +106,8 @@ function BlogHeading({
       </div>
       {dateUpdated || dateWritten ? (
         <div>
-          {dateWritten ? (
-            <MetadataTag contents={buildDateWrittenLabel(dateWritten)} />
-          ) : null}
-          {dateUpdated ? (
-            <MetadataTag contents={buildDateUpdatedLabel(dateUpdated)} />
-          ) : null}
+          {dateWritten ? <MetadataTag contents={buildDateWrittenLabel(dateWritten)} /> : null}
+          {dateUpdated ? <MetadataTag contents={buildDateUpdatedLabel(dateUpdated)} /> : null}
         </div>
       ) : null}
     </RootStyles>
@@ -162,19 +143,16 @@ const RootStyles = styled.div<StyleProps>`
       grid-column-end: 2;
       justify-content: flex-end;
       margin-top: var(--space-large);
-      padding-top: ${({ level }) =>
-        level === 1 ? "var(--space-medium)" : "var(--space-xsmall)"};
+      padding-top: ${({ level }) => (level === 1 ? "var(--space-medium)" : "var(--space-xsmall)")};
       opacity: 0;
       transition: opacity var(--transition-short) ease-in-out;
 
       svg {
         display: none;
-        height: ${({ level }) =>
-          level === 1 ? "var(--space-xlarge)" : "var(--space-medium)"};
+        height: ${({ level }) => (level === 1 ? "var(--space-xlarge)" : "var(--space-medium)")};
         margin-bottom: var(--space-micro);
         margin-right: var(--space-small);
-        width: ${({ level }) =>
-          level === 1 ? "var(--space-xlarge)" : "var(--space-medium)"};
+        width: ${({ level }) => (level === 1 ? "var(--space-xlarge)" : "var(--space-medium)")};
       }
 
       @media only screen and (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
@@ -208,9 +186,8 @@ const RootStyles = styled.div<StyleProps>`
 
       > a {
         color: inherit;
-        font-family: "Libre Baskerville", Constantia, "Lucida Bright",
-          Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif",
-          "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+        font-family: "Libre Baskerville", Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida,
+          "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
         font-size: inherit;
         text-decoration-color: none;
         text-decoration-style: none;

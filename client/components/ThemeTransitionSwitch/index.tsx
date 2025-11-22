@@ -21,9 +21,7 @@ function ThemeTransitionSwitch() {
     setCurrentTheme();
   };
 
-  const currentAriaLabel = isDarkMode
-    ? DARK_MODE_ARIA_LABEL
-    : LIGHT_MODE_ARIA_LABEL;
+  const currentAriaLabel = isDarkMode ? DARK_MODE_ARIA_LABEL : LIGHT_MODE_ARIA_LABEL;
 
   return (
     <RootStyles isDarkMode={isDarkMode}>
@@ -101,8 +99,7 @@ const RootStyles = styled.div<StyleProps>`
       left: 2px;
       top: 2px;
       transform: translateX(${({ isDarkMode }) => (isDarkMode ? "24px" : 0)});
-      transition: transform var(--transition-short)
-        cubic-bezier(0.23, 1, 0.32, 1);
+      transition: transform var(--transition-short) cubic-bezier(0.23, 1, 0.32, 1);
       width: 18px;
 
       &:focus-within {

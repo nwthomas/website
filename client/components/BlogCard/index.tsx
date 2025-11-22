@@ -14,13 +14,7 @@ interface Props {
   youTubeLink?: string;
 }
 
-function BlogCard({
-  dateWritten,
-  description,
-  title,
-  url,
-  youTubeLink,
-}: Props) {
+function BlogCard({ dateWritten, description, title, url, youTubeLink }: Props) {
   const routeOutLabel = youTubeLink ? "Watch video" : "Read more";
   const routeOutUrl = youTubeLink || `/blog/${url}`;
   const showYouTubeIcon = youTubeLink && !dateWritten;

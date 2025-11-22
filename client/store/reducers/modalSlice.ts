@@ -22,12 +22,11 @@ export const modalSlice = createSlice({
         buttonLabel?: string;
         message?: string;
         shouldShowModal?: boolean;
-      }>
+      }>,
     ) => {
       state.buttonLabel = action.payload?.buttonLabel || state.buttonLabel;
       state.message = action.payload?.message || state.message;
-      state.shouldShowModal =
-        action.payload?.shouldShowModal ?? state.shouldShowModal;
+      state.shouldShowModal = action.payload?.shouldShowModal ?? state.shouldShowModal;
     },
   },
 });

@@ -12,26 +12,18 @@ export interface ScreenDimensions {
 }
 
 export const useGetScreenDimensions = (): ScreenDimensions => {
-  const [viewportHeight, setViewportHeight] = React.useState<
-    number | undefined
-  >(typeof window !== "undefined" ? window.innerHeight : undefined);
+  const [viewportHeight, setViewportHeight] = React.useState<number | undefined>(
+    typeof window !== "undefined" ? window.innerHeight : undefined,
+  );
   const [viewportWidth, setViewportWidth] = React.useState<number | undefined>(
-    typeof window !== "undefined" ? window.innerWidth : undefined
+    typeof window !== "undefined" ? window.innerWidth : undefined,
   );
 
-  const [availableHeight, setAvailableHeight] = React.useState<
-    number | undefined
-  >(
-    typeof window !== "undefined"
-      ? document.documentElement.clientHeight
-      : undefined
+  const [availableHeight, setAvailableHeight] = React.useState<number | undefined>(
+    typeof window !== "undefined" ? document.documentElement.clientHeight : undefined,
   );
-  const [availableWidth, setAvailableWidth] = React.useState<
-    number | undefined
-  >(
-    typeof window !== "undefined"
-      ? document.documentElement.clientWidth
-      : undefined
+  const [availableWidth, setAvailableWidth] = React.useState<number | undefined>(
+    typeof window !== "undefined" ? document.documentElement.clientWidth : undefined,
   );
 
   // I want to use this throttle, so be careful for any future changes here as ESLint can't
@@ -43,16 +35,10 @@ export const useGetScreenDimensions = (): ScreenDimensions => {
       () => {
         if (typeof window !== "undefined") {
           // Total width and height of viewport
-          const {
-            innerHeight: newViewportHeight,
-            innerWidth: newViewportWidth,
-          } = window;
+          const { innerHeight: newViewportHeight, innerWidth: newViewportWidth } = window;
 
           // This includes scrollbars if they exist
-          const {
-            clientHeight: newAvailableHeight,
-            clientWidth: newAvailableWidth,
-          } = document.documentElement;
+          const { clientHeight: newAvailableHeight, clientWidth: newAvailableWidth } = document.documentElement;
 
           if (newViewportHeight !== viewportHeight) {
             setViewportHeight(newViewportHeight);
@@ -72,9 +58,9 @@ export const useGetScreenDimensions = (): ScreenDimensions => {
         }
       },
       THROTTLE_WAIT_TIME_MS,
-      { trailing: true }
+      { trailing: true },
     ),
-    [availableHeight, availableWidth, viewportHeight, viewportWidth]
+    [availableHeight, availableWidth, viewportHeight, viewportWidth],
   );
 
   React.useEffect(() => {
@@ -84,18 +70,11 @@ export const useGetScreenDimensions = (): ScreenDimensions => {
       window.addEventListener("resize", handleMeasureWindowDimensions, {
         passive: true,
       });
-      window.addEventListener(
-        "orientationchange",
-        handleMeasureWindowDimensions,
-        { passive: true }
-      );
+      window.addEventListener("orientationchange", handleMeasureWindowDimensions, { passive: true });
 
       return () => {
         window.removeEventListener("resize", handleMeasureWindowDimensions);
-        window.removeEventListener(
-          "orientationchange",
-          handleMeasureWindowDimensions
-        );
+        window.removeEventListener("orientationchange", handleMeasureWindowDimensions);
       };
     }
   }, [handleMeasureWindowDimensions]);

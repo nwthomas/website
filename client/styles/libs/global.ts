@@ -1,11 +1,4 @@
-import {
-  appDimensions,
-  borderRadii,
-  breakpoints,
-  colors,
-  spaces,
-  transitions,
-} from "./theme";
+import { appDimensions, borderRadii, breakpoints, colors, spaces, transitions } from "./theme";
 
 import { css } from "styled-components";
 
@@ -189,9 +182,8 @@ const GlobalStyle = css`
   h5 {
     color: var(--text);
     font-display: swap;
-    font-family: "Libre Baskerville", Constantia, "Lucida Bright", Lucidabright,
-      "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif",
-      "Liberation Serif", Georgia, serif;
+    font-family: "Libre Baskerville", Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif",
+      "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
     line-height: 1.5;
   }
 
@@ -230,18 +222,15 @@ const GlobalStyle = css`
     font-size: 1.6rem;
     line-height: 1.8;
     overflow: break-word;
-    font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system,
-      BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
-      sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
-      Noto Color Emoji;
+    font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+      Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
 
     &::placeholder {
       color: var(--text);
       opacity: 0.7;
       font-size: 1.6rem;
-      font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system,
-        BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
-        sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
+      font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+        Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
         Noto Color Emoji;
     }
   }
@@ -260,10 +249,8 @@ const GlobalStyle = css`
     color: var(--text);
     cursor: pointer;
     font-display: swap;
-    font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system,
-      BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
-      sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
-      Noto Color Emoji;
+    font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+      Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
     font-size: 1.6rem;
     overflow: break-word;
     text-decoration: none;

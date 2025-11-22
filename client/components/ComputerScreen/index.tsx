@@ -10,12 +10,7 @@ interface Props {
   imageWidth: number;
 }
 
-function ComputerScreen({
-  imageAlt,
-  imageHeight,
-  imageSrc,
-  imageWidth,
-}: Props) {
+function ComputerScreen({ imageAlt, imageHeight, imageSrc, imageWidth }: Props) {
   return (
     <RootStyles>
       <div>

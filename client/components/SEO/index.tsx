@@ -1,8 +1,8 @@
-import * as React from "react";
+import { useContext, useMemo } from "react";
 
+import { ArticleJsonLd } from "next-seo";
 import { DARK_THEME } from "../../store/reducers/themeSlice";
 import Head from "next/head";
-import { NextSeo } from "next-seo";
 import { ORIGIN } from "../../constants/routes";
 import { ThemeContext } from "styled-components";
 import { buildSeoConfig } from "../../constants/seo";
@@ -20,17 +20,12 @@ interface Props {
   pageName: string;
 }
 
-function SEO({
-  customDescription,
-  customImageUrl,
-  isArticle,
-  pageName,
-}: Props) {
+function SEO({ customDescription, customImageUrl, isArticle, pageName }: Props) {
   const { asPath } = useRouter();
   const [currentTheme] = useTheme();
-  const { colorsHex } = React.useContext(ThemeContext);
+  const { colorsHex } = useContext(ThemeContext);
 
-  const currentPageMetadata = React.useMemo(() => {
+  const currentPageMetadata = useMemo(() => {
     return buildSeoConfig(pageName);
   }, [pageName]);
 
@@ -49,10 +44,10 @@ function SEO({
 
   return (
     <>
-      <NextSeo
-        title={title}
+      <ArticleJsonLd
+        headline={title}
         description={customDescription || description}
-        canonical={currentUrl}
+        url={currentUrl}
         openGraph={{
           url: currentUrl,
           title: pageName,
@@ -75,12 +70,7 @@ function SEO({
       <Head>
         {/* This handles the color for the "safe area" notch on iOS */}
         {currentTheme ? (
-          <meta
-            name="theme-color"
-            content={
-              currentTheme === DARK_THEME ? colorsHex.black : colorsHex.white
-            }
-          ></meta>
+          <meta name="theme-color" content={currentTheme === DARK_THEME ? colorsHex.black : colorsHex.white}></meta>
         ) : null}
       </Head>
     </>
