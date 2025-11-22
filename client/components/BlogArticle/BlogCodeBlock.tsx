@@ -45,8 +45,7 @@ const BlockRootStyles = styled.div`
     code,
     span {
       color: var(--color-white);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-        Liberation Mono, Courier New, monospace;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
       flex-wrap: wrap;
     }
   }
@@ -55,8 +54,7 @@ const BlockRootStyles = styled.div`
 const InlineRootStyles = styled.code`
   background-color: var(--body-bg-accent-one);
   border-radius: var(--border-radius-small);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    Liberation Mono, Courier New, monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
   font-size: 1.4rem;
   line-height: 1.8;
   padding: var(--space-nano) calc(var(--space-micro) * 2) var(--space-micro);

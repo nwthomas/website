@@ -13,10 +13,7 @@ export type Files = Array<{
 }>;
 
 export function getDirectoryFiles(relativeDirectoryPath: string): Files {
-  const directory = path.join(
-    process.cwd(),
-    relativeDirectoryPath
-  );
+  const directory = path.join(process.cwd(), relativeDirectoryPath);
 
   const filenames = fs.readdirSync(directory);
 
@@ -27,8 +24,7 @@ export function getDirectoryFiles(relativeDirectoryPath: string): Files {
     const name = path.parse(filename).name;
     const fileContents = readFileContentsObject(filePath);
 
-    const isDraftInProduction =
-      isProductionEnvironment && fileContents?.data?.isDraft;
+    const isDraftInProduction = isProductionEnvironment && fileContents?.data?.isDraft;
 
     if (fileContents && !isDraftInProduction) {
       // Mutate a new slug value on data for ease of use on pages

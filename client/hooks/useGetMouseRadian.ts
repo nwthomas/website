@@ -8,12 +8,7 @@ const THROTTLE_WAIT_TIME_MS = 10;
 
 const DEFAULT_RADIANS = Math.PI;
 
-function getAngleRadians(
-  x1: number,
-  y1: number,
-  x2: number,
-  y2: number
-): number {
+function getAngleRadians(x1: number, y1: number, x2: number, y2: number): number {
   const distY = y2 - y1;
   const distX = x2 - x1;
   const result = Math.atan2(distY, distX);
@@ -39,9 +34,9 @@ export function useGetMouseRadian(ref: React.RefObject<HTMLElement>): number {
         setMouseCoordinates({ x: clientX, y: clientY });
       },
       THROTTLE_WAIT_TIME_MS,
-      { trailing: true }
+      { trailing: true },
     ),
-    []
+    [],
   );
 
   React.useEffect(() => {
@@ -54,11 +49,7 @@ export function useGetMouseRadian(ref: React.RefObject<HTMLElement>): number {
     };
   }, [getMouseCoordinates]);
 
-  if (
-    !ref.current ||
-    !viewportWidth ||
-    viewportWidth <= breakpointsInt.desktop
-  ) {
+  if (!ref.current || !viewportWidth || viewportWidth <= breakpointsInt.desktop) {
     return DEFAULT_RADIANS;
   }
 

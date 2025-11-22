@@ -200,10 +200,9 @@ const oneDark = {
   ".language-javascript .token.operator": {
     color: "hsl(286, 60%, 67%)",
   },
-  ".language-javascript .token.template-string > .token.interpolation > .token.interpolation-punctuation.punctuation":
-    {
-      color: "hsl(5, 48%, 51%)",
-    },
+  ".language-javascript .token.template-string > .token.interpolation > .token.interpolation-punctuation.punctuation": {
+    color: "hsl(5, 48%, 51%)",
+  },
   ".language-json .token.operator": {
     color: "hsl(220, 14%, 71%)",
   },
@@ -344,10 +343,9 @@ const oneDark = {
     borderRadius: "0.3em",
     boxShadow: "0 2px 0 0 rgba(0, 0, 0, 0.2)",
   },
-  "pre[id].linkable-line-numbers.linkable-line-numbers span.line-numbers-rows > span:hover:before":
-    {
-      backgroundColor: "hsla(220, 100%, 80%, 0.04)",
-    },
+  "pre[id].linkable-line-numbers.linkable-line-numbers span.line-numbers-rows > span:hover:before": {
+    backgroundColor: "hsla(220, 100%, 80%, 0.04)",
+  },
   ".line-numbers.line-numbers .line-numbers-rows": {
     borderRightColor: "hsla(220, 14%, 71%, 0.15)",
   },
@@ -402,22 +400,18 @@ const oneDark = {
   "pre > code.diff-highlight .token.token.deleted:not(.prefix)": {
     backgroundColor: "hsla(353, 100%, 66%, 0.15)",
   },
-  "pre.diff-highlight > code .token.token.deleted:not(.prefix)::-moz-selection":
-    {
-      backgroundColor: "hsla(353, 95%, 66%, 0.25)",
-    },
-  "pre.diff-highlight > code .token.token.deleted:not(.prefix) *::-moz-selection":
-    {
-      backgroundColor: "hsla(353, 95%, 66%, 0.25)",
-    },
-  "pre > code.diff-highlight .token.token.deleted:not(.prefix)::-moz-selection":
-    {
-      backgroundColor: "hsla(353, 95%, 66%, 0.25)",
-    },
-  "pre > code.diff-highlight .token.token.deleted:not(.prefix) *::-moz-selection":
-    {
-      backgroundColor: "hsla(353, 95%, 66%, 0.25)",
-    },
+  "pre.diff-highlight > code .token.token.deleted:not(.prefix)::-moz-selection": {
+    backgroundColor: "hsla(353, 95%, 66%, 0.25)",
+  },
+  "pre.diff-highlight > code .token.token.deleted:not(.prefix) *::-moz-selection": {
+    backgroundColor: "hsla(353, 95%, 66%, 0.25)",
+  },
+  "pre > code.diff-highlight .token.token.deleted:not(.prefix)::-moz-selection": {
+    backgroundColor: "hsla(353, 95%, 66%, 0.25)",
+  },
+  "pre > code.diff-highlight .token.token.deleted:not(.prefix) *::-moz-selection": {
+    backgroundColor: "hsla(353, 95%, 66%, 0.25)",
+  },
   "pre.diff-highlight > code .token.token.deleted:not(.prefix)::selection": {
     backgroundColor: "hsla(353, 95%, 66%, 0.25)",
   },
@@ -436,22 +430,18 @@ const oneDark = {
   "pre > code.diff-highlight .token.token.inserted:not(.prefix)": {
     backgroundColor: "hsla(137, 100%, 55%, 0.15)",
   },
-  "pre.diff-highlight > code .token.token.inserted:not(.prefix)::-moz-selection":
-    {
-      backgroundColor: "hsla(135, 73%, 55%, 0.25)",
-    },
-  "pre.diff-highlight > code .token.token.inserted:not(.prefix) *::-moz-selection":
-    {
-      backgroundColor: "hsla(135, 73%, 55%, 0.25)",
-    },
-  "pre > code.diff-highlight .token.token.inserted:not(.prefix)::-moz-selection":
-    {
-      backgroundColor: "hsla(135, 73%, 55%, 0.25)",
-    },
-  "pre > code.diff-highlight .token.token.inserted:not(.prefix) *::-moz-selection":
-    {
-      backgroundColor: "hsla(135, 73%, 55%, 0.25)",
-    },
+  "pre.diff-highlight > code .token.token.inserted:not(.prefix)::-moz-selection": {
+    backgroundColor: "hsla(135, 73%, 55%, 0.25)",
+  },
+  "pre.diff-highlight > code .token.token.inserted:not(.prefix) *::-moz-selection": {
+    backgroundColor: "hsla(135, 73%, 55%, 0.25)",
+  },
+  "pre > code.diff-highlight .token.token.inserted:not(.prefix)::-moz-selection": {
+    backgroundColor: "hsla(135, 73%, 55%, 0.25)",
+  },
+  "pre > code.diff-highlight .token.token.inserted:not(.prefix) *::-moz-selection": {
+    backgroundColor: "hsla(135, 73%, 55%, 0.25)",
+  },
   "pre.diff-highlight > code .token.token.inserted:not(.prefix)::selection": {
     backgroundColor: "hsla(135, 73%, 55%, 0.25)",
   },

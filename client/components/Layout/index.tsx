@@ -20,14 +20,7 @@ interface Props {
   withFooter?: boolean;
 }
 
-function Layout({
-  children,
-  customSEODescription,
-  customSEOImageUrl,
-  isArticle,
-  pageName,
-  withFooter,
-}: Props) {
+function Layout({ children, customSEODescription, customSEOImageUrl, isArticle, pageName, withFooter }: Props) {
   const shouldShowModal = useSelector(selectShouldShowModal);
   const { availableHeight } = useGetScreenDimensions();
   const [currentTheme] = useTheme();
@@ -41,10 +34,7 @@ function Layout({
       const { documentElement } = document;
       const newAvailableHeightPx = `${availableHeight}px`;
 
-      documentElement.style.setProperty(
-        "--app-min-height",
-        newAvailableHeightPx
-      );
+      documentElement.style.setProperty("--app-min-height", newAvailableHeightPx);
     }
   }, [availableHeight]);
 

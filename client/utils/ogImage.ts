@@ -26,9 +26,9 @@ export async function createOgImage(path: string) {
   const ogImageDir = "./public/images/og";
   const imagePath = `${ogImageDir}/${hash}.jpeg`;
   const publicPath = `/images/og/${hash}.jpeg`;
-  
+
   console.log(`Creating new og image for ${hash} at: ${ogImageDir}`);
-  
+
   try {
     fs.statSync(imagePath);
     console.log(`Image already created for ${hash}. Returning.`);
@@ -43,7 +43,7 @@ export async function createOgImage(path: string) {
     executablePath: await chromium.executablePath(),
     headless: true,
   });
-  
+
   console.log(`Taking screenshot for ${hash}.`);
   const page = await browser.newPage();
   await page.setViewportSize({

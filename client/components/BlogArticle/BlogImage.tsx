@@ -16,15 +16,7 @@ interface Props {
   width?: string | number;
 }
 
-function BlogImage({
-  alt = "",
-  height = 0,
-  isHeroImage,
-  placeholderImage,
-  src,
-  title,
-  width = 0,
-}: Props) {
+function BlogImage({ alt = "", height = 0, isHeroImage, placeholderImage, src, title, width = 0 }: Props) {
   const imageHeight = Number(height);
   const imageWidth = Number(width);
 
@@ -38,7 +30,7 @@ function BlogImage({
         placeholderImage,
         width: imageWidth,
         src,
-      })
+      }),
     );
   };
 
@@ -60,11 +52,7 @@ function BlogImage({
   );
 
   return (
-    <RootStyles
-      isHeroImage={isHeroImage}
-      imageHeight={imageHeight}
-      imageWidth={imageWidth}
-    >
+    <RootStyles isHeroImage={isHeroImage} imageHeight={imageHeight} imageWidth={imageWidth}>
       <button aria-label="Enlarge image" onClick={handleImageClick}>
         {image}
       </button>
@@ -88,17 +76,13 @@ const RootStyles = styled.div<StyleProps>`
 
   > button {
     align-items: center;
-    border: ${({ isHeroImage }) =>
-      isHeroImage ? "" : "1px solid var(--body-bg-accent-two)"};
+    border: ${({ isHeroImage }) => (isHeroImage ? "" : "1px solid var(--body-bg-accent-two)")};
     border-radius: var(--border-radius-medium);
     display: flex;
     flex-direction: column;
     max-width: ${({ isHeroImage }) =>
-      isHeroImage
-        ? "var(--article-hero-image-max-width)"
-        : "var(--article-max-width)"};
-    margin-top: ${({ isHeroImage }) =>
-      isHeroImage ? 0 : "var(--space-medium)"};
+      isHeroImage ? "var(--article-hero-image-max-width)" : "var(--article-max-width)"};
+    margin-top: ${({ isHeroImage }) => (isHeroImage ? 0 : "var(--space-medium)")};
     overflow: hidden;
     position: relative;
     transition: opacity var(--transition-short) ease-in-out;
@@ -110,8 +94,7 @@ const RootStyles = styled.div<StyleProps>`
     }
 
     > div {
-      aspect-ratio: ${({ imageWidth, imageHeight }) =>
-        `${imageWidth} / ${imageHeight}`};
+      aspect-ratio: ${({ imageWidth, imageHeight }) => `${imageWidth} / ${imageHeight}`};
       position: relative;
       width: 100%;
     }

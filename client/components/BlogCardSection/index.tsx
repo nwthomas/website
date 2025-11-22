@@ -62,9 +62,7 @@ function BlogCardSection({ blogPosts, tag }: Props) {
         <div>
           <div>
             <Tag
-              ariaLabel={
-                isTagPage ? BACK_TO_BLOG_PAGE_ARIA_LABEL : tagAriaLabel
-              }
+              ariaLabel={isTagPage ? BACK_TO_BLOG_PAGE_ARIA_LABEL : tagAriaLabel}
               text={tag}
               url={isTagPage ? BLOG_PAGE : tagRoute}
               withCloseIcon={isTagPage}

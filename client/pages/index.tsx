@@ -1,5 +1,3 @@
-import * as React from "react";
-
 import styled, { keyframes } from "styled-components";
 
 import { CONTENTS_ID } from "../constants/routes";
@@ -11,8 +9,7 @@ import Link from "next/link";
 import { NextPage } from "next";
 
 const GITHUB_LINK_ARIA_LABEL = "Link to Nathan's GitHub page";
-const TEACHING_LINK_ARIA_LABEL =
-  "Link to the Code Tenderloin free bootcamp Nathan volunteers at";
+const TEACHING_LINK_ARIA_LABEL = "Link to the Code Tenderloin free bootcamp Nathan volunteers at";
 const WRITING_LINK_ARIA_LABEL = "Link to Nathan's blog page";
 
 export async function getStaticProps() {
@@ -38,11 +35,7 @@ const Home: NextPage = () => {
                 software engineer
               </a>
               ,{" "}
-              <Link
-                aria-label={WRITING_LINK_ARIA_LABEL}
-                href="/blog"
-                prefetch={false}
-              >
+              <Link aria-label={WRITING_LINK_ARIA_LABEL} href="/blog" prefetch={false}>
                 writer
               </Link>
               , and{" "}

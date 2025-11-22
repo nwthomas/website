@@ -24,10 +24,7 @@ export const contactFormSlice = createSlice({
   name: "contact",
   initialState,
   reducers: {
-    updateMessageValues: (
-      state,
-      action: PayloadAction<{ [key: string]: string }>
-    ) => {
+    updateMessageValues: (state, action: PayloadAction<{ [key: string]: string }>) => {
       state.message = {
         ...state.message,
         ...action.payload,
@@ -44,6 +41,5 @@ export const contactFormSlice = createSlice({
   },
 });
 
-export const { resetMessageValues, updateMessageValues } =
-  contactFormSlice.actions;
+export const { resetMessageValues, updateMessageValues } = contactFormSlice.actions;
 export default contactFormSlice.reducer;

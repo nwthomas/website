@@ -1,11 +1,6 @@
 import * as React from "react";
 
-import {
-  DARK_THEME,
-  LIGHT_THEME,
-  ThemeEnum,
-  updateCurrentTheme,
-} from "../store/reducers/themeSlice";
+import { DARK_THEME, LIGHT_THEME, ThemeEnum, updateCurrentTheme } from "../store/reducers/themeSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 import { selectCurrentTheme } from "../store/selectors/themeSelectors";
@@ -50,23 +45,17 @@ export function useTheme(): [ThemeEnum | null, () => void] {
   // Function to handle match media changes by user in OS
   const handleMatchMediaChange = React.useCallback(
     (event: MediaQueryListEvent) => {
-      const newTheme = (event.currentTarget as MediaQueryList).matches
-        ? DARK_THEME
-        : LIGHT_THEME;
+      const newTheme = (event.currentTarget as MediaQueryList).matches ? DARK_THEME : LIGHT_THEME;
 
       dispatch(updateCurrentTheme(newTheme));
       window.__setPreferredTheme(newTheme);
     },
-    [dispatch]
+    [dispatch],
   );
 
   // Handles any updates to the theme
   const handleUpdatePreferredTheme = React.useCallback(() => {
-    if (
-      typeof window !== "undefined" &&
-      window.__theme &&
-      window.__setPreferredTheme
-    ) {
+    if (typeof window !== "undefined" && window.__theme && window.__setPreferredTheme) {
       const newTheme = window.__theme === DARK_THEME ? LIGHT_THEME : DARK_THEME;
 
       dispatch(updateCurrentTheme(newTheme));
@@ -79,16 +68,12 @@ export function useTheme(): [ThemeEnum | null, () => void] {
     const windowObjectTheme = getThemeFromWindowObject();
 
     if (windowObjectTheme) {
-      window
-        .matchMedia(MATCH_MEDIA_QUERY_NAME)
-        .addEventListener("change", handleMatchMediaChange);
+      window.matchMedia(MATCH_MEDIA_QUERY_NAME).addEventListener("change", handleMatchMediaChange, { passive: true });
 
       dispatch(updateCurrentTheme(windowObjectTheme));
 
       return () => {
-        window
-          .matchMedia(MATCH_MEDIA_QUERY_NAME)
-          .removeEventListener("change", handleMatchMediaChange);
+        window.matchMedia(MATCH_MEDIA_QUERY_NAME).removeEventListener("change", handleMatchMediaChange);
       };
     }
   }, [dispatch, handleMatchMediaChange]);

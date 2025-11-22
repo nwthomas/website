@@ -1,10 +1,7 @@
 import * as React from "react";
 
 import { DARK_THEME, ThemeEnum } from "../../store/reducers/themeSlice";
-import {
-  selectModalButtonLabel,
-  selectModalMessage,
-} from "../../store/selectors/modalSelectors";
+import { selectModalButtonLabel, selectModalMessage } from "../../store/selectors/modalSelectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useLockBodyScroll, useTheme } from "../../hooks";
 
@@ -28,7 +25,7 @@ function Modal() {
         message: "",
         buttonLabel: "",
         shouldShowModal: false,
-      })
+      }),
     );
   };
 
@@ -50,8 +47,7 @@ interface StyleProps {
 
 const RootStyles = styled.div<StyleProps>`
   align-items: center;
-  background-color: ${({ currentTheme }) =>
-    `${currentTheme === DARK_THEME ? colors.white : colors.black}40`};
+  background-color: ${({ currentTheme }) => `${currentTheme === DARK_THEME ? colors.white : colors.black}40`};
   display: flex;
   justify-content: center;
   position: fixed;
@@ -102,17 +98,15 @@ const RootStyles = styled.div<StyleProps>`
       color: var(--color-white);
       cursor: pointer;
       display: flex;
-      font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system,
-        BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
-        sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
+      font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+        Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
         Noto Color Emoji;
       font-size: 1.6rem;
       font-weight: bold;
       height: var(--space-xlarge);
       justify-content: center;
       margin-top: var(--space-nano);
-      transition: background-color var(--transition-short) ease-in-out,
-        color var(--transition-short) ease-in-out;
+      transition: background-color var(--transition-short) ease-in-out, color var(--transition-short) ease-in-out;
       width: calc(100% - (var(--app-horizontal-gutters) + var(--space-small)));
 
       &:hover {

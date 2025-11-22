@@ -1,14 +1,6 @@
 import * as React from "react";
 
-import {
-  BlogBlockQuote,
-  BlogCodeBlock,
-  BlogHeading,
-  BlogHorizontalRule,
-  BlogImage,
-  BlogList,
-  BlogParagraph,
-} from "./";
+import { BlogBlockQuote, BlogCodeBlock, BlogHeading, BlogHorizontalRule, BlogImage, BlogList, BlogParagraph } from "./";
 
 import ReactMarkdown from "react-markdown";
 import { buildKebabCaseParam } from "../../utils/routes";
@@ -24,9 +16,7 @@ function buildHeadingId(childrenNodes): string {
   return childrenNodes.reduce((accum: string, child) => {
     if (child.type === "text") {
       const currentStringKebabCaseConversion = buildKebabCaseParam(child.value);
-      return accum.length > 0
-        ? `${accum}-${currentStringKebabCaseConversion}`
-        : currentStringKebabCaseConversion;
+      return accum.length > 0 ? `${accum}-${currentStringKebabCaseConversion}` : currentStringKebabCaseConversion;
     }
 
     return accum;
@@ -44,19 +34,14 @@ interface Props {
   heroImageUrl?: string;
 }
 
-function BlogMarkdownRenderer({
-  content,
-  dateUpdated,
-  dateWritten,
-  heroImageUrl,
-}: Props) {
+function BlogMarkdownRenderer({ content, dateUpdated, dateWritten, heroImageUrl }: Props) {
   const {
     query: { blogId },
   } = useRouter();
 
   // This ternary is to keep TypeScript happy. This will only ever be a single string.
   const { current: originalPath } = React.useRef<string>(
-    buildBlogArticlePath(typeof blogId === "string" ? blogId : "")
+    buildBlogArticlePath(typeof blogId === "string" ? blogId : ""),
   );
 
   const handleRehypeExternalLinks = React.useCallback(() => {
@@ -94,53 +79,25 @@ function BlogMarkdownRenderer({
           const headingId = buildHeadingId(node.children);
           const headingLinkPath = `${originalPath}#${headingId}`;
 
-          return (
-            <BlogHeading
-              contents={children}
-              level={2}
-              linkPath={headingLinkPath}
-              routeId={headingId}
-            />
-          );
+          return <BlogHeading contents={children} level={2} linkPath={headingLinkPath} routeId={headingId} />;
         },
         h3({ children, node }) {
           const headingId = buildHeadingId(node.children);
           const headingLinkPath = `${originalPath}#${headingId}`;
 
-          return (
-            <BlogHeading
-              contents={children}
-              level={3}
-              linkPath={headingLinkPath}
-              routeId={headingId}
-            />
-          );
+          return <BlogHeading contents={children} level={3} linkPath={headingLinkPath} routeId={headingId} />;
         },
         h4({ children, node }) {
           const headingId = buildHeadingId(node.children);
           const headingLinkPath = `${originalPath}#${headingId}`;
 
-          return (
-            <BlogHeading
-              contents={children}
-              level={4}
-              linkPath={headingLinkPath}
-              routeId={headingId}
-            />
-          );
+          return <BlogHeading contents={children} level={4} linkPath={headingLinkPath} routeId={headingId} />;
         },
         h5({ children, node }) {
           const headingId = buildHeadingId(node.children);
           const headingLinkPath = `${originalPath}#${headingId}`;
 
-          return (
-            <BlogHeading
-              contents={children}
-              level={5}
-              linkPath={headingLinkPath}
-              routeId={headingId}
-            />
-          );
+          return <BlogHeading contents={children} level={5} linkPath={headingLinkPath} routeId={headingId} />;
         },
         p({ children }) {
           return <BlogParagraph contents={children} />;
@@ -175,20 +132,11 @@ function BlogMarkdownRenderer({
           return <BlogList contents={children} />;
         },
         code({ className, inline, children }) {
-          const language =
-            typeof className === "string" && className.length > 0
-              ? className.substring(9)
-              : undefined;
+          const language = typeof className === "string" && className.length > 0 ? className.substring(9) : undefined;
 
           const content = children[0] as string;
 
-          return (
-            <BlogCodeBlock
-              contents={content}
-              isInline={inline}
-              language={language}
-            />
-          );
+          return <BlogCodeBlock contents={content} isInline={inline} language={language} />;
         },
       }}
       rehypePlugins={[rehypeRaw, handleRehypeExternalLinks]}

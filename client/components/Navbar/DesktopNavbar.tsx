@@ -6,11 +6,7 @@ import {
   HOME_LINK_ARIA_LABEL,
   SKIP_TO_CONTENT_ARIA_LABEL,
 } from "../../constants/ariaLabels";
-import {
-  BLOG_PAGE,
-  CONTACT_PAGE,
-  HOME_PAGE,
-} from "../../constants/routes";
+import { BLOG_PAGE, CONTACT_PAGE, HOME_PAGE } from "../../constants/routes";
 
 import { CONTENTS_ID } from "../../constants/routes";
 import NavbarLink from "./NavbarLink";
@@ -38,10 +34,7 @@ function DesktopNavbar() {
             </NavbarLink>
           </li>
           <li>
-            <NavbarLink
-              ariaLabel={CONTACT_LINK_ARIA_LABEL}
-              route={CONTACT_PAGE}
-            >
+            <NavbarLink ariaLabel={CONTACT_LINK_ARIA_LABEL} route={CONTACT_PAGE}>
               Contact
             </NavbarLink>
           </li>

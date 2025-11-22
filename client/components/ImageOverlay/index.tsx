@@ -20,9 +20,7 @@ function ImageOverlay() {
   }
 
   const handleCloseButtonClick = (
-    event:
-      | React.MouseEvent<HTMLDivElement, MouseEvent>
-      | React.MouseEvent<HTMLButtonElement, MouseEvent>
+    event: React.MouseEvent<HTMLDivElement, MouseEvent> | React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => {
     if (event.target instanceof HTMLImageElement === false) {
       dispatch(hideImageOverlay());
@@ -33,10 +31,7 @@ function ImageOverlay() {
     <FocusTrap>
       <RootStyles onClick={handleCloseButtonClick}>
         <div>
-          <button
-            aria-label="Close image overlay"
-            onClick={handleCloseButtonClick}
-          >
+          <button aria-label="Close image overlay" onClick={handleCloseButtonClick}>
             <CloseIcon color="var(--text)" />
           </button>
           <div>

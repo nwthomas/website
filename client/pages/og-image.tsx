@@ -27,12 +27,7 @@ function DynamicOGImage() {
       <h1>{title || ""}</h1>
       <div>
         <div>
-          <img
-            alt=""
-            height="100"
-            src="/images/pfp/nathan-thomas-pfp.jpg"
-            width="100"
-          ></img>
+          <img alt="" height="100" src="/images/pfp/nathan-thomas-pfp.jpg" width="100"></img>
         </div>
         <h2>Nathan Thomas</h2>
       </div>
@@ -65,9 +60,8 @@ const RootStyles = styled.div`
 
   > h1 {
     color: var(--text);
-    font-family: "Libre Baskerville", Constantia, "Lucida Bright", Lucidabright,
-      "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif",
-      "Liberation Serif", Georgia, serif;
+    font-family: "Libre Baskerville", Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif",
+      "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
     font-size: 8rem;
     text-align: center;
     z-index: 1;
@@ -89,9 +83,8 @@ const RootStyles = styled.div`
     }
 
     > h2 {
-      font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system,
-        BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
-        sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
+      font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+        Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
         Noto Color Emoji;
       font-size: 4rem;
       padding: var(--space-micro) 0;

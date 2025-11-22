@@ -23,8 +23,7 @@ export const DEFAULT_SEO_VALUES: SeoConfig = {
     name: "Nathan W Thomas",
   },
   baseUrl: "https://www.nathanthomas.dev",
-  description:
-    "Internet home for Nathan Thomas. Focus on articles and projects.",
+  description: "Internet home for Nathan Thomas. Focus on articles and projects.",
   imageUrl: "/images/og/home-page.webp",
   siteName: "Nathan Thomas",
   social: {

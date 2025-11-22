@@ -25,7 +25,7 @@ function Spinner(props: Props) {
             WebkitTransform: "rotate(" + i * 30 + "deg) translate(146%)",
           }}
           key={i}
-        />
+        />,
       );
     }
 
