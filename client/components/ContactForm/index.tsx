@@ -33,25 +33,15 @@ interface Props {
     fax: string;
   };
   onFormChange: (key: string, value: string) => void;
-  onSendMessageClick: (
-    messageValues: MessageValues,
-    onSuccess: () => void
-  ) => void;
+  onSendMessageClick: (messageValues: MessageValues, onSuccess: () => void) => void;
   withSpinner?: boolean;
 }
 
-function ContactForm({
-  initialValues,
-  onFormChange,
-  onSendMessageClick,
-  withSpinner,
-}: Props) {
+function ContactForm({ initialValues, onFormChange, onSendMessageClick, withSpinner }: Props) {
   const { breakpointsInt, currentTheme } = React.useContext(ThemeContext);
   const { viewportWidth } = useGetScreenDimensions();
 
-  const isDesktopLayout = Boolean(
-    viewportWidth && viewportWidth > breakpointsInt.tablet
-  );
+  const isDesktopLayout = Boolean(viewportWidth && viewportWidth > breakpointsInt.tablet);
 
   const radians = useGetMouseRadian(contactFormRef);
 
@@ -94,9 +84,7 @@ function ContactForm({
         </div>
         <form onSubmit={formik.handleSubmit}>
           <div>
-            {formik.touched.name && formik.errors.name ? (
-              <p>{formik.errors.name}</p>
-            ) : null}
+            {formik.touched.name && formik.errors.name ? <p>{formik.errors.name}</p> : null}
             <input
               name="name"
               onBlur={formik.handleBlur}
@@ -107,9 +95,7 @@ function ContactForm({
             ></input>
           </div>
           <div>
-            {formik.touched.email && formik.errors.email ? (
-              <p>{formik.errors.email}</p>
-            ) : null}
+            {formik.touched.email && formik.errors.email ? <p>{formik.errors.email}</p> : null}
             <input
               autoCapitalize="off"
               name="email"
@@ -121,9 +107,7 @@ function ContactForm({
             ></input>
           </div>
           <div>
-            {formik.touched.message && formik.errors.message ? (
-              <p>{formik.errors.message}</p>
-            ) : null}
+            {formik.touched.message && formik.errors.message ? <p>{formik.errors.message}</p> : null}
             <textarea
               autoComplete="off"
               name="message"
@@ -145,11 +129,7 @@ function ContactForm({
             ></input>
           </div>
           <button disabled={withSpinner} type="submit">
-            {withSpinner ? (
-              <Spinner color="white" height="40px" width="40px" />
-            ) : (
-              "Submit"
-            )}
+            {withSpinner ? <Spinner color="white" height="40px" width="40px" /> : "Submit"}
           </button>
         </form>
       </div>
@@ -271,22 +251,18 @@ const RootStyles = styled.div<StyleProps>`
         background-color: var(--color-royal-blue);
         border: var(--space-nano) solid var(--color-royal-blue);
         color: var(--color-white);
-        cursor: ${({ isFormButtonDisabled }) =>
-          isFormButtonDisabled ? "wait" : "pointer"};
+        cursor: ${({ isFormButtonDisabled }) => (isFormButtonDisabled ? "wait" : "pointer")};
         display: flex;
-        font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system,
-          BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
-          sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
+        font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+          Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
           Noto Color Emoji;
         font-size: 1.6rem;
         font-weight: bold;
         height: var(--space-xlarge);
         justify-content: center;
         margin-top: var(--space-nano);
-        opacity: ${({ isFormButtonDisabled }) =>
-          isFormButtonDisabled ? "0.5" : "1"};
-        transition: background-color var(--transition-short) ease-in-out,
-          color var(--transition-short) ease-in-out;
+        opacity: ${({ isFormButtonDisabled }) => (isFormButtonDisabled ? "0.5" : "1")};
+        transition: background-color var(--transition-short) ease-in-out, color var(--transition-short) ease-in-out;
 
         &:hover {
           background-color: ${({ isFormButtonDisabled }) =>

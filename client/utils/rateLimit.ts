@@ -26,13 +26,10 @@ const getIP = (request: Request): string => {
 
 // // This function could move to a more generalized file in the future if more express middleware
 // // ends up being needed on other API routes
-const applyMiddleware =
-  (middleware: RequestHandler) => (request: Request, response: Response) =>
-    new Promise((resolve, reject) => {
-      middleware(request, response, (result) =>
-        result instanceof Error ? reject(result) : resolve(result)
-      );
-    });
+const applyMiddleware = (middleware: RequestHandler) => (request: Request, response: Response) =>
+  new Promise((resolve, reject) => {
+    middleware(request, response, (result) => (result instanceof Error ? reject(result) : resolve(result)));
+  });
 
 type RateLimitParameters = {
   limit?: number;
@@ -59,9 +56,5 @@ const middlewares = getRateLimitMiddlewares({});
 // This is where the final magic happens. This function can now be used inside the API handlers that
 // NextJS surfaces to the application.
 export const applyRateLimit = async (request: Request, response: Response) => {
-  await Promise.all(
-    middlewares
-      .map(applyMiddleware)
-      .map((middleware) => middleware(request, response))
-  );
+  await Promise.all(middlewares.map(applyMiddleware).map((middleware) => middleware(request, response)));
 };

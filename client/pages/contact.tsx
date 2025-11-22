@@ -1,9 +1,6 @@
 import * as React from "react";
 
-import {
-  resetMessageValues,
-  updateMessageValues,
-} from "../store/reducers/contactFormSlice";
+import { resetMessageValues, updateMessageValues } from "../store/reducers/contactFormSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 import { CONTACT_PAGE_NAME } from "../constants/seo";
@@ -47,7 +44,7 @@ function Contact({ ogImage }) {
           buttonLabel: "Okay",
           message: "Message sent",
           shouldShowModal: true,
-        })
+        }),
       );
       dispatch(resetMessageValues());
     },
@@ -57,15 +54,12 @@ function Contact({ ogImage }) {
           buttonLabel: "Okay",
           message: "Error sending message",
           shouldShowModal: true,
-        })
+        }),
       );
     },
   });
 
-  const handleSendMessage = (
-    messageValues: MessageValues,
-    onSuccess: () => void
-  ) => {
+  const handleSendMessage = (messageValues: MessageValues, onSuccess: () => void) => {
     mutate(messageValues, { onSuccess });
   };
 
@@ -78,9 +72,7 @@ function Contact({ ogImage }) {
       <RootStyles>
         <main id={CONTENTS_ID}>
           <section>
-            <h1>
-              You know where you can reach me
-            </h1>
+            <h1>You know where you can reach me</h1>
           </section>
           <section>
             <div>

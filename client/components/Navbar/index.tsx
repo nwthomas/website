@@ -15,10 +15,7 @@ function Navbar({ hideBackground }: Props) {
   const withMinifiedNavbar = scrollPosition > 0;
 
   return (
-    <RootStyles
-      hideBackground={hideBackground}
-      withMinifiedNavbar={withMinifiedNavbar}
-    >
+    <RootStyles hideBackground={hideBackground} withMinifiedNavbar={withMinifiedNavbar}>
       <header>
         <div>
           <MobileNavbar />

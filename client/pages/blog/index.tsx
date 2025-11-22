@@ -18,9 +18,7 @@ import styled from "styled-components";
 
 export async function getStaticProps() {
   const blogPosts = getDirectoryFiles(BLOG_FILES_PATH);
-  const blogPostContent = blogPosts.map(
-    (blogPost) => blogPost.fileContents
-  ) as BlogPosts;
+  const blogPostContent = blogPosts.map((blogPost) => blogPost.fileContents) as BlogPosts;
   const blogPostsFrontMatter = blogPostContent.map((blogPost) => {
     return blogPost.data;
   }) as BlogPostsFrontMatter;
@@ -51,7 +49,7 @@ function Blogs({ blogPostsByTags, ogImage, sortedTags }) {
       sections.push(
         <div key={sections.length}>
           <BlogCardSection blogPosts={blogPostsByTags[tag]} tag={tag} />
-        </div>
+        </div>,
       );
     }
 

@@ -1,9 +1,6 @@
 import * as React from "react";
 
-import {
-  NAVBAR_CLOSED_ARIA_LABEL,
-  NAVBAR_OPEN_ARIA_LABEL,
-} from "../../constants/ariaLabels";
+import { NAVBAR_CLOSED_ARIA_LABEL, NAVBAR_OPEN_ARIA_LABEL } from "../../constants/ariaLabels";
 import styled, { css, keyframes } from "styled-components";
 
 import FocusTrap from "focus-trap-react";
@@ -35,9 +32,7 @@ function MobileNavbar() {
           <FocusTrap active={isMenuOpen}>
             <div>
               <button
-                aria-label={
-                  isMenuOpen ? NAVBAR_OPEN_ARIA_LABEL : NAVBAR_CLOSED_ARIA_LABEL
-                }
+                aria-label={isMenuOpen ? NAVBAR_OPEN_ARIA_LABEL : NAVBAR_CLOSED_ARIA_LABEL}
                 name={NAVBAR_BUTTON_LABEL}
                 onClick={handleOnClick}
                 type="button"
@@ -106,8 +101,7 @@ const RootStyles = styled.div<StyleProps>`
             position: absolute;
             right: 0;
             top: 20%;
-            transition: top var(--transition-short)
-                cubic-bezier(0.23, 1, 0.32, 1),
+            transition: top var(--transition-short) cubic-bezier(0.23, 1, 0.32, 1),
               transform var(--transition-short) cubic-bezier(0.23, 1, 0.32, 1);
 
             ${({ isMenuOpen, withAnimation }) => {
@@ -115,15 +109,13 @@ const RootStyles = styled.div<StyleProps>`
                 return "";
               } else if (isMenuOpen) {
                 return css`
-                  animation: ${topMenuBarAnimationForwards}
-                    var(--transition-short) cubic-bezier(0.23, 1, 0.32, 1)
+                  animation: ${topMenuBarAnimationForwards} var(--transition-short) cubic-bezier(0.23, 1, 0.32, 1)
                     forwards;
                 `;
               }
 
               return css`
-                animation: ${topMenuBarAnimationReverse} var(--transition-short)
-                  cubic-bezier(0.23, 1, 0.32, 1) forwards;
+                animation: ${topMenuBarAnimationReverse} var(--transition-short) cubic-bezier(0.23, 1, 0.32, 1) forwards;
               `;
             }}
           }
@@ -136,8 +128,7 @@ const RootStyles = styled.div<StyleProps>`
             position: absolute;
             right: 0;
             height: var(--space-micro);
-            transition: bottom var(--transition-short)
-                cubic-bezier(0.23, 1, 0.32, 1),
+            transition: bottom var(--transition-short) cubic-bezier(0.23, 1, 0.32, 1),
               transform var(--transition-short) cubic-bezier(0.23, 1, 0.32, 1);
 
             ${({ isMenuOpen, withAnimation }) => {
@@ -145,15 +136,13 @@ const RootStyles = styled.div<StyleProps>`
                 return "";
               } else if (isMenuOpen) {
                 return css`
-                  animation: ${bottomMenuBarAnimationForwards}
-                    var(--transition-short) cubic-bezier(0.23, 1, 0.32, 1)
+                  animation: ${bottomMenuBarAnimationForwards} var(--transition-short) cubic-bezier(0.23, 1, 0.32, 1)
                     forwards;
                 `;
               }
 
               return css`
-                animation: ${bottomMenuBarAnimationReverse}
-                  var(--transition-short) cubic-bezier(0.23, 1, 0.32, 1)
+                animation: ${bottomMenuBarAnimationReverse} var(--transition-short) cubic-bezier(0.23, 1, 0.32, 1)
                   forwards;
               `;
             }}

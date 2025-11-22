@@ -34,10 +34,8 @@ const RootStyles = styled.main`
   > h1 {
     color: var(--text);
     font-display: swap;
-    font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system,
-      BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
-      sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
-      Noto Color Emoji;
+    font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+      Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
     font-size: 1.6rem;
 
     @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {

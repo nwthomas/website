@@ -63,18 +63,13 @@ function MyApp(appProps: AppProps) {
   return (
     <>
       <Head>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0"
-        ></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
       </Head>
       <Provider store={store}>
         <QueryClientProvider client={queryClient}>
           <Hydrate state={appProps.pageProps.dehydratedState}>
             <App {...appProps} />
-            {process.env.NEXT_PUBLIC_RUNTIME_ENV === "development" ? (
-              <ReactQueryDevtools />
-            ) : null}
+            {process.env.NEXT_PUBLIC_RUNTIME_ENV === "development" ? <ReactQueryDevtools /> : null}
           </Hydrate>
         </QueryClientProvider>
       </Provider>

@@ -1,5 +1,3 @@
-import * as React from "react";
-
 import {
   BlogPosts,
   BlogPostsFrontMatter,
@@ -7,6 +5,7 @@ import {
   getSortedTagsList,
   getTagTitleFromTagId,
 } from "../../utils/sortBlogPosts";
+import { useMemo, useState } from "react";
 
 import BlogCardSection from "../../components/BlogCardSection";
 import { CONTENTS_ID } from "../../constants/routes";
@@ -23,9 +22,7 @@ function buildTagIdPageName(tag: string) {
 
 export async function getStaticProps({ params: { tagId } }) {
   const blogPosts = getDirectoryFiles("/constants/blogs");
-  const blogPostContent = blogPosts.map(
-    (blogPost) => blogPost.fileContents
-  ) as BlogPosts;
+  const blogPostContent = blogPosts.map((blogPost) => blogPost.fileContents) as BlogPosts;
   const blogPostsFrontMatter = blogPostContent.map((blogPost) => {
     return blogPost.data;
   }) as BlogPostsFrontMatter;
@@ -50,9 +47,7 @@ export async function getStaticProps({ params: { tagId } }) {
 
 export async function getStaticPaths() {
   const blogCardPosts = getDirectoryFiles("/constants/blogs");
-  const blogPostContent = blogCardPosts.map(
-    (blogPost) => blogPost.fileContents
-  ) as BlogPosts;
+  const blogPostContent = blogCardPosts.map((blogPost) => blogPost.fileContents) as BlogPosts;
   const blogPostsFrontMatter = blogPostContent.map((blogPost) => {
     return blogPost.data;
   }) as BlogPostsFrontMatter;
@@ -70,23 +65,17 @@ export async function getStaticPaths() {
 }
 
 function TagIdPage({ blogPostsByTags, ogImage }) {
-  const [pageName, setPageName] = React.useState<string>("");
+  const [pageName, setPageName] = useState<string>("");
   const {
     query: { tagId: tagIdParam },
   } = useRouter();
 
-  const tagIdBlogSection = React.useMemo(() => {
+  const tagIdBlogSection = useMemo(() => {
     for (const tag in blogPostsByTags) {
       if (buildKebabCaseParam(tag) === tagIdParam) {
         setPageName(tag);
 
-        return (
-          <BlogCardSection
-            blogPosts={blogPostsByTags[tag]}
-            tag={tag}
-            withCloseButton
-          />
-        );
+        return <BlogCardSection blogPosts={blogPostsByTags[tag]} tag={tag} withCloseButton />;
       }
     }
 
@@ -94,11 +83,7 @@ function TagIdPage({ blogPostsByTags, ogImage }) {
   }, [blogPostsByTags, tagIdParam]);
 
   return (
-    <Layout
-      customSEOImageUrl={ogImage}
-      pageName={buildTagIdPageName(pageName)}
-      withFooter
-    >
+    <Layout customSEOImageUrl={ogImage} pageName={buildTagIdPageName(pageName)} withFooter>
       <RootStyles>
         <main id={CONTENTS_ID}>{tagIdBlogSection}</main>
       </RootStyles>
