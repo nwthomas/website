@@ -69,6 +69,7 @@ const RootStyles = styled.div<StyleProps>`
     flex-direction: column;
     height: 100%;
     justify-content: center;
+    position: relative;
     width: 100%;
 
     @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
