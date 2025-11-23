@@ -10,22 +10,23 @@ import fs from "fs";
 import { isProductionEnvironment } from "./../constants/environments";
 import { chromium as playwright } from "playwright-core";
 
-// File-based lock to prevent concurrent browser launches across processes
 const LOCK_FILE = "/tmp/chromium-launch.lock";
-const MAX_LOCK_WAIT = 30000; // 30 seconds
-const LOCK_CHECK_INTERVAL = 100; // 100ms
+const MAX_LOCK_WAIT_S = 30000;
+const LOCK_CHECK_INTERVAL_MS = 100;
 
+// The chromium instance is launched per process but will error if multiple concurrent processes use it at once,
+// so this file-based lock is used to ensure only one process uses the chromium instance at a time.
 async function acquireLock(): Promise<void> {
   const startTime = Date.now();
 
   while (true) {
     try {
-      // Try to create the lock file exclusively
       fs.writeFileSync(LOCK_FILE, process.pid.toString(), { flag: "wx" });
-      return; // Lock acquired
-    } catch (error) {
+      // If this is hit, the lock was acquired successfully
+      return;
+    } catch {
       // Lock file exists, wait and retry
-      if (Date.now() - startTime > MAX_LOCK_WAIT) {
+      if (Date.now() - startTime > MAX_LOCK_WAIT_S) {
         // Force remove stale lock after timeout
         try {
           fs.unlinkSync(LOCK_FILE);
@@ -35,7 +36,7 @@ async function acquireLock(): Promise<void> {
         continue;
       }
 
-      await new Promise((resolve) => setTimeout(resolve, LOCK_CHECK_INTERVAL));
+      await new Promise((resolve) => setTimeout(resolve, LOCK_CHECK_INTERVAL_MS));
     }
   }
 }
