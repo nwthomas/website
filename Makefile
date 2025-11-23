@@ -1,7 +1,7 @@
 .PHONY: install i dev lint postbuild start export format
 
 build:
-	bun run install-chromium && next build
+	bun run build
 
 dev:
 	bun run dev

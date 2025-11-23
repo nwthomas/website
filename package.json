@@ -14,10 +14,9 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "bun run install-chromium && npx playwright install-deps && next build",
+    "build": "next build",
     "postbuild": "next-sitemap",
     "export": "next export",
-    "install-chromium": "npx playwright install chromium",
     "lint": "next lint",
     "preinstall": "npx only-allow bun",
     "start": "next start"
