@@ -7,7 +7,6 @@ This is my personal website, a place for my writing and thoughts to live.
 - [Getting Started](#getting-started)
 - [Project Management](#project-management)
 - [Technology Stack](#technology-stack)
-- [Unit Testing](#unit-testing)
 - [Acknowledgements](#acknowledgements)
 
 ## Getting Started
