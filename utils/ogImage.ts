@@ -98,7 +98,7 @@ export async function createOgImage(path: string) {
       height: OG_IMAGE_HEIGHT,
     });
     await page.goto(url, { waitUntil: "networkidle" });
-    buffer = (await page.screenshot({ quality: 75, type: "jpeg" })) as Buffer;
+    buffer = (await page.screenshot({ quality: 50, type: "jpeg", scale: "css" })) as Buffer;
     await browser.close();
   } finally {
     // Always release the lock, even if an error occurs
