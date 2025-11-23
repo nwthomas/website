@@ -5,12 +5,11 @@ export const HOME_PAGE_NAME = "Home";
 
 interface SeoConfig {
   author: {
-    name: String;
+    name: string;
   };
   baseUrl: string;
   description: string;
   imageUrl: string;
-  siteName: string;
   social: {
     twitter: { handle: string; site: string };
     instagram: { handle: string };
@@ -20,12 +19,11 @@ interface SeoConfig {
 
 export const DEFAULT_SEO_VALUES: SeoConfig = {
   author: {
-    name: "Nathan W Thomas",
+    name: "Nathan Thomas",
   },
   baseUrl: "https://www.nathanthomas.dev",
   description: "Internet home for Nathan Thomas. Focus on articles and projects.",
   imageUrl: "/images/og/home-page.webp",
-  siteName: "Nathan Thomas",
   social: {
     twitter: { handle: "@nwthomas", site: "@nwthomas" },
     instagram: { handle: "@nwthomas" },
