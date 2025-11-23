@@ -1,9 +1,8 @@
 import "../styles/globals.css";
 
-import * as React from "react";
-
 import GlobalStyle, { makeMainTheme } from "../styles";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { useEffect, useMemo, useState } from "react";
 
 import { Analytics } from "@vercel/analytics/react";
 import { AppProps } from "next/app";
@@ -32,7 +31,7 @@ const client = new QueryClient({
 function App({ Component, pageProps }: AppProps) {
   const [currentThemeFromRedux] = useTheme();
 
-  const mainTheme = React.useMemo(() => {
+  const mainTheme = useMemo(() => {
     if (!currentThemeFromRedux) {
       const currentThemeFromWindow = getThemeFromWindowObject();
 
@@ -51,10 +50,10 @@ function App({ Component, pageProps }: AppProps) {
 }
 
 function MyApp(appProps: AppProps) {
-  const [queryClient] = React.useState(() => client);
+  const [queryClient] = useState(() => client);
 
   // See global.tx .preload class for an explanation on why this is needed
-  React.useEffect(() => {
+  useEffect(() => {
     if (typeof window !== "undefined") {
       document.body.classList.remove("preload");
     }

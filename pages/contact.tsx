@@ -1,5 +1,3 @@
-import * as React from "react";
-
 import { resetMessageValues, updateMessageValues } from "../store/reducers/contactFormSlice";
 import { useDispatch, useSelector } from "react-redux";
 

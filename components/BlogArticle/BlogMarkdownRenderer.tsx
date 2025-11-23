@@ -59,6 +59,10 @@ function BlogMarkdownRenderer({ content, dateUpdated, dateWritten, heroImageUrl 
       children={content}
       components={{
         h1({ children, node }) {
+          if (!node) {
+            return null;
+          }
+
           const headingId = buildHeadingId(node.children);
           const headingLinkPath = `${originalPath}#${headingId}`;
 
@@ -76,24 +80,36 @@ function BlogMarkdownRenderer({ content, dateUpdated, dateWritten, heroImageUrl 
           );
         },
         h2({ children, node }) {
+          if (!node) {
+            return null;
+          }
+
           const headingId = buildHeadingId(node.children);
           const headingLinkPath = `${originalPath}#${headingId}`;
 
           return <BlogHeading contents={children} level={2} linkPath={headingLinkPath} routeId={headingId} />;
         },
         h3({ children, node }) {
-          const headingId = buildHeadingId(node.children);
+          const headingId = buildHeadingId(node!.children);
           const headingLinkPath = `${originalPath}#${headingId}`;
 
           return <BlogHeading contents={children} level={3} linkPath={headingLinkPath} routeId={headingId} />;
         },
         h4({ children, node }) {
+          if (!node) {
+            return null;
+          }
+
           const headingId = buildHeadingId(node.children);
           const headingLinkPath = `${originalPath}#${headingId}`;
 
           return <BlogHeading contents={children} level={4} linkPath={headingLinkPath} routeId={headingId} />;
         },
         h5({ children, node }) {
+          if (!node) {
+            return null;
+          }
+
           const headingId = buildHeadingId(node.children);
           const headingLinkPath = `${originalPath}#${headingId}`;
 
@@ -109,6 +125,10 @@ function BlogMarkdownRenderer({ content, dateUpdated, dateWritten, heroImageUrl 
           return <BlogHorizontalRule />;
         },
         img({ alt, height, src = "", title, width }) {
+          if (typeof src !== "string") {
+            return null;
+          }
+
           const isHeroImage = heroImageUrl === src;
 
           return (
@@ -131,12 +151,14 @@ function BlogMarkdownRenderer({ content, dateUpdated, dateWritten, heroImageUrl 
         ul({ children }) {
           return <BlogList contents={children} />;
         },
-        code({ className, inline, children }) {
+        code({ className, children }) {
+          if (!children) {
+            return null;
+          }
+
           const language = typeof className === "string" && className.length > 0 ? className.substring(9) : undefined;
 
-          const content = children[0] as string;
-
-          return <BlogCodeBlock contents={content} isInline={inline} language={language} />;
+          return <BlogCodeBlock contents={children} isInline={!className} language={language} />;
         },
       }}
       rehypePlugins={[rehypeRaw, rehypeUnwrapImages, handleRehypeExternalLinks]}

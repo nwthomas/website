@@ -5,7 +5,7 @@ import oneDark from "../../constants/codeThemes/oneDark";
 import styled from "styled-components";
 
 interface Props {
-  contents: string;
+  contents: React.ReactNode;
   isInline?: boolean;
   language?: string;
 }
@@ -20,13 +20,10 @@ function BlogCodeBlock({ contents, isInline, language }: Props) {
     return <InlineRootStyles>{contents}</InlineRootStyles>;
   }
 
-  // Trim new line escaped character '\n' off end of string which is always present for some reason
-  const normalizedContent = contents.slice(0, contents.length - 1);
-
   return (
     <BlockRootStyles>
       <SyntaxHighlighter language={language} style={oneDark}>
-        {normalizedContent}
+        {contents}
       </SyntaxHighlighter>
     </BlockRootStyles>
   );

@@ -1,8 +1,8 @@
 import * as React from "react";
 
-import { ThemeContext } from "styled-components";
 import throttle from "lodash/throttle";
 import { useGetScreenDimensions } from "./";
+import { useTheme as useStyledTheme } from "styled-components";
 
 const THROTTLE_WAIT_TIME_MS = 10;
 
@@ -16,9 +16,9 @@ function getAngleRadians(x1: number, y1: number, x2: number, y2: number): number
   return result - Math.PI / 2;
 }
 
-export function useGetMouseRadian(ref: React.RefObject<HTMLElement>): number {
+export function useGetMouseRadian(ref: React.RefObject<HTMLElement | null>): number {
   const { viewportWidth } = useGetScreenDimensions();
-  const { breakpointsInt } = React.useContext(ThemeContext);
+  const { breakpointsInt } = useStyledTheme();
   const [mouseCoordinates, setMouseCoordinates] = React.useState<{
     x?: number;
     y?: number;
@@ -49,7 +49,7 @@ export function useGetMouseRadian(ref: React.RefObject<HTMLElement>): number {
     };
   }, [getMouseCoordinates]);
 
-  if (!ref.current || !viewportWidth || viewportWidth <= breakpointsInt.desktop) {
+  if (!ref || !ref.current || !viewportWidth || viewportWidth <= breakpointsInt.desktop) {
     return DEFAULT_RADIANS;
   }
 

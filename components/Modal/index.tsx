@@ -5,7 +5,7 @@ import { selectModalButtonLabel, selectModalMessage } from "../../store/selector
 import { useDispatch, useSelector } from "react-redux";
 import { useLockBodyScroll, useTheme } from "../../hooks";
 
-import FocusTrap from "focus-trap-react";
+import { FocusTrap } from "focus-trap-react";
 import { colors } from "../../styles/libs/theme";
 import styled from "styled-components";
 import { updateModalValues } from "../../store/reducers/modalSlice";

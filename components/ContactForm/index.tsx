@@ -1,12 +1,13 @@
 import * as React from "react";
 import * as Yup from "yup";
 
-import styled, { ThemeContext } from "styled-components";
+import styled, { useTheme as useStyledTheme } from "styled-components";
 import { useGetMouseRadian, useGetScreenDimensions } from "../../hooks";
 
 import Spinner from "../Spinner";
 import { ThemeEnum } from "../../store/reducers/themeSlice";
 import { useFormik } from "formik";
+import { useTheme } from "../../hooks";
 
 const contactFormRef = React.createRef<HTMLDivElement>();
 
@@ -38,7 +39,8 @@ interface Props {
 }
 
 function ContactForm({ initialValues, onFormChange, onSendMessageClick, withSpinner }: Props) {
-  const { breakpointsInt, currentTheme } = React.useContext(ThemeContext);
+  const { breakpointsInt } = useStyledTheme();
+  const [currentTheme] = useTheme();
   const { viewportWidth } = useGetScreenDimensions();
 
   const isDesktopLayout = Boolean(viewportWidth && viewportWidth > breakpointsInt.tablet);
@@ -138,7 +140,7 @@ function ContactForm({ initialValues, onFormChange, onSendMessageClick, withSpin
 }
 
 interface StyleProps {
-  $currentTheme: ThemeEnum;
+  $currentTheme: ThemeEnum | null;
   $isFormButtonDisabled?: boolean;
 }
 

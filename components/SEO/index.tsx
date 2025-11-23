@@ -1,10 +1,10 @@
-import { useContext, useMemo } from "react";
+import { useMemo } from "react";
 
 import { ArticleJsonLd } from "next-seo";
 import { DARK_THEME } from "../../store/reducers/themeSlice";
 import Head from "next/head";
 import { ORIGIN } from "../../constants/routes";
-import { ThemeContext } from "styled-components";
+import { useTheme as useStyledTheme } from "styled-components";
 import { buildSeoConfig } from "../../constants/seo";
 import { useRouter } from "next/router";
 import { useTheme } from "../../hooks";
@@ -23,7 +23,7 @@ interface Props {
 function SEO({ customDescription, customImageUrl, isArticle, pageName }: Props) {
   const { asPath } = useRouter();
   const [currentTheme] = useTheme();
-  const { colorsHex } = useContext(ThemeContext);
+  const { colorsHex } = useStyledTheme();
 
   const currentPageMetadata = useMemo(() => {
     return buildSeoConfig(pageName);
