@@ -1,11 +1,10 @@
-import * as React from "react";
-
 import {
   BlogPosts,
   BlogPostsFrontMatter,
   bucketAndSortBlogPostsByTags,
   getSortedTagsList,
 } from "../../utils/sortBlogPosts";
+import { JSX, useMemo } from "react";
 
 import { BLOG_FILES_PATH } from "../../utils/readBlogFiles";
 import { BLOG_PAGE_NAME } from "../../constants/seo";
@@ -41,7 +40,7 @@ export async function getStaticProps() {
 }
 
 function Blogs({ blogPostsByTags, ogImage, sortedTags }) {
-  const blogCardSections = React.useMemo(() => {
+  const blogCardSections = useMemo(() => {
     const sections: JSX.Element[] = [];
 
     // Using the sortedTags array as the source of truth keeps the page sorted by tag name

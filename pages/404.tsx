@@ -1,5 +1,3 @@
-import * as React from "react";
-
 import { CONTENTS_ID } from "../constants/routes";
 import Error from "../components/Error";
 import { FOUR_OH_FOUR_PAGE_NAME } from "../constants/seo";

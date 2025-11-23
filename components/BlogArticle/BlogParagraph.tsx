@@ -3,7 +3,7 @@ import * as React from "react";
 import styled from "styled-components";
 
 interface Props {
-  contents: React.ReactNode & Array<React.ReactNode>;
+  contents: React.ReactNode;
 }
 
 function BlogParagraph({ contents }: Props) {
@@ -23,6 +23,13 @@ const RootStyles = styled.div`
   > p {
     max-width: var(--article-max-width);
     width: 100%;
+    color: var(--text);
+    font-display: swap;
+    font-size: 1.6rem;
+    line-height: 1.8;
+    overflow: break-word;
+    font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+      Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
 
     a {
       font-family: inherit;

@@ -8,7 +8,7 @@ import { useMemo } from "react";
 type HeadingLevel = 1 | 2 | 3 | 4 | 5;
 
 interface Props {
-  contents: React.ReactNode & Array<React.ReactNode>;
+  contents: React.ReactNode;
   dateUpdated?: string;
   dateWritten?: string;
   level: HeadingLevel;

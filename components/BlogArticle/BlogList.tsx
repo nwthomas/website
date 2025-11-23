@@ -3,7 +3,7 @@ import * as React from "react";
 import styled from "styled-components";
 
 interface Props {
-  contents: React.ReactNode & Array<React.ReactNode>;
+  contents: React.ReactNode;
   isOrderedList?: boolean;
 }
 

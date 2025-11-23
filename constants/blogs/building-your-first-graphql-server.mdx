@@ -149,10 +149,10 @@ Copy the `NodeJS` URL. We'll use that in just a second.
 
 Next, go to the repository that you cloned from me. Create a file called `.env` in your root directory and paste the following in:
 
-```
+```bash
 PORT=4000
-NODE_TLS_REJECT_UNAUTHORIZED='0'
-DATABASE_URL=<your database URI link goes here>
+NODE_TLS_REJECT_UNAUTHORIZED="0"
+DATABASE_URL=<your_database_uri_link_goes_here>
 ```
 
 You'll want to replace the portion of the database url that says `[YOUR-PASSWORD]` with your password that you created just a second ago. Make sure never to push this url up to GitHub.
@@ -181,7 +181,7 @@ server.use(
   graphqlHTTP({
     schema,
     graphiql: false,
-  })
+  }),
 );
 ```
 
@@ -194,8 +194,7 @@ const schema = require("../schema/schema.js");
 Additionally, check out the `expressPlayground` middleware import that is also contained in our `server.js` file. The import statement looks like this:
 
 ```javascript
-const expressPlayground =
-  require("graphql-playground-middleware-express").default;
+const expressPlayground = require("graphql-playground-middleware-express").default;
 ```
 
 Out of the box, GraphQL comes with `GraphiQL`, an IDE to practice server calls in your browser. I’ve replaced it with `GraphQL Playground` (and turned off `GraphiQL` with the `graphiql: false` statement in the snippet at the beginning of this section) as it is much more robust and better looking (which is obviously the most important quality in the development process 💅).
@@ -258,13 +257,7 @@ Go ahead and make a file called `types.js` in the `schema` directory of the serv
 ```javascript
 const graphql = require("graphql");
 
-const {
-  GraphQLObjectType,
-  GraphQLID,
-  GraphQLString,
-  GraphQLNonNull,
-  GraphQLList,
-} = graphql;
+const { GraphQLObjectType, GraphQLID, GraphQLString, GraphQLNonNull, GraphQLList } = graphql;
 
 const UserType = new GraphQLObjectType({
   name: "User",
@@ -307,13 +300,7 @@ const graphql = require("graphql");
 const User = require("../models/userModel.js");
 const Candy = require("../models/candyModel.js");
 
-const {
-  GraphQLObjectType,
-  GraphQLID,
-  GraphQLString,
-  GraphQLNonNull,
-  GraphQLList,
-} = graphql;
+const { GraphQLObjectType, GraphQLID, GraphQLString, GraphQLNonNull, GraphQLList } = graphql;
 
 const UserType = new GraphQLObjectType({
   name: "User",
