@@ -8,7 +8,7 @@ interface Props {
 
 function SunIcon({ color, isAriaHidden, title }: Props) {
   return (
-    <RootStyles aria-hidden={isAriaHidden} $color={color} viewBox="0 0 512 512">
+    <RootStyles aria-hidden={isAriaHidden} color={color} viewBox="0 0 512 512">
       <title>{title || "Sun icon"}</title>
       <path
         fill={color}
@@ -23,11 +23,11 @@ function SunIcon({ color, isAriaHidden, title }: Props) {
 }
 
 interface StyleProps {
-  $color: string;
+  color: string;
 }
 
 const RootStyles = styled.svg<StyleProps>`
-  stroke: ${({ $color }) => $color};
+  stroke: ${({ color }) => color};
 `;
 
 export default SunIcon;
