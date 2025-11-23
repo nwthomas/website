@@ -225,11 +225,6 @@ const RootStyles = styled.div`
             width: 200px;
           }
 
-          @media only screen and (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
-            padding: 16px 13px 0;
-            width: 250px;
-          }
-
           @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
             margin-left: 10%;
             padding: 15px 17px 0;
@@ -272,10 +267,6 @@ const RootStyles = styled.div`
             @media only screen and (min-width: ${({ theme }) => theme.breakpoints.mini}) {
               left: calc(var(--space-jumbo) * 1.5);
               width: 180px;
-            }
-
-            @media only screen and (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
-              left: calc(var(--space-jumbo) * 1.1);
             }
 
             @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
