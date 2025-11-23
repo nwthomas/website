@@ -11,6 +11,7 @@
     "url": "git+https://github.com/nwthomas/website.git"
   },
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "bun run install-chromium && next build",

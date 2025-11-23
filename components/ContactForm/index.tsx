@@ -72,8 +72,8 @@ function ContactForm({ initialValues, onFormChange, onSendMessageClick, withSpin
 
   return (
     <RootStyles
-      currentTheme={currentTheme}
-      isFormButtonDisabled={withSpinner}
+      $currentTheme={currentTheme}
+      $isFormButtonDisabled={withSpinner}
       style={{
         backgroundImage: getContactFormBorder(radians, isDesktopLayout),
       }}
@@ -138,9 +138,8 @@ function ContactForm({ initialValues, onFormChange, onSendMessageClick, withSpin
 }
 
 interface StyleProps {
-  currentTheme: ThemeEnum;
-  isFormButtonDisabled?: boolean;
-  isWalletConnected?: boolean;
+  $currentTheme: ThemeEnum;
+  $isFormButtonDisabled?: boolean;
 }
 
 const RootStyles = styled.div<StyleProps>`
@@ -251,7 +250,7 @@ const RootStyles = styled.div<StyleProps>`
         background-color: var(--color-royal-blue);
         border: var(--space-nano) solid var(--color-royal-blue);
         color: var(--color-white);
-        cursor: ${({ isFormButtonDisabled }) => (isFormButtonDisabled ? "wait" : "pointer")};
+        cursor: ${({ $isFormButtonDisabled }) => ($isFormButtonDisabled ? "wait" : "pointer")};
         display: flex;
         font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
           Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
@@ -261,12 +260,12 @@ const RootStyles = styled.div<StyleProps>`
         height: var(--space-xlarge);
         justify-content: center;
         margin-top: var(--space-nano);
-        opacity: ${({ isFormButtonDisabled }) => (isFormButtonDisabled ? "0.5" : "1")};
+        opacity: ${({ $isFormButtonDisabled }) => ($isFormButtonDisabled ? "0.5" : "1")};
         transition: background-color var(--transition-short) ease-in-out, color var(--transition-short) ease-in-out;
 
         &:hover {
-          background-color: ${({ isFormButtonDisabled }) =>
-            isFormButtonDisabled ? "var(--color-royal-blue)" : "transparent"};
+          background-color: ${({ $isFormButtonDisabled }) =>
+            $isFormButtonDisabled ? "var(--color-royal-blue)" : "transparent"};
           color: var(--color-royal-blue);
         }
       }

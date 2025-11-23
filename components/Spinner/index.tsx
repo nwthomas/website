@@ -1,5 +1,4 @@
-import * as React from "react";
-
+import { JSX, useMemo } from "react";
 import styled, { keyframes } from "styled-components";
 
 // This file is an adaptation from an old (and abandoned) zero-config spinner repo
@@ -12,7 +11,7 @@ interface Props {
 }
 
 function Spinner(props: Props) {
-  const bars = React.useMemo(() => {
+  const bars = useMemo(() => {
     const bars: Array<JSX.Element> = [];
 
     for (let i = 0; i < 12; i++) {
@@ -32,13 +31,19 @@ function Spinner(props: Props) {
     return bars;
   }, []);
 
-  return <RootStyles {...props}>{bars}</RootStyles>;
+  const { color, height, width } = props;
+
+  return (
+    <RootStyles {...props} $color={color} $height={height} $width={width}>
+      {bars}
+    </RootStyles>
+  );
 }
 
 interface StyleProps {
-  color: string;
-  height: string;
-  width: string;
+  $color: string;
+  $height: string;
+  $width: string;
 }
 
 const spinnerAnimation = keyframes`
@@ -48,16 +53,16 @@ const spinnerAnimation = keyframes`
 
 const RootStyles = styled.div<StyleProps>`
   display: flex;
-  height: ${({ height }) => height};
+  height: ${({ $height }) => $height};
   position: relative;
-  width: ${({ width }) => width};
+  width: ${({ $width }) => $width};
 
   > div {
     animation: ${spinnerAnimation} 1.2s linear infinite;
     -moz-animation: ${spinnerAnimation} 1.2s linear infinite;
     -webkit-animation: ${spinnerAnimation} 1.2s linear infinite;
     border-radius: 5px;
-    background-color: ${({ color }) => color};
+    background-color: ${({ $color }) => $color};
     height: 7.8%;
     left: 40%;
     position: absolute;

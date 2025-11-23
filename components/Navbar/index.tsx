@@ -15,7 +15,7 @@ function Navbar({ hideBackground }: Props) {
   const withMinifiedNavbar = scrollPosition > 0;
 
   return (
-    <RootStyles hideBackground={hideBackground} withMinifiedNavbar={withMinifiedNavbar}>
+    <RootStyles $hideBackground={hideBackground} $withMinifiedNavbar={withMinifiedNavbar}>
       <header>
         <div>
           <MobileNavbar />
@@ -29,8 +29,8 @@ function Navbar({ hideBackground }: Props) {
 }
 
 interface StyleProps {
-  hideBackground?: boolean;
-  withMinifiedNavbar?: boolean;
+  $hideBackground?: boolean;
+  $withMinifiedNavbar?: boolean;
 }
 
 const RootStyles = styled.div<StyleProps>`
@@ -44,8 +44,8 @@ const RootStyles = styled.div<StyleProps>`
   width: 100%;
   z-index: 10;
 
-  ${({ hideBackground }) => {
-    if (!hideBackground) {
+  ${({ $hideBackground }) => {
+    if (!$hideBackground) {
       return `  &::before {
         backdrop-filter: blur(15px);
         background-color: var(--body-bg-blur);
@@ -71,8 +71,8 @@ const RootStyles = styled.div<StyleProps>`
     width: 100%;
 
     @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
-      ${({ withMinifiedNavbar }) => {
-        if (withMinifiedNavbar) {
+      ${({ $withMinifiedNavbar }) => {
+        if ($withMinifiedNavbar) {
           return "";
         }
 

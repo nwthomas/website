@@ -52,7 +52,7 @@ function BlogImage({ alt = "", height = 0, isHeroImage, placeholderImage, src, t
   );
 
   return (
-    <RootStyles isHeroImage={isHeroImage} imageHeight={imageHeight} imageWidth={imageWidth}>
+    <RootStyles $isHeroImage={isHeroImage} $imageHeight={imageHeight} $imageWidth={imageWidth}>
       <button aria-label="Enlarge image" onClick={handleImageClick}>
         {image}
       </button>
@@ -62,9 +62,9 @@ function BlogImage({ alt = "", height = 0, isHeroImage, placeholderImage, src, t
 }
 
 interface StyleProps {
-  imageHeight?: number;
-  imageWidth?: number;
-  isHeroImage?: boolean;
+  $imageHeight?: number;
+  $imageWidth?: number;
+  $isHeroImage?: boolean;
 }
 
 const RootStyles = styled.div<StyleProps>`
@@ -76,13 +76,13 @@ const RootStyles = styled.div<StyleProps>`
 
   > button {
     align-items: center;
-    border: ${({ isHeroImage }) => (isHeroImage ? "" : "1px solid var(--body-bg-accent-two)")};
+    border: ${({ $isHeroImage }) => ($isHeroImage ? "" : "1px solid var(--body-bg-accent-two)")};
     border-radius: var(--border-radius-medium);
     display: flex;
     flex-direction: column;
-    max-width: ${({ isHeroImage }) =>
-      isHeroImage ? "var(--article-hero-image-max-width)" : "var(--article-max-width)"};
-    margin-top: ${({ isHeroImage }) => (isHeroImage ? 0 : "var(--space-medium)")};
+    max-width: ${({ $isHeroImage }) =>
+      $isHeroImage ? "var(--article-hero-image-max-width)" : "var(--article-max-width)"};
+    margin-top: ${({ $isHeroImage }) => ($isHeroImage ? 0 : "var(--space-medium)")};
     overflow: hidden;
     position: relative;
     transition: opacity var(--transition-short) ease-in-out;
@@ -94,7 +94,7 @@ const RootStyles = styled.div<StyleProps>`
     }
 
     > div {
-      aspect-ratio: ${({ imageWidth, imageHeight }) => `${imageWidth} / ${imageHeight}`};
+      aspect-ratio: ${({ $imageWidth, $imageHeight }) => `${$imageWidth} / ${$imageHeight}`};
       position: relative;
       width: 100%;
     }

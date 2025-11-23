@@ -1,4 +1,4 @@
-const { withSentryConfig } = require("@sentry/nextjs");
+import { withSentryConfig } from "@sentry/nextjs";
 
 const nextConfig = {
   // NextJS generic configurations
@@ -26,10 +26,6 @@ const nextConfig = {
       },
     ];
   },
-  // Sentry configurations
-  sentry: {
-    hideSourceMaps: true,
-  },
 };
 
 const sentryWebpackPluginOptions = {
@@ -45,4 +41,4 @@ const sentryWebpackPluginOptions = {
 };
 
 // The Sentry function must run last before exporting
-module.exports = withSentryConfig(nextConfig, sentryWebpackPluginOptions);
+export default withSentryConfig(nextConfig, sentryWebpackPluginOptions);
