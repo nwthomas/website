@@ -28,16 +28,7 @@ function SEO({ customDescription, customImageUrl, isArticle, pageName }: Props) 
     return buildSeoConfig(pageName);
   }, [pageName]);
 
-  const {
-    baseUrl,
-    description,
-    imageUrl,
-    siteName,
-    social: {
-      twitter: { handle, site },
-    },
-    title,
-  } = currentPageMetadata;
+  const { author, baseUrl, description, imageUrl, title } = currentPageMetadata;
 
   const currentUrl = `${baseUrl}${asPath}`;
 
@@ -47,24 +38,8 @@ function SEO({ customDescription, customImageUrl, isArticle, pageName }: Props) 
         headline={title}
         description={customDescription || description}
         url={currentUrl}
-        // openGraph={{
-        //   url: currentUrl,
-        //   title: pageName,
-        //   description: customDescription || description,
-        //   images: [
-        //     {
-        //       url: buildUrlWithOrigin(customImageUrl || imageUrl),
-        //       type: "image/webp",
-        //     },
-        //   ],
-        //   siteName,
-        //   type: isArticle ? "article" : "website",
-        // }}
-        // twitter={{
-        //   handle,
-        //   site,
-        //   cardType: "summary_large_image",
-        // }}
+        author={author.name}
+        image={buildUrlWithOrigin(customImageUrl || imageUrl)}
       />
       <Head>
         {/* This handles the color for the "safe area" notch on iOS */}
