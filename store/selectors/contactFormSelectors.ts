@@ -1,6 +1,6 @@
 import { ContactFormMessage, ContactFormState } from "../reducers/contactFormSlice";
 
-import { RootState } from "../";
+import { RootState } from "..";
 
 const selectThemeState = (state: RootState): ContactFormState => {
   return state.contactForm;

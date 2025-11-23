@@ -1,6 +1,6 @@
-import { BlogState, OverlayImage } from "./../reducers/blogSlice";
+import { BlogState, OverlayImage } from "../reducers/blogSlice";
 
-import { RootState } from "../";
+import { RootState } from "..";
 
 const selectBlogState = (state: RootState): BlogState => {
   return state.blog;

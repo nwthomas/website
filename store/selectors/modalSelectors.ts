@@ -1,5 +1,5 @@
 import { ModalState } from "../reducers/modalSlice";
-import { RootState } from "../";
+import { RootState } from "..";
 
 const selectModalState = (state: RootState): ModalState => {
   return state.modal;
