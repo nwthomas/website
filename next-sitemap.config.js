@@ -1,5 +1,5 @@
 /** @type {import('next-sitemap').IConfig} */
-module.exports = {
+export default {
   siteUrl: process.env.BASE_SITE_URL || "https://www.nathanthomas.dev",
   generateIndexSitemap: true,
   generateRobotsTxt: true,

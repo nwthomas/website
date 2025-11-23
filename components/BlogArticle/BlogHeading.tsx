@@ -1,10 +1,9 @@
-import * as React from "react";
-
 import { buildDateUpdatedLabel, buildDateWrittenLabel } from "../../utils/dates";
 
 import { CopyLinkIcon } from "../Icons";
 import MetadataTag from "../MetadataTag";
 import styled from "styled-components";
+import { useMemo } from "react";
 
 type HeadingLevel = 1 | 2 | 3 | 4 | 5;
 
@@ -18,35 +17,11 @@ interface Props {
 }
 
 function BlogHeading({ contents, dateUpdated, dateWritten, level, linkPath, routeId }: Props) {
-  const [isSelected, setIsSelected] = React.useState<boolean>(false);
-
-  const handleOnActivated = React.useCallback(() => {
-    setIsSelected(true);
-  }, []);
-
-  const handleOnUnactivated = React.useCallback(() => {
-    setIsSelected(false);
-  }, []);
-
-  const handleHeadingClicked = React.useCallback(() => {
-    document.getElementById(routeId)?.scrollIntoView();
-  }, [routeId]);
-
-  const headingHandlers = React.useMemo(() => {
-    return {
-      onClick: handleHeadingClicked,
-      onFocus: handleOnActivated,
-      onBlur: handleOnUnactivated,
-      onMouseEnter: handleOnActivated,
-      onMouseLeave: handleOnUnactivated,
-    };
-  }, [handleHeadingClicked, handleOnActivated, handleOnUnactivated]);
-
-  const headingContent = React.useMemo(() => {
+  const headingContent = useMemo(() => {
     switch (level) {
       case 2:
         return (
-          <h2 {...headingHandlers} id={routeId}>
+          <h2 id={routeId}>
             <a href={linkPath}>
               {/* The span is to allow contents to show up in reader mode: https://www.leereamsnyder.com/blog/making-headings-with-links-show-up-in-safari-reader */}
               <span>{contents}</span>
@@ -55,7 +30,7 @@ function BlogHeading({ contents, dateUpdated, dateWritten, level, linkPath, rout
         );
       case 3:
         return (
-          <h3 {...headingHandlers} id={routeId}>
+          <h3 id={routeId}>
             <a href={linkPath}>
               <span>{contents}</span>
             </a>
@@ -63,7 +38,7 @@ function BlogHeading({ contents, dateUpdated, dateWritten, level, linkPath, rout
         );
       case 4:
         return (
-          <h4 {...headingHandlers} id={routeId}>
+          <h4 id={routeId}>
             <a href={linkPath}>
               <span>{contents}</span>
             </a>
@@ -71,7 +46,7 @@ function BlogHeading({ contents, dateUpdated, dateWritten, level, linkPath, rout
         );
       case 5:
         return (
-          <h5 {...headingHandlers} id={routeId}>
+          <h5 id={routeId}>
             <a href={linkPath}>
               <span>{contents}</span>
             </a>
@@ -80,25 +55,20 @@ function BlogHeading({ contents, dateUpdated, dateWritten, level, linkPath, rout
       case 1:
       default:
         return (
-          <h1 {...headingHandlers} id={routeId}>
+          <h1 id={routeId}>
             <a href={linkPath}>
               <span>{contents}</span>
             </a>
           </h1>
         );
     }
-  }, [contents, headingHandlers, level, linkPath, routeId]);
+  }, [contents, level, linkPath, routeId]);
 
   return (
-    <RootStyles isSelected={isSelected} level={level}>
+    <RootStyles $level={level}>
       <div>
-        <div
-          onFocus={handleOnActivated}
-          onBlur={handleOnUnactivated}
-          onMouseEnter={handleOnActivated}
-          onMouseLeave={handleOnUnactivated}
-        >
-          <a {...headingHandlers} aria-hidden="true" href={linkPath} tabIndex={-1}>
+        <div>
+          <a aria-hidden="true" href={linkPath} tabIndex={-1}>
             <CopyLinkIcon color="var(--text-secondary)" />
           </a>
         </div>
@@ -115,8 +85,7 @@ function BlogHeading({ contents, dateUpdated, dateWritten, level, linkPath, rout
 }
 
 interface StyleProps {
-  isSelected: boolean;
-  level: number;
+  $level: number;
 }
 
 const RootStyles = styled.div<StyleProps>`
@@ -143,16 +112,16 @@ const RootStyles = styled.div<StyleProps>`
       grid-column-end: 2;
       justify-content: flex-end;
       margin-top: var(--space-large);
-      padding-top: ${({ level }) => (level === 1 ? "var(--space-medium)" : "var(--space-xsmall)")};
+      padding-top: ${({ $level }) => ($level === 1 ? "var(--space-medium)" : "var(--space-xsmall)")};
       opacity: 0;
       transition: opacity var(--transition-short) ease-in-out;
 
       svg {
         display: none;
-        height: ${({ level }) => (level === 1 ? "var(--space-xlarge)" : "var(--space-medium)")};
+        height: ${({ $level }) => ($level === 1 ? "var(--space-xlarge)" : "var(--space-medium)")};
         margin-bottom: var(--space-micro);
         margin-right: var(--space-small);
-        width: ${({ level }) => (level === 1 ? "var(--space-xlarge)" : "var(--space-medium)")};
+        width: ${({ $level }) => ($level === 1 ? "var(--space-xlarge)" : "var(--space-medium)")};
       }
 
       @media only screen and (min-width: ${({ theme }) => theme.breakpoints.desktop}) {

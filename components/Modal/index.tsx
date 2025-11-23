@@ -31,7 +31,7 @@ function Modal() {
 
   return (
     <FocusTrap>
-      <RootStyles currentTheme={currentTheme} onClick={handleDismissClick}>
+      <RootStyles $currentTheme={currentTheme} onClick={handleDismissClick}>
         <dialog>
           <h1>{modalMessage}</h1>
           <button onClick={handleDismissClick}>{modalButtonLabel}</button>
@@ -42,12 +42,12 @@ function Modal() {
 }
 
 interface StyleProps {
-  currentTheme: ThemeEnum | null;
+  $currentTheme: ThemeEnum | null;
 }
 
 const RootStyles = styled.div<StyleProps>`
   align-items: center;
-  background-color: ${({ currentTheme }) => `${currentTheme === DARK_THEME ? colors.white : colors.black}40`};
+  background-color: ${({ $currentTheme }) => `${$currentTheme === DARK_THEME ? colors.white : colors.black}40`};
   display: flex;
   justify-content: center;
   position: fixed;

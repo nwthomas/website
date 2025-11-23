@@ -21,7 +21,7 @@ function MobileNavbar() {
   };
 
   return (
-    <RootStyles isMenuOpen={isMenuOpen} withAnimation={withAnimation}>
+    <RootStyles $isMenuOpen={isMenuOpen} $withAnimation={withAnimation}>
       <ul>
         <li>
           <NavbarLink ariaLabel={HOME_LINK_ARIA_LABEL} route={HOME_PAGE}>
@@ -50,8 +50,8 @@ function MobileNavbar() {
 }
 
 interface StyleProps {
-  isMenuOpen: boolean;
-  withAnimation: boolean;
+  $isMenuOpen: boolean;
+  $withAnimation: boolean;
 }
 
 const RootStyles = styled.div<StyleProps>`
@@ -104,10 +104,10 @@ const RootStyles = styled.div<StyleProps>`
             transition: top var(--transition-short) cubic-bezier(0.23, 1, 0.32, 1),
               transform var(--transition-short) cubic-bezier(0.23, 1, 0.32, 1);
 
-            ${({ isMenuOpen, withAnimation }) => {
-              if (!withAnimation) {
+            ${({ $isMenuOpen, $withAnimation }) => {
+              if (!$withAnimation) {
                 return "";
-              } else if (isMenuOpen) {
+              } else if ($isMenuOpen) {
                 return css`
                   animation: ${topMenuBarAnimationForwards} var(--transition-short) cubic-bezier(0.23, 1, 0.32, 1)
                     forwards;
@@ -131,10 +131,10 @@ const RootStyles = styled.div<StyleProps>`
             transition: bottom var(--transition-short) cubic-bezier(0.23, 1, 0.32, 1),
               transform var(--transition-short) cubic-bezier(0.23, 1, 0.32, 1);
 
-            ${({ isMenuOpen, withAnimation }) => {
-              if (!withAnimation) {
+            ${({ $isMenuOpen, $withAnimation }) => {
+              if (!$withAnimation) {
                 return "";
-              } else if (isMenuOpen) {
+              } else if ($isMenuOpen) {
                 return css`
                   animation: ${bottomMenuBarAnimationForwards} var(--transition-short) cubic-bezier(0.23, 1, 0.32, 1)
                     forwards;

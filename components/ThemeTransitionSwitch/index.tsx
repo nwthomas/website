@@ -24,7 +24,7 @@ function ThemeTransitionSwitch() {
   const currentAriaLabel = isDarkMode ? DARK_MODE_ARIA_LABEL : LIGHT_MODE_ARIA_LABEL;
 
   return (
-    <RootStyles isDarkMode={isDarkMode}>
+    <RootStyles $isDarkMode={isDarkMode}>
       {currentTheme !== null ? (
         <>
           <input
@@ -48,7 +48,7 @@ function ThemeTransitionSwitch() {
 }
 
 interface StyleProps {
-  isDarkMode: boolean;
+  $isDarkMode: boolean;
 }
 
 const RootStyles = styled.div<StyleProps>`
@@ -98,7 +98,7 @@ const RootStyles = styled.div<StyleProps>`
       position: absolute;
       left: 2px;
       top: 2px;
-      transform: translateX(${({ isDarkMode }) => (isDarkMode ? "24px" : 0)});
+      transform: translateX(${({ $isDarkMode }) => ($isDarkMode ? "24px" : 0)});
       transition: transform var(--transition-short) cubic-bezier(0.23, 1, 0.32, 1);
       width: 18px;
 
