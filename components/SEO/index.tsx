@@ -1,12 +1,11 @@
-import { useMemo } from "react";
-
 import { ArticleJsonLd } from "next-seo";
 import { DARK_THEME } from "../../store/reducers/themeSlice";
 import Head from "next/head";
 import { ORIGIN } from "../../constants/routes";
-import { useTheme as useStyledTheme } from "styled-components";
 import { buildSeoConfig } from "../../constants/seo";
+import { useMemo } from "react";
 import { useRouter } from "next/router";
+import { useTheme as useStyledTheme } from "styled-components";
 import { useTheme } from "../../hooks";
 
 function buildUrlWithOrigin(currentUrl: string): string {
@@ -48,24 +47,24 @@ function SEO({ customDescription, customImageUrl, isArticle, pageName }: Props) 
         headline={title}
         description={customDescription || description}
         url={currentUrl}
-        openGraph={{
-          url: currentUrl,
-          title: pageName,
-          description: customDescription || description,
-          images: [
-            {
-              url: buildUrlWithOrigin(customImageUrl || imageUrl),
-              type: "image/webp",
-            },
-          ],
-          siteName,
-          type: isArticle ? "article" : "website",
-        }}
-        twitter={{
-          handle,
-          site,
-          cardType: "summary_large_image",
-        }}
+        // openGraph={{
+        //   url: currentUrl,
+        //   title: pageName,
+        //   description: customDescription || description,
+        //   images: [
+        //     {
+        //       url: buildUrlWithOrigin(customImageUrl || imageUrl),
+        //       type: "image/webp",
+        //     },
+        //   ],
+        //   siteName,
+        //   type: isArticle ? "article" : "website",
+        // }}
+        // twitter={{
+        //   handle,
+        //   site,
+        //   cardType: "summary_large_image",
+        // }}
       />
       <Head>
         {/* This handles the color for the "safe area" notch on iOS */}
