@@ -1,6 +1,6 @@
 import { ThemeEnum, ThemeState } from "../reducers/themeSlice";
 
-import { RootState } from "../";
+import { RootState } from "..";
 
 const selectThemeState = (state: RootState): ThemeState => {
   return state.theme;
