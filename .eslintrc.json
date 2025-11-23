@@ -1,0 +1,45 @@
+{
+  "env": {
+    "browser": true,
+    "es2020": true
+  },
+  "plugins": ["@typescript-eslint", "jsx-a11y"],
+  "extends": ["plugin:@next/next/recommended", "plugin:jsx-a11y/recommended", "plugin:react-hooks/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 11,
+    "sourceType": "module"
+  },
+  "rules": {
+    "arrow-body-style": ["off"],
+    "camelcase": ["off"],
+    "class-methods-use-this": ["off"],
+    "implicit-arrow-linebreak": ["off"],
+    "import/extensions": ["off"],
+    "import/prefer-default-export": ["off"],
+    "indent": ["off"],
+    "max-classes-per-file": ["off"],
+    "no-inner-declarations": ["off"],
+    "no-underscore-dangle": ["off"],
+    "no-confusing-arrow": ["off"],
+    "no-use-before-define": ["off"],
+    "object-curly-newline": ["off"],
+    "operator-linebreak": ["off"],
+    "@next/next/no-img-element": ["off"]
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/no-unused-vars": [2, { "args": "none" }]
+      }
+    }
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  }
+}
