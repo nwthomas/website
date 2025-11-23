@@ -2,100 +2,145 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Overview
+## Project Overview
 
-Personal website and blog built with Next.js, TypeScript, and styled-components. Uses bun as the package manager and Makefile for common commands.
+This is a personal portfolio and blog website built with Next.js. It features a static blog powered by MDX files, a contact form with email functionality, and a custom theme system with light/dark mode support.
 
-## Essential Commands
+## Package Manager
 
-### Development
+This project uses **Bun** as the package manager, not npm or yarn. The `preinstall` script enforces this with `npx only-allow bun`.
 
-```bash
-make install   # Install dependencies with bun
-make dev       # Start development server (runs next dev)
-make build     # Build production bundle (installs chromium, runs next build)
-make lint      # Run ESLint
-make start     # Start production server
-```
+## Development Commands
 
-### Blog Development
+### Essential Commands
 
-Blog posts are markdown (.mdx) files located in `constants/blogs/`. Each blog post includes frontmatter metadata (title, description, dateWritten, dateUpdated, imageUrl, tags, isDraft).
+- `make dev` or `bun run dev` - Start development server
+- `make build` or `bun run build` - Build for production (also runs sitemap generation via postbuild)
+- `make lint` or `bun run lint` - Run ESLint
+- `make install` or `bun install` - Install dependencies
+- `make start` or `bun run start` - Start production server
 
-The blog system uses:
+### Other Commands
 
-- `utils/readBlogFiles.ts` - Reads blog files from `constants/blogs/`
-- `utils/sortBlogPosts.ts` - Sorts and builds slug-to-post mappings
-- Draft posts (isDraft: true) are automatically filtered out in production
+- `bun run postbuild` - Generate sitemap (runs automatically after build)
+- `bun run export` - Export static site
+
+## Environment Variables
+
+Set up a `.env` file modeled after `.env.example`. The site will run without it, but email functionality requires:
+
+- `EMAIL_PORT`, `HOST_NAME`, `PASSWORD`, `PERSONAL_EMAIL`, `TLS`, `USERNAME` - Email configuration for contact form
+- `SENTRY_DSN`, `SENTRY_URL`, `SENTRY_ORG`, `SENTRY_PROJECT`, `SENTRY_AUTH_TOKEN` - Sentry error tracking
 
 ## Architecture
 
-### Pages & Routing
+### Blog System
 
-- Next.js Pages Router (not App Router) in `/pages`
-- Dynamic routes: `/blog/[blogId].tsx` and `/tag/[tagId].tsx`
-- Static generation with `getStaticProps` and `getStaticPaths`
-- API routes in `/pages/api` (e.g., send-email.ts for contact form)
+- Blog posts are stored as **MDX files** in `/constants/blogs/`
+- Each MDX file has frontmatter with metadata: `title`, `description`, `imageUrl`, `dateWritten`, `dateUpdated`, `isDraft`, `tags`
+- Draft posts (`isDraft: true`) are excluded in production (see `utils/readBlogFiles.ts:27`)
+- The blog uses Next.js static generation with `getStaticProps` and `getStaticPaths`
+- Blog posts are read from the file system at build time using `gray-matter` to parse frontmatter
+- The slug is derived from the filename (see `utils/readBlogFiles.ts:31`)
+
+### Pages Structure (Pages Router)
+
+This project uses the **Next.js Pages Router**, not the App Router:
+
+- `/pages/index.tsx` - Homepage
+- `/pages/blog/index.tsx` - Blog listing page
+- `/pages/blog/[blogId].tsx` - Individual blog post (dynamic route)
+- `/pages/tag/[tagId].tsx` - Tag filtering page
+- `/pages/contact.tsx` - Contact form page
+- `/pages/api/send-email.ts` - API route for contact form (includes rate limiting and honeypot protection)
+- `/pages/og-image.tsx` - Dynamic OG image generation using Playwright/Chromium
+- `/pages/404.tsx` - Custom 404 page
 
 ### State Management
 
-Redux Toolkit with 4 slices in `/store/reducers`:
+Uses Redux Toolkit with the following slices:
 
 - `blogSlice` - Blog image overlay state
 - `contactFormSlice` - Contact form state
-- `themeSlice` - Light/dark theme toggling
-- `modalSlice` - Modal visibility
+- `modalSlice` - Modal visibility state
+- `themeSlice` - Theme (light/dark mode) state
 
-Selectors in `/store/selectors` for accessing state.
+All slices are in `/store/reducers/` with corresponding selectors in `/store/selectors/`.
 
 ### Styling
 
-- Styled-components for component styling with theme support
-- Tailwind CSS v4 (via `@tailwindcss/postcss`) for utility classes
-- Global styles in `/styles/libs/global.ts`
-- Theme system in `/styles/libs/theme.ts` supports light/dark modes
-- Theme persisted to localStorage and managed through Redux
+- Uses **styled-components** for component styling
+- Global styles defined in `/styles/libs/global`
+- Theme system in `/styles/libs/theme` with light/dark mode support
+- The `preload` class on `<body>` prevents CSS transitions on page load (removed via useEffect in `_app.tsx:56-60`)
+- CSS variables used for spacing, colors, and responsive breakpoints
 
-### Components
+### React Query
 
-Located in `/components`:
+- Configured with a 24-hour stale time (`_app.tsx:20-27`)
+- Used for client-side data fetching (though most data is static)
+- DevTools enabled in development only
 
-- `Layout` - Main layout wrapper with navbar and footer
-- `BlogMarkdownRenderer` - Renders .mdx blog content with custom components
-- `BlogArticle/*` - Custom markdown components (BlogImage, BlogHeading, BlogCodeBlock, etc.)
-- `ThemeTransitionSwitch` - Light/dark theme toggle
-- `ContactForm` - Formik-based contact form with Yup validation
-- `Modal` - Focus-trapped modal component
+### Key Custom Hooks
 
-### Data Flow for Blog Posts
+- `useTheme` - Access and update theme state
+- `useScrollPosition` - Track scroll position
+- `useIsArticlePage` - Detect if on article page
+- `useLockBodyScroll` - Lock body scroll (for modals)
+- `useGetScreenDimensions` - Get viewport dimensions
+- `useGetMouseRadian` - Calculate mouse position in radians
 
-1. Blog .mdx files in `constants/blogs/` contain frontmatter + markdown
-2. `getDirectoryFiles()` reads files using gray-matter
-3. `buildSlugToBlogPostMap()` creates slug lookup
-4. Pages use `getStaticProps`/`getStaticPaths` for static generation
-5. `BlogMarkdownRenderer` uses react-markdown with rehype plugins
+### API Route Protection
 
-### Environment Variables
+The `/api/send-email` endpoint includes:
 
-See `.env.example` for required variables:
+- **Rate limiting** - Implemented in `utils/rateLimit.ts` using express-rate-limit and express-slow-down
+- **Honeypot field** - A hidden "fax" field to catch bots (`send-email.ts:41`)
+- Only accepts POST requests
 
-- Sentry configuration (DSN, org, project, auth token)
-- Email service credentials for contact form (nodemailer)
-- NODE_ENV for environment detection
+### Markdown Rendering
 
-### OG Images
+- Blog content uses `react-markdown` with custom renderers in `/components/BlogArticle/`
+- Rehype plugins: `rehype-highlight`, `rehype-raw`, `rehype-unwrap-images`, `rehype-external-links`
+- Remark plugins: `remark-gfm`, `@fec/remark-a11y-emoji`
+- Custom components for headings, code blocks, images, blockquotes, lists, etc.
 
-Dynamic OG images generated at build time (not edge functions):
+### Image Handling
 
-- `/pages/og-image.tsx` renders OG image template
-- `utils/ogImage.ts` handles generation using Playwright/Chromium
-- Generated during build via `bun run install-chromium`
+- Blog images have an overlay feature - clicking an image shows it in a fullscreen modal (controlled by Redux blogSlice)
+- Hero images are specified in blog post frontmatter
+- OG images are dynamically generated at `/og-image` using Playwright and Chromium
 
-## Development Notes
+### SEO
 
-- **Package Manager**: This project uses bun exclusively. The preinstall script enforces this with `only-allow bun`.
-- **React Query**: Configured with 1-day stale time since content doesn't change frequently.
-- **React Strict Mode**: Enabled in next.config.js.
-- **Styled Components**: SSR support configured in next.config.js compiler options.
-- **Preload Class**: Body has `.preload` class removed on mount to prevent CSS transition flashing (see \_app.tsx and globals.css).
-- **Node Version**: Engine requires Node 22 (see .nvmrc and package.json).
+- Uses `next-seo` for SEO metadata
+- Sitemap generation via `next-sitemap` (configured in `next-sitemap.config.cjs`)
+- Custom SEO component in `/components/SEO/`
+
+### URL Redirects
+
+Permanent redirects are configured in `next.config.js`:
+
+- `/tag` → `/blog`
+- `/tag/soft-skills` → `/tag/personal`
+
+## TypeScript Configuration
+
+- `noImplicitAny: false` - Allows implicit any types
+- Strict mode enabled
+- No emit (Next.js handles compilation)
+- Targets ESNext
+
+## ESLint Configuration
+
+- Extends Next.js recommended config, jsx-a11y, and react-hooks
+- Many style rules disabled (indent, arrow-body-style, etc.) - project likely uses Prettier
+- Custom rule: `@typescript-eslint/no-unused-vars` warns on unused vars except function arguments
+- `@next/next/no-img-element` is disabled (project uses `<img>` instead of `<Image>`)
+
+## Important Notes
+
+- The codebase has flexbox `min-width: 0` fixes for code block overflow (see `pages/blog/[blogId].tsx:90` and :105`)
+- Sentry is configured for error tracking (client, server, and edge runtime)
+- Vercel Analytics is integrated (`_app.tsx:75`)
+- Node version is locked to Node 22 (`package.json:77-79`)
