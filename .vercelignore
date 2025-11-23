@@ -1,0 +1,6 @@
+# Exclude assets directory from Vercel deployment
+assets/
+
+# Exclude other large/unnecessary files
+*.psd
+*.sketch
