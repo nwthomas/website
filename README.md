@@ -34,16 +34,7 @@ I use a [Trello board](https://trello.com/b/48bwZhhe/nathans-personal-website) t
 - Back-end:
   - `FULL REBUILD COMING SOON`™
 
-## UNIT TESTING
-
-- Front-end:
-  - `COMING SOON`™
-- Back-end:
-  - `COMING SOON`™
-
 ## ACKNOWLEDGEMENTS
 
 - Thanks to my parents for supporting my journey of learning to code. I couldn't have done it without you.
 - Thanks to [Zach Cole](http://zcole.me/index.html) for some of the inspiration behind my site.
-- Thanks to [Uniswap](https://uniswap.org/) for the inspiration on my contact form
-- Thanks to [Josh Cormeau](https://www.joshwcomeau.com/) for the inspiration for my blog page card layout

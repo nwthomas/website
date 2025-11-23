@@ -7,9 +7,7 @@ from langchain_openai import OpenAIEmbeddings
 from langchain_openai import ChatOpenAI
 from .constants import *
 from typing import Any, List
-import base64
 import json
-import os
 
 def load_documents(repo: Any) -> List[str]:
     """Loads PDF documents to be used in embeddings in a vector store"""

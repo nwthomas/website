@@ -1,9 +1,7 @@
 from github import Github
 from src.constants import *
 from src.utility import *
-import random
 import json
-import sys
 
 def main():
     # Initialize PyGithub
