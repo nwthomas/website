@@ -7,9 +7,9 @@ import { buildKebabCaseParam } from "../../utils/routes";
 import { getBlogPostFullDate } from "../../utils/dates";
 import rehypeExternalLinks from "rehype-external-links";
 import rehypeRaw from "rehype-raw";
+import rehypeUnwrapImages from "rehype-unwrap-images";
 import remarkA11yEmoji from "@fec/remark-a11y-emoji";
 import remarkGfm from "remark-gfm";
-import remarkUnwrapImages from "remark-unwrap-images";
 import { useRouter } from "next/router";
 
 function buildHeadingId(childrenNodes): string {
@@ -139,8 +139,8 @@ function BlogMarkdownRenderer({ content, dateUpdated, dateWritten, heroImageUrl 
           return <BlogCodeBlock contents={content} isInline={inline} language={language} />;
         },
       }}
-      rehypePlugins={[rehypeRaw, handleRehypeExternalLinks]}
-      remarkPlugins={[remarkGfm, remarkUnwrapImages, remarkA11yEmoji]}
+      rehypePlugins={[rehypeRaw, rehypeUnwrapImages, handleRehypeExternalLinks]}
+      remarkPlugins={[remarkGfm, remarkA11yEmoji]}
     />
   );
 }
