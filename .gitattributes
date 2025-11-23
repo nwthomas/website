@@ -1,0 +1,2 @@
+# Mark all markdown files (foundations for blog articles) as not representative of codebase
+constants/blogs/**/*.mdx linguist-vendored
