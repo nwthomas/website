@@ -1,10 +1,12 @@
+// The import here requires use of `require` instead of `import`
 const nodemailer = require("nodemailer");
 
+const EMAIL_HOST_NAME = process.env.EMAIL_HOST_NAME || "";
+const EMAIL_PASSWORD = process.env.EMAIL_PASSWORD || "";
+const EMAIL_PERSONAL_EMAIL = process.env.EMAIL_PERSONAL_EMAIL || "";
 const EMAIL_PORT = process.env.EMAIL_PORT || "";
-const HOST_NAME = process.env.HOST_NAME || "";
-const PASSWORD = process.env.PASSWORD || "";
-const TLS = process.env.TLS || "";
-const USERNAME = process.env.USERNAME || "";
+const EMAIL_TLS = process.env.EMAIL_TLS || "";
+const EMAIL_USERNAME = process.env.EMAIL_USERNAME || "";
 
 export interface NewEmail {
   name: string;
@@ -16,12 +18,12 @@ export const sendEmail = async (newEmail: NewEmail): Promise<boolean> => {
   const { name, email, message } = newEmail;
 
   const transportOptions = {
-    host: HOST_NAME,
+    host: EMAIL_HOST_NAME,
     port: EMAIL_PORT,
-    tls: TLS,
+    tls: EMAIL_TLS,
     auth: {
-      user: USERNAME,
-      pass: PASSWORD,
+      user: EMAIL_USERNAME,
+      pass: EMAIL_PASSWORD,
     },
   };
 
@@ -30,8 +32,8 @@ export const sendEmail = async (newEmail: NewEmail): Promise<boolean> => {
   const subject = `From ${name}`;
 
   const result = await transporter.sendMail({
-    from: process.env.PERSONAL_EMAIL,
-    to: process.env.PERSONAL_EMAIL,
+    from: EMAIL_PERSONAL_EMAIL,
+    to: EMAIL_PERSONAL_EMAIL,
     subject,
     text: `${email}\n\n${message}`,
   });
