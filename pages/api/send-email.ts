@@ -22,7 +22,6 @@ export default async function handler(request: Request, response: Response) {
   if (request.method !== POST_METHOD) {
     return response.status(405).send({
       message: STATUS_405,
-      success: false,
     });
   }
 
@@ -31,38 +30,34 @@ export default async function handler(request: Request, response: Response) {
   } catch (error) {
     return response.status(429).send({
       message: STATUS_429,
-      success: false,
     });
   }
 
   const { email, fax, message, name } = request.body;
 
+  let status = 200;
+  let responseMessage = STATUS_200;
+
   // If the fax string exists and length is greater than 0, this is a bot request
   if (fax?.length) {
-    return response.status(404).send({
-      message: STATUS_404,
-      success: false,
-    });
+    status = 404;
+    responseMessage = STATUS_404;
   }
 
   try {
     const result = await sendEmail({ name, email, message });
 
     if (result) {
-      return response.status(200).send({
-        message: STATUS_200,
-        success: true,
-      });
+      status = 200;
+      responseMessage = STATUS_200;
     } else {
-      return response.status(502).send({
-        message: STATUS_502,
-        success: false,
-      });
+      status = 502;
+      responseMessage = STATUS_502;
     }
   } catch (error) {
-    return response.status(500).send({
-      message: STATUS_500,
-      success: false,
-    });
+    status = 500;
+    responseMessage = STATUS_500;
   }
+
+  return response.status(status).send({ message: responseMessage });
 }

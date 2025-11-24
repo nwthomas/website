@@ -5,24 +5,15 @@ import slowDown from "express-slow-down";
 
 // A lot of this work is pulled from this excellent article on rate limiting API routes in NextJS:
 // https://kittygiraudel.com/2022/05/16/rate-limit-nextjs-api-routes/
-const FALLBACK_IP_STRING_NAME = "fallback";
 export const RATE_LIMIT = 5;
 export const RATE_LIMIT_WINDOW_MS = 1000 * 60 * 15; // 15 minutes
 export const RATE_LIMIT_DELAY_AFTER = Math.round(RATE_LIMIT / 2);
 export const RATE_LIMIT_DELAY_MS = 500;
 
-const getIP = (request: Request): string => {
-  const ipAddress =
-    request.ip ||
-    request.headers["x-forwarded-for"] ||
-    request.headers["x-real-ip"] ||
-    request.connection.remoteAddress;
-
-  // A fallback string here is not ideal, but should not be hit. If it does, having the string be
-  // truthy ("fallback") will still enable the rate limit. Worst case, multiple malicious users
-  // will hit the rate limit with is actually a positive outcome.
-  return JSON.stringify(ipAddress || FALLBACK_IP_STRING_NAME);
-};
+export function getIP(req: Request) {
+  // X-Forwarded-For may contain multiple comma-separated addresses
+  return JSON.stringify(req.headers["x-forwarded-for"]);
+}
 
 // // This function could move to a more generalized file in the future if more express middleware
 // // ends up being needed on other API routes
@@ -47,7 +38,15 @@ export const getRateLimitMiddlewares = ({
   delayAfter = RATE_LIMIT_DELAY_AFTER,
   delayMs = RATE_LIMIT_DELAY_MS,
 }: RateLimitParameters) => [
-  slowDown({ keyGenerator: getIP, windowMs, delayAfter, delayMs }),
+  slowDown({
+    keyGenerator: getIP,
+    windowMs,
+    delayAfter,
+    delayMs: (used, req) => {
+      const delayAfter = req.slowDown.limit;
+      return (used - delayAfter) * delayMs;
+    },
+  }),
   rateLimit({ keyGenerator: getIP, windowMs, max: limit }),
 ];
 
