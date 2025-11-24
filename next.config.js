@@ -4,6 +4,9 @@ const nextConfig = {
   // NextJS generic configurations
   reactStrictMode: true,
   turbopack: [],
+  images: {
+    qualities: [75, 100],
+  },
   compiler: {
     styledComponents: true,
   },

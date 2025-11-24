@@ -149,8 +149,14 @@ const RootStyles = styled.div<StyleProps>`
       grid-column-start: 2;
       grid-column-end: 3;
       margin-top: var(--space-medium);
+      // On both mobile and desktop layouts, the navbar has already collapsed to a shorter height
+      // when scrolled to any heading. Because of this, the xxlarge space is sufficient to account
+      // for the height needed to still read the heading without the navbar obscuring it.
+      scroll-margin-top: var(--space-xxlarge);
+
       @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
         margin-top: var(--space-large);
+        scroll-margin-top: var(--space-xxlarge);
       }
 
       > a {
