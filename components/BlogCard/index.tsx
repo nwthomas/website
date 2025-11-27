@@ -1,5 +1,3 @@
-import * as React from "react";
-
 import { ArrowForwardsIcon, YouTubeIcon } from "../Icons";
 
 import Link from "next/link";

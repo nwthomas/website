@@ -1,14 +1,14 @@
-import * as React from "react";
+import { ReactNode, useMemo } from "react";
 
 import styled from "styled-components";
 
 interface Props {
-  contents: React.ReactNode;
+  contents: ReactNode;
   isOrderedList?: boolean;
 }
 
 function BlogList({ contents, isOrderedList }: Props) {
-  const list = React.useMemo(() => {
+  const list = useMemo(() => {
     if (isOrderedList) {
       return <ol>{contents}</ol>;
     }

@@ -1,4 +1,4 @@
-import * as React from "react";
+import { ReactNode, useEffect } from "react";
 
 import Footer from "../Footer";
 import Modal from "../Modal";
@@ -10,7 +10,7 @@ import { useGetScreenDimensions } from "../../hooks";
 import { useSelector } from "react-redux";
 
 interface Props {
-  children: React.ReactNode | Array<React.ReactNode>;
+  children: ReactNode | Array<ReactNode>;
   customSEODescription?: string;
   customSEOImageUrl?: string;
   isArticle?: boolean;
@@ -24,7 +24,7 @@ function Layout({ children, customSEODescription, customSEOImageUrl, isArticle, 
 
   // This is a bit of a hack to get around the fact that mobile devices don't play nicely
   // with 100vh. This will pin the footer to the bottom of any screen on mobile.
-  React.useEffect(() => {
+  useEffect(() => {
     if (typeof availableHeight === "number" && typeof window !== "undefined") {
       const { documentElement } = document;
       const newAvailableHeightPx = `${availableHeight}px`;

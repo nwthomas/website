@@ -1,5 +1,3 @@
-import * as React from "react";
-
 import { DARK_THEME, ThemeEnum } from "../../store/reducers/themeSlice";
 import { selectModalButtonLabel, selectModalMessage } from "../../store/selectors/modalSelectors";
 import { useDispatch, useSelector } from "react-redux";

@@ -1,9 +1,8 @@
-import * as React from "react";
-
 import { MoonIcon, SunIcon } from "../Icons";
 import styled, { useTheme as useStyledTheme } from "styled-components";
 
 import { DARK_THEME } from "../../store/reducers/themeSlice";
+import { createRef } from "react";
 import { useTheme } from "../../hooks";
 
 const DARK_MODE_ARIA_LABEL = "Switch to light mode";
@@ -12,7 +11,7 @@ const LIGHT_MODE_ARIA_LABEL = "Switch to dark mode";
 function ThemeTransitionSwitch() {
   const [currentTheme, setCurrentTheme] = useTheme();
   const { colorsHex } = useStyledTheme();
-  const inputRef = React.createRef<HTMLInputElement>();
+  const inputRef = createRef<HTMLInputElement>();
   const isDarkMode = currentTheme === DARK_THEME;
 
   const handleThemeSwitchClick = (event: React.SyntheticEvent) => {

@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useEffect, useState } from "react";
 
 import throttle from "lodash/throttle";
 
@@ -6,9 +6,9 @@ const THROTTLE_WAIT_TIME_MS = 10;
 
 // Taken from https://usehooks.com/useScrollPosition/
 export const useScrollPosition = () => {
-  const [scrollPosition, setScrollPosition] = React.useState(0);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const updatePosition = throttle(() => {
       setScrollPosition(window.scrollY);
     }, THROTTLE_WAIT_TIME_MS);

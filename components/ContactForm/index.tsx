@@ -1,4 +1,3 @@
-import * as React from "react";
 import * as Yup from "yup";
 
 import styled, { useTheme as useStyledTheme } from "styled-components";
@@ -6,10 +5,11 @@ import { useGetMouseRadian, useGetScreenDimensions } from "../../hooks";
 
 import Spinner from "../Spinner";
 import { ThemeEnum } from "../../store/reducers/themeSlice";
+import { createRef } from "react";
 import { useFormik } from "formik";
 import { useTheme } from "../../hooks";
 
-const contactFormRef = React.createRef<HTMLDivElement>();
+const contactFormRef = createRef<HTMLDivElement>();
 
 function getContactFormBorder(radians: number, isDesktopLayout: boolean) {
   if (isDesktopLayout) {

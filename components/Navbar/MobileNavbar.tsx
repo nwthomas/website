@@ -1,5 +1,3 @@
-import * as React from "react";
-
 import { NAVBAR_CLOSED_ARIA_LABEL, NAVBAR_OPEN_ARIA_LABEL } from "../../constants/ariaLabels";
 import styled, { css, keyframes } from "styled-components";
 
@@ -8,12 +6,13 @@ import { HOME_LINK_ARIA_LABEL } from "../../constants/ariaLabels";
 import { HOME_PAGE } from "../../constants/routes";
 import MobileNavbarTray from "./MobileNavbarTray";
 import NavbarLink from "./NavbarLink";
+import { useState } from "react";
 
 export const NAVBAR_BUTTON_LABEL = "Navbar button";
 
 function MobileNavbar() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
-  const [withAnimation, setWithAnimation] = React.useState<boolean>(false);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [withAnimation, setWithAnimation] = useState<boolean>(false);
 
   const handleOnClick = () => {
     setWithAnimation(true);

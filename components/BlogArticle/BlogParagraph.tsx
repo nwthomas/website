@@ -1,9 +1,8 @@
-import * as React from "react";
-
+import { ReactNode } from "react";
 import styled from "styled-components";
 
 interface Props {
-  contents: React.ReactNode;
+  contents: ReactNode;
 }
 
 function BlogParagraph({ contents }: Props) {
