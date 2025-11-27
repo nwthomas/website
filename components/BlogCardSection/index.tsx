@@ -1,5 +1,3 @@
-import * as React from "react";
-
 import { BLOG_PAGE } from "../../constants/routes";
 import { BlogPostsFrontMatter } from "../../utils/sortBlogPosts";
 import Card from "../BlogCard";
@@ -8,6 +6,7 @@ import { buildDateWrittenLabel } from "../../utils/dates";
 import { buildLinkHref } from "../../utils/routes";
 import { getBlogPostFullDate } from "../../utils/dates";
 import styled from "styled-components";
+import { useMemo } from "react";
 import { useRouter } from "next/router";
 
 const BACK_TO_BLOG_PAGE_ARIA_LABEL = "Return to all blog posts page";
@@ -35,7 +34,7 @@ function BlogCardSection({ blogPosts, tag }: Props) {
   const tagRoute = buildLinkHref(tag);
   const isTagPage = router.asPath === tagRoute;
 
-  const blogCards = React.useMemo(() => {
+  const blogCards = useMemo(() => {
     return blogPosts.map((blogPost, i) => {
       const { dateWritten, description, title, slug, youTubeLink } = blogPost;
       const dateWrittenLabel = getBlogPostFullDate(dateWritten || "");

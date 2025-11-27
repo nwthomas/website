@@ -1,5 +1,3 @@
-import * as React from "react";
-
 import { BlogMarkdownRenderer } from "./";
 import Image from "next/image";
 import { showImageOverlay } from "../../store/reducers/blogSlice";

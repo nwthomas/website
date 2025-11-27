@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import throttle from "lodash/throttle";
 import { useGetScreenDimensions } from "./";
@@ -19,7 +19,7 @@ function getAngleRadians(x1: number, y1: number, x2: number, y2: number): number
 export function useGetMouseRadian(ref: React.RefObject<HTMLElement | null>): number {
   const { viewportWidth } = useGetScreenDimensions();
   const { breakpointsInt } = useStyledTheme();
-  const [mouseCoordinates, setMouseCoordinates] = React.useState<{
+  const [mouseCoordinates, setMouseCoordinates] = useState<{
     x?: number;
     y?: number;
   }>({});
@@ -28,7 +28,7 @@ export function useGetMouseRadian(ref: React.RefObject<HTMLElement | null>): num
   // really lint the use of the dependency array.
   //
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const getMouseCoordinates = React.useCallback(
+  const getMouseCoordinates = useCallback(
     throttle(
       ({ clientX, clientY }: MouseEvent) => {
         setMouseCoordinates({ x: clientX, y: clientY });
@@ -39,7 +39,7 @@ export function useGetMouseRadian(ref: React.RefObject<HTMLElement | null>): num
     [],
   );
 
-  React.useEffect(() => {
+  useEffect(() => {
     document.addEventListener("mousemove", getMouseCoordinates, {
       passive: true,
     });

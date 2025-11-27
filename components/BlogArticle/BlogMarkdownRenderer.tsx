@@ -1,6 +1,5 @@
-import * as React from "react";
-
 import { BlogBlockQuote, BlogCodeBlock, BlogHeading, BlogHorizontalRule, BlogImage, BlogList, BlogParagraph } from "./";
+import { useCallback, useRef } from "react";
 
 import ReactMarkdown from "react-markdown";
 import { buildKebabCaseParam } from "../../utils/routes";
@@ -40,11 +39,9 @@ function BlogMarkdownRenderer({ content, dateUpdated, dateWritten, heroImageUrl 
   } = useRouter();
 
   // This ternary is to keep TypeScript happy. This will only ever be a single string.
-  const { current: originalPath } = React.useRef<string>(
-    buildBlogArticlePath(typeof blogId === "string" ? blogId : ""),
-  );
+  const { current: originalPath } = useRef<string>(buildBlogArticlePath(typeof blogId === "string" ? blogId : ""));
 
-  const handleRehypeExternalLinks = React.useCallback(() => {
+  const handleRehypeExternalLinks = useCallback(() => {
     return rehypeExternalLinks({
       rel: ["noopener", "noreferrer"],
       target: "_blank",

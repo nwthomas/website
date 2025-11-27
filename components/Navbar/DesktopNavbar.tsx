@@ -1,5 +1,3 @@
-import * as React from "react";
-
 import {
   BLOG_LINK_ARIA_LABEL,
   CONTACT_LINK_ARIA_LABEL,

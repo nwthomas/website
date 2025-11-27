@@ -1,6 +1,5 @@
-import * as React from "react";
-
 import { DARK_THEME, LIGHT_THEME, ThemeEnum, updateCurrentTheme } from "../store/reducers/themeSlice";
+import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { selectCurrentTheme } from "../store/selectors/themeSelectors";
@@ -43,7 +42,7 @@ export function useTheme(): [ThemeEnum | null, () => void] {
   const userPreferredTheme = useSelector(selectCurrentTheme);
 
   // Function to handle match media changes by user in OS
-  const handleMatchMediaChange = React.useCallback(
+  const handleMatchMediaChange = useCallback(
     (event: MediaQueryListEvent) => {
       const newTheme = (event.currentTarget as MediaQueryList).matches ? DARK_THEME : LIGHT_THEME;
 
@@ -54,7 +53,7 @@ export function useTheme(): [ThemeEnum | null, () => void] {
   );
 
   // Handles any updates to the theme
-  const handleUpdatePreferredTheme = React.useCallback(() => {
+  const handleUpdatePreferredTheme = useCallback(() => {
     if (typeof window !== "undefined" && window.__theme && window.__setPreferredTheme) {
       const newTheme = window.__theme === DARK_THEME ? LIGHT_THEME : DARK_THEME;
 
@@ -64,7 +63,7 @@ export function useTheme(): [ThemeEnum | null, () => void] {
   }, [dispatch]);
 
   // Handles setting the theme in Redux on load of hook
-  React.useEffect(() => {
+  useEffect(() => {
     const windowObjectTheme = getThemeFromWindowObject();
 
     if (windowObjectTheme) {

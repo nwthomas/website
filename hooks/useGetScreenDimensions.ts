@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import throttle from "lodash/throttle";
 
@@ -12,17 +12,17 @@ export interface ScreenDimensions {
 }
 
 export const useGetScreenDimensions = (): ScreenDimensions => {
-  const [viewportHeight, setViewportHeight] = React.useState<number | undefined>(
+  const [viewportHeight, setViewportHeight] = useState<number | undefined>(
     typeof window !== "undefined" ? window.innerHeight : undefined,
   );
-  const [viewportWidth, setViewportWidth] = React.useState<number | undefined>(
+  const [viewportWidth, setViewportWidth] = useState<number | undefined>(
     typeof window !== "undefined" ? window.innerWidth : undefined,
   );
 
-  const [availableHeight, setAvailableHeight] = React.useState<number | undefined>(
+  const [availableHeight, setAvailableHeight] = useState<number | undefined>(
     typeof window !== "undefined" ? document.documentElement.clientHeight : undefined,
   );
-  const [availableWidth, setAvailableWidth] = React.useState<number | undefined>(
+  const [availableWidth, setAvailableWidth] = useState<number | undefined>(
     typeof window !== "undefined" ? document.documentElement.clientWidth : undefined,
   );
 
@@ -30,7 +30,7 @@ export const useGetScreenDimensions = (): ScreenDimensions => {
   // really lint the use of the dependency array.
   //
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const handleMeasureWindowDimensions = React.useCallback(
+  const handleMeasureWindowDimensions = useCallback(
     throttle(
       () => {
         if (typeof window !== "undefined") {
@@ -63,7 +63,7 @@ export const useGetScreenDimensions = (): ScreenDimensions => {
     [availableHeight, availableWidth, viewportHeight, viewportWidth],
   );
 
-  React.useEffect(() => {
+  useEffect(() => {
     handleMeasureWindowDimensions();
 
     if (typeof window !== "undefined") {

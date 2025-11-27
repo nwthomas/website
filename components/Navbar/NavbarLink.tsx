@@ -1,10 +1,9 @@
-import * as React from "react";
-
 import Link from "next/link";
+import { ReactNode } from "react";
 
 interface Props {
   ariaLabel?: string;
-  children: React.ReactNode | Array<React.ReactNode>;
+  children: ReactNode | Array<ReactNode>;
   route: string;
 }
 

@@ -1,11 +1,10 @@
-import * as React from "react";
-
+import { ReactNode } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import oneDark from "../../constants/codeThemes/oneDark";
 import styled from "styled-components";
 
 interface Props {
-  contents: React.ReactNode;
+  contents: ReactNode;
   isInline?: boolean;
   language?: string;
 }
