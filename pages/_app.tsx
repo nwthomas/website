@@ -1,15 +1,15 @@
 import "../styles/globals.css";
 
 import GlobalStyle, { makeMainTheme } from "../styles";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useEffect, useMemo, useState } from "react";
 
 import { Analytics } from "@vercel/analytics/react";
 import { AppProps } from "next/app";
 import Head from "next/head";
-import { Hydrate } from "react-query/hydration";
+import { HydrationBoundary } from "@tanstack/react-query";
 import { Provider } from "react-redux";
-import { ReactQueryDevtools } from "react-query/devtools";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ThemeProvider } from "styled-components";
 import { getThemeFromWindowObject } from "../hooks";
 import { store } from "../store";
@@ -66,10 +66,10 @@ function MyApp(appProps: AppProps) {
       </Head>
       <Provider store={store}>
         <QueryClientProvider client={queryClient}>
-          <Hydrate state={appProps.pageProps.dehydratedState}>
+          <HydrationBoundary state={appProps.pageProps.dehydratedState}>
             <App {...appProps} />
             {process.env.NEXT_PUBLIC_RUNTIME_ENV === "development" ? <ReactQueryDevtools /> : null}
-          </Hydrate>
+          </HydrationBoundary>
         </QueryClientProvider>
       </Provider>
       <Analytics />
