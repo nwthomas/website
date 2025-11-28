@@ -13,7 +13,7 @@ import { createOgImage } from "../utils/ogImage";
 import { selectContactFormMessageValues } from "../store/selectors/contactFormSelectors";
 import styled from "styled-components";
 import { updateModalValues } from "../store/reducers/modalSlice";
-import { useMutation } from "react-query";
+import { useMutation } from "@tanstack/react-query";
 
 export async function getStaticProps() {
   // Dynamic og image creation at build time
@@ -35,7 +35,8 @@ function Contact({ ogImage }) {
   const dispatch = useDispatch();
   const initialMessageValues = useSelector(selectContactFormMessageValues);
 
-  const { mutate, isLoading: isSendingEmail } = useMutation(sendMessage, {
+  const { mutate, isPending: isSendingEmail } = useMutation({
+    mutationFn: sendMessage,
     onSuccess: () => {
       dispatch(
         updateModalValues({
