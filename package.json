@@ -26,6 +26,7 @@
     "@sentry/nextjs": "10.26.0",
     "@tanstack/react-query": "5.90.11",
     "@tanstack/react-query-devtools": "5.91.1",
+    "@tailwindcss/postcss": "4.1.17",
     "@vercel/analytics": "0.1.8",
     "axios": "1.13.2",
     "express-rate-limit": "8.2.1",
@@ -49,6 +50,7 @@
     "rehype-unwrap-images": "1.0.0",
     "remark-gfm": "4.0.1",
     "styled-components": "6.1.19",
+    "tailwindcss": "4.1.17",
     "typescript": "5.9.3",
     "yup": "1.7.1"
   },

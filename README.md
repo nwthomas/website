@@ -33,17 +33,17 @@ You can find work for this repository in this [Trello board](https://trello.com/
 
 ## Technology Stack
 
-- [Axios](https://axios-http.com/docs/intro)
 - [Focus Trap React](https://github.com/focus-trap/focus-trap-react)
-- [Formik](https://formik.org/)
-- [Next](https://nextjs.org/)
+- [Formik](https://formik.org)
+- [Next](https://nextjs.org)
 - [Next SEO](https://github.com/garmeeh/next-seo)
 - [Nodemailer](https://github.com/nodemailer/nodemailer)
-- [Redux](https://redux.js.org/)
-- [Sentry](https://sentry.io/welcome/)
-- [Styled Components](https://styled-components.com/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Vercel](https://vercel.com/)
+- [Redux](https://redux.js.org)
+- [Sentry](https://sentry.io/welcome)
+- [Tailwindcss](https://tailwindcss.com)
+- [Tanstack Query](https://tanstack.com/query/latest)
+- [TypeScript](https://www.typescriptlang.org)
+- [Vercel](https://vercel.com)
 - [Yup](https://github.com/jquense/yup)
 
 ## ACKNOWLEDGEMENTS
