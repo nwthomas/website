@@ -96,6 +96,16 @@ function Footer() {
                 X
               </a>
             </li>
+            <li>
+              <a
+                href="https://www.youtube.com/@nwthomas"
+                aria-label="Link to Nathan's profile on YouTube"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                YouTube
+              </a>
+            </li>
           </ul>
         </nav>
       </footer>
