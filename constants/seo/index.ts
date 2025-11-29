@@ -2,6 +2,7 @@ export const BLOG_PAGE_NAME = "Blog";
 export const CONTACT_PAGE_NAME = "Contact";
 export const FOUR_OH_FOUR_PAGE_NAME = "404";
 export const HOME_PAGE_NAME = "Home";
+export const JOURNAL_PAGE_NAME = "Journal";
 
 interface SeoConfig {
   author: {

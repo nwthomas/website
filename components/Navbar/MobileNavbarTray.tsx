@@ -1,5 +1,10 @@
-import { BLOG_LINK_ARIA_LABEL, CONTACT_LINK_ARIA_LABEL, HOME_LINK_ARIA_LABEL } from "../../constants/ariaLabels";
-import { BLOG_PAGE, CONTACT_PAGE, HOME_PAGE } from "../../constants/routes";
+import {
+  BLOG_LINK_ARIA_LABEL,
+  BOOKMARKS_LINK_ARIA_LABEL,
+  CONTACT_LINK_ARIA_LABEL,
+  HOME_LINK_ARIA_LABEL,
+} from "../../constants/ariaLabels";
+import { BLOG_PAGE, BOOKMARKS_PAGE, CONTACT_PAGE, HOME_PAGE } from "../../constants/routes";
 
 import NavbarLink from "./NavbarLink";
 import ThemeTransitionSwitch from "../ThemeTransitionSwitch";
@@ -21,6 +26,11 @@ function MobileNavbarTray() {
           <li>
             <NavbarLink ariaLabel={BLOG_LINK_ARIA_LABEL} route={BLOG_PAGE}>
               Blog
+            </NavbarLink>
+          </li>
+          <li>
+            <NavbarLink ariaLabel={BOOKMARKS_LINK_ARIA_LABEL} route={BOOKMARKS_PAGE}>
+              Bookmarks
             </NavbarLink>
           </li>
           <li>
@@ -77,8 +87,9 @@ const RootStyles = styled.div`
         margin-bottom: var(--space-medium);
 
         a {
-          font-family: "Libre Baskerville", Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida,
-            "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+          font-family:
+            "Libre Baskerville", Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif",
+            "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
           font-size: 3.5rem;
           font-weight: bold;
           line-height: 1;
