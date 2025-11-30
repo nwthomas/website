@@ -9,7 +9,7 @@ import { BLOG_PAGE, BOOKMARKS_PAGE, CONTACT_PAGE, HOME_PAGE } from "../../consta
 import { CONTENTS_ID } from "../../constants/routes";
 import NavbarLink from "./NavbarLink";
 import ThemeTransitionSwitch from "../ThemeTransitionSwitch";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 function DesktopNavbar() {
   return (

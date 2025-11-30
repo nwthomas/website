@@ -2,7 +2,7 @@ import { ArrowForwardsIcon, YouTubeIcon } from "../Icons";
 
 import Link from "next/link";
 import MetadataTag from "../MetadataTag";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 interface Props {
   dateWritten?: string;

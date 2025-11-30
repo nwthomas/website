@@ -5,7 +5,7 @@ import { useLockBodyScroll, useTheme } from "../../hooks";
 
 import { FocusTrap } from "focus-trap-react";
 import { colors } from "../../styles/libs/theme";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import { updateModalValues } from "../../store/reducers/modalSlice";
 
 function Modal() {
@@ -97,15 +97,26 @@ const RootStyles = styled.div<StyleProps>`
       color: var(--color-white);
       cursor: pointer;
       display: flex;
-      font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-        Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
-        Noto Color Emoji;
+      font-family:
+        "Fira Sans",
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        Segoe UI,
+        Roboto,
+        Helvetica Neue,
+        Arial,
+        Noto Sans,
+        sans-serif;
       font-size: 1.6rem;
       font-weight: bold;
       height: var(--space-xlarge);
       justify-content: center;
       margin-top: var(--space-nano);
-      transition: background-color var(--transition-short) ease-in-out, color var(--transition-short) ease-in-out;
+      transition:
+        background-color var(--transition-short) ease-in-out,
+        color var(--transition-short) ease-in-out;
       width: calc(100% - (var(--app-horizontal-gutters) + var(--space-small)));
 
       &:hover {

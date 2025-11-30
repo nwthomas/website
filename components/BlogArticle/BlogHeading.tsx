@@ -2,7 +2,7 @@ import { buildDateUpdatedLabel, buildDateWrittenLabel } from "../../utils/dates"
 
 import { CopyLinkIcon } from "../Icons";
 import MetadataTag from "../MetadataTag";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import { useMemo } from "react";
 
 type HeadingLevel = 1 | 2 | 3 | 4 | 5;
@@ -161,8 +161,9 @@ const RootStyles = styled.div<StyleProps>`
 
       > a {
         color: inherit;
-        font-family: "Libre Baskerville", Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida,
-          "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+        font-family:
+          "Libre Baskerville", Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif",
+          "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
         font-size: inherit;
         text-decoration-color: none;
         text-decoration-style: none;

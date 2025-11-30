@@ -1,7 +1,7 @@
 import { BlogMarkdownRenderer } from "./";
 import Image from "next/image";
 import { showImageOverlay } from "../../store/reducers/blogSlice";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import { useDispatch } from "react-redux";
 
 interface Props {

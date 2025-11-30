@@ -5,7 +5,7 @@ import Modal from "../Modal";
 import Navbar from "../Navbar";
 import SEO from "../SEO";
 import { selectShouldShowModal } from "../../store/selectors/modalSelectors";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import { useGetScreenDimensions } from "../../hooks";
 import { useSelector } from "react-redux";
 

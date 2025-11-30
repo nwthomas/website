@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 
-import GlobalStyle, { makeMainTheme } from "../styles";
+import { GlobalStyles, makeMainTheme } from "../styles";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useEffect, useMemo, useState } from "react";
 
@@ -10,7 +10,7 @@ import Head from "next/head";
 import { HydrationBoundary } from "@tanstack/react-query";
 import { Provider } from "react-redux";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "@emotion/react";
 import { getThemeFromWindowObject } from "../hooks";
 import { store } from "../store";
 import { useTheme } from "../hooks";
@@ -43,7 +43,7 @@ function App({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeProvider theme={mainTheme}>
-      <GlobalStyle />
+      <GlobalStyles />
       <Component {...pageProps} />
     </ThemeProvider>
   );

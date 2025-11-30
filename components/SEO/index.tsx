@@ -3,9 +3,9 @@ import { DARK_THEME } from "../../store/reducers/themeSlice";
 import Head from "next/head";
 import { ORIGIN } from "../../constants/routes";
 import { buildSeoConfig } from "../../constants/seo";
+import { useTheme as useEmotionTheme } from "@emotion/react";
 import { useMemo } from "react";
 import { useRouter } from "next/router";
-import { useTheme as useStyledTheme } from "styled-components";
 import { useTheme } from "../../hooks";
 
 function buildUrlWithOrigin(currentUrl: string): string {
@@ -22,7 +22,7 @@ interface Props {
 function SEO({ customDescription, customImageUrl, isArticle, pageName }: Props) {
   const { asPath } = useRouter();
   const [currentTheme] = useTheme();
-  const { colorsHex } = useStyledTheme();
+  const { colorsHex } = useEmotionTheme();
 
   const currentPageMetadata = useMemo(() => {
     return buildSeoConfig(pageName);

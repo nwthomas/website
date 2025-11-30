@@ -1,5 +1,7 @@
 import { JSX, useMemo } from "react";
-import styled, { keyframes } from "styled-components";
+
+import { keyframes } from "@emotion/react";
+import styled from "@emotion/styled";
 
 // This file is an adaptation from an old (and abandoned) zero-config spinner repo
 // found at https://github.com/chenglou/react-spinner/blob/master/index.jsx

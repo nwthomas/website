@@ -11,7 +11,7 @@ import { SEND_EMAIL } from "../constants/routes";
 import axios from "axios";
 import { createOgImage } from "../utils/ogImage";
 import { selectContactFormMessageValues } from "../store/selectors/contactFormSelectors";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import { updateModalValues } from "../store/reducers/modalSlice";
 import { useMutation } from "@tanstack/react-query";
 
