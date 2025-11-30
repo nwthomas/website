@@ -46,7 +46,7 @@ const RootStyles = styled.div`
     }
   }
 
-  li:nth-child(1) {
+  li:nth-of-type(1) {
     margin-top: 0;
   }
 

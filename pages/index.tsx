@@ -131,7 +131,7 @@ const RootStyles = styled.div`
       width: 100%;
     }
 
-    > section:nth-child(1) {
+    > section:nth-of-type(1) {
       display: flex;
       margin-bottom: var(--space-medium);
 
@@ -165,7 +165,7 @@ const RootStyles = styled.div`
     }
 
     /* This whole section is messy CSS. Forgive me. It was a long week when I wrote it. */
-    > section:nth-child(2) {
+    > section:nth-of-type(2) {
       align-items: center;
       display: flex;
       flex-direction: column-reverse;
@@ -186,7 +186,7 @@ const RootStyles = styled.div`
       }
 
       /* Mock iPhone screen */
-      > div:nth-child(1) {
+      > div:nth-of-type(1) {
         display: flex;
         justify-content: flex-start;
         padding-left: 12%;
@@ -213,7 +213,7 @@ const RootStyles = styled.div`
           width: 25%;
         }
 
-        > div:nth-child(1) {
+        > div:nth-of-type(1) {
           height: 100%;
           padding: 7px 8px 0;
           position: relative;
@@ -238,14 +238,14 @@ const RootStyles = styled.div`
             width: 100%;
           }
 
-          > img:nth-child(1) {
+          > img:nth-of-type(1) {
             bottom: 0;
             position: absolute;
             right: 0;
             top: 0;
           }
 
-          > img:nth-child(2) {
+          > img:nth-of-type(2) {
             border-radius: var(--border-radius-large);
             overflow: hidden;
             width: 100%;
@@ -285,7 +285,7 @@ const RootStyles = styled.div`
       }
 
       /* Mock computer window */
-      > div:nth-child(2) {
+      > div:nth-of-type(2) {
         display: flex;
         justify-content: center;
         margin-bottom: var(--space-large);
@@ -313,7 +313,7 @@ const RootStyles = styled.div`
         }
 
         /* Rotating Loom logo */
-        > div:nth-child(1) {
+        > div:nth-of-type(1) {
           animation: ${rotateAnimation} 70s linear infinite;
           border-radius: var(--border-radius-infinity);
           overflow: hidden;
