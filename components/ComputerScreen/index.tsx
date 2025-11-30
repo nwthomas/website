@@ -56,15 +56,15 @@ const RootStyles = styled.div`
       width: var(--space-small);
     }
 
-    > div:nth-child(1) {
+    > div:nth-of-type(1) {
       background-color: var(--color-burnt-sienna);
     }
 
-    > div:nth-child(2) {
+    > div:nth-of-type(2) {
       background-color: var(--color-casablanca);
     }
 
-    > div:nth-child(3) {
+    > div:nth-of-type(3) {
       background-color: var(--color-mantis);
     }
   }

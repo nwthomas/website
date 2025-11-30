@@ -99,7 +99,7 @@ const RootStyles = styled.div<StyleProps>`
     padding-right: 0;
   }
 
-  > div:nth-child(1) {
+  > div:nth-of-type(1) {
     display: grid;
     grid-template-columns: 1fr minmax(1px, var(--article-max-width)) 1fr;
     grid-template-rows: 1fr;
@@ -192,7 +192,7 @@ const RootStyles = styled.div<StyleProps>`
     }
   }
 
-  > div:nth-child(2) {
+  > div:nth-of-type(2) {
     display: flex;
     flex-wrap: wrap;
     margin-top: calc(var(--space-medium) - var(--space-xxsmall));

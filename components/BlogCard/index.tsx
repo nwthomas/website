@@ -61,7 +61,7 @@ const RootStyles = styled.article`
       min-height: 200px;
     }
 
-    > div:nth-child(1) {
+    > div:nth-of-type(1) {
       width: 100%;
 
       > h2 {
@@ -74,7 +74,7 @@ const RootStyles = styled.article`
       }
     }
 
-    > div:nth-child(2) {
+    > div:nth-of-type(2) {
       align-items: center;
       display: flex;
       flex-wrap: wrap;
@@ -111,7 +111,7 @@ const RootStyles = styled.article`
       border-radius: var(--border-radius-medium);
       outline: none;
 
-      > div:nth-child(2) > div > svg {
+      > div:nth-of-type(2) > div > svg {
         opacity: 1;
       }
     }

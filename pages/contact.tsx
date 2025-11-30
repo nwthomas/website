@@ -100,7 +100,7 @@ const RootStyles = styled.div`
     max-width: var(--app-max-width);
     width: 100%;
 
-    > section:nth-child(1) {
+    > section:nth-of-type(1) {
       display: flex;
       margin-bottom: var(--space-medium);
 
@@ -133,7 +133,7 @@ const RootStyles = styled.div`
       }
     }
 
-    > section:nth-child(2) {
+    > section:nth-of-type(2) {
       margin-bottom: var(--space-medium);
 
       @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
