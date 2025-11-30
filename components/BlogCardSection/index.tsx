@@ -5,7 +5,7 @@ import Tag from "../Tag";
 import { buildDateWrittenLabel } from "../../utils/dates";
 import { buildLinkHref } from "../../utils/routes";
 import { getBlogPostFullDate } from "../../utils/dates";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import { useMemo } from "react";
 import { useRouter } from "next/router";
 

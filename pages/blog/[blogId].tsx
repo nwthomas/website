@@ -9,7 +9,7 @@ import Layout from "../../components/Layout";
 import { getDirectoryFiles } from "../../utils/readBlogFiles";
 import { hideImageOverlay } from "../../store/reducers/blogSlice";
 import { selectIsShowingImageOverlay } from "../../store/selectors/blogSelector";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import { useEffect } from "react";
 
 export async function getStaticProps({ params: { blogId } }) {

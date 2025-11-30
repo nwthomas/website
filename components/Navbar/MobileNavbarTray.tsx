@@ -8,7 +8,7 @@ import { BLOG_PAGE, BOOKMARKS_PAGE, CONTACT_PAGE, HOME_PAGE } from "../../consta
 
 import NavbarLink from "./NavbarLink";
 import ThemeTransitionSwitch from "../ThemeTransitionSwitch";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import { useLockBodyScroll } from "../../hooks";
 
 function MobileNavbarTray() {

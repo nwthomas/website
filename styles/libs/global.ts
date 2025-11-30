@@ -1,8 +1,7 @@
+import { Theme, css } from "@emotion/react";
 import { appDimensions, borderRadii, breakpoints, colors, spaces, transitions } from "./theme";
 
-import { css } from "styled-components";
-
-const GlobalStyle = css`
+export const createGlobalStyles = (theme: Theme) => css`
   * {
     box-sizing: border-box;
   }
@@ -24,7 +23,7 @@ const GlobalStyle = css`
   :root {
     /* This value can be modified in the theme.ts file's appDimensions object */
     --app-min-height: 100vh;
-    color-scheme: ${({ theme }) => theme.currentTheme};
+    color-scheme: ${theme.currentTheme};
   }
 
   html,
@@ -182,7 +181,8 @@ const GlobalStyle = css`
   h5 {
     color: var(--text);
     font-display: swap;
-    font-family: "Libre Baskerville", Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif",
+    font-family:
+      "Libre Baskerville", Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif",
       "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
     line-height: 1.5;
   }
@@ -191,11 +191,11 @@ const GlobalStyle = css`
     font-size: 3.5rem;
     font-weight: bold;
 
-    @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    @media only screen and (min-width: ${theme.breakpoints.tablet}) {
       font-size: 5rem;
     }
 
-    @media only screen and (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
+    @media only screen and (min-width: ${theme.breakpoints.desktop}) {
       font-size: 6.5rem;
     }
   }
@@ -204,7 +204,7 @@ const GlobalStyle = css`
     font-size: 2rem;
     font-weight: bold;
 
-    @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    @media only screen and (min-width: ${theme.breakpoints.tablet}) {
       font-size: 2.4rem;
     }
   }
@@ -222,16 +222,35 @@ const GlobalStyle = css`
     font-size: 1.6rem;
     line-height: 1.8;
     overflow: break-word;
-    font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-      Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    font-family:
+      "Fira Sans",
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      Segoe UI,
+      Roboto,
+      Helvetica Neue,
+      Arial,
+      Noto Sans,
+      sans-serif;
 
     &::placeholder {
       color: var(--text);
       opacity: 0.7;
       font-size: 1.6rem;
-      font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-        Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
-        Noto Color Emoji;
+      font-family:
+        "Fira Sans",
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        Segoe UI,
+        Roboto,
+        Helvetica Neue,
+        Arial,
+        Noto Sans,
+        sans-serif;
     }
   }
 
@@ -249,14 +268,24 @@ const GlobalStyle = css`
     color: var(--text);
     cursor: pointer;
     font-display: swap;
-    font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-      Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    font-family:
+      "Fira Sans",
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      Segoe UI,
+      Roboto,
+      Helvetica Neue,
+      Arial,
+      Noto Sans,
+      sans-serif;
     font-size: 1.6rem;
     overflow: break-word;
     text-decoration: none;
     transition: color var(--transition-short) ease-in-out;
 
-    @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    @media only screen and (min-width: ${theme.breakpoints.tablet}) {
       font-size: 2rem;
     }
 
@@ -295,5 +324,3 @@ const GlobalStyle = css`
     }
   }
 `;
-
-export default GlobalStyle;

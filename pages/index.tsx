@@ -1,5 +1,3 @@
-import styled, { keyframes } from "styled-components";
-
 import { CONTENTS_ID } from "../constants/routes";
 import ComputerScreen from "../components/ComputerScreen";
 import { HOME_PAGE_NAME } from "../constants/seo";
@@ -7,6 +5,8 @@ import Image from "next/image";
 import Layout from "../components/Layout";
 import Link from "next/link";
 import { NextPage } from "next";
+import { keyframes } from "@emotion/react";
+import styled from "@emotion/styled";
 
 const GITHUB_LINK_ARIA_LABEL = "Link to Nathan's GitHub page";
 const TEACHING_LINK_ARIA_LABEL = "Link to the Code Tenderloin free bootcamp Nathan volunteers at";

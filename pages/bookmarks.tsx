@@ -1,7 +1,7 @@
 import { CONTENTS_ID } from "../constants/routes";
 import { JOURNAL_PAGE_NAME } from "../constants/seo";
 import Layout from "../components/Layout";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 type Bookmark = {
   date: string;

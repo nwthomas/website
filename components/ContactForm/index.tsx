@@ -1,11 +1,12 @@
 import * as Yup from "yup";
 
-import styled, { useTheme as useStyledTheme } from "styled-components";
 import { useGetMouseRadian, useGetScreenDimensions } from "../../hooks";
 
 import Spinner from "../Spinner";
 import { ThemeEnum } from "../../store/reducers/themeSlice";
 import { createRef } from "react";
+import styled from "@emotion/styled";
+import { useTheme as useEmotionTheme } from "@emotion/react";
 import { useFormik } from "formik";
 import { useTheme } from "../../hooks";
 
@@ -39,7 +40,7 @@ interface Props {
 }
 
 function ContactForm({ initialValues, onFormChange, onSendMessageClick, withSpinner }: Props) {
-  const { breakpointsInt } = useStyledTheme();
+  const { breakpointsInt } = useEmotionTheme();
   const [currentTheme] = useTheme();
   const { viewportWidth } = useGetScreenDimensions();
 
@@ -254,16 +255,27 @@ const RootStyles = styled.div<StyleProps>`
         color: var(--color-white);
         cursor: ${({ $isFormButtonDisabled }) => ($isFormButtonDisabled ? "wait" : "pointer")};
         display: flex;
-        font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-          Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
-          Noto Color Emoji;
+        font-family:
+          "Fira Sans",
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          Segoe UI,
+          Roboto,
+          Helvetica Neue,
+          Arial,
+          Noto Sans,
+          sans-serif;
         font-size: 1.6rem;
         font-weight: bold;
         height: var(--space-xlarge);
         justify-content: center;
         margin-top: var(--space-nano);
         opacity: ${({ $isFormButtonDisabled }) => ($isFormButtonDisabled ? "0.5" : "1")};
-        transition: background-color var(--transition-short) ease-in-out, color var(--transition-short) ease-in-out;
+        transition:
+          background-color var(--transition-short) ease-in-out,
+          color var(--transition-short) ease-in-out;
 
         &:hover {
           background-color: ${({ $isFormButtonDisabled }) =>

@@ -13,7 +13,7 @@ import { CONTENTS_ID } from "../../constants/routes";
 import Layout from "../../components/Layout";
 import { createOgImage } from "../../utils/ogImage";
 import { getDirectoryFiles } from "../../utils/readBlogFiles";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 export async function getStaticProps() {
   const blogPosts = getDirectoryFiles(BLOG_FILES_PATH);

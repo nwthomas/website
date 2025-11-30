@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 
 import throttle from "lodash/throttle";
+import { useTheme as useEmotionTheme } from "@emotion/react";
 import { useGetScreenDimensions } from "./";
-import { useTheme as useStyledTheme } from "styled-components";
 
 const THROTTLE_WAIT_TIME_MS = 10;
 
@@ -18,7 +18,7 @@ function getAngleRadians(x1: number, y1: number, x2: number, y2: number): number
 
 export function useGetMouseRadian(ref: React.RefObject<HTMLElement | null>): number {
   const { viewportWidth } = useGetScreenDimensions();
-  const { breakpointsInt } = useStyledTheme();
+  const { breakpointsInt } = useEmotionTheme();
   const [mouseCoordinates, setMouseCoordinates] = useState<{
     x?: number;
     y?: number;

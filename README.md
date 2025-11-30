@@ -33,6 +33,7 @@ You can find work for this repository in this [Trello board](https://trello.com/
 
 ## Technology Stack
 
+- [Emotion](https://emotion.sh)
 - [Focus Trap React](https://github.com/focus-trap/focus-trap-react)
 - [Formik](https://formik.org)
 - [Next](https://nextjs.org)
@@ -40,7 +41,6 @@ You can find work for this repository in this [Trello board](https://trello.com/
 - [Nodemailer](https://github.com/nodemailer/nodemailer)
 - [Redux](https://redux.js.org)
 - [Sentry](https://sentry.io/welcome)
-- [Tailwindcss](https://tailwindcss.com)
 - [Tanstack Query](https://tanstack.com/query/latest)
 - [TypeScript](https://www.typescriptlang.org)
 - [Vercel](https://vercel.com)

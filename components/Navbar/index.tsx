@@ -1,6 +1,6 @@
 import DesktopNavbar from "./DesktopNavbar";
 import MobileNavbar from "./MobileNavbar";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import { useScrollPosition } from "../../hooks";
 
 interface Props {

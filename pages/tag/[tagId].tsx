@@ -13,7 +13,7 @@ import Layout from "../../components/Layout";
 import { buildKebabCaseParam } from "../../utils/routes";
 import { createOgImage } from "../../utils/ogImage";
 import { getDirectoryFiles } from "../../utils/readBlogFiles";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import { useRouter } from "next/router";
 
 function buildTagIdPageName(tag: string) {
