@@ -10,7 +10,7 @@ function Bookmarks({ ogImage }) {
       <RootStyles>
         <main id={CONTENTS_ID}>
           <section>
-            <h1>Articles, research papers, and videos that I've found to be excellent</h1>
+            <h1>These are resources I think are excellent</h1>
           </section>
           <section>
             {BOOKMARKS.map(({ date, url }) => {
