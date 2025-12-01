@@ -26,4 +26,8 @@ export const BOOKMARKS: Bookmarks = [
     date: "2025-07-29",
     url: "https://www.wheresyoured.at/the-haters-gui",
   },
+  {
+    date: "2025-02-02",
+    url: "https://karpathy.ai/zero-to-hero.html",
+  }
 ];
