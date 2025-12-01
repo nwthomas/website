@@ -75,6 +75,8 @@
     "eslint-plugin-react-hooks": "7.0.1",
     "next-sitemap": "2.1.15",
     "playwright-core": "1.56.1",
+    "prettier": "^3.7.1",
+    "prettier-plugin-tailwindcss": "^0.7.1",
     "sharp": "0.34.5"
   },
   "engines": {

@@ -12,6 +12,10 @@ type Bookmarks = Array<Bookmark>;
 
 const BOOKMARKS: Bookmarks = [
   {
+    date: "2025-12-01",
+    url: "https://newsletter.maartengrootendorst.com/p/a-visual-guide-to-quantization",
+  },
+  {
     date: "2025-11-10",
     url: "https://berkshirehathaway.com/news/nov1025.pdf",
   },
@@ -106,12 +110,34 @@ const RootStyles = styled.div`
       > div {
         display: flex;
         gap: var(--space-small);
-        margin-bottom: var(--space-small);
+        margin-bottom: var(--space-medium);
+        
+        @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+          margin-bottom: var(--space-small);
+        }
 
         p {
+          font-family:
+            ui-monospace,
+            SFMono-Regular,
+            Menlo,
+            Monaco,
+            Consolas,
+            Liberation Mono,
+            Courier New,
+            monospace;
           font-size: 2rem;
 
           a {
+            font-family:
+              ui-monospace,
+              SFMono-Regular,
+              Menlo,
+              Monaco,
+              Consolas,
+              Liberation Mono,
+              Courier New,
+              monospace;
             font-size: 2rem;
             border-bottom: 1px dotted var(--text);
             padding-bottom: var(--space-nano);

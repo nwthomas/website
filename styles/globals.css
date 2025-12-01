@@ -1,4 +1,10 @@
-@import "./reset.css";
-@import "./fonts.css";
+@layer theme, reset, base, fonts;
 
-@import "tailwindcss";
+/* 
+The order of these imports is important.
+1. Reset the CSS palette for a good styling foundation
+*/
+@import "./theme.css" layer(theme);
+@import "./reset.css" layer(reset);
+/* @import "./base.css" layer(base); */
+@import "./fonts.css" layer(fonts);
