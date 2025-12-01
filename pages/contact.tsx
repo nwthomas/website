@@ -8,7 +8,6 @@ import Layout from "../components/Layout";
 import { MessageValues } from "../components/ContactForm";
 import { NewEmail } from "../utils/sendEmail";
 import { SEND_EMAIL } from "../constants/routes";
-import axios from "axios";
 import { createOgImage } from "../utils/ogImage";
 import { selectContactFormMessageValues } from "../store/selectors/contactFormSelectors";
 import styled from "@emotion/styled";
@@ -28,7 +27,17 @@ export async function getStaticProps() {
 }
 
 async function sendMessage(email: NewEmail) {
-  return axios.post(SEND_EMAIL, email);
+  const response = await fetch(SEND_EMAIL, {
+    method: "POST",
+    body: JSON.stringify(email),
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error: ${response.statusText}, Status: ${response.status}`);
+  }
+
+  const data = await response.json();
+  return data;
 }
 
 function Contact({ ogImage }) {

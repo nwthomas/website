@@ -31,7 +31,6 @@
     "@tanstack/react-query": "5.90.11",
     "@tanstack/react-query-devtools": "5.91.1",
     "@vercel/analytics": "0.1.8",
-    "axios": "1.13.2",
     "express-rate-limit": "8.2.1",
     "express-slow-down": "3.0.1",
     "focus-trap-react": "11.0.4",

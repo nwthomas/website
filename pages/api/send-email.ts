@@ -33,7 +33,8 @@ export default async function handler(request: Request, response: Response) {
     });
   }
 
-  const { email, fax, message, name } = request.body;
+  const requestBody = JSON.parse(request.body);
+  const { email, fax, message, name } = requestBody;
 
   let status = 200;
   let responseMessage = STATUS_200;
