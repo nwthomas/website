@@ -8,6 +8,18 @@ export type Bookmarks = Array<Bookmark>;
 export const BOOKMARKS: Bookmarks = [
   {
     date: "2025-12-01",
+    url: "https://vram.asmirnov.xyz"
+  },
+  {
+    date: "2025-12-01",
+    url: "https://huggingface.co/spaces/NyxKrage/LLM-Model-VRAM-Calculator"
+  },
+  {
+    date: "2025-12-01",
+    url: "https://blog.eleuther.ai/transformer-math"
+  },
+  {
+    date: "2025-12-01",
     url: "https://www.seangoedecke.com/ai-sycophancy",
   },
   {
