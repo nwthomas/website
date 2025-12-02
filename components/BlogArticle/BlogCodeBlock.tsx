@@ -42,6 +42,7 @@ const BlockRootStyles = styled.div`
     span {
       color: var(--color-white);
       font-family:
+        "Fira Mono",
         ui-monospace,
         SFMono-Regular,
         Menlo,
@@ -59,6 +60,7 @@ const InlineRootStyles = styled.code`
   background-color: var(--body-bg-accent-one);
   border-radius: var(--border-radius-small);
   font-family:
+    "Fira Mono",
     ui-monospace,
     SFMono-Regular,
     Menlo,

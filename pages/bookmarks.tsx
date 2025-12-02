@@ -93,6 +93,7 @@ const RootStyles = styled.div`
 
         p {
           font-family:
+            "Fira Mono",
             ui-monospace,
             SFMono-Regular,
             Menlo,
@@ -105,6 +106,7 @@ const RootStyles = styled.div`
 
           a {
             font-family:
+              "Fira Mono",
               ui-monospace,
               SFMono-Regular,
               Menlo,
