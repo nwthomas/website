@@ -1,6 +1,6 @@
 /* I found a great guide for fonts in NextJS was at https://leerob.io/blog/fonts */
 
-/* These two @font-face rules stack thanks to truetype format */
+/* These @font-face rules stack thanks to truetype format */
 @font-face {
   font-family: "Libre Baskerville";
   font-style: normal;
@@ -43,4 +43,19 @@
   font-display: swap;
   font-weight: 400;
   src: url(/fonts/FiraSansItalic.woff2) format("truetype");
+}
+
+@font-face {
+  font-family: "Fira Mono";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(/fonts/FiraMonoRegular.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Fira Mono";
+  font-style: bold;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/FiraMonoBold.woff2) format("truetype");
 }
