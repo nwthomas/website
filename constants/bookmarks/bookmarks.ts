@@ -15,10 +15,6 @@ export const BOOKMARKS: Bookmarks = [
     url: "https://huggingface.co/blog/faster-transformers",
   },
   {
-    date: "2025-12-01",
-    url: "https://newsletter.maartengrootendorst.com/p/a-visual-guide-to-quantization",
-  },
-  {
     date: "2025-11-10",
     url: "https://berkshirehathaway.com/news/nov1025.pdf",
   },
@@ -31,7 +27,43 @@ export const BOOKMARKS: Bookmarks = [
     url: "https://www.wheresyoured.at/the-haters-gui",
   },
   {
+    date: "2025-07-23",
+    url: "https://calv.info/openai-reflections",
+  },
+  {
+    date: "2025-06-26",
+    url: "https://blog.nilenso.com/blog/2025/05/29/ai-assisted-coding",
+  },
+  {
+    date: "2025-04-23",
+    url: "https://koomen.dev/essays/horseless-carriages",
+  },
+  {
     date: "2025-02-02",
     url: "https://karpathy.ai/zero-to-hero.html",
-  }
+  },
+  {
+    date: "2025-11-20",
+    url: "https://bbycroft.net/llm",
+  },
+  {
+    date: "2024-09-02",
+    url: "https://paulgraham.com/foundermode.html",
+  },
+  {
+    date: "2024-08-17",
+    url: "https://www.nytimes.com/2024/08/17/style/alex-karp-palantir.html",
+  },
+  {
+    date: "2025-07-31",
+    url: "https://newsletter.maartengrootendorst.com/p/a-visual-guide-to-quantization",
+  },
+  {
+    date: "2024-07-28",
+    url: "https://hbr.org/1992/01/japanese-style-entrepreneurship-an-interview-with-softbanks-ceo-masayoshi-son",
+  },
+  {
+    date: "2024-07-25",
+    url: "https://www.nature.com/articles/s41586-024-07566-y",
+  },
 ];
