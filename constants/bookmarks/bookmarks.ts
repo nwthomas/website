@@ -55,6 +55,10 @@ export const BOOKMARKS: Bookmarks = [
     url: "https://koomen.dev/essays/horseless-carriages",
   },
   {
+    date: "2025-04-03",
+    url: "https://ai-2027.com",
+  },
+  {
     date: "2025-02-02",
     url: "https://karpathy.ai/zero-to-hero.html",
   },
@@ -81,5 +85,13 @@ export const BOOKMARKS: Bookmarks = [
   {
     date: "2024-07-25",
     url: "https://www.nature.com/articles/s41586-024-07566-y",
+  },
+  {
+    date: "2024-07-21",
+    url: "https://chunkviz.up.railway.app",
+  },
+  {
+    date: "2024-07-01",
+    url: "https://course.fast.ai",
   },
 ];
