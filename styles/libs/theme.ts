@@ -7,6 +7,7 @@ import { ThemeEnum } from "../../store/reducers/themeSlice";
 // To change the assignment of colors --> CSS variables, go to: styles/libs/global.ts
 interface Colors {
   alabaster: "#fafafa";
+  alto: "#D6D6D6";
   antiFlashWhite: "#EBEBEB";
   black: "#000000";
   brightSun: "#FACF3D";
@@ -23,12 +24,12 @@ interface Colors {
   red: "red";
   royalBlue: "#2D6EEE";
   shark: "#202325";
-  silver: "#C2C2C2";
   white: "#FFFFFF";
 }
 
 export const colors: Colors = {
   alabaster: "#fafafa",
+  alto: "#D6D6D6",
   antiFlashWhite: "#EBEBEB",
   black: "#000000",
   brightSun: "#FACF3D",
@@ -44,7 +45,6 @@ export const colors: Colors = {
   outerSpace: "#373A3D",
   red: "red",
   royalBlue: "#2D6EEE",
-  silver: "#C2C2C2",
   shark: "#202325",
   white: "#FFFFFF",
 };

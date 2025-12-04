@@ -41,6 +41,7 @@ export const createGlobalStyles = (theme: Theme) => css`
 
     /* Color raw hex variables */
     --color-alabaster: ${colors.alabaster};
+    --color-alto: ${colors.alto};
     --color-anti-flash-white: ${colors.antiFlashWhite};
     --color-black: ${colors.black};
     --color-bright-sun: ${colors.brightSun};
@@ -57,7 +58,6 @@ export const createGlobalStyles = (theme: Theme) => css`
     --color-red: ${colors.red};
     --color-royal-blue: ${colors.royalBlue};
     --color-shark: ${colors.shark};
-    --color-silver: ${colors.silver};
     --color-white: ${colors.white};
 
     /* General app variables */
@@ -120,7 +120,7 @@ export const createGlobalStyles = (theme: Theme) => css`
   body.light {
     --body-bg: ${colors.white};
     --body-bg-accent-one: ${colors.antiFlashWhite};
-    --body-bg-accent-two: ${colors.silver};
+    --body-bg-accent-two: ${colors.alto};
     --body-bg-accent-three: ${colors.alabaster};
     --body-bg-blur: rgba(255, 255, 255, 0.7);
     --code-bg: ${colors.eerieBlack};
