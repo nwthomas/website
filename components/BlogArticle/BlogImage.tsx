@@ -93,6 +93,8 @@ const RootStyles = styled.div<StyleProps>`
 
     > div {
       aspect-ratio: ${({ $imageWidth, $imageHeight }) => `${$imageWidth} / ${$imageHeight}`};
+      display: block;
+      line-height: 0;
       position: relative;
       width: 100%;
     }
