@@ -8,11 +8,15 @@ export type Bookmarks = Array<Bookmark>;
 export const BOOKMARKS: Bookmarks = [
   {
     date: "2025-12-04",
-    url: "https://www.canva.dev/blog/engineering/realtime-mouse-pointers"
+    url: "https://www.ycombinator.com/library/DW-dalton-michael-should-you-follow-your-passion",
+  },
+  {
+    date: "2025-12-04",
+    url: "https://www.canva.dev/blog/engineering/realtime-mouse-pointers",
   },
   {
     date: "2025-12-03",
-    url: "https://www.anthropic.com/research/how-ai-is-transforming-work-at-anthropic"
+    url: "https://www.anthropic.com/research/how-ai-is-transforming-work-at-anthropic",
   },
   {
     date: "2025-12-02",
@@ -20,15 +24,15 @@ export const BOOKMARKS: Bookmarks = [
   },
   {
     date: "2025-12-01",
-    url: "https://vram.asmirnov.xyz"
+    url: "https://vram.asmirnov.xyz",
   },
   {
     date: "2025-12-01",
-    url: "https://huggingface.co/spaces/NyxKrage/LLM-Model-VRAM-Calculator"
+    url: "https://huggingface.co/spaces/NyxKrage/LLM-Model-VRAM-Calculator",
   },
   {
     date: "2025-12-01",
-    url: "https://blog.eleuther.ai/transformer-math"
+    url: "https://blog.eleuther.ai/transformer-math",
   },
   {
     date: "2025-12-01",
