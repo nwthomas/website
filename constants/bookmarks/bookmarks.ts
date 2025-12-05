@@ -7,6 +7,10 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2025-12-04",
+    url: "https://www.canva.dev/blog/engineering/realtime-mouse-pointers"
+  },
+  {
     date: "2025-12-03",
     url: "https://www.anthropic.com/research/how-ai-is-transforming-work-at-anthropic"
   },
