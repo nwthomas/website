@@ -16,7 +16,7 @@ import { useMutation } from "@tanstack/react-query";
 
 export async function getStaticProps() {
   // Dynamic og image creation at build time
-  const ogImageBuildUrl = `/og-image?title=${CONTACT_PAGE_NAME}%20Form`;
+  const ogImageBuildUrl = `/og-image?title=${CONTACT_PAGE_NAME}`;
   const ogImage = await createOgImage(ogImageBuildUrl);
 
   return {

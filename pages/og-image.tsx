@@ -25,7 +25,7 @@ function DynamicOGImage() {
       <h1>{title || ""}</h1>
       <div>
         <div>
-          <img alt="" height="100" src="/images/pfp/nathan-thomas-pfp.jpg" width="100"></img>
+          <img alt="" height="100" src="/images/pfp/nathan-thomas.jpg" width="100"></img>
         </div>
         <h2>Nathan Thomas</h2>
       </div>
@@ -35,7 +35,6 @@ function DynamicOGImage() {
 
 const RootStyles = styled.div`
   align-items: center;
-  background-image: url(/images/backgrounds/gradient-high.webp);
   display: flex;
   flex-direction: column;
   height: ${OG_IMAGE_HEIGHT}px;
@@ -45,23 +44,10 @@ const RootStyles = styled.div`
   position: relative;
   width: ${OG_IMAGE_WIDTH}px;
 
-  &::after {
-    bottom: 0;
-    background-image: url(/images/backgrounds/transparent-noise.png);
-    content: "";
-    left: 0;
-    position: absolute;
-    opacity: 0.3;
-    right: 0;
-    top: 0;
-  }
-
   > h1 {
     color: var(--text);
-    font-family:
-      "Libre Baskerville", Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif",
-      "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
-    font-size: 8rem;
+    font-family: "Libre Baskerville";
+    font-size: 7rem;
     text-align: center;
     z-index: 1;
   }
@@ -78,26 +64,12 @@ const RootStyles = styled.div`
       height: auto;
       margin-bottom: var(--space-medium);
       overflow: hidden;
-      width: 150px;
+      width: 100%;
+      max-width: 200px;
     }
 
     > h2 {
-      font-family:
-        "Fira Sans",
-        ui-sans-serif,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        Segoe UI,
-        Roboto,
-        Helvetica Neue,
-        Arial,
-        Noto Sans,
-        sans-serif,
-        Apple Color Emoji,
-        Segoe UI Emoji,
-        Segoe UI Symbol,
-        Noto Color Emoji;
+      font-family: "Fira Sans";
       font-size: 4rem;
       padding: var(--space-micro) 0;
     }
