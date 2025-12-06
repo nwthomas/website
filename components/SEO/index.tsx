@@ -1,16 +1,11 @@
-import { ArticleJsonLd } from "next-seo";
 import { DARK_THEME } from "../../store/reducers/themeSlice";
+import { DEFAULT_SEO_VALUES } from "../../constants/seo";
 import Head from "next/head";
 import { ORIGIN } from "../../constants/routes";
-import { buildSeoConfig } from "../../constants/seo";
+import { generateNextSeo } from "next-seo/pages";
 import { useTheme as useEmotionTheme } from "@emotion/react";
-import { useMemo } from "react";
 import { useRouter } from "next/router";
 import { useTheme } from "../../hooks";
-
-function buildUrlWithOrigin(currentUrl: string): string {
-  return `${ORIGIN}${currentUrl}`;
-}
 
 interface Props {
   customDescription?: string;
@@ -19,35 +14,48 @@ interface Props {
   pageName: string;
 }
 
+function buildUrlWithOrigin(currentUrl: string): string {
+  return `${ORIGIN}${currentUrl}`;
+}
+
 function SEO({ customDescription, customImageUrl, isArticle, pageName }: Props) {
   const { asPath } = useRouter();
   const [currentTheme] = useTheme();
   const { colorsHex } = useEmotionTheme();
 
-  const currentPageMetadata = useMemo(() => {
-    return buildSeoConfig(pageName);
-  }, [pageName]);
-
-  const { author, baseUrl, description, imageUrl, title } = currentPageMetadata;
+  const { baseUrl, description, imageUrl, title, social } = DEFAULT_SEO_VALUES;
 
   const currentUrl = `${baseUrl}${asPath}`;
 
   return (
-    <>
-      <ArticleJsonLd
-        headline={title}
-        description={customDescription || description}
-        url={currentUrl}
-        author={author.name}
-        image={buildUrlWithOrigin(customImageUrl || imageUrl)}
-      />
-      <Head>
-        {/* This handles the color for the "safe area" notch on iOS */}
-        {currentTheme ? (
-          <meta name="theme-color" content={currentTheme === DARK_THEME ? colorsHex.black : colorsHex.white}></meta>
-        ) : null}
-      </Head>
-    </>
+    <Head>
+      {generateNextSeo({
+        title,
+        description: customDescription || description,
+        canonical: currentUrl,
+        openGraph: {
+          url: currentUrl,
+          title: pageName,
+          description: customDescription || description,
+          images: [
+            {
+              url: buildUrlWithOrigin(customImageUrl || imageUrl),
+              type: "image/webp",
+            },
+          ],
+          type: isArticle ? "article" : "website",
+        },
+        twitter: {
+          handle: social.twitter.handle,
+          site: social.twitter.site,
+          cardType: "summary_large_image",
+        },
+      })}
+      {/* This handles the color for the "safe area" notch on iOS */}
+      {currentTheme ? (
+        <meta name="theme-color" content={currentTheme === DARK_THEME ? colorsHex.black : colorsHex.white}></meta>
+      ) : null}
+    </Head>
   );
 }
 

@@ -4,7 +4,9 @@ export const FOUR_OH_FOUR_PAGE_NAME = "404";
 export const HOME_PAGE_NAME = "Home";
 export const JOURNAL_PAGE_NAME = "Journal";
 
-interface SeoConfig {
+export const DEFAULT_SITE_OG_IMAGE_URL = "/images/og/home-page.webp";
+
+export interface SeoConfig {
   author: {
     name: string;
   };
@@ -24,26 +26,10 @@ export const DEFAULT_SEO_VALUES: SeoConfig = {
   },
   baseUrl: "https://www.nathanthomas.dev",
   description: "Internet home for Nathan Thomas. Focus on articles and projects.",
-  imageUrl: "/images/og/home-page.webp",
+  imageUrl: DEFAULT_SITE_OG_IMAGE_URL,
   social: {
     twitter: { handle: "@nwthomas", site: "@nwthomas" },
     instagram: { handle: "@nwthomas" },
   },
   title: "Nathan Thomas",
 };
-
-export function buildSeoConfig(pageName: string, route?: string): SeoConfig {
-  switch (pageName) {
-    case HOME_PAGE_NAME:
-      return {
-        ...DEFAULT_SEO_VALUES,
-        imageUrl: "/images/og/home-page.webp",
-        title: pageName,
-      };
-    default:
-      return {
-        ...DEFAULT_SEO_VALUES,
-        title: pageName,
-      };
-  }
-}
