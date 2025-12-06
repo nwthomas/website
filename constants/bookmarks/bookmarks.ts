@@ -130,4 +130,8 @@ export const BOOKMARKS: Bookmarks = [
     date: "2024-07-01",
     url: "https://course.fast.ai",
   },
+  {
+    date: "2024-03-20",
+    url: "https://cacm.acm.org/practice/there-is-no-now",
+  },
 ];
