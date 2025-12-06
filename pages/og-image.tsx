@@ -1,3 +1,4 @@
+import { colors } from "../styles/libs/theme";
 import styled from "@emotion/styled";
 import { useRouter } from "next/router";
 
@@ -35,6 +36,7 @@ function DynamicOGImage() {
 
 const RootStyles = styled.div`
   align-items: center;
+  background-color: ${colors.black};
   display: flex;
   flex-direction: column;
   height: ${OG_IMAGE_HEIGHT}px;
@@ -45,7 +47,7 @@ const RootStyles = styled.div`
   width: ${OG_IMAGE_WIDTH}px;
 
   > h1 {
-    color: var(--text);
+    color: ${colors.mercury};
     font-family: "Libre Baskerville";
     font-size: 7rem;
     text-align: center;
@@ -69,6 +71,7 @@ const RootStyles = styled.div`
     }
 
     > h2 {
+      color: ${colors.mercury};
       font-family: "Fira Sans";
       font-size: 4rem;
       padding: var(--space-micro) 0;

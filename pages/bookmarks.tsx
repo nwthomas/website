@@ -1,18 +1,25 @@
 import { BOOKMARKS } from "../constants/bookmarks/bookmarks";
+import { BOOKMARKS_PAGE_NAME } from "../constants/seo";
 import { CONTENTS_ID } from "../constants/routes";
-import { JOURNAL_PAGE_NAME } from "../constants/seo";
 import Layout from "../components/Layout";
+import { createOgImage } from "../utils/ogImage";
 import styled from "@emotion/styled";
 
 export async function getStaticProps() {
+  // Dynamic og image creation at build time
+  const ogImageBuildUrl = `/og-image?title=${BOOKMARKS_PAGE_NAME}`;
+  const ogImage = await createOgImage(ogImageBuildUrl);
+
   return {
-    props: {},
+    props: {
+      ogImage,
+    },
   };
 }
 
-function Bookmarks() {
+function Bookmarks({ ogImage }) {
   return (
-    <Layout pageName={JOURNAL_PAGE_NAME} withFooter>
+    <Layout customSEOImageUrl={ogImage} pageName={BOOKMARKS_PAGE_NAME} withFooter>
       <RootStyles>
         <main id={CONTENTS_ID}>
           <section>
