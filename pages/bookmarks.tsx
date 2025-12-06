@@ -111,16 +111,7 @@ const RootStyles = styled.div`
           font-size: 2rem;
 
           a {
-            font-family:
-              "Fira Mono",
-              ui-monospace,
-              SFMono-Regular,
-              Menlo,
-              Monaco,
-              Consolas,
-              Liberation Mono,
-              Courier New,
-              monospace;
+            font-family: inherit;
             font-size: 2rem;
             border-bottom: 1px dotted var(--text);
             padding-bottom: var(--space-nano);
