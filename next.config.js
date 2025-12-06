@@ -29,6 +29,8 @@ const nextConfig = {
       },
     ];
   },
+  // Turn off NextJS icon if needed while taking screenshots for SEO home pre-generated image
+  // devIndicators: false,
 };
 
 const sentryWebpackPluginOptions = {
