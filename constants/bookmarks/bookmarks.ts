@@ -7,6 +7,22 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2025-12-06",
+    url: "https://github.blog/news-insights/the-library/downtime-last-saturday",
+  },
+  {
+    date: "2025-12-06",
+    url: "https://queue.acm.org/detail.cfm?id=2655736",
+  },
+  {
+    date: "2025-12-06",
+    url: "https://research.google.com/archive/chubby.html",
+  },
+  {
+    date: "2025-12-06",
+    url: "https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html",
+  },
+  {
     date: "2025-12-05",
     url: "https://www.wiz.io/blog/wiz-research-uncovers-exposed-deepseek-database-leak",
   },
