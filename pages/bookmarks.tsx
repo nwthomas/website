@@ -4,9 +4,15 @@ import { JOURNAL_PAGE_NAME } from "../constants/seo";
 import Layout from "../components/Layout";
 import styled from "@emotion/styled";
 
-function Bookmarks({ ogImage }) {
+export async function getStaticProps() {
+  return {
+    props: {},
+  };
+}
+
+function Bookmarks() {
   return (
-    <Layout customSEOImageUrl={ogImage} pageName={JOURNAL_PAGE_NAME} withFooter>
+    <Layout pageName={JOURNAL_PAGE_NAME} withFooter>
       <RootStyles>
         <main id={CONTENTS_ID}>
           <section>
@@ -86,7 +92,7 @@ const RootStyles = styled.div`
         display: flex;
         gap: var(--space-small);
         margin-bottom: var(--space-medium);
-        
+
         @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
           margin-bottom: var(--space-small);
         }
