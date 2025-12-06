@@ -1,8 +1,8 @@
 export const BLOG_PAGE_NAME = "Blog";
+export const BOOKMARKS_PAGE_NAME = "Bookmarks";
 export const CONTACT_PAGE_NAME = "Contact";
 export const FOUR_OH_FOUR_PAGE_NAME = "404";
 export const HOME_PAGE_NAME = "Home";
-export const JOURNAL_PAGE_NAME = "Journal";
 
 export const DEFAULT_SITE_OG_IMAGE_URL = "/images/og/home-page.webp";
 
