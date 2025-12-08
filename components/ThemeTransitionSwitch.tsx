@@ -1,10 +1,10 @@
-import { MoonIcon, SunIcon } from "../Icons";
+import { MoonIcon, SunIcon } from "./Icons";
 
-import { DARK_THEME } from "../../store/reducers/themeSlice";
+import { DARK_THEME } from "../store/reducers/themeSlice";
 import { createRef } from "react";
 import styled from "@emotion/styled";
 import { useTheme as useEmotionTheme } from "@emotion/react";
-import { useTheme } from "../../hooks";
+import { useTheme } from "../hooks";
 
 const DARK_MODE_ARIA_LABEL = "Switch to light mode";
 const LIGHT_MODE_ARIA_LABEL = "Switch to dark mode";

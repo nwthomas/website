@@ -1,10 +1,10 @@
-import { BLOG_PAGE } from "../../constants/routes";
-import { BlogPostsFrontMatter } from "../../utils/sortBlogPosts";
-import Card from "../BlogCard";
-import Tag from "../Tag";
-import { buildDateWrittenLabel } from "../../utils/dates";
-import { buildLinkHref } from "../../utils/routes";
-import { getBlogPostFullDate } from "../../utils/dates";
+import { BLOG_PAGE } from "../constants/routes";
+import { BlogPostsFrontMatter } from "../utils/sortBlogPosts";
+import Card from "./BlogCard";
+import Tag from "./Tag";
+import { buildDateWrittenLabel } from "../utils/dates";
+import { buildLinkHref } from "../utils/routes";
+import { getBlogPostFullDate } from "../utils/dates";
 import styled from "@emotion/styled";
 import { useMemo } from "react";
 import { useRouter } from "next/router";
