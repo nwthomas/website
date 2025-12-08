@@ -1,7 +1,7 @@
-import { ArrowForwardsIcon, YouTubeIcon } from "../Icons";
+import { ArrowForwardsIcon, YouTubeIcon } from "./Icons";
 
 import Link from "next/link";
-import MetadataTag from "../MetadataTag";
+import MetadataTag from "./MetadataTag";
 import styled from "@emotion/styled";
 
 interface Props {

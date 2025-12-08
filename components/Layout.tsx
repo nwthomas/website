@@ -1,12 +1,12 @@
 import { ReactNode, useEffect } from "react";
 
-import Footer from "../Footer";
-import Modal from "../Modal";
-import Navbar from "../Navbar";
-import SEO from "../SEO";
-import { selectShouldShowModal } from "../../store/selectors/modalSelectors";
+import Footer from "./Footer";
+import Modal from "./Modal";
+import Navbar from "./Navbar";
+import SEO from "./SEO";
+import { selectShouldShowModal } from "../store/selectors/modalSelectors";
 import styled from "@emotion/styled";
-import { useGetScreenDimensions } from "../../hooks";
+import { useGetScreenDimensions } from "../hooks";
 import { useSelector } from "react-redux";
 
 interface Props {

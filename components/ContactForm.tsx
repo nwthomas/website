@@ -1,14 +1,14 @@
 import * as Yup from "yup";
 
-import { useGetMouseRadian, useGetScreenDimensions } from "../../hooks";
+import { useGetMouseRadian, useGetScreenDimensions } from "../hooks";
 
-import Spinner from "../Spinner";
-import { ThemeEnum } from "../../store/reducers/themeSlice";
+import Spinner from "./Spinner";
+import { ThemeEnum } from "../store/reducers/themeSlice";
 import { createRef } from "react";
 import styled from "@emotion/styled";
 import { useTheme as useEmotionTheme } from "@emotion/react";
 import { useFormik } from "formik";
-import { useTheme } from "../../hooks";
+import { useTheme } from "../hooks";
 
 const contactFormRef = createRef<HTMLDivElement>();
 
@@ -21,6 +21,7 @@ function getContactFormBorder(radians: number, isDesktopLayout: boolean) {
 }
 
 export interface MessageValues {
+  csrfToken: string;
   email: string;
   message: string;
   name: string;
@@ -29,6 +30,7 @@ export interface MessageValues {
 
 interface Props {
   initialValues: {
+    csrfToken: string;
     name: string;
     email: string;
     message: string;
@@ -57,6 +59,9 @@ function ContactForm({ initialValues, onFormChange, onSendMessageClick, withSpin
       // This is a honeypot field. The server will reject the message if this field
       // has length when the server receives the request.
       fax: initialValues.fax,
+
+      // This is required for valid send email requests
+      csrfToken: initialValues.csrfToken,
     },
     validationSchema: Yup.object({
       email: Yup.string().email("Invalid email").required("Required"),
@@ -129,6 +134,15 @@ function ContactForm({ initialValues, onFormChange, onSendMessageClick, withSpin
               type="text"
               tabIndex={-1}
               value={formik.values.fax}
+            ></input>
+            <input
+              autoComplete="off"
+              name="token"
+              onBlur={formik.handleBlur}
+              onChange={handleOnFormChange}
+              type="hidden"
+              tabIndex={-1}
+              value={formik.values.csrfToken}
             ></input>
           </div>
           <button disabled={withSpinner} type="submit">

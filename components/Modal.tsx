@@ -1,12 +1,12 @@
-import { DARK_THEME, ThemeEnum } from "../../store/reducers/themeSlice";
-import { selectModalButtonLabel, selectModalMessage } from "../../store/selectors/modalSelectors";
+import { DARK_THEME, ThemeEnum } from "../store/reducers/themeSlice";
+import { selectModalButtonLabel, selectModalMessage } from "../store/selectors/modalSelectors";
 import { useDispatch, useSelector } from "react-redux";
-import { useLockBodyScroll, useTheme } from "../../hooks";
+import { useLockBodyScroll, useTheme } from "../hooks";
 
 import { FocusTrap } from "focus-trap-react";
-import { colors } from "../../styles/libs/theme";
+import { colors } from "../styles/libs/theme";
 import styled from "@emotion/styled";
-import { updateModalValues } from "../../store/reducers/modalSlice";
+import { updateModalValues } from "../store/reducers/modalSlice";
 
 function Modal() {
   const dispatch = useDispatch();

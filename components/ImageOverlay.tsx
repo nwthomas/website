@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import { CloseIcon } from "../Icons";
+import { CloseIcon } from "./Icons";
 import FocusTrap from "focus-trap-react";
 import Image from "next/image";
 import React from "react";
-import { hideImageOverlay } from "../../store/reducers/blogSlice";
-import { selectOverlayImage } from "../../store/selectors/blogSelector";
+import { hideImageOverlay } from "../store/reducers/blogSlice";
+import { selectOverlayImage } from "../store/selectors/blogSelector";
 import styled from "@emotion/styled";
-import { useLockBodyScroll } from "../../hooks";
+import { useLockBodyScroll } from "../hooks";
 
 function ImageOverlay() {
   const image = useSelector(selectOverlayImage);

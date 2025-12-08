@@ -1,4 +1,4 @@
-import { CloseIcon } from "../Icons";
+import { CloseIcon } from "./Icons";
 import Link from "next/link";
 import styled from "@emotion/styled";
 

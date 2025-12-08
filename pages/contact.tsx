@@ -1,4 +1,5 @@
-import { resetMessageValues, updateMessageValues } from "../store/reducers/contactFormSlice";
+import { NextApiRequest, NextApiResponse } from "next";
+import { resetMessageValues, updateCsrfToken, updateMessageValues } from "../store/reducers/contactFormSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 import { CONTACT_PAGE_NAME } from "../constants/seo";
@@ -8,20 +9,20 @@ import Layout from "../components/Layout";
 import { MessageValues } from "../components/ContactForm";
 import { NewEmail } from "../utils/sendEmail";
 import { SEND_EMAIL } from "../constants/routes";
-import { createOgImage } from "../utils/ogImage";
+import { generateCsrfToken } from "../utils/csrfToken";
 import { selectContactFormMessageValues } from "../store/selectors/contactFormSelectors";
 import styled from "@emotion/styled";
 import { updateModalValues } from "../store/reducers/modalSlice";
+import { useEffect } from "react";
 import { useMutation } from "@tanstack/react-query";
 
-export async function getStaticProps() {
-  // Dynamic og image creation at build time
-  const ogImageBuildUrl = `/og-image?title=${CONTACT_PAGE_NAME}`;
-  const ogImage = await createOgImage(ogImageBuildUrl);
+export async function getServerSideProps({ req, res }: { req: NextApiRequest; res: NextApiResponse }) {
+  // This is set both on a cookie as well as in the hidden form input below
+  const csrfToken = await generateCsrfToken(res, req);
 
   return {
     props: {
-      ogImage,
+      csrfToken,
     },
   };
 }
@@ -40,9 +41,13 @@ async function sendMessage(email: NewEmail) {
   return data;
 }
 
-function Contact({ ogImage }) {
+function Contact({ ogImage, csrfToken }) {
   const dispatch = useDispatch();
   const initialMessageValues = useSelector(selectContactFormMessageValues);
+
+  useEffect(() => {
+    dispatch(updateCsrfToken({ csrfToken }));
+  }, []);
 
   const { mutate, isPending: isSendingEmail } = useMutation({
     mutationFn: sendMessage,
@@ -54,7 +59,7 @@ function Contact({ ogImage }) {
           shouldShowModal: true,
         }),
       );
-      dispatch(resetMessageValues());
+      dispatch(resetMessageValues({ csrfToken }));
     },
     onError: () => {
       dispatch(

@@ -1,11 +1,11 @@
-import { DARK_THEME } from "../../store/reducers/themeSlice";
-import { DEFAULT_SEO_VALUES } from "../../constants/seo";
+import { DARK_THEME } from "../store/reducers/themeSlice";
+import { DEFAULT_SEO_VALUES } from "../constants/seo";
 import Head from "next/head";
-import { ORIGIN } from "../../constants/routes";
+import { ORIGIN } from "../constants/routes";
 import { generateNextSeo } from "next-seo/pages";
 import { useTheme as useEmotionTheme } from "@emotion/react";
 import { useRouter } from "next/router";
-import { useTheme } from "../../hooks";
+import { useTheme } from "../hooks";
 
 interface Props {
   customDescription?: string;
