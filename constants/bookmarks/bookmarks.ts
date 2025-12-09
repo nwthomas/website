@@ -7,6 +7,10 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2025-12-08",
+    url: "https://roundrobin.pub",
+  },
+  {
     date: "2025-12-06",
     url: "https://github.blog/news-insights/the-library/downtime-last-saturday",
   },
