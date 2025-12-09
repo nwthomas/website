@@ -8,6 +8,10 @@ export type Bookmarks = Array<Bookmark>;
 export const BOOKMARKS: Bookmarks = [
   {
     date: "2025-12-08",
+    url: "https://www.canva.dev/blog/engineering/enabling-real-time-collaboration-with-rsocket",
+  },
+  {
+    date: "2025-12-08",
     url: "https://roundrobin.pub",
   },
   {
