@@ -17,7 +17,7 @@ import { useEffect } from "react";
 import { useMutation } from "@tanstack/react-query";
 
 export async function getServerSideProps({ req, res }: { req: NextApiRequest; res: NextApiResponse }) {
-  // This is set both on a cookie as well as in the hidden form input below
+  // This is set both on a cookie as well as in the hidden form input in the ContactForm component
   const csrfToken = await generateCsrfToken(res, req);
 
   return {
@@ -43,11 +43,12 @@ async function sendMessage(email: NewEmail) {
 
 function Contact({ ogImage, csrfToken }) {
   const dispatch = useDispatch();
-  const initialMessageValues = useSelector(selectContactFormMessageValues);
 
   useEffect(() => {
     dispatch(updateCsrfToken({ csrfToken }));
   }, []);
+
+  const initialMessageValues = useSelector(selectContactFormMessageValues);
 
   const { mutate, isPending: isSendingEmail } = useMutation({
     mutationFn: sendMessage,
