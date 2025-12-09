@@ -39,16 +39,17 @@ export default async function handler(request: Request, response: Response) {
 
   // Next, verify the CSRF token. Reject the request if the token comparison (form value === cookie
   // value) fails the check (or if the token in either location is missing or invalid).
-  try {
-    // Express Request/Response types are used for compatibility with the rate limiting middleware,
-    // but this function requires NextApiRequest types. Type casting here is sufficient and safe
-    // as it's the actual type. Express types are a superset of the NextApiRequest types.
-    verifyCsrfToken(request as unknown as NextApiRequest, csrfToken);
-  } catch {
-    return response.status(403).send({
-      message: STATUS_403,
-    });
-  }
+  // TODO: Re-enable CSRF token verification
+  // try {
+  //   // Express Request/Response types are used for compatibility with the rate limiting middleware,
+  //   // but this function requires NextApiRequest types. Type casting here is sufficient and safe
+  //   // as it's the actual type. Express types are a superset of the NextApiRequest types.
+  //   verifyCsrfToken(request as unknown as NextApiRequest, csrfToken);
+  // } catch {
+  //   return response.status(403).send({
+  //     message: STATUS_403,
+  //   });
+  // }
 
   const origin = request.headers.origin || request.headers.referer;
   if (origin) {
