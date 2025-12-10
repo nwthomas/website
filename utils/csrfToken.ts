@@ -23,8 +23,8 @@ export async function generateCsrfToken(response: NextApiResponse, request: Next
       path: "/",
       // Both expires and maxAge are set to ensure compatibility with older browsers.
       // These expire after 10 minutes, plenty of time for a user to send a message.
-      expires: new Date(Date.now() + 60 * 10 * 1000),
-      maxAge: 60 * 10,
+      expires: new Date(Date.now() + 60 * 10 * 1000), // Milliseconds
+      maxAge: 60 * 10, // Seconds
     }),
   );
 
