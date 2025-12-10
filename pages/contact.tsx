@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { resetMessageValues, updateCsrfToken, updateMessageValues } from "../store/reducers/contactFormSlice";
+import { resetMessageValues, updateMessageValues } from "../store/reducers/contactFormSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 import { CONTACT_PAGE_NAME } from "../constants/seo";
@@ -13,16 +13,15 @@ import { generateCsrfToken } from "../utils/csrfToken";
 import { selectContactFormMessageValues } from "../store/selectors/contactFormSelectors";
 import styled from "@emotion/styled";
 import { updateModalValues } from "../store/reducers/modalSlice";
-import { useEffect } from "react";
 import { useMutation } from "@tanstack/react-query";
 
 export async function getServerSideProps({ req, res }: { req: NextApiRequest; res: NextApiResponse }) {
   // This is set both on a cookie as well as in the hidden form input in the ContactForm component
-  const csrfToken = await generateCsrfToken(res, req);
+  const token = await generateCsrfToken(res, req);
 
   return {
     props: {
-      csrfToken,
+      token,
     },
   };
 }
@@ -41,12 +40,8 @@ async function sendMessage(email: NewEmail) {
   return data;
 }
 
-function Contact({ ogImage, csrfToken }) {
+function Contact({ ogImage, token }) {
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(updateCsrfToken({ csrfToken }));
-  }, []);
 
   const initialMessageValues = useSelector(selectContactFormMessageValues);
 
@@ -60,7 +55,7 @@ function Contact({ ogImage, csrfToken }) {
           shouldShowModal: true,
         }),
       );
-      dispatch(resetMessageValues({ csrfToken }));
+      dispatch(resetMessageValues());
     },
     onError: () => {
       dispatch(
@@ -91,6 +86,7 @@ function Contact({ ogImage, csrfToken }) {
           <section>
             <div>
               <ContactForm
+                token={token}
                 initialValues={initialMessageValues}
                 onFormChange={handleOnFormChange}
                 onSendMessageClick={handleSendMessage}

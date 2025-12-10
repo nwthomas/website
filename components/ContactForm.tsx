@@ -30,7 +30,6 @@ export interface MessageValues {
 
 interface Props {
   initialValues: {
-    csrfToken: string;
     name: string;
     email: string;
     message: string;
@@ -38,10 +37,11 @@ interface Props {
   };
   onFormChange: (key: string, value: string) => void;
   onSendMessageClick: (messageValues: MessageValues, onSuccess: () => void) => void;
+  token: string;
   withSpinner?: boolean;
 }
 
-function ContactForm({ initialValues, onFormChange, onSendMessageClick, withSpinner }: Props) {
+function ContactForm({ initialValues, onFormChange, onSendMessageClick, token, withSpinner }: Props) {
   const { breakpointsInt } = useEmotionTheme();
   const [currentTheme] = useTheme();
   const { viewportWidth } = useGetScreenDimensions();
@@ -61,12 +61,13 @@ function ContactForm({ initialValues, onFormChange, onSendMessageClick, withSpin
       fax: initialValues.fax,
 
       // This is required for valid send email requests
-      csrfToken: initialValues.csrfToken,
+      csrfToken: token,
     },
     validationSchema: Yup.object({
       email: Yup.string().email("Invalid email").required("Required"),
       name: Yup.string().required("Required"),
       message: Yup.string().required("Required"),
+      csrfToken: Yup.string().required("Required"),
     }),
     onSubmit: (messageValues: MessageValues) => {
       onSendMessageClick(messageValues, formik.resetForm);
@@ -138,10 +139,9 @@ function ContactForm({ initialValues, onFormChange, onSendMessageClick, withSpin
             <input
               autoComplete="off"
               name="token"
-              onBlur={formik.handleBlur}
-              onChange={handleOnFormChange}
-              type="hidden"
+              type="text"
               tabIndex={-1}
+              onChange={handleOnFormChange}
               value={formik.values.csrfToken}
             ></input>
           </div>

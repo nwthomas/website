@@ -8,6 +8,10 @@ export type Bookmarks = Array<Bookmark>;
 export const BOOKMARKS: Bookmarks = [
   {
     date: "2025-12-09",
+    url: "https://pyinfra.com",
+  },
+  {
+    date: "2025-12-09",
     url: "https://os.phil-opp.com",
   },
   {
