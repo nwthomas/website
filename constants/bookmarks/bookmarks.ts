@@ -8,6 +8,10 @@ export type Bookmarks = Array<Bookmark>;
 export const BOOKMARKS: Bookmarks = [
   {
     date: "2025-12-09",
+    url: "https://engineering.fb.com/2020/05/08/web/facebook-redesign",
+  },
+  {
+    date: "2025-12-09",
     url: "https://pyinfra.com",
   },
   {
