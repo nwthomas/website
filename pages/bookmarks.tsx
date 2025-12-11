@@ -26,13 +26,13 @@ function Bookmarks({ ogImage }) {
             <h1>These are resources I think are excellent</h1>
           </section>
           <section>
-            {BOOKMARKS.map(({ date, url }) => {
+            {BOOKMARKS.map(({ date, title, url }) => {
               return (
                 <div key={url}>
                   <p>
                     {date}{" "}
                     <a href={url} target="_blank" rel="noopener noreferrer">
-                      {url}
+                      {title}
                     </a>
                   </p>
                 </div>
