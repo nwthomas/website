@@ -9,7 +9,12 @@ tags:
   - GraphQL
 ---
 
-<img alt="GraphQL logo on a cloud background" src="/images/blog/building-your-first-graphql-server/graphql-logo.webp" width="1050" height="525">
+<img
+  alt="GraphQL logo on a cloud background"
+  src="/images/blog/building-your-first-graphql-server/graphql-logo.webp"
+  width="1050"
+  height="525"
+/>
 
 # Building Your First GraphQL Server
 
@@ -39,7 +44,12 @@ Graphs are all around us in life, and yet we never notice them. When you travel 
 
 In computer science, graphs are connected points, and these points are traditionally called _nodes_ or _vertices_. The lines that connect these graphs together are called _edges_. Here’s an example of a simple graph:
 
-<img alt="Example graph" height="3168" src="/images/blog/building-your-first-graphql-server/example-graph.webp" width="4752">
+<img
+  alt="Example graph"
+  height="3168"
+  src="/images/blog/building-your-first-graphql-server/example-graph.webp"
+  width="4752"
+/>
 
 The graph above has five _nodes_ (or _vertices_) and eight _edges_. Make sense, right?
 
@@ -107,7 +117,12 @@ We’ll be starting from a mid-way point with our server this time around, and I
 
 Go ahead and clone [this repository](https://github.com/nwthomas/graphql-article-server?ref=hackernoon.com) for the starter files. This will catch you up to exactly where you need to be to follow along with this walkthrough. Once you clone it and open it up in your editor of choice (I’ll be using [VS Code](https://code.visualstudio.com/?ref=hackernoon.com)), you should have something very much like this:
 
-<img alg="screenshot of VS Code setup for this article" height="931" src="/images/blog/building-your-first-graphql-server/vs-code-1.webp" width="1200">
+<img
+  alg="screenshot of VS Code setup for this article"
+  height="931"
+  src="/images/blog/building-your-first-graphql-server/vs-code-1.webp"
+  width="1200"
+/>
 
 Make sure to use the command `yarn` to install all of your node modules as well. Once these have finished downloading, feel free to poke through the repository a bit and see what code is already finished for you.
 
@@ -115,7 +130,12 @@ We’ll be building out our API to allow us to work with users and their corresp
 
 Go ahead and run the command `yarn server` in the root directory. You should see something much like this:
 
-<img alg="screenshot of VS Code running the example server" height="924" src="/images/blog/building-your-first-graphql-server/vs-code-2.webp" width="1200">
+<img
+  alg="screenshot of VS Code running the example server"
+  height="924"
+  src="/images/blog/building-your-first-graphql-server/vs-code-2.webp"
+  width="1200"
+/>
 
 However, our server isn’t fully wired up yet. Before we go any further, let’s head into our next section and hook up some good old-fashioned `PostgreSQL`.
 
@@ -129,21 +149,41 @@ We’ll be using Supabase today for our database (purely because it’s super ea
 
 If you haven’t already done so in the past, create a Supabase account ([website here](https://app.supabase.com)). Next, you'll find yourself in the initial dashboard which will look like this:
 
-<img alg="Screenshot of the Supabase starting dashboard" height="1009" src="/images/blog/building-your-first-graphql-server/supabase-initial-dashboard.webp" width="1473">
+<img
+  alg="Screenshot of the Supabase starting dashboard"
+  height="1009"
+  src="/images/blog/building-your-first-graphql-server/supabase-initial-dashboard.webp"
+  width="1473"
+/>
 
 Next, click the "New Project" button. After you do that, you'll find yourself on a modal for details about your project. You can call it whatever you want, but here's what I filled it in with:
 
-<img alg="Screenshot of the Supabase new project setup modal" height="1009" src="/images/blog/building-your-first-graphql-server/supabase-new-project-setup.webp" width="1473">
+<img
+  alg="Screenshot of the Supabase new project setup modal"
+  height="1009"
+  src="/images/blog/building-your-first-graphql-server/supabase-new-project-setup.webp"
+  width="1473"
+/>
 
 Remember your password. You'll need it later.
 
 Next, you'll find yourself on the main page for your current project. You'll want to click on the "Project Settings" sidebar option right here:
 
-<img alg="Screenshot of the Supabase new project dashboard with an arrow indicating where to click for Project Settings" height="1009" src="/images/blog/building-your-first-graphql-server/supabase-new-project.webp" width="1473">
+<img
+  alg="Screenshot of the Supabase new project dashboard with an arrow indicating where to click for Project Settings"
+  height="1009"
+  src="/images/blog/building-your-first-graphql-server/supabase-new-project.webp"
+  width="1473"
+/>
 
 From there, you'll find yourself on the "Project Settings" page. Click on the "Database" option on the inner sidebar and then scroll down until you see a "Connection string" area as shown here:
 
-<img alg="Screenshot of the Supabase new project dashboard with an arrow indicating where to click for Project Settings" height="1009" src="/images/blog/building-your-first-graphql-server/supabase-grab-database-url.webp" width="1473">
+<img
+  alg="Screenshot of the Supabase new project dashboard with an arrow indicating where to click for Project Settings"
+  height="1009"
+  src="/images/blog/building-your-first-graphql-server/supabase-grab-database-url.webp"
+  width="1473"
+/>
 
 Copy the `NodeJS` URL. We'll use that in just a second.
 
@@ -165,7 +205,12 @@ Ready?
 
 Let’s go. 💪
 
-<img alg="Orange sky with clouds" height="600" src="/images/blog/building-your-first-graphql-server/orange-clouds.webp" width="1200">
+<img
+  alg="Orange sky with clouds"
+  height="600"
+  src="/images/blog/building-your-first-graphql-server/orange-clouds.webp"
+  width="1200"
+/>
 
 ## GraphQL Structure
 
@@ -207,7 +252,12 @@ server.get("/playground", expressPlayground({ endpoint: "/graphql" }));
 
 This allows us to use our new `GraphQL Playground` IDE. With your server running (which, just in case you shut it down, can be done with the command `yarn server`), got to `localhost:4000/playground` link in your browser. Your preferred browser will open up and you’ll be taken to a page that looks like this:
 
-<img alg="Initial screen when firing up GraphQL Playground" height="1009" src="/images/blog/building-your-first-graphql-server/graphql-playground-initial.webp" width="1473">
+<img
+  alg="Initial screen when firing up GraphQL Playground"
+  height="1009"
+  src="/images/blog/building-your-first-graphql-server/graphql-playground-initial.webp"
+  width="1473"
+/>
 
 Doesn’t that dark mode in `GraphQL Playground` look amazing? If you’re seeing this, you’re in the right place. However, our server has a problem — We have an error (visible in the image above) that says that the server can’t be reached. It’s currently doing that because we still need to build out our queries, schemas, and migrate over our tables and data.
 
@@ -350,7 +400,7 @@ We’ve now completed the circle. We have a `CandyType` that will pull informati
 
 We’re about to see how useful all of this is. The next sections will be crazy, but they’ll go really fast. We’ll have your server finished in no time. 🔥 🚒
 
-<img alg="Dark water" height="600" src="/images/blog/building-your-first-graphql-server/dark-water.webp" width="1200">
+<img alg="Dark water" height="600" src="/images/blog/building-your-first-graphql-server/dark-water.webp" width="1200" />
 
 ## GraphQL Queries
 
@@ -614,7 +664,12 @@ query {
 
 This queries our server for all users and returns the fields above that we requested. Your `GraphQL Playground` instance should look like this:
 
-<img alt="GraphQL Playground setup for a query" height="923" src="/images/blog/building-your-first-graphql-server/graphql-playground-query.webp" width="1200">
+<img
+  alt="GraphQL Playground setup for a query"
+  height="923"
+  src="/images/blog/building-your-first-graphql-server/graphql-playground-query.webp"
+  width="1200"
+/>
 
 Finally, let’s do a quick mutation. Open a new tab in `GraphQL Playground`, and paste the following mutation into the lefthand side of the screen before pressing the “play” button:
 
@@ -644,11 +699,21 @@ mutation {
 
 This should create a new user and return data as we’ve specified in the return fields we expect above. Your browser window should look like the following:
 
-<img alt="GraphQL Playground setup for a mutation" height="923" src="/images/blog/building-your-first-graphql-server/graphql-playground-mutation.webp" width="1200">
+<img
+  alt="GraphQL Playground setup for a mutation"
+  height="923"
+  src="/images/blog/building-your-first-graphql-server/graphql-playground-mutation.webp"
+  width="1200"
+/>
 
 See if you can write other mutations and queries out. You can check out the various ones available to you (along with the types we created on the server) by clicking on the `DOCS` and `SCHEMA` tabs on the righthand side of the page:
 
-<img alt="GraphQL Playground setup for introspecting types, mutations, and queries" height="923" src="/images/blog/building-your-first-graphql-server/graphql-playground-introspection.webp" width="1200">
+<img
+  alt="GraphQL Playground setup for introspecting types, mutations, and queries"
+  height="923"
+  src="/images/blog/building-your-first-graphql-server/graphql-playground-introspection.webp"
+  width="1200"
+/>
 
 ## Conclusion
 

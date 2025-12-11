@@ -9,7 +9,12 @@ tags:
   - Bitcoin
 ---
 
-<img alt="Bitcoin logo overlaid on a desert picture" src="/images/blog/building-your-own-bitcoin-node/bitcoin-logo.webp" width="3000" height="1500">
+<img
+  alt="Bitcoin logo overlaid on a desert picture"
+  src="/images/blog/building-your-own-bitcoin-node/bitcoin-logo.webp"
+  width="3000"
+  height="1500"
+/>
 
 # Building Your Own Bitcoin Node
 
@@ -19,7 +24,12 @@ If you're here, I think you're in for a really awesome ride. I'm going to teach 
 
 By the end, you'll have something that you can open on your computer that will look like this:
 
-<img alt="The Umbrel GUI for a Bitcoin node" src="/images/blog/building-your-own-bitcoin-node/finished-bitcoin-node.webp" width="1898" height="1299">
+<img
+  alt="The Umbrel GUI for a Bitcoin node"
+  src="/images/blog/building-your-own-bitcoin-node/finished-bitcoin-node.webp"
+  width="1898"
+  height="1299"
+/>
 
 Nice, right?
 
@@ -90,7 +100,7 @@ Done? Awesome.
 
 Let's move on to software. 🙌🏻
 
-<img alt="Desert" src="/images/blog/building-your-own-bitcoin-node/desert.webp" width="1459" height="973">
+<img alt="Desert" src="/images/blog/building-your-own-bitcoin-node/desert.webp" width="1459" height="973" />
 
 ## Installing the Software
 
@@ -100,7 +110,13 @@ Next, [download the most recent version of Umbrel](https://umbrel.com). We'll be
 
 Once you have the Umbrel OS image downloaded, connect your SD card and flash the image to it with BalenaEtcher:
 
-<img title="Flashing the Umbrel OS image to an SD Card with BalenaEtcher" alt="Flashing the Umbrel OS image to an SD Card with BalenaEtcher" src="/images/blog/building-your-own-bitcoin-node/balena-etcher.webp" width="4112" height="2578">
+<img
+  title="Flashing the Umbrel OS image to an SD Card with BalenaEtcher"
+  alt="Flashing the Umbrel OS image to an SD Card with BalenaEtcher"
+  src="/images/blog/building-your-own-bitcoin-node/balena-etcher.webp"
+  width="4112"
+  height="2578"
+/>
 
 On the first step here, you need to select the .img file that you just downloaded from the Umbrel website. Next, select the target as your SD card. Finally, you can go ahead and flash it!
 
@@ -116,12 +132,24 @@ Believe it or not, this is now the easy part if everything is set up correctly. 
 
 - Put your microSD card into the Raspberry Pi port. It will look like this:
 
-<img alt="Micro SD card going into Raspberry Pi" src="/images/blog/building-your-own-bitcoin-node/pi-micro-sd.webp" title="Image by [raspberrypi.org](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3)" width="843" height="432">
+<img
+  alt="Micro SD card going into Raspberry Pi"
+  src="/images/blog/building-your-own-bitcoin-node/pi-micro-sd.webp"
+  title="Image by [raspberrypi.org](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3)"
+  width="843"
+  height="432"
+/>
 
 - Next, put the Raspberry Pi into its case and connect the power cord
 - Plug in the external SSD drive, making sure to use one of the USB ports here:
 
-<img alt="Raspberry Pi being plugged into power supply" src="/images/blog/building-your-own-bitcoin-node/pi-power-supply.webp" title="Image by [raspberrypi.org](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3)" width="843" height="432">
+<img
+  alt="Raspberry Pi being plugged into power supply"
+  src="/images/blog/building-your-own-bitcoin-node/pi-power-supply.webp"
+  title="Image by [raspberrypi.org](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3)"
+  width="843"
+  height="432"
+/>
 
 - Next, plug the ethernet cord into the ethernet port right by where you plugged in the external SSD. Connect it to your router and plug the entire rig into the wall with the power supply.
 - Sit back and watch it turn on 🔌
@@ -138,7 +166,13 @@ Once the Raspberry Pi turns on, Umbrel will automatically boot up from the micro
 
 This is the front-end that will let you interact with your Bitcoin node. When you go there initially, this is likely what you'll see (as it's still setting up):
 
-<img alt="Umbrel loading screen" src="/images/blog/building-your-own-bitcoin-node/umbrel-loading.webp" title="Umbrel loading screen" width="1895" height="1302">
+<img
+  alt="Umbrel loading screen"
+  src="/images/blog/building-your-own-bitcoin-node/umbrel-loading.webp"
+  title="Umbrel loading screen"
+  width="1895"
+  height="1302"
+/>
 
 This could take a while, so don't worry too much!
 
@@ -146,19 +180,43 @@ Once the node finally finishes booting up, you should be presented with a setup 
 
 During normal day-to-day use, this is the login screen that you'll see when you go to http://umbrel.local:
 
-<img alt="Umbrel login screen" src="/images/blog/building-your-own-bitcoin-node/umbrel-login.webp" title="Umbrel login screen" width="1898" height="1299">
+<img
+  alt="Umbrel login screen"
+  src="/images/blog/building-your-own-bitcoin-node/umbrel-login.webp"
+  title="Umbrel login screen"
+  width="1898"
+  height="1299"
+/>
 
 If you enabled 2FA previously, any password login will be followed by a requirement to enter a code for it:
 
-<img alt="Umbrel 2FA screen" src="/images/blog/building-your-own-bitcoin-node/umbrel-2fa.webp" title="Umbrel 2FA screen" width="1898" height="1300">
+<img
+  alt="Umbrel 2FA screen"
+  src="/images/blog/building-your-own-bitcoin-node/umbrel-2fa.webp"
+  title="Umbrel 2FA screen"
+  width="1898"
+  height="1300"
+/>
 
 Once you're setup with a new account and logged in, you'll see that Umbrel has started downloading the entire Bitcoin blockchain and installing it on your external SSD:
 
-<img alt="Umbrel Bitcoin dashboard" src="/images/blog/building-your-own-bitcoin-node/umbrel-bitcoin-dashboard.webp" title="Umbrel Bitcoin dashboard" width="1898" height="1300">
+<img
+  alt="Umbrel Bitcoin dashboard"
+  src="/images/blog/building-your-own-bitcoin-node/umbrel-bitcoin-dashboard.webp"
+  title="Umbrel Bitcoin dashboard"
+  width="1898"
+  height="1300"
+/>
 
 You can also click on the “Bitcoin” tab on the sidebar to see a more detailed breakdown as it's downloading the blockchain:
 
-<img alt="Umbrel dashboard while downloading Bitcoin blockchain" src="/images/blog/building-your-own-bitcoin-node/umbrel-dashboard-downloading-chain.webp" title="Umbrel dashboard while downloading Bitcoin blockchain" width="1898" height="1299">
+<img
+  alt="Umbrel dashboard while downloading Bitcoin blockchain"
+  src="/images/blog/building-your-own-bitcoin-node/umbrel-dashboard-downloading-chain.webp"
+  title="Umbrel dashboard while downloading Bitcoin blockchain"
+  width="1898"
+  height="1299"
+/>
 
 In my case, it took 2–3 days for this download to finish. However, take heart in that seeing this means that your Bitcoin node works!
 
@@ -166,7 +224,13 @@ Congrats! 🎉
 
 Once the download of the blockchain is complete and the node is synchronized, this is what you'll see:
 
-<img alt="Umbrel Bitcoin node running" src="/images/blog/building-your-own-bitcoin-node/umbrel-running-node.webp" title="Umbrel Bitcoin node running" width="1898" height="1299">
+<img
+  alt="Umbrel Bitcoin node running"
+  src="/images/blog/building-your-own-bitcoin-node/umbrel-running-node.webp"
+  title="Umbrel Bitcoin node running"
+  width="1898"
+  height="1299"
+/>
 
 > “Within the coming years, disrupting the Bitcoin network will become increasingly more difficult as Bitcoin wallet software and the protocol become more mature and resilient.”
 >
@@ -185,7 +249,13 @@ From here, there are all sorts of things you can do with you Bitcoin node (and U
 
 Here's a screenshot of just a _few_ of the apps you can install with Umbrel and run alongside your Bitcoin node:
 
-<img alt="Umbrel app store" src="/images/blog/building-your-own-bitcoin-node/umbrel-app-store.webp" title="Umbrel app store" width="1400" height="959">
+<img
+  alt="Umbrel app store"
+  src="/images/blog/building-your-own-bitcoin-node/umbrel-app-store.webp"
+  title="Umbrel app store"
+  width="1400"
+  height="959"
+/>
 
 > “To join in the industrial revolution, you needed to open a factory; in the Internet revolution, you need to open a laptop.”
 >
