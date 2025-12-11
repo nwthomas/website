@@ -2,6 +2,8 @@
 
 This is my personal website, a place for my writing and thoughts to live.
 
+![Homepage](./assets/homepage-screenshot.png)
+
 ## Table of Contents
 
 - [Getting Started](#getting-started)
