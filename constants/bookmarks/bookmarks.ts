@@ -7,6 +7,10 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2025-12-11",
+    url: "https://dev.to/miketalbot/server-sent-events-are-still-not-production-ready-after-a-decade-a-lesson-for-me-a-warning-for-you-2gie",
+  },
+  {
     date: "2025-12-10",
     url: "https://vimforreactdevs.com",
   },
