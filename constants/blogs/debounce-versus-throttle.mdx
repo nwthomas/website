@@ -9,7 +9,12 @@ tags:
   - TypeScript
 ---
 
-<img alt="Neon 'Hello' sign on a black background" src="/images/blog/debounce-versus-throttle/stoplight.webp" width="1499" height="750">
+<img
+  alt="Neon 'Hello' sign on a black background"
+  src="/images/blog/debounce-versus-throttle/stoplight.webp"
+  width="1499"
+  height="750"
+/>
 
 # Debounce Versus Throttle
 
@@ -41,7 +46,12 @@ A `debounce` function is often used when a user does a _lot_ of some sort of act
 
 Here's a nifty little diagram that might explain this concept:
 
-<img alt="A cluster of function calls with the words 'Function is repeatedly called' over if with a 250ms wait and then a box symbolizing a funciton call that says 'When the function actually runs'" src="/images/blog/debounce-versus-throttle/debounce.webp" width="852" height="639">
+<img
+  alt="A cluster of function calls with the words 'Function is repeatedly called' over if with a 250ms wait and then a box symbolizing a funciton call that says 'When the function actually runs'"
+  src="/images/blog/debounce-versus-throttle/debounce.webp"
+  width="852"
+  height="639"
+/>
 
 For instance, let's say we have this simplified `debounce` function written in TypeScript:
 
@@ -152,7 +162,12 @@ Another way of thinking about it is that using `throttle` is like a stoplight th
 
 A picture is worth a thousand words, so here's another one:
 
-<img alt="A cluster of function calls where the function is only allowed to actually run once within the timeout time" src="/images/blog/debounce-versus-throttle/throttle.webp" width="932" height="419">
+<img
+  alt="A cluster of function calls where the function is only allowed to actually run once within the timeout time"
+  src="/images/blog/debounce-versus-throttle/throttle.webp"
+  width="932"
+  height="419"
+/>
 
 And, right on schedule, here's a simplified TypeScript example of one of these bad boys:
 
