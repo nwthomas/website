@@ -59,7 +59,7 @@ export const BOOKMARKS: Bookmarks = [
   },
   {
     date: "2025-12-06",
-    title: "martin Kleppmann: How to Do Distributed Locking",
+    title: "Martin Kleppmann: How to Do Distributed Locking",
     url: "https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html",
   },
   {
