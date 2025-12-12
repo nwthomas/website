@@ -38,7 +38,7 @@
     "formik": "2.4.9",
     "gray-matter": "4.0.3",
     "lodash": "4.17.21",
-    "next": "16.0.7",
+    "next": "16.0.10",
     "next-seo": "7.0.1",
     "nodemailer": "7.0.10",
     "postcss": "8.5.6",
