@@ -212,4 +212,9 @@ export const BOOKMARKS: Bookmarks = [
     title: "There is No Now",
     url: "https://cacm.acm.org/practice/there-is-no-now",
   },
+  {
+    date: "2022-12-03",
+    title: "Latency Numbers Every Programmer Should Know",
+    url: "https://gist.github.com/jboner/2841832",
+  },
 ];
