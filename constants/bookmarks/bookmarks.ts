@@ -8,6 +8,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2025-12-12",
+    title: "Do you know how much your computer can do in a second?",
+    url: "https://computers-are-fast.github.io/",
+  },
+  {
     date: "2025-12-11",
     title: "Server-Sent Events are Still Not Production-Ready After a Decade",
     url: "https://dev.to/miketalbot/server-sent-events-are-still-not-production-ready-after-a-decade-a-lesson-for-me-a-warning-for-you-2gie",
