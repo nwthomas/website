@@ -8,8 +8,13 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2025-12-14",
+    title: "Anthropic: Effective Harnesses for Long-Running Agents",
+    url: "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents",
+  },
+  {
     date: "2025-12-12",
-    title: "Do you know how much your computer can do in a second?",
+    title: "Do You Know How Much Your Computer Can Do in a Second?",
     url: "https://computers-are-fast.github.io/",
   },
   {
