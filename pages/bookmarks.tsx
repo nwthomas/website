@@ -122,7 +122,7 @@ const RootStyles = styled.div`
             font-size: 2rem;
             border-bottom: 1px dotted var(--text);
             padding-bottom: var(--space-nano);
-            word-break: break-all;
+            word-break: break-word;
           }
         }
       }
