@@ -8,6 +8,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2025-12-16",
+    title: "OWASP: Cross Site Scripting Prevention Cheat Sheet",
+    url: "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html",
+  },
+  {
     date: "2025-12-15",
     title: "Bitcoin Is Dead",
     url: "https://bitcoindeaths.com",
