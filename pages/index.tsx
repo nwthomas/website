@@ -8,6 +8,8 @@ import { NextPage } from "next";
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 
+const PAST_EMPLOYERS_ENABLED = process.env.NEXT_PUBLIC_PAST_EMPLOYERS_ENABLED === "true";
+
 const GITHUB_LINK_ARIA_LABEL = "Link to Nathan's GitHub page";
 const TEACHING_LINK_ARIA_LABEL = "Link to the Code Tenderloin free bootcamp Nathan volunteers at";
 const WRITING_LINK_ARIA_LABEL = "Link to Nathan's blog page";
@@ -50,61 +52,63 @@ const Home: NextPage = () => {
               from <span>San Francisco</span>
             </h1>
           </section>
-          <section aria-hidden>
-            <div>
+          {PAST_EMPLOYERS_ENABLED ? (
+            <section aria-hidden>
               <div>
-                <Image
-                  alt=""
-                  draggable={false}
-                  height="979"
-                  loading="eager"
-                  priority
-                  src="/images/backgrounds/iphone-14-pro-max-bezel.webp"
-                  width="483"
-                />
-                <Image
-                  alt=""
-                  draggable={false}
-                  height="1389"
-                  loading="eager"
-                  priority
-                  src="/images/backgrounds/twitter-web-app.webp"
-                  width="642"
-                />
                 <div>
                   <Image
                     alt=""
                     draggable={false}
-                    height="834"
+                    height="979"
                     loading="eager"
                     priority
-                    src="/images/backgrounds/twitter-logo.webp"
-                    width="1026"
+                    src="/images/backgrounds/iphone-14-pro-max-bezel.webp"
+                    width="483"
                   />
+                  <Image
+                    alt=""
+                    draggable={false}
+                    height="1389"
+                    loading="eager"
+                    priority
+                    src="/images/backgrounds/twitter-web-app.webp"
+                    width="642"
+                  />
+                  <div>
+                    <Image
+                      alt=""
+                      draggable={false}
+                      height="834"
+                      loading="eager"
+                      priority
+                      src="/images/backgrounds/twitter-logo.webp"
+                      width="1026"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-            <div>
               <div>
-                <Image
-                  alt=""
-                  blurDataURL="/images/backgrounds/loom-logo.webp"
-                  draggable={false}
-                  height="333"
-                  loading="eager"
-                  placeholder="blur"
-                  priority
-                  src="/images/backgrounds/loom-logo.webp"
-                  width="333"
+                <div>
+                  <Image
+                    alt=""
+                    blurDataURL="/images/backgrounds/loom-logo.webp"
+                    draggable={false}
+                    height="333"
+                    loading="eager"
+                    placeholder="blur"
+                    priority
+                    src="/images/backgrounds/loom-logo.webp"
+                    width="333"
+                  />
+                </div>
+                <ComputerScreen
+                  imageHeight={962}
+                  imageSrc="/images/backgrounds/loom-multi-clip-editing.webp"
+                  imageWidth={1536}
                 />
               </div>
-              <ComputerScreen
-                imageHeight={962}
-                imageSrc="/images/backgrounds/loom-multi-clip-editing.webp"
-                imageWidth={1536}
-              />
-            </div>
-          </section>
+            </section>
+          ) : null}
         </main>
       </RootStyles>
     </Layout>
