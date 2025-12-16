@@ -8,6 +8,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2025-12-15",
+    title: "Bitcoin Is Dead",
+    url: "https://bitcoindeaths.com",
+  },
+  {
     date: "2025-12-14",
     title: "Anthropic: Effective Harnesses for Long-Running Agents",
     url: "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents",
