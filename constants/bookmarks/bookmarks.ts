@@ -9,6 +9,11 @@ export type Bookmarks = Array<Bookmark>;
 export const BOOKMARKS: Bookmarks = [
   {
     date: "2025-12-17",
+    title: "Meta: Collective Communication for 100k+ GPUs",
+    url: "https://arxiv.org/pdf/2510.20171",
+  },
+  {
+    date: "2025-12-17",
     title: "The Rust Programming Language",
     url: "https://doc.rust-lang.org/stable/book",
   },
