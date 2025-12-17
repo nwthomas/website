@@ -8,6 +8,16 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2025-12-17",
+    title: "The Rust Programming Language",
+    url: "https://doc.rust-lang.org/stable/book",
+  },
+  {
+    date: "2025-12-17",
+    title: "Rustlings",
+    url: "https://rustlings.rust-lang.org/",
+  },
+  {
     date: "2025-12-16",
     title: "OWASP: Cross Site Scripting Prevention Cheat Sheet",
     url: "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html",
@@ -129,7 +139,7 @@ export const BOOKMARKS: Bookmarks = [
   },
   {
     date: "2025-12-01",
-    title: "I Sycophancy",
+    title: 'Sycophancy is the first LLM "dark pattern"',
     url: "https://www.seangoedecke.com/ai-sycophancy",
   },
   {
@@ -219,7 +229,7 @@ export const BOOKMARKS: Bookmarks = [
   },
   {
     date: "2024-03-20",
-    title: "There is No Now",
+    title: "There is No Now in Distributed Systems",
     url: "https://cacm.acm.org/practice/there-is-no-now",
   },
   {
