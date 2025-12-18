@@ -8,6 +8,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2025-12-18",
+    title: "MIT: Enabling Small Language Models to Solve Complex Reasoning Tasks",
+    url: "https://news.mit.edu/2025/enabling-small-language-models-solve-complex-reasoning-tasks-1212",
+  },
+  {
     date: "2025-12-17",
     title: "Meta: Collective Communication for 100k+ GPUs",
     url: "https://arxiv.org/pdf/2510.20171",
