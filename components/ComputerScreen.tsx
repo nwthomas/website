@@ -31,7 +31,7 @@ function ComputerScreen({ imageAlt, imageHeight, imageSrc, imageWidth }: Props) 
 
 const RootStyles = styled.div`
   background-color: var(--color-white);
-  border: var(--space-nano) solid var(--body-bg-accent-one);
+  border: var(--space-nano) solid var(--body-bg-accent-two);
   border-radius: var(--border-radius-medium);
   display: flex;
   flex-direction: column;
