@@ -9,6 +9,11 @@ export type Bookmarks = Array<Bookmark>;
 export const BOOKMARKS: Bookmarks = [
   {
     date: "2025-12-19",
+    title: "Full Text Search over Postgres: Elasticsearch vs. Alternatives",
+    url: "https://www.paradedb.com/blog/elasticsearch-vs-postgres",
+  },
+  {
+    date: "2025-12-19",
     title: "Clerk: Migrating from Pages Router to App Router",
     url: "https://clerk.com/blog/migrating-pages-router-to-app-router-an-incremental-guide",
   },
