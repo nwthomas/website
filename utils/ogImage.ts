@@ -7,7 +7,7 @@ import { ORIGIN } from "../constants/routes";
 import chromium from "@sparticuz/chromium";
 import { createHash } from "crypto";
 import fs from "fs";
-import { isProductionEnvironment } from "./../constants/environments";
+import { isProductionEnvironment } from "../constants/environments";
 import { chromium as playwright } from "playwright-core";
 
 const LOCK_FILE = "/tmp/chromium-launch.lock";

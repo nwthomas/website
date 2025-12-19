@@ -1,4 +1,4 @@
-import { BOOKMARKS } from "../constants/bookmarks/bookmarks";
+import { BOOKMARKS } from "../constants/bookmarks";
 import { BOOKMARKS_PAGE_NAME } from "../constants/seo";
 import { CONTENTS_ID } from "../constants/routes";
 import Layout from "../components/Layout";
