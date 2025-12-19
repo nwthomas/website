@@ -8,6 +8,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2025-12-19",
+    title: "Clerk: Migrating from Pages Router to App Router",
+    url: "https://clerk.com/blog/migrating-pages-router-to-app-router-an-incremental-guide",
+  },
+  {
     date: "2025-12-18",
     title: "Dan Abramov: Introducing RSC Explorer",
     url: "https://overreacted.io/introducing-rsc-explorer",
@@ -94,7 +99,7 @@ export const BOOKMARKS: Bookmarks = [
   },
   {
     date: "2025-12-06",
-    title: "The Network is Reliable: An informal survey of real-world communications failures",
+    title: "The Network is Reliable: An Informal Survey of Real-World Communications Failures",
     url: "https://queue.acm.org/detail.cfm?id=2655736",
   },
   {
