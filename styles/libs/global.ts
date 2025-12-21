@@ -188,15 +188,15 @@ export const createGlobalStyles = (theme: Theme) => css`
   }
 
   h1 {
-    font-size: 3.5rem;
+    font-size: 4.5rem;
     font-weight: bold;
 
     @media only screen and (min-width: ${theme.breakpoints.tablet}) {
-      font-size: 5rem;
+      font-size: 7rem;
     }
 
     @media only screen and (min-width: ${theme.breakpoints.desktop}) {
-      font-size: 6.5rem;
+      font-size: 9.5rem;
     }
   }
 
