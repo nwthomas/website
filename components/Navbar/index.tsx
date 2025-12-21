@@ -45,7 +45,7 @@ const RootStyles = styled.div<StyleProps>`
   ${({ $hideBackground }) => {
     if (!$hideBackground) {
       return `  &::before {
-        backdrop-filter: blur(15px);
+        backdrop-filter: blur(8px);
         background-color: var(--body-bg-blur);
         bottom: 0;
         content: "";

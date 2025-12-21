@@ -81,7 +81,7 @@ function Contact({ ogImage, token }) {
       <RootStyles>
         <main id={CONTENTS_ID}>
           <section>
-            <h1>You know where you can reach me</h1>
+            <h1>Feel free to reach out</h1>
           </section>
           <section>
             <div>

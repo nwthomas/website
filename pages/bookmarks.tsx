@@ -23,9 +23,6 @@ function Bookmarks({ ogImage }) {
       <RootStyles>
         <main id={CONTENTS_ID}>
           <section>
-            <h1>These are resources I think are excellent</h1>
-          </section>
-          <section>
             {BOOKMARKS.map(({ date, title, url }) => {
               return (
                 <div key={url}>
@@ -56,39 +53,7 @@ const RootStyles = styled.div`
     max-width: var(--app-max-width);
     width: 100%;
 
-    > section:nth-of-type(1) {
-      display: flex;
-      margin-bottom: var(--space-medium);
-
-      @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
-        margin-bottom: var(--space-large);
-      }
-
-      > h1 > span > a {
-        background-clip: text;
-        -moz-background-clip: text;
-        -webkit-background-clip: text;
-        background-image: url(/images/backgrounds/noise.webp);
-        background-size: 50px;
-        font-family: inherit;
-        font-size: inherit;
-        padding: var(--space-micro) 0;
-        -moz-text-fill-color: transparent;
-        -webkit-text-fill-color: transparent;
-        text-decoration: none;
-
-        &:hover {
-          opacity: 0.8;
-        }
-      }
-
-      > h1 span {
-        font-family: inherit;
-        white-space: nowrap;
-      }
-    }
-
-    > section:nth-of-type(2) {
+    > section {
       margin-bottom: var(--space-medium);
 
       @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
