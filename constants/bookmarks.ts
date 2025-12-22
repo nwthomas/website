@@ -8,6 +8,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2025-12-21",
+    title: "Clever Code",
+    url: "https://www.pcloadletter.dev/blog/clever-code",
+  },
+  {
     date: "2025-12-19",
     title: "Full Text Search over Postgres: Elasticsearch vs. Alternatives",
     url: "https://www.paradedb.com/blog/elasticsearch-vs-postgres",
@@ -251,6 +256,11 @@ export const BOOKMARKS: Bookmarks = [
     date: "2024-07-01",
     title: "Fast.ai: Practical Deep Learning for Coders",
     url: "https://course.fast.ai",
+  },
+  {
+    date: "2024-06-25",
+    title: "How Cassandra Stores Data: An Exploration of Log Structured Merge Trees",
+    url: "https://hackernoon.com/how-cassandra-stores-data-an-exploration-of-log-structured-merge-trees",
   },
   {
     date: "2024-03-20",
