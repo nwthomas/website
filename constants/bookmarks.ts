@@ -8,6 +8,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2025-12-22",
+    title: "How Discord Stores Trillions of Messages",
+    url: "https://discord.com/blog/how-discord-stores-trillions-of-messages",
+  },
+  {
     date: "2025-12-21",
     title: "Clever Code",
     url: "https://www.pcloadletter.dev/blog/clever-code",
@@ -271,5 +276,15 @@ export const BOOKMARKS: Bookmarks = [
     date: "2022-12-03",
     title: "Latency Numbers Every Programmer Should Know",
     url: "https://gist.github.com/jboner/2841832",
+  },
+  {
+    date: "2022-12-01",
+    title: "Twitter: Announcing Snowflake",
+    url: "https://blog.x.com/engineering/en_us/a/2010/announcing-snowflake",
+  },
+  {
+    date: "2025-12-01",
+    title: "TwitterServer",
+    url: "https://twitter.github.io/twitter-server",
   },
 ];
