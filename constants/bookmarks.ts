@@ -8,6 +8,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2025-12-24",
+    title: "StackOverflow: 2025 Developer Survey",
+    url: "https://survey.stackoverflow.co/2025",
+  },
+  {
     date: "2025-12-22",
     title: "How Discord Stores Trillions of Messages",
     url: "https://discord.com/blog/how-discord-stores-trillions-of-messages",
