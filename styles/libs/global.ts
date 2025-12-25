@@ -56,7 +56,7 @@ export const createGlobalStyles = (theme: Theme) => css`
     --color-mineshaft: ${colors.mineShaft};
     --color-outer-space: ${colors.outerSpace};
     --color-red: ${colors.red};
-    --color-royal-blue: ${colors.royalBlue};
+    --color-blue: ${colors.blue};
     --color-shark: ${colors.shark};
     --color-white: ${colors.white};
 
@@ -113,7 +113,7 @@ export const createGlobalStyles = (theme: Theme) => css`
     --body-bg-blur: rgba(0, 0, 0, 0.7);
     --code-bg: ${colors.eerieBlack};
     --error: ${colors.red};
-    --selection: ${colors.royalBlue};
+    --selection: ${colors.blue};
     --text: ${colors.mercury};
     --text-secondary: ${colors.manatee};
   }
@@ -125,7 +125,7 @@ export const createGlobalStyles = (theme: Theme) => css`
     --body-bg-blur: rgba(255, 255, 255, 0.7);
     --code-bg: ${colors.eerieBlack};
     --error: ${colors.red};
-    --selection: ${colors.royalBlue};
+    --selection: ${colors.blue};
     --text: ${colors.mineShaft};
     --text-secondary: ${colors.doveGray};
   }
@@ -152,7 +152,7 @@ export const createGlobalStyles = (theme: Theme) => css`
   /* Code for Firefox */
   ::-moz-selection {
     color: var(--color-white);
-    background: var(--color-royal-blue);
+    background: var(--color-blue);
     background-clip: border-box;
     background-image: none;
     background-size: 100%;
@@ -164,7 +164,7 @@ export const createGlobalStyles = (theme: Theme) => css`
 
   ::selection {
     color: var(--color-white);
-    background: var(--color-royal-blue);
+    background: var(--color-blue);
     background-clip: border-box;
     background-image: none;
     background-size: 100%;

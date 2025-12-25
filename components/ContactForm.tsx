@@ -209,7 +209,7 @@ const RootStyles = styled.div<StyleProps>`
           &:active,
           &:focus {
             outline: none;
-            border: var(--space-nano) solid var(--color-royal-blue);
+            border: var(--space-nano) solid var(--color-blue);
           }
         }
 
@@ -229,7 +229,7 @@ const RootStyles = styled.div<StyleProps>`
           &:active,
           &:focus {
             outline: none;
-            border: var(--space-nano) solid var(--color-royal-blue);
+            border: var(--space-nano) solid var(--color-blue);
           }
         }
 
@@ -264,8 +264,8 @@ const RootStyles = styled.div<StyleProps>`
       > button {
         align-items: center;
         border-radius: var(--border-radius-medium);
-        background-color: var(--color-royal-blue);
-        border: var(--space-nano) solid var(--color-royal-blue);
+        background-color: var(--color-blue);
+        border: var(--space-nano) solid var(--color-blue);
         color: var(--color-white);
         cursor: ${({ $isFormButtonDisabled }) => ($isFormButtonDisabled ? "wait" : "pointer")};
         display: flex;
@@ -293,8 +293,8 @@ const RootStyles = styled.div<StyleProps>`
 
         &:hover {
           background-color: ${({ $isFormButtonDisabled }) =>
-            $isFormButtonDisabled ? "var(--color-royal-blue)" : "transparent"};
-          color: var(--color-royal-blue);
+            $isFormButtonDisabled ? "var(--color-blue)" : "transparent"};
+          color: var(--color-blue);
         }
       }
     }

@@ -107,7 +107,7 @@ const RootStyles = styled.article`
     &:hover,
     &:active,
     &:focus {
-      border: var(--space-nano) solid var(--color-royal-blue);
+      border: var(--space-nano) solid var(--color-blue);
       border-radius: var(--border-radius-medium);
       outline: none;
 

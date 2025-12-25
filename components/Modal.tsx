@@ -92,8 +92,8 @@ const RootStyles = styled.div<StyleProps>`
     > button {
       align-items: center;
       border-radius: var(--border-radius-medium);
-      background-color: var(--color-royal-blue);
-      border: 2px solid var(--color-royal-blue);
+      background-color: var(--color-blue);
+      border: 2px solid var(--color-blue);
       color: var(--color-white);
       cursor: pointer;
       display: flex;
@@ -121,7 +121,7 @@ const RootStyles = styled.div<StyleProps>`
 
       &:hover {
         background-color: transparent;
-        color: var(--color-royal-blue);
+        color: var(--color-blue);
       }
 
       @media only screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {

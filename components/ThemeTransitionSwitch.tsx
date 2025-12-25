@@ -68,7 +68,7 @@ const RootStyles = styled.div<StyleProps>`
 
     &:active + div > div,
     &:focus + div > div {
-      box-shadow: 0 0 3px 3px var(--color-royal-blue);
+      box-shadow: 0 0 3px 3px var(--color-blue);
     }
   }
 
@@ -103,7 +103,7 @@ const RootStyles = styled.div<StyleProps>`
       width: 18px;
 
       &:focus-within {
-        box-shadow: 0 0 3px 3px var(--color-royal-blue);
+        box-shadow: 0 0 3px 3px var(--color-blue);
       }
     }
   }
