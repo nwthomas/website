@@ -64,7 +64,7 @@ const StyledLink = styled(Link)`
   &:hover,
   &:active,
   &:focus {
-    border: var(--space-nano) solid var(--color-royal-blue);
+    border: var(--space-nano) solid var(--color-blue);
     outline: none;
     text-decoration: none;
   }

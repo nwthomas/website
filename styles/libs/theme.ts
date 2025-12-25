@@ -10,6 +10,7 @@ interface Colors {
   alto: "#D6D6D6";
   antiFlashWhite: "#EBEBEB";
   black: "#000000";
+  blue: "#0000FF";
   brightSun: "#FACF3D";
   burntSienna: "#ED6A5E";
   casablanca: "#F5BF4F";
@@ -22,7 +23,6 @@ interface Colors {
   mineShaft: "#333333";
   outerSpace: "#373A3D";
   red: "red";
-  royalBlue: "#2D6EEE";
   shark: "#202325";
   white: "#FFFFFF";
 }
@@ -32,6 +32,7 @@ export const colors: Colors = {
   alto: "#D6D6D6",
   antiFlashWhite: "#EBEBEB",
   black: "#000000",
+  blue: "#0000FF",
   brightSun: "#FACF3D",
   burntSienna: "#ED6A5E",
   casablanca: "#F5BF4F",
@@ -44,7 +45,6 @@ export const colors: Colors = {
   mineShaft: "#333333",
   outerSpace: "#373A3D",
   red: "red",
-  royalBlue: "#2D6EEE",
   shark: "#202325",
   white: "#FFFFFF",
 };
