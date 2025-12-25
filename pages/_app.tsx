@@ -10,6 +10,7 @@ import Head from "next/head";
 import { HydrationBoundary } from "@tanstack/react-query";
 import { Provider } from "react-redux";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@emotion/react";
 import { getThemeFromWindowObject } from "../hooks";
 import { store } from "../store";
@@ -73,6 +74,7 @@ function MyApp(appProps: AppProps) {
         </QueryClientProvider>
       </Provider>
       <Analytics />
+      <SpeedInsights />
     </>
   );
 }
