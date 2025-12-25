@@ -8,6 +8,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2025-12-25",
+    title: "PostgreSQL is Enough",
+    url: "https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb",
+  },
+  {
     date: "2025-12-24",
     title: "StackOverflow: 2025 Developer Survey",
     url: "https://survey.stackoverflow.co/2025",
