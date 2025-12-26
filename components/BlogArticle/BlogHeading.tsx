@@ -118,7 +118,7 @@ const RootStyles = styled.div<StyleProps>`
 
       svg {
         display: none;
-        height: ${({ $level }) => ($level === 1 ? "var(--space-xlarge)" : "var(--space-medium)")};
+        height: ${({ $level }) => ($level === 1 ? "calc(var(--space-xlarge) * 2)" : "var(--space-medium)")};
         margin-bottom: var(--space-micro);
         margin-right: var(--space-small);
         width: ${({ $level }) => ($level === 1 ? "var(--space-xlarge)" : "var(--space-medium)")};
