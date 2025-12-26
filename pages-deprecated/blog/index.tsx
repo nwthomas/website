@@ -3,16 +3,16 @@ import {
   BlogPostsFrontMatter,
   bucketAndSortBlogPostsByTags,
   getSortedTagsList,
-} from "../../utils/sortBlogPosts";
+} from "../../src/utils/sortBlogPosts";
 import { JSX, useMemo } from "react";
 
-import { BLOG_FILES_PATH } from "../../utils/readBlogFiles";
+import { BLOG_FILES_PATH } from "../../src/utils/readBlogFiles";
 import { BLOG_PAGE_NAME } from "../../constants/seo";
 import BlogCardSection from "../../components/BlogCardSection";
 import { CONTENTS_ID } from "../../constants/routes";
 import Layout from "../../components/Layout";
-import { createOgImage } from "../../utils/ogImage";
-import { getDirectoryFiles } from "../../utils/readBlogFiles";
+import { createOgImage } from "../../src/utils/ogImage";
+import { getDirectoryFiles } from "../../src/utils/readBlogFiles";
 import styled from "@emotion/styled";
 
 export async function getStaticProps() {

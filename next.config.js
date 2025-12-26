@@ -11,25 +11,6 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
-  async redirects() {
-    return [
-      {
-        source: "/tag",
-        destination: "/blog",
-        permanent: true,
-      },
-      {
-        source: "/tag/soft-skills",
-        destination: "/tag/personal",
-        permanent: true,
-      },
-      {
-        source: "/tag/soft-skills",
-        destination: "/tag/personal",
-        permanent: true,
-      },
-    ];
-  },
   // Turn off NextJS icon if needed while taking screenshots for SEO home pre-generated image
   // devIndicators: false,
 };

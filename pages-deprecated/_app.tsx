@@ -13,7 +13,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@emotion/react";
 import { getThemeFromWindowObject } from "../hooks";
-import { store } from "../store";
+import { store } from "../src/store";
 import { useTheme } from "../hooks";
 
 // We don't care about cache invalidation given the needs of this app, so data isn't stale

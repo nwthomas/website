@@ -60,6 +60,7 @@
     "@fec/remark-a11y-emoji": "4.0.2",
     "@next/eslint-plugin-next": "16.0.3",
     "@sparticuz/chromium": "141.0.0",
+    "@tailwindcss/postcss": "4.1.18",
     "@types/express": "5.0.5",
     "@types/node": "24.10.1",
     "@types/nodemailer": "7.0.4",
@@ -67,7 +68,6 @@
     "@types/styled-components": "5.1.36",
     "@typescript-eslint/eslint-plugin": "8.47.0",
     "@typescript-eslint/parser": "8.47.0",
-    "autoprefixer": "10.4.22",
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "9.39.1",
     "eslint-config-next": "16.0.3",
@@ -76,7 +76,8 @@
     "next-sitemap": "2.1.15",
     "playwright-core": "1.56.1",
     "prettier": "3.7.1",
-    "sharp": "0.34.5"
+    "sharp": "0.34.5",
+    "tailwindcss": "4.1.18"
   },
   "engines": {
     "node": "22"

@@ -1,4 +1,4 @@
-import { ThemeEnum } from "../../store/reducers/themeSlice";
+import { ThemeEnum } from "../../src/store/reducers/themeSlice";
 
 // A good source for gradients is: https://webgradients.com
 

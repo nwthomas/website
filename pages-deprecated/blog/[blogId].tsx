@@ -1,14 +1,14 @@
-import { BlogPosts, buildSlugToBlogPostMap } from "../../utils/sortBlogPosts";
+import { BlogPosts, buildSlugToBlogPostMap } from "../../src/utils/sortBlogPosts";
 import { useDispatch, useSelector } from "react-redux";
 
-import { BLOG_FILES_PATH } from "../../utils/readBlogFiles";
+import { BLOG_FILES_PATH } from "../../src/utils/readBlogFiles";
 import { BlogMarkdownRenderer } from "../../components/BlogArticle";
 import { CONTENTS_ID } from "../../constants/routes";
 import ImageOverlay from "../../components/ImageOverlay";
 import Layout from "../../components/Layout";
-import { getDirectoryFiles } from "../../utils/readBlogFiles";
-import { hideImageOverlay } from "../../store/reducers/blogSlice";
-import { selectIsShowingImageOverlay } from "../../store/selectors/blogSelector";
+import { getDirectoryFiles } from "../../src/utils/readBlogFiles";
+import { hideImageOverlay } from "../../src/store/reducers/blogSlice";
+import { selectIsShowingImageOverlay } from "../../src/store/selectors/blogSelector";
 import styled from "@emotion/styled";
 import { useEffect } from "react";
 

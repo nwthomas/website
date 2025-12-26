@@ -5,9 +5,9 @@
 import { Request, Response } from "express";
 
 import { NextApiRequest } from "next";
-import { applyRateLimit } from "./../../utils/rateLimit";
-import { sendEmail } from "../../utils/sendEmail";
-import { verifyCsrfToken } from "../../utils/csrfToken";
+import { applyRateLimit } from "../../src/utils/rateLimit";
+import { sendEmail } from "../../src/utils/sendEmail";
+import { verifyCsrfToken } from "../../src/utils/csrfToken";
 
 const POST_METHOD = "POST";
 

@@ -4,15 +4,15 @@ import {
   bucketAndSortBlogPostsByTags,
   getSortedTagsList,
   getTagTitleFromTagId,
-} from "../../utils/sortBlogPosts";
+} from "../../src/utils/sortBlogPosts";
 import { useMemo, useState } from "react";
 
 import BlogCardSection from "../../components/BlogCardSection";
 import { CONTENTS_ID } from "../../constants/routes";
 import Layout from "../../components/Layout";
-import { buildKebabCaseParam } from "../../utils/routes";
-import { createOgImage } from "../../utils/ogImage";
-import { getDirectoryFiles } from "../../utils/readBlogFiles";
+import { buildKebabCaseParam } from "../../src/utils/routes";
+import { createOgImage } from "../../src/utils/ogImage";
+import { getDirectoryFiles } from "../../src/utils/readBlogFiles";
 import styled from "@emotion/styled";
 import { useRouter } from "next/router";
 

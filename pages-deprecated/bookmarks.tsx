@@ -2,7 +2,7 @@ import { BOOKMARKS } from "../constants/bookmarks";
 import { BOOKMARKS_PAGE_NAME } from "../constants/seo";
 import { CONTENTS_ID } from "../constants/routes";
 import Layout from "../components/Layout";
-import { createOgImage } from "../utils/ogImage";
+import { createOgImage } from "../src/utils/ogImage";
 import styled from "@emotion/styled";
 
 export async function getStaticProps() {

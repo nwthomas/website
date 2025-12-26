@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { resetMessageValues, updateMessageValues } from "../store/reducers/contactFormSlice";
+import { resetMessageValues, updateMessageValues } from "../src/store/reducers/contactFormSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 import { CONTACT_PAGE_NAME } from "../constants/seo";
@@ -7,12 +7,12 @@ import { CONTENTS_ID } from "../constants/routes";
 import ContactForm from "../components/ContactForm";
 import Layout from "../components/Layout";
 import { MessageValues } from "../components/ContactForm";
-import { NewEmail } from "../utils/sendEmail";
+import { NewEmail } from "../src/utils/sendEmail";
 import { SEND_EMAIL } from "../constants/routes";
-import { generateCsrfToken } from "../utils/csrfToken";
-import { selectContactFormMessageValues } from "../store/selectors/contactFormSelectors";
+import { generateCsrfToken } from "../src/utils/csrfToken";
+import { selectContactFormMessageValues } from "../src/store/selectors/contactFormSelectors";
 import styled from "@emotion/styled";
-import { updateModalValues } from "../store/reducers/modalSlice";
+import { updateModalValues } from "../src/store/reducers/modalSlice";
 import { useMutation } from "@tanstack/react-query";
 
 export async function getServerSideProps({ req, res }: { req: NextApiRequest; res: NextApiResponse }) {
