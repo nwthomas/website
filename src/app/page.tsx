@@ -58,8 +58,9 @@ export default function Page() {
         </Link>
         .
       </p>
-      <p className="pt-6">You can find traces of me across the internet:</p>
-      <div className="pt-3 flex gap-4 flex-wrap">
+      <p className="pt-6">These are some of my favorite blog posts:</p>
+      <p className="pt-6">Traces of me across the internet:</p>
+      <div className="pt-6 flex gap-4 flex-wrap">
         <a
           className="font-mono"
           href="https://github.com/nwthomas"

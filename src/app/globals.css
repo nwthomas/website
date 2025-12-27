@@ -1,20 +1,62 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --selection: blue;
-  --theme-switch: #facf3d;
-  --highlight-foreground: #ffffff;
+@layer base {
+  :focus {
+    @apply outline-solid outline-2 outline-selection;
+  }
+
+  ::selection {
+    @apply bg-selection text-white;
+  }
+
+  html,
+  body {
+    /* Using 'background-color' will make sure this value is applied to the iPhone notch area */
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1 {
+    @apply font-sans text-2xl leading-normal;
+  }
+
+  h2 {
+    @apply font-sans text-xl leading-normal;
+  }
+
+  h3 {
+    @apply font-sans text-lg leading-normal;
+  }
+
+  p {
+    @apply leading-normal;
+  }
+
+  a {
+    @apply underline decoration-dotted decoration-gray-300 underline-offset-5 opacity-100 hover:opacity-70 transition-opacity duration-200 cursor-pointer;
+  }
 }
 
-* {
-  box-sizing: border-box;
+:root {
+  /* Theme Variables */
+  --background: #ffffff;
+  --foreground: #171717;
+  --selection: #2d6eee;
+  --theme-switch: #facf3d;
+  --highlight-foreground: #ffffff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-selection: var(--selection);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -24,39 +66,4 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
-
-html,
-body {
-  /* Using 'background-color' will make sure this value is applied to the iPhone notch area */
-  background-color: var(--background);
-  color: var(--foreground);
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-h1 {
-  @apply font-sans text-2xl leading-normal;
-}
-
-h2 {
-  @apply font-sans text-xl leading-normal;
-}
-
-h3 {
-  @apply font-sans text-lg leading-normal;
-}
-
-p {
-  @apply leading-normal;
-}
-
-a {
-  @apply underline decoration-dotted decoration-gray-300 underline-offset-5 opacity-100 hover:opacity-70 transition-opacity duration-200 cursor-pointer;
 }
