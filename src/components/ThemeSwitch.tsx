@@ -38,7 +38,7 @@ export function ThemeSwitch() {
         />
         <div
           onClick={handleThemeSwitchClick}
-          className="bg-black border-2 border-gray-500 rounded-full cursor-pointer flex items-center h-[26px] justify-between px-[5px] pt-px relative touch-pan-x w-[50px] focus-within:outline-none focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 [&>svg]:h-[15px] [&>svg]:w-[15px]"
+          className="bg-black border-2 border-gray-500 rounded-full cursor-pointer flex items-center h-[26px] justify-between px-[5px] pt-px relative touch-pan-x w-[50px] focus-within:outline focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 [&>svg]:h-[15px] [&>svg]:w-[15px]"
         >
           <MoonIcon color="var(--theme-switch)" />
           <SunIcon color="var(--theme-switch)" />

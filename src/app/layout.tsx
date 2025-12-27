@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <main className="flex justify-center w-full min-h-screen py-10 sm:py-20 lg:py-30">{children}</main>
+        <main className="flex justify-center w-full min-h-screen py-10 lg:py-20 xl:py-30">{children}</main>
       </body>
     </html>
   );

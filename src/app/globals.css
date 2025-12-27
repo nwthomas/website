@@ -1,7 +1,31 @@
 @import "tailwindcss";
 
+:root {
+  /* Theme Variables */
+  --background: #ffffff;
+  --foreground: #171717;
+  --selection: #2d6eee;
+  --theme-switch: #facf3d;
+  --highlight-foreground: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-selection: var(--selection);
+  --font-sans: var(--font-geist-sans), Times, Times New Roman, serif;
+  --font-mono: var(--font-geist-mono), Times, Times New Roman, serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
 @layer base {
-  :focus {
+  :focus-visible {
     @apply outline-solid outline-2 outline-selection;
   }
 
@@ -24,46 +48,27 @@
   }
 
   h1 {
-    @apply font-sans text-2xl leading-normal;
+    @apply font-sans text-xl font-bold leading-normal;
   }
 
   h2 {
-    @apply font-sans text-xl leading-normal;
+    @apply font-sans text-lg font-bold leading-normal;
   }
 
   h3 {
-    @apply font-sans text-lg leading-normal;
+    @apply font-sans text-lg font-bold leading-normal;
   }
 
   p {
-    @apply leading-normal;
+    @apply font-sans leading-normal;
   }
 
   a {
-    @apply underline decoration-dotted decoration-gray-300 underline-offset-5 opacity-100 hover:opacity-70 transition-opacity duration-200 cursor-pointer;
+    @apply font-sans underline decoration-dotted decoration-gray-300 underline-offset-5 opacity-100 hover:opacity-70 transition-opacity duration-200 cursor-pointer;
   }
-}
 
-:root {
-  /* Theme Variables */
-  --background: #ffffff;
-  --foreground: #171717;
-  --selection: #2d6eee;
-  --theme-switch: #facf3d;
-  --highlight-foreground: #ffffff;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-selection: var(--selection);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  ul,
+  ol {
+    @apply font-sans list-disc list-inside;
   }
 }
