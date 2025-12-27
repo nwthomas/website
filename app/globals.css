@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 :root {
-  /* Theme Variables */
   --background: #ffffff;
   --foreground: #171717;
   --theme-switch: #facf3d;
@@ -20,6 +19,18 @@
   --font-mono: var(--font-geist-mono), monospace;
 }
 
+html.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+/* The below two media queries handle OS theme changes while the user is on the page */
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+  }
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;

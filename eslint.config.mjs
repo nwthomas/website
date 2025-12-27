@@ -16,6 +16,7 @@ const eslintConfig = defineConfig([
   ]),
   {
     rules: {
+      "import/no-anonymous-default-export": "off",
       "react/no-unescaped-entities": "off",
     },
   },

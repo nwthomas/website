@@ -1,4 +1,4 @@
-import { BOOKMARKS } from "@/constants/bookmarks";
+import { BOOKMARKS } from "./bookmarks";
 import { Metadata } from "next";
 import { clsx } from "clsx";
 

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ThemeSwitch } from "@/components/ThemeSwitch";
+import { ThemeSwitch } from "./ThemeSwitch";
 import { usePathname } from "next/navigation";
 
 export function Navbar() {
@@ -26,7 +26,7 @@ export function Navbar() {
           </Link>
         )}
       </div>
-      <div className="flex gap-5 items-center">
+      <div className="flex gap-2 sm:gap-5 items-center">
         {isWritingPage ? (
           writingText
         ) : (

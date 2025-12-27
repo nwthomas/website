@@ -36,13 +36,33 @@ export default function Page() {
       <h2 className="pt-5">Writing:</h2>
       <ul className="pt-4">
         <li>
-          <Link href="/blog/on-finding-confidence">On Finding Confidence</Link>
+          <Link href="/writing/2025/on-finding-confidence">On Finding Confidence</Link>
         </li>
         <li>
-          <Link href="/blog/the-pursuit-of-persistence-and-grit">The Pursuit of Persistence and Grit</Link>
+          <Link href="/writing/2019/the-pursuit-of-persistence-and-grit">The Pursuit of Persistence and Grit</Link>
+        </li>
+      </ul>
+      <h2 className="pt-5">Teaching:</h2>
+      <ul className="pt-4">
+        <li>
+          <a
+            href="https://www.youtube.com/watch?v=GNrQTbIFsG4&t=2909s"
+            aria-label="Link to Nathan's React Native Web at Twitter talk on YouTube"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Code Tenderloin (volunteer instructor)
+          </a>
         </li>
         <li>
-          <Link href="/blog/react-native-web-at-twitter">React Native Web at Twitter</Link>
+          <a
+            href="https://www.youtube.com/watch?v=GNrQTbIFsG4&t=2909s"
+            aria-label="Link to Nathan's React Native Web at Twitter talk on YouTube"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            React Native Web at Twitter
+          </a>
         </li>
       </ul>
       <h2 className="pt-5">Projects:</h2>
