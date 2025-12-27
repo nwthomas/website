@@ -2,9 +2,12 @@ import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { getYearsCoding } from "@/utils/utils";
 
+// Force static generation for index.html home page
+export const dynamic = "force-static";
+
 export default function Page() {
   return (
-    <div className="w-2xl px-8">
+    <div className="w-full max-w-2xl px-8">
       <Navbar title="Nathan Thomas" />
       <p className="pt-6">
         I'm a{" "}

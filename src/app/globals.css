@@ -6,7 +6,7 @@
   --foreground: #171717;
   --theme-switch: #facf3d;
   --selection-foreground: #ffffff;
-  --selection-background: #0a0a0a;
+  --selection-background: #0000ff;
 }
 
 @theme inline {
@@ -24,14 +24,12 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
-    --selection-background: #ededed;
-    --selection-foreground: #0a0a0a;
   }
 }
 
 @layer base {
   :focus-visible {
-    @apply outline-solid outline-2 outline-foreground;
+    @apply outline-solid outline-2 outline-selection-background;
   }
 
   ::selection {
@@ -53,7 +51,7 @@
   }
 
   h1 {
-    @apply font-sans text-xl font-bold leading-normal;
+    @apply font-sans text-lg font-bold leading-normal;
   }
 
   h2 {
@@ -69,7 +67,7 @@
   }
 
   a {
-    @apply font-sans underline decoration-solid decoration-gray-300 underline-offset-5 opacity-100 hover:opacity-70 transition-opacity duration-200;
+    @apply font-sans underline decoration-dotted decoration-gray-400 underline-offset-5 opacity-100 hover:opacity-60 transition-opacity duration-200;
   }
 
   ul,
