@@ -1,26 +1,21 @@
 import Link from "next/link";
-import { Navbar } from "@/components/Navbar";
 import { getYearsCoding } from "@/utils/utils";
-
-// Force static generation for index.html home page
-export const dynamic = "force-static";
 
 export default function Page() {
   return (
-    <div className="w-full max-w-2xl px-8">
-      <Navbar title="Nathan Thomas" />
-      <p className="pt-6">
+    <section className="w-full max-w-2xl">
+      <p>
         I'm a{" "}
         <a
           href="https://github.com/nwthomas"
-          aria-label="Link to Nathan's profile on GitHub"
+          aria-label="Link to Nathan's GitHub"
           rel="noopener noreferrer"
           target="_blank"
         >
           software engineer
         </a>
         ,{" "}
-        <Link aria-label="Link to Nathan's blog page" href="/blog">
+        <Link aria-label="Link to Nathan's writing" href="/writing">
           writer
         </Link>
         , and{" "}
@@ -32,7 +27,7 @@ export default function Page() {
         >
           teacher
         </a>
-        . I'm currently on sabbatical and working on my next thing. Previously, I led work at{" "}
+        . I'm currently on sabbatical and working on my next thing. Previously, I led core work at{" "}
         <a href="https://tesla.com" aria-label="Link to Tesla's website" rel="noopener noreferrer" target="_target">
           Tesla
         </a>
@@ -46,22 +41,24 @@ export default function Page() {
         </a>
         .
       </p>
-      <p className="pt-6">
+      <p className="pt-5">
         I fell in love with technology as a little kid and never left. Eventually, I learned to code and I've been
         coding for {getYearsCoding()} years love every piece of technology I can{" "}
-        <Link aria-label="Link to Nathan's bookmarks page" href="/bookmarks">
+        <Link aria-label="Link to Nathan's bookmarks" href="/bookmarks">
           learn about
         </Link>
         .
       </p>
-      <p className="pt-6">These are some of my favorite posts:</p>
-      <ul className="pt-6">
-        <li>On Finding Confidence</li>
+      <p className="pt-5">These are some of my favorite posts:</p>
+      <ul className="pt-5">
+        <li>
+          <a>On Finding Confidence</a>On Finding Confidence
+        </li>
         <li>The Pursuit of Persistence and Grit</li>
         <li>React Native Web at Twitter</li>
       </ul>
-      <p className="pt-6">Traces of me across the internet:</p>
-      <ul className="pt-6 ">
+      {/* <p className="pt-5">Traces of me across the internet:</p>
+      <ul className="pt-5 ">
         <li>
           <a
             href="https://github.com/nwthomas"
@@ -152,23 +149,24 @@ export default function Page() {
             YouTube
           </a>
         </li>
-      </ul>
-      <p className="pt-6">
+      </ul> */}
+      <p className="pt-5">
         You can read my{" "}
-        <Link aria-label="Link to Nathan's blog page" href="/blog">
+        <Link aria-label="Link to Nathan's writing" href="/writing">
           writing
         </Link>
         ,{" "}
         <a
           href="https://github.com/nwthomas"
-          aria-label="Link to Nathan's profile on GitHub"
+          aria-label="Link to Nathan's GitHub"
           rel="noopener noreferrer"
           target="_blank"
         >
           code
         </a>
-        , or follow me online. I also angel invest in startups, so please reach out if interested.
+        , or follow me online. I also angel invest in startups, so please{" "}
+        <a href="mailto:contact@nathanthomas.dev">reach out</a> if interested.
       </p>
-    </div>
+    </section>
   );
 }

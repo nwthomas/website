@@ -4,23 +4,19 @@ import Link from "next/link";
 import { ThemeSwitch } from "@/components/ThemeSwitch";
 import { usePathname } from "next/navigation";
 
-interface Props {
-  title: string;
-}
-
-export function Navbar({ title }: Props) {
+export function Navbar() {
   const pathname = usePathname();
 
   const isHomePage = pathname === "/";
   const isWritingPage = pathname === "/writing";
   const isBookmarksPage = pathname === "/bookmarks";
 
-  const homeText = <h1>{title}</h1>;
+  const homeText = <h1>Nathan Thomas</h1>;
   const writingText = <p className="text-sm">Writing</p>;
   const bookmarksText = <p className="text-sm">Bookmarks</p>;
 
   return (
-    <div className="flex justify-between items-center">
+    <header className="flex justify-between items-center">
       <div>
         {isHomePage ? (
           homeText
@@ -47,6 +43,6 @@ export function Navbar({ title }: Props) {
         )}
         <ThemeSwitch />
       </div>
-    </div>
+    </header>
   );
 }

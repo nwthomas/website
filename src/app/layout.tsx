@@ -3,6 +3,7 @@ import "./globals.css";
 import { Geist, Geist_Mono } from "next/font/google";
 
 import type { Metadata } from "next";
+import { Navbar } from "@/components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
         width: 2400,
         height: 1204,
       },
-    ], // TODO: Add OG images to metadata here
+    ], // TODO: Add more (and update) OG images to metadata here
     locale: "en_US",
     type: "website",
   },
@@ -39,7 +40,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <main className="flex justify-center w-full min-h-screen py-10">{children}</main>
+        <div className="flex flex-col items-center w-full min-h-screen px-5 py-5 sm:py-10 md:py-20 lg:py-30">
+          <div className="w-full max-w-xl">
+            <Navbar />
+          </div>
+          <main className="flex justify-center w-full max-w-xl pt-10">{children}</main>
+        </div>
       </body>
     </html>
   );

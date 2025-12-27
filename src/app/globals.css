@@ -36,6 +36,10 @@
     @apply bg-selection-background text-selection-foreground;
   }
 
+  * {
+    box-sizing: border-box;
+  }
+
   html,
   body {
     /* Using 'background-color' will make sure this value is applied to the iPhone notch area */
@@ -59,7 +63,7 @@
   }
 
   h3 {
-    @apply font-sans text-lg font-bold leading-normal;
+    @apply font-sans font-bold leading-normal;
   }
 
   p {
