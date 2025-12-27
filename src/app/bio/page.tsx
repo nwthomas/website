@@ -5,9 +5,10 @@ export const metadata: Metadata = {
   description: "Nathan Thomas' biography page",
 };
 
-// Force static generation for bookmarks page
-export const dynamic = "force-static";
-
 export default function Page() {
-  return <section>Bio Page Coming Soon</section>;
+  return (
+    <section className="w-full max-w-2xl">
+      <p>Bio Page Coming Soon</p>
+    </section>
+  );
 }

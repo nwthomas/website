@@ -59,10 +59,6 @@
   }
 
   h2 {
-    @apply font-sans text-lg font-bold leading-normal;
-  }
-
-  h3 {
     @apply font-sans font-bold leading-normal;
   }
 
@@ -80,10 +76,10 @@
   }
 
   li {
-    @apply font-sans text-base;
+    @apply font-sans text-base relative pl-4;
+  }
 
-    :before {
-      @apply content-["■"] font-sans text-[10px] text-gray-300 no-underline inline-block absolute;
-    }
+  li:before {
+    @apply content-["‣"] inline-block font-sans text-[15px] text-gray-400 no-underline absolute bottom-0.5 left-0.5;
   }
 }
