@@ -1,6 +1,12 @@
 import { BOOKMARKS } from "@/constants/bookmarks";
+import { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { clsx } from "clsx";
+
+export const metadata: Metadata = {
+  title: "Bookmarks | Nathan Thomas",
+  description: "Nathan Thomas' bookmarks page",
+};
 
 export default function Page() {
   return (

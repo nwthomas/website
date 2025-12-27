@@ -151,8 +151,20 @@ export default function Page() {
         </li>
       </ul>
       <p className="pt-6">
-        You can read my writing, code, or follow me online. I also angel invest in startups, so please reach out if
-        interested.
+        You can read my{" "}
+        <Link aria-label="Link to Nathan's blog page" href="/blog">
+          writing
+        </Link>
+        ,{" "}
+        <a
+          href="https://github.com/nwthomas"
+          aria-label="Link to Nathan's profile on GitHub"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          code
+        </a>
+        , or follow me online. I also angel invest in startups, so please reach out if interested.
       </p>
     </div>
   );

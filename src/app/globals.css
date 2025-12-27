@@ -4,33 +4,38 @@
   /* Theme Variables */
   --background: #ffffff;
   --foreground: #171717;
-  --selection: #2d6eee;
   --theme-switch: #facf3d;
-  --highlight-foreground: #ffffff;
+  --selection-foreground: #ffffff;
+  --selection-background: #0a0a0a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-selection: var(--selection);
-  --font-sans: var(--font-geist-sans), Times, Times New Roman, serif;
-  --font-mono: var(--font-geist-mono), Times, Times New Roman, serif;
+  --color-selection-foreground: var(--selection-foreground);
+  --color-selection-background: var(--selection-background);
+  --font-sans:
+    var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-mono: var(--font-geist-mono), monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --selection-background: #ededed;
+    --selection-foreground: #0a0a0a;
   }
 }
 
 @layer base {
   :focus-visible {
-    @apply outline-solid outline-2 outline-selection;
+    @apply outline-solid outline-2 outline-foreground;
   }
 
   ::selection {
-    @apply bg-selection text-white;
+    @apply bg-selection-background text-selection-foreground;
   }
 
   html,
@@ -64,11 +69,19 @@
   }
 
   a {
-    @apply font-sans underline decoration-dotted decoration-gray-300 underline-offset-5 opacity-100 hover:opacity-70 transition-opacity duration-200 cursor-pointer;
+    @apply font-sans underline decoration-solid decoration-gray-300 underline-offset-5 opacity-100 hover:opacity-70 transition-opacity duration-200;
   }
 
   ul,
   ol {
-    @apply font-sans list-disc list-inside;
+    @apply list-inside;
+  }
+
+  li {
+    @apply font-sans text-base;
+
+    :before {
+      @apply content-["■"] font-sans text-[10px] text-gray-300 no-underline inline-block absolute;
+    }
   }
 }
