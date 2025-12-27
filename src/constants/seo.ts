@@ -1,9 +1,3 @@
-export const BLOG_PAGE_NAME = "Blog";
-export const BOOKMARKS_PAGE_NAME = "Bookmarks";
-export const CONTACT_PAGE_NAME = "Contact";
-export const FOUR_OH_FOUR_PAGE_NAME = "404";
-export const HOME_PAGE_NAME = "Home";
-
 export const DEFAULT_SITE_OG_IMAGE_URL = "/images/og/home-page.webp";
 
 export interface SeoConfig {
@@ -25,7 +19,7 @@ export const DEFAULT_SEO_VALUES: SeoConfig = {
     name: "Nathan Thomas",
   },
   baseUrl: "https://www.nathanthomas.dev",
-  description: "Internet home for Nathan Thomas. Focus on articles and projects.",
+  description: "Internet home for Nathan Thomas",
   imageUrl: DEFAULT_SITE_OG_IMAGE_URL,
   social: {
     twitter: { handle: "@nwthomas", site: "@nwthomas" },

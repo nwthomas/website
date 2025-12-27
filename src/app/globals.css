@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --selection: #0000ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:focus {
+  outline-color: var(--selection);
+  outline-style: solid;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html,
+body {
+  /* Using 'background-color' will make sure this value is applied to the iPhone notch area */
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  @apply font-sans text-4xl font-bold;
+}
+
+p {
+  @apply leading-relaxed;
+}

@@ -8,9 +8,6 @@ const nextConfig = {
     qualities: [75, 100],
   },
   reactCompiler: true,
-  compiler: {
-    styledComponents: true,
-  },
   // Turn off NextJS icon if needed while taking screenshots for SEO home pre-generated image
   // devIndicators: false,
 };

@@ -1,8 +1,0 @@
-@layer theme, components, utilities;
-
-@import "tailwindcss/theme.css" layer(theme);
-
-/* Custom CSS Reset styles */
-@import "./reset.css";
-
-@import "tailwindcss/utilities.css" layer(utilities);
