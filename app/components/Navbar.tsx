@@ -26,7 +26,7 @@ export function Navbar() {
           </Link>
         )}
       </div>
-      <div className="flex gap-2 sm:gap-5 items-center">
+      <div className="flex gap-3 sm:gap-5 items-center">
         {isWritingPage ? (
           writingText
         ) : (

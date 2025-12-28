@@ -51,7 +51,7 @@ export default function Page() {
             rel="noopener noreferrer"
             target="_blank"
           >
-            Code Tenderloin (volunteer instructor)
+            Code Tenderloin (volunteer)
           </a>
         </li>
         <li>
