@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <section className="mx-5">
+    <section className="w-full max-w-2xl mx-5">
       {BOOKMARKS.map((bookmark, i) => (
         <div className={clsx("flex gap-5", i > 0 && "")} key={bookmark.url}>
           <p className="font-mono text-sm whitespace-nowrap leading-normal">{bookmark.date}</p>
