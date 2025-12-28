@@ -1,13 +1,5 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --theme-switch: #facf3d;
-  --selection-foreground: #ffffff;
-  --selection-background: #0000ff;
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -19,26 +11,13 @@
   --font-mono: var(--font-geist-mono), monospace;
 }
 
-html.dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-}
-
-/* The below two media queries handle OS theme changes while the user is on the page */
-@media (prefers-color-scheme: light) {
-  :root {
-    --background: #ffffff;
-    --foreground: #171717;
-  }
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 @layer base {
+  :root {
+    --theme-switch: #facf3d;
+    --selection-foreground: #ffffff;
+    --selection-background: #0000ff;
+  }
+
   :focus-visible {
     @apply outline-solid outline-2 outline-selection-background;
   }
@@ -56,6 +35,16 @@ html.dark {
     /* Using 'background-color' will make sure this value is applied to the iPhone notch area */
     background-color: var(--background);
     color: var(--foreground);
+  }
+
+  html {
+    --background: #ffffff;
+    --foreground: #171717;
+  }
+
+  html.dark {
+    --background: #0a0a0a;
+    --foreground: #ededed;
   }
 
   body {

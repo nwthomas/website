@@ -46,8 +46,8 @@ export default function Page() {
       <ul className="pt-4">
         <li>
           <a
-            href="https://www.youtube.com/watch?v=GNrQTbIFsG4&t=2909s"
-            aria-label="Link to Nathan's React Native Web at Twitter talk on YouTube"
+            href="https://www.codetenderloin.org/"
+            aria-label="Link to Code Tenderloin"
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -74,7 +74,7 @@ export default function Page() {
             rel="noopener noreferrer"
             target="_blank"
           >
-            Local AI models with Kubernetes
+            Local AI models on Kubernetes
           </a>
         </li>
         <li>

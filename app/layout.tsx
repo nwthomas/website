@@ -1,12 +1,11 @@
 import "./globals.css";
 
 import { Geist, Geist_Mono } from "next/font/google";
-import { THEME_DARK_MODE, THEME_LIGHT_MODE } from "./components/ThemeSwitch";
 
-import { Analytics } from "./components/Analytics";
+import { Analytics } from "@/app/components/Analytics";
 import type { Metadata } from "next";
-import { Navbar } from "./components/Navbar";
-import Script from "next/script";
+import { Navbar } from "@/app/components/Navbar";
+import { Providers } from "@/app/components/Providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,36 +38,66 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
+    /* The suppresHydrationWarning is for the script below which runs client-side to set the theme */
     <html lang="en" suppressHydrationWarning>
       <head>
-        <Script
-          id="theme-init"
-          strategy="beforeInteractive"
+        <script
           dangerouslySetInnerHTML={{
             __html: `
               (function () {
+                var DARK_THEME = "dark";
+                var LIGHT_THEME = "light";
+                var THEME_KEY = "theme";
+                var preferredTheme;
+                var handleChangeTheme = function handleChangeTheme() {}
+
+                function setTheme(newTheme) {
+                  window.__theme = newTheme;
+                  preferredTheme = newTheme;
+                  if (newTheme === DARK_THEME) {
+                    document.documentElement.classList.add(DARK_THEME);
+                  } else {
+                    document.documentElement.classList.remove(DARK_THEME);
+                  }
+                }
+
                 try {
-                  const theme = localStorage.getItem('theme');
-                  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                  const resolved = theme ?? (prefersDark ? '${THEME_DARK_MODE}' : '${THEME_LIGHT_MODE}');
-                  document.documentElement.classList.add(resolved);
-                } catch {}
+                  var savedPreferredTheme = localStorage.getItem(THEME_KEY);
+
+                  if (savedPreferredTheme === DARK_THEME || savedPreferredTheme === LIGHT_THEME) {
+                    preferredTheme = savedPreferredTheme;
+                  }
+                } catch (error) {}
+
+                window.__setPreferredTheme = function setPreferredTheme(newTheme) {
+                  setTheme(newTheme);
+
+                  try {
+                    localStorage.setItem(THEME_KEY, newTheme);
+                  } catch (error) {}
+                }
+
+                var userOSThemePreference = window.matchMedia('(prefers-color-scheme: dark)');
+                
+                setTheme(preferredTheme || (userOSThemePreference.matches ? DARK_THEME : LIGHT_THEME));
               })();
             `,
           }}
         />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <div className="flex flex-col items-center w-full min-h-screen px-5 py-10 md:py-20 lg:py-30">
-          <div className="w-full max-w-xl">
-            <Navbar />
+      <Providers>
+        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+          <div className="flex flex-col items-center w-full min-h-screen px-5 py-10 md:py-20 lg:py-30">
+            <div className="w-full max-w-xl">
+              <Navbar />
+            </div>
+            <main className="flex justify-center w-full max-w-xl pt-5">{children}</main>
           </div>
-          <main className="flex justify-center w-full max-w-xl pt-5">{children}</main>
-        </div>
-        <Analytics />
-      </body>
+          <Analytics />
+        </body>
+      </Providers>
     </html>
   );
 }
