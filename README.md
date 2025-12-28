@@ -2,7 +2,7 @@
 
 This is my personal website, a place for my writing and thoughts to live.
 
-![Homepage Example](./assets/homepage-example.png)
+![Homepage](./assets/home-page.png)
 
 ## Table of Contents
 
@@ -27,7 +27,7 @@ After that, you should be able to go ahead and start up the dev environment serv
 make dev
 ```
 
-It's recommended to set up a `.env` file modeled after the `.env.example` in the root of this repository, but the basic site (minus email actions) will still run without that in place.
+It's recommended to set up a `.env` file modeled after the `.env.example` in the root of this repository if you want Sentry functionality, but the basic site will still run without that in place.
 
 ## Project Management
 
@@ -35,19 +35,15 @@ You can find work for this repository in this [Trello board](https://trello.com/
 
 ## Technology Stack
 
-- [Emotion](https://emotion.sh)
 - [Focus Trap React](https://github.com/focus-trap/focus-trap-react)
-- [Formik](https://formik.org)
 - [Next](https://nextjs.org)
 - [Next SEO](https://github.com/garmeeh/next-seo)
-- [Nodemailer](https://github.com/nodemailer/nodemailer)
 - [Redux](https://redux.js.org)
 - [Sentry](https://sentry.io/welcome)
 - [Tanstack Query](https://tanstack.com/query/latest)
 - [TypeScript](https://www.typescriptlang.org)
 - [Vercel](https://vercel.com)
-- [Yup](https://github.com/jquense/yup)
 
 ## ACKNOWLEDGEMENTS
 
-- Thanks to my parents for supporting my journey of learning to code. I couldn't have done it without you.
+- Thanks to my parents for supporting me. I couldn't have done it without you.

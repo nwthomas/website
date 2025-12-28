@@ -4,7 +4,7 @@ import { MoonIcon, SunIcon } from "@/app/components/Icons";
 
 import { DARK_THEME } from "@/store/reducers/themeSlice";
 import { createRef } from "react";
-import { useTheme } from "@/utils/useTheme";
+import { useTheme } from "@/hooks/useTheme";
 
 const DARK_MODE_ARIA_LABEL = "Switch to light mode";
 const LIGHT_MODE_ARIA_LABEL = "Switch to dark mode";

@@ -1,7 +1,7 @@
-import withMDX from "@next/mdx";
+import createMDX from "@next/mdx";
 import { withSentryConfig } from "@sentry/nextjs";
 
-const nextConfig = withMDX({
+const nextConfig = {
   // NextJS generic configurations
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   reactStrictMode: true,
@@ -15,6 +15,14 @@ const nextConfig = withMDX({
   reactCompiler: true,
   // Turn off NextJS icon if needed while taking screenshots for SEO home pre-generated image
   // devIndicators: false,
+};
+
+const withMDX = createMDX({
+  extension: /\.(md|mdx)$/,
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
 });
 
 const sentryWebpackPluginOptions = {
@@ -25,4 +33,4 @@ const sentryWebpackPluginOptions = {
 };
 
 // The Sentry function must run last before exporting
-export default withSentryConfig(nextConfig, sentryWebpackPluginOptions);
+export default withSentryConfig(withMDX(nextConfig), sentryWebpackPluginOptions);

@@ -40,7 +40,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    /* The suppresHydrationWarning is for the script below which runs client-side to set the theme */
+    // The suppresHydrationWarning is for the script below which runs client-side to set the theme.
+    // I may upgrade the theme logic to use a server-side set cookie (and is certainly what I might
+    // use in a non-personal production environment), but this works great for a now for my site.
     <html lang="en" suppressHydrationWarning>
       <head>
         <script
@@ -89,7 +91,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <Providers>
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <div className="flex flex-col items-center w-full min-h-screen px-5 py-10 md:py-20 lg:py-30">
+          <div className="flex flex-col items-center w-full min-h-screen py-10 md:py-20 lg:py-30">
             <div className="w-full max-w-xl">
               <Navbar />
             </div>

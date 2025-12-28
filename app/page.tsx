@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Page() {
   return (
-    <section className="w-full max-w-2xl">
+    <section className="w-full max-w-2xl px-5">
       <p>
         I'm a{" "}
         <Link href="/bio" aria-label="Link to Nathan's bio">
@@ -36,10 +36,10 @@ export default function Page() {
       <h2 className="pt-5">Writing:</h2>
       <ul className="pt-4">
         <li>
-          <Link href="/writing/2025/on-finding-confidence">On Finding Confidence</Link>
+          <Link href="/on-finding-confidence">On Finding Confidence</Link>
         </li>
         <li>
-          <Link href="/writing/2019/the-pursuit-of-persistence-and-grit">The Pursuit of Persistence and Grit</Link>
+          <Link href="/the-pursuit-of-persistence-and-grit">The Pursuit of Persistence and Grit</Link>
         </li>
       </ul>
       <h2 className="pt-5">Teaching:</h2>
