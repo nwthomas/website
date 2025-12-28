@@ -16,7 +16,7 @@ export function Navbar() {
   const bookmarksText = <p className="text-sm">Bookmarks</p>;
 
   return (
-    <header className="flex justify-between items-center px-5 ">
+    <header className="flex justify-between items-center mx-5 ">
       <div>
         {isHomePage ? (
           homeText

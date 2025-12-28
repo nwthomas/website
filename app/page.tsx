@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Page() {
   return (
-    <section className="w-full max-w-2xl px-5">
+    <section className="w-full max-w-2xl mx-5">
       <p>
         I'm a{" "}
         <Link href="/bio" aria-label="Link to Nathan's bio">
@@ -28,13 +28,13 @@ export default function Page() {
         </a>
         .
       </p>
-      <p className="pt-5">
+      <p className="mt-5">
         I fell in love with technology and building as a little kid and just never left. At the end of the day, I'm
         still that little kid who grew up using his parents' Macintosh or sat on their floor snapping LEGO pieces
         together while building something insanely great.
       </p>
-      <h2 className="pt-5">Writing:</h2>
-      <ul className="pt-4">
+      <h2 className="mt-5">Writing:</h2>
+      <ul className="mt-4">
         <li>
           <Link href="/on-finding-confidence">On Finding Confidence</Link>
         </li>
@@ -42,8 +42,8 @@ export default function Page() {
           <Link href="/the-pursuit-of-persistence-and-grit">The Pursuit of Persistence and Grit</Link>
         </li>
       </ul>
-      <h2 className="pt-5">Teaching:</h2>
-      <ul className="pt-4">
+      <h2 className="mt-5">Teaching:</h2>
+      <ul className="mt-4">
         <li>
           <a
             href="https://www.codetenderloin.org/"
@@ -65,8 +65,8 @@ export default function Page() {
           </a>
         </li>
       </ul>
-      <h2 className="pt-5">Projects:</h2>
-      <ul className="pt-4">
+      <h2 className="mt-5">Projects:</h2>
+      <ul className="mt-4">
         <li>
           <a
             href="https://github.com/nwthomas/gitops"
@@ -108,7 +108,7 @@ export default function Page() {
           </a>
         </li>
       </ul>
-      <p className="pt-5">
+      <p className="mt-5">
         You can read my{" "}
         <Link aria-label="Link to Nathan's writing" href="/writing">
           writing
