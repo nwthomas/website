@@ -1,3 +1,4 @@
+import { Footer } from "./components/Footer";
 import Link from "next/link";
 
 export default function Page() {
@@ -140,6 +141,9 @@ export default function Page() {
         I also angel invest in startups, so please <a href="mailto:contact@nathanthomas.dev">reach out</a> if
         interested.
       </p>
+      <div className="flex justify-center w-full">
+        <Footer />
+      </div>
     </section>
   );
 }
