@@ -18,7 +18,7 @@ export default function Page() {
               href={bookmark.url}
             >
               <span className="whitespace-nowrap no-underline">{bookmark.date}</span>
-              <span className="underline decoration-dotted decoration-gray-400">{bookmark.title}</span>
+              <span className="underline decoration-dotted decoration-gray-500">{bookmark.title}</span>
             </a>
           </li>
         ))}

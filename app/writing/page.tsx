@@ -18,7 +18,7 @@ export default function Page() {
           <li className={clsx("flex before:content-[''] pl-0", i > 0 && "mt-1")} key={post.id}>
             <Link className="text-sm font-mono flex gap-5 no-underline" href={`/${post.id}`}>
               <span className="whitespace-nowrap">{post.date}</span>
-              <span className="underline decoration-dotted decoration-gray-400">{post.title}</span>
+              <span className="underline decoration-dotted decoration-gray-500">{post.title}</span>
             </Link>
           </li>
         ))}

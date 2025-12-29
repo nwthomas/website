@@ -26,8 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { slug } = await params;
   const importPath = `../content/${slug}.mdx`;
-  const { default: Post, metadata } = await import(importPath);
-  console.log(metadata);
+  const { default: Post } = await import(importPath);
 
   return (
     <article className="w-full">

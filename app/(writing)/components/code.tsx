@@ -4,12 +4,12 @@ export const Code = ({ children }: { children: ReactNode }) => {
   return (
     <code
       className={`
-        [p_&]:text-sm
-        [p_&]:px-1
-        [p_&]:py-0.5
-        [p_&]:rounded-sm
-        [p_&]:bg-neutral-200
-        dark:[p_&]:bg-[#333]
+        in-[p]:text-sm
+        in-[p]:px-1
+        in-[p]:py-0.5
+        in-[p]:rounded-sm
+        in-[p]:bg-neutral-200
+        dark:in-[p]:bg-[#333]
         
       `}
     >
@@ -21,7 +21,7 @@ export const Code = ({ children }: { children: ReactNode }) => {
 export const Pre = ({
   children,
   scroll = true,
-  caption = null,
+  // caption = null, // TODO: Add captions support for images
 }: {
   children: ReactNode;
   scroll: boolean;
