@@ -1,8 +1,8 @@
-import { DARK_THEME, LIGHT_THEME, ThemeEnum, updateCurrentTheme } from "../store/reducers/themeSlice";
-import { useCallback, useEffect } from "react";
+import { DARK_THEME, LIGHT_THEME, ThemeEnum, updateCurrentTheme } from "@/store/reducers/themeSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-import { selectCurrentTheme } from "../store/selectors/themeSelectors";
+import { selectCurrentTheme } from "@/store/selectors/themeSelectors";
+import { useEffect } from "react";
 
 export const LOCAL_STORAGE_KEY = "theme";
 const MATCH_MEDIA_QUERY_NAME = "(prefers-color-scheme: dark)";
@@ -35,36 +35,38 @@ export function getThemeFromWindowObject(): ThemeEnum | null {
   return null;
 }
 
+export interface UseThemeReturn {
+  currentTheme: ThemeEnum | null;
+  setCurrentTheme: () => void;
+}
+
 // Updates the theme using the JavaScript code defined in the _document.tsx file
-export function useTheme(): [ThemeEnum | null, () => void] {
+export function useTheme(): UseThemeReturn {
   const dispatch = useDispatch();
   // Theme value from Redux (starts as null)
-  const userPreferredTheme = useSelector(selectCurrentTheme);
-
-  // Function to handle match media changes by user in OS
-  const handleMatchMediaChange = useCallback(
-    (event: MediaQueryListEvent) => {
-      const newTheme = (event.currentTarget as MediaQueryList).matches ? DARK_THEME : LIGHT_THEME;
-
-      dispatch(updateCurrentTheme(newTheme));
-      window.__setPreferredTheme(newTheme);
-    },
-    [dispatch],
-  );
+  const currentTheme = useSelector(selectCurrentTheme);
 
   // Handles any updates to the theme
-  const handleUpdatePreferredTheme = useCallback(() => {
+  const setCurrentTheme = () => {
     if (typeof window !== "undefined" && window.__theme && window.__setPreferredTheme) {
       const newTheme = window.__theme === DARK_THEME ? LIGHT_THEME : DARK_THEME;
 
       dispatch(updateCurrentTheme(newTheme));
       window.__setPreferredTheme(newTheme);
     }
-  }, [dispatch]);
+  };
 
   // Handles setting the theme in Redux on load of hook
   useEffect(() => {
     const windowObjectTheme = getThemeFromWindowObject();
+
+    // Function to handle match media changes by user in OS
+    const handleMatchMediaChange = (event: MediaQueryListEvent) => {
+      const newTheme = (event.currentTarget as MediaQueryList).matches ? DARK_THEME : LIGHT_THEME;
+
+      dispatch(updateCurrentTheme(newTheme));
+      window.__setPreferredTheme(newTheme);
+    };
 
     if (windowObjectTheme) {
       window.matchMedia(MATCH_MEDIA_QUERY_NAME).addEventListener("change", handleMatchMediaChange, { passive: true });
@@ -75,7 +77,7 @@ export function useTheme(): [ThemeEnum | null, () => void] {
         window.matchMedia(MATCH_MEDIA_QUERY_NAME).removeEventListener("change", handleMatchMediaChange);
       };
     }
-  }, [dispatch, handleMatchMediaChange]);
+  }, [dispatch]);
 
-  return [userPreferredTheme, handleUpdatePreferredTheme];
+  return { currentTheme, setCurrentTheme };
 }

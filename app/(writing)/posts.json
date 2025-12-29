@@ -1,0 +1,29 @@
+{
+  "posts": [
+    {
+      "id": "on-finding-confidence",
+      "title": "On Finding Confidence",
+      "date": "2025-09-17"
+    },
+    {
+      "id": "debounce-versus-throttle",
+      "title": "Debounce Versus Throttle",
+      "date": "2023-02-14"
+    },
+    {
+      "id": "on-loss",
+      "title": "On Loss",
+      "date": "2022-01-22"
+    },
+    {
+      "id": "understanding-closures",
+      "title": "Understanding Closures",
+      "date": "2020-01-05"
+    },
+    {
+      "id": "the-pursuit-of-persistence-and-grit",
+      "title": "The Pursuit of Persistence and Grit",
+      "date": "2019-07-02"
+    }
+  ]
+}

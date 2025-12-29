@@ -4,10 +4,6 @@ module.exports = {
   generateIndexSitemap: true,
   generateRobotsTxt: true,
   robotsTxtOptions: {
-    policies: [
-      { userAgent: "*", allow: "/" },
-      { userAgent: "*", disallow: "/og-image" },
-    ],
+    policies: [{ userAgent: "*", allow: "/" }],
   },
-  exclude: ["/og-image"],
 };
