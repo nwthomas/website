@@ -32,7 +32,7 @@ function ImageOverlay() {
     <FocusTrap>
       <div
         onClick={handleCloseButtonClick}
-        className="fixed top-0 left-0 bottom-0 right-0 w-full h-full inset-0 z-10 bg-black"
+        className="fixed top-0 left-0 bottom-0 right-0 w-full h-full inset-0 z-10 bg-background"
       >
         <div className="w-full h-full flex flex-col justify-center items-center p-5">
           <button

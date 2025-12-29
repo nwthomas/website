@@ -4,11 +4,9 @@ export default function Page() {
   return (
     <section className="w-full max-w-2xl mx-5">
       <p>
-        I'm a{" "}
-        <Link href="/bio" aria-label="Link to Nathan's bio">
-          software engineer, writer, and teacher
-        </Link>{" "}
-        from San Francisco, CA. I'm currently on sabbatical and working on my next thing. Previously, I led core work at{" "}
+        {/* TODO: Write a bio page for the below to link to (/bio) */}
+        I'm a software engineer, writer, and teacher from San Francisco, CA. I'm currently on sabbatical and working on
+        my next thing. Previously, I led core work at{" "}
         <a href="https://tesla.com" aria-label="Link to Tesla's website" rel="noopener noreferrer" target="_target">
           Tesla
         </a>
@@ -30,16 +28,12 @@ export default function Page() {
       </p>
       <p className="mt-5">
         I fell in love with technology and building as a little kid and just never left. At the end of the day, I'm
-        still that little kid who grew up using his parents' Macintosh or sat on their floor snapping LEGO pieces
-        together while building something insanely great.
+        still that little kid who grew up using his parents' Macintosh and ripping CDs for his friends.
       </p>
       <h2 className="mt-5">Writing:</h2>
       <ul className="mt-4">
         <li>
           <Link href="/on-finding-confidence">On Finding Confidence</Link>
-        </li>
-        <li>
-          <Link href="/on-loss">On Loss</Link>
         </li>
         <li>
           <Link href="/the-pursuit-of-persistence-and-grit">The Pursuit of Persistence and Grit</Link>

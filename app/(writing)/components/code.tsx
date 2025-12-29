@@ -10,6 +10,7 @@ export const Code = ({ children }: { children: ReactNode }) => {
         [p_&]:rounded-sm
         [p_&]:bg-neutral-200
         dark:[p_&]:bg-[#333]
+        
       `}
     >
       {children}

@@ -6,6 +6,7 @@ import { H3 } from "./app/(writing)/components/h3";
 import { Image } from "./app/(writing)/components/image";
 import { Li } from "./app/(writing)/components/li";
 import type { MDXComponents } from "mdx/types";
+import { Ol } from "./app/(writing)/components/ol";
 import { P } from "./app/(writing)/components/p";
 import { Pre } from "./app/(writing)/components/code";
 import { Ul } from "./app/(writing)/components/ul";
@@ -23,5 +24,6 @@ export function useMDXComponents(components: { [component: string]: React.Compon
     p: P,
     pre: Pre,
     ul: Ul,
+    ol: Ol,
   };
 }

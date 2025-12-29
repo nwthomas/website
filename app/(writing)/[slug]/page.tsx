@@ -2,21 +2,32 @@ import { ImageOverlayContainer } from "@/app/components/ImageOverlay";
 import { Metadata } from "next";
 import { getSlugs } from "../utils/getSlugs";
 
-type Params = { params: Promise<{ slug: string }> };
-
-export const metadata: Metadata = {
-  title: "Writing | Nathan Thomas",
-  description: "Nathan Thomas' writing page",
-};
+type Props = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
   return getSlugs();
 }
 
-export default async function Page({ params }: Params) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const importPath = `../content/${slug}.mdx`;
-  const { default: Post } = await import(importPath);
+  const { metadata } = await import(importPath);
+
+  return {
+    title: `${metadata.title} | Nathan Thomas`,
+    description: metadata.excerpt,
+    openGraph: {
+      title: metadata.title,
+      description: metadata.excerpt,
+    },
+  };
+}
+
+export default async function Page({ params }: Props) {
+  const { slug } = await params;
+  const importPath = `../content/${slug}.mdx`;
+  const { default: Post, metadata } = await import(importPath);
+  console.log(metadata);
 
   return (
     <article className="w-full">
