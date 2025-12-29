@@ -12,10 +12,13 @@ export default function Page() {
     <section className="w-full max-w-2xl mx-5">
       <ul className="w-full">
         {BOOKMARKS.map((bookmark, i) => (
-          <li className={clsx("flex gap-5 before:content-[''] pl-0", i > 0 && "")} key={bookmark.url}>
-            <p className="font-mono text-sm whitespace-nowrap leading-normal">{bookmark.date}</p>
-            <a className="font-mono text-sm wrap-break-words leading-normal" href={bookmark.url}>
-              {bookmark.title}
+          <li className={clsx("flex before:content-[''] pl-0", i > 0 && "mt-1")} key={bookmark.url}>
+            <a
+              className="flex gap-5 font-mono text-sm wrap-break-words leading-normal no-underline"
+              href={bookmark.url}
+            >
+              <span className="whitespace-nowrap no-underline">{bookmark.date}</span>
+              <span className="underline decoration-dotted decoration-gray-400">{bookmark.title}</span>
             </a>
           </li>
         ))}

@@ -92,7 +92,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <Providers>
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <div className="flex flex-col items-center w-full min-h-screen py-10 md:py-20 lg:py-25">
+          <div className="flex flex-col items-center w-full min-h-screen py-10 md:py-20 lg:py-25 relative">
             <div className="flex justify-center w-full">
               <Navbar />
             </div>

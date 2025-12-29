@@ -1,3 +1,4 @@
+import { ImageOverlayContainer } from "@/app/components/ImageOverlay";
 import { Metadata } from "next";
 import { getSlugs } from "../utils/getSlugs";
 
@@ -20,6 +21,7 @@ export default async function Page({ params }: Params) {
   return (
     <article className="w-full">
       <Post />
+      <ImageOverlayContainer />
     </article>
   );
 }

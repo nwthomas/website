@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
+import { clsx } from "clsx";
 import postsJson from "@/app/(writing)/posts.json";
 
 export const metadata: Metadata = {
@@ -13,11 +14,11 @@ export default function Page() {
   return (
     <section className="w-full max-w-2xl mx-5">
       <ul>
-        {posts.map((post) => (
-          <li className="flex before:content-[''] pl-0" key={post.id}>
-            <p className="text-sm font-mono">{post.date}</p>
-            <Link className="text-sm font-mono ml-4" href={`/${post.id}`}>
-              {post.title}
+        {posts.map((post, i) => (
+          <li className={clsx("flex before:content-[''] pl-0", i > 0 && "mt-1")} key={post.id}>
+            <Link className="text-sm font-mono flex gap-5 no-underline" href={`/${post.id}`}>
+              <span className="whitespace-nowrap">{post.date}</span>
+              <span className="underline decoration-dotted decoration-gray-400">{post.title}</span>
             </Link>
           </li>
         ))}
