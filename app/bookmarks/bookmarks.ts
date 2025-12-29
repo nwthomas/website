@@ -8,6 +8,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2025-12-28",
+    title: "MongoBleed Explained Simply",
+    url: "https://bigdata.2minutestreaming.com/p/mongobleed-explained-simply",
+  },
+  {
     date: "2025-12-27",
     title: "OpenAI: Why We Built the Responses API",
     url: "https://developers.openai.com/blog/responses-api",

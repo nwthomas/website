@@ -1,15 +1,15 @@
----
-title: "Understanding Closures"
-description: "Closures can feel like a mystery until you really dig in to understand what's going on!"
-imageUrl: "/images/blog/understanding-closures/backpacks.webp"
-dateWritten: "2020-01-05"
-dateUpdated: "2023-02-11"
-isDraft: false
-tags:
-  - TypeScript
----
+import { Image } from "@/app/(writing)/components/image";
 
-<img
+export const metadata = {
+  title: "Understanding Closures",
+  description: "Closures can feel like a mystery until you really dig in to understand what's going on!",
+  openGraph: {
+    title: "Understanding Closures",
+    description: "Closures can feel like a mystery until you really dig in to understand what's going on!",
+  },
+};
+
+<Image
   alt="A series of backpacks in different colors and stacked together"
   src="/images/blog/understanding-closures/backpacks.webp"
   width="1312"
@@ -24,13 +24,13 @@ tags:
 
 ## Starting From the Outside In
 
-Explaining closures is a frequently-used JavaScript and TypeScript interview question, but many engineers still don’t fully understand how they work. There’s a fog that surrounds it, much like the feeling you get when you eat too much during the holidays. 🥧
+Explaining closures is a frequently-used JavaScript and TypeScript interview question, but many engineers still don’t fully understand how they work. There’s a fog that surrounds it, much like the feeling you get when you eat too much during the holidays.
 
 When I first started learning closures, my first impulse was to close my laptop screen and go stare existentially at the local pond. But don’t worry; closures trip up a lot of people, but you’ll understand how they work and the concepts behind them by the end of this article.
 
 I’m going to walk you through a really cool (and more importantly, simple) example. You'll get it in no time at all.
 
-Grab your favorite coffee, apple cider, hot chocolate, or wintery beverage, and let’s get started. ☕️
+Grab your favorite coffee, apple cider, hot chocolate, or wintery beverage, and let’s get started.
 
 > "I'll use any excuse to buy a new backpack."
 >
@@ -93,7 +93,7 @@ What if I told you that this ability of closures to access all variables in scop
 
 I know. Has science gone too far?
 
-Let's find out. 🧪
+Let's find out.
 
 > “A good traveler has no fixed plans and is not intent on arriving."
 >
@@ -101,7 +101,7 @@ Let's find out. 🧪
 
 ## Counting with Closures
 
-Here's the code we're going to be working through for the rest of the article. Go ahead and read through it. 👍🏻
+Here's the code we're going to be working through for the rest of the article. Go ahead and read through it.
 
 Don't worry if you don't understand how it relates to closures yet. Just get an idea of what code is actually doing:
 
@@ -264,7 +264,7 @@ Even though we've only destructured out `increment`, it still has access to the 
 
 What this means is that we can access and modify our `num` variable even though we don't have it directly inside the function itself.
 
-**Isn't that wild?** 🦁
+**Isn't that wild?**
 
 This same thing is true for `decrement` and `getNum`, too. They both have access to `num` in the same manner through their closure from when they were created.
 
@@ -359,7 +359,3 @@ I hope that this brief overlook of how closures work helps you grasp them.
 By imagining them as little backpacks that functions can wear as they move around your application, you can build a framework in your mind for how you can access and manipulate variables contained inside of closures.
 
 Also, now that we've stepped through how they work, you can be confident in your closure knowledge and crush your next job interview.
-
-Thanks for reading.
-
-Nathan ☕️

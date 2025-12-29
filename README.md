@@ -36,8 +36,9 @@ You can find work for this repository in this [Trello board](https://trello.com/
 ## Technology Stack
 
 - [Focus Trap React](https://github.com/focus-trap/focus-trap-react)
-- [Next](https://nextjs.org)
-- [Next SEO](https://github.com/garmeeh/next-seo)
+- [NextJS](https://nextjs.org)
+- [NextJS MDX](https://www.npmjs.com/package/@next/mdx)
+- [NextJS SEO](https://github.com/garmeeh/next-seo)
 - [Redux](https://redux.js.org)
 - [Sentry](https://sentry.io/welcome)
 - [Tanstack Query](https://tanstack.com/query/latest)

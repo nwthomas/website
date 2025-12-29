@@ -1,30 +1,23 @@
----
-title: "Debounce Versus Throttle"
-description: "While they might seem the same, debounce and throttle actually have different use cases. Let's learn what they are!"
-imageUrl: /images/blog/debounce-versus-throttle/stoplight.webp
-dateWritten: "2023-02-14"
-dateUpdated: "2023-02-15"
-isDraft: false
-tags:
-  - TypeScript
----
+import { Image } from "@/app/(writing)/components/image";
 
-<img
-  alt="Neon 'Hello' sign on a black background"
-  src="/images/blog/debounce-versus-throttle/stoplight.webp"
-  width="1499"
-  height="750"
-/>
+export const metadata = {
+  title: "Debounce Versus Throttle",
+  description:
+    "While they might seem the same, debounce and throttle actually have different use cases. Let's learn what they are!",
+  openGraph: {
+    title: "Debounce Versus Throttle",
+    description:
+      "While they might seem the same, debounce and throttle actually have different use cases. Let's learn what they are!",
+  },
+};
 
 # Debounce Versus Throttle
-
-> I wrote this article because debounce and throttle are super hard to keep straight and visualize in your head. I hope this will help you in your learning journey.
 
 ## Introduction
 
 Back when I was trying to learn the difference between what a `debounce` function (like this one from [lodash](https://lodash.com/docs/4.17.15#debounce)) and `throttle` function were (again, here's one from [lodash](https://lodash.com/docs/4.17.15#throttle)), it turned out to be annoying to find materials that were crystal clear on _exactly_ how they functioned.
 
-I decided to write an article to correct that for you so you don't suffer the same fate! 😌
+I decided to write an article to correct that for you so you don't suffer the same fate.
 
 The main source of confusion is that, at face value, the two of them seem to behave a bit the same. If you're here reading this, I'm sure you've noticed the same thing.
 
@@ -46,7 +39,7 @@ A `debounce` function is often used when a user does a _lot_ of some sort of act
 
 Here's a nifty little diagram that might explain this concept:
 
-<img
+<Image
   alt="A cluster of function calls with the words 'Function is repeatedly called' over if with a 250ms wait and then a box symbolizing a funciton call that says 'When the function actually runs'"
   src="/images/blog/debounce-versus-throttle/debounce.webp"
   width="852"
@@ -73,7 +66,7 @@ function debounce(callback: (...args: unknown[]) => unknown) {
 
 I know, that's a lot to digest. But we're going to walk through it together.
 
-First off, we've defined a variable called `TIMEOUT_MS`. A `debounce` (and also `throttle`) function you'd actually use in a real app would typically allow you to set your _own_ timeout, but we're just hard-coding it here to make things easier. 👍🏻
+First off, we've defined a variable called `TIMEOUT_MS`. A `debounce` (and also `throttle`) function you'd actually use in a real app would typically allow you to set your _own_ timeout, but we're just hard-coding it here to make things easier.
 
 Next, we have our very own custom `debounce` function. For its parameter, notice that it takes in a `callback` function. We don't know what this function will be, so we've defined it to take in any number of `args` of `unknown` type and returns an `unknown` type (we might want to change this for a production application, but it works for us here):
 
@@ -162,7 +155,7 @@ Another way of thinking about it is that using `throttle` is like a stoplight th
 
 A picture is worth a thousand words, so here's another one:
 
-<img
+<Image
   alt="A cluster of function calls where the function is only allowed to actually run once within the timeout time"
   src="/images/blog/debounce-versus-throttle/throttle.webp"
   width="932"
@@ -213,7 +206,7 @@ return (...args: unknown[]) => {
 };
 ```
 
-Wait. What? 🤨
+Wait. What?
 
 I know. It seems a bit off. But what we're essentially doing is building a function that will set a timeout and save a `timeoutId` the first time it runs. Thereafter (until the timeout finishes `10` milliseconds later and calls the `callback`), any further attempts to call our `throttle`-ed function will merely return and not run.
 
@@ -254,7 +247,3 @@ What happens if you're `debounce`-ing a function for user input on a search bar 
 These are all possible with code, and I have a sneaking supicion that you'll be able to implement them now!
 
 In any case, I hope this article helped you grasp the differences between these two types of functions.
-
-As always, thanks for reading my articles.
-
-Nathan ☕️

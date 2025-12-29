@@ -39,6 +39,9 @@ export default function Page() {
           <Link href="/on-finding-confidence">On Finding Confidence</Link>
         </li>
         <li>
+          <Link href="/on-loss">On Loss</Link>
+        </li>
+        <li>
           <Link href="/the-pursuit-of-persistence-and-grit">The Pursuit of Persistence and Grit</Link>
         </li>
       </ul>

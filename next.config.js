@@ -22,6 +22,7 @@ const withMDX = createMDX({
   options: {
     remarkPlugins: [],
     rehypePlugins: [],
+    providerImportSource: "@/mdx-components",
   },
 });
 

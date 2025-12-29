@@ -1,10 +1,12 @@
 import { Blockquote } from "./app/(writing)/components/blockquote";
+import { Code } from "./app/(writing)/components/code";
 import { H1 } from "./app/(writing)/components/h1";
 import { H2 } from "./app/(writing)/components/h2";
 import { H3 } from "./app/(writing)/components/h3";
 import { Image } from "./app/(writing)/components/image";
 import type { MDXComponents } from "mdx/types";
 import { P } from "./app/(writing)/components/p";
+import { Pre } from "./app/(writing)/components/code";
 
 export function useMDXComponents(components: { [component: string]: React.ComponentType }): MDXComponents {
   return {
@@ -15,5 +17,7 @@ export function useMDXComponents(components: { [component: string]: React.Compon
     h3: H3,
     img: Image,
     p: P,
+    code: Code,
+    pre: Pre,
   };
 }
