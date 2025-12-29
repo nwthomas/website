@@ -2,7 +2,7 @@
 
 This is my personal website, a place for my writing and thoughts to live.
 
-![Homepage](./assets/home-page-example.png)
+![Homepage](./assets/home.png)
 
 ## Table of Contents
 
@@ -15,7 +15,7 @@ This is my personal website, a place for my writing and thoughts to live.
 
 First, [install bun](https://bun.com).
 
-Next, clond down this repository and run the following command to install dependencies:
+Next, clone down this repository and run the following command to install dependencies:
 
 ```bash
 make install
@@ -41,7 +41,7 @@ You can find work for this repository in this [Trello board](https://trello.com/
 - [NextJS SEO](https://github.com/garmeeh/next-seo)
 - [Redux](https://redux.js.org)
 - [Sentry](https://sentry.io/welcome)
-- [Tanstack Query](https://tanstack.com/query/latest)
+- [TailwindCSS](https://tailwindcss.com)
 - [TypeScript](https://www.typescriptlang.org)
 - [Vercel](https://vercel.com)
 

@@ -28,8 +28,8 @@ export default function Page() {
         .
       </p>
       <p className="mt-5">
-        I fell in love with technology and building as a little kid and just never left. At the end of the day, I'm
-        still that little kid who grew up using his parents' Macintosh and ripping CDs for his friends.
+        I fell in love with technology when I was young and just never left. At the end of the day, I'm still that
+        little kid who grew up using his parents' Macintosh and ripping CDs for his friends.
       </p>
       <h2 className="mt-5">Writing:</h2>
       <ul className="mt-4">
