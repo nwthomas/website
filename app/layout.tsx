@@ -3,7 +3,6 @@ import "./globals.css";
 import { Geist, Geist_Mono } from "next/font/google";
 
 import { Analytics } from "@/app/components/Analytics";
-import { Footer } from "@/app/components/Footer";
 import type { Metadata } from "next";
 import { Navbar } from "@/app/components/Navbar";
 import { Providers } from "@/app/components/Providers";
@@ -97,9 +96,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Navbar />
             </div>
             <main className="flex justify-center w-full pt-10">{children}</main>
-            <div className="flex justify-center w-full">
-              <Footer />
-            </div>
           </div>
           <Analytics />
         </body>
