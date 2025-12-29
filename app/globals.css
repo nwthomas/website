@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-selection-foreground: var(--selection-foreground);
+  --color-selection-background: var(--selection-background);
+  --font-sans:
+    var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-mono: var(--font-geist-mono), monospace;
+}
+
+@layer base {
+  :root {
+    --theme-switch: #facf3d;
+    --selection-foreground: #ffffff;
+    --selection-background: #0000ff;
+  }
+
+  :focus-visible {
+    @apply outline-solid outline-2 outline-selection-background;
+  }
+
+  ::selection {
+    @apply bg-selection-background text-selection-foreground;
+  }
+
+  html,
+  body {
+    /* Using 'background-color' will make sure this value is applied to the iPhone notch area */
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  html {
+    --background: #ffffff;
+    --foreground: #0a0a0a;
+  }
+
+  html.dark {
+    --background: #000000;
+    --foreground: #ededed;
+  }
+
+  body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1 {
+    @apply font-sans text-lg font-bold leading-normal;
+  }
+
+  h2 {
+    @apply font-sans font-bold leading-normal;
+  }
+
+  p {
+    @apply font-sans leading-normal;
+  }
+
+  a {
+    @apply font-sans underline decoration-dotted decoration-gray-500 underline-offset-5 opacity-100 hover:opacity-60 transition-opacity duration-200;
+  }
+
+  ul {
+    @apply list-inside;
+  }
+
+  ol {
+    @apply list-inside list-decimal pl-4 -indent-4;
+  }
+
+  li {
+    @apply font-sans text-base relative in-[ul]:pl-4;
+  }
+
+  ul li:before {
+    @apply content-["‣"] inline-block font-sans text-[15px] text-gray-500 no-underline absolute bottom-0.5 left-0.5;
+  }
+}
