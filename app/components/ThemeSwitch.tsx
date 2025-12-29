@@ -3,7 +3,7 @@
 import { MoonIcon, SunIcon } from "@/app/components/Icons";
 
 import { DARK_THEME } from "@/store/reducers/themeSlice";
-import { createRef } from "react";
+import { useRef } from "react";
 import { useTheme } from "@/hooks/useTheme";
 
 const DARK_MODE_ARIA_LABEL = "Switch to light mode";
@@ -11,7 +11,7 @@ const LIGHT_MODE_ARIA_LABEL = "Switch to dark mode";
 
 export function ThemeSwitch() {
   const { currentTheme, setCurrentTheme } = useTheme();
-  const inputRef = createRef<HTMLInputElement>();
+  const inputRef = useRef<HTMLInputElement>(null);
   const isDarkMode = currentTheme === DARK_THEME;
 
   const handleThemeSwitchClick = (event: React.SyntheticEvent) => {
@@ -37,12 +37,13 @@ export function ThemeSwitch() {
           />
           <div
             onClick={handleThemeSwitchClick}
-            className="bg-black border-2 border-gray-500 rounded-full cursor-pointer flex items-center h-[26px] justify-between px-[5px] pt-px relative touch-pan-x w-[50px] focus-within:outline focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 [&>svg]:h-[15px] [&>svg]:w-[15px]"
+            className="bg-black border-2 border-gray-500 rounded-full cursor-pointer flex items-center h-[26px] justify-between px-[5px] pt-px relative touch-pan-x w-[50px] focus-within:outline focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 transition-shadow duration-200 [&>svg]:h-[15px] [&>svg]:w-[15px] active:outline-none"
+            style={{ WebkitTapHighlightColor: "transparent" }}
           >
             <MoonIcon color="var(--theme-switch)" />
             <SunIcon color="var(--theme-switch)" />
             <div
-              className={`bg-white rounded-full h-[18px] absolute left-[2px] top-[2px] transition-transform duration-200 ease-out w-[18px] ${
+              className={`bg-white rounded-full h-[18px] absolute left-[2px] top-[2px] transition-transform duration-200 ease-out w-[18px] outline-none active:outline-none focus:outline-none select-none touch-action-none shadow-none active:shadow-none ${
                 isDarkMode ? "translate-x-6" : "translate-x-0"
               }`}
             />
