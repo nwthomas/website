@@ -13,7 +13,13 @@ export default function Page() {
 
   return (
     <section className="w-full max-w-2xl mx-5">
-      <p>Below is a curated collection of my writing:</p>
+      <p>
+        Below is a curated collection of my writing. I also have an{" "}
+        <Link aria-label="Link to Nathan's Atom RSS feed" href="/atom">
+          RSS feed
+        </Link>{" "}
+        you can follow.
+      </p>
       <ul className="mt-5">
         {posts.map((post, i) => (
           <li className={clsx("flex before:content-[''] pl-0", i > 0 && "mt-1")} key={post.id}>
