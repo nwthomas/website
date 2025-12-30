@@ -36,7 +36,7 @@ export function Image({ alt = "", height = 0, index, width = 0, src }: Props) {
     <div className="w-full flex justify-center">
       <button
         aria-label="Enlarge image"
-        className="w-full max-w-2xl my-5 hover:opacity-80 cursor-zoom-in transition-opacity duration-200 mx-5 items-center flex overflow-hidden"
+        className="w-full max-w-2xl mb-5 hover:opacity-80 cursor-zoom-in transition-opacity duration-200 mx-5 items-center flex overflow-hidden"
         onClick={handleImageClick}
       >
         <div className={`aspect-ratio-[${width}/${height}] block leading-none relative w-full`}>

@@ -6,8 +6,8 @@ export default function Page() {
     <section className="w-full max-w-2xl mx-5">
       <p>
         {/* TODO: Write a bio page for the below to link to (/bio) */}
-        I'm a software engineer, writer, and teacher from San Francisco, CA. I'm currently on sabbatical and working on
-        my next thing. Previously, I led core work at{" "}
+        I'm a software engineer, writer, and teacher from San Francisco, CA. I'm currently on a sabbatical while
+        contributing to OSS and hacking on projects. Previously, I led core work at{" "}
         <a href="https://tesla.com" aria-label="Link to Tesla's website" rel="noopener noreferrer" target="_target">
           Tesla
         </a>
@@ -112,15 +112,18 @@ export default function Page() {
           writing
         </Link>
         ,{" "}
-        <a
+        <Link aria-label="Link to Nathan's bookmarks" href="/bookmarks">
+          bookmarks
+        </Link>
+        ,{" "}
+        {/* <a
           href="https://nathanthomas.substack.com/"
           aria-label="Link to Nathan's profile on Substack"
           rel="noopener noreferrer"
           target="_blank"
         >
           newsletter
-        </a>
-        ,{" "}
+        </a> */}
         <a
           href="https://github.com/nwthomas"
           aria-label="Link to Nathan's GitHub"
@@ -141,7 +144,7 @@ export default function Page() {
         I also angel invest in startups, so please <a href="mailto:contact@nathanthomas.dev">reach out</a> if
         interested.
       </p>
-      <div className="flex justify-center w-full">
+      <div className="flex justify-center w-full pt-10">
         <Footer />
       </div>
     </section>
