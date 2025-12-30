@@ -293,6 +293,11 @@ export const BOOKMARKS: Bookmarks = [
     url: "https://cacm.acm.org/practice/there-is-no-now",
   },
   {
+    date: "2023-01-22",
+    title: "The Twelve_Factor App",
+    url: "https://12factor.net",
+  },
+  {
     date: "2022-12-03",
     title: "Latency Numbers Every Programmer Should Know",
     url: "https://gist.github.com/jboner/2841832",
@@ -303,7 +308,7 @@ export const BOOKMARKS: Bookmarks = [
     url: "https://blog.x.com/engineering/en_us/a/2010/announcing-snowflake",
   },
   {
-    date: "2025-12-01",
+    date: "2022-12-01",
     title: "TwitterServer",
     url: "https://twitter.github.io/twitter-server",
   },

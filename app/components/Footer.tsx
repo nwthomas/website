@@ -1,6 +1,6 @@
 export function Footer() {
   return (
-    <footer className="flex justify-end w-full max-w-2xl mt-10">
+    <footer className="flex justify-end w-full max-w-2xl">
       <div className="flex gap-3 sm:gap-5 items-center">
         <p className="text-sm text-gray-500">
           Nathan Thomas (
@@ -16,7 +16,7 @@ export function Footer() {
           )
         </p>
         <a
-          className="text-sm no-underline ml-auto text-gray-500"
+          className="text-sm ml-auto text-gray-500 no-underline"
           href="https://github.com/nwthomas/website"
           aria-label="Link to the source repository on GitHub for this website"
           rel="noopener noreferrer"
