@@ -26,13 +26,8 @@ export const metadata: Metadata = {
     description: "Internet home for Nathan Thomas",
     url: "https://www.nathanthomas.dev",
     siteName: "Nathan Thomas",
-    images: [
-      {
-        url: "https://www.nathanthomas.dev/images/og/home-page.webp",
-        width: 2400,
-        height: 1204,
-      },
-    ], // TODO: Add more (and update) OG images to metadata here
+    // TODO: Add more (and update) OG images to metadata here
+    //images: [],
     locale: "en_US",
     type: "website",
   },
@@ -41,8 +36,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     // The suppresHydrationWarning is for the script below which runs client-side to set the theme.
-    // I may upgrade the theme logic to use a server-side set cookie (and is certainly what I might
-    // use in a non-personal production environment), but this works great for a now for my site.
+    // This may eventually be upgraded to use a server-side set cookie (and is certainly what would
+    // be used in a non-personal production environment). For now, this works great for this site.
     <html lang="en" suppressHydrationWarning>
       <head>
         <script
