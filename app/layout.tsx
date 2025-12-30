@@ -3,6 +3,7 @@ import "./globals.css";
 import { Geist, Geist_Mono } from "next/font/google";
 
 import { Analytics } from "@/app/components/Analytics";
+import { ErrorBoundary } from "@/app/components/ErrorBoundary";
 import type { Metadata } from "next";
 import { Navbar } from "@/app/components/Navbar";
 import { Providers } from "@/app/components/Providers";
@@ -86,12 +87,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <Providers>
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <div className="flex flex-col items-center w-full min-h-svh py-10 md:py-20 lg:py-25 relative">
-            <div className="flex justify-center w-full">
-              <Navbar />
+          <ErrorBoundary>
+            <div className="flex flex-col items-center w-full min-h-svh py-10 md:py-20 lg:py-25 relative">
+              <div className="flex justify-center w-full">
+                <Navbar />
+              </div>
+              <main className="flex justify-center w-full pt-10">{children}</main>
             </div>
-            <main className="flex justify-center w-full pt-10">{children}</main>
-          </div>
+          </ErrorBoundary>
           <Analytics />
         </body>
       </Providers>

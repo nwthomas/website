@@ -29,7 +29,11 @@ export default async function Page({ params }: Props) {
   const { default: Post } = await import(importPath);
 
   return (
-    <article className="w-full">
+    // Negative margin is here to compensate for the final blog item element
+    // with padding bottom. MDX gives no API for disovery of last index. This
+    // could move to mapping all items and passing an index on props, but
+    // that's overkill for this problem.
+    <article className="w-full -mb-5">
       <Post />
       <ImageOverlayContainer />
     </article>
