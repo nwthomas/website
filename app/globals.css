@@ -81,6 +81,6 @@
   }
 
   ul li:before {
-    @apply content-["‣"] inline-block font-sans text-[15px] text-gray-500 no-underline absolute bottom-0.5 left-0.5;
+    @apply content-["‣"] inline-block font-sans text-[15px] text-gray-500 no-underline absolute top-0 left-0.5;
   }
 }
