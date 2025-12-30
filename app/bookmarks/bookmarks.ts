@@ -8,6 +8,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2025-12-30",
+    title: "Jimmy Bogard: Six Little Lines of Fail",
+    url: "https://www.youtube.com/watch?v=VvUdvte1V3s",
+  },
+  {
     date: "2025-12-28",
     title: "MongoBleed Explained Simply",
     url: "https://bigdata.2minutestreaming.com/p/mongobleed-explained-simply",
