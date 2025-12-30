@@ -9,6 +9,8 @@ export const metadata = {
   },
 };
 
+# <span id="understanding-closures">Understanding Closures</span>
+
 <Image
   alt="A series of backpacks in different colors and stacked together"
   src="/images/blog/understanding-closures/backpacks.webp"
@@ -16,13 +18,7 @@ export const metadata = {
   height="656"
 />
 
-# Understanding Closures
-
-> Closures can feel really tough, but they're extremely useful and relatively straightforward once they "click."
->
-> I hope this article helps you understand as much as it did when I wrote it.
-
-## Starting From the Outside In
+## <span id="starting-from-the-outside-in">Starting From the Outside In</span>
 
 Explaining closures is a frequently-used JavaScript and TypeScript interview question, but many engineers still don’t fully understand how they work. There’s a fog that surrounds it, much like the feeling you get when you eat too much during the holidays.
 
@@ -36,7 +32,7 @@ Grab your favorite coffee, apple cider, hot chocolate, or wintery beverage, and 
 >
 > \- Michael Potts
 
-## Grab Your Backpack
+## <span id="grab-your-backpack">Grab Your Backpack</span>
 
 Closures are an interesting concept. They are truly invisible in your code, and yet they are very real. If you've written any JavaScript or TypeScript, you've almost certainly used them without even realizing it.
 
@@ -99,7 +95,7 @@ Let's find out.
 >
 > \- Lao Tzu
 
-## Counting with Closures
+## <span id="counting-with-closures">Counting with Closures</span>
 
 Here's the code we're going to be working through for the rest of the article. Go ahead and read through it.
 
@@ -207,7 +203,7 @@ With all of that out of the way, we're now at the part of discussing the `create
 >
 > \- J.R.R. Tolkien
 
-## What's in the Bag?
+## <span id="whats-in-the-bag">What's in the Bag?</span>
 
 Let's take a look at the `createCountingClosure` function again:
 
@@ -274,7 +270,7 @@ Let's go ahead and use our code to see how this works.
 >
 > \- Unknown
 
-## Updating Your Backpack
+## <span id="updating-your-backpack">Updating Your Backpack</span>
 
 We're going to use our code and walk through it step by step to observe what it does. Here's a refresh of the entire thing before we get started:
 
@@ -352,7 +348,7 @@ All of these function calls have access to the `num` variable as all of them hav
 
 The final `getNum` call returns `3`, which is the value of `num` from all of the many changes we've made to it. Even though `num` is not contained directly inside any of the functions we've been invoking, we've modified it through the power of closures.
 
-## Conclusion
+## <span id="conclusion">Conclusion</span>
 
 I hope that this brief overlook of how closures work helps you grasp them.
 
