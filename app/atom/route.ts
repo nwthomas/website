@@ -34,20 +34,17 @@ export function GET() {
 
       const postDate = convertDateToAtomFormat(post.date);
 
-      return acc.length
-        ? `${acc}
-    <entry>
-        <id>${post.id}</id>
-        <title>${post.title}</title>
-        <link href="https://nathanthomas.dev/${post.id}"/>
-        <updated>${postDate}</updated>
-    </entry>`
-        : `<entry>
+      const entryContent = `<entry>
         <id>${post.id}</id>
         <title>${post.title}</title>
         <link href="https://nathanthomas.dev/${post.id}"/>
         <updated>${postDate}</updated>
     </entry>`;
+
+      return acc.length
+        ? `${acc}
+    ${entryContent}`
+        : `${entryContent}`;
     }, "")}
 </feed>`,
     {
