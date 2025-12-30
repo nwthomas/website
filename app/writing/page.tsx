@@ -13,7 +13,8 @@ export default function Page() {
 
   return (
     <section className="w-full max-w-2xl mx-5">
-      <ul>
+      <p>Below is a curated collection of my writing:</p>
+      <ul className="mt-5">
         {posts.map((post, i) => (
           <li className={clsx("flex before:content-[''] pl-0", i > 0 && "mt-1")} key={post.id}>
             <Link className="text-sm font-mono flex gap-5 no-underline" href={`/${post.id}`}>
