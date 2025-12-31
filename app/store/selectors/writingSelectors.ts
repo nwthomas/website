@@ -1,6 +1,6 @@
-import { OverlayImage, WritingState } from "../reducers/writingSlice";
+import { OverlayImage, WritingState } from "@/app/store/reducers/writingSlice";
 
-import { RootState } from "..";
+import { RootState } from "@/app/store";
 
 const selectWritingState = (state: RootState): WritingState => {
   return state.writing;

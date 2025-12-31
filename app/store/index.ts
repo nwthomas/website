@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import themeReducer from "@/store/reducers/themeSlice";
-import writingReducer from "@/store/reducers/writingSlice";
+import themeReducer from "@/app/store/reducers/themeSlice";
+import writingReducer from "@/app/store/reducers/writingSlice";
 
 export const store = configureStore({
   reducer: {

@@ -30,7 +30,7 @@ const fontPaths: FontConfig[] = [
 
 // Failures on copying fonts are fatal and stop postinstall. This is what
 // should happen as build should fail if fonts are not copied or available.
-// No fs.mkdirSync is needed as the destiation fonts/ directory already exists.
+// No fs.mkdirSync is needed as the destination fonts/ directory already exists.
 fontPaths.forEach(({ src, dest }) => {
   const srcPath = path.join(process.cwd(), src);
   const destPath = path.join(import.meta.dirname, dest);
