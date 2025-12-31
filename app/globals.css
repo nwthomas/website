@@ -16,16 +16,18 @@
 @layer base {
   :root {
     --theme-switch: #facf3d;
-    --selection-foreground: #ffffff;
-    --selection-background: #0000ff;
+  }
+
+  :focus {
+    @apply outline-solid outline-2 outline-foreground;
   }
 
   :focus-visible {
-    @apply outline-solid outline-2 outline-selection-background;
+    @apply outline-solid outline-2 outline-foreground;
   }
 
   ::selection {
-    @apply bg-selection-background text-selection-foreground;
+    @apply bg-foreground text-background;
   }
 
   html,
