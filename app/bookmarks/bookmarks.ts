@@ -8,6 +8,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2025-12-31",
+    title: "Building an Internal Agent: Context Window Compaction",
+    url: "https://lethain.com/agents-context-compaction",
+  },
+  {
     date: "2025-12-30",
     title: "LinkedIn: What Every Engineer Should Know About Real-Time Data's Unifying Abstraction",
     url: "https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying",
@@ -224,7 +229,7 @@ export const BOOKMARKS: Bookmarks = [
   },
   {
     date: "2025-07-29",
-    title: "The Haters Guide To The AI Bubble",
+    title: "The Haters Guide to the AI Bubble",
     url: "https://www.wheresyoured.at/the-haters-gui",
   },
   {
