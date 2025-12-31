@@ -1,14 +1,14 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { selectIsShowingImageOverlay, selectOverlayImage } from "@/store/selectors/writingSelectors";
+import { selectIsShowingImageOverlay, selectOverlayImage } from "@/app/store/selectors/writingSelectors";
 import { useDispatch, useSelector } from "react-redux";
 
 import { CloseIcon } from "./Icons";
 import { FocusTrap } from "focus-trap-react";
 import Image from "next/image";
-import { hideImageOverlay } from "@/store/reducers/writingSlice";
-import { useLockBodyScroll } from "@/hooks";
+import { hideImageOverlay } from "@/app/store/reducers/writingSlice";
+import { useLockBodyScroll } from "@/app/hooks";
 
 function ImageOverlay() {
   const image = useSelector(selectOverlayImage);

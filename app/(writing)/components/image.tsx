@@ -1,7 +1,7 @@
 "use client";
 
 import NextImage from "next/image";
-import { showImageOverlay } from "@/store/reducers/writingSlice";
+import { showImageOverlay } from "@/app/store/reducers/writingSlice";
 import { useDispatch } from "react-redux";
 
 type Props = {

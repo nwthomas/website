@@ -1,7 +1,7 @@
-import { DARK_THEME, LIGHT_THEME, ThemeEnum, updateCurrentTheme } from "@/store/reducers/themeSlice";
+import { DARK_THEME, LIGHT_THEME, ThemeEnum, updateCurrentTheme } from "@/app/store/reducers/themeSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-import { selectCurrentTheme } from "@/store/selectors/themeSelectors";
+import { selectCurrentTheme } from "@/app/store/selectors/themeSelectors";
 import { useEffect } from "react";
 
 export const LOCAL_STORAGE_KEY = "theme";
