@@ -1,22 +1,12 @@
 import "./globals.css";
 
-import { Geist, Geist_Mono } from "next/font/google";
-
 import { Analytics } from "@/app/components/Analytics";
 import { ErrorBoundary } from "@/app/components/ErrorBoundary";
+import { GeistMono } from "geist/font/mono";
+import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 import { Navbar } from "@/app/components/Navbar";
 import { Providers } from "@/app/components/Providers";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Nathan Thomas",
@@ -27,10 +17,9 @@ export const metadata: Metadata = {
     description: "Internet home for Nathan Thomas",
     url: "https://www.nathanthomas.dev",
     siteName: "Nathan Thomas",
-    // TODO: Add more (and update) OG images to metadata here
-    //images: [],
     locale: "en_US",
     type: "website",
+    images: [{ url: "/opengraph-image" }],
   },
 };
 
@@ -86,7 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <Providers>
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <body className={`${GeistSans.variable} ${GeistMono.variable} antialiased`}>
           <ErrorBoundary>
             <div className="flex flex-col items-center w-full min-h-svh py-10 md:py-20 lg:py-25 relative">
               <div className="flex justify-center w-full">
