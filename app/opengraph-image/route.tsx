@@ -9,7 +9,7 @@ const geistSansMono = readFileSync(join(fontsDir, "GeistMono-Regular.ttf"));
 const geistSansMonoMedium = readFileSync(join(fontsDir, "GeistMono-Medium.ttf"));
 const geistSansMonoBold = readFileSync(join(fontsDir, "GeistMono-Bold.ttf"));
 
-const nathanThomasImageBuffer = readFileSync(join(rootDir, "public/images/nathanthomas.jpg"));
+const nathanThomasImageBuffer = readFileSync(join(rootDir, "public/images/nathan.jpg"));
 const nathanThomasImageBase64 = nathanThomasImageBuffer.toString("base64");
 const nathanThomasImage = `data:image/jpeg;base64,${nathanThomasImageBase64}`;
 
