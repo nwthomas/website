@@ -24,8 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: "Nathan Thomas",
       locale: "en_US",
       type: "website",
-      // TODO: Build og images for blog posts
-      images: [{ url: "/opengraph-image" }],
+      images: [{ url: `/${slug}/opengraph-image` }],
     },
   };
 }

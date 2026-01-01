@@ -3,31 +3,37 @@
     {
       "id": "on-finding-confidence",
       "title": "On Finding Confidence",
+      "description": "To build confidence, go where you have none.",
       "date": "2025-09-17"
     },
     {
       "id": "debounce-versus-throttle",
       "title": "Debounce Versus Throttle",
+      "description": "While they might seem the same, debounce and throttle actually have different use cases.",
       "date": "2023-02-14"
     },
     {
       "id": "on-loss",
       "title": "On Loss",
+      "description": "Life is what happens when you're busy making other plans.",
       "date": "2022-01-22"
     },
     {
       "id": "understanding-closures",
       "title": "Understanding Closures",
+      "description": "Closures are powerful, and this article will make you and expert on them.",
       "date": "2020-01-05"
     },
     {
       "id": "the-pursuit-of-persistence-and-grit",
       "title": "The Pursuit of Persistence and Grit",
+      "description": "Difficult things are worth doing.",
       "date": "2019-07-02"
     },
     {
       "id": "the-pursuit-of-personal-fulfillment",
       "title": "The Pursuit of Personal Fulfillment",
+      "description": "Your reality is flexible and will bend to your efforts.",
       "date": "2019-03-22"
     }
   ]
