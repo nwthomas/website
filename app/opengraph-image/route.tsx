@@ -16,8 +16,8 @@ const nathanThomasImage = `data:image/jpeg;base64,${nathanThomasImageBase64}`;
 export async function GET() {
   return new ImageResponse(
     <div tw="flex items-center justify-center w-full h-full bg-white" style={{ fontFamily: "Geist Mono" }}>
-      <div tw="flex items-center justify-between w-full h-full px-25">
-        <img src={nathanThomasImage} alt="Nathan Thomas" width={300} height={300} tw="rounded-full" />
+      <div tw="flex items-center justify-between w-full h-full px-20">
+        <img src={nathanThomasImage} alt="Nathan Thomas" width={340} height={340} tw="rounded-full" />
         <div tw="flex h-[300px] flex-col justify-start w-full pl-10">
           <h1 tw="text-7xl my-5" style={{ fontFamily: "Geist Mono Medium" }}>
             Nathan Thomas
