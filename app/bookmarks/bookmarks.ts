@@ -9,6 +9,11 @@ export type Bookmarks = Array<Bookmark>;
 export const BOOKMARKS: Bookmarks = [
   {
     date: "2026-01-01",
+    title: "Creating a Programming Language with Rust",
+    url: "https://createlang.rs/intro.html",
+  },
+  {
+    date: "2026-01-01",
     title: "Performance, Complexity, Killer Updates from Shopify Engineering",
     url: "https://www.shopify.com/news/performance%F0%9F%91%86-complexity%F0%9F%91%87-killer-updates-from-shopify-engineering",
   },
