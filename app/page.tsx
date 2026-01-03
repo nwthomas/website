@@ -49,7 +49,7 @@ export default function Page() {
             rel="noopener noreferrer"
             target="_blank"
           >
-            Code Tenderloin (volunteer)
+            Code Tenderloin (volunteer, 10 cohorts)
           </a>
         </li>
         <li>
