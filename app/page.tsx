@@ -5,7 +5,6 @@ export default function Page() {
   return (
     <section className="w-full max-w-2xl mx-5">
       <p>
-        {/* TODO: Write a bio page for the below to link to (/bio) */}
         I'm a software engineer, writer, and teacher from San Francisco, CA. I'm currently on a sabbatical while
         contributing to OSS and hacking on projects. Previously, I led core work at{" "}
         <a href="https://tesla.com" aria-label="Link to Tesla's website" rel="noopener noreferrer" target="_target">
@@ -29,7 +28,7 @@ export default function Page() {
       </p>
       <p className="mt-5">
         I fell in love with technology when I was young and just never left. At the end of the day, I'm still that
-        little kid who grew up using his parents' Macintosh and ripping CDs for his friends.
+        little kid who grew up playing with his parents' Macintosh and ripping CDs for his friends.
       </p>
       <h2 className="mt-5">Writing:</h2>
       <ul className="mt-4">
@@ -49,7 +48,7 @@ export default function Page() {
             rel="noopener noreferrer"
             target="_blank"
           >
-            Code Tenderloin (volunteer)
+            Code Tenderloin (volunteer, 10 cohorts)
           </a>
         </li>
         <li>
