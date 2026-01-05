@@ -8,6 +8,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2026-01-04",
+    title: "How uv Got So Fast",
+    url: "https://nesbitt.io/2025/12/26/how-uv-got-so-fast.html",
+  },
+  {
     date: "2026-01-01",
     title: "Creating a Programming Language with Rust",
     url: "https://createlang.rs/intro.html",
