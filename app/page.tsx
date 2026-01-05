@@ -36,6 +36,9 @@ export default function Page() {
           <Link href="/on-finding-confidence">On Finding Confidence</Link>
         </li>
         <li>
+          <Link href="/training-your-first-ai-model">Training Your First AI Model</Link>
+        </li>
+        <li>
           <Link href="/the-pursuit-of-persistence-and-grit">The Pursuit of Persistence and Grit</Link>
         </li>
       </ul>

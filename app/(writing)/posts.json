@@ -7,6 +7,12 @@
       "date": "2025-09-17"
     },
     {
+      "id": "training-your-first-ai-model",
+      "title": "Training Your First AI Model",
+      "description": "Get started with AI by quickly training your first image classifier AI model.",
+      "date": "2024-02-22"
+    },
+    {
       "id": "debounce-versus-throttle",
       "title": "Debounce Versus Throttle",
       "description": "While they might seem the same, debounce and throttle actually have different use cases.",

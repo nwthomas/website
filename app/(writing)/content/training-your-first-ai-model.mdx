@@ -1,15 +1,15 @@
----
-title: "Training Your First AI Model"
-description: "Get started with AI by quickly training your first image classifier AI model."
-imageUrl: "/images/blog/training-your-first-ai-model/album-covers.webp"
-dateWritten: "2024-02-22"
-dateUpdated: "2024-02-25"
-isDraft: false
-tags:
-  - Artificial Intelligence
----
+import { Image } from "@/app/(writing)/components/image";
 
-<img
+export const metadata = {
+  title: "Training Your First AI Model",
+  description: "Get started with AI by quickly training your first image classifier AI model.",
+  openGraph: {
+    title: "Training Your First AI Model",
+    description: "Get started with AI by quickly training your first image classifier AI model.",
+  },
+};
+
+<Image
   alt="Album covers from vinyl records on display on shelves"
   src="/images/blog/training-your-first-ai-model/album-covers.webp"
   width="1500"
@@ -44,7 +44,7 @@ The first thing we need to do is sign up for a Kaggle account so that you can ha
 
 Kaggle is a site that, among other things, allows people like you to participate in competitions for data science/building models; it also will allow you to run code in "notebooks" (more on this in a second) and train models _on its site_ using GPU servers.
 
-<img
+<Image
   alt="The Kaggle homepage"
   src="/images/blog/training-your-first-ai-model/kaggle-homepage.webp"
   height="967"
@@ -59,14 +59,14 @@ Ready?
 
 Awesome. Next, go ahead and hit the `Create` button (which you'll see on the lefthand side if you go to your profile) to create a new notebook. Once you do, you'll see a blank notebook page that looks like this:
 
-<img
+<Image
   alt="A blank new Kaggle notebook without any code in it"
   src="/images/blog/training-your-first-ai-model/new-kaggle-notebook.webp"
   height="968"
   width="1600"
 />
 
-Remove that first block of code by highlighting it and using the ✂️ in the top bar. Then, go ahead and give it a new title like "My First AI Model" or "First AI Model" for now.
+Remove that first block of code by highlighting it and using the scissors icon in the top bar. Then, go ahead and give it a new title like "My First AI Model" or "First AI Model" for now.
 
 Okay, let's take a break for a second and talk through what we've done. First off, what is a "notebook" and why do we need it?
 
@@ -87,14 +87,14 @@ fastbook.setup_book()
 
 This is what it should look like:
 
-<img
+<Image
   alt="The new Kaggle notebook with a few cells of code in it"
   src="/images/blog/training-your-first-ai-model/first-notebook-cells.webp"
   height="967"
   width="1600"
 />
 
-Each code block should have a ▶️ play button on the lefthand side if you click on the code block itself. Go ahead and press it for each of these.
+Each code block should have a play button on the lefthand side if you click on the code block itself. Go ahead and press it for each of these.
 
 You'll see a lot of text spit out for the first code block, but it's just indicative that it's installing Python modules for us to use. `Fastbook` is a dependency that speeds up our development by quick-installing a lot of the dependencies we'll need. The second code block is initial setup.
 
@@ -109,14 +109,14 @@ from fastai.vision.widgets import *
 
 This is what it should look like once you're done:
 
-<img
+<Image
   alt="Final initial setup code cell in Kaggle notebook"
   src="/images/blog/training-your-first-ai-model/finished-initial-setup.webp"
   height="967"
   width="1600"
 />
 
-Good job 🔥
+Good job!
 
 Now it's time to download some real data so that we can train our model!
 
@@ -139,7 +139,7 @@ len(results)
 
 It should look like this:
 
-<img
+<Image
   alt="DuckDuckGo initial search in code block"
   src="/images/blog/training-your-first-ai-model/duck-duck-go-initial-search.webp"
   height="967"
@@ -162,7 +162,7 @@ image.to_thumb(128,128)
 
 It should look like this:
 
-<img
+<Image
   alt="Sampling image data from DuckDuckGo"
   src="/images/blog/training-your-first-ai-model/sampling-image-data.webp"
   height="967"
@@ -197,7 +197,7 @@ for o in animal_types:
 
 This will take quite a bit of time to run. You're using DuckDuckGo to download images. You can actually see them downloading in real time if you open up the right sidebar (with the arrow on the bottom-right part of your screen) and then dig down to the files highlighted here in red:
 
-<img
+<Image
   alt="Downloading images from DuckDuckGo"
   src="/images/blog/training-your-first-ai-model/downloading-images.webp"
   height="967"
@@ -218,7 +218,7 @@ len(failed)
 
 Here's what it looked like for me when I ran it:
 
-<img
+<Image
   alt="Checking how many image paths have errored out while downloading from DuckDuckGo"
   src="/images/blog/training-your-first-ai-model/errored-image-paths.webp"
   height="967"
@@ -313,7 +313,7 @@ Here's what this will looks like once you're done:
 
 > Note: If you see an error while running this (like in my image below) about "'has_mps' is deprecated", disregard it.
 
-<img
+<Image
   alt="Dataloaders all set up for training"
   src="/images/blog/training-your-first-ai-model/dataloaders.webp"
   height="967"
@@ -322,7 +322,7 @@ Here's what this will looks like once you're done:
 
 Believe it or not, the hard part is done now. From here, we get to train our model!
 
-Let's get the party started 🥳
+Let's get the party started.
 
 > "We can build a much brighter future where humans are relieved of menial work using AI capabilities."
 >
@@ -353,7 +353,7 @@ Done?
 
 Okay. This is what it should look similar to (again, ignore the errors here if you have them):
 
-<img
+<Image
   alt="FastAI's visual_learner all done training a model"
   src="/images/blog/training-your-first-ai-model/trained-model.webp"
   height="967"
@@ -382,7 +382,7 @@ Run that, and you're ready to download the file!
 
 Check out the files in the sidebar again. You should see an `export.pkl` file like this:
 
-<img
+<Image
   alt="An export-ready .pkl file in your Kaggle notebook"
   src="/images/blog/training-your-first-ai-model/export-ready-model.webp"
   height="967"
@@ -405,7 +405,7 @@ First, go ahead and sign up for free account at [Hugging Face](https://huggingfa
 
 Once you're done, create a new "Space" (for running your model) by going to the "Spaces" page and clicking "Create new Space" which should look like this:
 
-<img
+<Image
   alt="The Hugging Face homepage for Spaces"
   src="/images/blog/training-your-first-ai-model/hugging-face-spaces-page.webp"
   height="967"
@@ -414,7 +414,7 @@ Once you're done, create a new "Space" (for running your model) by going to the 
 
 Got ahead and give your Space a name and use a license like MIT for it:
 
-<img
+<Image
   alt="Creating a new Hugging Space page"
   src="/images/blog/training-your-first-ai-model/hugging-face-new-space.webp"
   height="967"
@@ -456,7 +456,7 @@ fastai
 
 Commit them and then push them up to the Space. Once it's done, refresh the Hugging Face Space; you should see something like this:
 
-<img
+<Image
   alt="The Hugging Face space building"
   src="/images/blog/training-your-first-ai-model/hugging-face-space-building.webp"
   height="967"
@@ -467,7 +467,7 @@ Once it's done, the application will say that it's starting. This can take quite
 
 However, you'll eventually see something much like this:
 
-<img
+<Image
   alt="The Hugging Face space build error"
   src="/images/blog/training-your-first-ai-model/hugging-face-space-build-error.webp"
   height="967"
@@ -480,7 +480,7 @@ Don't worry. This was part of my plan. You see, trying to upload your `export.pk
 
 You should head to the "Files" tab and then choose the "Add file" and "Upload files" option here:
 
-<img
+<Image
   alt="The new Hugging Face space file upload process"
   src="/images/blog/training-your-first-ai-model/hugging-face-space-file-upload.webp"
   height="967"
@@ -491,7 +491,7 @@ On the next page, you'll be able to directly upload and then commit your `export
 
 Once it's done, you should be presented with a beautiful UI for interacting with your model!
 
-<img
+<Image
   alt="Your finished Hugging Face Space"
   src="/images/blog/training-your-first-ai-model/hugging-face-finished-space.webp"
   height="967"
@@ -500,7 +500,7 @@ Once it's done, you should be presented with a beautiful UI for interacting with
 
 Go ahead and upload an image for whatever category you trained your model on. I'm going to upload a dog picture. Check out this prediction:
 
-<img
+<Image
   alt="First Hugging Face prediction"
   src="/images/blog/training-your-first-ai-model/hugging-face-first-prediction.webp"
   height="967"
@@ -511,7 +511,7 @@ Go ahead and upload an image for whatever category you trained your model on. I'
 
 It even works for my own dog, Aspen (she does have some slight cat-like qualities like chasing lasers, so this checks out):
 
-<img
+<Image
   alt="Hugging Face prediction for Aspen, Nathan's dog"
   src="/images/blog/training-your-first-ai-model/hugging-face-aspen-prediction.webp"
   height="967"
@@ -529,7 +529,3 @@ There you go. You've trained a new model to do what you want _and_ learned how t
 From here, the sky is the limit. I'd _highly_ recommend you go check out FastAI's [Practical Deep Learning for Coders](https://course.fast.ai/) course if you want to learn more. This article covers roughly the first two lectures.
 
 Feel free to shoot me a message on the contact form on this website with whatever you've created! I'd love to see it.
-
-As always, thanks for reading.
-
-Nathan ☕
