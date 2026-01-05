@@ -9,6 +9,11 @@ export type Bookmarks = Array<Bookmark>;
 export const BOOKMARKS: Bookmarks = [
   {
     date: "2026-01-05",
+    title: "Databases in 2025: A Year in Review",
+    url: "https://www.cs.cmu.edu/~pavlo/blog/2026/01/2025-databases-retrospective.html",
+  },
+  {
+    date: "2026-01-05",
     title: "StackOverflow: The Great Unracking - Saying Goodbye to the Servers at Our Physical Datacenter",
     url: "https://stackoverflow.blog/2025/12/24/the-great-unracking-saying-goodbye-to-the-servers-at-our-physical-datacenter/",
   },
