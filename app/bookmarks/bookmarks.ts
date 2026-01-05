@@ -9,6 +9,11 @@ export type Bookmarks = Array<Bookmark>;
 export const BOOKMARKS: Bookmarks = [
   {
     date: "2026-01-04",
+    title: "Change Data Capture for DynamoDB Streams",
+    url: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html",
+  },
+  {
+    date: "2026-01-04",
     title: "How uv Got So Fast",
     url: "https://nesbitt.io/2025/12/26/how-uv-got-so-fast.html",
   },
