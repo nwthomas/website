@@ -2,6 +2,7 @@ import "./globals.css";
 
 import { Analytics } from "@/app/components/Analytics";
 import { ErrorBoundary } from "@/app/components/ErrorBoundary";
+import { Footer } from "./components/Footer";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
@@ -82,6 +83,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Navbar />
               </div>
               <main className="flex justify-center w-full pt-10">{children}</main>
+              <div className="flex justify-center w-full pt-10 px-5">
+                <Footer />
+              </div>
             </div>
           </ErrorBoundary>
           <Analytics />

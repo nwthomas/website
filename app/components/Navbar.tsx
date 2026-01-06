@@ -28,21 +28,27 @@ export function Navbar() {
     titleText = <h1 id={isBlogPage.id}>{isBlogPage.title}</h1>;
   }
   return (
-    <header className="flex justify-between w-full max-w-2xl mx-5 items-start">
-      <div className="flex flex-col">
-        {titleText}
-        {!isHomePage ? (
-          <p className="text-sm text-gray-500">
-            by{" "}
-            <Link aria-label="Link to Nathan's home page" className="no-underline" href="/">
-              Nathan Thomas
-            </Link>
-          </p>
-        ) : null}
-      </div>
-      <div className="flex gap-3 sm:gap-5 items-center">
-        <ThemeSwitch />
-      </div>
+    <header className="flex w-full max-w-2xl mx-5 items-start">
+      <ul className="flex w-full justify-between ">
+        <li className="before:hidden pl-0">
+          <div className="flex flex-col">
+            {titleText}
+            {!isHomePage ? (
+              <p className="text-sm text-gray-500">
+                by{" "}
+                <Link aria-label="Link to Nathan's home page" className="no-underline" href="/">
+                  Nathan Thomas
+                </Link>
+              </p>
+            ) : null}
+          </div>
+        </li>
+        <li className="before:hidden pl-0">
+          <div className="flex gap-3 sm:gap-5 items-center">
+            <ThemeSwitch />
+          </div>
+        </li>
+      </ul>
     </header>
   );
 }
