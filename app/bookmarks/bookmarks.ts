@@ -8,6 +8,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2026-01-06",
+    title: "Cloudflare: Trapping Misbehaving Bots in an AI Labyrinth",
+    url: "https://blog.cloudflare.com/ai-labyrinth",
+  },
+  {
     date: "2026-01-05",
     title: "Databases in 2025: A Year in Review",
     url: "https://www.cs.cmu.edu/~pavlo/blog/2026/01/2025-databases-retrospective.html",
