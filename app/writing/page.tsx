@@ -1,3 +1,5 @@
+import { getPostViewsRedisKey, redis } from "@/app/utils/redis";
+
 import Link from "next/link";
 import { Metadata } from "next";
 import { clsx } from "clsx";
@@ -8,8 +10,12 @@ export const metadata: Metadata = {
   description: "Nathan Thomas' writing page",
 };
 
-export default function Page() {
+// Render the page dynamically per request
+export const revalidate = 0;
+
+export default async function Page() {
   const { posts } = postsJson;
+  const postViews = await redis.mGet<number | null>(posts.map((post) => getPostViewsRedisKey(post.id)));
 
   return (
     <section className="w-full max-w-2xl mx-5">
@@ -23,9 +29,12 @@ export default function Page() {
       <ul className="mt-5">
         {posts.map((post, i) => (
           <li className={clsx("flex before:content-[''] pl-0", i > 0 && "mt-1")} key={post.id}>
-            <Link className="text-sm font-mono flex gap-5 no-underline" href={`/${post.id}`}>
+            <Link className="text-sm font-mono flex gap-5 no-underline w-full" href={`/${post.id}`}>
               <span className="whitespace-nowrap">{post.date}</span>
-              <span className="underline decoration-dotted decoration-gray-500">{post.title}</span>
+              <span className="underline decoration-dotted decoration-gray-500 flex-2">{post.title}</span>
+              {postViews[getPostViewsRedisKey(post.id)] != null ? (
+                <span className="text-s">{`${postViews[getPostViewsRedisKey(post.id)]}`}</span>
+              ) : null}
             </Link>
           </li>
         ))}
