@@ -1,3 +1,5 @@
+import { getPostViewsRedisKey, redis } from "@/app/utils/redis";
+
 import { ImageOverlayContainer } from "@/app/components/ImageOverlay";
 import { Metadata } from "next";
 import { getSlugs } from "../utils/getSlugs";
@@ -33,6 +35,8 @@ export default async function Page({ params }: Props) {
   const { slug } = await params;
   const importPath = `../content/${slug}.mdx`;
   const { default: Post } = await import(importPath);
+
+  await redis.increment(getPostViewsRedisKey(slug));
 
   return (
     // Negative margin is here to compensate for the final blog item element
