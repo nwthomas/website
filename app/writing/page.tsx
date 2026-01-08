@@ -33,7 +33,7 @@ export default async function Page() {
               <span className="whitespace-nowrap">{post.date}</span>
               <span className="underline decoration-dotted decoration-gray-500 flex-2">{post.title}</span>
               {postViews[getPostViewsRedisKey(post.id)] != null ? (
-                <span className="text-s">{`${postViews[getPostViewsRedisKey(post.id)]}`}</span>
+                <span className="text-s text-gray-500">{`${postViews[getPostViewsRedisKey(post.id)]}`}</span>
               ) : null}
             </Link>
           </li>

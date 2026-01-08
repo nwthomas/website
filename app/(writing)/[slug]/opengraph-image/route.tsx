@@ -1,5 +1,8 @@
+import { getPostViewsRedisKey, redis } from "@/app/utils/redis";
+
 import { ImageResponse } from "next/og";
 import type { NextRequest } from "next/server";
+import { formatUTCTimestampToDateString } from "@/app/utils/dates";
 import { join } from "path";
 import postsJson from "@/app/(writing)/posts.json";
 import { readFileSync } from "fs";
@@ -23,10 +26,13 @@ export async function GET(request: NextRequest) {
 
   const title = post?.title || "An Essay by Nathan Thomas";
   const description = post?.description || "Read Nathan's writings on technical and soft skills";
+
   let date = "Today";
-  if (post?.date) {
-    date = new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+  if (post?.date != null) {
+    date = formatUTCTimestampToDateString(post.date);
   }
+
+  const postViews = await redis.get<number | null>(getPostViewsRedisKey(slug));
 
   return new ImageResponse(
     <div tw="flex items-center justify-center w-full h-full bg-white" style={{ fontFamily: "Geist Mono" }}>
@@ -40,7 +46,7 @@ export async function GET(request: NextRequest) {
             {description}
           </p>
           <p tw="text-2xl text-gray-500 flex-1" style={{ fontFamily: "Geist Mono" }}>
-            {date}
+            {postViews != null ? `${date} • ${postViews} views` : date}
           </p>
         </div>
       </div>

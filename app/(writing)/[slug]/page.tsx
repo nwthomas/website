@@ -43,7 +43,7 @@ export default async function Page({ params }: Props) {
     <article className="w-full -mb-5">
       <Post />
       <ImageOverlayContainer />
-      <RedisIncrement slug={slug} />
+      {process.env.NODE_ENV === "production" ? <RedisIncrement slug={slug} /> : null}
     </article>
   );
 }

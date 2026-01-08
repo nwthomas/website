@@ -1,14 +1,7 @@
+import { formatUTCTimestampToDateString } from "@/app/utils/dates";
 import postsJson from "@/app/(writing)/posts.json";
 
 const MAX_ATOM_ITEMS = 100;
-
-function convertDateToAtomFormat(date: string): string {
-  return new Date(date).toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
-}
 
 export function GET() {
   const { posts } = postsJson;
@@ -20,7 +13,7 @@ export function GET() {
     <subtitle>Writing</subtitle>
     <link href="https://nathanthomas.dev/atom" rel="self"/>
     <link href="https://nathanthomas.dev/"/>
-    <updated>${posts[0].date}</updated>
+    <updated>${formatUTCTimestampToDateString(posts[0].date)}</updated>
     <id>https://nathanthomas.dev/</id>
     <author>
         <name>Nathan Thomas</name>
@@ -32,7 +25,7 @@ export function GET() {
         return "";
       }
 
-      const postDate = convertDateToAtomFormat(post.date);
+      const postDate = formatUTCTimestampToDateString(post.date);
 
       const entryContent = `<entry>
         <id>${post.id}</id>
