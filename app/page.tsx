@@ -32,6 +32,9 @@ export default function Page() {
       <h2 className="mt-5">Writing:</h2>
       <ul className="mt-4">
         <li>
+          <Link href="/simple-is-hard-enough">Simple is Hard Enough</Link>
+        </li>
+        <li>
           <Link href="/on-finding-confidence">On Finding Confidence</Link>
         </li>
         <li>
@@ -117,14 +120,15 @@ export default function Page() {
           bookmarks
         </Link>
         ,{" "}
-        {/* <a
+        <a
           href="https://nathanthomas.substack.com/"
           aria-label="Link to Nathan's profile on Substack"
           rel="noopener noreferrer"
           target="_blank"
         >
           newsletter
-        </a> */}
+        </a>
+        ,{" "}
         <a
           href="https://github.com/nwthomas"
           aria-label="Link to Nathan's GitHub"

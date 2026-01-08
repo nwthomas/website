@@ -1,6 +1,12 @@
 {
   "posts": [
     {
+      "id": "simple-is-hard-enough",
+      "title": "Simple is Hard Enough",
+      "description": "Complexity is the enemy of maintainability.",
+      "date": "2026-01-08"
+    },
+    {
       "id": "on-finding-confidence",
       "title": "On Finding Confidence",
       "description": "To build confidence, go where you have none.",

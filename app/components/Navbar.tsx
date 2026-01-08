@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ThemeSwitch } from "./ThemeSwitch";
+import { formatUTCTimestampToDateString } from "../utils/dates";
 import postsJson from "@/app/(writing)/posts.json";
 import { usePathname } from "next/navigation";
 
@@ -27,6 +28,13 @@ export function Navbar() {
   if (isBlogPage) {
     titleText = <h1 id={isBlogPage.id}>{isBlogPage.title}</h1>;
   }
+
+  let dateText: React.ReactNode | null = null;
+  if (isBlogPage && isBlogPage.date) {
+    const date = formatUTCTimestampToDateString(isBlogPage.date);
+    dateText = <span> • {date}</span>;
+  }
+
   return (
     <header className="flex w-full max-w-2xl mx-5 items-start">
       <ul className="flex w-full justify-between ">
@@ -39,6 +47,7 @@ export function Navbar() {
                 <Link aria-label="Link to Nathan's home page" className="no-underline" href="/">
                   Nathan Thomas
                 </Link>
+                {dateText}
               </p>
             ) : null}
           </div>
