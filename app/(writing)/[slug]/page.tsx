@@ -1,7 +1,6 @@
-import { getPostViewsRedisKey, redis } from "@/app/utils/redis";
-
 import { ImageOverlayContainer } from "@/app/components/ImageOverlay";
 import { Metadata } from "next";
+import { RedisIncrement } from "@/app/components/RedisIncrement";
 import { getSlugs } from "../utils/getSlugs";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -36,8 +35,6 @@ export default async function Page({ params }: Props) {
   const importPath = `../content/${slug}.mdx`;
   const { default: Post } = await import(importPath);
 
-  await redis.increment(getPostViewsRedisKey(slug));
-
   return (
     // Negative margin is here to compensate for the final blog item element
     // with padding bottom. MDX gives no API for disovery of last index. This
@@ -46,6 +43,7 @@ export default async function Page({ params }: Props) {
     <article className="w-full -mb-5">
       <Post />
       <ImageOverlayContainer />
+      <RedisIncrement slug={slug} />
     </article>
   );
 }
