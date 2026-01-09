@@ -8,6 +8,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2026-01-09",
+    title: "RTX 5090 + Raspberry Pi: Can it Game?",
+    url: "https://scottjg.com/posts/2026-01-08-crappy-computer-showdown",
+  },
+  {
     date: "2026-01-08",
     title: "A Call for New Aesthetics",
     url: "https://newaesthetics.art",
