@@ -8,6 +8,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2026-01-08",
+    title: "A Call for New Aesthetics",
+    url: "https://newaesthetics.art",
+  },
+  {
     date: "2026-01-07",
     title: "How Rippling Raised a $45M Series A — Without a Pitch Deck",
     url: "https://www.rippling.com/blog/rippling-series-a-pitch-deck-and-memo",
