@@ -8,6 +8,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2026-01-12",
+    title: "Backpressure in JavaScript: The Hidden Force Behind Streams, Fetch, and Async Code",
+    url: "https://blog.gaborkoos.com/posts/2026-01-06-Backpressure-in-JavaScript-the-Hidden-Force-Behind-Streams-Fetch-and-Async-Code",
+  },
+  {
     date: "2026-01-09",
     title: "RTX 5090 + Raspberry Pi: Can it Game?",
     url: "https://scottjg.com/posts/2026-01-08-crappy-computer-showdown",
