@@ -8,6 +8,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2026-01-14",
+    title: "Exploring Apache Lucene - Part 1: The Index",
+    url: "https://j.blaszyk.me/tech-blog/exploring-apache-lucene-index",
+  },
+  {
     date: "2026-01-13",
     title: "patterns.dev",
     url: "https://www.patterns.dev",
