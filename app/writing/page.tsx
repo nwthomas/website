@@ -13,6 +13,8 @@ export const metadata: Metadata = {
 // Render the page dynamically per request
 export const dynamic = "force-dynamic";
 
+const VIEWS_PLACEHOLDER = "-";
+
 export default async function Page() {
   const { posts } = postsJson;
   const postViews = await redis.mGet<number | null>(posts.map((post) => getPostViewsRedisKey(post.id)));
@@ -32,9 +34,11 @@ export default async function Page() {
             <Link className="text-sm font-mono flex gap-5 no-underline w-full" href={`/${post.id}`}>
               <span className="whitespace-nowrap">{post.date}</span>
               <span className="underline decoration-dotted decoration-gray-500 flex-2">{post.title}</span>
-              {postViews[getPostViewsRedisKey(post.id)] != null ? (
-                <span className="text-s text-gray-500">{`${postViews[getPostViewsRedisKey(post.id)]}`}</span>
-              ) : null}
+              <span className="text-s text-gray-500">
+                {postViews[getPostViewsRedisKey(post.id)] != null
+                  ? `${postViews[getPostViewsRedisKey(post.id)]}`
+                  : VIEWS_PLACEHOLDER}
+              </span>
             </Link>
           </li>
         ))}
