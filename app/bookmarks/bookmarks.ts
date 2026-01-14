@@ -9,6 +9,16 @@ export type Bookmarks = Array<Bookmark>;
 export const BOOKMARKS: Bookmarks = [
   {
     date: "2026-01-13",
+    title: "Frank's Compulsive Guide to Postal Addresses",
+    url: "https://www.columbia.edu/~fdc/postal",
+  },
+  {
+    date: "2026-01-13",
+    title: "MarkoJS",
+    url: "https://markojs.com",
+  },
+  {
+    date: "2026-01-13",
     title: "Building a Better Web: A Faster YouTube",
     url: "https://web.dev/case-studies/better-youtube-web-part1",
   },
