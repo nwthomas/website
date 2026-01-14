@@ -19,8 +19,8 @@ export function Footer() {
               Nathan Thomas (
               <a
                 className="text-sm no-underline text-foreground"
-                href="https://x.com/nwthomas"
-                aria-label="Link to Nathan's profile on X"
+                href="https://www.threads.com/@nwthomas"
+                aria-label="Link to Nathan's profile on Threads"
                 rel="noopener noreferrer"
                 target="_blank"
               >

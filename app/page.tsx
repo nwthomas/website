@@ -139,8 +139,8 @@ export default function Page() {
         </a>
         , or{" "}
         <a
-          href="https://x.com/nwthomas"
-          aria-label="Link to Nathan's profile on X"
+          href="https://www.threads.com/@nwthomas"
+          aria-label="Link to Nathan's profile on Threads"
           rel="noopener noreferrer"
           target="_blank"
         >
