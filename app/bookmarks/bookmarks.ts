@@ -9,6 +9,21 @@ export type Bookmarks = Array<Bookmark>;
 export const BOOKMARKS: Bookmarks = [
   {
     date: "2026-01-13",
+    title: "patterns.dev",
+    url: "https://www.patterns.dev",
+  },
+  {
+    date: "2026-01-13",
+    title: "web.dev: Choose the Right Image Format",
+    url: "https://web.dev/articles/choose-the-right-image-format#impact_on_largest_contentful_paint_lcp",
+  },
+  {
+    date: "2026-01-13",
+    title: "Improving Vrbo Homepage Loading Experience",
+    url: "https://medium.com/expedia-group-tech/improving-vrbo-homepage-loading-experience-e4b2207535f4",
+  },
+  {
+    date: "2026-01-13",
     title: "Breaking the Monolith: Modular redesign of Agoda.com",
     url: "http://medium.com/agoda-engineering/breaking-the-monolith-f3538d9c3ad6",
   },
