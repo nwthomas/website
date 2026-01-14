@@ -9,6 +9,11 @@ export type Bookmarks = Array<Bookmark>;
 export const BOOKMARKS: Bookmarks = [
   {
     date: "2026-01-13",
+    title: "Breaking the Monolith: Modular redesign of Agoda.com",
+    url: "http://medium.com/agoda-engineering/breaking-the-monolith-f3538d9c3ad6",
+  },
+  {
+    date: "2026-01-13",
     title: "Frank's Compulsive Guide to Postal Addresses",
     url: "https://www.columbia.edu/~fdc/postal",
   },
