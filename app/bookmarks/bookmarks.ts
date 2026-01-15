@@ -9,6 +9,11 @@ export type Bookmarks = Array<Bookmark>;
 export const BOOKMARKS: Bookmarks = [
   {
     date: "2026-01-14",
+    title: "Cursor: Scaling Long-Running Autonomous Coding",
+    url: "https://cursor.com/blog/scaling-agents",
+  },
+  {
+    date: "2026-01-14",
     title: "Exploring Apache Lucene - Part 1: The Index",
     url: "https://j.blaszyk.me/tech-blog/exploring-apache-lucene-index",
   },
