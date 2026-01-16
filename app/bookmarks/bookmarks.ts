@@ -8,6 +8,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2026-01-15",
+    title: "California Delete Request and Opt-out Platform (DROP)",
+    url: "https://privacy.ca.gov/drop",
+  },
+  {
     date: "2026-01-14",
     title: "Cursor: Scaling Long-Running Autonomous Coding",
     url: "https://cursor.com/blog/scaling-agents",
