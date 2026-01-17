@@ -9,6 +9,11 @@ export type Bookmarks = Array<Bookmark>;
 export const BOOKMARKS: Bookmarks = [
   {
     date: "2026-01-16",
+    title: "Temporal API Ships in Chrome 144",
+    url: "https://socket.dev/blog/temporal-api-ships-in-chrome-144-major-shift-for-javascript-date-handling",
+  },
+  {
+    date: "2026-01-16",
     title: "OpenAI: Supercharging Codex with JetBrains MCP at Skyscanner",
     url: "https://developers.openai.com/blog/skyscanner-codex-jetbrains-mcp",
   },
