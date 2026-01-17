@@ -8,6 +8,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2026-01-16",
+    title: "OpenAI: Supercharging Codex with JetBrains MCP at Skyscanner",
+    url: "https://developers.openai.com/blog/skyscanner-codex-jetbrains-mcp",
+  },
+  {
     date: "2026-01-15",
     title: "California Delete Request and Opt-out Platform (DROP)",
     url: "https://privacy.ca.gov/drop",
