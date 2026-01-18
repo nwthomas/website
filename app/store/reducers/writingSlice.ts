@@ -2,6 +2,8 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 export interface OverlayImage {
   alt: string;
+  borderDark?: boolean;
+  borderLight?: boolean;
   height: number;
   width: number;
   placeholderImage: string;

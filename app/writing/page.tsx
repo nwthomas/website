@@ -10,14 +10,17 @@ export const metadata: Metadata = {
   description: "Nathan Thomas' writing page",
 };
 
-// Render the page dynamically per request
-export const dynamic = "force-dynamic";
+export const dynamic = "force-dynamic"; // Render the page dynamically per request
 
 const VIEWS_PLACEHOLDER = "-";
 
 export default async function Page() {
   const { posts } = postsJson;
-  const postViews = await redis.mGet<number | null>(posts.map((post) => getPostViewsRedisKey(post.id)));
+
+  let postViews: Record<string, number | null> = {};
+  if (process.env.NODE_ENV === "production") {
+    postViews = await redis.mGet<number | null>(posts.map((post) => getPostViewsRedisKey(post.id)));
+  }
 
   return (
     <section className="w-full max-w-2xl mx-5">
@@ -26,7 +29,16 @@ export default async function Page() {
         <Link aria-label="Link to Nathan's Atom RSS feed" href="/atom">
           RSS feed
         </Link>{" "}
-        you can follow.
+        you can follow and a{" "}
+        <a
+          href="https://nathanthomas.substack.com/"
+          aria-label="Link to Nathan's profile on Substack"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          newsletter
+        </a>{" "}
+        you can subscribe to.
       </p>
       <ul className="mt-5">
         {posts.map((post, i) => (

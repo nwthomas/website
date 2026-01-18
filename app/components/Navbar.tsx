@@ -1,6 +1,9 @@
 "use client";
 
+import { HeadingLevel, getHeading } from "@/app/(writing)/utils/heading";
+
 import Link from "next/link";
+import { ReactNode } from "react";
 import { ThemeSwitch } from "./ThemeSwitch";
 import { formatUTCTimestampToDateString } from "../utils/dates";
 import postsJson from "@/app/(writing)/posts.json";
@@ -18,7 +21,7 @@ export function Navbar() {
   const isBookmarksPage = pathname === "/bookmarks";
   const isWritingPage = pathname === "/writing";
   const isBlogPage = postsJson.posts.find((post: Post) => `/${post.id}` === pathname.split("#")[0]);
-  let titleText = <h1>Nathan Thomas</h1>;
+  let titleText: ReactNode = <h1>Nathan Thomas</h1>;
   if (isBookmarksPage) {
     titleText = <h1>Bookmarks</h1>;
   }
@@ -26,7 +29,8 @@ export function Navbar() {
     titleText = <h1>Writing</h1>;
   }
   if (isBlogPage) {
-    titleText = <h1 id={isBlogPage.id}>{isBlogPage.title}</h1>;
+    const writingTitleWithId = `${isBlogPage.title} [#${isBlogPage.id}]`;
+    titleText = getHeading(writingTitleWithId, HeadingLevel.H1);
   }
 
   let dateText: React.ReactNode | null = null;

@@ -12,7 +12,7 @@ export default function Page() {
   return (
     <section className="w-full max-w-2xl mx-5">
       <p>
-        I love to learn and track what I've read here. I also have an{" "}
+        I love to learn and bookmark what I've read here. I also have an{" "}
         <Link aria-label="Link to Nathan's Atom RSS feed" href="/bookmarks/atom">
           RSS feed
         </Link>{" "}

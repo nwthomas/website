@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { CloseIcon } from "./Icons";
 import { FocusTrap } from "focus-trap-react";
 import Image from "next/image";
+import clsx from "clsx";
 import { hideImageOverlay } from "@/app/store/reducers/writingSlice";
 import { useLockBodyScroll } from "@/app/hooks";
 
@@ -42,9 +43,16 @@ function ImageOverlay() {
           >
             <CloseIcon color="var(--foreground)" />
           </button>
-          <div className="max-w-7xl max-h-7xl flex justify-center items-center">
+          <div
+            className={clsx(
+              "max-w-[min(80rem,100vw-2.5rem)] max-h-[min(80rem,100vh-2.5rem)] box-border flex justify-center items-center",
+              image.borderDark ? "border border-background dark:border-gray-800" : "",
+              image.borderLight ? "border border-gray-200 dark:border-background" : "",
+            )}
+          >
             <Image
               alt={image.alt}
+              className="max-w-full max-h-full h-auto w-auto"
               draggable={false}
               height={image.height}
               loading="eager"
