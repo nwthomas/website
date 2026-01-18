@@ -35,7 +35,6 @@ export const Pre = ({
       bg-neutral-200 text-neutral-700
       dark:bg-[#222] dark:text-gray-300
       w-full max-w-2xl
-
       ${scroll ? "overflow-auto" : "whitespace-pre-wrap break-all overflow-hidden"}
     `}
     >

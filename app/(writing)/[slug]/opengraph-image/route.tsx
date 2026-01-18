@@ -46,7 +46,7 @@ export async function GET(request: NextRequest) {
             {description}
           </p>
           <p tw="text-2xl text-gray-500 flex-1" style={{ fontFamily: "Geist Mono" }}>
-            {postViews != null ? `${date} • ${postViews} views` : date}
+            {postViews != null && postViews != 0 ? `${date} • ${postViews} views` : date}
           </p>
         </div>
       </div>

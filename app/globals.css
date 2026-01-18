@@ -32,9 +32,9 @@
 
   html,
   body {
-    /* Using 'background-color' will make sure this value is applied to the iPhone notch area */
     background-color: var(--background);
     color: var(--foreground);
+    scroll-behavior: smooth;
   }
 
   html {

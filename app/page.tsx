@@ -1,6 +1,12 @@
 import Link from "next/link";
+import { Post } from "@/app/(writing)/utils/types";
+import postsJson from "@/app/(writing)/posts.json";
 
 export default function Page() {
+  const { posts } = postsJson;
+
+  const lastFourPosts: Post[] = posts.slice(0, 4);
+
   return (
     <section className="w-full max-w-2xl mx-5">
       <p>
@@ -31,18 +37,11 @@ export default function Page() {
       </p>
       <h2 className="mt-5">Writing:</h2>
       <ul className="mt-4">
-        <li>
-          <Link href="/simple-is-hard-enough">Simple is Hard Enough</Link>
-        </li>
-        <li>
-          <Link href="/on-finding-confidence">On Finding Confidence</Link>
-        </li>
-        <li>
-          <Link href="/training-your-first-ai-model">Training Your First AI Model</Link>
-        </li>
-        <li>
-          <Link href="/the-pursuit-of-persistence-and-grit">The Pursuit of Persistence and Grit</Link>
-        </li>
+        {lastFourPosts.map((post) => (
+          <li key={post.id}>
+            <Link href={`/${post.id}`}>{post.title}</Link>
+          </li>
+        ))}
       </ul>
       <h2 className="mt-5">Teaching:</h2>
       <ul className="mt-4">

@@ -1,6 +1,12 @@
 {
   "posts": [
     {
+      "id": "local-models",
+      "title": "Local Models",
+      "description": "Learn how to run your own AI models locally",
+      "date": "2026-01-16"
+    },
+    {
       "id": "simple-is-hard-enough",
       "title": "Simple is Hard Enough",
       "description": "Complexity is the enemy of maintainability",

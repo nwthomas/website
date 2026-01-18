@@ -8,6 +8,8 @@ import { useDispatch } from "react-redux";
 type Props = {
   index: number;
   alt?: string;
+  borderDark?: boolean;
+  borderLight?: boolean;
   height: number;
   isHeroImage?: boolean;
   placeholderImage: string;
@@ -17,11 +19,9 @@ type Props = {
   wide?: boolean;
 };
 
-export function Image({ alt = "", height = 0, index, width = 0, src, wide }: Props) {
+export function Image({ alt = "", borderDark, borderLight, height = 0, index, width = 0, src, wide }: Props) {
   const dispatch = useDispatch();
   const shouldPreload = index === 0;
-
-  console.log("wide", wide);
 
   const handleImageClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
@@ -32,6 +32,8 @@ export function Image({ alt = "", height = 0, index, width = 0, src, wide }: Pro
         placeholderImage: "",
         width,
         src,
+        borderDark,
+        borderLight,
       }),
     );
   };
@@ -41,8 +43,10 @@ export function Image({ alt = "", height = 0, index, width = 0, src, wide }: Pro
       <button
         aria-label="Enlarge image"
         className={clsx(
-          "w-full mb-5 hover:opacity-80 cursor-zoom-in transition-opacity duration-200 mx-5 items-center flex overflow-hidden",
+          "w-full mb-5 hover:opacity-80 cursor-zoom-in transition-opacity duration-200 mx-5 items-center flex overflow-hidden border border-background",
           wide ? "max-w-4xl" : "max-w-2xl",
+          borderDark ? "border border-background dark:border-gray-800" : "",
+          borderLight ? "border border-gray-200 dark:border-background" : "",
         )}
         onClick={handleImageClick}
       >
@@ -55,7 +59,7 @@ export function Image({ alt = "", height = 0, index, width = 0, src, wide }: Pro
             loading={shouldPreload ? "eager" : "lazy"}
             placeholder="blur"
             priority={shouldPreload}
-            quality={75}
+            quality={100}
             src={src}
             width={width}
           />
