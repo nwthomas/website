@@ -2,7 +2,7 @@
 
 This is my personal website, a place for my writing and thoughts to live.
 
-![Homepage](./assets/home.png)
+![Homepage Example](./assets/home-example.png)
 
 ## Table of Contents
 

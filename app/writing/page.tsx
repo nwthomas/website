@@ -2,6 +2,7 @@ import { getPostViewsRedisKey, redis } from "@/app/utils/redis";
 
 import Link from "next/link";
 import { Metadata } from "next";
+import { Post } from "@/app/(writing)/utils/types";
 import { clsx } from "clsx";
 import postsJson from "@/app/(writing)/posts.json";
 
@@ -16,6 +17,7 @@ const VIEWS_PLACEHOLDER = "-";
 
 export default async function Page() {
   const { posts } = postsJson;
+  const sortedPosts: Post[] = posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   let postViews: Record<string, number | null> = {};
   if (process.env.NODE_ENV === "production") {
@@ -41,7 +43,7 @@ export default async function Page() {
         you can subscribe to.
       </p>
       <ul className="mt-5">
-        {posts.map((post, i) => (
+        {sortedPosts.map((post, i) => (
           <li className={clsx("flex before:content-[''] pl-0", i > 0 && "mt-1")} key={post.id}>
             <Link className="text-sm font-mono flex gap-5 no-underline w-full" href={`/${post.id}`}>
               <span className="whitespace-nowrap">{post.date}</span>
