@@ -4,6 +4,6 @@ module.exports = {
   generateIndexSitemap: true,
   generateRobotsTxt: true,
   robotsTxtOptions: {
-    policies: [{ userAgent: "*", allow: "/" }],
+    policies: [{ userAgent: "*", allow: "/", crawlDelay: 1 }],
   },
 };
