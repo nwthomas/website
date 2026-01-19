@@ -9,6 +9,16 @@ export type Bookmarks = Array<Bookmark>;
 export const BOOKMARKS: Bookmarks = [
   {
     date: "2026-01-19",
+    title: "Dead Internet Theory",
+    url: "https://kudmitry.com/articles/dead-internet-theory",
+  },
+  {
+    date: "2026-01-19",
+    title: "Cloudflare: What came first, the CNAME or the A record?",
+    url: "https://blog.cloudflare.com/cname-a-record-order-dns-standards",
+  },
+  {
+    date: "2026-01-19",
     title: "Bitchat",
     url: "https://bitchat.free",
   },
