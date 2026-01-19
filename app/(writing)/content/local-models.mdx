@@ -47,7 +47,7 @@ Finally, here's a motivating screenshot of me running [Open WebUI](https://openw
 
 The simplest way (by far) to run a model locally on your computer is to just use [Ollama](https://ollama.com). Ollama is designed by Meta to be simple to use. It also manages context windows for you so you don't have to set them yourself.
 
-It also gives you a local chat interface and the ability to turn on a `localhost` server which other computers on your home network can hit via your first computer's IP address and a specific port.
+Ollama gives you a local chat interface out of the box and the ability to turn on a `localhost` server which other computers on your home network can hit via your first computer's IP address and a specific port.
 
 This is where I started, and you'll get a lot of mileage out of this before you'll feel the need to upgrade your local setup.
 
@@ -75,15 +75,15 @@ ollama run <model-name-here>
 ollama run gpt-oss:20b
 ```
 
-This will pull the model (which might take some time depending on which one you choose and your internet connection). Once finished, it will start up. `gpt-oss:20b`, for instance, is a 20gb model:
+This will pull the model (which might take some time depending on which one you choose and your internet connection). `gpt-oss:20b`, for instance, is a 20gb model. Once finished, it will start up.
 
-Finally, another nice feature of Ollama is that you can an endpoint from your computer to your local network so other computers can access it via IP address and port (defaulting to `11434`), typically:
+Finally, another nice feature of Ollama is that you can hit an endpoint from your computer on your local network that other computers can use to access the running model via IP address and port (defaulting to `11434`), typically:
 
 ```
 http://<your-ip-address>:11434/api/generate
 ```
 
-Go here to turn it on:
+Go here to turn this feature on:
 
 <Image
   alt="Ollama API setting"
@@ -98,7 +98,7 @@ Go here to turn it on:
 
 Another extremely easy way to run models locally is to use [LM Studio](https://lmstudio.ai).
 
-After downloading it from the link above, you'll be able to search for a model using the search icon in the side bar and selecting a model to download:
+After downloading it from the link above, you'll be able to search for a model using the search icon in the left sidebar and selecting a model to download:
 
 <Image
   alt="LM Studio model search"
@@ -108,7 +108,7 @@ After downloading it from the link above, you'll be able to search for a model u
   wide
 />
 
-After downloading a model, you'll be able to start chatting with it (use the chat icon in the left sidebar):
+After downloading a model, you'll be able to start chatting with it using the chat icon in the left sidebar:
 
 <Image
   alt="LM Studio chat interface"
@@ -138,9 +138,9 @@ Go here to turn this on:
 
 ## Docker [#docker]
 
-Docker also allows you to run models locally and moves us towards using faster and more performant runtimes (more on that later). Docker's Model Runner is faster to set up and use.
+Docker also allows you to run models locally and moves us incrementally towards faster and more performant runtimes (more on that later). To that end, you can get set up with Docker's Model Runner really fast.
 
-You first need to install [Docker Desktop](https://www.docker.com/products/docker-desktop) so go ahead and do that if you don't have it already. If you already have it, ensure it's >= `v4.40`.
+You'll need to install [Docker Desktop](https://www.docker.com/products/docker-desktop), so go ahead and do that if you don't have it already. Ensure that whatever build you have locally is >= `v4.40`.
 
 [Model Runner](https://docs.docker.com/ai/model-runner) (available since Docker Desktop `v4.40`) allows you to easily and quickly boot up local models. For instance, this is an example of commands you might use to bring up a model with Model Runner (although I'd advise reading the linked docs above):
 
@@ -148,9 +148,9 @@ You first need to install [Docker Desktop](https://www.docker.com/products/docke
 docker desktop enable model-runner --tcp=12434
 ```
 
-The `--tcp` flag and port number are technically optional, but I'd advise using them so you can access the model outside of a Docker socket on your host machine (e.g. via `localhost`).
+The `--tcp` flag and port number are technically optional, but I'd advise using them so you can access the model via `localhost` outside of a Docker socket on your host machine.
 
-You can also just do it in the Docker Desktop UI by going to `Settings` > `AI`:
+You can also turn this on in the Docker Desktop UI by going to `Settings` > `AI`:
 
 <Image
   alt="Docker Desktop Model Runner settings"
@@ -161,14 +161,14 @@ You can also just do it in the Docker Desktop UI by going to `Settings` > `AI`:
   wide
 />
 
-Next, you'd use these commands to pull a model and run it:
+Next, you'll use these commands to pull a model and run it:
 
 ```
 docker pull <model-name-here>
 docker run -d <model-name-here>
 ```
 
-A great place to choose a model to use is from [HuggingFace](https://huggingface.co/models). Make sure to choose one that you can support with your device hardware. Unlike training models, inference can use either RAM or a GPU with vRAM. In either case, the basic equation for estimating is this:
+A great place to choose a model to use is from [HuggingFace](https://huggingface.co/models). Make sure to choose one that you can support with your device hardware. Unlike training models, inference can use either RAM or a GPU with vRAM. In either case, the simplified equation for estimating usage is this:
 
 ```
 RAM (bytes) = num_params × bytes_per_param
@@ -182,7 +182,7 @@ bytes_per_param = 4
 RAM (bytes) = 1,000,000,000 × 4 = 4,000,000,000 bytes (4GB)
 ```
 
-The number of bytes per parameter can vary depending on the model and if it's quantized or not. You should be able to read the configuration for the model you want to use on HuggingFace. Additionally, you can use this [vRAM calculator](https://huggingface.co/spaces/NyxKrage/LLM-Model-VRAM-Calculator) to figure out what your computer is capable of).
+The number of bytes per parameter can vary depending on the model and if it's quantized or not. You should be able to read the configuration for the model you want to use on HuggingFace. Additionally, you can use this [vRAM calculator](https://huggingface.co/spaces/NyxKrage/LLM-Model-VRAM-Calculator) to figure out what your computer is capable of.
 
 If in doubt, Model Runner should throw a hissy fit if you try to pull a model that's too large for your computer.
 
@@ -195,7 +195,7 @@ docker model run -d ai/qwen3-coder
 
 The `docker run` command will start up a text-based terminal chat you can use.
 
-If you enabled TCP and a port like I mentioned, you should also be able to directly [curl](https://curl.se) the model now:
+If you enabled TCP and a port like I mentioned, you can also just directly [curl](https://curl.se) the model once the `docker pull` command is finished:
 
 ```
 curl http://localhost:12434/engines/llama.cpp/v1/chat/completions \
@@ -215,7 +215,7 @@ You can also check any models you've downloaded (and that you can immediately ru
 docker model list
 ```
 
-The Docker Model Runner server is using [llama.cpp](https://github.com/ggml-org/llama.cpp) by default under the hood. If you want to use GPU acceleration, you can use the following flag:
+In case you're curious, the Docker Model Runner server is using [llama.cpp](https://github.com/ggml-org/llama.cpp) by default under the hood. If you want to use GPU acceleration instead of only CPU and RAM, you can use the following flag:
 
 ```
 # Enable the runner to use CUDA GPU
@@ -225,7 +225,7 @@ docker desktop enable model-runner --gpu enable
 docker model run <model-name-here>
 ```
 
-This sets you up to use GPU-acceleration with CUDA which is a whole topic in and of itself (more in the [Docker documentation](https://docs.docker.com/ai/model-runner/inference-engines)). If you're interested in learning more about these different process runners, jump to the [Addendum](#addendum) section.
+This sets you up to use GPU-acceleration with CUDA which is a whole topic in and of itself (there's a bit more on this in the [Docker documentation](https://docs.docker.com/ai/model-runner/inference-engines)). If you're interested in learning more about these different process runners, jump to the [Addendum](#addendum) section.
 
 ## Kubernetes [#kubernetes]
 
@@ -237,7 +237,7 @@ _I'll be building out this section more shortly._
 
 ## Addendum [#addendum]
 
-Under the hood of the [Docker](#docker) and [Kubernetes](#kubernetes) setups described in this article, you're using tools like [llama.cpp](https://github.com/ggml-org/llama.cpp) and [vLLM](https://github.com/vllm-project/vllm). These are faster, higher throughput, allow batching and increased context windows with concurrency, are much more GPU memory efficient, and are worth reading up on to understand how they work.
+Under the hood of the [Docker](#docker) and [Kubernetes](#kubernetes) setups described in this article, you're using tools like [llama.cpp](https://github.com/ggml-org/llama.cpp) and [vLLM](https://github.com/vllm-project/vllm). These process runners for inference are faster, higher throughput, allow batching and increased context windows with concurrency, are much more GPU memory efficient, allow holding models indefinitely in GPU memory, and are worth reading up on.
 
 If you want to dig even further, you can also read up on the following tools:
 - [CUDA Toolkit](https://developer.nvidia.com/cuda/toolkit)
