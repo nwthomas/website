@@ -9,14 +9,14 @@ export function GET() {
   return new Response(
     `<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <title>Nathan Thomas</title>
+    <title>Nathan Thomas | Writing</title>
     <subtitle>Writing</subtitle>
     <link href="https://nathanthomas.dev/atom" rel="self"/>
     <link href="https://nathanthomas.dev/"/>
     <updated>${formatUTCTimestampToDateString(posts[0].date)}</updated>
     <id>https://nathanthomas.dev/</id>
     <author>
-        <name>Nathan Thomas</name>
+        <name>Nathan Thomas | Writing</name>
         <email>contact@nathanthomas.dev</email>
     </author>
     ${posts.slice(0, MAX_ATOM_ITEMS).reduce((acc, post) => {

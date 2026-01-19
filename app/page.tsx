@@ -4,7 +4,6 @@ import postsJson from "@/app/(writing)/posts.json";
 
 export default function Page() {
   const { posts } = postsJson;
-
   const lastFourPosts: Post[] = posts.slice(0, 4);
 
   return (
@@ -138,8 +137,8 @@ export default function Page() {
         </a>
         , or{" "}
         <a
-          href="https://www.threads.com/@nwthomas"
-          aria-label="Link to Nathan's profile on Threads"
+          href="https://x.com/nwthomas"
+          aria-label="Link to Nathan's profile on X"
           rel="noopener noreferrer"
           target="_blank"
         >
