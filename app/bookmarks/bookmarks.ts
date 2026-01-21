@@ -8,6 +8,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2026-01-21",
+    title: "Claude's New Constitution",
+    url: "https://www.anthropic.com/news/claude-new-constitution",
+  },
+  {
     date: "2026-01-19",
     title: "Dead Internet Theory",
     url: "https://kudmitry.com/articles/dead-internet-theory",
