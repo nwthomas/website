@@ -47,4 +47,4 @@ You can find work for this repository in this [Trello board](https://trello.com/
 
 ## ACKNOWLEDGEMENTS
 
-- Thanks to my parents for supporting me. I couldn't have done it without you.
+- Thanks to my parents for always supporting me. I couldn't have done it without you.
