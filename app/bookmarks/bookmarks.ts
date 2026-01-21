@@ -9,7 +9,12 @@ export type Bookmarks = Array<Bookmark>;
 export const BOOKMARKS: Bookmarks = [
   {
     date: "2026-01-21",
-    title: "Claude's New Constitution",
+    title: "Vercel: skills.sh",
+    url: "https://skills.sh",
+  },
+  {
+    date: "2026-01-21",
+    title: "Anthropic: Claude's New Constitution",
     url: "https://www.anthropic.com/news/claude-new-constitution",
   },
   {
