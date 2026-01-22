@@ -8,6 +8,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2026-01-22",
+    title: "Ollama: Image Generation",
+    url: "https://ollama.com/blog/image-generation",
+  },
+  {
     date: "2026-01-21",
     title: "Vercel: skills.sh",
     url: "https://skills.sh",
