@@ -6,22 +6,21 @@ import { showImageOverlay } from "@/app/store/reducers/writingSlice";
 import { useDispatch } from "react-redux";
 
 type Props = {
-  index: number;
   alt?: string;
   borderDark?: boolean;
   borderLight?: boolean;
   height: number;
   isHeroImage?: boolean;
   placeholderImage: string;
+  shouldPreload?: boolean;
   src: string;
   title?: string;
   width: number;
   wide?: boolean;
 };
 
-export function Image({ alt = "", borderDark, borderLight, height = 0, index, width = 0, src, wide }: Props) {
+export function Image({ alt = "", borderDark, borderLight, height = 0, shouldPreload, src, width = 0, wide }: Props) {
   const dispatch = useDispatch();
-  const shouldPreload = index === 0;
 
   const handleImageClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
