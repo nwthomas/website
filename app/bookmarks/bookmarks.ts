@@ -8,6 +8,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2026-01-23",
+    title: "OpenAI: Scaling PostgreSQL to Power 800 Million ChatGPT Users",
+    url: "https://openai.com/index/scaling-postgresql",
+  },
+  {
     date: "2026-01-22",
     title: "Ollama: Image Generation",
     url: "https://ollama.com/blog/image-generation",
