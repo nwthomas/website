@@ -21,22 +21,33 @@ export function Navbar() {
   const isBookmarksPage = pathname === "/bookmarks";
   const isWritingPage = pathname === "/writing";
   const isBlogPage = postsJson.posts.find((post: Post) => `/${post.id}` === pathname.split("#")[0]);
-  let titleText: ReactNode = <h1>Nathan Thomas</h1>;
-  if (isBookmarksPage) {
-    titleText = <h1>Bookmarks</h1>;
-  }
-  if (isWritingPage) {
-    titleText = <h1>Writing</h1>;
-  }
-  if (isBlogPage) {
-    const writingTitleWithId = `${isBlogPage.title} [#${isBlogPage.id}]`;
-    titleText = getHeading(writingTitleWithId, HeadingLevel.H1);
-  }
 
   let dateText: React.ReactNode | null = null;
   if (isBlogPage && isBlogPage.date) {
     const date = formatUTCTimestampToDateString(isBlogPage.date);
     dateText = <span> • {date}</span>;
+  }
+
+  let titleText: ReactNode | null = <h1>Nathan Thomas</h1>;
+  let subtitleText: ReactNode | null = (
+    <p className="text-sm text-gray-500">
+      by{" "}
+      <Link aria-label="Link to Nathan's home page" className="no-underline" href="/">
+        Nathan Thomas
+      </Link>
+      {dateText}
+    </p>
+  );
+  if (isBookmarksPage) {
+    titleText = <h1>Bookmarks</h1>;
+  } else if (isWritingPage) {
+    titleText = <h1>Writing</h1>;
+  } else if (isBlogPage) {
+    const writingTitleWithId = `${isBlogPage.title} [#${isBlogPage.id}]`;
+    titleText = getHeading(writingTitleWithId, HeadingLevel.H1);
+  } else if (!isHomePage) {
+    titleText = null;
+    subtitleText = null;
   }
 
   return (
@@ -45,15 +56,7 @@ export function Navbar() {
         <li className="before:hidden pl-0">
           <div className="flex flex-col">
             {titleText}
-            {!isHomePage ? (
-              <p className="text-sm text-gray-500">
-                by{" "}
-                <Link aria-label="Link to Nathan's home page" className="no-underline" href="/">
-                  Nathan Thomas
-                </Link>
-                {dateText}
-              </p>
-            ) : null}
+            {!isHomePage ? subtitleText : null}
           </div>
         </li>
         <li className="before:hidden pl-0">

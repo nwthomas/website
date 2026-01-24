@@ -9,6 +9,11 @@ export type Bookmarks = Array<Bookmark>;
 export const BOOKMARKS: Bookmarks = [
   {
     date: "2026-01-23",
+    title: "OpenAI: Unrolling the Codex Agent Loop",
+    url: "https://openai.com/index/unrolling-the-codex-agent-loop",
+  },
+  {
+    date: "2026-01-23",
     title: "OpenAI: Scaling PostgreSQL to Power 800 Million ChatGPT Users",
     url: "https://openai.com/index/scaling-postgresql",
   },
