@@ -1,7 +1,10 @@
+import * as Sentry from "@sentry/nextjs";
+
 import { ImageOverlayContainer } from "@/app/components/ImageOverlay";
 import { Metadata } from "next";
 import { RedisIncrement } from "@/app/components/RedisIncrement";
 import { getSlugs } from "../utils/getSlugs";
+import { notFound } from "next/navigation";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -33,7 +36,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { slug } = await params;
   const importPath = `../content/${slug}.mdx`;
-  const { default: Post } = await import(importPath);
+  let Post = null;
+
+  try {
+    const post = await import(importPath);
+    if (post.default == null) {
+      return notFound();
+    }
+    Post = post.default;
+  } catch (error) {
+    Sentry.captureException(error);
+
+    return notFound();
+  }
 
   return (
     // Negative margin is here to compensate for the final blog item element
