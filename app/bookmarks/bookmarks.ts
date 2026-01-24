@@ -8,6 +8,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2026-01-24",
+    title: "agentskills.io",
+    url: "https://agentskills.io",
+  },
+  {
     date: "2026-01-23",
     title: "The Part of PostgreSQL We Hate the Most",
     url: "https://www.cs.cmu.edu/~pavlo/blog/2023/04/the-part-of-postgresql-we-hate-the-most.html",
