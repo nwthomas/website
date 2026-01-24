@@ -9,6 +9,11 @@ export type Bookmarks = Array<Bookmark>;
 export const BOOKMARKS: Bookmarks = [
   {
     date: "2026-01-24",
+    title: "cURL Stops Bug Bounty Program Due To AI Slop",
+    url: "https://github.com/curl/curl/pull/20312",
+  },
+  {
+    date: "2026-01-24",
     title: "agentskills.io",
     url: "https://agentskills.io",
   },
