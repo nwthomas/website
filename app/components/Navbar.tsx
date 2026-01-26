@@ -52,7 +52,7 @@ export function Navbar() {
 
   return (
     <header className="flex w-full max-w-2xl mx-5 items-start">
-      <ul className="flex w-full justify-between ">
+      <ul className="flex w-full justify-between">
         <li className="before:hidden pl-0">
           <div className="flex flex-col">
             {titleText}

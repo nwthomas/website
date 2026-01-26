@@ -9,18 +9,6 @@ export const metadata = {
   },
 };
 
-<Image
-  alt="Album covers from vinyl records on display on shelves"
-  src="/images/blog/training-your-first-ai-model/album-covers.webp"
-  width="1500"
-  height="750"
-  shouldPreload
-/>
-
-# Training Your First AI Model [#training-your-first-ai-model]
-
-> Note: If you ever get stuck while implementing the directions in this article, you can refer to [this finished Kaggle notebook](https://www.kaggle.com/code/thnate/first-ai-model) and [this finished Hugging Face space](https://huggingface.co/spaces/nwthomas/dogs-and-cats) for a solution.
-
 ## Start Your Engine [#start-your-engine]
 
 There's something magical that happens when you manage to get code to do what you want. The itch is almost universal among hackers and coders, and it's why they keep coming back again and again.
@@ -50,6 +38,8 @@ Kaggle is a site that, among other things, allows people like you to participate
   src="/images/blog/training-your-first-ai-model/kaggle-homepage.webp"
   height="967"
   width="1600"
+  borderLight
+  wide
 />
 
 Go ahead and head over to [kaggle.com](https://www.kaggle.com) to create a free account. Also, make sure to go verify your account via phone before you're done, or else they won't let you connect your notebook to the internet (which is kind of crucial).
@@ -65,6 +55,8 @@ Awesome. Next, go ahead and hit the `Create` button (which you'll see on the lef
   src="/images/blog/training-your-first-ai-model/new-kaggle-notebook.webp"
   height="968"
   width="1600"
+  borderLight
+  wide
 />
 
 Remove that first block of code by highlighting it and using the scissors icon in the top bar. Then, go ahead and give it a new title like "My First AI Model" or "First AI Model" for now.
@@ -93,6 +85,8 @@ This is what it should look like:
   src="/images/blog/training-your-first-ai-model/first-notebook-cells.webp"
   height="967"
   width="1600"
+  borderLight
+  wide
 />
 
 Each code block should have a play button on the lefthand side if you click on the code block itself. Go ahead and press it for each of these.
@@ -115,6 +109,8 @@ This is what it should look like once you're done:
   src="/images/blog/training-your-first-ai-model/finished-initial-setup.webp"
   height="967"
   width="1600"
+  borderLight
+  wide
 />
 
 Good job!
@@ -145,6 +141,8 @@ It should look like this:
   src="/images/blog/training-your-first-ai-model/duck-duck-go-initial-search.webp"
   height="967"
   width="1600"
+  borderLight
+  wide
 />
 
 Once you run that, it should say something like `200` underneath your code block. This is indicative of the number of results that were found matching your search!
@@ -168,6 +166,8 @@ It should look like this:
   src="/images/blog/training-your-first-ai-model/sampling-image-data.webp"
   height="967"
   width="1600"
+  borderLight
+  wide
 />
 
 Nice. This is always a good idea to do as we're effectively sampling the image data to make sure we're pulling in something that we'd expect from our search query term.
@@ -203,6 +203,8 @@ This will take quite a bit of time to run. You're using DuckDuckGo to download i
   src="/images/blog/training-your-first-ai-model/downloading-images.webp"
   height="967"
   width="1600"
+  borderLight
+  wide
 />
 
 Once this code block finishes running, you now have your dataset for training your model!
@@ -224,6 +226,8 @@ Here's what it looked like for me when I ran it:
   src="/images/blog/training-your-first-ai-model/errored-image-paths.webp"
   height="967"
   width="1600"
+  borderLight
+  wide
 />
 
 Go ahead and remove those by putting this code into a code block and running it:
@@ -319,6 +323,8 @@ Here's what this will looks like once you're done:
   src="/images/blog/training-your-first-ai-model/dataloaders.webp"
   height="967"
   width="1600"
+  borderLight
+  wide
 />
 
 Believe it or not, the hard part is done now. From here, we get to train our model!
@@ -359,6 +365,8 @@ Okay. This is what it should look similar to (again, ignore the errors here if y
   src="/images/blog/training-your-first-ai-model/trained-model.webp"
   height="967"
   width="1600"
+  borderLight
+  wide
 />
 
 Training loss (`train_loss`) is how well the model is fitting the training data, and validation loss (`valid_loss`) is an indication of how well the model fits the new data (from our `DataBlock`s class with the random splitter on the data). Here's a [pretty good breakdown on this topic](https://www.baeldung.com/cs/learning-curve-ml#3-multiple-curves); additionally, I'd highly recommend starting the FastAI course I mentioned at the start of this article.
@@ -388,6 +396,8 @@ Check out the files in the sidebar again. You should see an `export.pkl` file li
   src="/images/blog/training-your-first-ai-model/export-ready-model.webp"
   height="967"
   width="1600"
+  borderLight
+  wide
 />
 
 If you hover over that, you should be able to click on three dots that open a menu where you can download the file.
@@ -411,6 +421,8 @@ Once you're done, create a new "Space" (for running your model) by going to the 
   src="/images/blog/training-your-first-ai-model/hugging-face-spaces-page.webp"
   height="967"
   width="1600"
+  borderLight
+  wide
 />
 
 Got ahead and give your Space a name and use a license like MIT for it:
@@ -420,6 +432,8 @@ Got ahead and give your Space a name and use a license like MIT for it:
   src="/images/blog/training-your-first-ai-model/hugging-face-new-space.webp"
   height="967"
   width="1600"
+  borderLight
+  wide
 />
 
 Select "Gradio" as the Space SDK and leave the other settings as-is before clicking "Create Space"!
@@ -462,6 +476,8 @@ Commit them and then push them up to the Space. Once it's done, refresh the Hugg
   src="/images/blog/training-your-first-ai-model/hugging-face-space-building.webp"
   height="967"
   width="1600"
+  borderLight
+  wide
 />
 
 Once it's done, the application will say that it's starting. This can take quite a bit of time, so be patient. Free tools aren't always the fastest.
@@ -473,6 +489,8 @@ However, you'll eventually see something much like this:
   src="/images/blog/training-your-first-ai-model/hugging-face-space-build-error.webp"
   height="967"
   width="1600"
+  borderLight
+  wide
 />
 
 Oh no! What happened?
@@ -486,6 +504,8 @@ You should head to the "Files" tab and then choose the "Add file" and "Upload fi
   src="/images/blog/training-your-first-ai-model/hugging-face-space-file-upload.webp"
   height="967"
   width="1600"
+  borderLight
+  wide
 />
 
 On the next page, you'll be able to directly upload and then commit your `export.pkl` file. Do that, and then wait. Once again, you'll be presented with a building page for your Hugging Face Space.
@@ -497,6 +517,8 @@ Once it's done, you should be presented with a beautiful UI for interacting with
   src="/images/blog/training-your-first-ai-model/hugging-face-finished-space.webp"
   height="967"
   width="1600"
+  borderLight
+  wide
 />
 
 Go ahead and upload an image for whatever category you trained your model on. I'm going to upload a dog picture. Check out this prediction:
@@ -506,6 +528,8 @@ Go ahead and upload an image for whatever category you trained your model on. I'
   src="/images/blog/training-your-first-ai-model/hugging-face-first-prediction.webp"
   height="967"
   width="1600"
+  borderLight
+  wide
 />
 
 > NOTE: If you see the wrong predictions consistently and the model is very confident (e.g. 100% confident in it being a cat when it's a dog photo), it's likely that the order of `categories` in your `app.py` file is off compared to the order of probabilities (where you're zipping up probabilities against categories in your `dict(zip(categories, map(float, probs)))` line of code). Go back and fiddle with this (deploying iteratively to your Hugging Face space) until it's right. Contact me if you can't figure this out - I promise I'll respond.
@@ -517,6 +541,8 @@ It even works for my own dog, Aspen (she does have some slight cat-like qualitie
   src="/images/blog/training-your-first-ai-model/hugging-face-aspen-prediction.webp"
   height="967"
   width="1600"
+  borderLight
+  wide
 />
 
 Great job! You should be able to use your model now. Go back some steps and try experimenting with different models, uploading them here to interact with them once you're done training.
