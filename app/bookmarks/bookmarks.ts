@@ -9,6 +9,11 @@ export type Bookmarks = Array<Bookmark>;
 export const BOOKMARKS: Bookmarks = [
   {
     date: "2026-01-26",
+    title: "Nine Ways to Shoot Yourself in the Foot with PostgreSQL",
+    url: "https://philbooth.me/blog/nine-ways-to-shoot-yourself-in-the-foot-with-postgresql",
+  },
+  {
+    date: "2026-01-26",
     title: "PostgreSQL Cascading Replication",
     url: "https://www.postgresql.org/docs/current/warm-standby.html#CASCADING-REPLICATION",
   },
@@ -29,7 +34,7 @@ export const BOOKMARKS: Bookmarks = [
   },
   {
     date: "2026-01-24",
-    title: "cURL Stops Bug Bounty Program Due To AI Slop",
+    title: "cURL Stops Bug Bounty Program Due to AI Slop",
     url: "https://github.com/curl/curl/pull/20312",
   },
   {
