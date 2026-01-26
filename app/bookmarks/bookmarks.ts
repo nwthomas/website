@@ -8,6 +8,21 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2026-01-26",
+    title: "PostgreSQL Cascading Replication",
+    url: "https://www.postgresql.org/docs/current/warm-standby.html#CASCADING-REPLICATION",
+  },
+  {
+    date: "2026-01-26",
+    title: "Dario Amodei: The Adolescence of Technology",
+    url: "https://www.darioamodei.com/essay/the-adolescence-of-technology",
+  },
+  {
+    date: "2026-01-26",
+    title: "Dario Amodei: Machines of Loving Grace",
+    url: "https://www.darioamodei.com/essay/machines-of-loving-grace",
+  },
+  {
     date: "2026-01-25",
     title: "clawd.bot",
     url: "https://clawd.bot",
