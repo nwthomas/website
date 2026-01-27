@@ -10,6 +10,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2026-01-27",
+    title: "How HTTP Works",
+    url: "https://howhttps.works",
+  },
+  {
     date: "2026-01-26",
     title: "Nine Ways to Shoot Yourself in the Foot with PostgreSQL",
     url: "https://philbooth.me/blog/nine-ways-to-shoot-yourself-in-the-foot-with-postgresql",

@@ -22,13 +22,22 @@ export default function Page() {
         {BOOKMARKS.map((bookmark, i) => (
           <li className={clsx("flex before:content-[''] pl-0", i > 0 && "mt-1")} key={bookmark.url}>
             <>
-              <a className="flex font-mono text-sm wrap-break-words leading-normal no-underline" href={bookmark.url}>
+              <a
+                aria-label={`Link to ${bookmark.title}`}
+                className="flex font-mono text-sm wrap-break-words leading-normal no-underline"
+                href={bookmark.url}
+              >
                 <span className="whitespace-nowrap no-underline">{bookmark.date}</span>
                 <span className="underline decoration-dotted decoration-gray-500 ml-5">{bookmark.title}</span>
               </a>
               {bookmark?.footnotes && bookmark.footnotes.length > 0
                 ? bookmark.footnotes.map((footnote, f_i) => (
-                    <a className="text-xs font-mono ml-1 no-underline cursor-pointer" key={footnote}>
+                    <a
+                      aria-label={`Link to footnote ${f_i + 1} for ${bookmark.title}`}
+                      href={footnote}
+                      className="text-xs font-mono ml-1 no-underline cursor-pointer text-gray-500"
+                      key={footnote}
+                    >
                       {f_i + 1}
                     </a>
                   ))
