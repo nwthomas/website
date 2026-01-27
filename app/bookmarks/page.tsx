@@ -21,13 +21,19 @@ export default function Page() {
       <ul className="w-full mt-5">
         {BOOKMARKS.map((bookmark, i) => (
           <li className={clsx("flex before:content-[''] pl-0", i > 0 && "mt-1")} key={bookmark.url}>
-            <a
-              className="flex gap-5 font-mono text-sm wrap-break-words leading-normal no-underline"
-              href={bookmark.url}
-            >
-              <span className="whitespace-nowrap no-underline">{bookmark.date}</span>
-              <span className="underline decoration-dotted decoration-gray-500">{bookmark.title}</span>
-            </a>
+            <>
+              <a className="flex font-mono text-sm wrap-break-words leading-normal no-underline" href={bookmark.url}>
+                <span className="whitespace-nowrap no-underline">{bookmark.date}</span>
+                <span className="underline decoration-dotted decoration-gray-500 ml-5">{bookmark.title}</span>
+              </a>
+              {bookmark?.footnotes && bookmark.footnotes.length > 0
+                ? bookmark.footnotes.map((footnote, f_i) => (
+                    <a className="text-xs font-mono ml-1 no-underline cursor-pointer" key={footnote}>
+                      {f_i + 1}
+                    </a>
+                  ))
+                : null}
+            </>
           </li>
         ))}
       </ul>
