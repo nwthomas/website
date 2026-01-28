@@ -8,6 +8,9 @@ import { notFound } from "next/navigation";
 
 type Props = { params: Promise<{ slug: string }> };
 
+// Ensure that only the statically generated pages are valid routes
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return getSlugs();
 }

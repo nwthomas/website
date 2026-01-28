@@ -46,7 +46,13 @@ export function Navbar() {
     const writingTitleWithId = `${isBlogPage.title} [#${isBlogPage.id}]`;
     titleText = getHeading(writingTitleWithId, HeadingLevel.H1);
   } else if (!isHomePage) {
-    titleText = null;
+    titleText = (
+      <h1>
+        <Link aria-label="Link to Nathan's home page" className="no-underline" href="/">
+          404 - Not Found
+        </Link>
+      </h1>
+    );
     subtitleText = null;
   }
 
