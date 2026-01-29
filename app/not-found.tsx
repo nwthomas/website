@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Metadata } from "next";
 
 const asciiArt = `
                                                    :"::""""" ",","","""""  """"                                                                              
@@ -72,6 +73,21 @@ const asciiArt = `
                                                                                                                                     "]cQ)]]~~_c[<_<>>_<      
                                                                                                                                              ,-tv{1)[<       
 `;
+
+export const metadata: Metadata = {
+  title: "404 - Not Found | Nathan Thomas",
+  description: "The page you are looking for does not exist.",
+  metadataBase: new URL("https://www.nathanthomas.dev"),
+  openGraph: {
+    title: "404 - Not Found",
+    description: "The page you are looking for does not exist.",
+    url: "https://www.nathanthomas.dev",
+    siteName: "Nathan Thomas",
+    locale: "en_US",
+    type: "website",
+    images: [{ url: "/opengraph-image" }],
+  },
+};
 
 export default function NotFound() {
   return (
