@@ -28,6 +28,7 @@ export function Navbar() {
     dateText = <span> • {date}</span>;
   }
 
+  let showThemeSwitch = true;
   let titleText: ReactNode | null = <h1>Nathan Thomas</h1>;
   let subtitleText: ReactNode | null = (
     <p className="text-sm text-gray-500">
@@ -46,14 +47,9 @@ export function Navbar() {
     const writingTitleWithId = `${isBlogPage.title} [#${isBlogPage.id}]`;
     titleText = getHeading(writingTitleWithId, HeadingLevel.H1);
   } else if (!isHomePage) {
-    titleText = (
-      <h1>
-        <Link aria-label="Link to Nathan's home page" className="no-underline" href="/">
-          404 - Not Found
-        </Link>
-      </h1>
-    );
+    titleText = null;
     subtitleText = null;
+    showThemeSwitch = false;
   }
 
   return (
@@ -65,11 +61,13 @@ export function Navbar() {
             {!isHomePage ? subtitleText : null}
           </div>
         </li>
-        <li className="before:hidden pl-0">
-          <div className="flex gap-3 sm:gap-5 items-center">
-            <ThemeSwitch />
-          </div>
-        </li>
+        {showThemeSwitch ? (
+          <li className="before:hidden pl-0">
+            <div className="flex gap-3 sm:gap-5 items-center">
+              <ThemeSwitch />
+            </div>
+          </li>
+        ) : null}
       </ul>
     </header>
   );

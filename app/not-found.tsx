@@ -76,8 +76,9 @@ const asciiArt = `
 export default function NotFound() {
   return (
     <section className="w-full max-w-2xl mx-5 flex flex-col items-center justify-center">
-      <Link className="mt-5 no-underline" href="/">
+      <Link className="no-underline flex flex-col items-center justify-center" href="/">
         <pre className="text-[3px] sm:text-[4px] md:text-[5px] font-mono">{asciiArt}</pre>
+        <h1 className="text-sm font-mono font-bold mt-10">404 - Not Found</h1>
       </Link>
     </section>
   );
