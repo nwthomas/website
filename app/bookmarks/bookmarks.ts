@@ -10,6 +10,16 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2026-01-31",
+    title: "OpenAI: Spinning Up in Deep RL",
+    url: "https://spinningup.openai.com/en/latest",
+  },
+  {
+    date: "2026-01-31",
+    title: "Deep Learning Book",
+    url: "https://www.deeplearningbook.org",
+  },
+  {
     date: "2026-01-27",
     title: "How HTTP Works",
     url: "https://howhttps.works",
