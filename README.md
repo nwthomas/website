@@ -45,6 +45,6 @@ You can find work for this repository in this [Trello board](https://trello.com/
 - [TypeScript](https://www.typescriptlang.org)
 - [Vercel](https://vercel.com)
 
-## ACKNOWLEDGEMENTS
+## Acknowledgements
 
 - Thanks to my parents for always supporting me. I couldn't have done it without you.
