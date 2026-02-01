@@ -10,6 +10,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2026-02-01",
+    title: "LinkedIn: The Log -  What Every Software Engineer Should Know About Real-Time Data's Unifying Abstraction",
+    url: "https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying",
+  },
+  {
     date: "2026-01-31",
     title: "OpenAI: Spinning Up in Deep RL",
     url: "https://spinningup.openai.com/en/latest",
