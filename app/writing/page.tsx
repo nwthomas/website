@@ -9,6 +9,16 @@ import postsJson from "@/app/(writing)/posts.json";
 export const metadata: Metadata = {
   title: "Writing | Nathan Thomas",
   description: "Nathan Thomas' writing page",
+  metadataBase: new URL("https://www.nathanthomas.dev"),
+  openGraph: {
+    title: "Writing",
+    description: "Nathan Thomas' writing page",
+    url: "https://www.nathanthomas.dev",
+    siteName: "Nathan Thomas",
+    locale: "en_US",
+    type: "website",
+    images: [{ url: "/opengraph-image" }],
+  },
 };
 
 export const dynamic = "force-dynamic"; // Render the page dynamically per request
