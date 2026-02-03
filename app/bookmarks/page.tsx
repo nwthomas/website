@@ -6,6 +6,16 @@ import { clsx } from "clsx";
 export const metadata: Metadata = {
   title: "Bookmarks | Nathan Thomas",
   description: "Nathan Thomas' bookmarks page",
+  metadataBase: new URL("https://www.nathanthomas.dev"),
+  openGraph: {
+    title: "Bookmarks",
+    description: "Nathan Thomas' bookmarks page",
+    url: "https://www.nathanthomas.dev",
+    siteName: "Nathan Thomas",
+    locale: "en_US",
+    type: "website",
+    images: [{ url: "/opengraph-image" }],
+  },
 };
 
 export default function Page() {
