@@ -10,6 +10,16 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2026-02-05",
+    title: "Anthropic: Introducing Claude Opus 4.6",
+    url: "https://www.anthropic.com/news/claude-opus-4-6",
+  },
+  {
+    date: "2026-02-05",
+    title: "OpenAI: Introducing GPT-5.3-Codex",
+    url: "https://openai.com/index/introducing-gpt-5-3-codex",
+  },
+  {
     date: "2026-02-03",
     title: "Amazon DynamoDB Accelerator (DAX): A Read-Through/Write-Through Cache for DynamoDB",
     url: "https://aws.amazon.com/blogs/database/amazon-dynamodb-accelerator-dax-a-read-throughwrite-through-cache-for-dynamodb",
