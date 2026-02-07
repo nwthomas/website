@@ -10,6 +10,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2026-02-07",
+    title: "Chandy-Lamport Snapshotting",
+    url: "https://www.cs.princeton.edu/courses/archive/fall16/cos418/docs/P8-chandy-lamport.pdf",
+  },
+  {
     date: "2026-02-06",
     title: "OpenAI: Introducing the Codex App",
     url: "https://openai.com/index/introducing-the-codex-app",
