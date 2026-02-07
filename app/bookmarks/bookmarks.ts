@@ -10,6 +10,17 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2026-02-06",
+    title: "OpenAI: Introducing the Codex App",
+    url: "https://openai.com/index/introducing-the-codex-app",
+  },
+  {
+    date: "2026-02-06",
+    title: "OpenCiv3",
+    url: "https://openciv3.org",
+    footnotes: ["https://github.com/C7-Game/Prototype", "https://forums.civfanatics.com/forums/openciv3.604"],
+  },
+  {
     date: "2026-02-05",
     title: "Anthropic: Introducing Claude Opus 4.6",
     url: "https://www.anthropic.com/news/claude-opus-4-6",
