@@ -112,6 +112,7 @@ export const BOOKMARKS: Bookmarks = [
       "https://cybersecuritynews.com/clawdbot-chats-exposed",
       "https://openclaw.ai/blog/introducing-openclaw",
       "https://www.moltbook.com",
+      "https://www.technologyreview.com/2026/02/06/1132448/moltbook-was-peak-ai-theater",
     ],
   },
   {
