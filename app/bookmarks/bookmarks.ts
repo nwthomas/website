@@ -11,6 +11,11 @@ export type Bookmarks = Array<Bookmark>;
 export const BOOKMARKS: Bookmarks = [
   {
     date: "2026-02-08",
+    title: "SOUL.md",
+    url: "https://soul.md",
+  },
+  {
+    date: "2026-02-08",
     title: "Paul Graham: When To Do What You Love",
     url: "https://www.paulgraham.com/when.html",
   },
