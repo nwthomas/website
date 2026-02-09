@@ -1,6 +1,12 @@
 {
   "posts": [
     {
+      "id": "imagination",
+      "title": "Imagination",
+      "description": "Imagination is everything. It's what makes us human. We can't lose it.",
+      "date": "2026-02-09"
+    },
+    {
       "id": "local-models",
       "title": "Local Models",
       "description": "Learn how to run your own AI models locally",
