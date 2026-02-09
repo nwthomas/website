@@ -10,6 +10,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2026-02-08",
+    title: "Kappa Architecture: An Efficient Model for Real-Time Processing",
+    url: "https://medium.com/@lenonrodrigues/kappa-architecture-an-efficient-model-for-real-time-processing-767c623d04ad",
+  },
+  {
     date: "2026-02-07",
     title: "Chandy-Lamport Snapshotting",
     url: "https://www.cs.princeton.edu/courses/archive/fall16/cos418/docs/P8-chandy-lamport.pdf",
