@@ -620,4 +620,9 @@ export const BOOKMARKS: Bookmarks = [
     title: "TwitterServer",
     url: "https://twitter.github.io/twitter-server",
   },
+  {
+    date: "2015-01-01",
+    title: "Bitcoin: A Peer-to-Peer Electronic Cash System",
+    url: "https://bitcoin.org/bitcoin.pdf",
+  },
 ];
