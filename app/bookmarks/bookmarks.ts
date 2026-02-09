@@ -10,6 +10,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2026-02-09",
+    title: "Setup MinIO S3 Object Storage on TrueNAS",
+    url: "https://www.starwindsoftware.com/blog/setup-minio-s3-object-storage-on-truenas",
+  },
+  {
     date: "2026-02-08",
     title: "SOUL.md",
     url: "https://soul.md",
