@@ -11,6 +11,11 @@ export type Bookmarks = Array<Bookmark>;
 export const BOOKMARKS: Bookmarks = [
   {
     date: "2026-02-09",
+    title: "shovel.js",
+    url: "https://shovel.js.org/blog/introducing-shovel",
+  },
+  {
+    date: "2026-02-09",
     title: "Setup MinIO S3 Object Storage on TrueNAS",
     url: "https://www.starwindsoftware.com/blog/setup-minio-s3-object-storage-on-truenas",
   },
