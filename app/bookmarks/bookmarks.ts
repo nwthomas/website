@@ -11,6 +11,11 @@ export type Bookmarks = Array<Bookmark>;
 export const BOOKMARKS: Bookmarks = [
   {
     date: "2026-02-08",
+    title: "Paul Graham: When To Do What You Love",
+    url: "https://www.paulgraham.com/when.html",
+  },
+  {
+    date: "2026-02-08",
     title: "Kappa Architecture: An Efficient Model for Real-Time Processing",
     url: "https://medium.com/@lenonrodrigues/kappa-architecture-an-efficient-model-for-real-time-processing-767c623d04ad",
   },
