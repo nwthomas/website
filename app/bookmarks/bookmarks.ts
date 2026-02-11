@@ -11,6 +11,11 @@ export type Bookmarks = Array<Bookmark>;
 export const BOOKMARKS: Bookmarks = [
   {
     date: "2026-02-10",
+    title: "Humans of New York",
+    url: "https://brandonstanton.com/humans-of-new-york",
+  },
+  {
+    date: "2026-02-10",
     title: "5.3-codex Ported Simcity to TypeScript",
     url: "https://x.com/ccccjjjjeeee/status/2021160492039811300",
   },
