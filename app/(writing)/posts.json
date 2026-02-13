@@ -1,6 +1,12 @@
 {
   "posts": [
     {
+      "id": "strange-faces",
+      "title": "Strange Faces",
+      "description": "The world is full of strange faces",
+      "date": "2026-02-08"
+    },
+    {
       "id": "local-models",
       "title": "Local Models",
       "description": "Learn how to run your own AI models locally",
