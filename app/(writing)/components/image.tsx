@@ -9,6 +9,7 @@ type Props = {
   alt?: string;
   borderDark?: boolean;
   borderLight?: boolean;
+  disableZoom?: boolean;
   height: number;
   isHeroImage?: boolean;
   placeholderImage: string;
@@ -19,7 +20,17 @@ type Props = {
   wide?: boolean;
 };
 
-export function Image({ alt = "", borderDark, borderLight, height = 0, shouldPreload, src, width = 0, wide }: Props) {
+export function Image({
+  alt = "",
+  borderDark,
+  borderLight,
+  disableZoom,
+  height = 0,
+  shouldPreload,
+  src,
+  width = 0,
+  wide,
+}: Props) {
   const dispatch = useDispatch();
 
   const handleImageClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -42,12 +53,14 @@ export function Image({ alt = "", borderDark, borderLight, height = 0, shouldPre
       <button
         aria-label="Enlarge image"
         className={clsx(
-          "w-full mb-5 hover:opacity-80 cursor-zoom-in transition-opacity duration-200 mx-5 items-center flex overflow-hidden border border-background",
+          "w-full mb-5 mx-5 items-center flex overflow-hidden border border-background",
           wide ? "max-w-4xl" : "max-w-2xl",
           borderDark ? "border border-background dark:border-gray-800" : "",
           borderLight ? "border border-gray-200 dark:border-background" : "",
+          disableZoom ? "" : "hover:opacity-60 transition-opacity duration-200 cursor-zoom-in",
         )}
-        onClick={handleImageClick}
+        onClick={disableZoom ? undefined : handleImageClick}
+        disabled={disableZoom}
       >
         <div className={`aspect-ratio-[${width}/${height}] leading-none relative w-full flex justify-center`}>
           <NextImage
