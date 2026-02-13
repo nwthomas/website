@@ -42,13 +42,10 @@ This is a Next.js 16 application using the App Router (not Pages Router). The ma
     - `app/(writing)/[slug]/page.tsx` - Dynamic route for individual blog posts
     - `app/(writing)/posts.json` - Post metadata (id, title, date) for static generation
   - `app/components/` - Shared components (Navbar, Footer, ThemeSwitch, etc.)
+  - `app/hooks/` - Custom React hooks (`useTheme`, `useLockBodyScroll`)
+  - `app/store/` - Redux Toolkit store, reducers, and selectors
   - `app/writing/page.tsx` - Blog listing page
-  - `app/bio/page.tsx` - Bio page
   - `app/bookmarks/page.tsx` - Bookmarks page
-- `store/` - Redux Toolkit store and slices
-  - `store/reducers/themeSlice.ts` - Theme state management
-  - `store/reducers/writingSlice.ts` - Image overlay state for blog posts
-- `hooks/` - Custom React hooks (useTheme, useLockBodyScroll)
 - `mdx-components.ts` - MDX component mappings for blog posts
 
 ### State Management
