@@ -11,6 +11,11 @@ export type Bookmarks = Array<Bookmark>;
 export const BOOKMARKS: Bookmarks = [
   {
     date: "2026-02-11",
+    title: "Signs of AI Writing",
+    url: "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing",
+  },
+  {
+    date: "2026-02-11",
     title: "The 2025 MAD (ML, AI & Data) Landscape",
     url: "https://mad.firstmark.com/",
   },
