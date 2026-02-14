@@ -10,6 +10,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2026-02-14",
+    title: "The End of Programming as We Know It",
+    url: "https://www.oreilly.com/radar/the-end-of-programming-as-we-know-it",
+  },
+  {
     date: "2026-02-11",
     title: "Signs of AI Writing",
     url: "https://en.wikipedia.org/wiki/Wikipedia%3ASigns_of_AI_writing",
