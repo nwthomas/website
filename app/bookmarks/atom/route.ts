@@ -26,7 +26,7 @@ export function GET() {
       const bookmarkDate = formatUTCTimestampToDateString(bookmark.date);
 
       const entryContent = `<entry>
-        <id>${bookmark.title}</id>
+        <id>${bookmark.id}</id>
         <title>${bookmark.title}</title>
         <link href="${bookmark.url}"/>
         <updated>${bookmarkDate}</updated>
