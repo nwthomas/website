@@ -30,7 +30,7 @@ export default function Page() {
       </p>
       <ul className="w-full mt-5">
         {BOOKMARKS.map((bookmark, i) => (
-          <li className={clsx("flex before:content-[''] pl-0", i > 0 && "mt-1")} key={bookmark.url}>
+          <li className={clsx("flex before:content-[''] pl-0", i > 0 && "mt-1")} key={bookmark.url + bookmark.id}>
             <>
               <a
                 aria-label={`Link to ${bookmark.title}`}
