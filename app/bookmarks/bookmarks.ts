@@ -10,6 +10,11 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    date: "2026-02-15",
+    title: "OpenAI: Beyond Rate Limits - Scaling Access to Codex and Sora",
+    url: "https://openai.com/index/beyond-rate-limits",
+  },
+  {
     date: "2026-02-14",
     title: "The End of Programming as We Know It",
     url: "https://www.oreilly.com/radar/the-end-of-programming-as-we-know-it",
