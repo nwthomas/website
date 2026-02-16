@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "c4f8a2e1-9b3d-4e7a-8f6c-2d1e0a9b5c3f",
+    date: "2026-02-15",
+    title: "Pascal's Wager",
+    url: "https://en.wikipedia.org/wiki/Pascal%27s_wager",
+  },
+  {
     id: "a0ba56b5-edda-4a7f-9866-e673441370ef",
     date: "2026-02-15",
     title: "OpenAI: Beyond Rate Limits - Scaling Access to Codex and Sora",
