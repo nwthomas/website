@@ -13,7 +13,7 @@ export function Blockquote({ children }: { children: ReactNode }) {
     const parts = child.split("\n");
     parts.forEach((part, partIndex) => {
       if (partIndex > 0) {
-        acc.push(<br key={`br-${childIndex}-${partIndex}`} />);
+        acc.push(<div className="mb-5" key={`br-${childIndex}-${partIndex}`}></div>);
       }
 
       if (part !== "") {
