@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "e7f2b3c4-1a5d-4e8b-9c6f-3d2e1a0b7c4f",
+    date: "2026-02-17",
+    title: "You Could've Invented OpenClaw",
+    url: "https://gist.github.com/dabit3/bc60d3bea0b02927995cd9bf53c3db32",
+  },
+  {
     id: "c4f8a2e1-9b3d-4e7a-8f6c-2d1e0a9b5c3f",
     date: "2026-02-15",
     title: "Pascal's Wager",
