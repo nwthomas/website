@@ -176,6 +176,7 @@ export const BOOKMARKS: Bookmarks = [
     url: "https://openclaw.ai",
     postfix: "(previously clawd.bot)",
     footnotes: [
+      "https://github.com/openclaw/openclaw",
       "https://x.com/steipete/status/2016079236780449975",
       "https://www.reddit.com/r/ClaudeAI/comments/1qo8skw/clawd_becomes_molty_after_anthropic_trademark",
       "https://www.forbes.com/sites/ronschmelzer/2026/01/27/viral-ai-sidekick-clawdbot-changes-name-to-moltbot-and-sheds-its-old-skin",
