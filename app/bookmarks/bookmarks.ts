@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "94c16a8c-a750-4475-bfeb-e9cb4afdd519",
+    date: "2026-02-18",
+    title: "Deno Sandbox",
+    url: "https://deno.com/deploy/sandbox",
+  },
+  {
     id: "e7f2b3c4-1a5d-4e8b-9c6f-3d2e1a0b7c4f",
     date: "2026-02-17",
     title: "You Could've Invented OpenClaw",
