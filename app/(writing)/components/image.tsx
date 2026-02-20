@@ -12,7 +12,6 @@ type Props = {
   disableOverlay?: boolean;
   height: number;
   isHeroImage?: boolean;
-  placeholderImage: string;
   shouldPreload?: boolean;
   src: string;
   title?: string;
