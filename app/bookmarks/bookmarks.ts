@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "f8a2b3c4-5d6e-4f7a-8b9c-0d1e2f3a4b5c",
+    date: "2026-02-20",
+    title: "Generator Expressions vs. List Comprehensions in Python",
+    url: "https://stackoverflow.com/questions/47789/generator-expressions-vs-list-comprehensions",
+  },
+  {
     id: "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
     date: "2026-02-19",
     title: "Multithreading vs. Multiprocessing in Python",
