@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    date: "2026-02-19",
+    title: "Multithreading vs. Multiprocessing in Python",
+    url: "https://engineering.contentsquare.com/2018/multithreading-vs-multiprocessing-in-python",
+  },
+  {
     id: "94c16a8c-a750-4475-bfeb-e9cb4afdd519",
     date: "2026-02-18",
     title: "Deno Sandbox",
