@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "b2e4f6a8-1c3d-4e5f-9a7b-8c9d0e1f2a3b",
+    date: "2026-02-22",
+    title: "Anthropic: Measuring Agent Autonomy",
+    url: "https://www.anthropic.com/research/measuring-agent-autonomy",
+  },
+  {
     id: "f8a2b3c4-5d6e-4f7a-8b9c-0d1e2f3a4b5a",
     date: "2026-02-21",
     title: "Buf",
