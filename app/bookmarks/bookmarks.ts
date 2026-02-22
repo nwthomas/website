@@ -14,7 +14,7 @@ export type Bookmarks = Array<Bookmark>;
 export const BOOKMARKS: Bookmarks = [
   {
     id: "f8a2b3c4-5d6e-4f7a-8b9c-0d1e2f3a4b5a",
-    date: "2026-02-20",
+    date: "2026-02-21",
     title: "Buf",
     url: "https://buf.build",
   },
