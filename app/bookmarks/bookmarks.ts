@@ -13,9 +13,15 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7g",
+    date: "2026-02-24",
+    title: "Anthropic's Frontier Safety Roadmap",
+    url: "https://www.anthropic.com/responsible-scaling-policy/roadmap",
+  },
+  {
     id: "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
     date: "2026-02-24",
-    title: "Cursor: Cursor agents can now control their own computers",
+    title: "Cursor: Cursor Agents Can Now Control Their Own Computers",
     url: "https://cursor.com/blog/agent-computer-use",
   },
   {
