@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d",
+    date: "2026-02-24",
+    title: "New Play Exchange",
+    url: "https://newplayexchange.org/get-started",
+  },
+  {
     id: "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6f",
     date: "2026-02-22",
     title: "State of React 2025",
