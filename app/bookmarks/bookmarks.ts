@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "f8a3c4d5-2b6e-4f9a-8c7d-1e0f3a2b4c5d",
+    date: "2026-02-24",
+    title: "Figma: Introducing Claude Code to Figma",
+    url: "https://www.figma.com/blog/introducing-claude-code-to-figma",
+  },
+  {
     id: "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7g",
     date: "2026-02-24",
     title: "Anthropic's Frontier Safety Roadmap",
