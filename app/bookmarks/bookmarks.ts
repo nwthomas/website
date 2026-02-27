@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "e6f7a8b9-c0d1-4e2f-3a4b-5c6d7e8f9a0b",
+    date: "2026-02-26",
+    title: "Anthropic: Statement from Dario Amodei on our discussions with the Department of War",
+    url: "https://www.anthropic.com/news/statement-department-of-war",
+  },
+  {
     id: "a9b8c7d6-e5f4-4a3b-2c1d-0e9f8a7b6c5d",
     date: "2026-02-26",
     title: "Golang Generic Methods Proposal Approved",
