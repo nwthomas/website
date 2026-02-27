@@ -1,6 +1,3 @@
-const SPOTIFY_NOW_PLAYING_KEY = "spotify-now-playing";
-const SPOTIFY_CACHE_TTL_SECONDS = 60 * 60 * 24; // 1 day
-
 export type NowPlayingTrack = {
   track: string;
   artists: string;
@@ -113,21 +110,6 @@ export async function getRecentlyPlayed(accessToken: string, limit = 1): Promise
 }
 
 export async function getNowPlaying(): Promise<NowPlayingTrack | null> {
-  // Cache only in production when Redis is available
-  const useCache = process.env.NODE_ENV === "production" && process.env.REDIS_URL && process.env.REDIS_TOKEN;
-
-  if (useCache) {
-    try {
-      const { redis } = await import("@/app/utils/redis");
-      const cached = await redis.get<NowPlayingTrack>(SPOTIFY_NOW_PLAYING_KEY);
-      if (cached) {
-        return cached;
-      }
-    } catch {
-      // Redis unavailable; fall through to Spotify
-    }
-  }
-
   const accessToken = await getAccessToken();
   if (!accessToken) {
     return null;
@@ -136,15 +118,6 @@ export async function getNowPlaying(): Promise<NowPlayingTrack | null> {
   let track: NowPlayingTrack | null = await getCurrentlyPlaying(accessToken);
   if (!track) {
     track = await getRecentlyPlayed(accessToken, 1);
-  }
-
-  if (track && useCache) {
-    try {
-      const { redis } = await import("@/app/utils/redis");
-      await redis.set(SPOTIFY_NOW_PLAYING_KEY, track, SPOTIFY_CACHE_TTL_SECONDS);
-    } catch {
-      // Ignore cache write failure
-    }
   }
 
   return track;

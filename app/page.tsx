@@ -4,8 +4,6 @@ import { Post } from "@/app/(writing)/utils/types";
 import { getNowPlaying } from "@/app/utils/spotify";
 import postsJson from "@/app/(writing)/posts.json";
 
-export const dynamic = "force-dynamic";
-
 export default async function Page() {
   const { posts } = postsJson;
   const lastFourPosts: Post[] = posts.slice(0, 4);
