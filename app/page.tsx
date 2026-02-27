@@ -1,10 +1,15 @@
 import Link from "next/link";
+import { NowPlaying } from "@/app/components/NowPlaying";
 import { Post } from "@/app/(writing)/utils/types";
+import { getNowPlaying } from "@/app/utils/spotify";
 import postsJson from "@/app/(writing)/posts.json";
 
-export default function Page() {
+export const dynamic = "force-dynamic";
+
+export default async function Page() {
   const { posts } = postsJson;
   const lastFourPosts: Post[] = posts.slice(0, 4);
+  const nowPlaying = await getNowPlaying();
 
   return (
     <section className="w-full max-w-2xl mx-5">
@@ -108,6 +113,7 @@ export default function Page() {
           </a>
         </li>
       </ul>
+      {nowPlaying ? <NowPlaying track={nowPlaying} /> : null}
       <p className="mt-5">
         You can read my{" "}
         <Link aria-label="Link to Nathan's writing" href="/writing">
