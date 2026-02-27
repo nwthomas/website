@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "a9b8c7d6-e5f4-4a3b-2c1d-0e9f8a7b6c5d",
+    date: "2026-02-26",
+    title: "Golang Generic Methods Proposal Approved",
+    url: "https://github.com/golang/go/issues/77273#issuecomment-3962618141",
+  },
+  {
     id: "f8a3c4d5-2b6e-4f9a-8c7d-1e0f3a2b4c5d",
     date: "2026-02-24",
     title: "Figma: Introducing Claude Code to Figma",
