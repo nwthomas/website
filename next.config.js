@@ -8,6 +8,7 @@ const nextConfig = {
   turbopack: [],
   images: {
     qualities: [75, 100],
+    remotePatterns: [{ protocol: "https", hostname: "i.scdn.co", pathname: "/image/**" }],
   },
   experimental: {
     mdxRs: true,
