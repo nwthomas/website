@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "f7a8b9c0-d1e2-4f3a-4b5c-6d7e8f9a0b1c",
+    date: "2026-02-27",
+    title: "Anthropic: Statement on the comments from Secretary of War Pete Hegseth",
+    url: "https://www.anthropic.com/news/statement-comments-secretary-war",
+  },
+  {
     id: "e6f7a8b9-c0d1-4e2f-3a4b-5c6d7e8f9a0b",
     date: "2026-02-26",
     title: "Anthropic: Statement from Dario Amodei on our discussions with the Department of War",
