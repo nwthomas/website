@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "a8b9c0d1-e2f3-4a4b-5c6d-7e8f9a0b1c2d",
+    date: "2026-02-28",
+    title: "OpenAI: Build an AI-Native Engineering Team",
+    url: "https://developers.openai.com/codex/guides/build-ai-native-engineering-team",
+  },
+  {
     id: "f7a8b9c0-d1e2-4f3a-4b5c-6d7e8f9a0b1c",
     date: "2026-02-27",
     title: "Anthropic: Statement on the comments from Secretary of War Pete Hegseth",
