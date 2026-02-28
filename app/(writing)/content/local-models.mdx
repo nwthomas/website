@@ -40,6 +40,7 @@ Finally, here's a motivating screenshot of me running [Open WebUI](https://openw
   width="2592"
   height="1678"
   borderLight
+  shouldPreload
   wide
 />
 
@@ -51,7 +52,7 @@ Ollama gives you a local chat interface out of the box and the ability to turn o
 
 This is where I started, and you'll get a lot of mileage out of this before you'll feel the need to upgrade your local setup.
 
-To start, [download Ollama here](https://ollama.com/download). 
+To start, [download Ollama here](https://ollama.com/download).
 
 Once downloaded, the fastest way to use Ollama is to just use the interface they made. You can select a model by selecting the model dropdown, searching for what you want, downloading it, and then start chatting with it.
 
@@ -240,12 +241,14 @@ _I'll be building out this section more shortly._
 Under the hood of the [Docker](#docker) and [Kubernetes](#kubernetes) setups described in this article, you're using tools like [llama.cpp](https://github.com/ggml-org/llama.cpp) and [vLLM](https://github.com/vllm-project/vllm). These process runners for inference are faster, higher throughput, allow batching and increased context windows with concurrency, are much more GPU memory efficient, allow holding models indefinitely in GPU memory, and are worth reading up on.
 
 If you want to dig even further, you can also read up on the following tools:
+
 - [CUDA Toolkit](https://developer.nvidia.com/cuda/toolkit)
 - [Nvidia Container Tookit](https://github.com/NVIDIA/nvidia-container-toolkit)
 - [Nvidia SMI](https://docs.nvidia.com/deploy/nvidia-smi/index.html)
 - [PyTorch](https://pytorch.org)
 
 Here are also some interesting additional topics to study:
+
 - Distillation (reducing model size by parent-child model training)
 - KV caches and management
 - LoRA (fine-tuning techniques)
