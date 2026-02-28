@@ -33,6 +33,7 @@ export async function GET(request: NextRequest) {
   }
 
   const postViews = await redis.get<number | null>(getPostViewsRedisKey(slug));
+  const postViewsPostfix = postViews && postViews == 1 ? "view" : "views";
 
   return new ImageResponse(
     <div tw="flex items-center justify-center w-full h-full bg-white" style={{ fontFamily: "Geist Mono" }}>
@@ -46,7 +47,7 @@ export async function GET(request: NextRequest) {
             {description}
           </p>
           <p tw="text-2xl text-gray-500 flex-1" style={{ fontFamily: "Geist Mono" }}>
-            {postViews != null && postViews != 0 ? `${date} • ${postViews} views` : date}
+            {postViews != null && postViews != 0 ? `${date} • ${postViews} ${postViewsPostfix}` : date}
           </p>
         </div>
       </div>
