@@ -8,6 +8,7 @@ import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 import { Navbar } from "@/app/components/Navbar";
 import { Providers } from "@/app/components/Providers";
+import { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: "Nathan Thomas",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     // The suppresHydrationWarning is for the script below which runs client-side to set the theme.
     // This may eventually be upgraded to use a server-side set cookie (and is certainly what would
