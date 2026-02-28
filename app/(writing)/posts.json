@@ -1,6 +1,12 @@
 {
   "posts": [
     {
+      "id": "strange-faces",
+      "title": "Strange Faces",
+      "description": "\"All cruelty springs from weakness.\"",
+      "date": "2026-02-27"
+    },
+    {
       "id": "imagination",
       "title": "Imagination",
       "description": "Imagination is what makes us great. Don't lose it.",
