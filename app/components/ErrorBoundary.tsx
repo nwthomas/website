@@ -2,11 +2,11 @@
 
 import * as Sentry from "@sentry/nextjs";
 
-import { Component } from "react";
+import { Component, ReactNode } from "react";
 
 type Props = {
-  fallback?: React.ReactNode;
-  children: React.ReactNode;
+  fallback?: ReactNode;
+  children: ReactNode;
 };
 
 type State = {

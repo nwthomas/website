@@ -22,7 +22,7 @@ export function Navbar() {
   const isWritingPage = pathname === "/writing";
   const isBlogPage = postsJson.posts.find((post: Post) => `/${post.id}` === pathname.split("#")[0]);
 
-  let dateText: React.ReactNode | null = null;
+  let dateText: ReactNode | null = null;
   if (isBlogPage && isBlogPage.date) {
     const date = formatUTCTimestampToDateString(isBlogPage.date);
     dateText = <span> • {date}</span>;
@@ -33,7 +33,7 @@ export function Navbar() {
   let subtitleText: ReactNode | null = (
     <p className="text-sm text-gray-500">
       by{" "}
-      <Link aria-label="Link to Nathan's home page" className="no-underline" href="/">
+      <Link aria-label="Link to Nathan's home page" href="/">
         Nathan Thomas
       </Link>
       {dateText}
