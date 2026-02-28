@@ -44,7 +44,7 @@ export function ThemeSwitch() {
             <SunIcon color="var(--theme-switch)" />
             <div
               className={`bg-white rounded-full h-[18px] absolute left-[2px] top-[2px] transition-transform duration-200 ease-out w-[18px] outline-none active:outline-none focus:outline-none select-none touch-action-none shadow-none active:shadow-none ${
-                isDarkMode ? "translate-x-6" : "translate-x-0"
+                !isDarkMode ? "translate-x-6" : "translate-x-0"
               }`}
             />
           </div>
