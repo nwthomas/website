@@ -17,7 +17,13 @@ export function NowPlaying({ track }: Props) {
         className="mt-5 ml-4 flex w-fit items-center gap-3 no-underline"
       >
         {track.albumImageUrl ? (
-          <Image src={track.albumImageUrl} alt="" width={48} height={48} className="rounded" />
+          <Image
+            src={track.albumImageUrl}
+            alt={`Album artwork for ${track.track} by ${track.artists}`}
+            width={48}
+            height={48}
+            className="border border-gray-200 dark:border-gray-800"
+          />
         ) : null}
         <span>
           <span className="font-medium text-gray-900 dark:text-gray-100">{track.track}</span>
