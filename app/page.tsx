@@ -148,7 +148,14 @@ export default async function Page() {
         >
           follow me online.
         </a>{" "}
-        I also angel invest in startups, so please <a href="mailto:contact@nathanthomas.dev">reach out</a> if
+        I also love to read and maintain a list of my{" "}
+        <Link aria-label="Link to Nathan's favorite books" href="/favorite-books">
+          favorite books
+        </Link>
+        .
+      </p>
+      <p className="mt-5">
+        Finally, I angel invest in startups, so please <a href="mailto:contact@nathanthomas.dev">reach out</a> if
         interested.
       </p>
     </section>

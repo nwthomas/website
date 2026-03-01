@@ -20,6 +20,7 @@ export function Navbar() {
   const isHomePage = pathname === "/";
   const isBookmarksPage = pathname === "/bookmarks";
   const isWritingPage = pathname === "/writing";
+  const isFavoriteBooksPage = pathname === "/favorite-books";
   const isBlogPage = postsJson.posts.find((post: Post) => `/${post.id}` === pathname.split("#")[0]);
 
   let dateText: ReactNode | null = null;
@@ -46,6 +47,8 @@ export function Navbar() {
   } else if (isBlogPage) {
     const writingTitleWithId = `${isBlogPage.title} [#${isBlogPage.id}]`;
     titleText = getHeading(writingTitleWithId, HeadingLevel.H1);
+  } else if (isFavoriteBooksPage) {
+    titleText = <h1>Favorite Books</h1>;
   } else if (!isHomePage) {
     titleText = null;
     subtitleText = null;
