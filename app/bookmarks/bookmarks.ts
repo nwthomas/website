@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "a8b9c0d1-e2f3-4a4b-5c6d-7e8f9a0b1c2e",
+    date: "2026-03-03",
+    title: "CUDA Agent: Large-Scale Agentic RL for High-Performance CUDA Kernel Generation",
+    url: "https://arxiv.org/abs/2602.24286",
+  },
+  {
     id: "a8b9c0d1-e2f3-4a4b-5c6d-7e8f9a0b1c2d",
     date: "2026-02-28",
     title: "OpenAI: Build an AI-Native Engineering Team",
