@@ -1,0 +1,46 @@
+import { Image } from "@/app/(writing)/components/image";
+
+export const metadata = {
+  title: "Parallel Computing in Python",
+  description: "Learn how to use parallel computing in Python to speed up your code.",
+  openGraph: {
+    title: "Parallel Computing in Python",
+    description: "Learn how to use parallel computing in Python to speed up your code.",
+  },
+};
+
+## Introduction [#introduction]
+
+Python is the lingua franca of data science and artificial intelligence.
+
+Because of this, it's a useful time to learn how to use the language's powerful and build-in tools for concurrency and parallelism.
+
+This article will cover the basics of concurrency and parallelism before diving into the modules that Python provides for multithreading, multiprocessing, and asynchronous programming.
+
+> NOTE: You can find all the code for this article in [this Github repository](https://github.com/nwthomas/parallel-computing-in-python) I put together for you to follow along with.
+
+## Concurrency vs. Parallelism [#concurrency-vs-parallelism]
+
+I have always found that visual examples do far more to explain this concept than I could ever do with words, so here's a simple diagram of concurrency versus parallelism:
+
+<Image
+  alt="A diagram of concurrency versus parallelism"
+  src="/images/blog/parallel-computing-in-python/concurrency-parallelism.webp"
+  width={2312}
+  height={1592}
+  shouldPreload
+/>
+
+In simple terms, concurrency is about doing multiple things on the same CPU core. The core will switch between tasks as needed, and it's really advantageous for tasks that are "I/O-bound" (meaning they spend most of their time waiting for input/output operations to complete). Network requests and opening/editing files are good examples of these tasks.
+
+In contrast, parallism is about doing multiple things at the same time on multiple CPU cores. This is excellent for anything that is "CPU-bound" (meaning they spend most of their time doing CPU-intensive calculations). Math operations, sorting, and encryption are good examples of these sorts of operations.
+
+## Threading Module [#threading-module]
+
+With that out of the way, let's talk through the first option we have in Python for managing multiple tasks: the `threading module`.
+
+## Multiprocessing Module [#multiprocessing-module]
+
+## Asyncio Module [#asyncio-module]
+
+## Conclusion [#conclusion]
