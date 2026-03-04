@@ -1,6 +1,12 @@
 {
   "posts": [
     {
+      "id": "parallel-computing-in-python",
+      "title": "Parallel Computing in Python",
+      "description": "Learn how to use parallel computing in Python to speed up your code.",
+      "date": "2026-03-15"
+    },
+    {
       "id": "strange-faces",
       "title": "Strange Faces",
       "description": "\"All cruelty springs from weakness.\"",
