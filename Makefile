@@ -23,3 +23,6 @@ postbuild:
 
 start:
 	next start
+
+uuid:
+	./scripts/get-uuid.sh

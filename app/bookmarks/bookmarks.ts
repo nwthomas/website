@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "8b1ba399-b7fa-4b0a-bd2d-72b8196da381",
+    date: "2026-03-04",
+    title: "WebKit for SwiftUI",
+    url: "https://developer.apple.com/videos/play/wwdc2025/231",
+  },
+  {
     id: "a8b9c0d1-e2f3-4a4b-5c6d-7e8f9a0b1c2f",
     date: "2026-03-03",
     title: "The React Foundation",
