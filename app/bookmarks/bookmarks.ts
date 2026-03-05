@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "85855df2-1588-4fb9-9333-52b0c504f176",
+    date: "2026-03-05",
+    title: "Gorilla: A Fast, Scalable, In-Memory Time Series Database",
+    url: "https://www.vldb.org/pvldb/vol8/p1816-teller.pdf",
+  },
+  {
     id: "8b1ba399-b7fa-4b0a-bd2d-72b8196da381",
     date: "2026-03-04",
     title: "WebKit for SwiftUI",
