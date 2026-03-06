@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { selectIsShowingImageOverlay, selectOverlayImage } from "@/app/store/selectors/writingSelectors";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -14,6 +14,7 @@ import { useLockBodyScroll } from "@/app/hooks";
 function ImageOverlay() {
   const image = useSelector(selectOverlayImage);
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(true);
 
   useLockBodyScroll();
 
@@ -45,19 +46,31 @@ function ImageOverlay() {
           </button>
           <div
             className={clsx(
-              "max-w-[min(80rem,100vw-2.5rem)] max-h-[min(80rem,100vh-2.5rem)] box-border flex justify-center items-center",
+              "max-w-[min(80rem,100vw-2.5rem)] max-h-[min(80rem,100vh-2.5rem)] box-border flex justify-center items-center relative",
               image.borderDark ? "border border-background dark:border-gray-800" : "",
               image.borderLight ? "border border-gray-200 dark:border-background" : "",
             )}
           >
+            {image.placeholderImage && isLoading ? (
+              <Image
+                className="absolute top-0 left-0 right-0 bottom-0 z-10"
+                src={image.placeholderImage}
+                alt={image.alt}
+                width={image.width}
+                height={image.height}
+                quality={75}
+              />
+            ) : null}
             <Image
               alt={image.alt}
-              className="max-w-full max-h-full h-auto w-auto"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO5WZ5kAAAAASUVORK5CYII="
               draggable={false}
               height={image.height}
               loading="eager"
+              placeholder="blur"
               priority
               quality={100}
+              onLoadingComplete={() => setIsLoading(false)}
               src={image.src}
               width={image.width}
             />
