@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "ea223103-5e6c-4e56-b009-19d37cb4932a",
+    date: "2026-03-06",
+    title: "TimescaleDB: Time-Series Database for PostgreSQL",
+    url: "https://github.com/timescale/timescaledb",
+  },
+  {
     id: "2d410a5c-aee9-4e8c-aea5-5cf215c0acad",
     date: "2026-03-06",
     title: "OpenFaaS: Open-Source Serverless Functions",
