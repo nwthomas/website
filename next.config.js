@@ -16,6 +16,15 @@ const nextConfig = {
   reactCompiler: true,
   // Turn off NextJS icon if needed while taking screenshots for SEO home pre-generated image
   // devIndicators: false,
+  async headers() {
+    return [
+      {
+        source: "/images/blog/imagination/chrono-trigger.gif",
+        // 1 day in seconds
+        headers: [{ key: "Cache-Control", value: "public, max-age=86400, immutable" }],
+      },
+    ];
+  },
 };
 
 const withMDX = createMDX({

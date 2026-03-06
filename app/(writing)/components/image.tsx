@@ -16,6 +16,7 @@ type Props = {
   shouldPreload?: boolean;
   src: string;
   title?: string;
+  unoptimized?: boolean;
   width: number;
   wide?: boolean;
 };
@@ -30,6 +31,7 @@ export function Image({
   shouldPreload,
   src,
   title,
+  unoptimized,
   width = 0,
   wide,
 }: Props) {
@@ -87,6 +89,7 @@ export function Image({
             quality={100}
             onLoadingComplete={() => setIsLoading(false)}
             src={src}
+            unoptimized={unoptimized}
             width={width}
           />
         </div>
