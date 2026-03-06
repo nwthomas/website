@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "5ab1f399-18d3-40de-9e04-9afde15b824d",
+    date: "2026-03-06",
+    title: "dbt: Python Data Build Tool",
+    url: "https://docs.getdbt.com/docs/introduction",
+  },
+  {
     id: "a560dec6-40c5-4d15-ba8a-874f50713619",
     date: "2026-03-06",
     title: "OpenAI: Introducing GPT-5.4",
