@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "2d410a5c-aee9-4e8c-aea5-5cf215c0acad",
+    date: "2026-03-06",
+    title: "OpenFaaS: Open-Source Serverless Functions",
+    url: "https://www.openfaas.com",
+  },
+  {
     id: "85855df2-1588-4fb9-9333-52b0c504f176",
     date: "2026-03-05",
     title: "Gorilla: A Fast, Scalable, In-Memory Time Series Database",
