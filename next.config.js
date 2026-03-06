@@ -20,7 +20,7 @@ const nextConfig = {
     return [
       {
         source: "/images/blog/imagination/chrono-trigger.gif",
-        // 1 day in seconds
+        // Below Cache-Control is for 1 day in seconds
         headers: [{ key: "Cache-Control", value: "public, max-age=86400, immutable" }],
       },
     ];
