@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "5ab1f399-18d3-40de-9e04-9afde15b824e",
+    date: "2026-03-07",
+    title: "Temporal Internal Architecture",
+    url: "https://medium.com/data-science-collective/system-design-series-a-step-by-step-breakdown-of-temporals-internal-architecture-52340cc36f30",
+  },
+  {
     id: "5ab1f399-18d3-40de-9e04-9afde15b824d",
     date: "2026-03-06",
     title: "dbt: Python Data Build Tool",
