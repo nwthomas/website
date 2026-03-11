@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "4ab0af9b-7ea0-4cfe-9b28-bc165380e0d5",
+    date: "2026-03-11",
+    title: "Good Product Manager/Bad Product Manager",
+    url: "https://a16z.com/good-product-manager-bad-product-manager",
+  },
+  {
     id: "5ab1f399-18d3-40de-9e04-9afde15b824e",
     date: "2026-03-07",
     title: "Temporal Internal Architecture",
