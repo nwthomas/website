@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "9c653d83-3270-4ab7-b854-b58f741eb6e7",
+    date: "2026-03-12",
+    title: "Measuring AI Ability to Complete Long Tasks",
+    url: "https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks",
+  },
+  {
     id: "4ab0af9b-7ea0-4cfe-9b28-bc165380e0d5",
     date: "2026-03-11",
     title: "Good Product Manager/Bad Product Manager",
