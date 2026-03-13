@@ -125,9 +125,9 @@ This is a single-service Next.js personal website/blog. There is only one servic
 
 A `.env` file with at minimum `REDIS_URL` and `REDIS_TOKEN` set to placeholder values is required for `bun run build` to succeed. The Redis singleton in `app/utils/redis.ts` throws at module load time if these are unset, and the OG image route triggers this during static page collection. For local dev (`bun run dev`), the writing page guards Redis behind a production check, so the dev server runs fine with placeholder values. See `.env.example` for all available variables.
 
-### Known Issues
+### Linting
 
-- **ESLint is broken on `main`**: `bun run lint` fails with `TypeError: Class extends value undefined` because the lockfile pins `typescript-eslint@8.48.0` (via `eslint-config-next`) which does not support `eslint@10.0.3`. This is a pre-existing lockfile resolution issue; updating the lockfile to resolve `typescript-eslint` to `>=8.57.0` would fix it.
+`bun run lint` uses ESLint 10 with flat config (`eslint.config.mjs`). The `@eslint/compat` package wraps `eslint-config-next` rules via `fixupConfigRules` because `eslint-plugin-react` has not yet been updated for ESLint 10's API changes. The legacy `.eslintrc.json` and `.eslintignore` files have been removed; all config is in `eslint.config.mjs`.
 
 ### Running the Dev Server
 
