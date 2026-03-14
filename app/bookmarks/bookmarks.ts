@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "3eb215c2-36a0-43ca-9ba9-cc70bf9c470e",
+    date: "2026-03-14",
+    title: "Inside Cursor",
+    url: "https://colossus.com/article/inside-cursor",
+  },
+  {
     id: "9c653d83-3270-4ab7-b854-b58f741eb6e7",
     date: "2026-03-12",
     title: "Measuring AI Ability to Complete Long Tasks",
