@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "3eb215c2-36a0-43ca-9ba9-cc70bf9c470f",
+    date: "2026-03-15",
+    title: "Andrej Karpathy: Autoresearch",
+    url: "https://github.com/karpathy/autoresearch",
+  },
+  {
     id: "3eb215c2-36a0-43ca-9ba9-cc70bf9c470e",
     date: "2026-03-14",
     title: "Inside Cursor",
