@@ -127,6 +127,15 @@ export const BOOKS: Book[] = [
     width: 652,
   },
   {
+    id: "the-art-of-racing-in-the-rain",
+    title: "The Art of Racing in the Rain",
+    author: "Garth Stein",
+    cover: "/images/blog/books/the-art-of-racing-in-the-rain.webp",
+    url: "https://amzn.to/4sNT8Xk",
+    height: 1000,
+    width: 664,
+  },
+  {
     id: "the-fellowship-of-the-ring",
     title: "The Fellowship of the Ring",
     author: "J.R.R. Tolkien",
