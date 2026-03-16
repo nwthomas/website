@@ -153,4 +153,13 @@ export const BOOKS: Book[] = [
     height: 1000,
     width: 667,
   },
+  {
+    id: "steve-jobs",
+    title: "Steve Jobs",
+    author: "Walter Isaacson",
+    cover: "/images/blog/books/steve-jobs.webp",
+    url: "https://amzn.to/4rBOXge",
+    height: 1869,
+    width: 2846,
+  },
 ];
