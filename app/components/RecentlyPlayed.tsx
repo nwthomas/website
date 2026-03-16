@@ -8,7 +8,7 @@ type Props = {
 export function RecentlyPlayed({ track }: Props) {
   return (
     <div className="mt-5">
-      <h2 className="text-base font-semibold">Recently Played:</h2>
+      <h2 className="text-base font-semibold">Recently Played</h2>
       <a
         href={track.url}
         target="_blank"

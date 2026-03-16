@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "a39300fb-bfb2-4034-868c-9d06a01c30ac",
+    date: "2026-03-16",
+    title: "Alpaca Markets: Real-Time Stock Market Data",
+    url: "https://alpaca.markets",
+  },
+  {
     id: "3eb215c2-36a0-43ca-9ba9-cc70bf9c470f",
     date: "2026-03-15",
     title: "Andrej Karpathy: Autoresearch",

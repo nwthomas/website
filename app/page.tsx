@@ -37,7 +37,7 @@ export default async function Page() {
         I fell in love with technology when I was young and just never left. At the end of the day, I'm still that
         little kid who grew up playing with his parents' Macintosh and ripping CDs for his friends.
       </p>
-      <h2 className="mt-5">Writing:</h2>
+      <h2 className="mt-5">Writing</h2>
       <ul className="mt-4">
         {lastFourPosts.map((post) => (
           <li key={post.id}>
@@ -45,7 +45,7 @@ export default async function Page() {
           </li>
         ))}
       </ul>
-      <h2 className="mt-5">Teaching:</h2>
+      <h2 className="mt-5">Teaching</h2>
       <ul className="mt-4">
         <li>
           <a
@@ -68,7 +68,7 @@ export default async function Page() {
           </a>
         </li>
       </ul>
-      <h2 className="mt-5">Projects:</h2>
+      <h2 className="mt-5">Projects</h2>
       <ul className="mt-4">
         <li>
           <a
