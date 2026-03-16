@@ -171,4 +171,4 @@ export const BOOKS: Book[] = [
     height: 1869,
     width: 2846,
   },
-];
+].sort((a, b) => a.author.localeCompare(b.author));
