@@ -20,7 +20,10 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <section className="w-full max-w-2xl mx-5">
-      <p>I have a life-long love of reading. Here are some of my favorite books.</p>
+      <p>
+        I have a life-long love of reading and like to keep an ever-growing list of my favorite books here. I have a
+        sneaking suspicion you might like them too.
+      </p>
       <div className=" books-grid mt-10">
         {BOOKS.map((book) => (
           <BookCard

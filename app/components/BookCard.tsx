@@ -11,7 +11,13 @@ type Props = {
 
 export function BookCard({ title, author, cover, url, height, width }: Props) {
   return (
-    <a href={url} className="no-underline" aria-label={`${title} by ${author}`}>
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="no-underline block"
+      aria-label={`${title} by ${author}`}
+    >
       <div className="group flex flex-col gap-3">
         <div className="relative w-full overflow-hidden block border border-gray-200 dark:border-gray-800">
           <Image
