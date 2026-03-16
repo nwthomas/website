@@ -69,6 +69,10 @@
     @apply font-sans underline decoration-dotted decoration-gray-500 underline-offset-5 opacity-100 hover:opacity-60 transition-opacity duration-200;
   }
 
+  img {
+    @apply block;
+  }
+
   ul {
     @apply list-inside;
   }
@@ -83,5 +87,17 @@
 
   ul li:before {
     @apply content-["‣"] inline-block font-sans text-[15px] text-gray-500 no-underline absolute top-0 left-0.5;
+  }
+
+  .books-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .books-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 }

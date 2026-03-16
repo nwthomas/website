@@ -19,6 +19,7 @@ export function Navbar() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   const isBookmarksPage = pathname === "/bookmarks";
+  const isBooksPage = pathname === "/books";
   const isWritingPage = pathname === "/writing";
   const isBlogPage = postsJson.posts.find((post: Post) => `/${post.id}` === pathname.split("#")[0]);
 
@@ -41,6 +42,8 @@ export function Navbar() {
   );
   if (isBookmarksPage) {
     titleText = <h1>Bookmarks</h1>;
+  } else if (isBooksPage) {
+    titleText = <h1>Books</h1>;
   } else if (isWritingPage) {
     titleText = <h1>Writing</h1>;
   } else if (isBlogPage) {

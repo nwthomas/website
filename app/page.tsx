@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { NowPlaying } from "@/app/components/NowPlaying";
 import { Post } from "@/app/(writing)/utils/types";
+import { RecentlyPlayed } from "@/app/components/RecentlyPlayed";
 import { getNowPlaying } from "@/app/utils/spotify";
 import postsJson from "@/app/(writing)/posts.json";
 
@@ -111,7 +111,7 @@ export default async function Page() {
           </a>
         </li>
       </ul>
-      {nowPlaying ? <NowPlaying track={nowPlaying} /> : null}
+      {nowPlaying ? <RecentlyPlayed track={nowPlaying} /> : null}
       <p className="mt-5">
         You can read my{" "}
         <Link aria-label="Link to Nathan's writing" href="/writing">
@@ -121,7 +121,7 @@ export default async function Page() {
         <Link aria-label="Link to Nathan's bookmarks" href="/bookmarks">
           bookmarks
         </Link>
-        ,{" "}
+        , <Link href="/books">booklist</Link>,{" "}
         <a
           href="https://nathanthomas.substack.com/"
           aria-label="Link to Nathan's profile on Substack"

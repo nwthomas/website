@@ -58,7 +58,7 @@ export default async function Page({ params }: Props) {
     // with padding bottom. MDX gives no API for disovery of last index. This
     // could move to mapping all items and passing an index on props, but
     // that's overkill for this problem.
-    <article className="w-full -mb-5">
+    <article className="w-full -mb-5 flex flex-col items-center">
       <Post />
       <ImageOverlayContainer />
       {process.env.NODE_ENV === "production" ? <RedisIncrement slug={slug} /> : null}
