@@ -25,8 +25,9 @@ export default function Page() {
         sneaking suspicion you might like them too.
       </p>
       <div className=" books-grid mt-10">
-        {BOOKS.map((book) => (
+        {BOOKS.map((book, index) => (
           <BookCard
+            index={index}
             key={book.id}
             title={book.title}
             author={book.author}
@@ -34,6 +35,7 @@ export default function Page() {
             url={book.url}
             height={book.height}
             width={book.width}
+            unoptimized
           />
         ))}
       </div>

@@ -5,11 +5,13 @@ type Props = {
   author: string;
   cover: string;
   url: string;
+  index: number;
   height: number;
+  unoptimized?: boolean;
   width: number;
 };
 
-export function BookCard({ title, author, cover, url, height, width }: Props) {
+export function BookCard({ title, author, cover, url, height, width, index, unoptimized }: Props) {
   return (
     <a
       href={url}
@@ -19,7 +21,9 @@ export function BookCard({ title, author, cover, url, height, width }: Props) {
       aria-label={`${title} by ${author}`}
     >
       <div className="group flex flex-col gap-3">
-        <div className="relative w-full overflow-hidden block border border-gray-200 dark:border-gray-800">
+        <div
+          className={`aspect-ratio-[${width}/${height}] relative w-full overflow-hidden block border border-gray-200 dark:border-gray-800`}
+        >
           <Image
             src={cover}
             alt={title}
@@ -28,7 +32,8 @@ export function BookCard({ title, author, cover, url, height, width }: Props) {
             className="object-cover"
             quality={75}
             draggable={false}
-            preload
+            loading={index > 9 ? "lazy" : "eager"}
+            unoptimized={Boolean(unoptimized)}
           />
         </div>
         <div className="flex flex-col gap-0.5">
