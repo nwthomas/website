@@ -53,7 +53,7 @@ function ImageOverlay() {
           >
             {image.placeholderImage && isLoading ? (
               <Image
-                className="absolute top-0 left-0 right-0 bottom-0 z-10"
+                className="absolute top-0 left-0 right-0 bottom-0 z-10 block"
                 src={image.placeholderImage}
                 alt={image.alt}
                 width={image.width}
@@ -63,6 +63,7 @@ function ImageOverlay() {
             ) : null}
             <Image
               alt={image.alt}
+              className="block"
               blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO5WZ5kAAAAASUVORK5CYII="
               draggable={false}
               height={image.height}

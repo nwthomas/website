@@ -27,7 +27,7 @@ export const Pre = ({
   scroll: boolean;
   caption: ReactNode | null;
 }) => (
-  <div className="mb-5 flex justify-center mx-5">
+  <div className="w-full mb-5 flex justify-center mx-5">
     <pre
       className={`
       p-4
