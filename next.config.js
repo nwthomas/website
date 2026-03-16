@@ -9,6 +9,7 @@ const nextConfig = {
   images: {
     qualities: [75, 100],
     remotePatterns: [{ protocol: "https", hostname: "i.scdn.co", pathname: "/image/**" }],
+    minimumCacheTTL: 60 * 60, // 1 hour in seconds
   },
   experimental: {
     mdxRs: true,
@@ -20,6 +21,11 @@ const nextConfig = {
     return [
       {
         source: "/images/blog/imagination/chrono-trigger.gif",
+        // Below Cache-Control is for 1 week in seconds
+        headers: [{ key: "Cache-Control", value: "public, max-age=604800, immutable" }],
+      },
+      {
+        source: "/images/blog/books/:path*",
         // Below Cache-Control is for 1 week in seconds
         headers: [{ key: "Cache-Control", value: "public, max-age=604800, immutable" }],
       },
