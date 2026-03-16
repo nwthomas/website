@@ -16,7 +16,7 @@ export const BOOKS: Book[] = [
     cover: "/images/blog/books/barbarian-days.webp",
     url: "https://amzn.to/4dngUos",
     height: 1000,
-    width: 640,
+    width: 652,
   },
   {
     id: "the-power-broker",
