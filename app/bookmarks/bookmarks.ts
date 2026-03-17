@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "6163af08-6292-4141-b0f6-9ad665c60e27",
+    date: "2026-03-16",
+    title: "Tanstack AI",
+    url: "https://tanstack.com/ai",
+  },
+  {
     id: "502121fb-4d1d-49ad-87c2-05dd0aa23f75",
     date: "2026-03-16",
     title: "Cursor: Securing Our Codebase with Autonomous Agents",
