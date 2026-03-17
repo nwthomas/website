@@ -10,6 +10,15 @@ export type Book = {
 
 export const BOOKS: Book[] = [
   {
+    id: "designing-data-intensive-applications",
+    title: "Designing Data-Intensive Applications",
+    author: "Martin Kleppmann & Chris Riccomini",
+    cover: "/images/blog/books/designing-data-intensive-applications.jpg",
+    url: "https://amzn.to/4bfEVg1",
+    height: 394,
+    width: 300,
+  },
+  {
     id: "the-power-broker",
     title: "The Power Broker",
     author: "Robert A. Caro",
