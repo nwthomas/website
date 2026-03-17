@@ -65,7 +65,7 @@ export const BOOKS: Book[] = [
   },
   {
     id: "mans-search-for-meaning",
-    title: "Mans Search for Meaning",
+    title: "Man's Search for Meaning",
     author: "Viktor E. Frankl",
     cover: "/images/blog/books/mans-search-for-meaning.webp",
     url: "https://amzn.to/3P92kXQ",
@@ -74,7 +74,7 @@ export const BOOKS: Book[] = [
   },
   {
     id: "hackers-and-painters",
-    title: "Hackers and Painters",
+    title: "Hackers & Painters",
     author: "Paul Graham",
     cover: "/images/blog/books/hackers-and-painters.webp",
     url: "https://amzn.to/4uvudJD",
@@ -136,6 +136,15 @@ export const BOOKS: Book[] = [
     width: 664,
   },
   {
+    id: "the-hobbit",
+    title: "The Hobbit",
+    author: "J.R.R. Tolkien",
+    cover: "/images/blog/books/the-hobbit.webp",
+    url: "https://amzn.to/4sd0CDd",
+    height: 1000,
+    width: 667,
+  },
+  {
     id: "the-fellowship-of-the-ring",
     title: "The Fellowship of the Ring",
     author: "J.R.R. Tolkien",
@@ -170,5 +179,14 @@ export const BOOKS: Book[] = [
     url: "https://amzn.to/4rBOXge",
     height: 1869,
     width: 2846,
+  },
+  {
+    id: "staff-engineer",
+    title: "Staff Engineer",
+    author: "Will Larson",
+    cover: "/images/blog/books/staff-engineer.webp",
+    url: "https://amzn.to/414GS90",
+    height: 1000,
+    width: 627,
   },
 ].sort((a, b) => a.author.localeCompare(b.author));
