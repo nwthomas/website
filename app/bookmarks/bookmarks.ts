@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "502121fb-4d1d-49ad-87c2-05dd0aa23f75",
+    date: "2026-03-16",
+    title: "Cursor: Securing Our Codebase with Autonomous Agents",
+    url: "https://cursor.com/blog/security-agents",
+  },
+  {
     id: "a39300fb-bfb2-4034-868c-9d06a01c30ac",
     date: "2026-03-16",
     title: "Alpaca Markets: Real-Time Stock Market Data",
