@@ -10,6 +10,7 @@
     "ecmaVersion": 11,
     "sourceType": "module"
   },
+  "ignores": ["assets/**", "node_modules/**", "out/**", ".next/**"],
   "rules": {
     "arrow-body-style": ["off"],
     "camelcase": ["off"],
