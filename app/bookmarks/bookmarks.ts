@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "6163af08-6292-4141-b0f6-9ad665c60e29",
+    date: "2026-03-19",
+    title: "Cursor: Introducing Composer 2",
+    url: "https://cursor.com/blog/composer-2",
+  },
+  {
     id: "6163af08-6292-4141-b0f6-9ad665c60e28",
     date: "2026-03-17",
     title: "vite+",
