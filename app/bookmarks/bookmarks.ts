@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "d875012d-de8e-4b9c-8ef2-1a1ba5fabf45",
+    date: "2026-03-20",
+    title: "Cursor: Training Composer for longer horizons",
+    url: "https://cursor.com/blog/self-summarization",
+  },
+  {
     id: "83488b4b-83ea-492c-b295-065949cb9c2b",
     date: "2026-03-19",
     title: "Paul Graham: Having Kids",
