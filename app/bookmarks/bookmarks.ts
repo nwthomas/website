@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "83488b4b-83ea-492c-b295-065949cb9c2b",
+    date: "2026-03-19",
+    title: "Paul Graham: Having Kids",
+    url: "https://paulgraham.com/kids.html",
+  },
+  {
     id: "6163af08-6292-4141-b0f6-9ad665c60e28",
     date: "2026-03-17",
     title: "vite+",
