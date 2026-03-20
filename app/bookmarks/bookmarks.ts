@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "379a11ca-0439-42b5-9584-ac7dac23e723",
+    date: "2026-03-20",
+    title: "Andrej Karpathy on Code Agents, AutoResearch, and the Loopy Era of AI",
+    url: "https://www.youtube.com/watch?v=oRpc6gQ-KjI",
+  },
+  {
     id: "d875012d-de8e-4b9c-8ef2-1a1ba5fabf45",
     date: "2026-03-20",
     title: "Cursor: Training Composer for longer horizons",
