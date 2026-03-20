@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "078b34e8-2b31-44f4-8d0c-67c136c88da6",
+    date: "2026-03-20",
+    title: "Mantine Component Library for React",
+    url: "https://mantine.dev",
+  },
+  {
     id: "974a6e55-ad8a-41f4-84f9-a6447a4f5da0",
     date: "2026-03-20",
     title: "AirBnB: visx",
