@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "974a6e55-ad8a-41f4-84f9-a6447a4f5da0",
+    date: "2026-03-20",
+    title: "AirBnB: visx",
+    url: "https://visx.airbnb.tech",
+  },
+  {
     id: "379a11ca-0439-42b5-9584-ac7dac23e723",
     date: "2026-03-20",
     title: "Andrej Karpathy on Code Agents, AutoResearch, and the Loopy Era of AI",
