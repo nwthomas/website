@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "8c874b8d-83f5-45db-9067-000f2a7ba797",
+    date: "2026-03-20",
+    title: "Anthropic: How AI Impacts Skill Formation",
+    url: "https://arxiv.org/abs/2601.20245",
+  },
+  {
     id: "078b34e8-2b31-44f4-8d0c-67c136c88da6",
     date: "2026-03-20",
     title: "Mantine Component Library for React",
