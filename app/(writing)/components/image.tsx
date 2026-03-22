@@ -70,9 +70,11 @@ export function Image({
         <div className={`aspect-ratio-[${width}/${height}] leading-none relative w-full flex justify-center`}>
           {placeholderImage && isLoading ? (
             <NextImage
-              className="absolute top-0 left-0 right-0 bottom-0 z-10"
+              className="absolute top-0 left-0 right-0 bottom-0 z-10 rounded-sm"
               src={placeholderImage}
               alt={alt}
+              loading="eager"
+              priority
               width={width}
               height={height}
               quality={75}
@@ -80,6 +82,7 @@ export function Image({
           ) : null}
           <NextImage
             alt={alt}
+            className="rounded-sm"
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO5WZ5kAAAAASUVORK5CYII="
             draggable={false}
             height={height}
@@ -87,7 +90,7 @@ export function Image({
             placeholder="blur"
             priority={shouldPreload}
             quality={100}
-            onLoadingComplete={() => setIsLoading(false)}
+            onLoad={() => setIsLoading(false)}
             src={src}
             unoptimized={unoptimized}
             width={width}
