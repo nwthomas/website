@@ -5,13 +5,12 @@ type Props = {
   author: string;
   cover: string;
   url: string;
-  index: number;
   height: number;
   unoptimized?: boolean;
   width: number;
 };
 
-export function BookCard({ title, author, cover, url, height, width, index, unoptimized }: Props) {
+export function BookCard({ title, author, cover, url, height, width, unoptimized }: Props) {
   return (
     <a
       href={url}
@@ -32,7 +31,7 @@ export function BookCard({ title, author, cover, url, height, width, index, unop
             className="object-cover"
             quality={75}
             draggable={false}
-            loading={index > 9 ? "lazy" : "eager"}
+            loading="eager"
             unoptimized={Boolean(unoptimized)}
           />
         </div>
