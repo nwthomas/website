@@ -15,6 +15,10 @@ type FontConfig = {
 // of the WOFF2 ones.
 const fontPaths: FontConfig[] = [
   {
+    src: "node_modules/geist/dist/fonts/geist-sans/Geist-Regular.ttf",
+    dest: "GeistSans-Regular.ttf",
+  },
+  {
     src: "node_modules/geist/dist/fonts/geist-mono/GeistMono-Regular.ttf",
     dest: "GeistMono-Regular.ttf",
   },
