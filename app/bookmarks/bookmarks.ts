@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "61b49b16-75af-48d1-a256-153fe7457ebe",
+    date: "2026-03-21",
+    title: "OpenAI: Equipping the Responses API with a computer environment",
+    url: "https://openai.com/index/equip-responses-api-computer-environment",
+  },
+  {
     id: "8c874b8d-83f5-45db-9067-000f2a7ba797",
     date: "2026-03-20",
     title: "Anthropic: How AI Impacts Skill Formation",
