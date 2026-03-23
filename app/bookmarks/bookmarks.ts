@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "4a98cc1c-ddcc-413a-b3f5-31f32d08770c",
+    date: "2026-03-23",
+    title: "TypeScript 6.0",
+    url: "https://devblogs.microsoft.com/typescript/announcing-typescript-6-0",
+  },
+  {
     id: "df739c62-dacf-42b1-b175-19c29b333b58",
     date: "2026-03-23",
     title: "Cursor: Fast Regex Search",
