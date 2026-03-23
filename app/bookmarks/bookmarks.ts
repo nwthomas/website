@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "df739c62-dacf-42b1-b175-19c29b333b58",
+    date: "2026-03-23",
+    title: "Cursor: Fast Regex Search",
+    url: "https://cursor.com/blog/fast-regex-search",
+  },
+  {
     id: "61b49b16-75af-48d1-a256-153fe7457ebe",
     date: "2026-03-21",
     title: "OpenAI: Equipping the Responses API with a computer environment",
