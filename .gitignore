@@ -42,3 +42,6 @@ next-env.d.ts
 
 # fonts
 fonts/**/*.ttf
+
+# miscellaneous
+public/images/investing/
