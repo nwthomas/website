@@ -92,12 +92,12 @@ export default async function Page() {
         </li>
         <li>
           <a
-            href="https://github.com/nwthomas/heapq"
-            aria-label="Link to Nathan's heapq repository on GitHub"
+            href="https://github.com/nwthomas/watcher-in-the-water"
+            aria-label="Link to Nathan's Watcher in the Water repository on GitHub"
             rel="noopener noreferrer"
             target="_blank"
           >
-            heapq
+            Watcher in the Water
           </a>
         </li>
         <li>
