@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "640082b8-b91b-4c02-8ca4-74542e52521c",
+    date: "2026-03-23",
+    title: "Cursor: Run Cloud Agents in Your Own Infrastructure",
+    url: "https://cursor.com/blog/self-hosted-cloud-agents",
+  },
+  {
     id: "c118277f-58b5-4d96-bcf6-80fdf17bdaad",
     date: "2026-03-24",
     title: "Cursor: Composer 2 Technical Report",
