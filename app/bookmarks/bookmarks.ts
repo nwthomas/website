@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "3345214d-d133-4fdf-89ba-1b9ab4e3fc7a",
+    date: "2026-03-23",
+    title: "A Peek Behind Colossus, Google's File System",
+    url: "https://cloud.google.com/blog/products/storage-data-transfer/a-peek-behind-colossus-googles-file-system",
+  },
+  {
     id: "640082b8-b91b-4c02-8ca4-74542e52521c",
     date: "2026-03-23",
     title: "Cursor: Run Cloud Agents in Your Own Infrastructure",
