@@ -6,7 +6,7 @@ import postsJson from "@/app/(writing)/posts.json";
 
 export default async function Page() {
   const { posts } = postsJson;
-  const lastFourPosts: Post[] = posts.slice(0, 4);
+  const lastThreePosts: Post[] = posts.slice(0, 3);
   const nowPlaying = await getNowPlaying();
 
   return (
@@ -39,7 +39,7 @@ export default async function Page() {
       </p>
       <h2 className="mt-5">Writing</h2>
       <ul className="mt-4">
-        {lastFourPosts.map((post) => (
+        {lastThreePosts.map((post) => (
           <li key={post.id}>
             <Link href={`/${post.id}`}>{post.title}</Link>
           </li>
@@ -98,16 +98,6 @@ export default async function Page() {
             target="_blank"
           >
             Watcher in the Water
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://github.com/sst/opencode"
-            aria-label="Link to the OpenCode repository on GitHub"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            OpenCode (contributor)
           </a>
         </li>
       </ul>
