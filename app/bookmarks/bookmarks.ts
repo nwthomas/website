@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "3345214d-d133-4fdf-89ba-1b9ab4e3fc7b",
+    date: "2026-03-28",
+    title: "pretext",
+    url: "https://github.com/chenglou/pretext",
+  },
+  {
     id: "3345214d-d133-4fdf-89ba-1b9ab4e3fc7a",
     date: "2026-03-23",
     title: "A Peek Behind Colossus, Google's File System",
