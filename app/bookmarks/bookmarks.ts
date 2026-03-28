@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "de5dbb4a-9768-4a77-966e-6f091ca4f55f",
+    date: "2026-03-28",
+    title: "Anthropic: Harness Design for Long-Running Apps",
+    url: "https://www.anthropic.com/engineering/harness-design-long-running-apps",
+  },
+  {
     id: "3345214d-d133-4fdf-89ba-1b9ab4e3fc7a",
     date: "2026-03-23",
     title: "A Peek Behind Colossus, Google's File System",

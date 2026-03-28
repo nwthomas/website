@@ -79,7 +79,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <ErrorBoundary>
         <Providers>
           <body className={`${GeistSans.variable} ${GeistMono.variable} antialiased`}>
-            <div className="flex flex-col items-center w-full min-h-svh py-10 md:py-20 lg:py-25 relative">
+            <div className="flex flex-col items-center w-full min-h-svh py-10 md:py-20 relative">
               <div className="flex justify-center w-full">
                 <Navbar />
               </div>
