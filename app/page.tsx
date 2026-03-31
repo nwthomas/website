@@ -12,8 +12,11 @@ export default async function Page() {
   return (
     <section className="w-full max-w-2xl mx-5">
       <p>
-        I'm a software engineer, writer, and teacher from San Francisco, CA. I'm currently on a sabbatical while
-        contributing to OSS and hacking on projects. Previously, I led core work at{" "}
+        I push the frontier of what's possible with autonomous, cloud-based AI coding agents at{" "}
+        <a href="https://cursor.com" aria-label="Link to Cursor's website" rel="noopener noreferrer" target="_target">
+          Cursor
+        </a>{" "}
+        and previously led core work at{" "}
         <a href="https://tesla.com" aria-label="Link to Tesla's website" rel="noopener noreferrer" target="_target">
           Tesla
         </a>
@@ -34,8 +37,8 @@ export default async function Page() {
         .
       </p>
       <p className="mt-5">
-        I fell in love with technology when I was young and just never left. At the end of the day, I'm still that
-        little kid who grew up playing with his parents' Macintosh and ripping CDs for his friends.
+        At the end of the day, I'm still that kid who grew up playing with his parents' Macintosh and ripping CDs for
+        his friends.
       </p>
       <h2 className="mt-5">Writing</h2>
       <ul className="mt-4">
