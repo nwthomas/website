@@ -31,6 +31,12 @@ export const BOOKMARKS: Bookmarks = [
     url: "https://bitsplitting.org/2026/04/01/the-beginning-of-programming-as-well-know-it",
   },
   {
+    id: "ae3275ac-92a8-4377-b61a-a98ef909746f",
+    date: "2026-04-01",
+    title: "How Microsoft Vaporized a Trillion Dollars",
+    url: "https://isolveproblems.substack.com/p/how-microsoft-vaporized-a-trillion",
+  },
+  {
     id: "3345214d-d133-4fdf-89ba-1b9ab4e3fc7b",
     date: "2026-03-28",
     title: "pretext",
