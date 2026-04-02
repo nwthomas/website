@@ -25,6 +25,12 @@ export const BOOKMARKS: Bookmarks = [
     url: "https://cursor.com/blog/cursor-3",
   },
   {
+    id: "77ff8f87-0d57-40ff-bbc2-ffdd18ae4ff1",
+    date: "2026-04-01",
+    title: "The Beginning of Programming as We’ll Know It",
+    url: "https://bitsplitting.org/2026/04/01/the-beginning-of-programming-as-well-know-it",
+  },
+  {
     id: "3345214d-d133-4fdf-89ba-1b9ab4e3fc7b",
     date: "2026-03-28",
     title: "pretext",
