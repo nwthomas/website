@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "1a837af3-6068-41c4-b07c-7bc91dcacddc",
+    date: "2026-04-06",
+    title: "Bonsai: The 1-Bit LLM",
+    url: "https://prismml.com",
+  },
+  {
     id: "c0a6f480-0d10-4ed8-af2f-c7010e85b3e7",
     date: "2026-04-04",
     title: "Cursor: Dynamic Context Discovery",
