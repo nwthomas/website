@@ -1,6 +1,12 @@
 {
   "posts": [
     {
+      "id": "audio-in-text-out",
+      "title": "Audio In, Text Out",
+      "description": "Predicting the future of AI UX and model use",
+      "date": "2026-03-19"
+    },
+    {
       "id": "strange-faces",
       "title": "Strange Faces",
       "description": "\"All cruelty springs from weakness.\"",
@@ -16,7 +22,7 @@
       "id": "local-models",
       "title": "Local Models",
       "description": "Learn how to run your own AI models locally",
-      "date": "2026-01-16"
+      "date": "2026-02-25"
     },
     {
       "id": "simple-is-hard-enough",
