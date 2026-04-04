@@ -136,7 +136,7 @@ export function CursorAsciiCanvas() {
     const interval = window.setInterval(() => {
       setCells((previousCells) =>
         previousCells.map((cell) => {
-          const chance = cell.isBackground ? 0.12 : 0.2;
+          const chance = cell.isBackground ? 0.12 : 0.22;
           const shouldFlicker = Math.random() < chance;
 
           if (!shouldFlicker) {
@@ -173,8 +173,8 @@ export function CursorAsciiCanvas() {
 
           return {
             ...cell,
-            displayValue: Math.random() < 0.16 ? randomFromCharset(FOREGROUND_FLICKER_CHARSET) : cell.value,
-            isLit: Math.random() >= 0.15,
+            displayValue: Math.random() < 0.22 ? randomFromCharset(FOREGROUND_FLICKER_CHARSET) : cell.value,
+            isLit: true,
           };
         }),
       );
