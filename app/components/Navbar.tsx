@@ -19,6 +19,7 @@ export function Navbar() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   const isBookmarksPage = pathname === "/bookmarks";
+  const isBikesPage = pathname === "/bikes";
   const isBooksPage = pathname === "/books";
   const isWritingPage = pathname === "/writing";
   const isCursorPage = pathname === "/cursor";
@@ -43,6 +44,8 @@ export function Navbar() {
   );
   if (isBookmarksPage) {
     titleText = <h1>Bookmarks</h1>;
+  } else if (isBikesPage) {
+    titleText = <h1>Bikes</h1>;
   } else if (isBooksPage) {
     titleText = <h1>Books</h1>;
   } else if (isWritingPage) {

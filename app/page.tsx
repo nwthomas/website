@@ -114,6 +114,10 @@ export default async function Page() {
         <Link aria-label="Link to Nathan's bookmarks" href="/bookmarks">
           bookmarks
         </Link>
+        ,{" "}
+        <Link aria-label="Link to Nathan's bikes page" href="/bikes">
+          bikes
+        </Link>
         , <Link href="/books">booklist</Link>,{" "}
         <a
           href="https://nathanthomas.substack.com/"
