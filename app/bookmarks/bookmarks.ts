@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "c0a6f480-0d10-4ed8-af2f-c7010e85b3e7",
+    date: "2026-04-04",
+    title: "Cursor: Dynamic Context Discovery",
+    url: "https://cursor.com/blog/dynamic-context-discovery",
+  },
+  {
     id: "cbbe93dd-d640-4ccd-b381-b7b6f7ea3414",
     date: "2026-04-02",
     title: "Google: Gemma 4",
