@@ -12,7 +12,17 @@ export type AsciiCell = {
   alive: boolean;
 };
 
-const FONT_SIZE_PX = 6;
+/** Smaller viewports use smaller monospace cells so the logo scales down with width. */
+function fontSizePxForViewportWidth(w: number): number {
+  if (w <= 0) return 6;
+  const maxFs = 6;
+  const minFs = 3;
+  const wide = 1200;
+  const narrow = 400;
+  if (w >= wide) return maxFs;
+  if (w <= narrow) return minFs;
+  return minFs + ((w - narrow) / (wide - narrow)) * (maxFs - minFs);
+}
 
 const BLACK = "#000000";
 const ALIVE_BLACK = "#181818";
@@ -45,6 +55,33 @@ function normalizeLogoLines(raw: string): string[] {
   }
   if (minCol === Infinity) return [];
   return slice.map((l) => l.slice(minCol, maxCol + 1));
+}
+
+/** Nearest-neighbor downsample of the logo to fit within maxCols × maxRows. Never scales up. */
+function scaleLogoLines(lines: string[], maxCols: number, maxRows: number): string[] {
+  if (lines.length === 0) return lines;
+  const h = lines.length;
+  const w = Math.max(...lines.map((l) => l.length));
+  if (w === 0 || w <= maxCols && h <= maxRows) return lines;
+
+  const scale = Math.min(maxCols / w, maxRows / h, 1);
+  if (scale >= 1) return lines;
+
+  const newW = Math.max(1, Math.round(w * scale));
+  const newH = Math.max(1, Math.round(h * scale));
+  const padded = lines.map((l) => l.padEnd(w, " "));
+
+  const result: string[] = [];
+  for (let r = 0; r < newH; r++) {
+    const srcR = Math.min(Math.floor(r / scale), h - 1);
+    let row = "";
+    for (let c = 0; c < newW; c++) {
+      const srcC = Math.min(Math.floor(c / scale), w - 1);
+      row += padded[srcR][srcC];
+    }
+    result.push(row);
+  }
+  return result;
 }
 
 function buildLogoLayout(cols: number, rows: number, logoLines: string[]): { mask: Uint8Array; chars: string[] } {
@@ -108,33 +145,38 @@ export function CursorAsciiFill() {
   const gridDimsRef = useRef({ cols: 0, rows: 0 });
   const tickRef = useRef(0);
 
-  const [cell, setCell] = useState({ w: 4, h: FONT_SIZE_PX });
+  const [fontSizePx, setFontSizePx] = useState(6);
+  const [cell, setCell] = useState({ w: 4, h: 6 });
   const [viewport, setViewport] = useState({ w: 0, h: 0 });
 
   useLayoutEffect(() => {
-    const measure = () => {
-      const span = measureRef.current;
-      if (span) {
-        const r = span.getBoundingClientRect();
-        setCell({ w: r.width, h: r.height });
-      }
-      setViewport({ w: window.innerWidth, h: window.innerHeight });
+    const measureViewport = () => {
+      const w = window.innerWidth;
+      setFontSizePx(fontSizePxForViewportWidth(w));
+      setViewport({ w, h: window.innerHeight });
     };
 
-    measure();
+    measureViewport();
 
     const vv = window.visualViewport;
-    vv?.addEventListener("resize", measure);
-    window.addEventListener("resize", measure);
-    const ro = new ResizeObserver(measure);
+    vv?.addEventListener("resize", measureViewport);
+    window.addEventListener("resize", measureViewport);
+    const ro = new ResizeObserver(measureViewport);
     ro.observe(document.documentElement);
 
     return () => {
-      vv?.removeEventListener("resize", measure);
-      window.removeEventListener("resize", measure);
+      vv?.removeEventListener("resize", measureViewport);
+      window.removeEventListener("resize", measureViewport);
       ro.disconnect();
     };
   }, []);
+
+  useLayoutEffect(() => {
+    const span = measureRef.current;
+    if (!span) return;
+    const r = span.getBoundingClientRect();
+    setCell({ w: r.width, h: r.height });
+  }, [fontSizePx]);
 
   useLayoutEffect(() => {
     const prevOverflow = document.body.style.overflow;
@@ -161,10 +203,19 @@ export function CursorAsciiFill() {
   }, [cell, viewport]);
 
   const logoLayout = useMemo(() => {
-    if (cols === 0 || rows === 0) return null;
-    const lines = normalizeLogoLines(CURSOR_LOGO_ASCII);
+    if (cols === 0 || rows === 0 || cell.w <= 0 || cell.h <= 0) return null;
+    const raw = normalizeLogoLines(CURSOR_LOGO_ASCII);
+
+    const vw = viewport.w;
+    const fillW = vw >= 1200 ? 0.85 : vw <= 480 ? 0.4 : 0.4 + ((vw - 480) / (1200 - 480)) * 0.45;
+    const fillH = Math.min(0.7, fillW);
+
+    const maxCols = Math.max(1, Math.floor((vw * fillW) / cell.w));
+    const maxRows = Math.max(1, Math.floor((viewport.h * fillH) / cell.h));
+
+    const lines = scaleLogoLines(raw, maxCols, maxRows);
     return buildLogoLayout(cols, rows, lines);
-  }, [cols, rows]);
+  }, [cols, rows, cell.w, cell.h, viewport.w, viewport.h]);
 
   useLayoutEffect(() => {
     const canvas = canvasRef.current;
@@ -229,7 +280,7 @@ export function CursorAsciiFill() {
       }
 
       ctx.save();
-      ctx.font = `${FONT_SIZE_PX}px monospace`;
+      ctx.font = `${fontSizePx}px monospace`;
       ctx.textBaseline = "top";
       ctx.textAlign = "left";
       ctx.shadowColor = LOGO_EDGE_SHADOW;
@@ -278,10 +329,10 @@ export function CursorAsciiFill() {
       cancelled = true;
       cancelAnimationFrame(frame);
     };
-  }, [cols, rows, cell.w, cell.h, viewport.w, viewport.h, logoLayout]);
+  }, [cols, rows, cell.w, cell.h, viewport.w, viewport.h, logoLayout, fontSizePx]);
 
   const monoStyle = {
-    fontSize: FONT_SIZE_PX,
+    fontSize: fontSizePx,
     lineHeight: 1,
     letterSpacing: 0,
     color: BLACK,
