@@ -34,6 +34,24 @@ const INITIAL_DENSITY = 0.24;
 const SEED_WARMUP_STEPS = 3;
 const TICK_MS = 72;
 
+const INJECT_EVERY_N_TICKS = 50;
+const REGION_SIZE = 32;
+const LOW_DENSITY_THRESHOLD = 0.05;
+const PATTERNS_PER_REGION = 4;
+
+const PATTERNS: number[][][] = [
+  [[0,1],[1,2],[2,0],[2,1],[2,2]],                         // glider
+  [[0,0],[0,1],[0,2]],                                     // blinker
+  [[0,0],[0,1],[1,0],[1,1]],                                // block (still life)
+  [[0,0],[1,0],[1,1],[2,1],[2,2]],                          // r-pentomino (long-lived chaos)
+  [[0,0],[0,1],[0,2],[0,3]],                                // row-4 (becomes beehive pair)
+  [[0,2],[1,0],[1,2],[2,1],[2,2]],                          // glider (mirrored)
+  [[0,0],[0,1],[0,2],[1,2],[2,2]],                          // L-triomino growth
+  [[0,1],[0,2],[1,0],[1,1],[2,1]],                          // f-pentomino
+  [[0,0],[0,1],[0,2],[0,3],[0,4]],                          // row-5 (traffic light oscillator)
+  [[0,0],[0,1],[0,2],[1,0],[2,0],[2,1],[2,2]],              // U-shape
+];
+
 function normalizeLogoLines(raw: string): string[] {
   const lines = raw.split("\n").map((l) => l.replace(/\r/g, ""));
   let top = 0;
@@ -109,6 +127,49 @@ function buildLogoLayout(cols: number, rows: number, logoLines: string[]): { mas
   return { mask, chars };
 }
 
+/**
+ * Scans the grid in REGION_SIZE×REGION_SIZE blocks. Any block whose live-cell
+ * density is below LOW_DENSITY_THRESHOLD gets several canonical GoL patterns
+ * placed at random positions — gliders, oscillators, and methuselahs that
+ * produce sustained activity under normal GoL rules.
+ */
+function injectEnergy(grid: Uint8Array, cols: number, rows: number, logoMask: Uint8Array): void {
+  for (let br = 0; br < rows; br += REGION_SIZE) {
+    for (let bc = 0; bc < cols; bc += REGION_SIZE) {
+      const rEnd = Math.min(br + REGION_SIZE, rows);
+      const cEnd = Math.min(bc + REGION_SIZE, cols);
+      const area = (rEnd - br) * (cEnd - bc);
+
+      let alive = 0;
+      for (let r = br; r < rEnd; r++) {
+        for (let c = bc; c < cEnd; c++) {
+          alive += grid[r * cols + c];
+        }
+      }
+
+      if (alive / area >= LOW_DENSITY_THRESHOLD) continue;
+
+      const margin = 6;
+      const rRange = Math.max(1, rEnd - br - margin);
+      const cRange = Math.max(1, cEnd - bc - margin);
+
+      for (let p = 0; p < PATTERNS_PER_REGION; p++) {
+        const pat = PATTERNS[Math.floor(Math.random() * PATTERNS.length)];
+        const pr = br + Math.floor(Math.random() * rRange);
+        const pc = bc + Math.floor(Math.random() * cRange);
+        for (const [dr, dc] of pat) {
+          const r = pr + dr;
+          const c = pc + dc;
+          if (r >= 0 && r < rows && c >= 0 && c < cols) {
+            const idx = r * cols + c;
+            if (!logoMask[idx]) grid[idx] = 1;
+          }
+        }
+      }
+    }
+  }
+}
+
 function nextGeneration(current: Uint8Array, cols: number, rows: number, logoMask: Uint8Array): Uint8Array {
   const next = new Uint8Array(cols * rows);
   for (let r = 0; r < rows; r++) {
@@ -144,6 +205,7 @@ export function CursorAsciiFill() {
   const gridRef = useRef<Uint8Array | null>(null);
   const gridDimsRef = useRef({ cols: 0, rows: 0 });
   const tickRef = useRef(0);
+  const genRef = useRef(0);
 
   const [fontSizePx, setFontSizePx] = useState(6);
   const [cell, setCell] = useState({ w: 4, h: 6 });
@@ -246,6 +308,7 @@ export function CursorAsciiFill() {
     gridRef.current = arr;
     gridDimsRef.current = { cols, rows };
     tickRef.current = performance.now();
+    genRef.current = 0;
   }, [cols, rows, logoLayout]);
 
   useLayoutEffect(() => {
@@ -313,6 +376,10 @@ export function CursorAsciiFill() {
       tickRef.current = now;
 
       const next = nextGeneration(g, c, r, logoMask);
+      genRef.current++;
+      if (genRef.current % INJECT_EVERY_N_TICKS === 0) {
+        injectEnergy(next, c, r, logoMask);
+      }
       gridRef.current = next;
       draw(next, c, r);
     };
