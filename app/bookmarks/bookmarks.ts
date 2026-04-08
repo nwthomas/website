@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "018bb9c5-526b-4b59-bac7-ce823f5fb50a",
+    date: "2026-04-12",
+    title: "Bonsai: The 1-Bit LLM",
+    url: "https://developers.openai.com/blog/designing-delightful-frontends-with-gpt-5-4",
+  },
+  {
     id: "1a837af3-6068-41c4-b07c-7bc91dcacddc",
     date: "2026-04-06",
     title: "Bonsai: The 1-Bit LLM",
