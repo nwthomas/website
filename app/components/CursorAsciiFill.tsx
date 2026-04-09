@@ -25,7 +25,7 @@ function fontSizePxForViewportWidth(w: number): number {
 }
 
 const BLACK = "#000000";
-const ALIVE_BLACK = "#181818";
+const ALIVE_COLOR = "#341809";
 const LOGO_WHITE = "#f7f7f7";
 const LOGO_EDGE_SHADOW_BLUR = 1.15;
 const LOGO_EDGE_SHADOW = "rgba(255, 255, 255, 0.42)";
@@ -34,10 +34,10 @@ const INITIAL_DENSITY = 0.24;
 const SEED_WARMUP_STEPS = 3;
 const TICK_MS = 72;
 
-const INJECT_EVERY_N_TICKS = 50;
+const INJECT_EVERY_N_TICKS = 35;
 const REGION_SIZE = 32;
-const LOW_DENSITY_THRESHOLD = 0.05;
-const PATTERNS_PER_REGION = 4;
+const LOW_DENSITY_THRESHOLD = 0.08;
+const PATTERNS_PER_REGION = 5;
 
 const PATTERNS: number[][][] = [
   [[0,1],[1,2],[2,0],[2,1],[2,2]],                         // glider
@@ -127,13 +127,16 @@ function buildLogoLayout(cols: number, rows: number, logoLines: string[]): { mas
   return { mask, chars };
 }
 
+type PlannedPattern = number[];
+
 /**
- * Scans the grid in REGION_SIZE×REGION_SIZE blocks. Any block whose live-cell
- * density is below LOW_DENSITY_THRESHOLD gets several canonical GoL patterns
- * placed at random positions — gliders, oscillators, and methuselahs that
- * produce sustained activity under normal GoL rules.
+ * Scans the grid in REGION_SIZE×REGION_SIZE blocks and returns a shuffled list
+ * of pattern placements (as flat arrays of grid indices) for every low-density
+ * region. The caller drains this queue gradually across subsequent ticks.
  */
-function injectEnergy(grid: Uint8Array, cols: number, rows: number, logoMask: Uint8Array): void {
+function planInjections(grid: Uint8Array, cols: number, rows: number, logoMask: Uint8Array): PlannedPattern[] {
+  const placements: PlannedPattern[] = [];
+
   for (let br = 0; br < rows; br += REGION_SIZE) {
     for (let bc = 0; bc < cols; bc += REGION_SIZE) {
       const rEnd = Math.min(br + REGION_SIZE, rows);
@@ -157,16 +160,31 @@ function injectEnergy(grid: Uint8Array, cols: number, rows: number, logoMask: Ui
         const pat = PATTERNS[Math.floor(Math.random() * PATTERNS.length)];
         const pr = br + Math.floor(Math.random() * rRange);
         const pc = bc + Math.floor(Math.random() * cRange);
+        const cells: number[] = [];
         for (const [dr, dc] of pat) {
           const r = pr + dr;
           const c = pc + dc;
           if (r >= 0 && r < rows && c >= 0 && c < cols) {
             const idx = r * cols + c;
-            if (!logoMask[idx]) grid[idx] = 1;
+            if (!logoMask[idx]) cells.push(idx);
           }
         }
+        if (cells.length > 0) placements.push(cells);
       }
     }
+  }
+
+  for (let i = placements.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [placements[i], placements[j]] = [placements[j], placements[i]];
+  }
+
+  return placements;
+}
+
+function applyPattern(grid: Uint8Array, pattern: PlannedPattern): void {
+  for (const idx of pattern) {
+    grid[idx] = 1;
   }
 }
 
@@ -206,6 +224,7 @@ export function CursorAsciiFill() {
   const gridDimsRef = useRef({ cols: 0, rows: 0 });
   const tickRef = useRef(0);
   const genRef = useRef(0);
+  const injectQueueRef = useRef<PlannedPattern[]>([]);
 
   const [fontSizePx, setFontSizePx] = useState(6);
   const [cell, setCell] = useState({ w: 4, h: 6 });
@@ -330,7 +349,7 @@ export function CursorAsciiFill() {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.fillStyle = BLACK;
       ctx.fillRect(0, 0, viewport.w, viewport.h);
-      ctx.fillStyle = ALIVE_BLACK;
+      ctx.fillStyle = ALIVE_COLOR;
 
       for (let row = 0; row < r; row++) {
         for (let col = 0; col < c; col++) {
@@ -377,9 +396,22 @@ export function CursorAsciiFill() {
 
       const next = nextGeneration(g, c, r, logoMask);
       genRef.current++;
+
       if (genRef.current % INJECT_EVERY_N_TICKS === 0) {
-        injectEnergy(next, c, r, logoMask);
+        const planned = planInjections(next, c, r, logoMask);
+        injectQueueRef.current.push(...planned);
       }
+
+      const queue = injectQueueRef.current;
+      if (queue.length > 0) {
+        const ticksLeft = INJECT_EVERY_N_TICKS - (genRef.current % INJECT_EVERY_N_TICKS);
+        const perTick = Math.max(1, Math.ceil(queue.length / ticksLeft));
+        const batch = queue.splice(0, perTick);
+        for (const pat of batch) {
+          applyPattern(next, pat);
+        }
+      }
+
       gridRef.current = next;
       draw(next, c, r);
     };
