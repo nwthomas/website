@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "63cdc08d-e3c1-4c3b-9fb5-1aa42e3c40eb",
+    date: "2026-04-12",
+    title: "State of Homelab 2026",
+    url: "https://mrlokans.work/posts/state-of-homelab-2026",
+  },
+  {
     id: "018bb9c5-526b-4b59-bac7-ce823f5fb50a",
     date: "2026-04-12",
     title: "Bonsai: The 1-Bit LLM",
