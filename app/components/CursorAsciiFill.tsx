@@ -25,7 +25,7 @@ function fontSizePxForViewportWidth(w: number): number {
 }
 
 const BLACK = "#000000";
-const ALIVE_COLOR = "#341809";
+const ALIVE_COLOR = "#181818";
 const LOGO_WHITE = "#f7f7f7";
 const LOGO_EDGE_SHADOW_BLUR = 1.15;
 const LOGO_EDGE_SHADOW = "rgba(255, 255, 255, 0.42)";
