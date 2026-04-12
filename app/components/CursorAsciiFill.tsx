@@ -2,7 +2,8 @@
 
 import { useLayoutEffect, useMemo, useRef, useState } from "react";
 
-import { CURSOR_LOGO_ASCII } from "./cursor-logo-ascii";
+import { CURSOR_LOGO_FRAMES, FRAME_COUNT, FRAME_FPS } from "./cursor-logo-frames";
+import { CURSOR_TEXT_ASCII } from "./cursor-text-ascii";
 
 const DENSE_CHAR = "█";
 
@@ -52,29 +53,6 @@ const PATTERNS: number[][][] = [
   [[0,0],[0,1],[0,2],[1,0],[2,0],[2,1],[2,2]],              // U-shape
 ];
 
-function normalizeLogoLines(raw: string): string[] {
-  const lines = raw.split("\n").map((l) => l.replace(/\r/g, ""));
-  let top = 0;
-  let bottom = lines.length - 1;
-  while (top <= bottom && lines[top].trim() === "") top++;
-  while (bottom >= top && lines[bottom].trim() === "") bottom--;
-  if (top > bottom) return [];
-  const slice = lines.slice(top, bottom + 1);
-  let minCol = Infinity;
-  let maxCol = -1;
-  for (const line of slice) {
-    for (let i = 0; i < line.length; i++) {
-      const ch = line[i];
-      if (ch !== " " && ch !== "\t") {
-        minCol = Math.min(minCol, i);
-        maxCol = Math.max(maxCol, i);
-      }
-    }
-  }
-  if (minCol === Infinity) return [];
-  return slice.map((l) => l.slice(minCol, maxCol + 1));
-}
-
 /** Nearest-neighbor downsample of the logo to fit within maxCols × maxRows. Never scales up. */
 function scaleLogoLines(lines: string[], maxCols: number, maxRows: number): string[] {
   if (lines.length === 0) return lines;
@@ -100,31 +78,6 @@ function scaleLogoLines(lines: string[], maxCols: number, maxRows: number): stri
     result.push(row);
   }
   return result;
-}
-
-function buildLogoLayout(cols: number, rows: number, logoLines: string[]): { mask: Uint8Array; chars: string[] } {
-  const mask = new Uint8Array(cols * rows);
-  const chars = new Array<string>(cols * rows).fill(" ");
-  if (logoLines.length === 0) return { mask, chars };
-  const h = logoLines.length;
-  const w = Math.max(...logoLines.map((l) => l.length));
-  const padded = logoLines.map((l) => l.padEnd(w, " "));
-  const startRow = Math.floor((rows - h) / 2);
-  const startCol = Math.floor((cols - w) / 2);
-  for (let r = 0; r < h; r++) {
-    for (let c = 0; c < w; c++) {
-      const gr = startRow + r;
-      const gc = startCol + c;
-      if (gr < 0 || gr >= rows || gc < 0 || gc >= cols) continue;
-      const ch = padded[r][c];
-      if (ch !== " " && ch !== "\t") {
-        const idx = gr * cols + gc;
-        mask[idx] = 1;
-        chars[idx] = ch;
-      }
-    }
-  }
-  return { mask, chars };
 }
 
 type PlannedPattern = number[];
@@ -283,20 +236,94 @@ export function CursorAsciiFill() {
     };
   }, [cell, viewport]);
 
-  const logoLayout = useMemo(() => {
+  const composedFrames = useMemo(() => {
+    return CURSOR_LOGO_FRAMES.map((frameLines) => {
+      const composed: string[] = [];
+      const len = Math.max(frameLines.length, CURSOR_TEXT_ASCII.length);
+      for (let i = 0; i < len; i++) {
+        const fl = frameLines[i] ?? "";
+        const tl = CURSOR_TEXT_ASCII[i] ?? "";
+        composed.push(fl + tl);
+      }
+      return composed;
+    });
+  }, []);
+
+  const frameIndexRef = useRef(0);
+  const frameTickRef = useRef(0);
+
+  const logoData = useMemo(() => {
     if (cols === 0 || rows === 0 || cell.w <= 0 || cell.h <= 0) return null;
-    const raw = normalizeLogoLines(CURSOR_LOGO_ASCII);
+
+    // Find union bounding box across all composed frames
+    let bbTop = Infinity, bbBottom = -1, bbLeft = Infinity, bbRight = -1;
+    for (const frame of composedFrames) {
+      for (let r = 0; r < frame.length; r++) {
+        for (let c = 0; c < frame[r].length; c++) {
+          if (frame[r][c] !== " ") {
+            bbTop = Math.min(bbTop, r);
+            bbBottom = Math.max(bbBottom, r);
+            bbLeft = Math.min(bbLeft, c);
+            bbRight = Math.max(bbRight, c);
+          }
+        }
+      }
+    }
+    if (bbBottom < 0) return null;
+
+    // Trim all frames to the union bounding box for consistent sizing
+    const trimmedFrames = composedFrames.map((frame) => {
+      const result: string[] = [];
+      for (let r = bbTop; r <= bbBottom; r++) {
+        const line = frame[r] ?? "";
+        result.push(line.substring(bbLeft, bbRight + 1));
+      }
+      return result;
+    });
 
     const vw = viewport.w;
     const fillW = vw >= 1200 ? 0.85 : vw <= 480 ? 0.4 : 0.4 + ((vw - 480) / (1200 - 480)) * 0.45;
     const fillH = Math.min(0.7, fillW);
-
     const maxCols = Math.max(1, Math.floor((vw * fillW) / cell.w));
     const maxRows = Math.max(1, Math.floor((viewport.h * fillH) / cell.h));
 
-    const lines = scaleLogoLines(raw, maxCols, maxRows);
-    return buildLogoLayout(cols, rows, lines);
-  }, [cols, rows, cell.w, cell.h, viewport.w, viewport.h]);
+    const scaledFrames = trimmedFrames.map((lines) =>
+      scaleLogoLines(lines, maxCols, maxRows),
+    );
+
+    // All scaled frames share dimensions from the first
+    const refFrame = scaledFrames[0];
+    const h = refFrame.length;
+    const w = Math.max(...refFrame.map((l) => l.length));
+    const startRow = Math.floor((rows - h) / 2);
+    const startCol = Math.floor((cols - w) / 2);
+
+    // Build super mask (union of all frames) and per-frame char maps
+    const mask = new Uint8Array(cols * rows);
+    const allFrameChars: string[][] = [];
+
+    for (const scaled of scaledFrames) {
+      const chars = new Array<string>(cols * rows).fill(" ");
+      const padded = scaled.map((l) => l.padEnd(w, " "));
+      for (let r = 0; r < h; r++) {
+        for (let c = 0; c < w; c++) {
+          const gr = startRow + r;
+          const gc = startCol + c;
+          if (gr >= 0 && gr < rows && gc >= 0 && gc < cols) {
+            const ch = padded[r][c];
+            const idx = gr * cols + gc;
+            chars[idx] = ch;
+            if (ch !== " " && ch !== "\t") {
+              mask[idx] = 1;
+            }
+          }
+        }
+      }
+      allFrameChars.push(chars);
+    }
+
+    return { mask, frameChars: allFrameChars };
+  }, [cols, rows, cell.w, cell.h, viewport.w, viewport.h, composedFrames]);
 
   useLayoutEffect(() => {
     const canvas = canvasRef.current;
@@ -315,7 +342,7 @@ export function CursorAsciiFill() {
       return;
     }
     const size = cols * rows;
-    const mask = logoLayout?.mask ?? new Uint8Array(size);
+    const mask = logoData?.mask ?? new Uint8Array(size);
     let arr: Uint8Array = new Uint8Array(size);
     for (let i = 0; i < size; i++) {
       if (mask[i]) arr[i] = 0;
@@ -328,18 +355,20 @@ export function CursorAsciiFill() {
     gridDimsRef.current = { cols, rows };
     tickRef.current = performance.now();
     genRef.current = 0;
-  }, [cols, rows, logoLayout]);
+    frameIndexRef.current = 0;
+    frameTickRef.current = 0;
+  }, [cols, rows, logoData]);
 
   useLayoutEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas || cols === 0 || rows === 0 || !logoLayout) return;
+    if (!canvas || cols === 0 || rows === 0 || !logoData) return;
 
     let cancelled = false;
     let frame = 0;
-    const logoMask = logoLayout.mask;
-    const logoChars = logoLayout.chars;
+    const logoMask = logoData.mask;
+    const FRAME_INTERVAL = 1000 / FRAME_FPS;
 
-    const draw = (alive: Uint8Array, c: number, r: number) => {
+    const draw = (alive: Uint8Array, c: number, r: number, logoChars: string[]) => {
       const ctx = canvas.getContext("2d");
       if (!ctx) return;
       const dpr = window.devicePixelRatio || 1;
@@ -391,35 +420,51 @@ export function CursorAsciiFill() {
       const { cols: c, rows: r } = gridDimsRef.current;
       if (!g || g.length !== c * r || c === 0 || r === 0) return;
 
-      if (now - tickRef.current < TICK_MS) return;
-      tickRef.current = now;
+      let needsRedraw = false;
 
-      const next = nextGeneration(g, c, r, logoMask);
-      genRef.current++;
-
-      if (genRef.current % INJECT_EVERY_N_TICKS === 0) {
-        const planned = planInjections(next, c, r, logoMask);
-        injectQueueRef.current.push(...planned);
+      // Advance animation frame at video fps
+      if (now - frameTickRef.current >= FRAME_INTERVAL) {
+        frameTickRef.current = now;
+        frameIndexRef.current = (frameIndexRef.current + 1) % FRAME_COUNT;
+        needsRedraw = true;
       }
 
-      const queue = injectQueueRef.current;
-      if (queue.length > 0) {
-        const ticksLeft = INJECT_EVERY_N_TICKS - (genRef.current % INJECT_EVERY_N_TICKS);
-        const perTick = Math.max(1, Math.ceil(queue.length / ticksLeft));
-        const batch = queue.splice(0, perTick);
-        for (const pat of batch) {
-          applyPattern(next, pat);
+      // Advance Game of Life at its own tick rate
+      if (now - tickRef.current >= TICK_MS) {
+        tickRef.current = now;
+
+        const next = nextGeneration(g, c, r, logoMask);
+        genRef.current++;
+
+        if (genRef.current % INJECT_EVERY_N_TICKS === 0) {
+          const planned = planInjections(next, c, r, logoMask);
+          injectQueueRef.current.push(...planned);
         }
+
+        const queue = injectQueueRef.current;
+        if (queue.length > 0) {
+          const ticksLeft = INJECT_EVERY_N_TICKS - (genRef.current % INJECT_EVERY_N_TICKS);
+          const perTick = Math.max(1, Math.ceil(queue.length / ticksLeft));
+          const batch = queue.splice(0, perTick);
+          for (const pat of batch) {
+            applyPattern(next, pat);
+          }
+        }
+
+        gridRef.current = next;
+        needsRedraw = true;
       }
 
-      gridRef.current = next;
-      draw(next, c, r);
+      if (needsRedraw) {
+        const currentChars = logoData.frameChars[frameIndexRef.current];
+        draw(gridRef.current!, c, r, currentChars);
+      }
     };
 
     const g0 = gridRef.current;
     const { cols: c0, rows: r0 } = gridDimsRef.current;
     if (g0 && g0.length === c0 * r0) {
-      draw(g0, c0, r0);
+      draw(g0, c0, r0, logoData.frameChars[0]);
     }
 
     frame = requestAnimationFrame(loop);
@@ -428,7 +473,7 @@ export function CursorAsciiFill() {
       cancelled = true;
       cancelAnimationFrame(frame);
     };
-  }, [cols, rows, cell.w, cell.h, viewport.w, viewport.h, logoLayout, fontSizePx]);
+  }, [cols, rows, cell.w, cell.h, viewport.w, viewport.h, logoData, fontSizePx]);
 
   const monoStyle = {
     fontSize: fontSizePx,
