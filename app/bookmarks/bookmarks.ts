@@ -13,15 +13,21 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
-    id: "63cdc08d-e3c1-4c3b-9fb5-1aa42e3c40eb",
+    id: "018bb9c5-526b-4b59-bac7-ce823f5fb50c",
     date: "2026-04-12",
+    title: "Bring Back Idiomatic Design",
+    url: "https://essays.johnloeber.com/p/4-bring-back-idiomatic-design",
+  },
+  {
+    id: "63cdc08d-e3c1-4c3b-9fb5-1aa42e3c40eb",
+    date: "2026-04-09",
     title: "State of Homelab 2026",
     url: "https://mrlokans.work/posts/state-of-homelab-2026",
   },
   {
-    id: "018bb9c5-526b-4b59-bac7-ce823f5fb50a",
-    date: "2026-04-12",
-    title: "Bonsai: The 1-Bit LLM",
+    id: "ece29db4-6791-4013-a5d1-bee5c9f83287",
+    date: "2026-04-7",
+    title: "OpenAI: Designing Delightful Frontends with GPT-5.4",
     url: "https://developers.openai.com/blog/designing-delightful-frontends-with-gpt-5-4",
   },
   {
