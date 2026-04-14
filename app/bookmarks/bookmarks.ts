@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "f697d8b2-2a00-4dd5-be62-c1111ffa6b95",
+    date: "2026-04-14",
+    title: "Anthropic: Automated Alignment Researchers",
+    url: "https://www.anthropic.com/research/automated-alignment-researchers",
+  },
+  {
     id: "018bb9c5-526b-4b59-bac7-ce823f5fb50c",
     date: "2026-04-12",
     title: "Bring Back Idiomatic Design",
