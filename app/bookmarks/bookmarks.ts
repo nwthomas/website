@@ -13,6 +13,30 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "e3ad1fd5-1f82-4f4f-b2f6-612ac232621a",
+    date: "2026-04-21",
+    title: "TypeScript 7.0 Beta",
+    url: "https://devblogs.microsoft.com/typescript/announcing-typescript-7-0-beta/",
+  },
+  {
+    id: "b5fdd777-0a56-4eb5-b63b-e9a51e68e832",
+    date: "2026-04-21",
+    title: "Cursor: Keeping the Cursor app stable",
+    url: "https://cursor.com/blog/app-stability",
+  },
+  {
+    id: "ce63a666-8daf-44ac-9a3e-ca9edad111f5",
+    date: "2026-04-21",
+    title: "Cursor: Better AI models enable more ambitious work",
+    url: "https://cursor.com/blog/better-models-ambitious-work",
+  },
+  {
+    id: "87ec06b5-2d3f-43ca-8108-f1f15489d292",
+    date: "2026-04-21",
+    title: "Cursor: Interact with agent-created visualizations in canvases",
+    url: "https://cursor.com/blog/canvas",
+  },
+  {
     id: "018bb9c5-526b-4b59-bac7-ce823f5fb50c",
     date: "2026-04-12",
     title: "Bring Back Idiomatic Design",
