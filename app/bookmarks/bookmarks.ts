@@ -22,7 +22,7 @@ export const BOOKMARKS: Bookmarks = [
     id: "ac0a8c89-19ec-4a21-b198-201bdae82ffb",
     date: "2026-04-24",
     title:
-      "Anthropic: Automated Alignment Researchers: Using large language models to scale scalable oversight",
+      "Anthropic: Automated Alignment Researchers - Using large language models to scale scalable oversight",
     url: "https://www.anthropic.com/research/automated-alignment-researchers",
   },
   {
