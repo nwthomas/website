@@ -13,6 +13,19 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "eb1c2d25-9b34-4c8d-89e9-e9bc66d1a144",
+    date: "2026-04-24",
+    title: "Cursor: Partnering with SpaceX on model training",
+    url: "https://cursor.com/blog/spacex-model-training",
+  },
+  {
+    id: "ac0a8c89-19ec-4a21-b198-201bdae82ffb",
+    date: "2026-04-24",
+    title:
+      "Anthropic: Automated Alignment Researchers: Using large language models to scale scalable oversight",
+    url: "https://www.anthropic.com/research/automated-alignment-researchers",
+  },
+  {
     id: "e3ad1fd5-1f82-4f4f-b2f6-612ac232621a",
     date: "2026-04-21",
     title: "TypeScript 7.0 Beta",
