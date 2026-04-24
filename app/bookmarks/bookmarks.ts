@@ -50,7 +50,7 @@ export const BOOKMARKS: Bookmarks = [
   },
   {
     id: "ece29db4-6791-4013-a5d1-bee5c9f83287",
-    date: "2026-04-7",
+    date: "2026-04-07",
     title: "OpenAI: Designing Delightful Frontends with GPT-5.4",
     url: "https://developers.openai.com/blog/designing-delightful-frontends-with-gpt-5-4",
   },
