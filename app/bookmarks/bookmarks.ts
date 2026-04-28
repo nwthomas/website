@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "ef536439-2ecd-4a7e-89e3-a81310eb43d0",
+    date: "2026-04-28",
+    title: "ET Brutus",
+    url: "https://www.etbrutus.com/",
+  },
+  {
     id: "eb1c2d25-9b34-4c8d-89e9-e9bc66d1a144",
     date: "2026-04-24",
     title: "Cursor: Partnering with SpaceX on model training",
