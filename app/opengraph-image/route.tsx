@@ -27,7 +27,7 @@ export async function GET() {
             <span tw="text-gray-500 shrink-0 mt-1 mr-3 text-[28px] leading-none" style={{ fontFamily: "Geist Sans" }}>
               ‣
             </span>
-            <span style={{ fontFamily: "Geist Mono" }}>Software Engineer on Sabbatical</span>
+            <span style={{ fontFamily: "Geist Mono" }}>Engineering at Cursor</span>
           </div>
           <div tw="flex flex-row items-start gap-x-4 text-3xl my-2">
             <span tw="text-gray-500 shrink-0 mt-1 mr-3 text-[28px] leading-none" style={{ fontFamily: "Geist Sans" }}>
