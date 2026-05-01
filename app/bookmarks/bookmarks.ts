@@ -15,7 +15,7 @@ export const BOOKMARKS: Bookmarks = [
   {
     id: "e0054849-8a86-459f-a884-650f8e550658",
     date: "2026-04-29",
-    title: "OpenAI: Where the goblins came from",
+    title: "OpenAI: Where the Goblins Came From",
     url: "https://openai.com/index/where-the-goblins-came-from/",
   },
   {
