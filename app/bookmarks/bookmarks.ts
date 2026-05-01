@@ -118,7 +118,7 @@ export const BOOKMARKS: Bookmarks = [
   {
     id: "3345214d-d133-4fdf-89ba-1b9ab4e3fc7b",
     date: "2026-03-28",
-    title: "Pretext",
+    title: "pretext",
     url: "https://github.com/chenglou/pretext",
   },
   {
@@ -214,7 +214,7 @@ export const BOOKMARKS: Bookmarks = [
   {
     id: "6163af08-6292-4141-b0f6-9ad665c60e28",
     date: "2026-03-17",
-    title: "Vite+",
+    title: "vite+",
     url: "https://viteplus.dev",
   },
   {
