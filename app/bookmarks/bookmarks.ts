@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "e0054849-8a86-459f-a884-650f8e550658",
+    date: "2026-04-29",
+    title: "OpenAI: Where the Goblins Came From",
+    url: "https://openai.com/index/where-the-goblins-came-from/",
+  },
+  {
     id: "ef536439-2ecd-4a7e-89e3-a81310eb43d0",
     date: "2026-04-28",
     title: "ET Brutus",
