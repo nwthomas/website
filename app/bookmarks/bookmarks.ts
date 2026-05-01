@@ -34,7 +34,7 @@ export const BOOKMARKS: Bookmarks = [
     id: "ac0a8c89-19ec-4a21-b198-201bdae82ffb",
     date: "2026-04-24",
     title:
-      "Anthropic: Automated Alignment Researchers - Using large language models to scale scalable oversight",
+      "Anthropic: Automated Alignment Researchers — Using Large Language Models to Scale Scalable Oversight",
     url: "https://www.anthropic.com/research/automated-alignment-researchers",
   },
   {
@@ -184,7 +184,7 @@ export const BOOKMARKS: Bookmarks = [
   {
     id: "974a6e55-ad8a-41f4-84f9-a6447a4f5da0",
     date: "2026-03-20",
-    title: "AirBnB: visx",
+    title: "Airbnb: visx",
     url: "https://visx.airbnb.tech",
   },
   {
@@ -220,7 +220,7 @@ export const BOOKMARKS: Bookmarks = [
   {
     id: "6163af08-6292-4141-b0f6-9ad665c60e27",
     date: "2026-03-16",
-    title: "Tanstack AI",
+    title: "TanStack AI",
     url: "https://tanstack.com/ai",
   },
   {
