@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "653885cb-bc4e-47e2-ae5c-5d100e6bdca8",
+    date: "2026-05-23",
+    title: "OpenAI: Delivering Low-Latency Voice AI at Scale",
+    url: "https://openai.com/index/delivering-low-latency-voice-ai-at-scale/",
+  },
+  {
     id: "a599d8f1-33a4-48fd-abdc-19529af77de5",
     date: "2026-05-06",
     title: "Cursor: Bootstrapping Composer with autoinstall",
@@ -45,8 +51,7 @@ export const BOOKMARKS: Bookmarks = [
   {
     id: "ac0a8c89-19ec-4a21-b198-201bdae82ffb",
     date: "2026-04-24",
-    title:
-      "Anthropic: Automated Alignment Researchers — Using Large Language Models to Scale Scalable Oversight",
+    title: "Anthropic: Automated Alignment Researchers — Using Large Language Models to Scale Scalable Oversight",
     url: "https://www.anthropic.com/research/automated-alignment-researchers",
   },
   {
