@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "173884c1-0309-44d3-b64f-3b553545f518",
+    date: "2026-05-04",
+    title: "Cursor: Team Kit",
+    url: "https://cursor.com/marketplace/cursor/cursor-team-kit",
+  },
+  {
     id: "e0054849-8a86-459f-a884-650f8e550658",
     date: "2026-04-29",
     title: "OpenAI: Where the Goblins Came From",
