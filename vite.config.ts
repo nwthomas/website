@@ -5,7 +5,8 @@ import tailwindcss from "@tailwindcss/vite";
 import { nitro } from "nitro/vite";
 import mdx from "@mdx-js/rollup";
 
-const nitroOptions = process.env.VERCEL ? { config: { preset: "vercel" as const } } : {};
+/** Nitro <3.0.0 stable used `{ config: { preset } }`; 3.0.260311-beta+ merges NitroConfig into the plugin root. */
+const nitroOptions = process.env.VERCEL ? { preset: "vercel" as const } : {};
 
 export default defineConfig({
   server: {
@@ -17,7 +18,12 @@ export default defineConfig({
   plugins: [
     { enforce: "pre", ...mdx({ jsxImportSource: "react" }) },
     tailwindcss(),
-    tanstackStart({ srcDirectory: "src" }),
+    tanstackStart({
+      srcDirectory: "src",
+      prerender: {
+        enabled: false,
+      },
+    }),
     viteReact(),
     nitro(nitroOptions),
   ],

@@ -30,7 +30,11 @@ This project uses **bun** as the package manager. The repository enforces this v
 ### Deploying to Vercel
 
 - The repo includes **`vercel.json`** with `installCommand: bun install` and `buildCommand: bun run build`, plus **`packageManager`** in `package.json`, so installs use **Bun** (required by `preinstall` / lockfile) and Vercel does not fall back to `npm install` + Next.js defaults.
-- During build, **`VERCEL`** is set on Vercel; **`vite.config.ts`** passes `nitro({ config: { preset: 'vercel' } })` so output goes to **`.vercel/output`** (not only `.output`).
+- During build, **`VERCEL`** is set on Vercel; **`vite.config.ts`** passes **`nitro({ preset: 'vercel' })`** so Nitro emits **`.vercel/output`** for Functions.
+- **Nitro must be ≥ `3.0.260311-beta`**: Nitro **3.0.0 stable** shipped a Vercel Web preset bug where SSR called plain `fetch()` back into the same deployment → **508 `INFINITE_LOOP_DETECTED`**. Newer Nitros bridge SSR via `fetchViteEnv` / `globalThis.__nitro_vite_envs__` (see [nitrojs/nitro#4011](https://github.com/nitrojs/nitro/pull/4011), community write-up in Roxabi talks PR).
+
+Prerender is explicitly **`disabled`** for Start (`tanstackStart.prerender.enabled: false`) so builds stay compatible with the Vercel serverless preset.
+
 - In Vercel project settings, clear any legacy **Next.js** framework preset if the dashboard still shows it; `vercel.json` sets `"framework": null`.
 
 ## Architecture Overview
