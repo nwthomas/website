@@ -5,6 +5,8 @@ import tailwindcss from "@tailwindcss/vite";
 import { nitro } from "nitro/vite";
 import mdx from "@mdx-js/rollup";
 
+const nitroOptions = process.env.VERCEL ? { config: { preset: "vercel" as const } } : {};
+
 export default defineConfig({
   server: {
     port: 3000,
@@ -17,6 +19,6 @@ export default defineConfig({
     tailwindcss(),
     tanstackStart({ srcDirectory: "src" }),
     viteReact(),
-    nitro(),
+    nitro(nitroOptions),
   ],
 });

@@ -12,6 +12,7 @@
   },
   "private": true,
   "type": "module",
+  "packageManager": "bun@1.2.19",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build && tsc --noEmit",
@@ -47,7 +48,7 @@
     "typescript": "5.9.3"
   },
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
+    "@eslint/js": "9.39.4",
     "@sparticuz/chromium": "143.0.4",
     "@tailwindcss/postcss": "4.2.2",
     "@tailwindcss/typography": "0.5.19",

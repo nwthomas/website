@@ -25,7 +25,13 @@ This project uses **bun** as the package manager. The repository enforces this v
 
 ### Production
 
-- `make start` or `bun run start` — Run the Nitro Node server (`node .output/server/index.mjs`)
+- `make start` or `bun run start` — Run the Nitro Node server locally (`node .output/server/index.mjs`). This matches the **non-Vercel** Nitro preset (`VERCEL` unset during `bun run build`).
+
+### Deploying to Vercel
+
+- The repo includes **`vercel.json`** with `installCommand: bun install` and `buildCommand: bun run build`, plus **`packageManager`** in `package.json`, so installs use **Bun** (required by `preinstall` / lockfile) and Vercel does not fall back to `npm install` + Next.js defaults.
+- During build, **`VERCEL`** is set on Vercel; **`vite.config.ts`** passes `nitro({ config: { preset: 'vercel' } })` so output goes to **`.vercel/output`** (not only `.output`).
+- In Vercel project settings, clear any legacy **Next.js** framework preset if the dashboard still shows it; `vercel.json` sets `"framework": null`.
 
 ## Architecture Overview
 
