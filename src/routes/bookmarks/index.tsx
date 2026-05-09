@@ -1,4 +1,4 @@
-import { Link, createFileRoute } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { clsx } from "clsx";
 
 import { BOOKMARKS } from "@/bookmarks/bookmarks";
@@ -21,9 +21,9 @@ function BookmarksPage() {
     <section className="w-full max-w-2xl mx-5">
       <p>
         I love to learn and bookmark what I've read here. I also have an{" "}
-        <Link aria-label="Link to Nathan's Atom RSS feed" to="/bookmarks/atom">
+        <a aria-label="Link to Nathan's Atom RSS feed" href="/bookmarks/atom">
           RSS feed
-        </Link>{" "}
+        </a>{" "}
         you can follow.
       </p>
       <ul className="w-full mt-5">

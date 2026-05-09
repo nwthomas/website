@@ -38,9 +38,9 @@ function WritingPage() {
     <section className="w-full max-w-2xl mx-5">
       <p>
         Below is a curated collection of my writing. I also have an{" "}
-        <Link aria-label="Link to Nathan's Atom RSS feed" to="/atom">
+        <a aria-label="Link to Nathan's Atom RSS feed" href="/atom">
           RSS feed
-        </Link>{" "}
+        </a>{" "}
         you can follow and a{" "}
         <a
           href="https://nathanthomas.substack.com/"
