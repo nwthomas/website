@@ -1,0 +1,80 @@
+"use client";
+
+import { HeadingLevel, getHeading } from "@/writing/heading";
+import { Link, useRouterState } from "@tanstack/react-router";
+import { ReactNode } from "react";
+import { ThemeSwitch } from "./ThemeSwitch";
+import { formatUTCTimestampToDateString } from "../utils/dates";
+import postsJson from "@/posts.json";
+
+type Post = {
+  id: string;
+  title: string;
+  date: string;
+};
+
+export function Navbar() {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isHomePage = pathname === "/";
+  const isBookmarksPage = pathname === "/bookmarks";
+  const isBooksPage = pathname === "/books";
+  const isWritingPage = pathname === "/writing";
+  const isCursorPage = pathname === "/cursor";
+  const isBlogPage = postsJson.posts.find((post: Post) => `/${post.id}` === pathname.split("#")[0]);
+
+  let dateText: ReactNode | null = null;
+  if (isBlogPage && isBlogPage.date) {
+    const date = formatUTCTimestampToDateString(isBlogPage.date);
+    dateText = <span> • {date}</span>;
+  }
+
+  let showThemeSwitch = true;
+  let titleText: ReactNode | null = <h1>Nathan Thomas</h1>;
+  let subtitleText: ReactNode | null = (
+    <p className="text-sm text-gray-500">
+      by{" "}
+      <Link aria-label="Link to Nathan's home page" to="/">
+        Nathan Thomas
+      </Link>
+      {dateText}
+    </p>
+  );
+  if (isBookmarksPage) {
+    titleText = <h1>Bookmarks</h1>;
+  } else if (isBooksPage) {
+    titleText = <h1>Books</h1>;
+  } else if (isWritingPage) {
+    titleText = <h1>Writing</h1>;
+  } else if (isBlogPage) {
+    const writingTitleWithId = `${isBlogPage.title} [#${isBlogPage.id}]`;
+    titleText = getHeading(writingTitleWithId, HeadingLevel.H1);
+  } else if (!isHomePage) {
+    titleText = null;
+    subtitleText = null;
+    showThemeSwitch = false;
+  }
+
+  if (isCursorPage) {
+    return null;
+  }
+
+  return (
+    <header className="flex w-full max-w-2xl mx-5 items-start">
+      <ul className="flex w-full justify-between">
+        <li className="before:hidden pl-0">
+          <div className="flex flex-col">
+            {titleText}
+            {!isHomePage ? subtitleText : null}
+          </div>
+        </li>
+        {showThemeSwitch ? (
+          <li className="before:hidden pl-0">
+            <div className="flex gap-3 sm:gap-5 items-center">
+              <ThemeSwitch />
+            </div>
+          </li>
+        ) : null}
+      </ul>
+    </header>
+  );
+}

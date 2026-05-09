@@ -7,7 +7,7 @@ dev:
 	bun run dev
 
 export:
-	next export
+	@echo "Static export is not used with TanStack Start by default"
 
 format:
 	bun run format
@@ -19,10 +19,10 @@ lint:
 	bun run lint
 
 postbuild:
-	next-sitemap
+	bun run postbuild
 
 start:
-	next start
+	bun run start
 
 uuid:
 	./scripts/get-uuid.sh

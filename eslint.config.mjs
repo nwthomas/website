@@ -1,25 +1,35 @@
-import { defineConfig, globalIgnores } from "eslint/config";
+import js from "@eslint/js";
+import globals from "globals";
+import tseslint from "typescript-eslint";
 
-import nextTs from "eslint-config-next/typescript";
-import nextVitals from "eslint-config-next/core-web-vitals";
-
-const eslintConfig = defineConfig([
-  ...nextVitals,
-  ...nextTs,
-  // Override default ignores of eslint-config-next.
-  globalIgnores([
-    // Default ignores of eslint-config-next:
-    ".next/**",
-    "out/**",
-    "build/**",
-    "next-env.d.ts",
-  ]),
+export default tseslint.config(
+  {
+    ignores: [
+      "**/node_modules/**",
+      "**/.next/**",
+      ".output/**",
+      "dist/**",
+      "build/**",
+      "src/routeTree.gen.ts",
+      ".nitro/**",
+      "bun.lock",
+    ],
+  },
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
   {
     rules: {
       "import/no-anonymous-default-export": "off",
       "react/no-unescaped-entities": "off",
+      "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
     },
   },
-]);
-
-export default eslintConfig;
+  {
+    files: ["scripts/**/*.mjs"],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+    },
+  },
+);
