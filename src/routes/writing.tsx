@@ -12,8 +12,11 @@ export const Route = createFileRoute("/writing")({
 
     let postViews: Record<string, number | null> = {};
     if (import.meta.env.PROD) {
-      const { redis, getPostViewsRedisKey } = await import("@/utils/redis");
-      postViews = await redis.mGet<number | null>(posts.map((post) => getPostViewsRedisKey(post.id)));
+      const { getRedis, getPostViewsRedisKey } = await import("@/utils/redis");
+      const redis = getRedis();
+      if (redis) {
+        postViews = await redis.mGet<number | null>(posts.map((post) => getPostViewsRedisKey(post.id)));
+      }
     }
 
     return { sortedPosts, postViews };

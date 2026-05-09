@@ -5,7 +5,7 @@ import { join } from "path";
 
 import postsJson from "@/posts.json";
 import { formatUTCTimestampToDateString } from "@/utils/dates";
-import { getPostViewsRedisKey, redis } from "@/utils/redis";
+import { getPostViewsRedisKey, getRedis } from "@/utils/redis";
 
 const rootDir = process.cwd();
 const fontsDir = join(rootDir, "fonts");
@@ -34,7 +34,8 @@ export const Route = createFileRoute("/$slug/opengraph-image")({
           date = formatUTCTimestampToDateString(post.date);
         }
 
-        const postViews = await redis.get<number | null>(getPostViewsRedisKey(slug));
+        const redis = getRedis();
+        const postViews = redis ? await redis.get<number | null>(getPostViewsRedisKey(slug)) : null;
         const postViewsPostfix = postViews && postViews == 1 ? "view" : "views";
 
         return new ImageResponse(

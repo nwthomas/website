@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { getPostViewsRedisKey, redis } from "@/utils/redis";
+import { getPostViewsRedisKey, getRedis } from "@/utils/redis";
 
 const ALLOWED_ORIGINS = ["https://nathanthomas.dev", "https://www.nathanthomas.dev"];
 if (import.meta.env.DEV) {
@@ -39,6 +39,11 @@ export const Route = createFileRoute("/views")({
 
         if (!slug) {
           return new Response(null, { status: 400 });
+        }
+
+        const redis = getRedis();
+        if (!redis) {
+          return new Response(null, { status: 204 });
         }
 
         const result = await redis.get(getPostViewsRedisKey(slug));

@@ -8,23 +8,8 @@ function getPostViewsRedisKey(postId: string) {
 }
 
 class RedisSingleton {
-  private static instance: RedisSingleton;
   private client: RedisClientType | null = null;
   private isConnecting = false;
-
-  public static getInstance(): RedisSingleton {
-    if (!REDIS_URL) {
-      throw new Error("REDIS_URL is not set");
-    }
-    if (!REDIS_TOKEN) {
-      throw new Error("REDIS_TOKEN is not set");
-    }
-
-    if (!RedisSingleton.instance) {
-      RedisSingleton.instance = new RedisSingleton();
-    }
-    return RedisSingleton.instance;
-  }
 
   private async ensureConnection(): Promise<void> {
     if (this.client?.isOpen) {
@@ -151,6 +136,17 @@ class RedisSingleton {
   }
 }
 
-const redis = RedisSingleton.getInstance();
+let redisSingleton: RedisSingleton | null = null;
 
-export { redis, getPostViewsRedisKey };
+/** Returns a Redis client when `REDIS_URL` and `REDIS_TOKEN` are set; otherwise `null` (no eager throw at import time). */
+export function getRedis(): RedisSingleton | null {
+  if (!REDIS_URL || !REDIS_TOKEN) {
+    return null;
+  }
+  if (!redisSingleton) {
+    redisSingleton = new RedisSingleton();
+  }
+  return redisSingleton;
+}
+
+export { getPostViewsRedisKey };
