@@ -13,9 +13,13 @@
 # testing
 /coverage
 
-# next.js
+# next.js (legacy build artifacts)
 /.next/
 /out/
+
+# TanStack Start / Nitro / Vite
+/.output/
+/.nitro/
 
 # production
 /build

@@ -1,6 +1,6 @@
 # AGENTS.md
 
-This file provides guidance to coding agents when working with code in this repository.
+This file provides guidance for coding agents when working with code in this repository.
 
 ## Package Manager
 
@@ -10,107 +10,64 @@ This project uses **bun** as the package manager. The repository enforces this v
 
 ### Development
 
-- `make dev` or `bun run dev` - Start the Next.js development server
-- `make build` or `bun run build` - Build the production application
-- `bun run postbuild` - Generate sitemap (runs automatically after build)
+- `make dev` or `bun run dev` — Start the TanStack Start (Vite) development server (port 3000)
+- `make build` or `bun run build` — Production build (Vite + Nitro server output)
+- `bun run postbuild` — Post-build hook (placeholder for sitemap or other tasks)
 
 ### Code Quality
 
-- `make lint` or `bun run lint` - Run ESLint
-- `make format` or `bun run format` - Format code with Prettier
+- `make lint` or `bun run lint` — Run ESLint on `src`, config, and `scripts`
+- `make format` or `bun run format` — Format code with Prettier
 
 ### Installation
 
-- `make install` or `make i` or `bun install` - Install dependencies
+- `make install` or `make i` or `bun install` — Install dependencies
 
 ### Production
 
-- `make start` or `bun run start` - Start the production server
-- `make export` - Export static site
+- `make start` or `bun run start` — Run the Nitro Node server (`node .output/server/index.mjs`)
 
 ## Architecture Overview
 
-### Next.js App Router Structure
+### TanStack Start + TanStack Router
 
-This is a Next.js 16 application using the App Router (not Pages Router). The main application code lives in the `app/` directory.
+The app uses **TanStack Start** with file-based routes under `src/routes/`. The route tree is generated as `src/routeTree.gen.ts` (do not edit by hand).
 
-### Key Directories
+### Key directories
 
-- `app/` - Next.js app router pages and components
-  - `app/(writing)/` - Route group for blog content (doesn't affect URL structure)
-    - `app/(writing)/content/` - MDX blog post files
-    - `app/(writing)/[slug]/page.tsx` - Dynamic route for individual blog posts
-    - `app/(writing)/posts.json` - Post metadata (id, title, date) for static generation
-  - `app/components/` - Shared components (Navbar, Footer, ThemeSwitch, etc.)
-  - `app/hooks/` - Custom React hooks (`useTheme`, `useLockBodyScroll`)
-  - `app/store/` - Redux Toolkit store, reducers, and selectors
-  - `app/writing/page.tsx` - Blog listing page
-  - `app/bookmarks/page.tsx` - Bookmarks page
-- `mdx-components.ts` - MDX component mappings for blog posts
+- `src/routes/` — Pages and server HTTP handlers (`server.handlers` on route definitions)
+- `src/content/` — MDX blog posts (`*.mdx`)
+- `src/posts.json` — Post listing metadata (must stay in sync with MDX files)
+- `src/components/` — Shared UI
+- `src/store/` — Redux Toolkit (theme + writing overlay)
+- `src/writing/` — MDX-specific components (paragraphs, code blocks, images)
+- `src/styles/globals.css` — Tailwind v4 entry (`@import "tailwindcss" source("../")`)
+- `public/` — Static assets
+
+### Blog / MDX
+
+Posts are MDX files in `src/content/`. They may import `@/writing/image` where needed. Custom MDX element mappings live in `src/mdx-components.ts` and are applied via `MDXProvider` on post routes.
 
 ### State Management
 
-Redux Toolkit is used for global state management with two slices:
+Redux Toolkit provides **theme** and **writing** (image overlay) slices. The store is wired in `src/components/Providers.tsx`.
 
-- **theme**: Manages dark/light theme state
-- **writing**: Manages image overlay functionality for blog posts
+### Theme
 
-The Redux store is provided to the app via `app/components/Providers.tsx` which wraps the application in `app/layout.tsx`.
+An inline script in `src/routes/__root.tsx` runs before hydration to read `localStorage` and set the `dark` class on `<html>`. React stays in sync via the theme slice.
 
-### Theme System
+### Path aliases
 
-The theme uses a hybrid approach:
+`@/*` maps to `./src/*` (see `tsconfig.json`).
 
-1. An inline script in `app/layout.tsx` runs before React hydration to prevent flash of incorrect theme
-2. The script reads from localStorage and sets the initial theme class on the `<html>` element
-3. React components (ThemeSwitch) sync with this via the Redux store
-4. This avoids server/client mismatch while maintaining fast theme initialization
+### Environment variables
 
-### Blog Post Architecture
-
-Blog posts are MDX files stored in `app/(writing)/content/`. Each post:
-
-1. Exports a `metadata` object containing title, description, and openGraph data
-2. Is dynamically imported in `app/(writing)/[slug]/page.tsx` based on the slug
-3. Uses custom MDX components (h1, h2, p, code, image, etc.) defined in `mdx-components.ts`
-4. Must be registered in `app/(writing)/posts.json` to appear in the blog listing and enable static generation
-
-To add a new blog post:
-
-1. Create a new `.mdx` file in `app/(writing)/content/` with a URL-friendly filename (e.g., `my-post-title.mdx`)
-2. Add metadata export at the top of the file
-3. Add the post to `posts.json` with matching id (filename without .mdx), title, and date
-
-### Path Aliases
-
-The project uses `@/*` path aliases (configured in `tsconfig.json`) that resolve to the root directory. Use these for imports: `@/app/components/Navbar` instead of relative paths.
-
-### Environment Variables
-
-Create a `.env` file based on `.env.example`. Sentry variables are optional - the site functions without them.
+Copy `.env.example` to `.env`. Client-visible Sentry DSN uses `VITE_SENTRY_DSN` if you enable browser reporting.
 
 ### Styling
 
-- TailwindCSS 4.x is used for styling
-- Uses Geist and Geist Mono fonts from `next/font/google`
-- Dark mode is implemented via the `dark` class on the `<html>` element
-
-### React Compiler
-
-This project uses the experimental React Compiler (`reactCompiler: true` in next.config.js) for automatic memoization.
-
-### MDX Configuration
-
-MDX is configured in `next.config.js` with:
-
-- `@next/mdx` plugin
-- `mdxRs: true` for the faster Rust-based MDX compiler
-- Custom component provider pointing to `mdx-components.ts`
+Tailwind CSS v4 with `@tailwindcss/vite`. Dark mode uses the `dark` class on `<html>`.
 
 ### Monitoring
 
-Sentry is integrated for error tracking via `@sentry/nextjs` with configuration in:
-
-- `sentry.client.config.ts`
-- `sentry.edge.config.ts`
-- `sentry.server.config.ts`
+Sentry: `@sentry/react` (client, initialized from `src/sentry.client.ts` via `Providers`) and `@sentry/node` on the server where applicable. Vercel Analytics / Speed Insights use the React framework-agnostic packages.
