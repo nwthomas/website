@@ -14,9 +14,15 @@ export type Bookmarks = Array<Bookmark>;
 export const BOOKMARKS: Bookmarks = [
   {
     id: "d2283643-6c2e-4a3c-9791-caaa0461f9cb",
-    date: "2026-05-30",
+    date: "2026-05-31",
     title: "LangChain: Introducing LangSmith Engine",
     url: "https://www.langchain.com/blog/introducing-langsmith-engine",
+  },
+  {
+    id: "2e170965-b35d-40ee-a50f-da178a8b777f",
+    date: "2026-05-30",
+    title: "OpenAI: Supercomputer networking to accelerate large scale AI training",
+    url: "https://openai.com/index/mrc-supercomputer-networking/",
   },
   {
     id: "a599d8f1-33a4-48fd-abdc-19529af77de6",
