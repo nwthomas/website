@@ -21,7 +21,7 @@ export const BOOKMARKS: Bookmarks = [
   {
     id: "2e170965-b35d-40ee-a50f-da178a8b777f",
     date: "2026-05-30",
-    title: "OpenAI: Supercomputer networking to accelerate large scale AI training",
+    title: "OpenAI: Supercomputer Networking to Accelerate Large Scale AI Training",
     url: "https://openai.com/index/mrc-supercomputer-networking/",
   },
   {
