@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "d2283643-6c2e-4a3c-9791-caaa0461f9cb",
+    date: "2026-05-30",
+    title: "LangChain: Introducing LangSmith Engine",
+    url: "https://www.langchain.com/blog/introducing-langsmith-engine",
+  },
+  {
     id: "a599d8f1-33a4-48fd-abdc-19529af77de6",
     date: "2026-05-23",
     title: "Cursor: Introducing Composer 2.5",
