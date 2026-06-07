@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "9e3cac34-b89f-46b8-beca-8fbd30f90f56",
+    date: "2026-06-06",
+    title: "OpenAI: Dreaming - Better Memory for a More Helpful ChatGPT",
+    url: "https://openai.com/index/chatgpt-memory-dreaming/",
+  },
+  {
     id: "d2283643-6c2e-4a3c-9791-caaa0461f9cb",
     date: "2026-05-31",
     title: "LangChain: Introducing LangSmith Engine",
