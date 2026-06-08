@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "eb5f0228-80d5-41a6-a95e-39406d005465",
+    date: "2026-06-07",
+    title: "Stop Using JWTs!",
+    url: "https://gist.github.com/samsch/0d1f3d3b4745d778f78b230cf6061452",
+  },
+  {
     id: "9e3cac34-b89f-46b8-beca-8fbd30f90f56",
     date: "2026-06-06",
     title: "OpenAI: Dreaming - Better Memory for a More Helpful ChatGPT",
