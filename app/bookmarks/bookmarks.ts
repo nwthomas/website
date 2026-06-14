@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "759a30ac-204a-4614-853b-768255fa6b15",
+    date: "2026-06-13",
+    title: "Why is Meta Destroying its Engineering Organization?",
+    url: "https://newsletter.pragmaticengineer.com/p/why-is-meta-destroying-its-engineering",
+  },
+  {
     id: "eb5f0228-80d5-41a6-a95e-39406d005465",
     date: "2026-06-07",
     title: "Stop Using JWTs!",
