@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "ca32e597-4992-40c9-8398-5c7019684bf0",
+    date: "2026-06-14",
+    title: "But Yak Shaving is Fun",
+    url: "https://parksb.github.io/en/article/32.html",
+  },
+  {
     id: "759a30ac-204a-4614-853b-768255fa6b15",
     date: "2026-06-13",
     title: "Why is Meta Destroying its Engineering Organization?",
