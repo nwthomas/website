@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "e7044538-e4f0-4672-a67f-00f786295ae9",
+    date: "2026-06-15",
+    title: "OpenAI Losses Increased Nearly 8X in 2025, With Spending Hitting $34 Billion",
+    url: "https://www.wheresyoured.at/exclusive-openai-financials/?ref=ed-zitrons-wheres-your-ed-at-newsletter",
+  },
+  {
     id: "ca32e597-4992-40c9-8398-5c7019684bf0",
     date: "2026-06-14",
     title: "But Yak Shaving is Fun",
