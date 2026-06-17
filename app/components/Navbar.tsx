@@ -21,7 +21,6 @@ export function Navbar() {
   const isBookmarksPage = pathname === "/bookmarks";
   const isBooksPage = pathname === "/books";
   const isWritingPage = pathname === "/writing";
-  const isCursorPage = pathname === "/cursor";
   const isBlogPage = postsJson.posts.find((post: Post) => `/${post.id}` === pathname.split("#")[0]);
 
   let dateText: ReactNode | null = null;
@@ -54,10 +53,6 @@ export function Navbar() {
     titleText = null;
     subtitleText = null;
     showThemeSwitch = false;
-  }
-
-  if (isCursorPage) {
-    return null;
   }
 
   return (
