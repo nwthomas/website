@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "f82c553e-5a2b-47c3-89c3-705be930f984",
+    date: "2026-06-16",
+    title: "SpaceX Locks in $60 Billion Cursor Deal to Close Gap with Rivals in AI Coding Race",
+    url: "https://www.reuters.com/legal/transactional/spacex-buy-anysphere-60-billion-2026-06-16",
+  },
+  {
     id: "e7044538-e4f0-4672-a67f-00f786295ae9",
     date: "2026-06-15",
     title: "OpenAI Losses Increased Nearly 8X in 2025, With Spending Hitting $34 Billion",
