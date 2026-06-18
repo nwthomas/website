@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "adf50822-7462-4bad-870b-a4e5eeee51a8",
+    date: "2026-06-18",
+    title: "I Discovered a Large-Scale Malware Distribution Campaign on GitHub",
+    url: "https://orchidfiles.com/github-repositories-distributing-malware",
+  },
+  {
     id: "1198a37f-252b-461d-b3cc-dd6c554d7514",
     date: "2026-06-17",
     title: "Eve: The Framework for Building Agents",
