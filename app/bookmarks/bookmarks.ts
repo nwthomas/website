@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "1198a37f-252b-461d-b3cc-dd6c554d7514",
+    date: "2026-06-17",
+    title: "Eve: The Framework for Building Agents",
+    url: "https://vercel.com/eve",
+  },
+  {
     id: "f82c553e-5a2b-47c3-89c3-705be930f984",
     date: "2026-06-16",
     title: "SpaceX Locks in $60 Billion Cursor Deal to Close Gap with Rivals in AI Coding Race",
