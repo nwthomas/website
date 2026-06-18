@@ -1,4 +1,4 @@
-import { Image } from "@/app/(writing)/components/image";
+import { ConcurrencyParallelismDiagram } from "@/app/(writing)/components/articles/concurrency-parallelism-diagram";
 
 export const metadata = {
   title: "Parallel Computing in Python",
@@ -23,13 +23,7 @@ This article will cover the basics of concurrency and parallelism before diving 
 
 I have always found that visual examples do far more to explain this concept than I could ever do with words, so here's a simple diagram of concurrency versus parallelism:
 
-<Image
-  alt="A diagram of concurrency versus parallelism"
-  src="/images/blog/parallel-computing-in-python/concurrency-parallelism.webp"
-  width={2312}
-  height={1592}
-  shouldPreload
-/>
+<ConcurrencyParallelismDiagram />
 
 In simple terms, concurrency is about doing multiple things on the same CPU core. The core will switch between tasks as needed, and it's really advantageous for tasks that are "I/O-bound" (meaning they spend most of their time waiting for input/output operations to complete). Network requests and opening/editing files are good examples of these tasks.
 
