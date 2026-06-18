@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "c749e6b5-c85d-4c16-a3df-d74e55968ec2",
+    date: "2026-06-18",
+    title: "chezmoi",
+    url: "https://www.chezmoi.io",
+  },
+  {
     id: "adf50822-7462-4bad-870b-a4e5eeee51a8",
     date: "2026-06-18",
     title: "I Discovered a Large-Scale Malware Distribution Campaign on GitHub",
