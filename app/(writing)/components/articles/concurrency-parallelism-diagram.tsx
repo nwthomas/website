@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type CSSProperties } from "react";
+import { useRef, useState, type CSSProperties } from "react";
 
 type Segment = {
   height: string;
@@ -9,6 +9,7 @@ type Segment = {
 };
 
 type LaneProps = {
+  transitionPhase: "idle" | "toParallelism";
   dimmedTone: Segment["tone"] | null;
   segments: Segment[];
 };
@@ -22,15 +23,15 @@ const toneClasses: Record<Segment["tone"], string> = {
 const concurrencyLanes: Segment[][] = [
   [
     { height: "18%", offset: "4%", tone: "amber" },
-    { height: "20%", offset: "18%", tone: "sky" },
-    { height: "15%", offset: "47%", tone: "sky" },
+    { height: "20%", offset: "23%", tone: "sky" },
+    { height: "15%", offset: "47%", tone: "amber" },
     { height: "10%", offset: "73%", tone: "sky" },
-    { height: "13%", offset: "84%", tone: "sky" },
+    { height: "13%", offset: "85%", tone: "amber" },
   ],
   [
     { height: "16%", offset: "4%", tone: "sky" },
     { height: "18%", offset: "27%", tone: "amber" },
-    { height: "8%", offset: "52%", tone: "amber" },
+    { height: "8%", offset: "52%", tone: "sky" },
     { height: "18%", offset: "67%", tone: "amber" },
   ],
 ];
@@ -57,38 +58,48 @@ const views = {
 
 type ViewKey = keyof typeof views;
 
-function DiagramLane({ dimmedTone, segments }: LaneProps) {
+function DiagramLane({ transitionPhase, dimmedTone, segments }: LaneProps) {
   return (
     <div className="relative h-[18rem] w-[5.1rem] sm:h-[19rem] sm:w-[5.75rem]" role="presentation">
       <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 rounded-full bg-zinc-300 dark:bg-zinc-700" />
       {segments.map((segment, index) => (
-        <div
-          key={`${segment.tone}-${segment.offset}-${segment.height}-${index}`}
-          className={`absolute left-1/2 w-full -translate-x-1/2 rounded-[0.8rem] border-[2px] shadow-[0_10px_24px_-20px_rgba(15,23,42,0.28)] transition-opacity duration-200 ${toneClasses[segment.tone]}`}
-          style={{
-            top: segment.offset,
-            height: segment.height,
-            opacity: dimmedTone === segment.tone ? 0.5 : 1,
-          }}
-        />
+        (() => {
+          const isPrimary = index === 0;
+          const expanded = transitionPhase === "toParallelism" && isPrimary;
+          const hidden = transitionPhase === "toParallelism" && !isPrimary;
+
+          return (
+            <div
+              key={`${segment.tone}-${segment.offset}-${segment.height}-${index}`}
+              className={`absolute left-1/2 -translate-x-1/2 rounded-[0.8rem] border-[2px] shadow-[0_10px_24px_-20px_rgba(15,23,42,0.28)] transition-[top,height,width,opacity] duration-[250ms] ease-out ${toneClasses[segment.tone]}`}
+              style={{
+                top: expanded ? "4%" : segment.offset,
+                height: expanded ? "92%" : segment.height,
+                width: "100%",
+                opacity: hidden ? 0 : dimmedTone === segment.tone ? 0.5 : 1,
+              }}
+            />
+          );
+        })()
       ))}
     </div>
   );
 }
 
 type PanelProps = {
+  transitionPhase: "idle" | "toParallelism";
   dimmedTone: Segment["tone"] | null;
   lanes: Segment[][];
   note: string;
 };
 
-function DiagramPanel({ dimmedTone, lanes, note }: PanelProps) {
+function DiagramPanel({ transitionPhase, dimmedTone, lanes, note }: PanelProps) {
   return (
     <section className="flex h-full flex-col rounded-[1.65rem] border border-zinc-200/80 bg-white/90 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] dark:border-zinc-800/80 dark:bg-zinc-950/70 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] sm:p-4">
       <div className="flex flex-1 items-start justify-center">
         <div className="flex w-full max-w-[22rem] items-end justify-between pt-1 sm:max-w-[24rem]">
           {lanes.map((lane, index) => (
-            <DiagramLane key={index} dimmedTone={dimmedTone} segments={lane} />
+            <DiagramLane key={index} transitionPhase={transitionPhase} dimmedTone={dimmedTone} segments={lane} />
           ))}
         </div>
       </div>
@@ -99,13 +110,42 @@ function DiagramPanel({ dimmedTone, lanes, note }: PanelProps) {
 
 export function ConcurrencyParallelismDiagram() {
   const [activeView, setActiveView] = useState<ViewKey>("concurrency");
+  const [displayedView, setDisplayedView] = useState<ViewKey>("concurrency");
   const [dimmedTone, setDimmedTone] = useState<Segment["tone"] | null>(null);
+  const [transitionPhase, setTransitionPhase] = useState<"idle" | "toParallelism">("idle");
+  const transitionTimeoutRef = useRef<number | null>(null);
   const orderedViews: ViewKey[] = ["concurrency", "parallelism"];
   const activeIndex = orderedViews.indexOf(activeView);
   const legendPillClassName =
     "inline-flex items-center gap-2 rounded-full border border-zinc-200/90 bg-white px-3 py-1.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)] transition-opacity duration-200 dark:border-zinc-800 dark:bg-zinc-900/80 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]";
   const taskAStyle: CSSProperties | undefined = dimmedTone === "amber" ? { opacity: 0.7 } : undefined;
   const taskBStyle: CSSProperties | undefined = dimmedTone === "sky" ? { opacity: 0.7 } : undefined;
+
+  const handleViewChange = (nextView: ViewKey) => {
+    if (nextView === activeView) {
+      return;
+    }
+
+    if (transitionTimeoutRef.current != null) {
+      window.clearTimeout(transitionTimeoutRef.current);
+    }
+
+    setActiveView(nextView);
+
+    if (displayedView === "concurrency" && nextView === "parallelism") {
+      setTransitionPhase("toParallelism");
+      transitionTimeoutRef.current = window.setTimeout(() => {
+        setDisplayedView("parallelism");
+        setTransitionPhase("idle");
+        transitionTimeoutRef.current = null;
+      }, 250);
+
+      return;
+    }
+
+    setDisplayedView(nextView);
+    setTransitionPhase("idle");
+  };
 
   return (
     <div className="mb-5 flex w-full justify-center">
@@ -137,7 +177,7 @@ export function ConcurrencyParallelismDiagram() {
                       ? "text-white dark:text-zinc-950"
                       : "text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
                   }`}
-                  onClick={() => setActiveView(key)}
+                  onClick={() => handleViewChange(key)}
                   role="tab"
                   type="button"
                 >
@@ -168,24 +208,15 @@ export function ConcurrencyParallelismDiagram() {
           </div>
         </div>
 
-        <div className="relative min-h-[23rem] sm:min-h-[24rem]">
-          {(["concurrency", "parallelism"] as ViewKey[]).map((key) => {
-            const selected = activeView === key;
-            const currentView = views[key];
-
-            return (
-              <div
-                key={key}
-                aria-hidden={!selected}
-                className={`absolute inset-0 transition-all duration-[250ms] ease-out ${
-                  selected ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-2 opacity-0"
-                }`}
-                role="tabpanel"
-              >
-                <DiagramPanel dimmedTone={dimmedTone} lanes={currentView.lanes} note={currentView.note} />
-              </div>
-            );
-          })}
+        <div className="min-h-[23rem] sm:min-h-[24rem]">
+          <div role="tabpanel">
+            <DiagramPanel
+              transitionPhase={transitionPhase}
+              dimmedTone={dimmedTone}
+              lanes={views[displayedView].lanes}
+              note={views[activeView].note}
+            />
+          </div>
         </div>
       </figure>
     </div>
