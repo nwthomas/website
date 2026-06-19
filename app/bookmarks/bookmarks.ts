@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "0eadb121-1bb5-4afd-8aae-9c06d801a0a7",
+    date: "2026-06-19",
+    title: "Paul Graham: How to Earn a Billion Dollars",
+    url: "https://paulgraham.com/earn.html",
+  },
+  {
     id: "c749e6b5-c85d-4c16-a3df-d74e55968ec2",
     date: "2026-06-18",
     title: "chezmoi",
