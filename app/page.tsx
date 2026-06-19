@@ -12,8 +12,8 @@ export default async function Page() {
   return (
     <section className="w-full max-w-2xl mx-5">
       <p>
-        I'm a software engineer, writer, and teacher from San Francisco, CA. I'm currently on a sabbatical while
-        contributing to OSS and hacking on projects. Previously, I led core work at{" "}
+        I'm a software engineer, writer, and teacher from San Francisco, CA. I'm currently on a sabbatical and previously
+        led core work at{" "}
         <a href="https://tesla.com" aria-label="Link to Tesla's website" rel="noopener noreferrer" target="_target">
           Tesla
         </a>
