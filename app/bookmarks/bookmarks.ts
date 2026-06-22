@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "e7accc79-cc3c-4009-8898-102fc57cc0a8",
+    date: "2026-06-22",
+    title: "There Is Minimal Downside to Switching to Open Models",
+    url: "https://www.marble.onl/posts/cancel_claude.html",
+  },
+  {
     id: "0eadb121-1bb5-4afd-8aae-9c06d801a0a7",
     date: "2026-06-19",
     title: "Paul Graham: How to Earn a Billion Dollars",
