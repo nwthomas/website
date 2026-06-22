@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "4f7af642-8003-406c-bde6-622c9f622891",
+    date: "2026-06-23",
+    title: "How to Run GLM-5.2 Locally",
+    url: "https://unsloth.ai/docs/models/glm-5.2",
+  },
+  {
     id: "31db3218-9dc1-4e71-ac5c-edfd99b277d6",
     date: "2026-06-22",
     title: "Anthropic: Introducing Claude Tag",
