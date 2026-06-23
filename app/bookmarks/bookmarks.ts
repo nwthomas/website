@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "31db3218-9dc1-4e71-ac5c-edfd99b277d6",
+    date: "2026-06-22",
+    title: "Anthropic: Introducing Claude Tag",
+    url: "https://www.anthropic.com/news/introducing-claude-tag",
+  },
+  {
     id: "e7accc79-cc3c-4009-8898-102fc57cc0a8",
     date: "2026-06-22",
     title: "There Is Minimal Downside to Switching to Open Models",
