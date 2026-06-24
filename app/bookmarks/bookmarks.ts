@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "89821970-1b0b-431f-89b1-3164e5676842",
+    date: "2026-06-24",
+    title: "github.com/apple/container",
+    url: "https://github.com/apple/container",
+  },
+  {
     id: "16b69c5a-9bb8-4bf9-acf7-996d8bf85dab",
     date: "2026-06-24",
     title: "Build a Cult: Dialog",
