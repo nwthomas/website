@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "16b69c5a-9bb8-4bf9-acf7-996d8bf85dab",
+    date: "2026-06-24",
+    title: "Build a Cult: Dialog",
+    url: "https://build-a-cult.com/",
+  },
+  {
     id: "4f7af642-8003-406c-bde6-622c9f622891",
     date: "2026-06-23",
     title: "How to Run GLM-5.2 Locally",
