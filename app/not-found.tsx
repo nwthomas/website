@@ -1,3 +1,4 @@
+import { sx } from "@/app/styles/tw.stylex";
 import Link from "next/link";
 import { Metadata } from "next";
 
@@ -91,10 +92,10 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <section className="w-full max-w-2xl mx-5 flex flex-col items-center justify-center">
-      <Link className="no-underline flex flex-col items-center justify-center" href="/">
-        <pre className="text-[3px] sm:text-[4px] md:text-[5px] font-mono">{asciiArt}</pre>
-        <h1 className="text-sm font-mono font-bold mt-10">404 - Not Found</h1>
+    <section {...sx("wFull maxW2xl mx5 flex flexCol itemsCenter justifyCenter")}>
+      <Link {...sx("noUnderline flex flexCol itemsCenter justifyCenter")} href="/">
+        <pre {...sx("text3px fontMono")}>{asciiArt}</pre>
+        <h1 {...sx("textSm fontMono fontBold mt10")}>404 - Not Found</h1>
       </Link>
     </section>
   );

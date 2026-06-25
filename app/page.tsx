@@ -1,3 +1,4 @@
+import { sx } from "@/app/styles/tw.stylex";
 import Link from "next/link";
 import { Post } from "@/app/(writing)/utils/types";
 import { RecentlyPlayed } from "@/app/components/RecentlyPlayed";
@@ -10,7 +11,7 @@ export default async function Page() {
   const nowPlaying = await getNowPlaying();
 
   return (
-    <section className="w-full max-w-2xl mx-5">
+    <section {...sx("wFull maxW2xl mx5")}>
       <p>
         I'm a software engineer, writer, and teacher from San Francisco, CA. I'm currently on a sabbatical and
         previously led core work at{" "}
@@ -23,7 +24,7 @@ export default async function Page() {
         </a>
         , and{" "}
         <a
-          className="break-keep whitespace-nowrap"
+          {...sx("breakKeep whitespaceNowrap")}
           href="https://x.com"
           aria-label="Link to X's website"
           rel="noopener noreferrer"
@@ -33,20 +34,20 @@ export default async function Page() {
         </a>
         .
       </p>
-      <p className="mt-5">
+      <p {...sx("mt5")}>
         At the end of the day, I'm still that kid who grew up playing with his parents' Macintosh and ripping CDs for
         his friends.
       </p>
-      <h2 className="mt-5">Writing</h2>
-      <ul className="mt-4">
+      <h2 {...sx("mt5")}>Writing</h2>
+      <ul {...sx("mt4")}>
         {lastThreePosts.map((post) => (
           <li key={post.id}>
             <Link href={`/${post.id}`}>{post.title}</Link>
           </li>
         ))}
       </ul>
-      <h2 className="mt-5">Teaching</h2>
-      <ul className="mt-4">
+      <h2 {...sx("mt5")}>Teaching</h2>
+      <ul {...sx("mt4")}>
         <li>
           <a
             href="https://www.codetenderloin.org/"
@@ -68,8 +69,8 @@ export default async function Page() {
           </a>
         </li>
       </ul>
-      <h2 className="mt-5">Projects</h2>
-      <ul className="mt-4">
+      <h2 {...sx("mt5")}>Projects</h2>
+      <ul {...sx("mt4")}>
         <li>
           <a
             href="https://github.com/nwthomas/gitops"
@@ -102,7 +103,7 @@ export default async function Page() {
         </li>
       </ul>
       {nowPlaying ? <RecentlyPlayed track={nowPlaying} /> : null}
-      <p className="mt-5">
+      <p {...sx("mt5")}>
         You can read my{" "}
         <Link aria-label="Link to Nathan's writing" href="/writing">
           writing

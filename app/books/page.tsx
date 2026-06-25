@@ -1,3 +1,4 @@
+import { sx } from "@/app/styles/tw.stylex";
 import { BOOKS } from "./books";
 import { BookCard } from "@/app/components/BookCard";
 import { Metadata } from "next";
@@ -19,12 +20,12 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <section className="w-full max-w-2xl mx-5">
+    <section {...sx("wFull maxW2xl mx5")}>
       <p>
         I have a life-long love of reading and like to keep an ever-growing list of my favorite books here. I have a
         sneaking suspicion you might like them too.
       </p>
-      <div className=" books-grid mt-10">
+      <div {...sx("booksGrid mt10")}>
         {BOOKS.map((book) => (
           <BookCard
             key={book.id}

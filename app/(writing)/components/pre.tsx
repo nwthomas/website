@@ -1,3 +1,4 @@
+import { sx } from "@/app/styles/tw.stylex";
 import type { ReactNode } from "react";
 
 export const Pre = ({
@@ -9,20 +10,15 @@ export const Pre = ({
   scroll: boolean;
   caption: ReactNode | null;
 }) => (
-  <div className="w-full mb-5 flex justify-center mx-5 flex-col items-center">
+  <div {...sx("wFull mb5 flex justifyCenter mx5 flexCol itemsCenter")}>
     <pre
-      className={`
-      p-4
-      text-sm
-      rounded-sm
-      bg-neutral-200 text-neutral-700
-      dark:bg-[#222222] dark:text-gray-300
-      w-full max-w-2xl
-      ${scroll ? "overflow-auto" : "whitespace-pre-wrap break-all overflow-hidden"}
-    `}
+      {...sx(
+        "p4 textSm roundedSm bgNeutral200 textNeutral700 wFull maxW2xl",
+        scroll ? "overflowAuto" : "whitespacePreWrap breakAll overflowHidden",
+      )}
     >
       <code>{children}</code>
     </pre>
-    <p className="text-sm mt-2 text-gray-500">{caption}</p>
+    <p {...sx("textSm mt2 textGray500")}>{caption}</p>
   </div>
 );

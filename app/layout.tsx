@@ -1,3 +1,4 @@
+import { sx } from "@/app/styles/tw.stylex";
 import "./globals.css";
 
 import { Analytics } from "@/app/components/Analytics";
@@ -78,13 +79,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       <ErrorBoundary>
         <Providers>
-          <body className={`${GeistSans.variable} ${GeistMono.variable} antialiased`}>
-            <div className="flex flex-col items-center w-full min-h-svh py-10 md:py-20 lg:py-25 relative">
-              <div className="flex justify-center w-full">
+          <body className={`${GeistSans.variable} ${GeistMono.variable}`}>
+            <div {...sx("flex flexCol itemsCenter wFull minHSvh shellPadding relative")}>
+              <div {...sx("flex justifyCenter wFull")}>
                 <Navbar />
               </div>
-              <main className="flex justify-center w-full pt-10">{children}</main>
-              <div className="flex justify-center w-full pt-10 px-5">
+              <main {...sx("flex justifyCenter wFull pt10")}>{children}</main>
+              <div {...sx("flex justifyCenter wFull pt10 px5")}>
                 <Footer />
               </div>
             </div>

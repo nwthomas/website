@@ -1,9 +1,9 @@
+import { sx } from "@/app/styles/tw.stylex";
 import { getPostViewsRedisKey, redis } from "@/app/utils/redis";
 
 import Link from "next/link";
 import { Metadata } from "next";
 import { Post } from "@/app/(writing)/utils/types";
-import { clsx } from "clsx";
 import postsJson from "@/app/(writing)/posts.json";
 
 export const metadata: Metadata = {
@@ -35,7 +35,7 @@ export default async function Page() {
   }
 
   return (
-    <section className="w-full max-w-2xl mx-5">
+    <section {...sx("wFull maxW2xl mx5")}>
       <p>
         Below is a curated collection of my writing. I also have an{" "}
         <Link aria-label="Link to Nathan's Atom RSS feed" href="/atom">
@@ -52,13 +52,13 @@ export default async function Page() {
         </a>{" "}
         you can subscribe to.
       </p>
-      <ul className="mt-5">
+      <ul {...sx("mt5")}>
         {sortedPosts.map((post, i) => (
-          <li className={clsx("flex before:content-[''] pl-0", i > 0 && "mt-1")} key={post.id}>
-            <Link className="text-sm font-mono flex gap-5 no-underline w-full" href={`/${post.id}`}>
-              <span className="whitespace-nowrap">{post.date}</span>
-              <span className="underline decoration-dotted decoration-gray-500 flex-2">{post.title}</span>
-              <span className="text-s text-gray-500">
+          <li {...sx("flex beforeEmpty pl0", i > 0 && "mt1")} key={post.id}>
+            <Link {...sx("textSm fontMono flex gap5 noUnderline wFull")} href={`/${post.id}`}>
+              <span {...sx("whitespaceNowrap")}>{post.date}</span>
+              <span {...sx("underline decorationDotted decorationGray500 flex2")}>{post.title}</span>
+              <span {...sx("textSm textGray500")}>
                 {postViews[getPostViewsRedisKey(post.id)] != null
                   ? `${postViews[getPostViewsRedisKey(post.id)]}`
                   : VIEWS_PLACEHOLDER}

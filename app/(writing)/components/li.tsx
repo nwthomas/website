@@ -1,9 +1,10 @@
+import { sx } from "@/app/styles/tw.stylex";
 import type { ReactNode } from "react";
 
 export function Li({ children }: { children: ReactNode }) {
   return (
-    <div className="w-full flex justify-center">
-      <li className="w-full font-sans text-base relative">{children}</li>
+    <div {...sx("wFull flex justifyCenter")}>
+      <li {...sx("wFull fontSans textBase relative")}>{children}</li>
     </div>
   );
 }

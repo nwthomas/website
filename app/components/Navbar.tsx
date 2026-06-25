@@ -1,5 +1,7 @@
 "use client";
 
+import { sx } from "@/app/styles/tw.stylex";
+
 import { HeadingLevel, getHeading } from "@/app/(writing)/utils/heading";
 
 import Link from "next/link";
@@ -32,7 +34,7 @@ export function Navbar() {
   let showThemeSwitch = true;
   let titleText: ReactNode | null = <h1>Nathan Thomas</h1>;
   let subtitleText: ReactNode | null = (
-    <p className="text-sm text-gray-500">
+    <p {...sx("textSm textGray500")}>
       by{" "}
       <Link aria-label="Link to Nathan's home page" href="/">
         Nathan Thomas
@@ -56,17 +58,17 @@ export function Navbar() {
   }
 
   return (
-    <header className="flex w-full max-w-2xl mx-5 items-start">
-      <ul className="flex w-full justify-between">
-        <li className="before:hidden pl-0">
-          <div className="flex flex-col">
+    <header {...sx("flex wFull maxW2xl mx5 itemsStart")}>
+      <ul {...sx("flex wFull justifyBetween")}>
+        <li {...sx("hiddenBefore pl0")}>
+          <div {...sx("flex flexCol")}>
             {titleText}
             {!isHomePage ? subtitleText : null}
           </div>
         </li>
         {showThemeSwitch ? (
-          <li className="before:hidden pl-0">
-            <div className="flex gap-3 sm:gap-5 items-center">
+          <li {...sx("hiddenBefore pl0")}>
+            <div {...sx("flex gap5 itemsCenter")}>
               <ThemeSwitch />
             </div>
           </li>

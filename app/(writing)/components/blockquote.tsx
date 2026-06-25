@@ -1,3 +1,4 @@
+import { sx } from "@/app/styles/tw.stylex";
 import { Children, type ReactNode } from "react";
 
 export function Blockquote({ children }: { children: ReactNode }) {
@@ -13,7 +14,7 @@ export function Blockquote({ children }: { children: ReactNode }) {
     const parts = child.split("\n");
     parts.forEach((part, partIndex) => {
       if (partIndex > 0) {
-        acc.push(<div className="mb-5" key={`br-${childIndex}-${partIndex}`}></div>);
+        acc.push(<div {...sx("mb5")} key={`br-${childIndex}-${partIndex}`}></div>);
       }
 
       if (part !== "") {
@@ -25,8 +26,8 @@ export function Blockquote({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <div className="w-full flex justify-center mb-5">
-      <blockquote className="w-full max-w-2xl text-5 border-l-4 border-gray-500 mx-5 [&_p]:text-gray-500 italic whitespace-pre-line">
+    <div {...sx("wFull flex justifyCenter mb5")}>
+      <blockquote {...sx("wFull maxW2xl borderL4 borderGray500 mx5 italic whitespacePreLine blockquoteText")}>
         {normalizedChildren}
       </blockquote>
     </div>

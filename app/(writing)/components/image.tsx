@@ -1,8 +1,8 @@
 "use client";
 
 import NextImage from "next/image";
-import clsx from "clsx";
 import { showImageOverlay } from "@/app/store/reducers/writingSlice";
+import { sx } from "@/app/styles/tw.stylex";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 
@@ -54,23 +54,22 @@ export function Image({
   };
 
   return (
-    <div className="w-full flex justify-center flex-col items-center mb-5">
+    <div {...sx("wFull flex justifyCenter flexCol itemsCenter mb5")}>
       <button
         aria-label="Enlarge image"
-        className={clsx(
-          "w-full mx-5 items-center flex overflow-hidden border border-background",
-          wide ? "max-w-4xl" : "max-w-2xl",
-          borderDark ? "border border-background dark:border-gray-800" : "",
-          borderLight ? "border border-gray-200 dark:border-background" : "",
-          disableOverlay ? "" : "hover:opacity-60 cursor-zoom-in transition-opacity duration-200",
+        {...sx(
+          "wFull mx5 itemsCenter flex overflowHidden border borderBackground",
+          wide ? "maxW4xl" : "maxW2xl",
+          (borderDark || borderLight) && "border borderMuted",
+          !disableOverlay && "opacityHover60 cursorZoomIn transitionOpacity",
         )}
         onClick={handleImageClick}
         disabled={disableOverlay}
       >
-        <div className={`aspect-ratio-[${width}/${height}] leading-none relative w-full flex justify-center`}>
+        <div {...sx("leadingNone relative wFull flex justifyCenter")} style={{ aspectRatio: `${width} / ${height}` }}>
           {placeholderImage && isLoading ? (
             <NextImage
-              className="absolute top-0 left-0 right-0 bottom-0 z-10 rounded-sm"
+              {...sx("absolute top0 left0 right0 bottom0 z10 roundedSm")}
               src={placeholderImage}
               alt={alt}
               loading="eager"
@@ -82,7 +81,7 @@ export function Image({
           ) : null}
           <NextImage
             alt={alt}
-            className="rounded-sm"
+            {...sx("roundedSm")}
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO5WZ5kAAAAASUVORK5CYII="
             draggable={false}
             height={height}
@@ -97,7 +96,7 @@ export function Image({
           />
         </div>
       </button>
-      <p className="text-xs mt-2 text-gray-500 font-mono">{title}</p>
+      <p {...sx("textXs mt2 textGray500 fontMono")}>{title}</p>
     </div>
   );
 }

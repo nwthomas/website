@@ -16,27 +16,112 @@ const nathanThomasImage = `data:image/jpeg;base64,${nathanThomasImageBase64}`;
 
 export async function GET() {
   return new ImageResponse(
-    <div tw="flex items-center justify-center w-full h-full bg-white" style={{ fontFamily: "Geist Mono" }}>
-      <div tw="flex items-center justify-between w-full h-full pl-20 pr-30">
-        <img src={nathanThomasImage} alt="Nathan Thomas" width={340} height={340} tw="rounded-full" />
-        <div tw="flex h-[300px] flex-col flex-1 justify-start w-full pl-10">
-          <h1 tw="text-7xl my-5" style={{ fontFamily: "Geist Mono Medium" }}>
-            Nathan Thomas
-          </h1>
-          <div tw="flex flex-row items-start gap-x-4 text-3xl my-2">
-            <span tw="text-gray-500 shrink-0 mt-1 mr-3 text-[28px] leading-none" style={{ fontFamily: "Geist Sans" }}>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "100%",
+        height: "100%",
+        backgroundColor: "white",
+        fontFamily: "Geist Mono",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          width: "100%",
+          height: "100%",
+          paddingLeft: 80,
+          paddingRight: 120,
+        }}
+      >
+        <img src={nathanThomasImage} alt="Nathan Thomas" width={340} height={340} style={{ borderRadius: 9999 }} />
+        <div
+          style={{
+            display: "flex",
+            height: 300,
+            flexDirection: "column",
+            flex: 1,
+            justifyContent: "flex-start",
+            width: "100%",
+            paddingLeft: 40,
+          }}
+        >
+          <h1 style={{ fontFamily: "Geist Mono Medium", fontSize: 72, marginBlock: 20 }}>Nathan Thomas</h1>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "flex-start",
+              columnGap: 16,
+              fontSize: 30,
+              marginBlock: 8,
+            }}
+          >
+            <span
+              style={{
+                color: "#6b7280",
+                flexShrink: 0,
+                marginTop: 4,
+                marginRight: 12,
+                fontSize: 28,
+                lineHeight: 1,
+                fontFamily: "Geist Sans",
+              }}
+            >
               ‣
             </span>
             <span style={{ fontFamily: "Geist Mono" }}>Software Engineer and Teacher</span>
           </div>
-          <div tw="flex flex-row items-start gap-x-4 text-3xl my-2">
-            <span tw="text-gray-500 shrink-0 mt-1 mr-3 text-[28px] leading-none" style={{ fontFamily: "Geist Sans" }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "flex-start",
+              columnGap: 16,
+              fontSize: 30,
+              marginBlock: 8,
+            }}
+          >
+            <span
+              style={{
+                color: "#6b7280",
+                flexShrink: 0,
+                marginTop: 4,
+                marginRight: 12,
+                fontSize: 28,
+                lineHeight: 1,
+                fontFamily: "Geist Sans",
+              }}
+            >
               ‣
             </span>
             <span style={{ fontFamily: "Geist Mono" }}>Prev at Tesla, Loom, and Twitter</span>
           </div>
-          <div tw="flex flex-row items-start gap-x-4 text-3xl my-2">
-            <span tw="text-gray-500 shrink-0 mt-1 mr-3 text-[28px] leading-none" style={{ fontFamily: "Geist Sans" }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "flex-start",
+              columnGap: 16,
+              fontSize: 30,
+              marginBlock: 8,
+            }}
+          >
+            <span
+              style={{
+                color: "#6b7280",
+                flexShrink: 0,
+                marginTop: 4,
+                marginRight: 12,
+                fontSize: 28,
+                lineHeight: 1,
+                fontFamily: "Geist Sans",
+              }}
+            >
               ‣
             </span>
             <span style={{ fontFamily: "Geist Mono" }}>Lives in San Francisco, CA</span>

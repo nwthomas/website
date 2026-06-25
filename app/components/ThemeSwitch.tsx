@@ -1,5 +1,7 @@
 "use client";
 
+import { sx } from "@/app/styles/tw.stylex";
+
 import { MoonIcon, SunIcon } from "@/app/components/Icons";
 
 import { DARK_THEME } from "@/app/store/reducers/themeSlice";
@@ -23,7 +25,7 @@ export function ThemeSwitch() {
   const currentAriaLabel = isDarkMode ? DARK_MODE_ARIA_LABEL : LIGHT_MODE_ARIA_LABEL;
 
   return (
-    <div className="h-6 w-[50px] mb-[3px]">
+    <div {...sx("h6 w50 mb3px")}>
       {currentTheme !== null ? (
         <>
           <input
@@ -33,19 +35,23 @@ export function ThemeSwitch() {
             onChange={handleThemeSwitchClick}
             ref={inputRef}
             tabIndex={0}
-            className="sr-only focus:outline-none active:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+            {...sx("srOnly outlineNone focusRing")}
           />
           <div
             onClick={handleThemeSwitchClick}
-            className="bg-black border-2 border-gray-500 rounded-full cursor-pointer flex items-center h-[26px] justify-between px-[5px] pt-px relative touch-pan-x w-[50px] focus-within:outline focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 transition-shadow duration-200 [&>svg]:h-[15px] [&>svg]:w-[15px] active:outline-none"
+            {...sx(
+              "bgBlack border2 borderGray500 roundedFull cursorPointer flex itemsCenter h26 justifyBetween px5 ptPx relative touchPanX w50 focusWithinRing transitionShadow svg15",
+            )}
+            data-stylex-svg-15
             style={{ WebkitTapHighlightColor: "transparent" }}
           >
             <MoonIcon color="var(--theme-switch)" />
             <SunIcon color="var(--theme-switch)" />
             <div
-              className={`bg-white rounded-full h-[18px] absolute left-[2px] top-[2px] transition-transform duration-200 ease-out w-[18px] outline-none active:outline-none focus:outline-none select-none touch-action-none shadow-none active:shadow-none ${
-                !isDarkMode ? "translate-x-6" : "translate-x-0"
-              }`}
+              {...sx(
+                "bgWhite roundedFull h18 absolute left2px top2px transitionTransform w18 outlineNone selectNone shadowNone",
+                !isDarkMode ? "translateX6" : "translateX0",
+              )}
             />
           </div>
         </>

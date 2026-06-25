@@ -36,17 +36,53 @@ export async function GET(request: NextRequest) {
   const postViewsPostfix = postViews && postViews == 1 ? "view" : "views";
 
   return new ImageResponse(
-    <div tw="flex items-center justify-center w-full h-full bg-white" style={{ fontFamily: "Geist Mono" }}>
-      <div tw="flex items-center justify-between w-full h-full px-20">
-        <img src={nathanThomasImage} alt="Nathan Thomas" width={340} height={340} tw="rounded-full" />
-        <div tw="flex h-[300px] flex-col justify-between flex-1 pl-10">
-          <h1 tw="text-5xl my-5 whitespace-normal break-words" style={{ fontFamily: "Geist Mono Medium" }}>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "100%",
+        height: "100%",
+        backgroundColor: "white",
+        fontFamily: "Geist Mono",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          width: "100%",
+          height: "100%",
+          paddingInline: 80,
+        }}
+      >
+        <img src={nathanThomasImage} alt="Nathan Thomas" width={340} height={340} style={{ borderRadius: 9999 }} />
+        <div
+          style={{
+            display: "flex",
+            height: 300,
+            flexDirection: "column",
+            justifyContent: "space-between",
+            flex: 1,
+            paddingLeft: 40,
+          }}
+        >
+          <h1
+            style={{
+              fontFamily: "Geist Mono Medium",
+              fontSize: 48,
+              marginBlock: 20,
+              whiteSpace: "normal",
+              overflowWrap: "break-word",
+            }}
+          >
             {title}
           </h1>
-          <p tw="flex text-3xl my-2 flex-2" style={{ fontFamily: "Geist Mono" }}>
+          <p style={{ display: "flex", fontSize: 30, marginBlock: 8, flex: 2, fontFamily: "Geist Mono" }}>
             {description}
           </p>
-          <p tw="text-2xl text-gray-500 flex-1" style={{ fontFamily: "Geist Mono" }}>
+          <p style={{ fontSize: 24, color: "#6b7280", flex: 1, fontFamily: "Geist Mono" }}>
             {postViews != null && postViews != 0 ? `${date} • ${postViews} ${postViewsPostfix}` : date}
           </p>
         </div>

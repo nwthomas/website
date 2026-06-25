@@ -1,9 +1,10 @@
+import { sx } from "@/app/styles/tw.stylex";
 import type { ReactNode } from "react";
 
 export function Ul({ children }: { children: ReactNode }) {
   return (
-    <div className="w-full flex justify-center mb-5">
-      <ul className="w-full max-w-2xl list-inside mx-5">{children}</ul>
+    <div {...sx("wFull flex justifyCenter mb5")}>
+      <ul {...sx("wFull maxW2xl listInside mx5")}>{children}</ul>
     </div>
   );
 }

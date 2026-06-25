@@ -1,5 +1,7 @@
 "use client";
 
+import { sx } from "@/app/styles/tw.stylex";
+
 import * as Sentry from "@sentry/nextjs";
 
 import { Component, ReactNode } from "react";
@@ -35,7 +37,7 @@ export class ErrorBoundary extends Component<Props, State> {
     if (this.state.hasError) {
       return (
         this.props.fallback || (
-          <div className="flex flex-col items-center justify-center w-full h-svh p-5">
+          <div {...sx("flex flexCol itemsCenter justifyCenter wFull hSvh p5")}>
             <h1>Something went wrong</h1>
             <p>Please try again later</p>
           </div>

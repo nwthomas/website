@@ -1,3 +1,4 @@
+import { sx } from "@/app/styles/tw.stylex";
 import Image from "next/image";
 import type { NowPlayingTrack } from "@/app/utils/spotify";
 
@@ -7,14 +8,14 @@ type Props = {
 
 export function RecentlyPlayed({ track }: Props) {
   return (
-    <div className="mt-5">
-      <h2 className="text-base font-semibold">Recently Played</h2>
+    <div {...sx("mt5")}>
+      <h2 {...sx("textBase fontSemibold")}>Recently Played</h2>
       <a
         href={track.url}
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`${track.track} by ${track.artists} on Spotify`}
-        className="mt-5 ml-4 flex w-fit items-center gap-3 no-underline"
+        {...sx("mt5 ml4 flex wFit itemsCenter gap3 noUnderline")}
       >
         {track.albumImageUrl ? (
           <Image
@@ -22,13 +23,13 @@ export function RecentlyPlayed({ track }: Props) {
             alt={`Album artwork for ${track.track} by ${track.artists}`}
             width={48}
             height={48}
-            className="block border border-gray-200 dark:border-gray-800"
+            {...sx("block border borderMuted")}
           />
         ) : null}
         <span>
-          <span className="font-medium text-gray-900 dark:text-gray-100">{track.track}</span>
+          <span {...sx("fontMedium textStrong")}>{track.track}</span>
           {" — "}
-          <span className="text-gray-600 dark:text-gray-300">{track.artists}</span>
+          <span {...sx("textSoft")}>{track.artists}</span>
         </span>
       </a>
     </div>

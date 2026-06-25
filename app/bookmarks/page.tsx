@@ -1,7 +1,7 @@
+import { sx } from "@/app/styles/tw.stylex";
 import { BOOKMARKS } from "./bookmarks";
 import Link from "next/link";
 import { Metadata } from "next";
-import { clsx } from "clsx";
 
 export const metadata: Metadata = {
   title: "Bookmarks | Nathan Thomas",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <section className="w-full max-w-2xl mx-5">
+    <section {...sx("wFull maxW2xl mx5")}>
       <p>
         I love to learn and bookmark what I've read here. I also have an{" "}
         <Link aria-label="Link to Nathan's Atom RSS feed" href="/bookmarks/atom">
@@ -28,24 +28,24 @@ export default function Page() {
         </Link>{" "}
         you can follow.
       </p>
-      <ul className="w-full mt-5">
+      <ul {...sx("wFull mt5")}>
         {BOOKMARKS.map((bookmark, i) => (
-          <li className={clsx("flex before:content-[''] pl-0", i > 0 && "mt-1")} key={bookmark.url + bookmark.id}>
+          <li {...sx("flex beforeEmpty pl0", i > 0 && "mt1")} key={bookmark.url + bookmark.id}>
             <>
               <a
                 aria-label={`Link to ${bookmark.title}`}
-                className="flex font-mono text-sm wrap-break-words leading-normal no-underline"
+                {...sx("flex fontMono textSm wrapBreakWords leadingNormal noUnderline")}
                 href={bookmark.url}
               >
-                <span className="whitespace-nowrap no-underline">{bookmark.date}</span>
-                <span className="underline decoration-dotted decoration-gray-500 ml-5">{bookmark.title}</span>
+                <span {...sx("whitespaceNowrap noUnderline")}>{bookmark.date}</span>
+                <span {...sx("underline decorationDotted decorationGray500 ml5")}>{bookmark.title}</span>
               </a>
               {bookmark?.footnotes && bookmark.footnotes.length > 0
                 ? bookmark.footnotes.map((footnote, f_i) => (
                     <a
                       aria-label={`Link to footnote ${f_i + 1} for ${bookmark.title}`}
                       href={footnote}
-                      className="text-xs font-mono ml-1 no-underline cursor-pointer text-gray-500"
+                      {...sx("textXs fontMono ml1 noUnderline cursorPointer textGray500")}
                       key={footnote}
                     >
                       {f_i + 1}

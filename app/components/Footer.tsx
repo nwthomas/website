@@ -1,5 +1,7 @@
 "use client";
 
+import { sx } from "@/app/styles/tw.stylex";
+
 import { usePathname } from "next/navigation";
 
 export function Footer() {
@@ -11,14 +13,14 @@ export function Footer() {
   }
 
   return (
-    <footer className="flex justify-end w-full max-w-2xl">
-      <div className="flex justify-end">
-        <ul className="flex gap-3 sm:gap-5">
-          <li className="before:hidden pl-0">
-            <p className="text-sm text-gray-500">
+    <footer {...sx("flex justifyEnd wFull maxW2xl")}>
+      <div {...sx("flex justifyEnd")}>
+        <ul {...sx("flex gap5")}>
+          <li {...sx("hiddenBefore pl0")}>
+            <p {...sx("textSm textGray500")}>
               Nathan Thomas (
               <a
-                className="text-sm no-underline text-foreground"
+                {...sx("textSm noUnderline textForeground")}
                 href="https://x.com/nwthomas"
                 aria-label="Link to Nathan's profile on X"
                 rel="noopener noreferrer"
@@ -29,9 +31,9 @@ export function Footer() {
               )
             </p>
           </li>
-          <li className="flex before:hidden pl-0 align-">
+          <li {...sx("flex hiddenBefore pl0")}>
             <a
-              className="text-sm ml-auto text-gray-500 no-underline"
+              {...sx("textSm mlAuto textGray500 noUnderline")}
               href="https://github.com/nwthomas/website"
               aria-label="Link to the source repository on GitHub for this website"
               rel="noopener noreferrer"

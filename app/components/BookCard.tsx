@@ -1,3 +1,4 @@
+import { sx } from "@/app/styles/tw.stylex";
 import Image from "next/image";
 
 type Props = {
@@ -16,28 +17,29 @@ export function BookCard({ title, author, cover, url, height, width, unoptimized
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="no-underline block"
+      {...sx("noUnderline block")}
       aria-label={`${title} by ${author}`}
     >
-      <div className="group flex flex-col gap-3">
+      <div {...sx("flex flexCol gap3")}>
         <div
-          className={`aspect-ratio-[${width}/${height}] relative w-full overflow-hidden block border border-gray-200 dark:border-gray-800`}
+          {...sx("relative wFull overflowHidden block border borderMuted")}
+          style={{ aspectRatio: `${width} / ${height}` }}
         >
           <Image
             src={cover}
             alt={title}
             height={height}
             width={width}
-            className="object-cover"
+            {...sx("objectCover")}
             quality={75}
             draggable={false}
             loading="eager"
             unoptimized={Boolean(unoptimized)}
           />
         </div>
-        <div className="flex flex-col gap-0.5">
-          <span className="font-mono text-sm font-medium leading-snug">{title}</span>
-          <span className="font-mono text-xs text-gray-500 leading-snug">{author}</span>
+        <div {...sx("flex flexCol gap05")}>
+          <span {...sx("fontMono textSm fontMedium leadingSnug")}>{title}</span>
+          <span {...sx("fontMono textXs textGray500 leadingSnug")}>{author}</span>
         </div>
       </div>
     </a>

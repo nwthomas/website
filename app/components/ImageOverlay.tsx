@@ -7,8 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { CloseIcon } from "./Icons";
 import { FocusTrap } from "focus-trap-react";
 import Image from "next/image";
-import clsx from "clsx";
 import { hideImageOverlay } from "@/app/store/reducers/writingSlice";
+import { sx } from "@/app/styles/tw.stylex";
 import { useLockBodyScroll } from "@/app/hooks";
 
 function ImageOverlay() {
@@ -34,26 +34,26 @@ function ImageOverlay() {
     <FocusTrap>
       <div
         onClick={handleCloseButtonClick}
-        className="fixed top-0 left-0 bottom-0 right-0 w-full h-full inset-0 z-10 bg-background"
+        {...sx("fixed top0 left0 bottom0 right0 wFull hFull inset0 z10 bgBackground")}
       >
-        <div className="w-full h-full flex flex-col justify-center items-center p-5">
+        <div {...sx("wFull hFull flex flexCol justifyCenter itemsCenter p5")}>
           <button
-            className="absolute top-5 right-5 h-6 w-6 cursor-pointer m-0 p-0 hover:opacity-80 transition-opacity duration-200 z-10"
+            {...sx("absolute top5 right5 h6 w6 cursorPointer m0 p0 opacityHover80 z10")}
             aria-label="Close image overlay"
             onClick={handleCloseButtonClick}
           >
             <CloseIcon color="var(--foreground)" />
           </button>
           <div
-            className={clsx(
-              "max-w-[min(80rem,100vw-2.5rem)] max-h-[min(80rem,100vh-2.5rem)] box-border flex justify-center items-center relative",
-              image.borderDark ? "border border-background dark:border-gray-800" : "",
-              image.borderLight ? "border border-gray-200 dark:border-background" : "",
+            {...sx(
+              "maxOverlay boxBorder flex justifyCenter itemsCenter relative",
+              image.borderDark && "border borderMuted",
+              image.borderLight && "border borderMuted",
             )}
           >
             {image.placeholderImage && isLoading ? (
               <Image
-                className="absolute top-0 left-0 right-0 bottom-0 z-10 block rounded-sm"
+                {...sx("absolute top0 left0 right0 bottom0 z10 block roundedSm")}
                 src={image.placeholderImage}
                 alt={image.alt}
                 width={image.width}
@@ -63,7 +63,7 @@ function ImageOverlay() {
             ) : null}
             <Image
               alt={image.alt}
-              className="block rounded-sm"
+              {...sx("block roundedSm")}
               blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO5WZ5kAAAAASUVORK5CYII="
               draggable={false}
               height={image.height}
