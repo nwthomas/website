@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "dc30d799-4487-4b81-ba45-4380aa75895a",
+    date: "2026-06-25",
+    title: "Stripe: The Age of the Solopreneur",
+    url: "https://www.stripeeconomics.com/p/the-age-of-the-solopreneur",
+  },
+  {
     id: "89821970-1b0b-431f-89b1-3164e5676842",
     date: "2026-06-24",
     title: "github.com/apple/container",
