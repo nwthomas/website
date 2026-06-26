@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "4d59d5a6-50c7-4926-a5fc-3af2c5cd0008",
+    date: "2026-06-26",
+    title: "Anthropic: The Complete Guide to Building Skills for Claude",
+    url: "https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf?hsLang=en",
+  },
+  {
     id: "dc30d799-4487-4b81-ba45-4380aa75895a",
     date: "2026-06-25",
     title: "Stripe: The Age of the Solopreneur",
