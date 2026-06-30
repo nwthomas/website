@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "71eee761-6bb3-47fe-afbf-200391c6b94b",
+    date: "2026-06-30",
+    title: "Run Any Dockerfile on Vercel",
+    url: "https://vercel.com/blog/dockerfile-on-vercel",
+  },
+  {
     id: "6dec7633-7fb0-45f8-b9f4-2447a89ba02f",
     date: "2026-06-28",
     title: "OpenAI: Better Language Models and Their Implications",
