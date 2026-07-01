@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "8b2a719a-50e0-4408-8deb-2e98064b34ff",
+    date: "2026-07-04",
+    title: "Command and Conquer Generals Ported to MacOS by Fable",
+    url: "https://github.com/ammaarreshi/Generals-Mac-iOS-iPad/tree/main",
+  },
+  {
     id: "71eee761-6bb3-47fe-afbf-200391c6b94b",
     date: "2026-06-30",
     title: "Run Any Dockerfile on Vercel",
