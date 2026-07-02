@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "8ca0bed9-44eb-4eaa-80ec-7f1396a83593",
+    date: "2026-07-04",
+    title: "AI Has Torched the Market for Junior Programmers",
+    url: "https://seldo.com/posts/ai-has-torched-the-market-for-junior-programmers/",
+  },
+  {
     id: "8b2a719a-50e0-4408-8deb-2e98064b34ff",
     date: "2026-07-04",
     title: "Command and Conquer Generals Ported to MacOS by Fable",
