@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "bce91427-20ab-406b-ab89-f89503d00c4a",
+    date: "2026-07-05",
+    title: "Learning to Code is Still Worthwhile",
+    url: "https://stevekrouse.com/learn-to-code",
+  },
+  {
     id: "8ca0bed9-44eb-4eaa-80ec-7f1396a83593",
     date: "2026-07-04",
     title: "AI Has Torched the Market for Junior Programmers",
