@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "c66f1cbd-ebe4-49d3-ac19-6e1f5bd01515",
+    date: "2026-07-06",
+    title: "Price Per 1M Tokens is Meaningless",
+    url: "https://janilowski.pl/en/blog/2026/price-per-m-tokens",
+  },
+  {
     id: "bce91427-20ab-406b-ab89-f89503d00c4a",
     date: "2026-07-05",
     title: "Learning to Code is Still Worthwhile",
