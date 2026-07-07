@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "26b1345b-6780-4e07-b431-c363418630dc",
+    date: "2026-07-07",
+    title: "Tim Ferriss: Fear-setting",
+    url: "https://tim.blog/2017/05/15/fear-setting",
+  },
+  {
     id: "c66f1cbd-ebe4-49d3-ac19-6e1f5bd01515",
     date: "2026-07-06",
     title: "Price Per 1M Tokens is Meaningless",
@@ -28,7 +34,7 @@ export const BOOKMARKS: Bookmarks = [
     id: "8ca0bed9-44eb-4eaa-80ec-7f1396a83593",
     date: "2026-07-04",
     title: "AI Has Torched the Market for Junior Programmers",
-    url: "https://seldo.com/posts/ai-has-torched-the-market-for-junior-programmers/",
+    url: "https://seldo.com/posts/ai-has-torched-the-market-for-junior-programmers",
   },
   {
     id: "8b2a719a-50e0-4408-8deb-2e98064b34ff",
@@ -46,13 +52,13 @@ export const BOOKMARKS: Bookmarks = [
     id: "6dec7633-7fb0-45f8-b9f4-2447a89ba02f",
     date: "2026-06-28",
     title: "OpenAI: Better Language Models and Their Implications",
-    url: "https://openai.com/index/better-language-models/",
+    url: "https://openai.com/index/better-language-models",
   },
   {
     id: "9c4ca024-3a77-4af6-84b0-9c918a7ee805",
     date: "2026-06-27",
     title: "OpenAI: Previewing GPT-5.6 Sol",
-    url: "https://openai.com/index/previewing-gpt-5-6-sol/",
+    url: "https://openai.com/index/previewing-gpt-5-6-sol",
   },
   {
     id: "4d59d5a6-50c7-4926-a5fc-3af2c5cd0008",
@@ -76,7 +82,7 @@ export const BOOKMARKS: Bookmarks = [
     id: "16b69c5a-9bb8-4bf9-acf7-996d8bf85dab",
     date: "2026-06-24",
     title: "Build a Cult: Dialog",
-    url: "https://build-a-cult.com/",
+    url: "https://build-a-cult.com",
   },
   {
     id: "4f7af642-8003-406c-bde6-622c9f622891",
@@ -154,7 +160,7 @@ export const BOOKMARKS: Bookmarks = [
     id: "9e3cac34-b89f-46b8-beca-8fbd30f90f56",
     date: "2026-06-06",
     title: "OpenAI: Dreaming - Better Memory for a More Helpful ChatGPT",
-    url: "https://openai.com/index/chatgpt-memory-dreaming/",
+    url: "https://openai.com/index/chatgpt-memory-dreaming",
   },
   {
     id: "d2283643-6c2e-4a3c-9791-caaa0461f9cb",
@@ -166,7 +172,7 @@ export const BOOKMARKS: Bookmarks = [
     id: "2e170965-b35d-40ee-a50f-da178a8b777f",
     date: "2026-05-30",
     title: "OpenAI: Supercomputer Networking to Accelerate Large Scale AI Training",
-    url: "https://openai.com/index/mrc-supercomputer-networking/",
+    url: "https://openai.com/index/mrc-supercomputer-networking",
   },
   {
     id: "a599d8f1-33a4-48fd-abdc-19529af77de6",
@@ -178,7 +184,7 @@ export const BOOKMARKS: Bookmarks = [
     id: "653885cb-bc4e-47e2-ae5c-5d100e6bdca8",
     date: "2026-05-23",
     title: "OpenAI: Delivering Low-Latency Voice AI at Scale",
-    url: "https://openai.com/index/delivering-low-latency-voice-ai-at-scale/",
+    url: "https://openai.com/index/delivering-low-latency-voice-ai-at-scale",
   },
   {
     id: "a599d8f1-33a4-48fd-abdc-19529af77de5",
@@ -196,13 +202,13 @@ export const BOOKMARKS: Bookmarks = [
     id: "e0054849-8a86-459f-a884-650f8e550658",
     date: "2026-04-29",
     title: "OpenAI: Where the Goblins Came From",
-    url: "https://openai.com/index/where-the-goblins-came-from/",
+    url: "https://openai.com/index/where-the-goblins-came-from",
   },
   {
     id: "ef536439-2ecd-4a7e-89e3-a81310eb43d0",
     date: "2026-04-28",
     title: "ET Brutus",
-    url: "https://www.etbrutus.com/",
+    url: "https://www.etbrutus.com",
   },
   {
     id: "eb1c2d25-9b34-4c8d-89e9-e9bc66d1a144",
@@ -220,7 +226,7 @@ export const BOOKMARKS: Bookmarks = [
     id: "e3ad1fd5-1f82-4f4f-b2f6-612ac232621a",
     date: "2026-04-21",
     title: "TypeScript 7.0 Beta",
-    url: "https://devblogs.microsoft.com/typescript/announcing-typescript-7-0-beta/",
+    url: "https://devblogs.microsoft.com/typescript/announcing-typescript-7-0-beta",
   },
   {
     id: "b5fdd777-0a56-4eb5-b63b-e9a51e68e832",
@@ -454,7 +460,7 @@ export const BOOKMARKS: Bookmarks = [
     id: "a560dec6-40c5-4d15-ba8a-874f50713619",
     date: "2026-03-06",
     title: "OpenAI: Introducing GPT-5.4",
-    url: "https://openai.com/index/introducing-gpt-5-4/",
+    url: "https://openai.com/index/introducing-gpt-5-4",
   },
   {
     id: "ea223103-5e6c-4e56-b009-19d37cb4932a",
@@ -610,7 +616,7 @@ export const BOOKMARKS: Bookmarks = [
     id: "742ea4ac-6466-42fc-8f2b-dac61f3113e7",
     date: "2026-02-11",
     title: "The 2025 MAD (ML, AI &amp; Data) Landscape",
-    url: "https://mad.firstmark.com/",
+    url: "https://mad.firstmark.com",
   },
   {
     id: "698ce299-46ae-4112-bb18-086751c664c5",
@@ -940,7 +946,7 @@ export const BOOKMARKS: Bookmarks = [
     id: "b431144d-fe23-4e60-9806-3d76e4792b2a",
     date: "2026-01-05",
     title: "StackOverflow: The Great Unracking - Saying Goodbye to the Servers at Our Physical Datacenter",
-    url: "https://stackoverflow.blog/2025/12/24/the-great-unracking-saying-goodbye-to-the-servers-at-our-physical-datacenter/",
+    url: "https://stackoverflow.blog/2025/12/24/the-great-unracking-saying-goodbye-to-the-servers-at-our-physical-datacenter",
   },
   {
     id: "559a3f5d-0d5b-4081-a985-ce874bfdb7d1",
@@ -1060,7 +1066,7 @@ export const BOOKMARKS: Bookmarks = [
     id: "dc26d0fc-b099-4627-8886-aa77236bd767",
     date: "2025-12-17",
     title: "Rustlings",
-    url: "https://rustlings.rust-lang.org/",
+    url: "https://rustlings.rust-lang.org",
   },
   {
     id: "d39ea094-24fb-40f1-8bca-edaedc6c06d3",
@@ -1084,7 +1090,7 @@ export const BOOKMARKS: Bookmarks = [
     id: "282d4364-53df-4fda-88ef-e290f9ab2860",
     date: "2025-12-12",
     title: "Do You Know How Much Your Computer Can Do in a Second?",
-    url: "https://computers-are-fast.github.io/",
+    url: "https://computers-are-fast.github.io",
   },
   {
     id: "838b46fd-7895-4637-8512-2ceed23d5f4d",
