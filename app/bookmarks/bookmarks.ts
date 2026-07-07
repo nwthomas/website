@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "26b1345b-6780-4e07-b431-c363418630dc",
+    date: "2026-07-07",
+    title: "Tim Ferriss: Fear-setting",
+    url: "https://tim.blog/2017/05/15/fear-setting/",
+  },
+  {
     id: "c66f1cbd-ebe4-49d3-ac19-6e1f5bd01515",
     date: "2026-07-06",
     title: "Price Per 1M Tokens is Meaningless",
