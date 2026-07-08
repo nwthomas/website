@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "6a40ab95-a38c-4cec-872d-2f900c6194a2",
+    date: "2026-07-08",
+    title: "OpenAI: GPT-Live",
+    url: "https://openai.com/index/introducing-gpt-live",
+  },
+  {
     id: "26b1345b-6780-4e07-b431-c363418630dc",
     date: "2026-07-07",
     title: "Tim Ferriss: Fear-setting",
