@@ -29,6 +29,10 @@ export const BOOKMARKS: Bookmarks = [
     date: "2026-07-07",
     title: "Tim Ferriss: Fear-setting",
     url: "https://tim.blog/2017/05/15/fear-setting",
+    footnotes: [
+      "https://www.youtube.com/watch?v=5J6jAC6XxAI",
+      "https://tim.blog/wp-content/uploads/2017/06/ted_ferriss_fear_setting_sample_slides.pdf",
+    ],
   },
   {
     id: "c66f1cbd-ebe4-49d3-ac19-6e1f5bd01515",
