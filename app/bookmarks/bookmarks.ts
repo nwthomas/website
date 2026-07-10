@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "be62f438-3ef8-475e-b60d-df31e6a47845",
+    date: "2026-07-10",
+    title: "Rewriting Bun in Rust",
+    url: "https://bun.com/blog/bun-in-rust",
+  },
+  {
     id: "6a40ab95-a38c-4cec-872d-2f900c6194a2",
     date: "2026-07-08",
     title: "OpenAI: GPT-Live",
