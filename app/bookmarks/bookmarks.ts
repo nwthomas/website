@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "8c920da4-2146-483b-b26b-1be72b93155a",
+    date: "2026-07-10",
+    title: "AI-pilling Our Company: Lessons Learned",
+    url: "https://sierra.ai/blog/ai-pilling-our-company-lessons-learned",
+  },
+  {
     id: "be62f438-3ef8-475e-b60d-df31e6a47845",
     date: "2026-07-10",
     title: "Rewriting Bun in Rust",
