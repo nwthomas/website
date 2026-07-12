@@ -19,6 +19,12 @@ export const BOOKMARKS: Bookmarks = [
     url: "https://blog.humphd.org/cheatgpt",
   },
   {
+    id: "acc64497-d119-417b-bc1c-2399c81f5a31",
+    date: "2026-07-12",
+    title: "ipleak",
+    url: "https://ipleak.net",
+  },
+  {
     id: "623e6f3b-6950-4ecf-b86c-350c97718840",
     date: "2026-07-11",
     title: "AI 2040",
