@@ -19,6 +19,12 @@ export const BOOKMARKS: Bookmarks = [
     url: "https://blog.humphd.org/cheatgpt",
   },
   {
+    id: "db58d690-a1e3-4652-907a-cfa4cecc9891",
+    date: "2026-07-13",
+    title: "How to Stop Claude From Saying Load-bearing",
+    url: "https://jola.dev/posts/how-to-stop-claude-from-saying-load-bearing",
+  },
+  {
     id: "acc64497-d119-417b-bc1c-2399c81f5a31",
     date: "2026-07-12",
     title: "ipleak",
