@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "c2d43fae-0712-43a6-808d-b46b830613ab",
+    date: "2026-07-14",
+    title: "ChatGPT",
+    url: "https://blog.humphd.org/cheatgpt",
+  },
+  {
     id: "623e6f3b-6950-4ecf-b86c-350c97718840",
     date: "2026-07-11",
     title: "AI 2040",
