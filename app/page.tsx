@@ -128,6 +128,15 @@ export default async function Page() {
         >
           code
         </a>
+        ,{" "}
+        <a
+          href="https://letterboxd.com/nwthomas/"
+          aria-label="Link to Nathan's profile on Letterboxd"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          letterboxd
+        </a>
         , or{" "}
         <a
           href="https://x.com/nwthomas"
