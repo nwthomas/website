@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "d72c981e-b0f7-43ff-bfba-3e042195c5bc",
+    date: "2026-07-14",
+    title: "Cursor 0day Exploit",
+    url: "https://mindgard.ai/blog/cursor-0day-when-full-disclosure-becomes-the-only-protection-left",
+  },
+  {
     id: "c2d43fae-0712-43a6-808d-b46b830613ab",
     date: "2026-07-14",
     title: "CheatGPT",
