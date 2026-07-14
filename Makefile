@@ -19,10 +19,10 @@ lint:
 	bun run lint
 
 postbuild:
-	next-sitemap
+	bun run postbuild
 
 start:
-	next start
+	bun run start
 
 uuid:
 	./scripts/get-uuid.sh

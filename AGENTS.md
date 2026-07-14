@@ -10,23 +10,23 @@ This project uses **bun** as the package manager. The repository enforces this v
 
 ### Development
 
-- `make dev` or `bun run dev` - Start the Next.js development server
-- `make build` or `bun run build` - Build the production application
-- `bun run postbuild` - Generate sitemap (runs automatically after build)
+- `make dev` - Start the Next.js development server
+- `make build` - Build the production application
+- `make postbuild` - Generate sitemap (runs automatically after build)
 
 ### Code Quality
 
-- `make lint` or `bun run lint` - Run ESLint
-- `make format` or `bun run format` - Format code with Prettier
+- `make lint` - Run ESLint
+- `make format` - Format code with Prettier
 
 ### Installation
 
-- `make install` or `make i` or `bun install` - Install dependencies
+- `make install` or `make i` - Install dependencies
 
 ### Production
 
-- `make start` or `bun run start` - Start the production server
-- `make export` - Export static site
+- `make start` - Start the production server after a build
+- Static export is not currently configured; the legacy `make export` command does not work with Next.js 16
 
 ## Architecture Overview
 
@@ -39,13 +39,15 @@ This is a Next.js 16 application using the App Router (not Pages Router). The ma
 - `app/` - Next.js app router pages and components
   - `app/(writing)/` - Route group for blog content (doesn't affect URL structure)
     - `app/(writing)/content/` - MDX blog post files
+    - `app/(writing)/components/` - Custom components used to render MDX elements
     - `app/(writing)/[slug]/page.tsx` - Dynamic route for individual blog posts
-    - `app/(writing)/posts.json` - Post metadata (id, title, date) for static generation
+    - `app/(writing)/posts.json` - Post metadata (id, title, description, date) for static generation
   - `app/components/` - Shared components (Navbar, Footer, ThemeSwitch, etc.)
   - `app/hooks/` - Custom React hooks (`useTheme`, `useLockBodyScroll`)
   - `app/store/` - Redux Toolkit store, reducers, and selectors
   - `app/writing/page.tsx` - Blog listing page
   - `app/bookmarks/page.tsx` - Bookmarks page
+  - `app/books/page.tsx` - Book list page
 - `mdx-components.ts` - MDX component mappings for blog posts
 
 ### State Management
@@ -92,12 +94,12 @@ Create a `.env` file based on `.env.example`. Sentry variables are optional - th
 ### Styling
 
 - TailwindCSS 4.x is used for styling
-- Uses Geist and Geist Mono fonts from `next/font/google`
+- Uses Geist Sans and Geist Mono from the `geist` package
 - Dark mode is implemented via the `dark` class on the `<html>` element
 
 ### React Compiler
 
-This project uses the experimental React Compiler (`reactCompiler: true` in next.config.js) for automatic memoization.
+This project uses the React Compiler (`reactCompiler: true` in next.config.js) for automatic memoization.
 
 ### MDX Configuration
 

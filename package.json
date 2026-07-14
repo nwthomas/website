@@ -17,6 +17,7 @@
     "build": "next build",
     "postbuild": "next-sitemap --config next-sitemap.config.cjs",
     "export": "next export",
+    "format": "prettier --write .",
     "lint": "eslint",
     "preinstall": "npx only-allow bun",
     "postinstall": "bun ./fonts/init.ts",
