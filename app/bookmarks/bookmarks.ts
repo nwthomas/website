@@ -15,7 +15,7 @@ export const BOOKMARKS: Bookmarks = [
   {
     id: "c2d43fae-0712-43a6-808d-b46b830613ab",
     date: "2026-07-14",
-    title: "ChatGPT",
+    title: "CheatGPT",
     url: "https://blog.humphd.org/cheatgpt",
   },
   {
