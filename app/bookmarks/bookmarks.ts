@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "6f697ce6-1a92-4a17-8245-369a8e07963b",
+    date: "2026-07-15",
+    title: "Meek Models Shall Inherit the Earth",
+    url: "https://arxiv.org/abs/2507.07931",
+  },
+  {
     id: "91b0f6f7-9c47-4dd4-befe-7972aaec5aa0",
     date: "2026-07-15",
     title: "Thinking Machines: Inkling - Our Open-Weights Model",
