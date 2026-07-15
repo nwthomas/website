@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "e20eee40-e168-4942-87b9-bdbb49483da3",
+    date: "2026-07-15",
+    title: "GPT-Red: Unlocking Self-Improvement for Robustness",
+    url: "https://openai.com/index/unlocking-self-improvement-gpt-red",
+  },
+  {
     id: "6f697ce6-1a92-4a17-8245-369a8e07963b",
     date: "2026-07-15",
     title: "Meek Models Shall Inherit the Earth",
