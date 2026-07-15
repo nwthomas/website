@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "91b0f6f7-9c47-4dd4-befe-7972aaec5aa0",
+    date: "2026-07-15",
+    title: "Thinking Machines: Inkling - Our Open-Weights Model",
+    url: "https://thinkingmachines.ai/news/introducing-inkling",
+  },
+  {
     id: "d72c981e-b0f7-43ff-bfba-3e042195c5bc",
     date: "2026-07-14",
     title: "Cursor 0day Exploit",
