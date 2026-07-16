@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "63c8f250-ba0e-4523-9206-0efa3896fa3a",
+    date: "2026-07-16",
+    title: "Bugdom",
+    url: "https://github.com/jorio/Bugdom",
+  },
+  {
     id: "b2a81a69-648e-431f-9b91-25d00dd1b4b6",
     date: "2026-07-16",
     title: "The Lost Joy of Music Piracy",
