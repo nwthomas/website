@@ -13,6 +13,18 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "a5bba2ea-a8e4-455f-9313-fc483b84555c",
+    date: "2026-07-16",
+    title: "Bugdom",
+    url: "https://github.com/jorio/Bugdom",
+  },
+  {
+    id: "b2a81a69-648e-431f-9b91-25d00dd1b4b6",
+    date: "2026-07-16",
+    title: "The Lost Joy of Music Piracy",
+    url: "https://www.pigeonsandplanes.com/read/music-piracy-what-cd-oink-nine-inch-nails-streaming",
+  },
+  {
     id: "e20eee40-e168-4942-87b9-bdbb49483da3",
     date: "2026-07-15",
     title: "GPT-Red: Unlocking Self-Improvement for Robustness",
