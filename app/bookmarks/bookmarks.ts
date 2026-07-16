@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "82d05b09-d0c4-41d2-b439-b053467278de",
+    date: "2026-07-16",
+    title: "Nanosaur",
+    url: "https://github.com/jorio/Nanosaur",
+  },
+  {
     id: "63c8f250-ba0e-4523-9206-0efa3896fa3a",
     date: "2026-07-16",
     title: "Bugdom",
