@@ -107,6 +107,15 @@ export default async function Page() {
           writing
         </Link>
         ,{" "}
+        <a
+          href="https://github.com/nwthomas"
+          aria-label="Link to Nathan's GitHub"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          code
+        </a>
+        ,{" "}
         <Link aria-label="Link to Nathan's bookmarks" href="/bookmarks">
           bookmarks
         </Link>
@@ -118,15 +127,6 @@ export default async function Page() {
           target="_blank"
         >
           newsletter
-        </a>
-        ,{" "}
-        <a
-          href="https://github.com/nwthomas"
-          aria-label="Link to Nathan's GitHub"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          code
         </a>
         ,{" "}
         <a
