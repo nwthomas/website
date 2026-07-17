@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "26d07d72-0c19-4a2a-a632-3c7e1dd11132",
+    date: "2026-07-17",
+    title: "Kimi K3",
+    url: "https://www.kimi.com/blog/kimi-k3",
+  },
+  {
     id: "82d05b09-d0c4-41d2-b439-b053467278de",
     date: "2026-07-16",
     title: "Nanosaur",
