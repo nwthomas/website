@@ -13,17 +13,22 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
-<<<<<<< Updated upstream
-    id: "26d07d72-0c19-4a2a-a632-3c7e1dd11132",
-    date: "2026-07-17",
-    title: "Kimi K3",
-    url: "https://www.kimi.com/blog/kimi-k3",
-=======
+    id: "931027d9-66eb-4418-ab34-1fdcd590fc84",
+    date: "2026-07-18",
+    title: "ECC and DDR5",
+    url: "http://etbe.coker.com.au/2026/07/19/ecc-ddr5",
+  },
+  {
     id: "66264d20-d5d9-4252-b4e7-9bea354170b9",
     date: "2026-07-17",
     title: "Measuring AI Writing on arXiv",
     url: "https://unslop.run/blog/measuring-ai-writing-on-arxiv",
->>>>>>> Stashed changes
+  },
+  {
+    id: "26d07d72-0c19-4a2a-a632-3c7e1dd11132",
+    date: "2026-07-17",
+    title: "Kimi K3",
+    url: "https://www.kimi.com/blog/kimi-k3",
   },
   {
     id: "82d05b09-d0c4-41d2-b439-b053467278de",
