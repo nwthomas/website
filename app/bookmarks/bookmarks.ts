@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "a250799a-3a6f-41d3-aeb6-011e7f16dd11",
+    date: "2026-07-20",
+    title: "Cursor: Agent Swarms and the New Model Economics",
+    url: "https://cursor.com/blog/agent-swarm-model-economics",
+  },
+  {
     id: "931027d9-66eb-4418-ab34-1fdcd590fc84",
     date: "2026-07-18",
     title: "ECC and DDR5",
