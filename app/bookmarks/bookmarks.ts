@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "8c690be1-11fe-49d1-8f69-dc30ab3a3110",
+    date: "2026-07-21",
+    title: "groundfloor.careers",
+    url: "https://groundfloor.careers",
+  },
+  {
     id: "99acf6c2-353a-49e7-bb00-94a9d4572755",
     date: "2026-07-21",
     title: "Paul's Online Math Notes",
