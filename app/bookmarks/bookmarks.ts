@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "aea2d90c-99ff-44a1-9b8b-533f038f4c44",
+    date: "2026-07-21",
+    title: "Founders You Should Know",
+    url: "https://foundersysk.com",
+  },
+  {
     id: "8c690be1-11fe-49d1-8f69-dc30ab3a3110",
     date: "2026-07-21",
     title: "groundfloor.careers",
