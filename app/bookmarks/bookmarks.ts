@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "99acf6c2-353a-49e7-bb00-94a9d4572755",
+    date: "2026-07-21",
+    title: "Paul's Online Math Notes",
+    url: "https://tutorial.math.lamar.edu",
+  },
+  {
     id: "a250799a-3a6f-41d3-aeb6-011e7f16dd11",
     date: "2026-07-20",
     title: "Cursor: Agent Swarms and the New Model Economics",
