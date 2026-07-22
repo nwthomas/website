@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "7f12ad25-e7a1-49c0-89e1-6e1017d6184c",
+    date: "2026-07-22",
+    title: "I Have ADHD Agent Skill",
+    url: "https://github.com/ayghri/i-have-adhd",
+  },
+  {
     id: "aea2d90c-99ff-44a1-9b8b-533f038f4c44",
     date: "2026-07-21",
     title: "Founders You Should Know",
