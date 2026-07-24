@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "33d87d2a-02c4-4185-acd7-dbce6834985a",
+    date: "2026-07-25",
+    title: "Meta: Rebuilding Our Tech Stack for the New Facebook.com",
+    url: "https://engineering.fb.com/2020/05/08/web/facebook-redesign",
+  },
+  {
     id: "a1f5f53d-dfc4-4a9d-a0d7-8b47293f33e0",
     date: "2026-07-25",
     title: "Making Instagram Faster Part 3: Cache First",
