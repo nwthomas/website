@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "ea847d02-da2d-4243-852b-673fb116cac2",
+    date: "2026-07-24",
+    title: "Open Weights and American AI Leadership",
+    url: "https://images.nvidia.com/pdf/Open-Weights-and-American-AI-Leadership.pdf",
+  },
+  {
     id: "7f12ad25-e7a1-49c0-89e1-6e1017d6184c",
     date: "2026-07-22",
     title: "I Have ADHD Agent Skill",
