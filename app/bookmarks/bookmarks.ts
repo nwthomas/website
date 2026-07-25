@@ -19,6 +19,12 @@ export const BOOKMARKS: Bookmarks = [
     url: "https://instagram-engineering.com/making-instagram-com-faster-part-3-cache-first-6f3f130b9669",
   },
   {
+    id: "4e2e4a9f-dbbf-4156-9468-fe74bc123f91",
+    date: "2026-07-24",
+    title: "Evolving API Pagination at Slack",
+    url: "https://slack.engineering/evolving-api-pagination-at-slack/",
+  },
+  {
     id: "ea847d02-da2d-4243-852b-673fb116cac2",
     date: "2026-07-24",
     title: "Open Weights and American AI Leadership",
