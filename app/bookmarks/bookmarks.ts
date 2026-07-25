@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "a1f5f53d-dfc4-4a9d-a0d7-8b47293f33e0",
+    date: "2026-07-25",
+    title: "Making Instagram Faster Part 3: Cache First",
+    url: "https://instagram-engineering.com/making-instagram-com-faster-part-3-cache-first-6f3f130b9669",
+  },
+  {
     id: "ea847d02-da2d-4243-852b-673fb116cac2",
     date: "2026-07-24",
     title: "Open Weights and American AI Leadership",
