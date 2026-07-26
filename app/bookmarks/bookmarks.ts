@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "41e1365f-7927-4474-9251-4926a8e3e2b3",
+    date: "2026-07-25",
+    title: "Why ContentEditable is Terrible",
+    url: "https://medium.engineering/why-contenteditable-is-terrible-122d8a40e480",
+  },
+  {
     id: "33d87d2a-02c4-4185-acd7-dbce6834985a",
     date: "2026-07-25",
     title: "Meta: Rebuilding Our Tech Stack for the New Facebook.com",
