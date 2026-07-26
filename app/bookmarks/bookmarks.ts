@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "761ba430-024e-4e11-b00c-db70a0cacdb5",
+    date: "2026-07-26",
+    title: "The 18 Mistakes that Kill Startups",
+    url: "https://paulgraham.com/startupmistakes.html",
+  },
+  {
     id: "94759da2-63aa-4c75-9c03-830431d54a86",
     date: "2026-07-26",
     title: "Web Vitals",
