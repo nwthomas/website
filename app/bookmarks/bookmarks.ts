@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "94759da2-63aa-4c75-9c03-830431d54a86",
+    date: "2026-07-26",
+    title: "Web Vitals",
+    url: "https://web.dev/articles/vitals",
+  },
+  {
     id: "41e1365f-7927-4474-9251-4926a8e3e2b3",
     date: "2026-07-25",
     title: "Why ContentEditable is Terrible",
