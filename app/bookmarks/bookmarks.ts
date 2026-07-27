@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "e38500cf-e660-49a8-9ae8-feaa265c5b33",
+    date: "2026-07-27",
+    title: "Amazon S3 Update – Strong Read-After-Write Consistency",
+    url: "https://aws.amazon.com/blogs/aws/amazon-s3-update-strong-read-after-write-consistency",
+  },
+  {
     id: "6fcf568c-01f0-4aed-9c25-21ae04566585",
     date: "2026-07-26",
     title: "React Select",
