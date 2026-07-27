@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "96f4626a-c5cf-478c-8dbb-b5963c5472b9",
+    date: "2026-07-27",
+    title: "Pinterest Masonry Layout Component",
+    url: "https://gestalt.pinterest.systems/v1/web/masonry",
+  },
+  {
     id: "bdb19cb2-7a8b-4cae-a828-dc2f5ecc871f",
     date: "2026-07-27",
     title: "Kimi K3 Open Weights",
