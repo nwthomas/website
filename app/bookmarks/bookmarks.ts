@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "bdb19cb2-7a8b-4cae-a828-dc2f5ecc871f",
+    date: "2026-07-27",
+    title: "Kimi K3 Open Weights",
+    url: "https://x.com/Kimi_Moonshot/status/2081760186235289764",
+  },
+  {
     id: "e38500cf-e660-49a8-9ae8-feaa265c5b33",
     date: "2026-07-27",
     title: "Amazon S3 Update – Strong Read-After-Write Consistency",
