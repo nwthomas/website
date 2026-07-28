@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "717d0f8b-3e83-4e69-92ee-2bb1525d8060",
+    date: "2026-07-28",
+    title: "Benchmarking Opus 5 on SlopCodeBench",
+    url: "https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/benchmarking-opus-5-on-slop-code-bench.md",
+  },
+  {
     id: "77e1fc8c-8772-4bdb-a904-11743de2e056",
     date: "2026-07-28",
     title: "Anthropic: Where We Stand on Open Weights Models",
