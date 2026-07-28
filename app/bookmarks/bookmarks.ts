@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "77e1fc8c-8772-4bdb-a904-11743de2e056",
+    date: "2026-07-28",
+    title: "Anthropic: Where We Stand on Open Weights Models",
+    url: "https://www.anthropic.com/news/position-open-weights-models",
+  },
+  {
     id: "96f4626a-c5cf-478c-8dbb-b5963c5472b9",
     date: "2026-07-27",
     title: "Pinterest Masonry Layout Component",
