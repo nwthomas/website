@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "4b10861e-8fef-4546-866b-c771541958ea",
+    date: "2026-07-30",
+    title: "contenteditable",
+    url: "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/contenteditable",
+  },
+  {
     id: "bbf0570e-8bb5-4f2c-8a7e-c17be854d15e",
     date: "2026-07-29",
     title: "<img> vs <picture>",
