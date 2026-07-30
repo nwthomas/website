@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "e4c0b51d-65f0-42ad-86d3-c705cdeec0e1",
+    date: "2026-07-30",
+    title: "Google Docs Will Now Use Canvas Based Rendering",
+    url: "https://workspaceupdates.googleblog.com/2021/05/Google-Docs-Canvas-Based-Rendering-Update.html",
+  },
+  {
     id: "4b10861e-8fef-4546-866b-c771541958ea",
     date: "2026-07-30",
     title: "contenteditable",
