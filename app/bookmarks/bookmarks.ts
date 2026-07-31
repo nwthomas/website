@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "a58caf0e-2490-452e-b35e-0524b2f656b6",
+    date: "2026-07-31",
+    title: "Anthropic: Investigating Three Real-World Incidents in Our Cybersecurity Evaluations",
+    url: "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals",
+  },
+  {
     id: "e4c0b51d-65f0-42ad-86d3-c705cdeec0e1",
     date: "2026-07-30",
     title: "Google Docs Will Now Use Canvas Based Rendering",
