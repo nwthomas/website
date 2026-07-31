@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "1f686827-46e9-42fe-896f-3190e79a9e3c",
+    date: "2026-08-05",
+    title: "Shopify: Scaling Inventory Reservations",
+    url: "https://shopify.engineering/scaling-inventory-reservations",
+  },
+  {
     id: "98a6ca24-78ef-4f6c-b6ef-d784e118dcd7",
     date: "2026-08-04",
     title: "Smaller, Faster, Safer: Running Kimi and GLM at Scale",
