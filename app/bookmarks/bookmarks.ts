@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "da4703fc-435a-4515-b8a3-11c1200e1416",
+    date: "2026-08-01",
+    title: "The HTTP Query Method",
+    url: "https://www.rfc-editor.org/rfc/rfc10008.html",
+  },
+  {
     id: "a58caf0e-2490-452e-b35e-0524b2f656b6",
     date: "2026-07-31",
     title: "Anthropic: Investigating Three Real-World Incidents in Our Cybersecurity Evaluations",
