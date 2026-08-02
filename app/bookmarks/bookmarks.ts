@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "15be1edf-05a7-4be0-a495-e5964a2093e0",
+    date: "2026-08-02",
+    title: "Operational Transform Visualization",
+    url: "https://operational-transformation.github.io",
+  },
+  {
     id: "da4703fc-435a-4515-b8a3-11c1200e1416",
     date: "2026-08-01",
     title: "The HTTP Query Method",
