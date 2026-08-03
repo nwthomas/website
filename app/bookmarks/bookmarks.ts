@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "6cba4ed2-0826-4f0c-9406-8a52e16468a6",
+    date: "2026-08-02",
+    title: "OpenAI: Ten Advances in Mathematics and Theoretical Computer Science",
+    url: "https://openai.com/index/ten-advances-in-mathematics",
+  },
+  {
     id: "15be1edf-05a7-4be0-a495-e5964a2093e0",
     date: "2026-08-02",
     title: "Operational Transform Visualization",
