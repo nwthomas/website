@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "98a6ca24-78ef-4f6c-b6ef-d784e118dcd7",
+    date: "2026-08-04",
+    title: "Smaller, Faster, Safer: Running Kimi and GLM at Scale",
+    url: "https://blog.cloudflare.com/smaller-faster-safer-models",
+  },
+  {
     id: "6cba4ed2-0826-4f0c-9406-8a52e16468a6",
     date: "2026-08-02",
     title: "OpenAI: Ten Advances in Mathematics and Theoretical Computer Science",
