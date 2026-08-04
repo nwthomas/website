@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "6f2e8205-f1c1-4ca7-8796-7bc1aadda798",
+    date: "2026-08-05",
+    title: "Scaling Slack's Job Queue",
+    url: "https://slack.engineering/scaling-slacks-job-queue",
+  },
+  {
     id: "1f686827-46e9-42fe-896f-3190e79a9e3c",
     date: "2026-08-05",
     title: "Shopify: Scaling Inventory Reservations",
