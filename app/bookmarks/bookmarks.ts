@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "248c7b9e-fed8-4f11-84e0-0dad46c88813",
+    date: "2026-08-05",
+    title: "Samara",
+    url: "https://pkg.go.dev/github.com/IBM/sarama",
+  },
+  {
     id: "6f2e8205-f1c1-4ca7-8796-7bc1aadda798",
     date: "2026-08-05",
     title: "Scaling Slack's Job Queue",
