@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "9c764c05-f5e6-4ded-958f-0a195da5cdeb",
+    date: "2026-08-06",
+    title: "Apache Cassandra Architecture",
+    url: "https://cassandra.apache.org/doc/latest/cassandra/architecture/dynamo.html",
+  },
+  {
     id: "60cbe1a0-0d89-4dc7-bce5-a7ac6aad4881",
     date: "2026-08-06",
     title: "Express Gateway",
