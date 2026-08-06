@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "60cbe1a0-0d89-4dc7-bce5-a7ac6aad4881",
+    date: "2026-08-06",
+    title: "Express Gateway",
+    url: "https://www.express-gateway.io",
+  },
+  {
     id: "248c7b9e-fed8-4f11-84e0-0dad46c88813",
     date: "2026-08-05",
     title: "Samara",
