@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "c1b496f4-857c-40d9-b255-0a76d1a43e9f",
+    date: "2026-08-07",
+    title: "Operation-based CRDTs: Arrays",
+    url: "https://www.bartoszsypytkowski.com/operation-based-crdts-arrays-1",
+  },
+  {
     id: "9c764c05-f5e6-4ded-958f-0a195da5cdeb",
     date: "2026-08-06",
     title: "Apache Cassandra Architecture",
