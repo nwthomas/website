@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "b52cf286-ef51-4608-9c22-f766d9efda32",
+    date: "2026-08-08",
+    title: "Video Startup Time Metric Explained",
+    url: "https://www.mux.com/blog/the-video-startup-time-metric-explained",
+  },
+  {
     id: "c1b496f4-857c-40d9-b255-0a76d1a43e9f",
     date: "2026-08-07",
     title: "Operation-based CRDTs: Arrays",
