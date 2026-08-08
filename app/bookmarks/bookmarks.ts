@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "9eab2e9e-6039-43a1-9bfc-81be253da511",
+    date: "2026-08-09",
+    title: "“Code Was Never the Hard Part” Is an Insult to All Programmers",
+    url: "https://blog.senko.net/code-was-never-the-hard-part-is-an-insult-to-all-programmers",
+  },
+  {
     id: "b52cf286-ef51-4608-9c22-f766d9efda32",
     date: "2026-08-08",
     title: "Video Startup Time Metric Explained",
