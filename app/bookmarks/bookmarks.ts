@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "973390d3-6f71-49b3-9bdf-bdb2ce56554f",
+    date: "2026-08-09",
+    title: "web.dev: Rendering on the Web",
+    url: "https://web.dev/rendering-on-the-web/#a-rehydration-problem-one-app-for-the-price-of-two",
+  },
+  {
     id: "1f73bccc-5b98-4336-9f90-ce42f62bce6c",
     date: "2026-08-09",
     title: "Debezium",
