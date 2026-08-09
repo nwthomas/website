@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "1f73bccc-5b98-4336-9f90-ce42f62bce6c",
+    date: "2026-08-09",
+    title: "Debezium",
+    url: "https://debezium.io",
+  },
+  {
     id: "3862fbfb-6be7-44aa-9de2-fe1357a548f8",
     date: "2026-08-09",
     title: "If Experience Is the Goal, Then You Always Win",
