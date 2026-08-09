@@ -123,7 +123,7 @@ export const BOOKMARKS: Bookmarks = [
   {
     id: "bbf0570e-8bb5-4f2c-8a7e-c17be854d15e",
     date: "2026-07-29",
-    title: "<img> vs <picture>",
+    title: "img vs picture",
     url: "https://medium.com/@truszko1/picture-tags-vs-img-tags-their-uses-and-misuses-4b4a7881a8e1",
   },
   {
