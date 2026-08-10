@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "9f8b0365-6fcb-4de4-9248-58aa223dbe65",
+    date: "2026-08-10",
+    title: "Progressive Hydration",
+    url: "https://www.patterns.dev/react/progressive-hydration",
+  },
+  {
     id: "8fd2abad-330c-4ef8-acbe-6e3ed3ac68fb",
     date: "2026-08-10",
     title: "WeatherNext from Google",
