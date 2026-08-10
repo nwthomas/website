@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "8fd2abad-330c-4ef8-acbe-6e3ed3ac68fb",
+    date: "2026-08-10",
+    title: "WeatherNext from Google",
+    url: "https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones",
+  },
+  {
     id: "973390d3-6f71-49b3-9bdf-bdb2ce56554f",
     date: "2026-08-09",
     title: "web.dev: Rendering on the Web",
