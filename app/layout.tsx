@@ -84,7 +84,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <Navbar />
               </div>
               <main className="flex justify-center w-full pt-10">{children}</main>
-              <div className="flex justify-center w-full pt-10 px-5">
+              <div className="flex justify-center w-full mt-auto pt-10 px-5">
                 <Footer />
               </div>
             </div>
