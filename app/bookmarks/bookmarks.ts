@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "eef9122d-2706-47e3-8203-54ff57c5862a",
+    date: "2026-08-10",
+    title: "Learning More about Claude's Mathematical Capabilities",
+    url: "https://www.anthropic.com/research/riemann-zeta",
+  },
+  {
     id: "9f8b0365-6fcb-4de4-9248-58aa223dbe65",
     date: "2026-08-10",
     title: "Progressive Hydration",
