@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "7db5747b-1d13-4304-93bb-8a3974f6b549",
+    date: "2026-08-11",
+    title: "Shieldfont",
+    url: "https://shieldfont.org",
+  },
+  {
     id: "0005ea4d-349d-46a9-9168-2de7c2fa1544",
     date: "2026-08-11",
     title: "Building Airbnb’s Internationalization Platform",
