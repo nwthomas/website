@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "ae9fcdcd-b3be-496d-ae02-d5a95f581b62",
+    date: "2026-08-11",
+    title: "Measuring Web Performance at AirBnB",
+    url: "https://medium.com/airbnb-engineering/measuring-web-performance-at-airbnb-122da8d3ea3f",
+  },
+  {
     id: "9668a976-861a-4457-ad65-eb595df6634c",
     date: "2026-08-11",
     title: "A11y Tutorials",
