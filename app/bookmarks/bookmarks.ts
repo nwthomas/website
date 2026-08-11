@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "5beddab2-ce8a-43b1-b2d7-99f5bb003a9d",
+    date: "2026-08-11",
+    title: "The Dangers of Postgres Subtransactions",
+    url: "https://planetscale.com/blog/the-dangers-of-postgres-subtransactions",
+  },
+  {
     id: "7db5747b-1d13-4304-93bb-8a3974f6b549",
     date: "2026-08-11",
     title: "Shieldfont",
