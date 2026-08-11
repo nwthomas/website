@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "56627f35-7539-47cd-b22e-a8f141755baa",
+    date: "2026-08-11",
+    title: "Progressive Web Apps with Service Workers",
+    url: "https://medium.com/booking-com-development/progressive-web-apps-with-service-workers-887e80abf9ef",
+  },
+  {
     id: "eef9122d-2706-47e3-8203-54ff57c5862a",
     date: "2026-08-10",
     title: "Learning More about Claude's Mathematical Capabilities",
