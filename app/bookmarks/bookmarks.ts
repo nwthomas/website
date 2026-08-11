@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "9668a976-861a-4457-ad65-eb595df6634c",
+    date: "2026-08-11",
+    title: "A11y Tutorials",
+    url: "https://www.w3.org/WAI/tutorials",
+  },
+  {
     id: "56627f35-7539-47cd-b22e-a8f141755baa",
     date: "2026-08-11",
     title: "Progressive Web Apps with Service Workers",
