@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "0005ea4d-349d-46a9-9168-2de7c2fa1544",
+    date: "2026-08-11",
+    title: "Building Airbnb’s Internationalization Platform",
+    url: "https://medium.com/airbnb-engineering/building-airbnbs-internationalization-platform-45cf0104b63c",
+  },
+  {
     id: "ae9fcdcd-b3be-496d-ae02-d5a95f581b62",
     date: "2026-08-11",
     title: "Measuring Web Performance at AirBnB",
