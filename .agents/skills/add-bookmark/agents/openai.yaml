@@ -1,0 +1,4 @@
+interface:
+  display_name: "Add Bookmark"
+  short_description: "Add website bookmarks with repo conventions"
+  default_prompt: "Use $add-bookmark to add a new bookmark to this website."

@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "57a83680-d4eb-40bb-9134-48c3492eeef0",
+    date: "2026-08-12",
+    title: "Best Practices for Skill Creators",
+    url: "https://agentskills.io/skill-creation/best-practices",
+  },
+  {
     id: "5beddab2-ce8a-43b1-b2d7-99f5bb003a9d",
     date: "2026-08-11",
     title: "The Dangers of Postgres Subtransactions",
