@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "cbe67599-bbda-4100-b6af-8b628adc620d",
+    date: "2026-08-18",
+    title: "Web Push API",
+    url: "https://developer.mozilla.org/en-US/docs/Web/API/Push_API",
+  },
+  {
     id: "79a7ab2b-841c-4a9b-8ccf-a03c833805ae",
     date: "2026-08-18",
     title: "Web Locks API",
