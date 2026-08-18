@@ -13,6 +13,18 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "552718cc-8a05-429e-9cef-0babc08d347e",
+    date: "2026-08-18",
+    title: "Background Synchronization API",
+    url: "https://developer.mozilla.org/en-US/docs/Web/API/Background_Synchronization_API",
+  },
+  {
+    id: "a0fb4f8c-bbcd-4817-8e02-6fce4e9d749a",
+    date: "2026-08-18",
+    title: "Travis Kalanick: Excellence Is the Capacity to Take Pain",
+    url: "https://www.youtube.com/watch?v=QVnU5lGlKE8",
+  },
+  {
     id: "b65d81fa-ae1c-4c15-964f-f2fcbb8d527c",
     date: "2026-08-18",
     title: "Pacing Model Development in an Era of Cyber-Critical Capabilities",
