@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "79a7ab2b-841c-4a9b-8ccf-a03c833805ae",
+    date: "2026-08-18",
+    title: "Web Locks API",
+    url: "https://developer.mozilla.org/en-US/docs/Web/API/Web_Locks_API",
+  },
+  {
     id: "868efc6e-75b2-4e85-a4ea-b57adda1f93d",
     date: "2026-08-12",
     title: "Shopify: Replaced Redis with MySQL for Inventory Reservations",
