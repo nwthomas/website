@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "b65d81fa-ae1c-4c15-964f-f2fcbb8d527c",
+    date: "2026-08-18",
+    title: "Pacing Model Development in an Era of Cyber-Critical Capabilities",
+    url: "https://openai.com/index/pacing-model-development-cyber-capabilities",
+  },
+  {
     id: "cbe67599-bbda-4100-b6af-8b628adc620d",
     date: "2026-08-18",
     title: "Web Push API",
