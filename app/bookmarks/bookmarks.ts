@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "3bae8a26-12c0-4cb7-af7c-8821a341bcbd",
+    date: "2026-08-19",
+    title: "Just Fucking Use Neovim",
+    url: "https://www.justfuckinguseneovim.com",
+  },
+  {
     id: "552718cc-8a05-429e-9cef-0babc08d347e",
     date: "2026-08-18",
     title: "Background Synchronization API",
