@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "fe9c56ac-7d27-4e1b-a8ad-f81401370c75",
+    date: "2026-08-20",
+    title: "OfficeJS",
+    url: "https://github.com/officedev/office-js",
+  },
+  {
     id: "3bae8a26-12c0-4cb7-af7c-8821a341bcbd",
     date: "2026-08-19",
     title: "Just Fucking Use Neovim",
