@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "5c4aae10-fdca-4d23-92ea-e937e8acaacf",
+    date: "2026-08-21",
+    title: "BiomeJS",
+    url: "https://github.com/biomejs/biome",
+  },
+  {
     id: "7112e0df-e7b1-4341-be07-1a48e1e80b54",
     date: "2026-08-21",
     title: "Cursor: Git at Any Scale",
