@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "59d3b25c-a168-4ea9-b347-50799d5aaa0b",
+    date: "2026-08-21",
+    title: "Internet Subdomain Index",
+    url: "https://crt.name",
+  },
+  {
     id: "5c4aae10-fdca-4d23-92ea-e937e8acaacf",
     date: "2026-08-21",
     title: "BiomeJS",
