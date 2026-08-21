@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "7112e0df-e7b1-4341-be07-1a48e1e80b54",
+    date: "2026-08-21",
+    title: "Cursor: Git at Any Scale",
+    url: "https://cursor.com/blog/git-at-any-scale",
+  },
+  {
     id: "46608c59-40fa-45e6-9d6e-89c9c6d62eca",
     date: "2026-08-21",
     title: "Qwen 3.8 27B vLLM Recipe",
