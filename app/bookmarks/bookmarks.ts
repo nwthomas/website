@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "46608c59-40fa-45e6-9d6e-89c9c6d62eca",
+    date: "2026-08-21",
+    title: "Qwen 3.8 27B vLLM Recipe",
+    url: "https://recipes.vllm.ai/Qwen/Qwen3.8-27B",
+  },
+  {
     id: "fe9c56ac-7d27-4e1b-a8ad-f81401370c75",
     date: "2026-08-20",
     title: "OfficeJS",
