@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "bd84fe1c-a6bb-45a3-9e23-40a6b28b17fa",
+    date: "2026-08-25",
+    title: "How Universities Should Prepare Founders",
+    url: "https://paulgraham.com/prepare.html",
+  },
+  {
     id: "59d3b25c-a168-4ea9-b347-50799d5aaa0b",
     date: "2026-08-21",
     title: "Internet Subdomain Index",
