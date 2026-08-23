@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "839037bb-6f93-4905-bb1a-674b8502cfd2",
+    date: "2026-08-24",
+    title: "Fences, not Sandboxes",
+    url: "https://yegge.ai/essays/fences-not-sandboxes",
+  },
+  {
     id: "bd84fe1c-a6bb-45a3-9e23-40a6b28b17fa",
     date: "2026-08-25",
     title: "How Universities Should Prepare Founders",
