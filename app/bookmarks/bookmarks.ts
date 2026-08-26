@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "0394c5f5-7dac-4a95-b630-e0c39722cafa",
+    date: "2026-08-26",
+    title: "A Project of One's Own",
+    url: "https://paulgraham.com/own.html",
+  },
+  {
     id: "2327231b-ea61-478e-ba18-0ea29fe64c6b",
     date: "2026-08-25",
     title: "OpenAI: Jalapeño’s First Results Show Industry-Leading Speed and Efficiency in AI Inference",

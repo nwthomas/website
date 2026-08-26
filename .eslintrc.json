@@ -3,7 +3,7 @@
     "browser": true,
     "es2020": true
   },
-  "plugins": ["@typescript-eslint", "jsx-a11y"],
+  "plugins": ["@typescript-eslint", "jsx-a11y", "@stylexjs"],
   "extends": ["plugin:@next/next/recommended", "plugin:jsx-a11y/recommended", "plugin:react-hooks/recommended"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -26,7 +26,11 @@
     "no-use-before-define": ["off"],
     "object-curly-newline": ["off"],
     "operator-linebreak": ["off"],
-    "@next/next/no-img-element": ["off"]
+    "@next/next/no-img-element": ["off"],
+    "@stylexjs/valid-styles": ["error"],
+    "@stylexjs/no-unused": ["error"],
+    "@stylexjs/valid-shorthands": ["warn"],
+    "@stylexjs/sort-keys": ["warn"]
   },
   "overrides": [
     {
