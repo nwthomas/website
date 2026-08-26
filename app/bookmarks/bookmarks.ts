@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "7d616966-a259-4643-b362-50fbff6450d6",
+    date: "2026-08-26",
+    title: "Bill Gates: Open Letter on AI",
+    url: "https://www.gatesnotes.com/a-turbulent-ai-era-and-critical-choices-to-make",
+  },
+  {
     id: "0394c5f5-7dac-4a95-b630-e0c39722cafa",
     date: "2026-08-26",
     title: "A Project of One's Own",
