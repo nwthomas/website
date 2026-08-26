@@ -1,5 +1,6 @@
 "use client";
 
+import * as stylex from "@stylexjs/stylex";
 import { HeadingLevel, getHeading } from "@/app/(writing)/utils/heading";
 
 import Link from "next/link";
@@ -7,6 +8,7 @@ import { ReactNode } from "react";
 import { ThemeSwitch } from "./ThemeSwitch";
 import { formatUTCTimestampToDateString } from "../utils/dates";
 import postsJson from "@/app/(writing)/posts.json";
+import { sharedStyles } from "@/app/styles";
 import { usePathname } from "next/navigation";
 
 type Post = {
@@ -32,7 +34,7 @@ export function Navbar() {
   let showThemeSwitch = true;
   let titleText: ReactNode | null = <h1>Nathan Thomas</h1>;
   let subtitleText: ReactNode | null = (
-    <p className="text-sm text-gray-500">
+    <p {...stylex.props(styles.subtitle)}>
       by{" "}
       <Link aria-label="Link to Nathan's home page" href="/">
         Nathan Thomas
@@ -56,17 +58,17 @@ export function Navbar() {
   }
 
   return (
-    <header className="flex w-full max-w-2xl mx-5 items-start">
-      <ul className="flex w-full justify-between">
-        <li className="before:hidden pl-0">
-          <div className="flex flex-col">
+    <header {...stylex.props(styles.header, sharedStyles.pageSection)}>
+      <ul {...stylex.props(styles.navList)}>
+        <li data-unstyled="true">
+          <div {...stylex.props(styles.titleStack)}>
             {titleText}
             {!isHomePage ? subtitleText : null}
           </div>
         </li>
         {showThemeSwitch ? (
-          <li className="before:hidden pl-0">
-            <div className="flex gap-3 sm:gap-5 items-center">
+          <li data-unstyled="true">
+            <div {...stylex.props(styles.controls)}>
               <ThemeSwitch />
             </div>
           </li>
@@ -75,3 +77,33 @@ export function Navbar() {
     </header>
   );
 }
+
+const styles = stylex.create({
+  controls: {
+    gap: {
+      default: "0.75rem",
+      "@media (min-width: 640px)": "1.25rem",
+    },
+    alignItems: "center",
+    display: "flex",
+  },
+  header: {
+    alignItems: "flex-start",
+    display: "flex",
+  },
+  navList: {
+    display: "flex",
+    justifyContent: "space-between",
+    width: "100%",
+  },
+  subtitle: {
+    color: "var(--muted)",
+    fontSize: "0.875rem",
+    lineHeight: "1.25rem",
+  },
+  titleStack: {
+    display: "flex",
+    flexDirection: "column",
+    lineHeight: 1,
+  },
+});

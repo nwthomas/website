@@ -1,13 +1,24 @@
+import * as stylex from "@stylexjs/stylex";
 import { HeadingLevel, getHeading } from "../utils/heading";
 
 import type { ReactNode } from "react";
+import { sharedStyles } from "@/app/styles";
 
 export function H1({ children }: { children: ReactNode }) {
   return (
-    <div className="w-full flex justify-center mb-5">
-      <div className="w-full max-w-2xl mx-5">
+    <div {...stylex.props(styles.wrapper)}>
+      <div {...stylex.props(sharedStyles.pageSection)}>
         {getHeading(children, HeadingLevel.H1)}
       </div>
     </div>
   );
 }
+
+const styles = stylex.create({
+  wrapper: {
+    display: "flex",
+    justifyContent: "center",
+    marginBottom: "1.25rem",
+    width: "100%",
+  },
+});

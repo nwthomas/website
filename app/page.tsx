@@ -1,8 +1,13 @@
+import * as stylex from "@stylexjs/stylex";
+
 import Link from "next/link";
 import { Post } from "@/app/(writing)/utils/types";
 import { RecentlyPlayed } from "@/app/components/RecentlyPlayed";
 import { getNowPlaying } from "@/app/utils/spotify";
 import postsJson from "@/app/(writing)/posts.json";
+import { sharedStyles } from "@/app/styles";
+
+export const dynamic = "force-dynamic";
 
 export default async function Page() {
   const { posts } = postsJson;
@@ -10,7 +15,7 @@ export default async function Page() {
   const nowPlaying = await getNowPlaying();
 
   return (
-    <section className="w-full max-w-2xl mx-5">
+    <section {...stylex.props(sharedStyles.pageSection)}>
       <p>
         I'm a software engineer, writer, and teacher from San Francisco, CA. I previously led core work at{" "}
         <a href="https://tesla.com" aria-label="Link to Tesla's website" rel="noopener noreferrer" target="_target">
@@ -22,30 +27,30 @@ export default async function Page() {
         </a>
         , and{" "}
         <a
-          className="break-keep whitespace-nowrap"
           href="https://x.com"
           aria-label="Link to X's website"
           rel="noopener noreferrer"
           target="_target"
+          {...stylex.props(styles.nowrap)}
         >
           Twitter (X)
         </a>
         .
       </p>
-      <p className="mt-5">
+      <p {...stylex.props(styles.mt5)}>
         At the end of the day, I'm still that kid who grew up playing with his parents' Macintosh and ripping CDs for
         his friends.
       </p>
-      <h2 className="mt-5">Writing</h2>
-      <ul className="mt-4">
+      <h2 {...stylex.props(styles.mt5)}>Writing</h2>
+      <ul {...stylex.props(styles.mt4)}>
         {lastThreePosts.map((post) => (
           <li key={post.id}>
             <Link href={`/${post.id}`}>{post.title}</Link>
           </li>
         ))}
       </ul>
-      <h2 className="mt-5">Teaching</h2>
-      <ul className="mt-4">
+      <h2 {...stylex.props(styles.mt5)}>Teaching</h2>
+      <ul {...stylex.props(styles.mt4)}>
         <li>
           <a
             href="https://www.codetenderloin.org/"
@@ -67,8 +72,8 @@ export default async function Page() {
           </a>
         </li>
       </ul>
-      <h2 className="mt-5">Projects</h2>
-      <ul className="mt-4">
+      <h2 {...stylex.props(styles.mt5)}>Projects</h2>
+      <ul {...stylex.props(styles.mt4)}>
         <li>
           <a
             href="https://github.com/nwthomas/gitops"
@@ -101,7 +106,7 @@ export default async function Page() {
         </li>
       </ul>
       {nowPlaying ? <RecentlyPlayed track={nowPlaying} /> : null}
-      <p className="mt-5">
+      <p {...stylex.props(styles.mt5)}>
         You can read my{" "}
         <Link aria-label="Link to Nathan's writing" href="/writing">
           writing
@@ -152,3 +157,17 @@ export default async function Page() {
     </section>
   );
 }
+
+const styles = stylex.create({
+  mt4: {
+    marginTop: "1rem",
+  },
+  mt5: {
+    marginTop: "1.25rem",
+  },
+  nowrap: {
+    overflowWrap: "normal",
+    whiteSpace: "nowrap",
+    wordBreak: "keep-all",
+  },
+});

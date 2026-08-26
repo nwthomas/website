@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { CloseIcon } from "./Icons";
 import { FocusTrap } from "focus-trap-react";
 import Image from "next/image";
-import clsx from "clsx";
+import * as stylex from "@stylexjs/stylex";
 import { hideImageOverlay } from "@/app/store/reducers/writingSlice";
 import { useLockBodyScroll } from "@/app/hooks";
 
@@ -32,38 +32,34 @@ function ImageOverlay() {
 
   return (
     <FocusTrap>
-      <div
-        onClick={handleCloseButtonClick}
-        className="fixed top-0 left-0 bottom-0 right-0 w-full h-full inset-0 z-10 bg-background"
-      >
-        <div className="w-full h-full flex flex-col justify-center items-center p-5">
+      <div onClick={handleCloseButtonClick} {...stylex.props(styles.overlay)}>
+        <div {...stylex.props(styles.inner)}>
           <button
-            className="absolute top-5 right-5 h-6 w-6 cursor-pointer m-0 p-0 hover:opacity-80 transition-opacity duration-200 z-10"
             aria-label="Close image overlay"
             onClick={handleCloseButtonClick}
+            {...stylex.props(styles.closeButton)}
           >
-            <CloseIcon color="var(--foreground)" />
+            <CloseIcon color="var(--foreground)" style={{ height: "100%", width: "100%" }} />
           </button>
           <div
-            className={clsx(
-              "max-w-[min(80rem,100vw-2.5rem)] max-h-[min(80rem,100vh-2.5rem)] box-border flex justify-center items-center relative",
-              image.borderDark ? "border border-background dark:border-gray-800" : "",
-              image.borderLight ? "border border-gray-200 dark:border-background" : "",
+            {...stylex.props(
+              styles.frame,
+              image.borderDark && styles.borderDark,
+              image.borderLight && styles.borderLight,
             )}
           >
             {image.placeholderImage && isLoading ? (
               <Image
-                className="absolute top-0 left-0 right-0 bottom-0 z-10 block rounded-sm"
                 src={image.placeholderImage}
                 alt={image.alt}
                 width={image.width}
                 height={image.height}
                 quality={75}
+                {...stylex.props(styles.placeholder)}
               />
             ) : null}
             <Image
               alt={image.alt}
-              className="block rounded-sm"
               blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO5WZ5kAAAAASUVORK5CYII="
               draggable={false}
               height={image.height}
@@ -74,6 +70,7 @@ function ImageOverlay() {
               onLoad={() => setIsLoading(false)}
               src={image.src}
               width={image.width}
+              {...stylex.props(styles.image)}
             />
           </div>
         </div>
@@ -99,3 +96,85 @@ export function ImageOverlayContainer() {
 
   return <ImageOverlay />;
 }
+
+const styles = stylex.create({
+  borderDark: {
+    borderColor: "var(--border-image-dark)",
+    borderStyle: "solid",
+    borderWidth: 1,
+  },
+  borderLight: {
+    borderColor: "var(--border-image-light)",
+    borderStyle: "solid",
+    borderWidth: 1,
+  },
+  closeButton: {
+    cursor: "pointer",
+    opacity: {
+      default: 1,
+      ":hover": 0.8,
+    },
+    position: "absolute",
+    transitionDuration: "200ms",
+    transitionProperty: "opacity",
+    zIndex: 10,
+    height: "1.5rem",
+    marginBottom: 0,
+    marginLeft: 0,
+    marginRight: 0,
+    marginTop: 0,
+    paddingBottom: 0,
+    paddingLeft: 0,
+    paddingRight: 0,
+    paddingTop: 0,
+    right: "1.25rem",
+    top: "1.25rem",
+    width: "1.5rem",
+  },
+  frame: {
+    alignItems: "center",
+    boxSizing: "border-box",
+    display: "flex",
+    justifyContent: "center",
+    position: "relative",
+    maxHeight: "min(80rem, calc(100vh - 2.5rem))",
+    maxWidth: "min(80rem, calc(100vw - 2.5rem))",
+  },
+  image: {
+    borderRadius: "0.125rem",
+    display: "block",
+  },
+  inner: {
+    alignItems: "center",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    height: "100%",
+    paddingBottom: "1.25rem",
+    paddingLeft: "1.25rem",
+    paddingRight: "1.25rem",
+    paddingTop: "1.25rem",
+    width: "100%",
+  },
+  overlay: {
+    backgroundColor: "var(--background)",
+    position: "fixed",
+    zIndex: 10,
+    bottom: 0,
+    height: "100%",
+    left: 0,
+    right: 0,
+    top: 0,
+    width: "100%",
+  },
+  placeholder: {
+    borderRadius: "0.125rem",
+    display: "block",
+    position: "absolute",
+    zIndex: 10,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    top: 0,
+  },
+});

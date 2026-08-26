@@ -1,5 +1,6 @@
 import * as Sentry from "@sentry/nextjs";
 
+import * as stylex from "@stylexjs/stylex";
 import { ImageOverlayContainer } from "@/app/components/ImageOverlay";
 import { Metadata } from "next";
 import { RedisIncrement } from "@/app/components/RedisIncrement";
@@ -58,10 +59,20 @@ export default async function Page({ params }: Props) {
     // with padding bottom. MDX gives no API for disovery of last index. This
     // could move to mapping all items and passing an index on props, but
     // that's overkill for this problem.
-    <article className="w-full -mb-5 flex flex-col items-center">
+    <article {...stylex.props(styles.article)}>
       <Post />
       <ImageOverlayContainer />
       {process.env.NODE_ENV === "production" ? <RedisIncrement slug={slug} /> : null}
     </article>
   );
 }
+
+const styles = stylex.create({
+  article: {
+    alignItems: "center",
+    display: "flex",
+    flexDirection: "column",
+    marginBottom: "-1.25rem",
+    width: "100%",
+  },
+});

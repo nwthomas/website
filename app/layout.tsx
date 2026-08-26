@@ -1,5 +1,7 @@
 import "./globals.css";
 
+import * as stylex from "@stylexjs/stylex";
+
 import { Analytics } from "@/app/components/Analytics";
 import { ErrorBoundary } from "@/app/components/ErrorBoundary";
 import { Footer } from "./components/Footer";
@@ -9,6 +11,7 @@ import type { Metadata } from "next";
 import { Navbar } from "@/app/components/Navbar";
 import { Providers } from "@/app/components/Providers";
 import { ReactNode } from "react";
+import { sharedStyles } from "@/app/styles";
 
 export const metadata: Metadata = {
   title: "Nathan Thomas",
@@ -78,13 +81,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       <ErrorBoundary>
         <Providers>
-          <body className={`${GeistSans.variable} ${GeistMono.variable} antialiased`}>
-            <div className="flex flex-col items-center w-full min-h-svh py-10 md:py-20 lg:py-25 relative">
-              <div className="flex justify-center w-full">
+          <body className={`${GeistSans.variable} ${GeistMono.variable}`}>
+            <div {...stylex.props(styles.shell)}>
+              <div {...stylex.props(sharedStyles.centered)}>
                 <Navbar />
               </div>
-              <main className="flex justify-center w-full pt-10">{children}</main>
-              <div className="flex justify-center w-full pt-10 px-5">
+              <main {...stylex.props(styles.main)}>{children}</main>
+              <div {...stylex.props(styles.footerWrap)}>
                 <Footer />
               </div>
             </div>
@@ -95,3 +98,38 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     </html>
   );
 }
+
+const styles = stylex.create({
+  footerWrap: {
+    display: "flex",
+    justifyContent: "center",
+    paddingLeft: "1.25rem",
+    paddingRight: "1.25rem",
+    paddingTop: "2.5rem",
+    width: "100%",
+  },
+  main: {
+    display: "flex",
+    justifyContent: "center",
+    paddingTop: "2.5rem",
+    width: "100%",
+  },
+  shell: {
+    alignItems: "center",
+    display: "flex",
+    flexDirection: "column",
+    position: "relative",
+    minHeight: "100svh",
+    paddingBottom: {
+      default: "2.5rem",
+      "@media (min-width: 1024px)": "6.25rem",
+      "@media (min-width: 768px) and (max-width: 1023.98px)": "5rem",
+    },
+    paddingTop: {
+      default: "2.5rem",
+      "@media (min-width: 1024px)": "6.25rem",
+      "@media (min-width: 768px) and (max-width: 1023.98px)": "5rem",
+    },
+    width: "100%",
+  },
+});

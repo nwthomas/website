@@ -1,6 +1,7 @@
 "use client";
 
 import * as Sentry from "@sentry/nextjs";
+import * as stylex from "@stylexjs/stylex";
 
 import { Component, ReactNode } from "react";
 
@@ -35,7 +36,7 @@ export class ErrorBoundary extends Component<Props, State> {
     if (this.state.hasError) {
       return (
         this.props.fallback || (
-          <div className="flex flex-col items-center justify-center w-full h-svh p-5">
+          <div {...stylex.props(styles.fallback)}>
             <h1>Something went wrong</h1>
             <p>Please try again later</p>
           </div>
@@ -46,3 +47,18 @@ export class ErrorBoundary extends Component<Props, State> {
     return this.props.children;
   }
 }
+
+const styles = stylex.create({
+  fallback: {
+    alignItems: "center",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    height: "100svh",
+    paddingBottom: "1.25rem",
+    paddingLeft: "1.25rem",
+    paddingRight: "1.25rem",
+    paddingTop: "1.25rem",
+    width: "100%",
+  },
+});

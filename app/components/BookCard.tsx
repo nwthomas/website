@@ -1,4 +1,5 @@
 import Image from "next/image";
+import * as stylex from "@stylexjs/stylex";
 
 type Props = {
   title: string;
@@ -12,34 +13,70 @@ type Props = {
 
 export function BookCard({ title, author, cover, url, height, width, unoptimized }: Props) {
   return (
-    <a
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="no-underline block"
-      aria-label={`${title} by ${author}`}
-    >
-      <div className="group flex flex-col gap-3">
+    <a href={url} target="_blank" rel="noopener noreferrer" aria-label={`${title} by ${author}`} {...stylex.props(styles.link)}>
+      <div {...stylex.props(styles.card)}>
         <div
-          className={`aspect-ratio-[${width}/${height}] relative w-full overflow-hidden block border border-gray-200 dark:border-gray-800`}
+          {...stylex.props(styles.cover)}
+          style={{ aspectRatio: `${width} / ${height}` }}
         >
           <Image
             src={cover}
             alt={title}
             height={height}
             width={width}
-            className="object-cover"
+            {...stylex.props(styles.coverImage)}
             quality={75}
             draggable={false}
             loading="eager"
             unoptimized={Boolean(unoptimized)}
           />
         </div>
-        <div className="flex flex-col gap-0.5">
-          <span className="font-mono text-sm font-medium leading-snug">{title}</span>
-          <span className="font-mono text-xs text-gray-500 leading-snug">{author}</span>
+        <div {...stylex.props(styles.meta)}>
+          <span {...stylex.props(styles.title)}>{title}</span>
+          <span {...stylex.props(styles.author)}>{author}</span>
         </div>
       </div>
     </a>
   );
 }
+
+const styles = stylex.create({
+  author: {
+    color: "var(--muted)",
+    fontFamily: "var(--font-geist-mono), monospace",
+    fontSize: "0.75rem",
+    lineHeight: 1.375,
+  },
+  card: {
+    gap: "0.75rem",
+    display: "flex",
+    flexDirection: "column",
+  },
+  cover: {
+    borderColor: "var(--border-subtle)",
+    borderStyle: "solid",
+    borderWidth: 1,
+    overflow: "hidden",
+    display: "block",
+    position: "relative",
+    width: "100%",
+  },
+  coverImage: {
+    objectFit: "cover",
+  },
+  link: {
+    display: "block",
+    textDecorationLine: "none",
+  },
+  meta: {
+    gap: "0.125rem",
+    display: "flex",
+    flexDirection: "column",
+  },
+  title: {
+    fontFamily: "var(--font-geist-mono), monospace",
+    fontSize: "0.875rem",
+    fontWeight: 500,
+    lineHeight: 1.375,
+  },
+});

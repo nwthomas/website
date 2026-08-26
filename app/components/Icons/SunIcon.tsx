@@ -1,12 +1,15 @@
+import type { CSSProperties } from "react";
+
 interface Props {
   color: string;
   isAriaHidden?: boolean;
+  style?: CSSProperties;
   title?: string;
 }
 
-export function SunIcon({ color, isAriaHidden, title }: Props) {
+export function SunIcon({ color, isAriaHidden, style, title }: Props) {
   return (
-    <svg aria-hidden={isAriaHidden} stroke={color} viewBox="0 0 512 512">
+    <svg aria-hidden={isAriaHidden} stroke={color} style={style} viewBox="0 0 512 512">
       <title>{title || "Sun icon"}</title>
       <path
         fill={color}

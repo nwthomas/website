@@ -1,3 +1,4 @@
+import * as stylex from "@stylexjs/stylex";
 import Link from "next/link";
 import { ReactNode } from "react";
 
@@ -44,7 +45,7 @@ export function getHeading(children: ReactNode, level: HeadingLevel): ReactNode 
     }
 
     return (
-      <Link className="inline-flex w-fit no-underline hover:opacity-100" href={`#${headingId}`}>
+      <Link href={`#${headingId}`} {...stylex.props(styles.headingLink)}>
         {headingElement}
       </Link>
     );
@@ -52,3 +53,15 @@ export function getHeading(children: ReactNode, level: HeadingLevel): ReactNode 
   
   return children;
 }
+
+const styles = stylex.create({
+  headingLink: {
+    display: "inline-flex",
+    opacity: {
+      default: 1,
+      ":hover": 1,
+    },
+    textDecorationLine: "none",
+    width: "fit-content",
+  },
+});

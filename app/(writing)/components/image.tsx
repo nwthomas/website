@@ -1,7 +1,7 @@
 "use client";
 
 import NextImage from "next/image";
-import clsx from "clsx";
+import * as stylex from "@stylexjs/stylex";
 import { showImageOverlay } from "@/app/store/reducers/writingSlice";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
@@ -54,23 +54,22 @@ export function Image({
   };
 
   return (
-    <div className="w-full flex justify-center flex-col items-center mb-5">
+    <div {...stylex.props(styles.wrapper)}>
       <button
         aria-label="Enlarge image"
-        className={clsx(
-          "w-full mx-5 items-center flex overflow-hidden border border-background",
-          wide ? "max-w-4xl" : "max-w-2xl",
-          borderDark ? "border border-background dark:border-gray-800" : "",
-          borderLight ? "border border-gray-200 dark:border-background" : "",
-          disableOverlay ? "" : "hover:opacity-60 cursor-zoom-in transition-opacity duration-200",
+        {...stylex.props(
+          styles.button,
+          wide ? styles.wide : styles.standard,
+          borderDark && styles.borderDark,
+          borderLight && styles.borderLight,
+          !disableOverlay && styles.canZoom,
         )}
         onClick={handleImageClick}
         disabled={disableOverlay}
       >
-        <div className={`aspect-ratio-[${width}/${height}] leading-none relative w-full flex justify-center`}>
+        <div {...stylex.props(styles.frame)} style={{ aspectRatio: `${width} / ${height}` }}>
           {placeholderImage && isLoading ? (
             <NextImage
-              className="absolute top-0 left-0 right-0 bottom-0 z-10 rounded-sm"
               src={placeholderImage}
               alt={alt}
               loading="eager"
@@ -78,11 +77,11 @@ export function Image({
               width={width}
               height={height}
               quality={75}
+              {...stylex.props(styles.placeholder)}
             />
           ) : null}
           <NextImage
             alt={alt}
-            className="rounded-sm"
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO5WZ5kAAAAASUVORK5CYII="
             draggable={false}
             height={height}
@@ -94,10 +93,79 @@ export function Image({
             src={src}
             unoptimized={unoptimized}
             width={width}
+            {...stylex.props(styles.image)}
           />
         </div>
       </button>
-      <p className="text-xs mt-2 text-gray-500 font-mono">{title}</p>
+      <p {...stylex.props(styles.caption)}>{title}</p>
     </div>
   );
 }
+
+const styles = stylex.create({
+  borderDark: {
+    borderColor: "var(--border-image-dark)",
+  },
+  borderLight: {
+    borderColor: "var(--border-image-light)",
+  },
+  button: {
+    borderColor: "var(--background)",
+    borderStyle: "solid",
+    borderWidth: 1,
+    overflow: "hidden",
+    alignItems: "center",
+    display: "flex",
+    marginLeft: "1.25rem",
+    marginRight: "1.25rem",
+    width: "100%",
+  },
+  canZoom: {
+    cursor: "zoom-in",
+    opacity: {
+      default: 1,
+      ":hover": 0.6,
+    },
+    transitionDuration: "200ms",
+    transitionProperty: "opacity",
+  },
+  caption: {
+    color: "var(--muted)",
+    fontFamily: "var(--font-geist-mono), monospace",
+    fontSize: "0.75rem",
+    marginTop: "0.5rem",
+  },
+  frame: {
+    display: "flex",
+    justifyContent: "center",
+    lineHeight: 1,
+    position: "relative",
+    width: "100%",
+  },
+  image: {
+    borderRadius: "0.125rem",
+  },
+  placeholder: {
+    borderRadius: "0.125rem",
+    position: "absolute",
+    zIndex: 10,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    top: 0,
+  },
+  standard: {
+    maxWidth: "42rem",
+  },
+  wide: {
+    maxWidth: "56rem",
+  },
+  wrapper: {
+    alignItems: "center",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    marginBottom: "1.25rem",
+    width: "100%",
+  },
+});

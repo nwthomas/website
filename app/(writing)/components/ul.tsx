@@ -1,9 +1,20 @@
+import * as stylex from "@stylexjs/stylex";
 import type { ReactNode } from "react";
+import { sharedStyles } from "@/app/styles";
 
 export function Ul({ children }: { children: ReactNode }) {
   return (
-    <div className="w-full flex justify-center mb-5">
-      <ul className="w-full max-w-2xl list-inside mx-5">{children}</ul>
+    <div {...stylex.props(styles.wrapper)}>
+      <ul {...stylex.props(sharedStyles.pageSection)}>{children}</ul>
     </div>
   );
 }
+
+const styles = stylex.create({
+  wrapper: {
+    display: "flex",
+    justifyContent: "center",
+    marginBottom: "1.25rem",
+    width: "100%",
+  },
+});

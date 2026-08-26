@@ -1,4 +1,6 @@
 import { Children, type ReactNode } from "react";
+import * as stylex from "@stylexjs/stylex";
+import { sharedStyles } from "@/app/styles";
 
 export function Blockquote({ children }: { children: ReactNode }) {
   const normalizedChildren = Children.toArray(children).reduce<ReactNode[]>((acc, child, childIndex) => {
@@ -13,7 +15,7 @@ export function Blockquote({ children }: { children: ReactNode }) {
     const parts = child.split("\n");
     parts.forEach((part, partIndex) => {
       if (partIndex > 0) {
-        acc.push(<div className="mb-5" key={`br-${childIndex}-${partIndex}`}></div>);
+        acc.push(<div {...stylex.props(styles.break)} key={`br-${childIndex}-${partIndex}`}></div>);
       }
 
       if (part !== "") {
@@ -25,10 +27,30 @@ export function Blockquote({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <div className="w-full flex justify-center mb-5">
-      <blockquote className="w-full max-w-2xl text-5 border-l-4 border-gray-500 mx-5 [&_p]:text-gray-500 italic whitespace-pre-line">
+    <div {...stylex.props(styles.wrapper)}>
+      <blockquote {...stylex.props(styles.quote, sharedStyles.pageSection)}>
         {normalizedChildren}
       </blockquote>
     </div>
   );
 }
+
+const styles = stylex.create({
+  break: {
+    marginBottom: "1.25rem",
+  },
+  quote: {
+    color: "var(--muted)",
+    fontStyle: "italic",
+    whiteSpace: "pre-line",
+    borderLeftColor: "var(--muted)",
+    borderLeftStyle: "solid",
+    borderLeftWidth: 4,
+  },
+  wrapper: {
+    display: "flex",
+    justifyContent: "center",
+    marginBottom: "1.25rem",
+    width: "100%",
+  },
+});

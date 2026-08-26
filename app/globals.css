@@ -1,103 +1,167 @@
-@import "tailwindcss";
-
-@custom-variant dark (&:where(.dark, .dark *));
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-selection-foreground: var(--selection-foreground);
-  --color-selection-background: var(--selection-background);
-  --font-sans:
-    var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  --font-mono: var(--font-geist-mono), monospace;
+@layer resets {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 }
 
-@layer base {
-  :root {
-    --theme-switch: #facf3d;
-  }
+@stylex;
 
-  :focus {
-    @apply outline-solid outline-2 outline-foreground;
-  }
+:root {
+  --background: #ffffff;
+  --border-image-dark: #ffffff;
+  --border-image-light: #e5e7eb;
+  --border-subtle: #e5e7eb;
+  --code-background: #e5e5e5;
+  --code-foreground: #404040;
+  --foreground: #0a0a0a;
+  --muted: #6b7280;
+  --recently-played-artist: #4b5563;
+  --recently-played-track: #111827;
+  --theme-switch: #facf3d;
+}
 
-  :focus-visible {
-    @apply outline-solid outline-2 outline-foreground;
-  }
+html.dark {
+  --background: #000000;
+  --border-image-dark: #1f2937;
+  --border-image-light: #000000;
+  --border-subtle: #1f2937;
+  --code-background: #222222;
+  --code-foreground: #d1d5db;
+  --foreground: #ededed;
+  --recently-played-artist: #d1d5db;
+  --recently-played-track: #f3f4f6;
+}
 
-  ::selection {
-    @apply bg-foreground text-background;
-  }
+:focus,
+:focus-visible {
+  outline: 2px solid var(--foreground);
+}
 
-  html,
-  body {
-    background-color: var(--background);
-    color: var(--foreground);
-  }
+::selection {
+  background: var(--foreground);
+  color: var(--background);
+}
 
-  html {
-    --background: #ffffff;
-    --foreground: #0a0a0a;
-  }
+html,
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
 
-  html.dark {
-    --background: #000000;
-    --foreground: #ededed;
-  }
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
 
-  body {
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-size-adjust: 100%;
-    -moz-osx-font-smoothing: grayscale;
-  }
+button {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  font: inherit;
+}
 
-  h1 {
-    @apply font-sans text-lg font-bold leading-normal;
-  }
+h1 {
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.75rem;
+}
 
-  h2 {
-    @apply font-sans font-bold leading-normal;
-  }
+h2 {
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+}
 
-  p {
-    @apply font-sans leading-normal;
-  }
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+}
 
-  a {
-    @apply font-sans underline decoration-dotted decoration-gray-500 underline-offset-5 opacity-100 hover:opacity-60 transition-opacity duration-200;
-  }
+p {
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.5rem;
+}
 
-  img {
-    @apply block;
-  }
+p code {
+  background-color: var(--code-background);
+  border-radius: 0.125rem;
+  font-size: 0.875rem;
+  padding: 0.125rem 0.25rem;
+}
 
-  ul {
-    @apply list-inside;
-  }
+a {
+  color: inherit;
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  opacity: 1;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: var(--muted);
+  text-underline-offset: 5px;
+  transition-duration: 200ms;
+  transition-property: opacity;
+}
 
-  ol {
-    @apply list-inside list-decimal pl-4 -indent-4;
-  }
+a:hover {
+  opacity: 0.6;
+}
 
-  li {
-    @apply font-sans text-base relative in-[ul]:pl-4;
-  }
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
 
-  ul li:before {
-    @apply content-["‣"] inline-block font-sans text-[15px] text-gray-500 no-underline absolute top-0 left-0.5;
-  }
+ul {
+  list-style-position: inside;
+  list-style-type: none;
+}
 
-  .books-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem 1.5rem;
-  }
+ol {
+  list-style-position: inside;
+  list-style-type: decimal;
+  padding-left: 1rem;
+  text-indent: -1rem;
+}
 
-  @media (min-width: 640px) {
-    .books-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
+li {
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  position: relative;
+}
+
+ul li {
+  padding-left: 1rem;
+}
+
+ul li::before {
+  color: var(--muted);
+  content: "‣";
+  display: inline-block;
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 15px;
+  left: 0.125rem;
+  position: absolute;
+  text-decoration: none;
+  top: 0;
+}
+
+li[data-unstyled="true"] {
+  padding-left: 0;
+}
+
+li[data-unstyled="true"]::before {
+  content: "";
+  display: none;
 }

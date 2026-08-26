@@ -1,4 +1,6 @@
+import * as stylex from "@stylexjs/stylex";
 import Link from "next/link";
+import { sharedStyles } from "@/app/styles";
 import { Metadata } from "next";
 
 const asciiArt = `
@@ -91,11 +93,41 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <section className="w-full max-w-2xl mx-5 flex flex-col items-center justify-center">
-      <Link className="no-underline flex flex-col items-center justify-center" href="/">
-        <pre className="text-[3px] sm:text-[4px] md:text-[5px] font-mono">{asciiArt}</pre>
-        <h1 className="text-sm font-mono font-bold mt-10">404 - Not Found</h1>
+    <section {...stylex.props(sharedStyles.pageSection, styles.section)}>
+      <Link href="/" {...stylex.props(styles.link)}>
+        <pre {...stylex.props(styles.ascii)}>{asciiArt}</pre>
+        <h1 {...stylex.props(styles.title)}>404 - Not Found</h1>
       </Link>
     </section>
   );
 }
+
+const styles = stylex.create({
+  ascii: {
+    fontFamily: "var(--font-geist-mono), monospace",
+    fontSize: {
+      default: 3,
+      "@media (min-width: 640px)": 4,
+      "@media (min-width: 768px)": 5,
+    },
+  },
+  link: {
+    alignItems: "center",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    textDecorationLine: "none",
+  },
+  section: {
+    alignItems: "center",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+  },
+  title: {
+    fontFamily: "var(--font-geist-mono), monospace",
+    fontSize: "0.875rem",
+    fontWeight: 700,
+    marginTop: "2.5rem",
+  },
+});

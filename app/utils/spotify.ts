@@ -26,6 +26,7 @@ export async function getAccessToken(): Promise<string | null> {
   });
 
   const res = await fetch(SPOTIFY_TOKEN_URL, {
+    cache: "no-store",
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: body.toString(),
@@ -58,6 +59,7 @@ function normalizeTrack(item: {
 
 export async function getCurrentlyPlaying(accessToken: string): Promise<NowPlayingTrack | null> {
   const res = await fetch(`${SPOTIFY_API_BASE}/me/player/currently-playing`, {
+    cache: "no-store",
     headers: { Authorization: `Bearer ${accessToken}` },
   });
 
@@ -83,6 +85,7 @@ export async function getCurrentlyPlaying(accessToken: string): Promise<NowPlayi
 
 export async function getRecentlyPlayed(accessToken: string, limit = 1): Promise<NowPlayingTrack | null> {
   const res = await fetch(`${SPOTIFY_API_BASE}/me/player/recently-played?limit=${limit}`, {
+    cache: "no-store",
     headers: { Authorization: `Bearer ${accessToken}` },
   });
 

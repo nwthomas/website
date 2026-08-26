@@ -1,10 +1,11 @@
 import { getPostViewsRedisKey, redis } from "@/app/utils/redis";
 
+import * as stylex from "@stylexjs/stylex";
 import Link from "next/link";
 import { Metadata } from "next";
 import { Post } from "@/app/(writing)/utils/types";
-import { clsx } from "clsx";
 import postsJson from "@/app/(writing)/posts.json";
+import { sharedStyles } from "@/app/styles";
 
 export const metadata: Metadata = {
   title: "Writing | Nathan Thomas",
@@ -35,7 +36,7 @@ export default async function Page() {
   }
 
   return (
-    <section className="w-full max-w-2xl mx-5">
+    <section {...stylex.props(sharedStyles.pageSection)}>
       <p>
         Below is a curated collection of my writing. I also have an{" "}
         <Link aria-label="Link to Nathan's Atom RSS feed" href="/atom">
@@ -52,13 +53,13 @@ export default async function Page() {
         </a>{" "}
         you can subscribe to.
       </p>
-      <ul className="mt-5">
+      <ul {...stylex.props(styles.list)}>
         {sortedPosts.map((post, i) => (
-          <li className={clsx("flex before:content-[''] pl-0", i > 0 && "mt-1")} key={post.id}>
-            <Link className="text-sm font-mono flex gap-5 no-underline w-full" href={`/${post.id}`}>
-              <span className="whitespace-nowrap">{post.date}</span>
-              <span className="underline decoration-dotted decoration-gray-500 flex-2">{post.title}</span>
-              <span className="text-s text-gray-500">
+          <li data-unstyled="true" {...stylex.props(styles.item, i > 0 && styles.itemOffset)} key={post.id}>
+            <Link href={`/${post.id}`} {...stylex.props(styles.link)}>
+              <span {...stylex.props(styles.date)}>{post.date}</span>
+              <span {...stylex.props(styles.title)}>{post.title}</span>
+              <span {...stylex.props(styles.views)}>
                 {postViews[getPostViewsRedisKey(post.id)] != null
                   ? `${postViews[getPostViewsRedisKey(post.id)]}`
                   : VIEWS_PLACEHOLDER}
@@ -70,3 +71,38 @@ export default async function Page() {
     </section>
   );
 }
+
+const styles = stylex.create({
+  date: {
+    whiteSpace: "nowrap",
+  },
+  item: {
+    display: "flex",
+  },
+  itemOffset: {
+    marginTop: "0.25rem",
+  },
+  link: {
+    gap: "1.25rem",
+    display: "flex",
+    fontFamily: "var(--font-geist-mono), monospace",
+    fontSize: "0.875rem",
+    textDecorationLine: "none",
+    width: "100%",
+  },
+  list: {
+    marginTop: "1.25rem",
+  },
+  title: {
+    flexBasis: 0,
+    flexGrow: 2,
+    flexShrink: 1,
+    textDecorationColor: "var(--muted)",
+    textDecorationLine: "underline",
+    textDecorationStyle: "dotted",
+  },
+  views: {
+    color: "var(--muted)",
+    fontSize: "0.875rem",
+  },
+});
