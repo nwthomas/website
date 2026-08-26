@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "c7451782-63bd-47ad-a249-e450e26b2191",
+    date: "2026-08-26",
+    title: "avoid-ai-writing",
+    url: "https://github.com/conorbronsdon/avoid-ai-writing",
+  },
+  {
     id: "7f40aace-15f6-4c4f-a6c8-9a6503fedd1b",
     date: "2026-08-26",
     title: "OpenAI: The HuggingFace Incident and the Road Ahead",
