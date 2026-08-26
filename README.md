@@ -27,7 +27,7 @@ After that, you should be able to go ahead and start up the dev environment serv
 make dev
 ```
 
-It's recommended to set up a `.env` file modeled after the `.env.example` in the root of this repository if you want Sentry functionality, but the basic site will still run without that in place.
+Set up a `.env` file modeled after the `.env.example` in the root of this repository. Redis variables are required for writing views; Sentry and Spotify variables are optional.
 
 ## Project Management
 
@@ -38,12 +38,13 @@ You can find work for this repository in this [Trello board](https://trello.com/
 - [Focus Trap React](https://github.com/focus-trap/focus-trap-react)
 - [NextJS](https://nextjs.org)
 - [NextJS MDX](https://www.npmjs.com/package/@next/mdx)
-- [NextJS SEO](https://github.com/garmeeh/next-seo)
 - [Redux](https://redux.js.org)
+- [Redis](https://redis.io)
 - [Sentry](https://sentry.io/welcome)
-- [TailwindCSS](https://tailwindcss.com)
+- [StyleX](https://stylexjs.com)
 - [TypeScript](https://www.typescriptlang.org)
 - [Vercel](https://vercel.com)
+- [Vercel Analytics](https://vercel.com/docs/analytics)
 
 ## Acknowledgements
 

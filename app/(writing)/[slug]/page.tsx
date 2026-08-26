@@ -23,11 +23,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${metadata.title} | Nathan Thomas`,
-    description: metadata.excerpt,
+    description: metadata.description,
     metadataBase: new URL("https://www.nathanthomas.dev"),
     openGraph: {
       title: metadata.title,
-      description: metadata.excerpt,
+      description: metadata.description,
       url: "https://www.nathanthomas.dev",
       siteName: "Nathan Thomas",
       locale: "en_US",

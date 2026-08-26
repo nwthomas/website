@@ -41,13 +41,18 @@ This is a Next.js 16 application using the App Router (not Pages Router). The ma
     - `app/(writing)/content/` - MDX blog post files
     - `app/(writing)/components/` - Custom components used to render MDX elements
     - `app/(writing)/[slug]/page.tsx` - Dynamic route for individual blog posts
+    - `app/(writing)/[slug]/opengraph-image/route.tsx` - Per-post Open Graph image route
     - `app/(writing)/posts.json` - Post metadata (id, title, description, date) for static generation
   - `app/components/` - Shared components (Navbar, Footer, ThemeSwitch, etc.)
   - `app/hooks/` - Custom React hooks (`useTheme`, `useLockBodyScroll`)
   - `app/store/` - Redux Toolkit store, reducers, and selectors
+  - `app/utils/` - Shared utilities for constants, dates, Redis, and Spotify
+  - `app/atom/route.ts` and `app/bookmarks/atom/route.ts` - Atom feed route handlers
+  - `app/views/route.ts` - Redis-backed post view tracking endpoint
   - `app/writing/page.tsx` - Blog listing page
   - `app/bookmarks/page.tsx` - Bookmarks page
   - `app/books/page.tsx` - Book list page
+- `app/styles.ts` - Shared StyleX styles
 - `mdx-components.ts` - MDX component mappings for blog posts
 
 ### State Management
@@ -89,11 +94,11 @@ The project uses `@/*` path aliases (configured in `tsconfig.json`) that resolve
 
 ### Environment Variables
 
-Create a `.env` file based on `.env.example`. Sentry variables are optional - the site functions without them.
+Create a `.env` file based on `.env.example`. Redis variables are required for writing views; Sentry and Spotify variables are optional.
 
 ### Styling
 
-- TailwindCSS 4.x is used for styling
+- StyleX is used for styling
 - Uses Geist Sans and Geist Mono from the `geist` package
 - Dark mode is implemented via the `dark` class on the `<html>` element
 
