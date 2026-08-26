@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "7f40aace-15f6-4c4f-a6c8-9a6503fedd1b",
+    date: "2026-08-26",
+    title: "OpenAI: The HuggingFace Incident and the Road Ahead",
+    url: "https://openai.com/index/hugging-face-incident-and-the-road-ahead",
+  },
+  {
     id: "7d616966-a259-4643-b362-50fbff6450d6",
     date: "2026-08-26",
     title: "Bill Gates: Open Letter on AI",
