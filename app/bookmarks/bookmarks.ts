@@ -15,7 +15,7 @@ export const BOOKMARKS: Bookmarks = [
   {
     id: "c7451782-63bd-47ad-a249-e450e26b2191",
     date: "2026-08-26",
-    title: "Avoid AI Writing",
+    title: "avoid-ai-writing",
     url: "https://github.com/conorbronsdon/avoid-ai-writing",
   },
   {
