@@ -62,7 +62,10 @@ const styles = stylex.create({
     width: "100%",
   },
   coverImage: {
+    display: "block",
     objectFit: "cover",
+    height: "100%",
+    width: "100%",
   },
   link: {
     display: "block",
