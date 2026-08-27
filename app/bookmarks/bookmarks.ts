@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "35607a81-14bd-45c8-b905-03c1576cbad9",
+    date: "2026-08-27",
+    title: "vgpu",
+    url: "https://vgpu.sh",
+  },
+  {
     id: "c7451782-63bd-47ad-a249-e450e26b2191",
     date: "2026-08-26",
     title: "avoid-ai-writing",
