@@ -259,8 +259,8 @@ export const BOOKS: Book[] = [
     author: "Walter Isaacson",
     cover: "/images/books/steve-jobs.webp",
     url: "https://amzn.to/4rBOXge",
-    height: 1869,
-    width: 2846,
+    height: 2846,
+    width: 1869,
   },
   {
     id: "staff-engineer",
