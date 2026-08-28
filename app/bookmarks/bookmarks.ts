@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "5e543d2d-6d24-437f-82f9-07c371e1311a",
+    date: "2026-08-28",
+    title: "The Load-Bearing Vocabulary of Claude",
+    url: "https://louisabraham.github.io/load-bearing/",
+  },
+  {
     id: "35607a81-14bd-45c8-b905-03c1576cbad9",
     date: "2026-08-27",
     title: "vgpu",
