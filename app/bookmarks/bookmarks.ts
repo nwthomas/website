@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "6f34821f-7fc8-4974-86ae-1d0d98953959",
+    date: "2026-08-28",
+    title: "Bigscreen VR",
+    url: "https://bigscreenvr.com",
+  },
+  {
     id: "5e543d2d-6d24-437f-82f9-07c371e1311a",
     date: "2026-08-28",
     title: "The Load-Bearing Vocabulary of Claude",
