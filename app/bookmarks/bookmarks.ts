@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "4b106fa2-aacc-4bb5-ae4e-be665800a487",
+    date: "2026-08-31",
+    title: "The Hugging Face Incident Is Not an AI Story",
+    url: "https://uphack.io/blog/post/the-hugging-face-incident-is-not-an-ai-story",
+  },
+  {
     id: "f726833e-7139-488b-bf5b-ceb23020e3e6",
     date: "2026-08-31",
     title: "No AI Fridays",
