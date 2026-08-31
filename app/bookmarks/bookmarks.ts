@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "b3732665-e9d2-473c-84e5-b2f2d82ed411",
+    date: "2026-08-31",
+    title: "Anthropic: Improving Our Alignment and Security Efforts",
+    url: "https://www.anthropic.com/news/improving-alignment-security-efforts",
+  },
+  {
     id: "4b106fa2-aacc-4bb5-ae4e-be665800a487",
     date: "2026-08-31",
     title: "The Hugging Face Incident Is Not an AI Story",
