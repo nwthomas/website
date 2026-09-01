@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "48738003-2b63-4202-9d29-b354e35073c1",
+    date: "2026-09-01",
+    title: "Anthropic: Training a Misaligned Reward Seeker",
+    url: "https://alignment.anthropic.com/2026/reward-seeker",
+  },
+  {
     id: "b3732665-e9d2-473c-84e5-b2f2d82ed411",
     date: "2026-08-31",
     title: "Anthropic: Improving Our Alignment and Security Efforts",
