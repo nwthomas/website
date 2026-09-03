@@ -1,12 +1,6 @@
 {
   "posts": [
     {
-      "id": "strange-faces",
-      "title": "Strange Faces",
-      "description": "\"All cruelty springs from weakness.\"",
-      "date": "2026-02-27"
-    },
-    {
       "id": "imagination",
       "title": "Imagination",
       "description": "Imagination is what makes us great. Don't lose it.",
@@ -23,6 +17,12 @@
       "title": "Simple is Hard Enough",
       "description": "Complexity is the enemy of maintainability",
       "date": "2026-01-08"
+    },
+    {
+      "id": "strange-faces",
+      "title": "Strange Faces",
+      "description": "\"All cruelty springs from weakness.\"",
+      "date": "2026-02-27"
     },
     {
       "id": "on-finding-confidence",
