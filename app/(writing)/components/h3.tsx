@@ -7,9 +7,7 @@ import { sharedStyles } from "@/app/styles";
 export function H3({ children }: { children: ReactNode }) {
   return (
     <div {...stylex.props(styles.wrapper)}>
-      <div {...stylex.props(sharedStyles.pageSection)}>
-        {getHeading(children, HeadingLevel.H3)}
-      </div>
+      <div {...stylex.props(sharedStyles.pageSection)}>{getHeading(children, HeadingLevel.H3)}</div>
     </div>
   );
 }

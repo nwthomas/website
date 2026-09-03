@@ -46,13 +46,13 @@ export default function Page() {
 
 const styles = stylex.create({
   booksGrid: {
-    columnGap: '1.5rem',
+    columnGap: "1.5rem",
     display: "grid",
     gridTemplateColumns: {
       default: "repeat(2, 1fr)",
       "@media (min-width: 640px)": "repeat(3, 1fr)",
     },
-    rowGap: '2rem',
+    rowGap: "2rem",
     marginTop: "2.5rem",
   },
 });

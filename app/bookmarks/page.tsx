@@ -31,13 +31,13 @@ export default function Page() {
       </p>
       <ul {...stylex.props(styles.list)}>
         {BOOKMARKS.map((bookmark, i) => (
-          <li data-unstyled="true" {...stylex.props(styles.item, i > 0 && styles.itemOffset)} key={bookmark.url + bookmark.id}>
+          <li
+            data-unstyled="true"
+            {...stylex.props(styles.item, i > 0 && styles.itemOffset)}
+            key={bookmark.url + bookmark.id}
+          >
             <>
-              <a
-                aria-label={`Link to ${bookmark.title}`}
-                href={bookmark.url}
-                {...stylex.props(styles.link)}
-              >
+              <a aria-label={`Link to ${bookmark.title}`} href={bookmark.url} {...stylex.props(styles.link)}>
                 <span {...stylex.props(styles.date)}>{bookmark.date}</span>
                 <span {...stylex.props(styles.title)}>{bookmark.title}</span>
               </a>

@@ -28,9 +28,7 @@ export function Blockquote({ children }: { children: ReactNode }) {
 
   return (
     <div {...stylex.props(styles.wrapper)}>
-      <blockquote {...stylex.props(styles.quote, sharedStyles.pageSection)}>
-        {normalizedChildren}
-      </blockquote>
+      <blockquote {...stylex.props(styles.quote, sharedStyles.pageSection)}>{normalizedChildren}</blockquote>
     </div>
   );
 }

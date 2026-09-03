@@ -25,7 +25,7 @@ function getHeadingAndHeadingId(heading: string) {
 }
 
 export function getHeading(children: ReactNode, level: HeadingLevel): ReactNode {
-  if (typeof children === 'string') {
+  if (typeof children === "string") {
     const { heading, headingId } = getHeadingAndHeadingId(children);
     let headingElement: ReactNode = children;
     if (level === HeadingLevel.H1) {
@@ -39,7 +39,7 @@ export function getHeading(children: ReactNode, level: HeadingLevel): ReactNode 
     } else if (level === HeadingLevel.H5) {
       headingElement = <h5 id={headingId}>{heading}</h5>;
     }
-    
+
     if (!headingId) {
       return headingElement;
     }
@@ -50,7 +50,7 @@ export function getHeading(children: ReactNode, level: HeadingLevel): ReactNode 
       </Link>
     );
   }
-  
+
   return children;
 }
 

@@ -15,7 +15,7 @@ export const colors = {
 
 export const fonts = {
   mono: "var(--font-geist-mono), monospace",
-  sans: "var(--font-geist-sans), -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+  sans: 'var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
 };
 
 export const breakpoints = {

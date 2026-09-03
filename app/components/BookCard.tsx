@@ -13,12 +13,15 @@ type Props = {
 
 export function BookCard({ title, author, cover, url, height, width, unoptimized }: Props) {
   return (
-    <a href={url} target="_blank" rel="noopener noreferrer" aria-label={`${title} by ${author}`} {...stylex.props(styles.link)}>
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${title} by ${author}`}
+      {...stylex.props(styles.link)}
+    >
       <div {...stylex.props(styles.card)}>
-        <div
-          {...stylex.props(styles.cover)}
-          style={{ aspectRatio: `${width} / ${height}` }}
-        >
+        <div {...stylex.props(styles.cover)} style={{ aspectRatio: `${width} / ${height}` }}>
           <Image
             src={cover}
             alt={title}
