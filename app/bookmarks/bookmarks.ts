@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "361534d2-693e-4b90-aa06-ec5bfab926c4",
+    date: "2026-09-03",
+    title: "MediaSession API",
+    url: "https://developer.mozilla.org/en-US/docs/Web/API/MediaSession",
+  },
+  {
     id: "ac1f78b9-9ccc-441d-a47f-b743e89d81d3",
     date: "2026-09-03",
     title: "CachStorage",
