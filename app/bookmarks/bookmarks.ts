@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "ac1f78b9-9ccc-441d-a47f-b743e89d81d3",
+    date: "2026-09-03",
+    title: "CachStorage",
+    url: "https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage",
+  },
+  {
     id: "48738003-2b63-4202-9d29-b354e35073c1",
     date: "2026-09-01",
     title: "Anthropic: Training a Misaligned Reward Seeker",
