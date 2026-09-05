@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "77fa7595-700b-4f4f-9653-a1480606ed73",
+    date: "2026-09-09",
+    title: "Ramp: Cracks in the AI Thesis Part 2",
+    url: "https://ramp.com/data/ai-index-sept-2026",
+  },
+  {
     id: "3cb4e21c-09c0-49b6-811e-090941aa6229",
     date: "2026-09-09",
     title: "Anthropic: Scenarios for Our Economic Future",
