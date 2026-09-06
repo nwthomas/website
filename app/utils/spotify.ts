@@ -1,4 +1,4 @@
-import { getSpotifyRecentlyPlayedRedisKey, redis } from "@/app/utils/redis";
+import { SPOTIFY_RECENTLY_PLAYED_TTL_S, getSpotifyRecentlyPlayedRedisKey, redis } from "@/app/utils/redis";
 
 export type NowPlayingTrack = {
   track: string;
@@ -133,7 +133,7 @@ export async function getNowPlaying(): Promise<NowPlayingTrack | null> {
   }
 
   if (process.env.NODE_ENV === "production") {
-    await redis.set(getSpotifyRecentlyPlayedRedisKey(), track, 60 * 60);
+    await redis.set(getSpotifyRecentlyPlayedRedisKey(), track, SPOTIFY_RECENTLY_PLAYED_TTL_S);
   }
 
   return track;
