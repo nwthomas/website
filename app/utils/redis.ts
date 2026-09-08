@@ -7,6 +7,10 @@ function getPostViewsRedisKey(postId: string) {
   return `${postId}-views`;
 }
 
+function getSpotifyRecentlyPlayedRedisKey() {
+  return "spotify-most-recently-played";
+}
+
 class RedisSingleton {
   private static instance: RedisSingleton;
   private client: RedisClientType | null = null;
@@ -153,4 +157,4 @@ class RedisSingleton {
 
 const redis = RedisSingleton.getInstance();
 
-export { redis, getPostViewsRedisKey };
+export { redis, getPostViewsRedisKey, getSpotifyRecentlyPlayedRedisKey };

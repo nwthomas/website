@@ -1,3 +1,5 @@
+import { getSpotifyRecentlyPlayedRedisKey, redis } from "@/app/utils/redis";
+
 export type NowPlayingTrack = {
   track: string;
   artists: string;
@@ -118,9 +120,20 @@ export async function getNowPlaying(): Promise<NowPlayingTrack | null> {
     return null;
   }
 
+  if (process.env.NODE_ENV === "production") {
+    const recentlyPlayedCache = await redis.get<NowPlayingTrack | null>(getSpotifyRecentlyPlayedRedisKey());
+    if (recentlyPlayedCache) {
+      return recentlyPlayedCache;
+    }
+  }
+
   let track: NowPlayingTrack | null = await getCurrentlyPlaying(accessToken);
   if (!track) {
     track = await getRecentlyPlayed(accessToken, 1);
+  }
+
+  if (process.env.NODE_ENV === "production") {
+    await redis.set(getSpotifyRecentlyPlayedRedisKey(), track, 60 * 60);
   }
 
   return track;
