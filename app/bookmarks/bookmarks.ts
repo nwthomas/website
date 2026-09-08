@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "54c5a4e7-59a5-40f7-b0c1-0183f9f0ad94",
+    date: "2026-09-08",
+    title: "Doodle Shooter",
+    url: "https://doodleshooter.vercel.app",
+  },
+  {
     id: "361534d2-693e-4b90-aa06-ec5bfab926c4",
     date: "2026-09-03",
     title: "MediaSession API",
