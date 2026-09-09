@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "4a8c85cb-fda8-4858-a7c0-1a21c3825841",
+    date: "2026-09-09",
+    title: "Apple Reference Image",
+    url: "https://techcrunch.com/2026/09/09/apple-has-a-new-way-prove-your-iphone-photos-arent-ai-slop",
+  },
+  {
     id: "77fa7595-700b-4f4f-9653-a1480606ed73",
     date: "2026-09-09",
     title: "Ramp: Cracks in the AI Thesis Part 2",
