@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "3cb4e21c-09c0-49b6-811e-090941aa6229",
+    date: "2026-09-09",
+    title: "Anthropic: Scenarios for Our Economic Future",
+    url: "https://www.anthropic.com/institute/econ-scenarios",
+  },
+  {
     id: "a456a5a6-1c07-41da-b918-cb6ba7281ab6",
     date: "2026-09-08",
     title: "GPT-6 Astra",
