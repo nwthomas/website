@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "a8de32c3-34a0-4389-b101-4803a1ca3067",
+    date: "2026-09-11",
+    title: "Anthropic: Detecting and Countering Misuse of AI September 2026",
+    url: "https://www.anthropic.com/threat-intelligence-report-september-2026",
+  },
+  {
     id: "4a8c85cb-fda8-4858-a7c0-1a21c3825841",
     date: "2026-09-09",
     title: "Apple Reference Image",
