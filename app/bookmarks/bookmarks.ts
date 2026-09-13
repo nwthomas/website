@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "d7dbceee-6f14-4f2c-b7f0-a638957ec648",
+    date: "2026-09-12",
+    title: "Dario Amodei: We Must Pace the Frontier",
+    url: "https://darioamodei.com/post/we-must-pace-the-frontier",
+  },
+  {
     id: "a8de32c3-34a0-4389-b101-4803a1ca3067",
     date: "2026-09-11",
     title: "Anthropic: Detecting and Countering Misuse of AI September 2026",
