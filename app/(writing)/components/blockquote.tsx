@@ -28,9 +28,7 @@ export function Blockquote({ children }: { children: ReactNode }) {
 
   return (
     <div {...stylex.props(styles.wrapper)}>
-      <blockquote {...stylex.props(stylex.defaultMarker(), styles.quote, sharedStyles.pageSection)} data-mdx-blockquote>
-        {normalizedChildren}
-      </blockquote>
+      <blockquote {...stylex.props(styles.quote, sharedStyles.pageSection)}>{normalizedChildren}</blockquote>
     </div>
   );
 }
@@ -46,6 +44,7 @@ const styles = stylex.create({
     borderLeftColor: "var(--muted)",
     borderLeftStyle: "solid",
     borderLeftWidth: 4,
+    paddingTop: "1.25rem",
   },
   wrapper: {
     display: "flex",

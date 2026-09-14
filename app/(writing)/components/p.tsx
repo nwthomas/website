@@ -14,10 +14,7 @@ const styles = stylex.create({
   wrapper: {
     display: "flex",
     justifyContent: "center",
-    marginBottom: {
-      default: "1.25rem",
-      [stylex.when.ancestor("[data-mdx-blockquote]")]: 0,
-    },
+    marginBottom: "1.25rem",
     width: "100%",
   },
 });
