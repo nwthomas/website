@@ -44,6 +44,7 @@ const styles = stylex.create({
     borderLeftColor: "var(--muted)",
     borderLeftStyle: "solid",
     borderLeftWidth: 4,
+    paddingTop: "1.25rem",
   },
   wrapper: {
     display: "flex",
