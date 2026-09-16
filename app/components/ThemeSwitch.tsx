@@ -33,6 +33,14 @@ export function ThemeSwitch() {
             type="checkbox"
             defaultChecked={isDarkMode}
             onChange={handleThemeSwitchClick}
+            onKeyDown={(event) => {
+              if (event.key === "Enter") {
+                event.preventDefault();
+                if (!event.repeat) {
+                  event.currentTarget.click();
+                }
+              }
+            }}
             ref={inputRef}
             tabIndex={0}
             {...stylex.props(styles.input)}
@@ -54,7 +62,15 @@ export function ThemeSwitch() {
 
 const styles = stylex.create({
   container: {
-    height: "1.5rem",
+    borderRadius: 9999,
+    outlineColor: "var(--foreground)",
+    outlineOffset: 0,
+    outlineStyle: {
+      default: "none",
+      ":focus-within": "solid",
+    },
+    outlineWidth: 2,
+    height: 26,
     marginBottom: 3,
     width: 50,
   },
@@ -101,18 +117,6 @@ const styles = stylex.create({
     cursor: "pointer",
     display: "flex",
     justifyContent: "space-between",
-    outlineOffset: {
-      default: null,
-      ":focus-within": 2,
-    },
-    outlineStyle: {
-      default: "none",
-      ":focus-within": "solid",
-    },
-    outlineWidth: {
-      default: 0,
-      ":focus-within": 2,
-    },
     position: "relative",
     touchAction: "pan-x",
     transitionDuration: "200ms",
