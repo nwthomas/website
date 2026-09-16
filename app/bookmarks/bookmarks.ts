@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "b676961d-6457-4e63-a05e-814dfdc0d63c",
+    date: "2026-09-16",
+    title: "Google: Introducing Gemini 3.8 Live and 3.8 Live Extended Thinking",
+    url: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking",
+  },
+  {
     id: "d7dbceee-6f14-4f2c-b7f0-a638957ec648",
     date: "2026-09-12",
     title: "Dario Amodei: We Must Pace the Frontier",
