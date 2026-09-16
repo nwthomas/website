@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "7b2dd37d-30ec-4d64-80b6-6371a92645d7",
+    date: "2026-09-16",
+    title: "Apple iPod Engraver",
+    url: "https://dunstanorchard.com/apple-ipod-engraver",
+  },
+  {
     id: "b676961d-6457-4e63-a05e-814dfdc0d63c",
     date: "2026-09-16",
     title: "Google: Introducing Gemini 3.8 Live and 3.8 Live Extended Thinking",
