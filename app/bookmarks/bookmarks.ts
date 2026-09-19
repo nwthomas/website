@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "55211128-e601-4176-927c-ad37ce8e4b6b",
+    date: "2026-09-19",
+    title: "The Senior Engineer Death Spiral",
+    url: "https://sunilpai.dev/posts/the-senior-engineer-death-spiral",
+  },
+  {
     id: "7b2dd37d-30ec-4d64-80b6-6371a92645d7",
     date: "2026-09-16",
     title: "Apple iPod Engraver",
