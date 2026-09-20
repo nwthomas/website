@@ -15,7 +15,7 @@ export const BOOKMARKS: Bookmarks = [
   {
     id: "ff6f0cfa-b16c-4a18-93a5-b06b5f8f2e8b",
     date: "2026-09-20",
-    title: "Mustafa Suleyman",
+    title: "Mustafa Suleyman: A Warning About Model Warfare",
     url: "https://mustafa-suleyman.ai/a-warning-about-model-welfare",
   },
   {
