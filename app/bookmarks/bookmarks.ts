@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "f681b3ba-1590-41b1-a6fc-3f0474030abc",
+    date: "2026-09-20",
+    title: "How Notion Handles Concurrent Editing with CRDTs",
+    url: "https://www.notion.com/blog/how-notion-handles-concurrent-editing-with-crdts",
+  },
+  {
     id: "55211128-e601-4176-927c-ad37ce8e4b6b",
     date: "2026-09-19",
     title: "The Senior Engineer Death Spiral",
