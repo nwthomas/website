@@ -13,10 +13,15 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "98969736-fc62-469f-9aea-7d615c55c738",
+    date: "2026-09-23",
+    title: "Anthropic: Introducing Claude Opus 5.5",
+    url: "https://www.anthropic.com/claude-opus-5-5",
+  },
+  {
     id: "52025114-6f96-4553-91bb-a298d7a1e6fd",
     date: "2026-09-23",
-    title:
-      "Anthropic: Claude Discovers a Novel Enzyme System with CRISPR-Like Repeats",
+    title: "Anthropic: Claude Discovers a Novel Enzyme System with CRISPR-Like Repeats",
     url: "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system",
   },
   {
