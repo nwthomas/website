@@ -13,6 +13,13 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "52025114-6f96-4553-91bb-a298d7a1e6fd",
+    date: "2026-09-23",
+    title:
+      "Anthropic: Claude Discovers a Novel Enzyme System with CRISPR-Like Repeats",
+    url: "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system",
+  },
+  {
     id: "ff6f0cfa-b16c-4a18-93a5-b06b5f8f2e8b",
     date: "2026-09-20",
     title: "Mustafa Suleyman: A Warning About Model Warfare",
