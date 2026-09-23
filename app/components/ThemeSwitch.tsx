@@ -63,7 +63,7 @@ export function ThemeSwitch() {
 const styles = stylex.create({
   container: {
     borderRadius: 9999,
-    outlineColor: "var(--foreground)",
+    outlineColor: "#0000ff",
     outlineOffset: 0,
     outlineStyle: {
       default: "none",
