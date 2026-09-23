@@ -36,12 +36,12 @@ html.dark {
 
 :focus,
 :focus-visible {
-  outline: 2px solid var(--foreground);
+  outline: 2px solid #0000ff;
 }
 
 ::selection {
-  background: var(--foreground);
-  color: var(--background);
+  background: #0000ff;
+  color: #ffffff;
 }
 
 html,
