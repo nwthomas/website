@@ -28,7 +28,7 @@ export function RecentlyPlayed({ track }: Props) {
         ) : null}
         <span>
           <span {...stylex.props(styles.track)}>{track.track}</span>
-          {" — "}
+          {" - "}
           <span {...stylex.props(styles.artists)}>{track.artists}</span>
         </span>
       </a>
