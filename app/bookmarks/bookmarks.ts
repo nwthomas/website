@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "60541ab6-e736-4a18-999c-8370b031bd0a",
+    date: "2026-09-29",
+    title: "America.gov",
+    url: "https://america.gov",
+  },
+  {
     id: "98969736-fc62-469f-9aea-7d615c55c738",
     date: "2026-09-23",
     title: "Anthropic: Introducing Claude Opus 5.5",
