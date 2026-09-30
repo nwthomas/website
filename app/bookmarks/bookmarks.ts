@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "8f79dfb3-5d9b-4b4d-bfcd-e2adc44bcbc2",
+    date: "2026-09-30",
+    title: "OpenAI: ChatGPT MCP Events",
+    url: "https://developers.openai.com/plugins/build/mcp-events",
+  },
+  {
     id: "60541ab6-e736-4a18-999c-8370b031bd0a",
     date: "2026-09-29",
     title: "America.gov",
