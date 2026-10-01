@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "fce5e688-8bb2-4b57-be61-2bab4a121fc1",
+    date: "2026-10-01",
+    title: "Cloudflare: Workers KV Instant",
+    url: "https://blog.cloudflare.com/workers-kv-instant",
+  },
+  {
     id: "8f79dfb3-5d9b-4b4d-bfcd-e2adc44bcbc2",
     date: "2026-09-30",
     title: "OpenAI: ChatGPT MCP Events",
