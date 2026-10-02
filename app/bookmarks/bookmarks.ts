@@ -11,6 +11,7 @@ export type Bookmark = {
 
 export type Bookmarks = Array<Bookmark>;
 
+// Test comment
 export const BOOKMARKS: Bookmarks = [
   {
     id: "fce5e688-8bb2-4b57-be61-2bab4a121fc1",
