@@ -1,8 +1,12 @@
-import { BOOKMARKS } from "./bookmarks";
+"use client";
+
 import * as stylex from "@stylexjs/stylex";
+
+import { BOOKMARKS } from "./bookmarks";
 import Link from "next/link";
 import { Metadata } from "next";
 import { sharedStyles } from "@/app/styles";
+import { useEffect } from "react";
 
 export const metadata: Metadata = {
   title: "Bookmarks | Nathan Thomas",
@@ -20,6 +24,10 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
+  useEffect(() => {
+    console.log("This is a test");
+  }, []);
+
   return (
     <section {...stylex.props(sharedStyles.pageSection)}>
       <p>
