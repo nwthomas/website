@@ -1,6 +1,12 @@
 {
   "posts": [
     {
+      "id": "living-code-reviews",
+      "title": "Living Code Reviews",
+      "description": "Nobody has nailed the agentic code review process, and it's holding the entire industry back.",
+      "date": "2026-10-03"
+    },
+    {
       "id": "imagination",
       "title": "Imagination",
       "description": "Imagination is what makes us great. Don't lose it.",
