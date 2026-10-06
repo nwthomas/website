@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "f45d7c26-fd50-42f7-9442-74f1a6242ce7",
+    date: "2026-10-06",
+    title: "OpenAI: Math",
+    url: "https://github.com/openai/math",
+  },
+  {
     id: "fce5e688-8bb2-4b57-be61-2bab4a121fc1",
     date: "2026-10-01",
     title: "Cloudflare: Workers KV Instant",
