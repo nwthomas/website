@@ -11,6 +11,10 @@ export type Bookmark = {
 
 export type Bookmarks = Array<Bookmark>;
 
+export function uselessFunction() {
+  return 5;
+}
+
 // Test comment for webhooks
 // Code reviewers should notice that this is a comment that does not belong
 // Additional comment
