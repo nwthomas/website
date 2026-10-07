@@ -31,8 +31,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     // The suppresHydrationWarning is for the script below which runs client-side to set the theme.
-    // This may eventually be upgraded to use a server-side set cookie (and is certainly what would
-    // be used in a non-personal production environment). For now, this works great for this site.
+    // The user's theme is stored in Postgres (see app/theme/route.ts), and a readable "theme" cookie
+    // mirrors it so this script can apply the theme before hydration without waiting on a fetch.
     <html lang="en" suppressHydrationWarning>
       <head>
         <script
@@ -55,11 +55,33 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   }
                 }
 
-                try {
-                  var savedPreferredTheme = localStorage.getItem(THEME_KEY);
+                function isTheme(value) {
+                  return value === DARK_THEME || value === LIGHT_THEME;
+                }
 
-                  if (savedPreferredTheme === DARK_THEME || savedPreferredTheme === LIGHT_THEME) {
+                try {
+                  var themeCookie = document.cookie.match(/(?:^|; )theme=([^;]*)/);
+                  var savedPreferredTheme = themeCookie && themeCookie[1];
+
+                  if (isTheme(savedPreferredTheme)) {
                     preferredTheme = savedPreferredTheme;
+                  }
+                } catch (error) {}
+
+                // One-time migration from the old localStorage-based theme. The theme is handed to
+                // React via window.__legacyTheme so it can be persisted. This can be removed after
+                // a few months once returning visitors have been migrated.
+                try {
+                  var legacyTheme = localStorage.getItem(THEME_KEY);
+
+                  if (isTheme(legacyTheme)) {
+                    if (!preferredTheme) {
+                      preferredTheme = legacyTheme;
+                      window.__legacyTheme = legacyTheme;
+                      // Write the cookie now so the theme isn't lost if saving to the database fails
+                      document.cookie = THEME_KEY + "=" + legacyTheme + "; path=/; max-age=31536000; samesite=lax";
+                    }
+                    localStorage.removeItem(THEME_KEY);
                   }
                 } catch (error) {}
 
@@ -67,7 +89,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   setTheme(newTheme);
 
                   try {
-                    localStorage.setItem(THEME_KEY, newTheme);
+                    document.cookie = THEME_KEY + "=" + newTheme + "; path=/; max-age=31536000; samesite=lax";
                   } catch (error) {}
                 }
 

@@ -21,13 +21,19 @@ Next, clone down this repository and run the following command to install depend
 make install
 ```
 
+Start the local Postgres database (requires [Docker](https://www.docker.com)), which stores theme preferences:
+
+```bash
+make db-up
+```
+
 After that, you should be able to go ahead and start up the dev environment server by running:
 
 ```bash
 make dev
 ```
 
-Set up a `.env` file modeled after the `.env.example` in the root of this repository. Redis variables are required for writing views; Sentry and Spotify variables are optional.
+Set up a `.env` file modeled after the `.env.example` in the root of this repository. Redis variables are required for writing views, and `DATABASE_URL` is required for saving themes; Sentry and Spotify variables are optional.
 
 ## Project Management
 
@@ -38,6 +44,7 @@ You can find work for this repository in this [Trello board](https://trello.com/
 - [Focus Trap React](https://github.com/focus-trap/focus-trap-react)
 - [NextJS](https://nextjs.org)
 - [NextJS MDX](https://www.npmjs.com/package/@next/mdx)
+- [Postgres](https://www.postgresql.org)
 - [Redux](https://redux.js.org)
 - [Redis](https://redis.io)
 - [Sentry](https://sentry.io/welcome)

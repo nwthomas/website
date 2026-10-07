@@ -23,6 +23,13 @@ This project uses **bun** as the package manager. The repository enforces this v
 
 - `make install` or `make i` - Install dependencies
 
+### Database
+
+- `make db-up` - Start the local Postgres container (`compose.yaml`); schema in `db/init/` is applied on first start
+- `make db-down` - Stop the local Postgres container
+- `make db-reset` - Wipe the local Postgres volume and start fresh
+- `make db-psql` - Open a psql shell against the local database
+
 ### Production
 
 - `make start` - Start the production server after a build
@@ -66,12 +73,13 @@ The Redux store is provided to the app via `app/components/Providers.tsx` which 
 
 ### Theme System
 
-The theme uses a hybrid approach:
+The theme is stored per user in Postgres and uses a hybrid approach:
 
-1. An inline script in `app/layout.tsx` runs before React hydration to prevent flash of incorrect theme
-2. The script reads from localStorage and sets the initial theme class on the `<html>` element
-3. React components (ThemeSwitch) sync with this via the Redux store
-4. This avoids server/client mismatch while maintaining fast theme initialization
+1. Users are anonymous and identified by a random UUID in an httpOnly `uid` cookie, created on the first theme save
+2. `app/theme/route.ts` reads (`GET`) and saves (`POST`) the user's theme in the `users` table via `app/utils/db.ts`, and sets a readable `theme` cookie that mirrors it
+3. An inline script in `app/layout.tsx` runs before React hydration, reads the `theme` cookie (falling back to the OS preference), and sets the initial theme class on the `<html>` element to prevent a flash of incorrect theme
+4. React components (ThemeSwitch) sync with this via the Redux store; `useTheme` persists changes to the database and reconciles with it on load
+5. This keeps pages static, avoids server/client mismatch, and degrades gracefully to the cookie/OS preference if the database is unavailable
 
 ### Blog Post Architecture
 
@@ -94,7 +102,7 @@ The project uses `@/*` path aliases (configured in `tsconfig.json`) that resolve
 
 ### Environment Variables
 
-Create a `.env` file based on `.env.example`. Redis variables are required for writing views; Sentry and Spotify variables are optional.
+Create a `.env` file based on `.env.example`. Redis variables are required for writing views; `DATABASE_URL` is required for saving themes (use the value in `.env.example` with `make db-up` locally); Sentry and Spotify variables are optional.
 
 ### Styling
 
@@ -121,3 +129,13 @@ Sentry is integrated for error tracking via `@sentry/nextjs` with configuration 
 - `sentry.client.config.ts`
 - `sentry.edge.config.ts`
 - `sentry.server.config.ts`
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

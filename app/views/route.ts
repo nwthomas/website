@@ -1,33 +1,9 @@
 import { getPostViewsRedisKey, redis } from "@/app/utils/redis";
 
-const ALLOWED_ORIGINS = ["https://nathanthomas.dev", "https://www.nathanthomas.dev"];
-if (process.env.NODE_ENV === "development") {
-  ALLOWED_ORIGINS.push("http://localhost:3000");
-}
+import { isAllowedOrigin } from "@/app/utils/origin";
 
 export async function POST(request: Request): Promise<Response> {
-  const origin = request.headers.get("origin") || request.headers.get("referer");
-  if (origin) {
-    try {
-      const originUrl = new URL(origin);
-      const isOriginAllowed = ALLOWED_ORIGINS.some((allowedOrigin) => {
-        try {
-          const allowedUrl = new URL(allowedOrigin);
-          return originUrl.origin === allowedUrl.origin;
-        } catch {
-          return false;
-        }
-      });
-
-      if (!isOriginAllowed) {
-        return new Response(null, { status: 403 });
-      }
-    } catch {
-      // If origin URL parsing fails, reject the request
-      return new Response(null, { status: 403 });
-    }
-  } else {
-    // No origin header, reject the request
+  if (!isAllowedOrigin(request)) {
     return new Response(null, { status: 403 });
   }
 
