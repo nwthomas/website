@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "1cf3e822-c3f4-4a82-a7c6-63fbb20c86a7",
+    date: "2026-10-07",
+    title: "Luau",
+    url: "https://luau.org",
+  },
+  {
     id: "b0a9c7b3-3d46-48dc-a1ad-736e46b3e2d9",
     date: "2026-10-07",
     title: "Apple Image Reference Map",
