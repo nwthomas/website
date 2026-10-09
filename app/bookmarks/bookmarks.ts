@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "c5630157-8d17-4ab1-8162-207026648035",
+    date: "2026-10-08",
+    title: "Project Reclaimer",
+    url: "https://projectreclaimer.dev",
+  },
+  {
     id: "175d2801-ce28-4e16-be0c-0df64798b681",
     date: "2026-10-07",
     title: "High Agency In 30 Minutes",
