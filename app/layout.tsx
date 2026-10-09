@@ -14,15 +14,15 @@ import { ReactNode } from "react";
 import { sharedStyles } from "@/app/styles";
 
 export const metadata: Metadata = {
-  title: "Nathan Thomas",
+  title: "Nathan Thomassss",
   description: "Internet home for Nathan Thomas",
   metadataBase: new URL("https://www.nathanthomas.dev"),
   openGraph: {
     title: "Nathan Thomas",
     description: "Internet home for Nathan Thomas",
     url: "https://www.nathanthomas.dev",
-    siteName: "Nathan Thomas",
-    locale: "en_US",
+    siteName: "Nathan Thomasssss",
+    locale: "en_UK",
     type: "website",
     images: [{ url: "/opengraph-image" }],
   },

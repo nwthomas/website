@@ -11,6 +11,13 @@ export type Bookmark = {
 
 export type Bookmarks = Array<Bookmark>;
 
+export function uselessFunction() {
+  return 5;
+}
+
+// Test comment for webhooks
+// Code reviewers should notice that this is a comment that does not belong
+// Additional comment
 export const BOOKMARKS: Bookmarks = [
   {
     id: "9cb65b69-47af-45e7-8672-32a8e5e0464d",
