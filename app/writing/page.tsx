@@ -4,6 +4,7 @@ import * as stylex from "@stylexjs/stylex";
 import Link from "next/link";
 import { Metadata } from "next";
 import { Post } from "@/app/(writing)/utils/types";
+import { RssIcon } from "@/app/components/Icons/RssIcon";
 import postsJson from "@/app/(writing)/posts.json";
 import { sharedStyles } from "@/app/styles";
 
@@ -39,8 +40,9 @@ export default async function Page() {
     <section {...stylex.props(sharedStyles.pageSection)}>
       <p>
         Below is a curated collection of my writing. I also have an{" "}
-        <Link aria-label="Link to Nathan's Atom RSS feed" href="/atom">
-          RSS feed
+        <Link aria-label="Link to Nathan's Atom RSS feed" href="/atom" {...stylex.props(sharedStyles.rssFeedLink)}>
+          RSS feed{"\u00a0"}
+          <RssIcon />
         </Link>{" "}
         you can follow and a{" "}
         <a
