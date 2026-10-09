@@ -1,4 +1,4 @@
-import { SPOTIFY_RECENTLY_PLAYED_TTL_S, getSpotifyRecentlyPlayedRedisKey, redis } from "@/app/utils/redis";
+import { unstable_cache } from "next/cache";
 
 export type NowPlayingTrack = {
   track: string;
@@ -10,6 +10,8 @@ export type NowPlayingTrack = {
 
 const SPOTIFY_TOKEN_URL = "https://accounts.spotify.com/api/token";
 const SPOTIFY_API_BASE = "https://api.spotify.com/v1";
+const SPOTIFY_REVALIDATE_S = 5 * 60;
+const SPOTIFY_REQUEST_TIMEOUT_MS = 3000;
 
 export async function getAccessToken(): Promise<string | null> {
   const clientId = process.env.SPOTIFY_CLIENT_ID;
@@ -29,13 +31,14 @@ export async function getAccessToken(): Promise<string | null> {
 
   const res = await fetch(SPOTIFY_TOKEN_URL, {
     cache: "no-store",
+    signal: AbortSignal.timeout(SPOTIFY_REQUEST_TIMEOUT_MS),
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: body.toString(),
   });
 
   if (!res.ok) {
-    return null;
+    throw new Error(`Spotify request failed (${res.status})`);
   }
 
   const data = (await res.json()) as { access_token?: string };
@@ -62,11 +65,16 @@ function normalizeTrack(item: {
 export async function getCurrentlyPlaying(accessToken: string): Promise<NowPlayingTrack | null> {
   const res = await fetch(`${SPOTIFY_API_BASE}/me/player/currently-playing`, {
     cache: "no-store",
+    signal: AbortSignal.timeout(SPOTIFY_REQUEST_TIMEOUT_MS),
     headers: { Authorization: `Bearer ${accessToken}` },
   });
 
-  if (res.status === 204 || !res.ok) {
+  if (res.status === 204) {
     return null;
+  }
+
+  if (!res.ok) {
+    throw new Error(`Spotify request failed (${res.status})`);
   }
 
   const data = (await res.json()) as {
@@ -88,11 +96,12 @@ export async function getCurrentlyPlaying(accessToken: string): Promise<NowPlayi
 export async function getRecentlyPlayed(accessToken: string, limit = 1): Promise<NowPlayingTrack | null> {
   const res = await fetch(`${SPOTIFY_API_BASE}/me/player/recently-played?limit=${limit}`, {
     cache: "no-store",
+    signal: AbortSignal.timeout(SPOTIFY_REQUEST_TIMEOUT_MS),
     headers: { Authorization: `Bearer ${accessToken}` },
   });
 
   if (!res.ok) {
-    return null;
+    throw new Error(`Spotify request failed (${res.status})`);
   }
 
   const data = (await res.json()) as {
@@ -114,27 +123,18 @@ export async function getRecentlyPlayed(accessToken: string, limit = 1): Promise
   return normalizeTrack(first);
 }
 
-export async function getNowPlaying(): Promise<NowPlayingTrack | null> {
-  const accessToken = await getAccessToken();
-  if (!accessToken) {
-    return null;
-  }
-
-  if (process.env.NODE_ENV === "production") {
-    const recentlyPlayedCache = await redis.get<NowPlayingTrack | null>(getSpotifyRecentlyPlayedRedisKey());
-    if (recentlyPlayedCache) {
-      return recentlyPlayedCache;
+// Cache the normalized result, including an empty result, rather than tokens or
+// individual API requests. Failed refreshes throw so Next can retain stale data.
+export const getNowPlaying = unstable_cache(
+  async (): Promise<NowPlayingTrack | null> => {
+    const accessToken = await getAccessToken();
+    if (!accessToken) {
+      return null;
     }
-  }
 
-  let track: NowPlayingTrack | null = await getCurrentlyPlaying(accessToken);
-  if (!track) {
-    track = await getRecentlyPlayed(accessToken, 1);
-  }
-
-  if (process.env.NODE_ENV === "production") {
-    await redis.set(getSpotifyRecentlyPlayedRedisKey(), track, SPOTIFY_RECENTLY_PLAYED_TTL_S);
-  }
-
-  return track;
-}
+    const track = await getCurrentlyPlaying(accessToken);
+    return track ?? (await getRecentlyPlayed(accessToken, 1));
+  },
+  ["spotify-now-playing-v2"],
+  { revalidate: SPOTIFY_REVALIDATE_S },
+);
