@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "9cb65b69-47af-45e7-8672-32a8e5e0464d",
+    date: "2026-10-09",
+    title: "MacOS Nvidia Driver",
+    url: "https://github.com/nullmoth/nvidia-macos-driver",
+  },
+  {
     id: "c5630157-8d17-4ab1-8162-207026648035",
     date: "2026-10-08",
     title: "Project Reclaimer",
