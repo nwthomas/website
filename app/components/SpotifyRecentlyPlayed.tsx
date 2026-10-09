@@ -5,24 +5,23 @@ import * as stylex from "@stylexjs/stylex";
 import { getNowPlaying } from "@/app/utils/spotify";
 
 export async function SpotifyRecentlyPlayed() {
-  // Fetch at request time, keeping the cached track independent of build-time
-  // credentials while allowing the rest of the homepage to stream immediately.
+  // Wait for Redis and Spotify at request time, inside the homepage Suspense
+  // boundary so the rest of the page can stream immediately.
   await connection();
 
-  let track;
+  let track = null;
   try {
     track = await getNowPlaying();
   } catch (error) {
     Sentry.captureException(error);
-    return null;
   }
 
   if (!track) {
-    return null;
+    return <span hidden data-spotify-empty="" />;
   }
 
   return (
-    <div {...stylex.props(styles.container)}>
+    <div>
       <h2 {...stylex.props(styles.heading)}>Recently Played</h2>
       <a
         href={track.url}
@@ -40,7 +39,7 @@ export async function SpotifyRecentlyPlayed() {
             {...stylex.props(styles.album)}
           />
         ) : null}
-        <span>
+        <span {...stylex.props(styles.trackText)}>
           <span {...stylex.props(styles.track)}>{track.track}</span>
           {" — "}
           <span {...stylex.props(styles.artists)}>{track.artists}</span>
@@ -57,27 +56,37 @@ const styles = stylex.create({
     borderWidth: 1,
     aspectRatio: "1 / 1",
     display: "block",
+    flexShrink: 0,
     height: 48,
     width: 48,
   },
   artists: {
     color: "var(--recently-played-artist)",
   },
-  container: {
-    marginTop: "1.25rem",
-  },
   heading: {
     fontSize: "1rem",
     fontWeight: 600,
+    lineHeight: "1.5rem",
   },
   link: {
     gap: "0.75rem",
     alignItems: "center",
     display: "flex",
     textDecorationLine: "none",
+    height: "3rem",
     marginLeft: "1rem",
     marginTop: "1.25rem",
+    maxWidth: "calc(100% - 1rem)",
     width: "fit-content",
+  },
+  trackText: {
+    overflow: "hidden",
+    WebkitBoxOrient: "vertical",
+    WebkitLineClamp: 2,
+    display: "-webkit-box",
+    lineHeight: "1.5rem",
+    overflowWrap: "anywhere",
+    minWidth: 0,
   },
   track: {
     color: "var(--recently-played-track)",

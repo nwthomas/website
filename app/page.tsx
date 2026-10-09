@@ -102,9 +102,11 @@ export default function Page() {
           </a>
         </li>
       </ul>
-      <Suspense fallback={null}>
-        <SpotifyRecentlyPlayed />
-      </Suspense>
+      <div data-spotify-slot="" {...stylex.props(styles.spotifySlot)}>
+        <Suspense fallback={null}>
+          <SpotifyRecentlyPlayed />
+        </Suspense>
+      </div>
       <p {...stylex.props(styles.mt5)}>
         You can read my{" "}
         <Link aria-label="Link to Nathan's writing" href="/writing">
@@ -149,6 +151,10 @@ export default function Page() {
 }
 
 const styles = stylex.create({
+  spotifySlot: {
+    height: "5.75rem",
+    marginTop: "1.25rem",
+  },
   mt4: {
     marginTop: "1rem",
   },
