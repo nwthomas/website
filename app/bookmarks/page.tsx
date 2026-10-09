@@ -3,6 +3,7 @@ import { BookmarksList } from "./BookmarksList";
 import * as stylex from "@stylexjs/stylex";
 import Link from "next/link";
 import { Metadata } from "next";
+import { RssIcon } from "@/app/components/Icons/RssIcon";
 import { sharedStyles } from "@/app/styles";
 
 export const metadata: Metadata = {
@@ -25,8 +26,13 @@ export default function Page() {
     <section {...stylex.props(sharedStyles.pageSection)}>
       <p>
         I love to learn and bookmark what I've read here. I also have an{" "}
-        <Link aria-label="Link to Nathan's Atom RSS feed" href="/bookmarks/atom">
-          RSS feed
+        <Link
+          aria-label="Link to Nathan's Atom RSS feed"
+          href="/bookmarks/atom"
+          {...stylex.props(sharedStyles.rssFeedLink)}
+        >
+          RSS feed{"\u00a0"}
+          <RssIcon />
         </Link>{" "}
         you can follow.
       </p>
