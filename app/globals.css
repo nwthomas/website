@@ -9,6 +9,7 @@
 @stylex;
 
 :root {
+  --unused-var-oops: #123456;
   --background: #ffffff;
   --border-image-dark: #ffffff;
   --border-image-light: #e5e7eb;

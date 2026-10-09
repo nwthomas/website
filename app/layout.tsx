@@ -28,6 +28,7 @@ export const metadata: Metadata = {
   },
 };
 
+// haklsdjhfkjaghsdjkhfgajshdgfkjahsdgf oops this is a mistake and shouldn't be committed
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     // The suppresHydrationWarning is for the script below which runs client-side to set the theme.
