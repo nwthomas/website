@@ -200,3 +200,8 @@ li[data-unstyled="true"]::before {
   content: "";
   display: none;
 }
+
+/* Keep the loading slot stable, but collapse it when the lookup has no track. */
+[data-spotify-slot]:has([data-spotify-empty]) {
+  display: none;
+}

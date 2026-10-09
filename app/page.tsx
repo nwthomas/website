@@ -2,17 +2,14 @@ import * as stylex from "@stylexjs/stylex";
 
 import Link from "next/link";
 import { Post } from "@/app/(writing)/utils/types";
-import { RecentlyPlayed } from "@/app/components/RecentlyPlayed";
-import { getNowPlaying } from "@/app/utils/spotify";
+import { SpotifyRecentlyPlayed } from "@/app/components/SpotifyRecentlyPlayed";
+import { Suspense } from "react";
 import postsJson from "@/app/(writing)/posts.json";
 import { sharedStyles } from "@/app/styles";
 
-export const dynamic = "force-dynamic";
-
-export default async function Page() {
+export default function Page() {
   const { posts } = postsJson;
   const lastThreePosts: Post[] = posts.slice(0, 3);
-  const nowPlaying = await getNowPlaying();
 
   return (
     <section {...stylex.props(sharedStyles.pageSection)}>
@@ -105,7 +102,11 @@ export default async function Page() {
           </a>
         </li>
       </ul>
-      {nowPlaying ? <RecentlyPlayed track={nowPlaying} /> : null}
+      <div data-spotify-slot="" {...stylex.props(styles.spotifySlot)}>
+        <Suspense fallback={null}>
+          <SpotifyRecentlyPlayed />
+        </Suspense>
+      </div>
       <p {...stylex.props(styles.mt5)}>
         You can read my{" "}
         <Link aria-label="Link to Nathan's writing" href="/writing">
@@ -150,6 +151,10 @@ export default async function Page() {
 }
 
 const styles = stylex.create({
+  spotifySlot: {
+    height: "5.75rem",
+    marginTop: "1.25rem",
+  },
   mt4: {
     marginTop: "1rem",
   },
