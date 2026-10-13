@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "fa1909d3-663f-43e7-a9a2-d59666798ed2",
+    date: "2026-10-13",
+    title: "models.dev",
+    url: "https://models.dev",
+  },
+  {
     id: "d8bc5e82-8a91-4f1b-b553-084763d20641",
     date: "2026-10-12",
     title: "Anthropic: AI Models May Be Capable of Self-Replicating Without Access to a Datacenter",
