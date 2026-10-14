@@ -1,7 +1,15 @@
-import { DARK_THEME, LIGHT_THEME, ThemeEnum, updateCurrentTheme } from "@/app/store/reducers/themeSlice";
+import {
+  DARK_THEME,
+  LIGHT_THEME,
+  SYSTEM_THEME,
+  type ThemeEnum,
+  type ThemePreference,
+  updateCurrentTheme,
+  updateCurrentThemePreference,
+} from "@/app/store/reducers/themeSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-import { selectCurrentTheme } from "@/app/store/selectors/themeSelectors";
+import { selectCurrentTheme, selectCurrentThemePreference } from "@/app/store/selectors/themeSelectors";
 import { useEffect } from "react";
 
 export const LOCAL_STORAGE_KEY = "theme";
@@ -10,9 +18,32 @@ const MATCH_MEDIA_QUERY_NAME = "(prefers-color-scheme: dark)";
 // This extends the global Window object with custom values from _document.tsx
 declare global {
   interface Window {
-    __setPreferredTheme: (newTheme: string) => void;
+    __setPreferredTheme: (newTheme: ThemePreference) => void;
     __theme: string;
+    __themePreference: ThemePreference;
   }
+}
+
+function getResolvedTheme(themePreference: ThemePreference): ThemeEnum {
+  if (themePreference === SYSTEM_THEME) {
+    return window.matchMedia(MATCH_MEDIA_QUERY_NAME).matches ? DARK_THEME : LIGHT_THEME;
+  }
+
+  return themePreference;
+}
+
+function getThemePreferenceFromWindowObject(): ThemePreference | null {
+  if (
+    typeof window !== "undefined" &&
+    window.__themePreference &&
+    (window.__themePreference === DARK_THEME ||
+      window.__themePreference === LIGHT_THEME ||
+      window.__themePreference === SYSTEM_THEME)
+  ) {
+    return window.__themePreference;
+  }
+
+  return null;
 }
 
 // Directly (and only) pull the window object theme value which is useful both in the hook
@@ -37,7 +68,8 @@ export function getThemeFromWindowObject(): ThemeEnum | null {
 
 export interface UseThemeReturn {
   currentTheme: ThemeEnum | null;
-  setCurrentTheme: () => void;
+  currentThemePreference: ThemePreference | null;
+  setCurrentThemePreference: (themePreference: ThemePreference) => void;
 }
 
 // Updates the theme using the JavaScript code defined in the _document.tsx file
@@ -45,39 +77,50 @@ export function useTheme(): UseThemeReturn {
   const dispatch = useDispatch();
   // Theme value from Redux (starts as null)
   const currentTheme = useSelector(selectCurrentTheme);
+  const currentThemePreference = useSelector(selectCurrentThemePreference);
 
   // Handles any updates to the theme
-  const setCurrentTheme = () => {
+  const setCurrentThemePreference = (themePreference: ThemePreference) => {
     if (typeof window !== "undefined" && window.__theme && window.__setPreferredTheme) {
-      const newTheme = window.__theme === DARK_THEME ? LIGHT_THEME : DARK_THEME;
+      const newTheme = getResolvedTheme(themePreference);
 
+      dispatch(updateCurrentThemePreference(themePreference));
       dispatch(updateCurrentTheme(newTheme));
-      window.__setPreferredTheme(newTheme);
+      window.__setPreferredTheme(themePreference);
     }
   };
 
   // Handles setting the theme in Redux on load of hook
   useEffect(() => {
     const windowObjectTheme = getThemeFromWindowObject();
+    const windowObjectThemePreference = getThemePreferenceFromWindowObject();
 
     // Function to handle match media changes by user in OS
     const handleMatchMediaChange = (event: MediaQueryListEvent) => {
-      const newTheme = (event.currentTarget as MediaQueryList).matches ? DARK_THEME : LIGHT_THEME;
+      const newTheme = event.currentTarget.matches ? DARK_THEME : LIGHT_THEME;
 
       dispatch(updateCurrentTheme(newTheme));
-      window.__setPreferredTheme(newTheme);
+
+      if (window.__themePreference === SYSTEM_THEME) {
+        window.__setPreferredTheme(SYSTEM_THEME);
+      }
     };
 
-    if (windowObjectTheme) {
-      window.matchMedia(MATCH_MEDIA_QUERY_NAME).addEventListener("change", handleMatchMediaChange, { passive: true });
+    if (windowObjectTheme && windowObjectThemePreference) {
+      if (windowObjectThemePreference === SYSTEM_THEME) {
+        window.matchMedia(MATCH_MEDIA_QUERY_NAME).addEventListener("change", handleMatchMediaChange, { passive: true });
+      }
 
       dispatch(updateCurrentTheme(windowObjectTheme));
+      dispatch(updateCurrentThemePreference(windowObjectThemePreference));
 
       return () => {
-        window.matchMedia(MATCH_MEDIA_QUERY_NAME).removeEventListener("change", handleMatchMediaChange);
+        if (windowObjectThemePreference === SYSTEM_THEME) {
+          window.matchMedia(MATCH_MEDIA_QUERY_NAME).removeEventListener("change", handleMatchMediaChange);
+        }
       };
     }
   }, [dispatch]);
 
-  return { currentTheme, setCurrentTheme };
+  return { currentTheme, currentThemePreference, setCurrentThemePreference };
 }

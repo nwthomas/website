@@ -41,14 +41,28 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               (function () {
                 var DARK_THEME = "dark";
                 var LIGHT_THEME = "light";
+                var SYSTEM_THEME = "system";
                 var THEME_KEY = "theme";
-                var preferredTheme;
-                var handleChangeTheme = function handleChangeTheme() {}
+                var preferredTheme = SYSTEM_THEME;
+                var handleChangeTheme = function handleChangeTheme() {};
+                var userOSThemePreference = window.matchMedia('(prefers-color-scheme: dark)');
 
-                function setTheme(newTheme) {
-                  window.__theme = newTheme;
-                  preferredTheme = newTheme;
-                  if (newTheme === DARK_THEME) {
+                function getResolvedTheme(themePreference) {
+                  if (themePreference === SYSTEM_THEME) {
+                    return userOSThemePreference.matches ? DARK_THEME : LIGHT_THEME;
+                  }
+
+                  return themePreference;
+                }
+
+                function setTheme(themePreference) {
+                  var resolvedTheme = getResolvedTheme(themePreference);
+
+                  window.__themePreference = themePreference;
+                  window.__theme = resolvedTheme;
+                  preferredTheme = themePreference;
+
+                  if (resolvedTheme === DARK_THEME) {
                     document.documentElement.classList.add(DARK_THEME);
                   } else {
                     document.documentElement.classList.remove(DARK_THEME);
@@ -58,7 +72,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 try {
                   var savedPreferredTheme = localStorage.getItem(THEME_KEY);
 
-                  if (savedPreferredTheme === DARK_THEME || savedPreferredTheme === LIGHT_THEME) {
+                  if (
+                    savedPreferredTheme === DARK_THEME ||
+                    savedPreferredTheme === LIGHT_THEME ||
+                    savedPreferredTheme === SYSTEM_THEME
+                  ) {
                     preferredTheme = savedPreferredTheme;
                   }
                 } catch (error) {}
@@ -71,9 +89,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   } catch (error) {}
                 }
 
-                var userOSThemePreference = window.matchMedia('(prefers-color-scheme: dark)');
-                
-                setTheme(preferredTheme || (userOSThemePreference.matches ? DARK_THEME : LIGHT_THEME));
+                setTheme(preferredTheme);
               })();
             `,
           }}
