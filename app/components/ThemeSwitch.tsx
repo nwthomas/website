@@ -4,8 +4,8 @@ import * as stylex from "@stylexjs/stylex";
 
 import { MoonIcon, SunIcon, SystemIcon } from "@/app/components/Icons";
 
-import { useTheme } from "@/app/hooks/useTheme";
 import { DARK_THEME, LIGHT_THEME, SYSTEM_THEME, type ThemePreference } from "@/app/store/reducers/themeSlice";
+import { useSyncExternalStore } from "react";
 
 const THEME_OPTIONS = [
   {
@@ -33,10 +33,23 @@ const THEME_OPTIONS = [
   themePreference: ThemePreference;
 }>;
 
-export function ThemeSwitch() {
-  const { currentTheme, currentThemePreference, setCurrentThemePreference } = useTheme();
+function subscribe(callback: () => void) {
+  window.addEventListener("themechange", callback);
+  return () => window.removeEventListener("themechange", callback);
+}
 
-  if (currentTheme === null || currentThemePreference === null) {
+function getSnapshot() {
+  return window.__themePreference ?? null;
+}
+
+function getServerSnapshot() {
+  return null;
+}
+
+export function ThemeSwitch() {
+  const currentThemePreference = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+
+  if (currentThemePreference === null) {
     return null;
   }
 
@@ -68,7 +81,7 @@ export function ThemeSwitch() {
               key={themePreference}
               onClick={(event) => {
                 event.stopPropagation();
-                setCurrentThemePreference(themePreference);
+                window.__setPreferredTheme?.(themePreference);
               }}
               type="button"
               {...stylex.props(styles.option)}
@@ -85,6 +98,8 @@ export function ThemeSwitch() {
 const styles = stylex.create({
   container: {
     borderRadius: 9999,
+    height: 26,
+    marginBottom: 3,
     outlineColor: "#0000ff",
     outlineOffset: 0,
     outlineStyle: {
@@ -92,8 +107,6 @@ const styles = stylex.create({
       ":focus-within": "solid",
     },
     outlineWidth: 2,
-    height: 26,
-    marginBottom: 3,
     width: 76,
   },
   knobBase: {
@@ -122,7 +135,7 @@ const styles = stylex.create({
     alignItems: "center",
     cursor: "pointer",
     display: "flex",
-    flex: 1,
+    flexGrow: 1,
     height: 22,
     justifyContent: "center",
     position: "relative",

@@ -2,10 +2,50 @@
 
 import * as stylex from "@stylexjs/stylex";
 import { sharedStyles } from "@/app/styles";
-import { usePathname } from "next/navigation";
+import { useSyncExternalStore } from "react";
+
+if (typeof window !== "undefined" && !window.__nathanLocationPatched) {
+  window.__nathanLocationPatched = true;
+
+  const originalPushState = window.history.pushState;
+  const originalReplaceState = window.history.replaceState;
+
+  window.history.pushState = function pushState(...args) {
+    originalPushState.apply(this, args as never);
+    window.dispatchEvent(new Event("locationchange"));
+  };
+
+  window.history.replaceState = function replaceState(...args) {
+    originalReplaceState.apply(this, args as never);
+    window.dispatchEvent(new Event("locationchange"));
+  };
+}
+
+declare global {
+  interface Window {
+    __nathanLocationPatched?: boolean;
+  }
+}
+
+function subscribe(callback: () => void) {
+  window.addEventListener("popstate", callback);
+  window.addEventListener("locationchange", callback);
+  return () => {
+    window.removeEventListener("popstate", callback);
+    window.removeEventListener("locationchange", callback);
+  };
+}
+
+function getSnapshot() {
+  return window.location.pathname;
+}
+
+function getServerSnapshot() {
+  return "/";
+}
 
 export function Footer() {
-  const pathname = usePathname();
+  const pathname = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   const isHomePage = pathname === "/";
 
   if (!isHomePage) {
@@ -76,8 +116,8 @@ const styles = stylex.create({
   sourceLink: {
     color: "inherit",
     fontSize: "0.875rem",
-    textDecorationLine: "none",
     marginLeft: "auto",
+    textDecorationLine: "none",
   },
   text: {
     color: "var(--muted)",

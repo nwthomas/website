@@ -3,13 +3,51 @@
 import * as stylex from "@stylexjs/stylex";
 import { HeadingLevel, getHeading } from "@/app/(writing)/utils/heading";
 
-import Link from "next/link";
-import { ReactNode } from "react";
+import { ReactNode, useSyncExternalStore } from "react";
 import { ThemeSwitch } from "./ThemeSwitch";
 import { formatUTCTimestampToDateString } from "../utils/dates";
 import postsJson from "@/app/(writing)/posts.json";
 import { sharedStyles } from "@/app/styles";
-import { usePathname } from "next/navigation";
+
+if (typeof window !== "undefined" && !window.__nathanLocationPatched) {
+  window.__nathanLocationPatched = true;
+
+  const originalPushState = window.history.pushState;
+  const originalReplaceState = window.history.replaceState;
+
+  window.history.pushState = function pushState(...args) {
+    originalPushState.apply(this, args as never);
+    window.dispatchEvent(new Event("locationchange"));
+  };
+
+  window.history.replaceState = function replaceState(...args) {
+    originalReplaceState.apply(this, args as never);
+    window.dispatchEvent(new Event("locationchange"));
+  };
+}
+
+declare global {
+  interface Window {
+    __nathanLocationPatched?: boolean;
+  }
+}
+
+function subscribe(callback: () => void) {
+  window.addEventListener("popstate", callback);
+  window.addEventListener("locationchange", callback);
+  return () => {
+    window.removeEventListener("popstate", callback);
+    window.removeEventListener("locationchange", callback);
+  };
+}
+
+function getSnapshot() {
+  return window.location.pathname;
+}
+
+function getServerSnapshot() {
+  return "/";
+}
 
 type Post = {
   id: string;
@@ -18,7 +56,7 @@ type Post = {
 };
 
 export function Navbar() {
-  const pathname = usePathname();
+  const pathname = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   const isHomePage = pathname === "/";
   const isBookmarksPage = pathname === "/bookmarks";
   const isBooksPage = pathname === "/books";
@@ -36,9 +74,9 @@ export function Navbar() {
   let subtitleText: ReactNode | null = (
     <p {...stylex.props(styles.subtitle)}>
       by{" "}
-      <Link aria-label="Link to Nathan's home page" href="/">
+      <a aria-label="Link to Nathan's home page" href="/">
         Nathan Thomas
-      </Link>
+      </a>
       {dateText}
     </p>
   );
@@ -80,12 +118,12 @@ export function Navbar() {
 
 const styles = stylex.create({
   controls: {
+    alignItems: "center",
+    display: "flex",
     gap: {
       default: "0.75rem",
       "@media (min-width: 640px)": "1.25rem",
     },
-    alignItems: "center",
-    display: "flex",
   },
   header: {
     alignItems: "flex-start",

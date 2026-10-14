@@ -97,13 +97,9 @@ export function useTheme(): UseThemeReturn {
 
     // Function to handle match media changes by user in OS
     const handleMatchMediaChange = (event: MediaQueryListEvent) => {
-      const newTheme = event.currentTarget.matches ? DARK_THEME : LIGHT_THEME;
+      const newTheme = event.matches ? DARK_THEME : LIGHT_THEME;
 
       dispatch(updateCurrentTheme(newTheme));
-
-      if (window.__themePreference === SYSTEM_THEME) {
-        window.__setPreferredTheme(SYSTEM_THEME);
-      }
     };
 
     if (windowObjectTheme && windowObjectThemePreference) {

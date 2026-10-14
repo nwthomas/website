@@ -44,7 +44,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 var SYSTEM_THEME = "system";
                 var THEME_KEY = "theme";
                 var preferredTheme = SYSTEM_THEME;
-                var handleChangeTheme = function handleChangeTheme() {};
                 var userOSThemePreference = window.matchMedia('(prefers-color-scheme: dark)');
 
                 function getResolvedTheme(themePreference) {
@@ -67,6 +66,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   } else {
                     document.documentElement.classList.remove(DARK_THEME);
                   }
+
+                  window.dispatchEvent(new Event('themechange'));
                 }
 
                 try {
