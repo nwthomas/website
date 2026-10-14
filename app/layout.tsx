@@ -31,6 +31,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     // The suppresHydrationWarning is for the script below which runs client-side to set the theme.
+    // Keeping this client-side avoids a flash of the wrong theme on first paint.
     // This may eventually be upgraded to use a server-side set cookie (and is certainly what would
     // be used in a non-personal production environment). For now, this works great for this site.
     <html lang="en" suppressHydrationWarning>
