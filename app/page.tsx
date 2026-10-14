@@ -9,6 +9,7 @@ import { sharedStyles } from "@/app/styles";
 
 export default function Page() {
   const { posts } = postsJson;
+  // Demo comment: surface the latest writing right on the homepage.
   const lastThreePosts: Post[] = posts.slice(0, 3);
 
   return (
