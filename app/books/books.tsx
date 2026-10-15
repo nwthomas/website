@@ -13,7 +13,7 @@ export const BOOKS: Book[] = [
     id: "kitchen-confidential",
     title: "Kitchen Confidential",
     author: "Anthony Bourdain",
-    cover: "/images/books/kitchen-confidential.webp", // TODO: Fix with .webp
+    cover: "/images/books/kitchen-confidential.webp",
     url: "https://a.co/d/0ayaogTn",
     height: 2400,
     width: 1617,
