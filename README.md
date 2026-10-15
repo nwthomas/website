@@ -27,7 +27,7 @@ After that, you should be able to go ahead and start up the dev environment serv
 make dev
 ```
 
-Set up a `.env` file modeled after the `.env.example` in the root of this repository. Redis variables are required for writing views; Sentry and Spotify variables are optional.
+Set up a `.env` file based on the `.env.example` in the root of this repository. Redis variables are required for writing views; Sentry and Spotify variables are optional.
 
 ## Project Management
 
