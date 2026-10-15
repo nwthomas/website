@@ -1,6 +1,6 @@
 # Personal Website
 
-This is my personal website, a place for my writing and thoughts to live.
+This is my personal website, a place for my writing and thoughts to live and grow.
 
 ![Homepage Example](./assets/home-screenshot.png)
 
