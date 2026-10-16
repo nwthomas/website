@@ -41,14 +41,23 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               (function () {
                 var DARK_THEME = "dark";
                 var LIGHT_THEME = "light";
+                var SYSTEM_THEME = "system";
                 var THEME_KEY = "theme";
-                var preferredTheme;
-                var handleChangeTheme = function handleChangeTheme() {}
+                var themePreference;
+                var userOSThemePreference = window.matchMedia('(prefers-color-scheme: dark)');
+
+                function getOSTheme() {
+                  return userOSThemePreference.matches ? DARK_THEME : LIGHT_THEME;
+                }
 
                 function setTheme(newTheme) {
+                  themePreference = newTheme;
                   window.__theme = newTheme;
-                  preferredTheme = newTheme;
-                  if (newTheme === DARK_THEME) {
+
+                  // System mode follows the OS preference; otherwise apply the chosen theme.
+                  var appliedTheme = newTheme === SYSTEM_THEME ? getOSTheme() : newTheme;
+
+                  if (appliedTheme === DARK_THEME) {
                     document.documentElement.classList.add(DARK_THEME);
                   } else {
                     document.documentElement.classList.remove(DARK_THEME);
@@ -56,24 +65,39 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 }
 
                 try {
-                  var savedPreferredTheme = localStorage.getItem(THEME_KEY);
+                  var savedThemePreference = localStorage.getItem(THEME_KEY);
 
-                  if (savedPreferredTheme === DARK_THEME || savedPreferredTheme === LIGHT_THEME) {
-                    preferredTheme = savedPreferredTheme;
+                  if (
+                    savedThemePreference === DARK_THEME ||
+                    savedThemePreference === LIGHT_THEME ||
+                    savedThemePreference === SYSTEM_THEME
+                  ) {
+                    themePreference = savedThemePreference;
                   }
                 } catch (error) {}
 
+                // With no saved preference, follow the OS theme.
+                setTheme(themePreference || SYSTEM_THEME);
+
+                userOSThemePreference.addEventListener("change", function () {
+                  if (themePreference === SYSTEM_THEME) {
+                    setTheme(SYSTEM_THEME);
+                  }
+                });
+
                 window.__setPreferredTheme = function setPreferredTheme(newTheme) {
-                  setTheme(newTheme);
+                  if (
+                    newTheme === DARK_THEME ||
+                    newTheme === LIGHT_THEME ||
+                    newTheme === SYSTEM_THEME
+                  ) {
+                    setTheme(newTheme);
+                  }
 
                   try {
-                    localStorage.setItem(THEME_KEY, newTheme);
+                    localStorage.setItem(THEME_KEY, themePreference);
                   } catch (error) {}
                 }
-
-                var userOSThemePreference = window.matchMedia('(prefers-color-scheme: dark)');
-                
-                setTheme(preferredTheme || (userOSThemePreference.matches ? DARK_THEME : LIGHT_THEME));
               })();
             `,
           }}

@@ -2,19 +2,21 @@
 
 import * as stylex from "@stylexjs/stylex";
 
-import { MoonIcon, SunIcon } from "@/app/components/Icons";
+import { MonitorIcon, MoonIcon, SunIcon } from "@/app/components/Icons";
 
-import { DARK_THEME } from "@/app/store/reducers/themeSlice";
+import { DARK_THEME, SYSTEM_THEME } from "@/app/store/reducers/themeSlice";
 import { useRef } from "react";
 import { useTheme } from "@/app/hooks/useTheme";
 
 const DARK_MODE_ARIA_LABEL = "Switch to light mode";
-const LIGHT_MODE_ARIA_LABEL = "Switch to dark mode";
+const LIGHT_MODE_ARIA_LABEL = "Switch to system mode";
+const SYSTEM_MODE_ARIA_LABEL = "Switch to dark mode";
 
 export function ThemeSwitch() {
   const { currentTheme, setCurrentTheme } = useTheme();
   const inputRef = useRef<HTMLInputElement>(null);
   const isDarkMode = currentTheme === DARK_THEME;
+  const isSystemMode = currentTheme === SYSTEM_THEME;
 
   const handleThemeSwitchClick = (event: React.SyntheticEvent) => {
     event.stopPropagation();
@@ -22,7 +24,11 @@ export function ThemeSwitch() {
     setCurrentTheme();
   };
 
-  const currentAriaLabel = isDarkMode ? DARK_MODE_ARIA_LABEL : LIGHT_MODE_ARIA_LABEL;
+  const currentAriaLabel = isDarkMode
+    ? DARK_MODE_ARIA_LABEL
+    : isSystemMode
+      ? SYSTEM_MODE_ARIA_LABEL
+      : LIGHT_MODE_ARIA_LABEL;
 
   return (
     <div {...stylex.props(styles.container)}>
@@ -50,9 +56,16 @@ export function ThemeSwitch() {
             {...stylex.props(styles.track)}
             style={{ WebkitTapHighlightColor: "transparent" }}
           >
-            <MoonIcon color="var(--theme-switch)" style={{ height: 15, width: 15 }} />
+            <MonitorIcon color="#ffffff" style={{ height: 15, width: 15 }} />
+            <MoonIcon color="var(--theme-switch-moon)" style={{ height: 15, width: 15 }} />
             <SunIcon color="var(--theme-switch)" style={{ height: 15, width: 15 }} />
-            <div {...stylex.props(styles.knob, !isDarkMode && styles.knobLight)} />
+            <div
+              {...stylex.props(
+                styles.knob,
+                isDarkMode && styles.knobDark,
+                !isDarkMode && !isSystemMode && styles.knobLight,
+              )}
+            />
           </div>
         </>
       ) : null}
@@ -72,7 +85,7 @@ const styles = stylex.create({
     outlineWidth: 2,
     height: 26,
     marginBottom: 3,
-    width: 50,
+    width: 76,
   },
   input: {
     margin: -1,
@@ -100,12 +113,15 @@ const styles = stylex.create({
     transitionTimingFunction: "ease-out",
     userSelect: "none",
     height: 18,
-    left: 2,
+    left: 5,
     top: 2,
     width: 18,
   },
+  knobDark: {
+    transform: "translateX(24px)",
+  },
   knobLight: {
-    transform: "translateX(1.5rem)",
+    transform: "translateX(48px)",
   },
   track: {
     borderColor: "var(--muted)",
@@ -125,6 +141,6 @@ const styles = stylex.create({
     paddingLeft: 5,
     paddingRight: 5,
     paddingTop: 1,
-    width: 50,
+    width: 76,
   },
 });
