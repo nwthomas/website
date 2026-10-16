@@ -13,6 +13,18 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "8844989d-6e8d-42f8-843a-dfaf5c3b4152",
+    date: "2026-10-16",
+    title: "Firecracker",
+    url: "https://firecracker-microvm.github.io/",
+  },
+  {
+    id: "7eedd43c-5dc9-4a18-a769-c65abce952e6",
+    date: "2026-10-16",
+    title: "bubblewrap",
+    url: "https://github.com/containers/bubblewrap",
+  },
+  {
     id: "fa1909d3-663f-43e7-a9a2-d59666798ed2",
     date: "2026-10-13",
     title: "models.dev",
