@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "e53d7c25-e767-4cea-a08f-0f00ec3c1815",
+    date: "2026-10-17",
+    title: "How Employment Is Changing at Anthropic",
+    url: "https://www.anthropic.com/research/employment-at-anthropic",
+  },
+  {
     id: "8844989d-6e8d-42f8-843a-dfaf5c3b4152",
     date: "2026-10-16",
     title: "Firecracker",

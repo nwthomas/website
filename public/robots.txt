@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# Host
+Host: https://www.nathanthomas.dev
+
+# Sitemaps
+Sitemap: https://www.nathanthomas.dev/sitemap.xml

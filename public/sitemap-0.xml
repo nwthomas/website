@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url><loc>https://www.nathanthomas.dev/bookmarks</loc><lastmod>2026-10-17T03:34:45.102Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.nathanthomas.dev/books</loc><lastmod>2026-10-17T03:34:45.102Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.nathanthomas.dev/debounce-versus-throttle</loc><lastmod>2026-10-17T03:34:45.102Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.nathanthomas.dev/finding-motivation-in-chaos</loc><lastmod>2026-10-17T03:34:45.102Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.nathanthomas.dev/icon.png</loc><lastmod>2026-10-17T03:34:45.102Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.nathanthomas.dev/imagination</loc><lastmod>2026-10-17T03:34:45.102Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.nathanthomas.dev/local-models</loc><lastmod>2026-10-17T03:34:45.102Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.nathanthomas.dev/on-finding-confidence</loc><lastmod>2026-10-17T03:34:45.102Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.nathanthomas.dev/on-loss</loc><lastmod>2026-10-17T03:34:45.102Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.nathanthomas.dev/opengraph-image</loc><lastmod>2026-10-17T03:34:45.102Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.nathanthomas.dev/simple-is-hard-enough</loc><lastmod>2026-10-17T03:34:45.102Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.nathanthomas.dev/strange-faces</loc><lastmod>2026-10-17T03:34:45.102Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.nathanthomas.dev/the-pursuit-of-persistence-and-grit</loc><lastmod>2026-10-17T03:34:45.102Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.nathanthomas.dev/the-pursuit-of-personal-fulfillment</loc><lastmod>2026-10-17T03:34:45.102Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.nathanthomas.dev/training-your-first-ai-model</loc><lastmod>2026-10-17T03:34:45.102Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.nathanthomas.dev/understanding-closures</loc><lastmod>2026-10-17T03:34:45.102Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+</urlset>
