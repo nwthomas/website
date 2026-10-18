@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "db69fe9a-1232-4a32-ab05-892e32b442ce",
+    date: "2026-10-18",
+    title: "Anthropic: When AI Builds Itself",
+    url: "https://www.anthropic.com/institute/recursive-self-improvement",
+  },
+  {
     id: "e53d7c25-e767-4cea-a08f-0f00ec3c1815",
     date: "2026-10-17",
     title: "How Employment Is Changing at Anthropic",
