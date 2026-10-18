@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "11c0f49f-f720-4b4b-99dd-ae92a0f916a8",
+    date: "2026-10-18",
+    title: "Langfuse: Open Source Agent Evals & Observability",
+    url: "https://langfuse.com",
+  },
+  {
     id: "db69fe9a-1232-4a32-ab05-892e32b442ce",
     date: "2026-10-18",
     title: "Anthropic: When AI Builds Itself",
