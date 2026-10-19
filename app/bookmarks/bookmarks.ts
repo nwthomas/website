@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "fc491ab3-044f-494b-9aff-da791ae91bca",
+    date: "2026-10-19",
+    title: "Base Models Beat Aligned Models at Randomness and Creativity",
+    url: "https://arxiv.org/pdf/2505.00047",
+  },
+  {
     id: "90025385-3ae2-456d-9941-e40d95bf850e",
     date: "2026-10-19",
     title: "Noam Brown: What Happens When AI Starts Improving AI?",
