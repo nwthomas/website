@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "90025385-3ae2-456d-9941-e40d95bf850e",
+    date: "2026-10-19",
+    title: "Noam Brown: What Happens When AI Starts Improving AI?",
+    url: "https://www.youtube.com/watch?v=fqcy0xQATq0",
+  },
+  {
     id: "7711aef4-6fb3-4b41-9eb4-de2f791297da",
     date: "2026-10-19",
     title: "Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations",
