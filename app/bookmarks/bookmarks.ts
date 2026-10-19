@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "2274ac2f-4028-4748-b2e2-c4ccc05b15a6",
+    date: "2026-10-18",
+    title: "Anthropic: Demystifying Evals for AI Agents",
+    url: "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
+  },
+  {
     id: "11c0f49f-f720-4b4b-99dd-ae92a0f916a8",
     date: "2026-10-18",
     title: "Langfuse: Open Source Agent Evals & Observability",
