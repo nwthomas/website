@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "ae8ff165-d6fe-460d-93e8-6284f469d746",
+    date: "2026-10-18",
+    title: "WebArena-x",
+    url: "https://webarena.dev",
+  },
+  {
     id: "2274ac2f-4028-4748-b2e2-c4ccc05b15a6",
     date: "2026-10-18",
     title: "Anthropic: Demystifying Evals for AI Agents",
