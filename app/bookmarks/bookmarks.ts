@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "8e7dd5e6-b494-422b-88f9-940bc3ccb56e",
+    date: "2026-10-19",
+    title: "OpenAI: Using a Funded Test Cryptocurrency Wallet Without Authorization",
+    url: "https://alignment.openai.com/misalignment-reports/using-a-funded-test-cryptocurrency-wallet-without-authorization",
+  },
+  {
     id: "355a423f-ac65-4b73-b619-2897f168ce1e",
     date: "2026-10-19",
     title: "OpenAI: Evaluating Chain-of-Thought Monitorability",
