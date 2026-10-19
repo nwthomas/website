@@ -13,6 +13,18 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "7711aef4-6fb3-4b41-9eb4-de2f791297da",
+    date: "2026-10-19",
+    title: "Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations",
+    url: "https://arxiv.org/abs/2411.00640",
+  },
+  {
+    id: "a6e8a793-f0a5-4fc2-ad88-b1bf969cc5cf",
+    date: "2026-10-19",
+    title: "US Orders Federal Agencies to Remove DeepSeek",
+    url: "https://madrobot.blog/2026/10/19/us-bans-deepseek-federal-agencies-dhs-order-remove-third-party",
+  },
+  {
     id: "b0d2c2fc-728c-48a7-bf6e-a8f3b16b90d4",
     date: "2026-10-18",
     title: "OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments",
