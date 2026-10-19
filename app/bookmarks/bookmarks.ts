@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "355a423f-ac65-4b73-b619-2897f168ce1e",
+    date: "2026-10-19",
+    title: "OpenAI: Evaluating Chain-of-Thought Monitorability",
+    url: "https://openai.com/index/evaluating-chain-of-thought-monitorability/",
+  },
+  {
     id: "fc491ab3-044f-494b-9aff-da791ae91bca",
     date: "2026-10-19",
     title: "Base Models Beat Aligned Models at Randomness and Creativity",
