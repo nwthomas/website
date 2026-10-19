@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "b0d2c2fc-728c-48a7-bf6e-a8f3b16b90d4",
+    date: "2026-10-18",
+    title: "OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments",
+    url: "https://osworld-v1.xlang.ai",
+  },
+  {
     id: "ae8ff165-d6fe-460d-93e8-6284f469d746",
     date: "2026-10-18",
     title: "WebArena-x",
