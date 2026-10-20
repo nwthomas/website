@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "390b24eb-ccec-4d35-93fa-3af546a844c9",
+    date: "2026-10-20",
+    title: "Model Context Protocol Documentation",
+    url: "https://modelcontextprotocol.io",
+  },
+  {
     id: "282c4f90-4f09-4190-96e4-7efb00070c63",
     date: "2026-10-20",
     title: "TypeScript 7.1 Beta",
