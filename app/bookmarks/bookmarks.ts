@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "282c4f90-4f09-4190-96e4-7efb00070c63",
+    date: "2026-10-20",
+    title: "TypeScript 7.1 Beta",
+    url: "https://devblogs.microsoft.com/typescript/announcing-typescript-7-1-beta",
+  },
+  {
     id: "8e7dd5e6-b494-422b-88f9-940bc3ccb56e",
     date: "2026-10-19",
     title: "OpenAI: Using a Funded Test Cryptocurrency Wallet Without Authorization",
