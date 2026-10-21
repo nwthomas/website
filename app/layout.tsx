@@ -41,14 +41,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               (function () {
                 var DARK_THEME = "dark";
                 var LIGHT_THEME = "light";
+                var SYSTEM_THEME = "system";
                 var THEME_KEY = "theme";
                 var preferredTheme;
-                var handleChangeTheme = function handleChangeTheme() {}
+                var userOSThemePreference = window.matchMedia('(prefers-color-scheme: dark)');
 
                 function setTheme(newTheme) {
                   window.__theme = newTheme;
                   preferredTheme = newTheme;
-                  if (newTheme === DARK_THEME) {
+                  if (newTheme === DARK_THEME || (newTheme === SYSTEM_THEME && userOSThemePreference.matches)) {
                     document.documentElement.classList.add(DARK_THEME);
                   } else {
                     document.documentElement.classList.remove(DARK_THEME);
@@ -58,7 +59,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 try {
                   var savedPreferredTheme = localStorage.getItem(THEME_KEY);
 
-                  if (savedPreferredTheme === DARK_THEME || savedPreferredTheme === LIGHT_THEME) {
+                  if (savedPreferredTheme === DARK_THEME || savedPreferredTheme === LIGHT_THEME || savedPreferredTheme === SYSTEM_THEME) {
                     preferredTheme = savedPreferredTheme;
                   }
                 } catch (error) {}
@@ -71,9 +72,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   } catch (error) {}
                 }
 
-                var userOSThemePreference = window.matchMedia('(prefers-color-scheme: dark)');
-                
-                setTheme(preferredTheme || (userOSThemePreference.matches ? DARK_THEME : LIGHT_THEME));
+                userOSThemePreference.addEventListener('change', function () {
+                  if (preferredTheme === SYSTEM_THEME) {
+                    setTheme(SYSTEM_THEME);
+                  }
+                });
+
+                setTheme(preferredTheme || SYSTEM_THEME);
               })();
             `,
           }}

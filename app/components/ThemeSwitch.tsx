@@ -2,59 +2,56 @@
 
 import * as stylex from "@stylexjs/stylex";
 
-import { MoonIcon, SunIcon } from "@/app/components/Icons";
-
-import { DARK_THEME } from "@/app/store/reducers/themeSlice";
-import { useRef } from "react";
+import { MonitorIcon, MoonIcon, SunIcon } from "@/app/components/Icons";
+import { DARK_THEME, LIGHT_THEME, SYSTEM_THEME } from "@/app/store/reducers/themeSlice";
+import { useId } from "react";
 import { useTheme } from "@/app/hooks/useTheme";
 
-const DARK_MODE_ARIA_LABEL = "Switch to light mode";
-const LIGHT_MODE_ARIA_LABEL = "Switch to dark mode";
+const THEME_OPTIONS = [
+  { value: SYSTEM_THEME, label: "System", Icon: MonitorIcon, color: "#ffffff" },
+  { value: DARK_THEME, label: "Dark", Icon: MoonIcon, color: "#A38CF3" },
+  { value: LIGHT_THEME, label: "Light", Icon: SunIcon, color: "var(--theme-switch)" },
+] as const;
 
 export function ThemeSwitch() {
   const { currentTheme, setCurrentTheme } = useTheme();
-  const inputRef = useRef<HTMLInputElement>(null);
-  const isDarkMode = currentTheme === DARK_THEME;
-
-  const handleThemeSwitchClick = (event: React.SyntheticEvent) => {
-    event.stopPropagation();
-    inputRef.current?.focus();
-    setCurrentTheme();
-  };
-
-  const currentAriaLabel = isDarkMode ? DARK_MODE_ARIA_LABEL : LIGHT_MODE_ARIA_LABEL;
+  const name = useId();
 
   return (
-    <div {...stylex.props(styles.container)}>
+    <div role="group" aria-label="Theme" {...stylex.props(styles.container)}>
       {currentTheme !== null ? (
-        <>
-          <input
-            aria-label={currentAriaLabel}
-            type="checkbox"
-            defaultChecked={isDarkMode}
-            onChange={handleThemeSwitchClick}
-            onKeyDown={(event) => {
-              if (event.key === "Enter") {
-                event.preventDefault();
-                if (!event.repeat) {
-                  event.currentTarget.click();
-                }
-              }
-            }}
-            ref={inputRef}
-            tabIndex={0}
-            {...stylex.props(styles.input)}
-          />
+        <div {...stylex.props(styles.track)}>
+          {THEME_OPTIONS.map(({ value, label, Icon, color }) => (
+            <label key={value} title={`${label} theme`} {...stylex.props(styles.option)}>
+              <input
+                aria-label={`${label} theme`}
+                type="radio"
+                name={name}
+                value={value}
+                checked={currentTheme === value}
+                onChange={() => setCurrentTheme(value)}
+                onClick={(event) => event.stopPropagation()}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    event.preventDefault();
+                    if (!event.repeat) {
+                      event.currentTarget.click();
+                    }
+                  }
+                }}
+                {...stylex.props(styles.input)}
+              />
+              <Icon color={color} isAriaHidden style={{ height: 15, width: 15 }} />
+            </label>
+          ))}
           <div
-            onClick={handleThemeSwitchClick}
-            {...stylex.props(styles.track)}
-            style={{ WebkitTapHighlightColor: "transparent" }}
-          >
-            <MoonIcon color="var(--theme-switch)" style={{ height: 15, width: 15 }} />
-            <SunIcon color="var(--theme-switch)" style={{ height: 15, width: 15 }} />
-            <div {...stylex.props(styles.knob, !isDarkMode && styles.knobLight)} />
-          </div>
-        </>
+            {...stylex.props(
+              styles.knob,
+              currentTheme === DARK_THEME && styles.knobDark,
+              currentTheme === LIGHT_THEME && styles.knobLight,
+            )}
+          />
+        </div>
       ) : null}
     </div>
   );
@@ -72,7 +69,7 @@ const styles = stylex.create({
     outlineWidth: 2,
     height: 26,
     marginBottom: 3,
-    width: 50,
+    width: 74,
   },
   input: {
     margin: -1,
@@ -87,11 +84,21 @@ const styles = stylex.create({
     paddingTop: 0,
     width: 1,
   },
+  option: {
+    WebkitTapHighlightColor: "transparent",
+    alignItems: "center",
+    cursor: "pointer",
+    display: "flex",
+    justifyContent: "center",
+    height: 22,
+    width: 22,
+  },
   knob: {
     borderRadius: 9999,
     backgroundColor: "#ffffff",
     boxShadow: "none",
     outlineStyle: "none",
+    pointerEvents: "none",
     position: "absolute",
     touchAction: "none",
     transform: "translateX(0)",
@@ -100,31 +107,30 @@ const styles = stylex.create({
     transitionTimingFunction: "ease-out",
     userSelect: "none",
     height: 18,
-    left: 2,
+    left: 3,
     top: 2,
     width: 18,
   },
+  knobDark: {
+    transform: "translateX(24px)",
+  },
   knobLight: {
-    transform: "translateX(1.5rem)",
+    transform: "translateX(48px)",
   },
   track: {
     borderColor: "var(--muted)",
     borderRadius: 9999,
     borderStyle: "solid",
     borderWidth: 2,
+    gap: 2,
     alignItems: "center",
     backgroundColor: "#000000",
-    cursor: "pointer",
     display: "flex",
-    justifyContent: "space-between",
     position: "relative",
     touchAction: "pan-x",
-    transitionDuration: "200ms",
-    transitionProperty: "box-shadow",
     height: 26,
-    paddingLeft: 5,
-    paddingRight: 5,
-    paddingTop: 1,
-    width: 50,
+    paddingLeft: 1,
+    paddingRight: 1,
+    width: 74,
   },
 });
