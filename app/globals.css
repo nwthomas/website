@@ -40,8 +40,13 @@ html.dark {
 }
 
 ::selection {
-  background: #0000ff;
+  background: #000000;
   color: #ffffff;
+}
+
+html.dark ::selection {
+  background: #ffffff;
+  color: #000000;
 }
 
 html,
