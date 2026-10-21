@@ -41,14 +41,24 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               (function () {
                 var DARK_THEME = "dark";
                 var LIGHT_THEME = "light";
+                var SYSTEM_THEME = "system";
                 var THEME_KEY = "theme";
-                var preferredTheme;
-                var handleChangeTheme = function handleChangeTheme() {}
+                var preferredTheme = SYSTEM_THEME;
 
-                function setTheme(newTheme) {
-                  window.__theme = newTheme;
-                  preferredTheme = newTheme;
-                  if (newTheme === DARK_THEME) {
+                function resolveTheme(themePreference) {
+                  if (themePreference === SYSTEM_THEME) {
+                    return window.matchMedia('(prefers-color-scheme: dark)').matches ? DARK_THEME : LIGHT_THEME;
+                  }
+
+                  return themePreference;
+                }
+
+                function setTheme(themePreference) {
+                  preferredTheme = themePreference;
+                  window.__themePreference = themePreference;
+                  window.__theme = resolveTheme(themePreference);
+
+                  if (window.__theme === DARK_THEME) {
                     document.documentElement.classList.add(DARK_THEME);
                   } else {
                     document.documentElement.classList.remove(DARK_THEME);
@@ -58,10 +68,18 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 try {
                   var savedPreferredTheme = localStorage.getItem(THEME_KEY);
 
-                  if (savedPreferredTheme === DARK_THEME || savedPreferredTheme === LIGHT_THEME) {
+                  if (
+                    savedPreferredTheme === DARK_THEME ||
+                    savedPreferredTheme === LIGHT_THEME ||
+                    savedPreferredTheme === SYSTEM_THEME
+                  ) {
                     preferredTheme = savedPreferredTheme;
+                  } else {
+                    localStorage.setItem(THEME_KEY, SYSTEM_THEME);
                   }
-                } catch (error) {}
+                } catch (error) {
+                  preferredTheme = SYSTEM_THEME;
+                }
 
                 window.__setPreferredTheme = function setPreferredTheme(newTheme) {
                   setTheme(newTheme);
@@ -69,11 +87,17 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   try {
                     localStorage.setItem(THEME_KEY, newTheme);
                   } catch (error) {}
-                }
+                };
 
                 var userOSThemePreference = window.matchMedia('(prefers-color-scheme: dark)');
-                
-                setTheme(preferredTheme || (userOSThemePreference.matches ? DARK_THEME : LIGHT_THEME));
+
+                userOSThemePreference.addEventListener('change', function () {
+                  if (preferredTheme === SYSTEM_THEME) {
+                    setTheme(SYSTEM_THEME);
+                  }
+                });
+
+                setTheme(preferredTheme || SYSTEM_THEME);
               })();
             `,
           }}
