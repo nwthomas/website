@@ -2,7 +2,7 @@ import * as stylex from "@stylexjs/stylex";
 
 import Link from "next/link";
 import { Post } from "@/app/(writing)/utils/types";
-import { SpotifyRecentlyPlayed } from "@/app/components/SpotifyRecentlyPlayed";
+import { SpotifyRecentlyPlayed, SpotifyRecentlyPlayedSkeleton } from "@/app/components/SpotifyRecentlyPlayed";
 import { Suspense } from "react";
 import postsJson from "@/app/(writing)/posts.json";
 import { sharedStyles } from "@/app/styles";
@@ -103,7 +103,7 @@ export default function Page() {
         </li>
       </ul>
       <div data-spotify-slot="" {...stylex.props(styles.spotifySlot)}>
-        <Suspense fallback={null}>
+        <Suspense fallback={<SpotifyRecentlyPlayedSkeleton />}>
           <SpotifyRecentlyPlayed />
         </Suspense>
       </div>

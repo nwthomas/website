@@ -49,7 +49,59 @@ export async function SpotifyRecentlyPlayed() {
   );
 }
 
+export function SpotifyRecentlyPlayedSkeleton() {
+  return (
+    <div role="status" aria-label="Loading recently played track">
+      <div {...stylex.props(styles.headingLine)}>
+        <span {...stylex.props(styles.shimmer, styles.headingBar)} />
+      </div>
+      <div {...stylex.props(styles.link)}>
+        <span {...stylex.props(styles.shimmer, styles.albumBar)} />
+        <span {...stylex.props(styles.shimmer, styles.trackBar)} />
+      </div>
+    </div>
+  );
+}
+
+const shimmer = stylex.keyframes({
+  "0%": { backgroundPosition: "100% 0" },
+  "100%": { backgroundPosition: "-100% 0" },
+});
+
 const styles = stylex.create({
+  albumBar: {
+    flexShrink: 0,
+    height: 48,
+    width: 48,
+  },
+  headingBar: {
+    height: "1rem",
+    width: "8rem",
+  },
+  headingLine: {
+    alignItems: "center",
+    display: "flex",
+    height: "1.5rem",
+  },
+  shimmer: {
+    borderRadius: 4,
+    animationDuration: "1.5s",
+    animationIterationCount: "infinite",
+    animationName: {
+      default: shimmer,
+      "@media (prefers-reduced-motion: reduce)": "none",
+    },
+    animationTimingFunction: "ease-in-out",
+    backgroundImage:
+      "linear-gradient(90deg, var(--skeleton-base) 25%, var(--skeleton-highlight) 50%, var(--skeleton-base) 75%)",
+    backgroundSize: "200% 100%",
+    display: "block",
+  },
+  trackBar: {
+    height: "1rem",
+    maxWidth: "100%",
+    width: "14rem",
+  },
   album: {
     borderColor: "var(--border-subtle)",
     borderStyle: "solid",

@@ -19,6 +19,8 @@
   --muted: #6b7280;
   --recently-played-artist: #4b5563;
   --recently-played-track: #111827;
+  --skeleton-base: #f3f4f6;
+  --skeleton-highlight: #e5e7eb;
   --theme-switch: #facf3d;
 }
 
@@ -32,6 +34,8 @@ html.dark {
   --foreground: #ededed;
   --recently-played-artist: #d1d5db;
   --recently-played-track: #f3f4f6;
+  --skeleton-base: #111827;
+  --skeleton-highlight: #1f2937;
 }
 
 ::selection {
