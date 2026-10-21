@@ -13,6 +13,18 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "09050364-ee23-4bf1-a988-cbdd4a3b27db",
+    date: "2026-10-21",
+    title: "1Password: AI Identity Toolkit",
+    url: "https://1password.com/solutions/ai-agent-identity",
+  },
+  {
+    id: "f2e72875-a707-4ec2-b7c1-c17e074cb163",
+    date: "2026-10-21",
+    title: "Go 1.27.3 Certificate Authority Fix",
+    url: "https://go.dev/doc/devel/release#go1.27.3",
+  },
+  {
     id: "390b24eb-ccec-4d35-93fa-3af546a844c9",
     date: "2026-10-20",
     title: "Model Context Protocol Documentation",
