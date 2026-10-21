@@ -2,8 +2,9 @@
 
 import * as stylex from "@stylexjs/stylex";
 
-import { MonitorIcon, MoonIcon, SunIcon } from "@/app/components/Icons";
 import { DARK_THEME, LIGHT_THEME, SYSTEM_THEME } from "@/app/store/reducers/themeSlice";
+import { MonitorIcon, MoonIcon, SunIcon } from "@/app/components/Icons";
+
 import { useId } from "react";
 import { useTheme } from "@/app/hooks/useTheme";
 
@@ -60,7 +61,6 @@ export function ThemeSwitch() {
 const styles = stylex.create({
   container: {
     borderRadius: 9999,
-    outlineColor: "#0000ff",
     outlineOffset: 0,
     outlineStyle: {
       default: "none",

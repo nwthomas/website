@@ -34,11 +34,6 @@ html.dark {
   --recently-played-track: #f3f4f6;
 }
 
-:focus,
-:focus-visible {
-  outline: 2px solid #0000ff;
-}
-
 ::selection {
   background: #000000;
   color: #ffffff;
@@ -47,6 +42,19 @@ html.dark {
 html.dark ::selection {
   background: #ffffff;
   color: #000000;
+}
+
+:focus,
+:focus-visible {
+  outline: 2px solid #000000;
+}
+
+html.dark :focus {
+  outline: 2px solid #ffffff;
+}
+
+html.dark :focus-visible {
+  outline: 2px solid #ffffff;
 }
 
 html,
