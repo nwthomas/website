@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "9c16080a-178a-4b62-aac2-3c8f33f88709",
+    date: "10-22-2026",
+    title: "Docker Agent Sandboxes",
+    url: "https://www.docker.com/products/docker-sandboxes",
+  },
+  {
     id: "09050364-ee23-4bf1-a988-cbdd4a3b27db",
     date: "2026-10-21",
     title: "1Password: AI Identity Toolkit",
