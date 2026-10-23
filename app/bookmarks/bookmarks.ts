@@ -13,8 +13,14 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "304392eb-fa80-49e8-8d3b-09058e3d2938",
+    date: "2026-10-23",
+    title: "Block: Dessa, the Conversation Model Trained Only on Speech",
+    url: "https://block.xyz/dessa",
+  },
+  {
     id: "9c16080a-178a-4b62-aac2-3c8f33f88709",
-    date: "10-22-2026",
+    date: "2026-10-22",
     title: "Docker Agent Sandboxes",
     url: "https://www.docker.com/products/docker-sandboxes",
   },
