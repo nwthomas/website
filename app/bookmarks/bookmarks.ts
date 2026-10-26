@@ -13,6 +13,18 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "0ca5d4d1-659a-4d30-ad57-c52385640efc",
+    date: "2026-10-26",
+    title: "Tom Brown: How I Made the Switch to AI Research",
+    url: "https://blog.southparkcommons.com/p/how-i-made-the-switch-to-ai-research",
+  },
+  {
+    id: "e70cc3f0-220e-4b70-a1ce-5d2827e18a70",
+    date: "2026-10-26",
+    title: "Anthropic are the Good Guys",
+    url: "https://nothinghuman.substack.com/p/anthropic-are-the-good-guys",
+  },
+  {
     id: "b10bb174-7d0e-4f5b-bac7-38f911035042",
     date: "2026-10-26",
     title: "TanStack Redact",
