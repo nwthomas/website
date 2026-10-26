@@ -1,5 +1,6 @@
 import createMDX from "@next/mdx";
-import { withSentryConfig } from "@sentry/nextjs";
+import { withRedact } from "@tanstack/redact/next";
+import { withSentryConfig } from "@sentry/nextjs/config";
 
 const nextConfig = {
   // NextJS generic configurations
@@ -50,4 +51,4 @@ const sentryWebpackPluginOptions = {
 };
 
 // The Sentry function must run last before exporting
-export default withSentryConfig(withMDX(nextConfig), sentryWebpackPluginOptions);
+export default withSentryConfig(withRedact(withMDX(nextConfig)), sentryWebpackPluginOptions);
