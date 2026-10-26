@@ -1,6 +1,12 @@
 {
   "posts": [
     {
+      "id": "agent-defaults",
+      "title": "AGENTS.md Defaults",
+      "description": "Boilerplate for a good AGENTS.md document",
+      "date": "2026-10-26"
+    },
+    {
       "id": "imagination",
       "title": "Imagination",
       "description": "Imagination is what makes us great. Don't lose it.",
