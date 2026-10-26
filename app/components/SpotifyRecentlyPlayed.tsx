@@ -1,21 +1,13 @@
-import * as Sentry from "@sentry/nextjs";
-import { connection } from "next/server";
-import Image from "next/image";
+"use client";
+
 import * as stylex from "@stylexjs/stylex";
-import { getNowPlaying } from "@/app/utils/spotify";
+import Image from "next/image";
+import type { NowPlayingTrack } from "@/app/utils/spotify";
 
-export async function SpotifyRecentlyPlayed() {
-  // Wait for Redis and Spotify at request time, inside the homepage Suspense
-  // boundary so the rest of the page can stream immediately.
-  await connection();
-
-  let track = null;
-  try {
-    track = await getNowPlaying();
-  } catch (error) {
-    Sentry.captureException(error);
-  }
-
+// Presentational client component. The track is fetched server-side by the
+// homepage (ISR) and passed in, so the markup is fully server-rendered and
+// hydration is a no-op.
+export function SpotifyRecentlyPlayed({ track }: { track: NowPlayingTrack | null }) {
   if (!track) {
     return <span hidden data-spotify-empty="" />;
   }
@@ -36,6 +28,7 @@ export async function SpotifyRecentlyPlayed() {
             alt={`Album artwork for ${track.track} by ${track.artists}`}
             width={48}
             height={48}
+            priority
             {...stylex.props(styles.album)}
           />
         ) : null}
@@ -49,59 +42,7 @@ export async function SpotifyRecentlyPlayed() {
   );
 }
 
-export function SpotifyRecentlyPlayedSkeleton() {
-  return (
-    <div role="status" aria-label="Loading recently played track">
-      <div {...stylex.props(styles.headingLine)}>
-        <span {...stylex.props(styles.shimmer, styles.headingBar)} />
-      </div>
-      <div {...stylex.props(styles.link)}>
-        <span {...stylex.props(styles.shimmer, styles.albumBar)} />
-        <span {...stylex.props(styles.shimmer, styles.trackBar)} />
-      </div>
-    </div>
-  );
-}
-
-const shimmer = stylex.keyframes({
-  "0%": { backgroundPosition: "100% 0" },
-  "100%": { backgroundPosition: "-100% 0" },
-});
-
 const styles = stylex.create({
-  albumBar: {
-    flexShrink: 0,
-    height: 48,
-    width: 48,
-  },
-  headingBar: {
-    height: "1rem",
-    width: "8rem",
-  },
-  headingLine: {
-    alignItems: "center",
-    display: "flex",
-    height: "1.5rem",
-  },
-  shimmer: {
-    borderRadius: 4,
-    animationDuration: "1.5s",
-    animationIterationCount: "infinite",
-    animationName: {
-      default: shimmer,
-      "@media (prefers-reduced-motion: reduce)": "none",
-    },
-    animationTimingFunction: "ease-in-out",
-    backgroundImage:
-      "linear-gradient(90deg, var(--skeleton-base) 25%, var(--skeleton-highlight) 50%, var(--skeleton-base) 75%)",
-    backgroundSize: "200% 100%",
-    display: "block",
-  },
-  trackBar: {
-    height: "1rem",
-    maxWidth: "100%",
-    width: "14rem",
-  },
   album: {
     borderColor: "var(--border-subtle)",
     borderStyle: "solid",

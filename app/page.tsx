@@ -1,15 +1,29 @@
 import * as stylex from "@stylexjs/stylex";
+import * as Sentry from "@sentry/nextjs";
 
 import Link from "next/link";
 import { Post } from "@/app/(writing)/utils/types";
-import { SpotifyRecentlyPlayed, SpotifyRecentlyPlayedSkeleton } from "@/app/components/SpotifyRecentlyPlayed";
-import { Suspense } from "react";
+import { SpotifyRecentlyPlayed } from "@/app/components/SpotifyRecentlyPlayed";
 import postsJson from "@/app/(writing)/posts.json";
+import { getNowPlaying } from "@/app/utils/spotify";
+import type { NowPlayingTrack } from "@/app/utils/spotify";
 import { sharedStyles } from "@/app/styles";
 
-export default function Page() {
+// The homepage is server-rendered on demand and cached for a minute with
+// stale-while-revalidate, so the recently played track is baked into the HTML
+// without blocking the rest of the page (and without request-time streaming).
+export const revalidate = 60;
+
+export default async function Page() {
   const { posts } = postsJson;
   const lastThreePosts: Post[] = posts.slice(0, 3);
+
+  let track: NowPlayingTrack | null = null;
+  try {
+    track = await getNowPlaying();
+  } catch (error) {
+    Sentry.captureException(error);
+  }
 
   return (
     <section {...stylex.props(sharedStyles.pageSection)}>
@@ -103,9 +117,7 @@ export default function Page() {
         </li>
       </ul>
       <div data-spotify-slot="" {...stylex.props(styles.spotifySlot)}>
-        <Suspense fallback={<SpotifyRecentlyPlayedSkeleton />}>
-          <SpotifyRecentlyPlayed />
-        </Suspense>
+        <SpotifyRecentlyPlayed track={track} />
       </div>
       <p {...stylex.props(styles.mt5)}>
         You can read my{" "}
