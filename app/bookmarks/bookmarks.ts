@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "b10bb174-7d0e-4f5b-bac7-38f911035042",
+    date: "2026-10-26",
+    title: "TanStack Redact",
+    url: "https://tanstack.com/redact/latest",
+  },
+  {
     id: "304392eb-fa80-49e8-8d3b-09058e3d2938",
     date: "2026-10-23",
     title: "Block: Dessa, the Conversation Model Trained Only on Speech",
