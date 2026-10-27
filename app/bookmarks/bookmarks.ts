@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "98b61d21-c8b8-429f-becb-f847da6cd342",
+    date: "2026-10-26",
+    title: "systemdesign.io",
+    url: "https://systemdesign.io",
+  },
+  {
     id: "0ca5d4d1-659a-4d30-ad57-c52385640efc",
     date: "2026-10-26",
     title: "Tom Brown: How I Made the Switch to AI Research",
