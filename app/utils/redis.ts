@@ -79,6 +79,19 @@ class RedisSingleton {
     return true;
   }
 
+  // Sets the value only when the key doesn't exist yet, returning whether it was set
+  public async setIfMissing(key: string, value: unknown): Promise<boolean> {
+    await this.ensureConnection();
+
+    if (!this.client) {
+      throw new Error("Redis client not initialized");
+    }
+
+    const serializedValue = typeof value === "string" ? value : JSON.stringify(value);
+    const result = await this.client.set(key, serializedValue, { NX: true });
+    return result === "OK";
+  }
+
   public async increment(key: string): Promise<number> {
     await this.ensureConnection();
     if (!this.client) {

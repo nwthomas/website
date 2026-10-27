@@ -1,4 +1,7 @@
 import { getPostViewsRedisKey, redis } from "@/app/utils/redis";
+import postsJson from "@/app/(writing)/posts.json";
+
+const POST_IDS = new Set(postsJson.posts.map((post) => post.id));
 
 const ALLOWED_ORIGINS = ["https://nathanthomas.dev", "https://www.nathanthomas.dev"];
 if (process.env.NODE_ENV === "development") {
@@ -38,12 +41,15 @@ export async function POST(request: Request): Promise<Response> {
     return new Response(null, { status: 400 });
   }
 
-  const result = await redis.get(getPostViewsRedisKey(slug));
-  if (result == null) {
+  // Only track real articles so arbitrary slugs can't create keys
+  if (!POST_IDS.has(slug)) {
     return new Response(null, { status: 404 });
   }
 
-  await redis.increment(getPostViewsRedisKey(slug));
+  // Start new articles at 0 (NX keeps this from resetting an existing count during concurrent first views)
+  const viewsKey = getPostViewsRedisKey(slug);
+  await redis.setIfMissing(viewsKey, 0);
+  await redis.increment(viewsKey);
 
   return new Response(null, { status: 204 });
 }
