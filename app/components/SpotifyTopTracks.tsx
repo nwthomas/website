@@ -102,9 +102,14 @@ const styles = stylex.create({
     flexDirection: "column",
     textDecorationLine: "none",
   },
+  // The scroller clips vertically, so pad the top and bottom to leave room for each link's
+  // focus outline, offsetting with negative margins to keep the row's position unchanged
   row: {
     gap: "1rem",
     display: "flex",
+    marginBottom: "-0.25rem",
+    marginTop: "-0.25rem",
+    paddingBottom: "0.25rem",
     paddingLeft: {
       default: "1.25rem",
       "@media (min-width: 1024px)": "2.5rem",
@@ -113,6 +118,7 @@ const styles = stylex.create({
       default: "1.25rem",
       "@media (min-width: 1024px)": "2.5rem",
     },
+    paddingTop: "0.25rem",
   },
   section: {
     marginTop: "1.25rem",

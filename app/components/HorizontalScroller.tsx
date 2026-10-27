@@ -93,6 +93,8 @@ const styles = stylex.create({
   list: {
     display: "flex",
     listStyleType: "none",
+    // Draw the focus outline inside the list so it isn't cut off when the list spans the full viewport
+    outlineOffset: "-2px",
     position: "relative",
     scrollbarWidth: "none",
     overflowX: "auto",
