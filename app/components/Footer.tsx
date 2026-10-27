@@ -1,6 +1,7 @@
 "use client";
 
 import * as stylex from "@stylexjs/stylex";
+
 import { sharedStyles } from "@/app/styles";
 import { usePathname } from "next/navigation";
 
@@ -16,6 +17,11 @@ export function Footer() {
     <footer {...stylex.props(styles.footer, sharedStyles.pageSection)}>
       <div {...stylex.props(styles.inner)}>
         <ul {...stylex.props(styles.list)}>
+          <li data-unstyled="true">
+            <p {...stylex.props(styles.text)} suppressHydrationWarning>
+              &copy; {new Date().getFullYear()}
+            </p>
+          </li>
           <li data-unstyled="true">
             <p {...stylex.props(styles.text)}>
               Nathan Thomas (

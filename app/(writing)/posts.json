@@ -1,9 +1,9 @@
 {
   "posts": [
     {
-      "id": "agent-defaults",
-      "title": "AGENTS.md Defaults",
-      "description": "Boilerplate for a good AGENTS.md document",
+      "id": "agent-md",
+      "title": "AGENTS.md",
+      "description": "Boilerplate for AGENTS.md",
       "date": "2026-10-26"
     },
     {
