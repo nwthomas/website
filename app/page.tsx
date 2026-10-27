@@ -37,7 +37,7 @@ export default async function Page() {
         >
           Twitter (X)
         </a>
-        .
+        . I'm currently working on something new.
       </p>
       <p {...stylex.props(styles.mt5)}>
         At the end of the day, I'm still that kid who grew up playing with his parents' Macintosh and ripping CDs for

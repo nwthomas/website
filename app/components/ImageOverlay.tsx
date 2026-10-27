@@ -11,6 +11,9 @@ import * as stylex from "@stylexjs/stylex";
 import { hideImageOverlay } from "@/app/store/reducers/writingSlice";
 import { useLockBodyScroll } from "@/app/hooks";
 
+// The Redact JSX runtime doesn't apply class component defaultProps, which FocusTrap needs to construct
+const focusTrapDefaultProps = (FocusTrap as React.ComponentClass<React.ComponentProps<typeof FocusTrap>>).defaultProps;
+
 function ImageOverlay() {
   const image = useSelector(selectOverlayImage);
   const dispatch = useDispatch();
@@ -31,7 +34,7 @@ function ImageOverlay() {
   };
 
   return (
-    <FocusTrap>
+    <FocusTrap {...focusTrapDefaultProps}>
       <div onClick={handleCloseButtonClick} {...stylex.props(styles.overlay)}>
         <div {...stylex.props(styles.inner)}>
           <button
