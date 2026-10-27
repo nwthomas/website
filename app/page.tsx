@@ -2,12 +2,17 @@ import * as stylex from "@stylexjs/stylex";
 
 import Link from "next/link";
 import { Post } from "@/app/(writing)/utils/types";
-import { SpotifyRecentlyPlayed, SpotifyRecentlyPlayedSkeleton } from "@/app/components/SpotifyRecentlyPlayed";
-import { Suspense } from "react";
+import { SpotifyTopTracks } from "@/app/components/SpotifyTopTracks";
 import postsJson from "@/app/(writing)/posts.json";
 import { sharedStyles } from "@/app/styles";
 
-export default function Page() {
+// Statically render the homepage (including the weekly Spotify tracks) and regenerate it hourly.
+// The tracks themselves are cached in Redis for a week, so most regenerations only read Redis.
+// A failed fetch during regeneration keeps the last good page and retries on the next request;
+// one during the build renders without tracks until the first regeneration after this interval.
+export const revalidate = 3600;
+
+export default async function Page() {
   const { posts } = postsJson;
   const lastThreePosts: Post[] = posts.slice(0, 3);
 
@@ -102,11 +107,7 @@ export default function Page() {
           </a>
         </li>
       </ul>
-      <div data-spotify-slot="" {...stylex.props(styles.spotifySlot)}>
-        <Suspense fallback={<SpotifyRecentlyPlayedSkeleton />}>
-          <SpotifyRecentlyPlayed />
-        </Suspense>
-      </div>
+      <SpotifyTopTracks />
       <p {...stylex.props(styles.mt5)}>
         You can read my{" "}
         <Link aria-label="Link to Nathan's writing" href="/writing">
@@ -151,10 +152,6 @@ export default function Page() {
 }
 
 const styles = stylex.create({
-  spotifySlot: {
-    height: "5.75rem",
-    marginTop: "1.25rem",
-  },
   mt4: {
     marginTop: "1rem",
   },

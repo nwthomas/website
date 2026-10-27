@@ -114,6 +114,8 @@ const styles = stylex.create({
     width: "100%",
   },
   main: {
+    // Lets full-bleed children size against the page width without the scrollbar gutter that 100vw includes
+    containerType: "inline-size",
     display: "flex",
     justifyContent: "center",
     paddingTop: "2.5rem",

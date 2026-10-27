@@ -3,14 +3,14 @@ import * as Sentry from "@sentry/nextjs";
 import { REDIS_TOKEN, REDIS_URL } from "./constants";
 import { RedisClientType, createClient } from "redis";
 
-export const SPOTIFY_RECENTLY_PLAYED_TTL_S = 60 * 60;
+export const SPOTIFY_TOP_TRACKS_TTL_S = 60 * 60 * 24 * 7;
 
 function getPostViewsRedisKey(postId: string) {
   return `${postId}-views`;
 }
 
-function getSpotifyRecentlyPlayedRedisKey() {
-  return "spotify-most-recently-played";
+function getSpotifyTopTracksRedisKey() {
+  return "spotify-top-tracks-short-term";
 }
 
 class RedisSingleton {
@@ -159,4 +159,4 @@ class RedisSingleton {
 
 const redis = RedisSingleton.getInstance();
 
-export { redis, getPostViewsRedisKey, getSpotifyRecentlyPlayedRedisKey };
+export { redis, getPostViewsRedisKey, getSpotifyTopTracksRedisKey };
