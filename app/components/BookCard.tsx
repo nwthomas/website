@@ -45,7 +45,7 @@ export function BookCard({ title, author, cover, url, height, width, unoptimized
 
 const styles = stylex.create({
   author: {
-    color: "var(--muted)",
+    color: "var(--foreground-muted)",
     fontFamily: "var(--font-geist-mono), monospace",
     fontSize: "0.75rem",
     lineHeight: 1.375,

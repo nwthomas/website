@@ -82,7 +82,7 @@ const styles = stylex.create({
     backgroundColor: "var(--skeleton-base)",
   },
   artists: {
-    color: "var(--muted)",
+    color: "var(--foreground-muted)",
   },
   // Break out of the centered page column so the row spans the full page width
   bleed: {
@@ -126,7 +126,7 @@ const styles = stylex.create({
     whiteSpace: "nowrap",
   },
   track: {
-    color: "var(--recently-played-track)",
+    color: "var(--foreground)",
     fontWeight: 500,
     marginTop: "0.625rem",
   },

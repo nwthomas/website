@@ -76,7 +76,7 @@ const styles = stylex.create({
     textDecorationLine: "none",
   },
   sourceItem: {
-    color: "var(--muted)",
+    color: "var(--foreground-muted)",
     display: "flex",
   },
   sourceLink: {
@@ -86,7 +86,7 @@ const styles = stylex.create({
     marginLeft: "auto",
   },
   text: {
-    color: "var(--muted)",
+    color: "var(--foreground-muted)",
     fontSize: "0.875rem",
   },
 });

@@ -130,7 +130,7 @@ const styles = stylex.create({
     transitionProperty: "opacity",
   },
   caption: {
-    color: "var(--muted)",
+    color: "var(--foreground-muted)",
     fontFamily: "var(--font-geist-mono), monospace",
     fontSize: "0.75rem",
     marginTop: "0.5rem",

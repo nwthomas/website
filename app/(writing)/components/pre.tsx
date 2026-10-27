@@ -20,7 +20,7 @@ export const Pre = ({
 
 const styles = stylex.create({
   caption: {
-    color: "var(--muted)",
+    color: "var(--foreground-muted)",
     fontSize: "0.875rem",
     marginTop: "0.5rem",
   },
@@ -32,8 +32,8 @@ const styles = stylex.create({
   },
   pre: {
     borderRadius: "0.125rem",
-    backgroundColor: "var(--code-background)",
-    color: "var(--code-foreground)",
+    backgroundColor: "var(--surface)",
+    color: "var(--surface-foreground)",
     fontSize: "0.875rem",
     maxWidth: "42rem",
     paddingBottom: "1rem",

@@ -8,20 +8,31 @@
 
 @stylex;
 
+/*
+ * Neutrals use the cool (blue-tinted) gray scale:
+ * 100 #f3f4f6, 200 #e5e7eb, 500 #6b7280, 800 #1f2937, 900 #111827
+ *
+ * Code surfaces use subtle neutral (pure) grays so they don't read blue:
+ * 100 #f5f5f5, 300 #d4d4d4, 700 #404040, 900 #171717
+ */
 :root {
   --background: #ffffff;
   --border-image-dark: #ffffff;
   --border-image-light: #e5e7eb;
   --border-subtle: #e5e7eb;
-  --code-background: #e5e5e5;
-  --code-foreground: #404040;
+  --focus-ring: #000000;
   --foreground: #0a0a0a;
-  --muted: #6b7280;
-  --recently-played-artist: #4b5563;
-  --recently-played-track: #111827;
+  --foreground-muted: #6b7280;
+  --selection-background: #000000;
+  --selection-foreground: #ffffff;
   --skeleton-base: #f3f4f6;
   --skeleton-highlight: #e5e7eb;
+  --surface: #f5f5f5;
+  --surface-foreground: #404040;
   --theme-switch: #facf3d;
+  --theme-switch-knob: #ffffff;
+  --theme-switch-moon: #a38cf3;
+  --theme-switch-track: #000000;
 }
 
 html.dark {
@@ -29,36 +40,25 @@ html.dark {
   --border-image-dark: #1f2937;
   --border-image-light: #000000;
   --border-subtle: #1f2937;
-  --code-background: #222222;
-  --code-foreground: #d1d5db;
+  --focus-ring: #ffffff;
   --foreground: #ededed;
-  --recently-played-artist: #d1d5db;
-  --recently-played-track: #f3f4f6;
+  --foreground-muted: #6b7280;
+  --selection-background: #ffffff;
+  --selection-foreground: #000000;
   --skeleton-base: #111827;
   --skeleton-highlight: #1f2937;
+  --surface: #171717;
+  --surface-foreground: #d4d4d4;
 }
 
 ::selection {
-  background: #000000;
-  color: #ffffff;
-}
-
-html.dark ::selection {
-  background: #ffffff;
-  color: #000000;
+  background: var(--selection-background);
+  color: var(--selection-foreground);
 }
 
 :focus,
 :focus-visible {
-  outline: 2px solid #000000;
-}
-
-html.dark :focus {
-  outline: 2px solid #ffffff;
-}
-
-html.dark :focus-visible {
-  outline: 2px solid #ffffff;
+  outline: 2px solid var(--focus-ring);
 }
 
 html,
@@ -130,9 +130,11 @@ p {
   line-height: 1.5rem;
 }
 
-p code {
-  background-color: var(--code-background);
+/* Inline code only; code blocks are styled by the Pre component */
+code:not(pre code) {
+  background-color: var(--surface);
   border-radius: 0.125rem;
+  color: var(--surface-foreground);
   font-size: 0.875rem;
   padding: 0.125rem 0.25rem;
 }
@@ -148,7 +150,7 @@ a {
   opacity: 1;
   text-decoration-line: underline;
   text-decoration-style: dotted;
-  text-decoration-color: var(--muted);
+  text-decoration-color: var(--foreground-muted);
   text-underline-offset: 5px;
   transition-duration: 200ms;
   transition-property: opacity;
@@ -193,7 +195,7 @@ ul li {
 }
 
 ul li::before {
-  color: var(--muted);
+  color: var(--foreground-muted);
   content: "‣";
   display: inline-block;
   font-family:

@@ -97,7 +97,7 @@ const styles = stylex.create({
     width: "100%",
   },
   subtitle: {
-    color: "var(--muted)",
+    color: "var(--foreground-muted)",
     fontSize: "0.875rem",
     lineHeight: "1.25rem",
   },

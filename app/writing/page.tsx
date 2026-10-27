@@ -99,12 +99,12 @@ const styles = stylex.create({
     flexBasis: 0,
     flexGrow: 2,
     flexShrink: 1,
-    textDecorationColor: "var(--muted)",
+    textDecorationColor: "var(--foreground-muted)",
     textDecorationLine: "underline",
     textDecorationStyle: "dotted",
   },
   views: {
-    color: "var(--muted)",
+    color: "var(--foreground-muted)",
     fontSize: "0.875rem",
   },
 });

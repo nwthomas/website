@@ -9,8 +9,8 @@ import { useId } from "react";
 import { useTheme } from "@/app/hooks/useTheme";
 
 const THEME_OPTIONS = [
-  { value: SYSTEM_THEME, label: "System", Icon: MonitorIcon, color: "#ffffff" },
-  { value: DARK_THEME, label: "Dark", Icon: MoonIcon, color: "#A38CF3" },
+  { value: SYSTEM_THEME, label: "System", Icon: MonitorIcon, color: "var(--theme-switch-knob)" },
+  { value: DARK_THEME, label: "Dark", Icon: MoonIcon, color: "var(--theme-switch-moon)" },
   { value: LIGHT_THEME, label: "Light", Icon: SunIcon, color: "var(--theme-switch)" },
 ] as const;
 
@@ -96,7 +96,7 @@ const styles = stylex.create({
   },
   knob: {
     borderRadius: 9999,
-    backgroundColor: "#ffffff",
+    backgroundColor: "var(--theme-switch-knob)",
     boxShadow: "none",
     outlineStyle: "none",
     pointerEvents: "none",
@@ -119,13 +119,13 @@ const styles = stylex.create({
     transform: "translateX(48px)",
   },
   track: {
-    borderColor: "var(--muted)",
+    borderColor: "var(--foreground-muted)",
     borderRadius: 9999,
     borderStyle: "solid",
     borderWidth: 2,
     gap: 2,
     alignItems: "center",
-    backgroundColor: "#000000",
+    backgroundColor: "var(--theme-switch-track)",
     display: "flex",
     position: "relative",
     touchAction: "pan-x",

@@ -38,10 +38,10 @@ const styles = stylex.create({
     marginBottom: "1.25rem",
   },
   quote: {
-    color: "var(--muted)",
+    color: "var(--foreground-muted)",
     fontStyle: "italic",
     whiteSpace: "pre-line",
-    borderLeftColor: "var(--muted)",
+    borderLeftColor: "var(--foreground-muted)",
     borderLeftStyle: "solid",
     borderLeftWidth: 4,
     paddingTop: "1.25rem",

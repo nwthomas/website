@@ -5,12 +5,19 @@ export const colors = {
   borderImageDark: "var(--border-image-dark)",
   borderImageLight: "var(--border-image-light)",
   borderSubtle: "var(--border-subtle)",
-  codeBackground: "var(--code-background)",
-  codeForeground: "var(--code-foreground)",
+  focusRing: "var(--focus-ring)",
   foreground: "var(--foreground)",
-  muted: "var(--muted)",
-  recentlyPlayedArtist: "var(--recently-played-artist)",
-  recentlyPlayedTrack: "var(--recently-played-track)",
+  foregroundMuted: "var(--foreground-muted)",
+  selectionBackground: "var(--selection-background)",
+  selectionForeground: "var(--selection-foreground)",
+  skeletonBase: "var(--skeleton-base)",
+  skeletonHighlight: "var(--skeleton-highlight)",
+  surface: "var(--surface)",
+  surfaceForeground: "var(--surface-foreground)",
+  themeSwitch: "var(--theme-switch)",
+  themeSwitchKnob: "var(--theme-switch-knob)",
+  themeSwitchMoon: "var(--theme-switch-moon)",
+  themeSwitchTrack: "var(--theme-switch-track)",
 };
 
 export const fonts = {
@@ -39,13 +46,13 @@ export const sharedStyles = stylex.create({
   rssFeedLink: {
     textDecorationLine: "none",
     whiteSpace: "nowrap",
-    borderBottomColor: "var(--muted)",
+    borderBottomColor: "var(--foreground-muted)",
     borderBottomStyle: "dotted",
     borderBottomWidth: "1px",
     paddingBottom: "2px",
   },
   textMuted: {
-    color: "var(--muted)",
+    color: "var(--foreground-muted)",
   },
   textNoUnderline: {
     textDecorationLine: "none",
