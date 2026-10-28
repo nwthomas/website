@@ -9,10 +9,19 @@ interface Props {
 
 export function MonitorIcon({ color, isAriaHidden, style, title }: Props) {
   return (
-    <svg aria-hidden={isAriaHidden} fill="none" stroke={color} style={style} viewBox="0 0 24 24">
+    <svg
+      aria-hidden={isAriaHidden}
+      fill="none"
+      stroke={color}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      style={style}
+      viewBox="0 0 24 24"
+    >
       <title>{title || "Monitor icon"}</title>
-      <rect x="3" y="3" width="18" height="13" rx="2" strokeWidth="2" />
-      <path d="M12 16v5m-4 0h8" strokeLinecap="round" strokeWidth="2" />
+      <rect width="20" height="14" x="2" y="3" rx="2" />
+      <path d="M8 21h8m-4-4v4" />
     </svg>
   );
 }

@@ -14,10 +14,6 @@ export const colors = {
   skeletonHighlight: "var(--skeleton-highlight)",
   surface: "var(--surface)",
   surfaceForeground: "var(--surface-foreground)",
-  themeSwitch: "var(--theme-switch)",
-  themeSwitchKnob: "var(--theme-switch-knob)",
-  themeSwitchMoon: "var(--theme-switch-moon)",
-  themeSwitchTrack: "var(--theme-switch-track)",
 };
 
 export const fonts = {
