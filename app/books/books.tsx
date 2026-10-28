@@ -10,10 +10,19 @@ export type Book = {
 
 export const BOOKS: Book[] = [
   {
+    id: "why-machines-learn",
+    title: "Why Machines Learn: The Elegant Math Behind Modern AI",
+    author: "Anil Ananthaswamy",
+    cover: "/images/books/why-machines-learn.webp",
+    url: "https://www.amazon.com/dp/0593185749",
+    height: 1500,
+    width: 993,
+  },
+  {
     id: "kitchen-confidential",
     title: "Kitchen Confidential",
     author: "Anthony Bourdain",
-    cover: "/images/books/kitchen-confidential.webp", // TODO: Fix with .webp
+    cover: "/images/books/kitchen-confidential.webp",
     url: "https://a.co/d/0ayaogTn",
     height: 2400,
     width: 1617,
