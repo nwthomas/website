@@ -86,7 +86,7 @@ const styles = stylex.create({
   title: {
     textDecorationColor: "var(--foreground-muted)",
     textDecorationLine: "underline",
-    textDecorationStyle: "dotted",
+    textUnderlineOffset: "3px",
     marginLeft: "1.25rem",
   },
 });

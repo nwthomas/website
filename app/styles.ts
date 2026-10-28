@@ -44,12 +44,7 @@ export const sharedStyles = stylex.create({
     width: "100%",
   },
   rssFeedLink: {
-    textDecorationLine: "none",
     whiteSpace: "nowrap",
-    borderBottomColor: "var(--foreground-muted)",
-    borderBottomStyle: "dotted",
-    borderBottomWidth: "1px",
-    paddingBottom: "2px",
   },
   textMuted: {
     color: "var(--foreground-muted)",

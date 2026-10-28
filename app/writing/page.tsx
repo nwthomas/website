@@ -101,7 +101,7 @@ const styles = stylex.create({
     flexShrink: 1,
     textDecorationColor: "var(--foreground-muted)",
     textDecorationLine: "underline",
-    textDecorationStyle: "dotted",
+    textUnderlineOffset: "3px",
   },
   views: {
     color: "var(--foreground-muted)",
