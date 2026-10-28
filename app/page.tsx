@@ -40,8 +40,43 @@ export default async function Page() {
         . I'm currently working on something new.
       </p>
       <p {...stylex.props(styles.mt5)}>
-        At the end of the day, I'm still that kid who grew up playing with his parents' Macintosh and ripping CDs for
-        his friends.
+        You can read my{" "}
+        <Link aria-label="Link to Nathan's writing" href="/writing">
+          writing
+        </Link>
+        ,{" "}
+        <a
+          href="https://github.com/nwthomas"
+          aria-label="Link to Nathan's GitHub"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          code
+        </a>
+        ,{" "}
+        <Link aria-label="Link to Nathan's bookmarks" href="/bookmarks">
+          bookmarks
+        </Link>
+        , <Link href="/books">booklist</Link>,{" "}
+        <a
+          href="https://nathanthomas.substack.com/"
+          aria-label="Link to Nathan's profile on Substack"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          newsletter
+        </a>
+        , or{" "}
+        <a
+          href="https://x.com/nwthomas"
+          aria-label="Link to Nathan's profile on X"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          follow me online.
+        </a>{" "}
+        I also angel invest in startups, so please <a href="mailto:contact@nathanthomas.dev">reach out</a> if
+        interested.
       </p>
       <h2 {...stylex.props(styles.mt5)}>Writing</h2>
       <ul {...stylex.props(styles.mt4)}>
@@ -108,45 +143,6 @@ export default async function Page() {
         </li>
       </ul>
       <SpotifyTopTracks />
-      <p {...stylex.props(styles.mt5)}>
-        You can read my{" "}
-        <Link aria-label="Link to Nathan's writing" href="/writing">
-          writing
-        </Link>
-        ,{" "}
-        <a
-          href="https://github.com/nwthomas"
-          aria-label="Link to Nathan's GitHub"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          code
-        </a>
-        ,{" "}
-        <Link aria-label="Link to Nathan's bookmarks" href="/bookmarks">
-          bookmarks
-        </Link>
-        , <Link href="/books">booklist</Link>,{" "}
-        <a
-          href="https://nathanthomas.substack.com/"
-          aria-label="Link to Nathan's profile on Substack"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          newsletter
-        </a>
-        , or{" "}
-        <a
-          href="https://x.com/nwthomas"
-          aria-label="Link to Nathan's profile on X"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          follow me online.
-        </a>{" "}
-        I also angel invest in startups, so please <a href="mailto:contact@nathanthomas.dev">reach out</a> if
-        interested.
-      </p>
     </section>
   );
 }
