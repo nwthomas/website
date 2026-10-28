@@ -19,25 +19,8 @@ export default async function Page() {
   return (
     <section {...stylex.props(sharedStyles.pageSection)}>
       <p>
-        I'm a software engineer, writer, and teacher from San Francisco, CA. I previously led core work at{" "}
-        <a href="https://tesla.com" aria-label="Link to Tesla's website" rel="noopener noreferrer" target="_target">
-          Tesla
-        </a>
-        ,{" "}
-        <a href="https://loom.com" aria-label="Link to Loom's website" rel="noopener noreferrer" target="_target">
-          Loom
-        </a>
-        , and{" "}
-        <a
-          href="https://x.com"
-          aria-label="Link to X's website"
-          rel="noopener noreferrer"
-          target="_target"
-          {...stylex.props(styles.nowrap)}
-        >
-          Twitter (X)
-        </a>
-        . I'm currently working on something new.
+        I'm a software engineer, writer, and teacher from San Francisco, CA. I previously led core work at Tesla, Loom,
+        and X. I'm currently working on something new.
       </p>
       <p {...stylex.props(styles.mt5)}>
         You can read my{" "}
@@ -57,26 +40,16 @@ export default async function Page() {
         <Link aria-label="Link to Nathan's bookmarks" href="/bookmarks">
           bookmarks
         </Link>
-        , <Link href="/books">booklist</Link>,{" "}
+        , <Link href="/books">booklist</Link>, or{" "}
         <a
           href="https://nathanthomas.substack.com/"
           aria-label="Link to Nathan's profile on Substack"
           rel="noopener noreferrer"
           target="_blank"
         >
-          newsletter
-        </a>
-        , or{" "}
-        <a
-          href="https://x.com/nwthomas"
-          aria-label="Link to Nathan's profile on X"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          follow me online.
+          newsletter.
         </a>{" "}
-        I also angel invest in startups, so please <a href="mailto:contact@nathanthomas.dev">reach out</a> if
-        interested.
+        I also <a href="mailto:contact@nathanthomas.dev">angel invest</a> in startups.
       </p>
       <h2 {...stylex.props(styles.mt5)}>Writing</h2>
       <ul {...stylex.props(styles.mt4)}>
@@ -153,10 +126,5 @@ const styles = stylex.create({
   },
   mt5: {
     marginTop: "1.25rem",
-  },
-  nowrap: {
-    overflowWrap: "normal",
-    whiteSpace: "nowrap",
-    wordBreak: "keep-all",
   },
 });
