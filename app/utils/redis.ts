@@ -3,7 +3,7 @@ import * as Sentry from "@sentry/nextjs";
 import { REDIS_TOKEN, REDIS_URL } from "./constants";
 import { RedisClientType, createClient } from "redis";
 
-export const SPOTIFY_TOP_TRACKS_TTL_S = 60 * 60 * 24 * 7;
+export const SPOTIFY_TOP_TRACKS_TTL_S = 60 * 60;
 
 function getPostViewsRedisKey(postId: string) {
   return `${postId}-views`;

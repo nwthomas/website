@@ -52,6 +52,15 @@ html.dark {
   color: var(--selection-foreground);
 }
 
+/* Hide the page scrollbar while keeping wheel, touch, and keyboard scrolling */
+html {
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
 :focus-visible {
   outline: 2px solid var(--focus-ring);
 }

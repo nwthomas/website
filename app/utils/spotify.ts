@@ -83,8 +83,7 @@ export async function getTopTracks(accessToken: string, limit = SPOTIFY_TOP_TRAC
   return (data.items ?? []).map(normalizeTrack);
 }
 
-// Cached in Redis for a week so the list refreshes weekly on the first render after expiry.
-export async function getWeeklyTopTracks(): Promise<SpotifyTrack[]> {
+export async function getHourlyTopTracks(): Promise<SpotifyTrack[]> {
   if (process.env.NODE_ENV === "production") {
     const cachedTracks = await redis.get<SpotifyTrack[]>(getSpotifyTopTracksRedisKey());
     if (cachedTracks?.length) {

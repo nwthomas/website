@@ -3,7 +3,7 @@ import Image from "next/image";
 import { PHASE_PRODUCTION_BUILD } from "next/constants";
 import * as stylex from "@stylexjs/stylex";
 import { HorizontalScroller } from "@/app/components/HorizontalScroller";
-import { getWeeklyTopTracks, type SpotifyTrack } from "@/app/utils/spotify";
+import { getHourlyTopTracks, type SpotifyTrack } from "@/app/utils/spotify";
 
 // Enough album covers to fill the first screen of the row on wide displays; the rest load lazily as they scroll in
 const EAGER_IMAGE_COUNT = 8;
@@ -14,7 +14,7 @@ const EAGER_IMAGE_COUNT = 8;
 export async function SpotifyTopTracks() {
   let tracks: SpotifyTrack[] = [];
   try {
-    tracks = await getWeeklyTopTracks();
+    tracks = await getHourlyTopTracks();
   } catch (error) {
     Sentry.captureException(error);
 
