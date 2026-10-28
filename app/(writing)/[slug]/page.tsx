@@ -25,13 +25,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${metadata.title} | Nathan Thomas`,
     description: metadata.description,
     metadataBase: new URL("https://www.nathanthomas.dev"),
+    alternates: { canonical: `/${slug}` },
     openGraph: {
       title: metadata.title,
       description: metadata.description,
-      url: "https://www.nathanthomas.dev",
+      url: `https://www.nathanthomas.dev/${slug}`,
       siteName: "Nathan Thomas",
       locale: "en_US",
-      type: "website",
+      type: "article",
       images: [{ url: `/${slug}/opengraph-image` }],
     },
   };

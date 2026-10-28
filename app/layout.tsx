@@ -15,17 +15,40 @@ import { sharedStyles } from "@/app/styles";
 
 export const metadata: Metadata = {
   title: "Nathan Thomas",
-  description: "Internet home for Nathan Thomas",
+  description: "Nathan Thomas is a software engineer, writer, and teacher from San Francisco, CA",
   metadataBase: new URL("https://www.nathanthomas.dev"),
+  alternates: { canonical: "/" },
   openGraph: {
     title: "Nathan Thomas",
-    description: "Internet home for Nathan Thomas",
+    description: "Nathan Thomas is a software engineer, writer, and teacher from San Francisco, CA",
     url: "https://www.nathanthomas.dev",
     siteName: "Nathan Thomas",
     locale: "en_US",
     type: "website",
     images: [{ url: "/opengraph-image" }],
   },
+};
+
+// Structured data so search engines can identify the site and the person it belongs to
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.nathanthomas.dev/#website",
+      name: "Nathan Thomas",
+      url: "https://www.nathanthomas.dev",
+      publisher: { "@id": "https://www.nathanthomas.dev/#person" },
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.nathanthomas.dev/#person",
+      name: "Nathan Thomas",
+      url: "https://www.nathanthomas.dev",
+      jobTitle: "Software Engineer",
+      sameAs: ["https://github.com/nwthomas", "https://x.com/nwthomas", "https://nathanthomas.substack.com/"],
+    },
+  ],
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -83,6 +106,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             `,
           }}
         />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       </head>
       <ErrorBoundary>
         <Providers>

@@ -1,16 +1,18 @@
+import * as stylex from "@stylexjs/stylex";
+
 import { BOOKS } from "./books";
 import { BookCard } from "@/app/components/BookCard";
 import { Metadata } from "next";
-import * as stylex from "@stylexjs/stylex";
 import { sharedStyles } from "@/app/styles";
 
 export const metadata: Metadata = {
   title: "Books | Nathan Thomas",
-  description: "Excellent books I've read",
+  description: "A list of Nathan Thomas' favorite books",
   metadataBase: new URL("https://www.nathanthomas.dev"),
+  alternates: { canonical: "/books" },
   openGraph: {
     title: "Books",
-    description: "Excellent books I've read",
+    description: "A list of Nathan Thomas' favorite books",
     url: "https://www.nathanthomas.dev/books",
     siteName: "Nathan Thomas",
     locale: "en_US",

@@ -10,12 +10,13 @@ import { sharedStyles } from "@/app/styles";
 
 export const metadata: Metadata = {
   title: "Writing | Nathan Thomas",
-  description: "Nathan Thomas' writing page",
+  description: "Essays and technical posts by Nathan Thomas on software engineering, AI, and life",
   metadataBase: new URL("https://www.nathanthomas.dev"),
+  alternates: { canonical: "/writing" },
   openGraph: {
     title: "Writing",
-    description: "Nathan Thomas' writing page",
-    url: "https://www.nathanthomas.dev",
+    description: "Essays and technical posts by Nathan Thomas on software engineering, AI, and life",
+    url: "https://www.nathanthomas.dev/writing",
     siteName: "Nathan Thomas",
     locale: "en_US",
     type: "website",

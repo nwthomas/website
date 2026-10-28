@@ -1,6 +1,7 @@
+import * as stylex from "@stylexjs/stylex";
+
 import { BOOKMARKS } from "./bookmarks";
 import { BookmarksList } from "./BookmarksList";
-import * as stylex from "@stylexjs/stylex";
 import Link from "next/link";
 import { Metadata } from "next";
 import { RssIcon } from "@/app/components/Icons/RssIcon";
@@ -8,12 +9,13 @@ import { sharedStyles } from "@/app/styles";
 
 export const metadata: Metadata = {
   title: "Bookmarks | Nathan Thomas",
-  description: "Nathan Thomas' bookmarks page",
+  description: "Articles and resources Nathan Thomas has read and learned from",
   metadataBase: new URL("https://www.nathanthomas.dev"),
+  alternates: { canonical: "/bookmarks" },
   openGraph: {
     title: "Bookmarks",
-    description: "Nathan Thomas' bookmarks page",
-    url: "https://www.nathanthomas.dev",
+    description: "Articles and resources Nathan Thomas has read and learned from",
+    url: "https://www.nathanthomas.dev/bookmarks",
     siteName: "Nathan Thomas",
     locale: "en_US",
     type: "website",
