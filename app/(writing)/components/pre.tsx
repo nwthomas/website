@@ -1,5 +1,6 @@
 import * as stylex from "@stylexjs/stylex";
 import type { ReactNode } from "react";
+import { sharedStyles } from "@/app/styles";
 
 export const Pre = ({
   children,
@@ -11,10 +12,12 @@ export const Pre = ({
   caption: ReactNode | null;
 }) => (
   <div {...stylex.props(styles.wrapper)}>
-    <pre {...stylex.props(styles.pre, scroll ? styles.scroll : styles.noScroll)}>
-      <code>{children}</code>
-    </pre>
-    <p {...stylex.props(styles.caption)}>{caption}</p>
+    <div {...stylex.props(styles.content, sharedStyles.pageSection)}>
+      <pre {...stylex.props(styles.pre, scroll ? styles.scroll : styles.noScroll)}>
+        <code>{children}</code>
+      </pre>
+      <p {...stylex.props(styles.caption)}>{caption}</p>
+    </div>
   </div>
 );
 
@@ -23,6 +26,12 @@ const styles = stylex.create({
     color: "var(--foreground-muted)",
     fontSize: "0.875rem",
     marginTop: "0.5rem",
+  },
+  content: {
+    alignItems: "center",
+    display: "flex",
+    flexDirection: "column",
+    minWidth: 0,
   },
   noScroll: {
     overflow: "hidden",
@@ -35,7 +44,6 @@ const styles = stylex.create({
     backgroundColor: "var(--surface)",
     color: "var(--surface-foreground)",
     fontSize: "0.875rem",
-    maxWidth: "42rem",
     paddingBottom: "1rem",
     paddingLeft: "1rem",
     paddingRight: "1rem",
@@ -46,13 +54,9 @@ const styles = stylex.create({
     overflow: "auto",
   },
   wrapper: {
-    alignItems: "center",
     display: "flex",
-    flexDirection: "column",
     justifyContent: "center",
     marginBottom: "1.25rem",
-    marginLeft: "1.25rem",
-    marginRight: "1.25rem",
     width: "100%",
   },
 });
