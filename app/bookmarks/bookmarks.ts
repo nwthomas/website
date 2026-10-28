@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "b9daef5a-51d2-4efa-8c00-488d061e6830",
+    date: "2026-10-28",
+    title: "The Sane Asylum",
+    url: "https://colossus.com/article/sane-asylum-turbopuffer/",
+  },
+  {
     id: "98b61d21-c8b8-429f-becb-f847da6cd342",
     date: "2026-10-26",
     title: "systemdesign.io",
