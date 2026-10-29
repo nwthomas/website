@@ -3,6 +3,7 @@ import "./globals.css";
 import * as stylex from "@stylexjs/stylex";
 
 import { Analytics } from "@/app/components/Analytics";
+import { BottomBlur } from "@/app/components/BottomBlur";
 import { ErrorBoundary } from "@/app/components/ErrorBoundary";
 import { Footer } from "./components/Footer";
 import { GeistMono } from "geist/font/mono";
@@ -120,6 +121,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <Footer />
               </div>
             </div>
+            <BottomBlur />
             <Analytics />
           </body>
         </Providers>
