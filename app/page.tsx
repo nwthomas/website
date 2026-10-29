@@ -47,8 +47,11 @@ export default async function Page() {
   return (
     <section {...stylex.props(sharedStyles.pageSection)}>
       <p {...stylex.props(sharedStyles.textSecondary)}>
-        I'm a full-stack software engineer from San Francisco, CA. I previously led work at Tesla, Loom, and X. Here's
-        my{" "}
+        I'm a software engineer from San Francisco, CA with a multi-disciplinary background across engineering, design,
+        and product. I've led work at Tesla, Loom, and X.
+      </p>
+      <p {...stylex.props(sharedStyles.textSecondary, styles.paragraph)}>
+        Here's my{" "}
         <Link aria-label="Link to Nathan's writing" href="/writing">
           writing
         </Link>
@@ -80,6 +83,9 @@ export default async function Page() {
 const styles = stylex.create({
   heading: {
     marginTop: "2.5rem",
+  },
+  paragraph: {
+    marginTop: "1rem",
   },
   rowList: {
     marginBottom: "-0.75rem",
