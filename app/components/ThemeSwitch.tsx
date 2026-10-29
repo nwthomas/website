@@ -27,14 +27,14 @@ export function ThemeSwitch() {
   return (
     <button
       aria-label={`${currentOption.label} theme. Switch to ${nextOption.label.toLowerCase()} theme`}
-      title={`${currentOption.label} theme`}
+      title={`${currentOption.label} Theme`}
       type="button"
       onClick={() => setCurrentTheme(nextOption.value)}
       {...stylex.props(styles.button)}
     >
-      {THEME_OPTIONS.map(({ value, Icon }) => (
+      {THEME_OPTIONS.map(({ value, label, Icon }) => (
         <span key={value} {...stylex.props(styles.icon, value !== currentTheme && styles.iconHidden)}>
-          <Icon color="currentColor" isAriaHidden style={{ height: 16, width: 16 }} />
+          <Icon color="currentColor" isAriaHidden style={{ height: 16, width: 16 }} title={`${label} Theme`} />
         </span>
       ))}
     </button>
