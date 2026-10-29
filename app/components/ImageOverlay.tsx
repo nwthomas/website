@@ -42,7 +42,7 @@ function ImageOverlay() {
             onClick={handleCloseButtonClick}
             {...stylex.props(styles.closeButton)}
           >
-            <CloseIcon color="var(--foreground)" style={{ height: "100%", width: "100%" }} />
+            <CloseIcon color="currentColor" isAriaHidden style={{ height: 16, width: 16 }} />
           </button>
           <div
             {...stylex.props(
@@ -112,16 +112,25 @@ const styles = stylex.create({
     borderWidth: 1,
   },
   closeButton: {
-    cursor: "pointer",
-    opacity: {
-      default: 1,
-      ":hover": 0.8,
+    WebkitTapHighlightColor: "transparent",
+    borderRadius: 9999,
+    borderStyle: "none",
+    alignItems: "center",
+    backdropFilter: "blur(16px) saturate(180%)",
+    backgroundColor: {
+      default: "transparent",
+      ":hover": "var(--surface)",
     },
+    color: "var(--foreground)",
+    cursor: "pointer",
+    display: "flex",
+    justifyContent: "center",
     position: "absolute",
-    transitionDuration: "200ms",
-    transitionProperty: "opacity",
-    zIndex: 10,
-    height: "1.5rem",
+    transitionDuration: "150ms",
+    transitionProperty: "background-color",
+    transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
+    zIndex: 20,
+    height: 36,
     marginBottom: 0,
     marginLeft: 0,
     marginRight: 0,
@@ -130,9 +139,9 @@ const styles = stylex.create({
     paddingLeft: 0,
     paddingRight: 0,
     paddingTop: 0,
-    right: "1.25rem",
-    top: "1.25rem",
-    width: "1.5rem",
+    right: "calc(1.25rem + env(safe-area-inset-right, 0px))",
+    top: "calc(1.25rem + env(safe-area-inset-top, 0px))",
+    width: 36,
   },
   frame: {
     alignItems: "center",
@@ -140,12 +149,15 @@ const styles = stylex.create({
     display: "flex",
     justifyContent: "center",
     position: "relative",
-    maxHeight: "min(80rem, calc(100vh - 2.5rem))",
     maxWidth: "min(80rem, calc(100vw - 2.5rem))",
   },
   image: {
     borderRadius: "0.125rem",
     display: "block",
+    height: "auto",
+    maxHeight: "min(80rem, calc(100dvh - 2.5rem - 2px))",
+    maxWidth: "100%",
+    width: "auto",
   },
   inner: {
     alignItems: "center",

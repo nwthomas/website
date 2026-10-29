@@ -9,16 +9,18 @@ interface Props {
 
 export function CloseIcon({ color, isAriaHidden, style, title }: Props) {
   return (
-    <svg aria-hidden={isAriaHidden} color={color} style={style} viewBox="0 0 512 512">
+    <svg
+      aria-hidden={isAriaHidden}
+      fill="none"
+      stroke={color}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      style={style}
+      viewBox="0 0 24 24"
+    >
       <title>{title || "Close"}</title>
-      <path
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="70"
-        d="M368 368L144 144M368 144L144 368"
-      />
+      <path d="M18 6 6 18M6 6l12 12" />
     </svg>
   );
 }
