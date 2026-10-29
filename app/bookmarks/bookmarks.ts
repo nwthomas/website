@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "ae7c42b7-6e51-45d2-944e-d029a8ceb606",
+    date: "2026-10-29",
+    title: "RocksDB",
+    url: "https://rocksdb.org",
+  },
+  {
     id: "03bf4a0a-555d-4a6b-9a60-9bd684b915f5",
     date: "2026-10-29",
     title: "How React Native Works under the Hood",
