@@ -127,7 +127,6 @@ const styles = stylex.create({
   title: {
     fontFamily: "var(--font-geist-mono), monospace",
     fontSize: "0.875rem",
-    fontWeight: 700,
     marginTop: "2.5rem",
   },
 });

@@ -1,6 +1,7 @@
 "use client";
 
 import * as stylex from "@stylexjs/stylex";
+
 import { HeadingLevel, getHeading } from "@/app/(writing)/utils/heading";
 
 import Link from "next/link";

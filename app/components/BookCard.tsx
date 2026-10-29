@@ -7,11 +7,12 @@ type Props = {
   cover: string;
   url: string;
   height: number;
+  preload?: boolean;
   unoptimized?: boolean;
   width: number;
 };
 
-export function BookCard({ title, author, cover, url, height, width, unoptimized }: Props) {
+export function BookCard({ title, author, cover, url, height, width, preload, unoptimized }: Props) {
   return (
     <a
       href={url}
@@ -30,7 +31,8 @@ export function BookCard({ title, author, cover, url, height, width, unoptimized
             {...stylex.props(styles.coverImage)}
             quality={75}
             draggable={false}
-            loading="eager"
+            preload={Boolean(preload)}
+            decoding={preload ? "sync" : "async"}
             unoptimized={Boolean(unoptimized)}
           />
         </div>

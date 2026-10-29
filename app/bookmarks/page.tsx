@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <section {...stylex.props(sharedStyles.pageSection)}>
-      <p>
+      <p {...stylex.props(sharedStyles.textSecondary)}>
         I love to learn and bookmark what I've read here. I also have an{" "}
         <Link
           aria-label="Link to Nathan's Atom RSS feed"

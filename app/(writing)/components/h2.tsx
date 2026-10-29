@@ -17,6 +17,10 @@ const styles = stylex.create({
     display: "flex",
     justifyContent: "center",
     marginBottom: "1.25rem",
+    marginTop: {
+      default: "1.25rem",
+      ":first-child": 0,
+    },
     width: "100%",
   },
 });

@@ -45,6 +45,9 @@ export const sharedStyles = stylex.create({
   textMuted: {
     color: "var(--foreground-muted)",
   },
+  textSecondary: {
+    color: "var(--foreground-secondary)",
+  },
   textNoUnderline: {
     textDecorationLine: "none",
   },

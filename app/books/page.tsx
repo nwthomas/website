@@ -5,6 +5,8 @@ import { BookCard } from "@/app/components/BookCard";
 import { Metadata } from "next";
 import { sharedStyles } from "@/app/styles";
 
+const PRELOADED_COVER_COUNT = 15;
+
 export const metadata: Metadata = {
   title: "Books | Nathan Thomas",
   description: "A list of Nathan Thomas' favorite books",
@@ -24,12 +26,12 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <section {...stylex.props(sharedStyles.pageSection)}>
-      <p>
+      <p {...stylex.props(sharedStyles.textSecondary)}>
         I have a life-long love of reading and like to keep an ever-growing list of my favorite books here. I have a
         sneaking suspicion you might like them too.
       </p>
       <div {...stylex.props(styles.booksGrid)}>
-        {BOOKS.map((book) => (
+        {BOOKS.map((book, index) => (
           <BookCard
             key={book.id}
             title={book.title}
@@ -38,6 +40,7 @@ export default function Page() {
             url={book.url}
             height={book.height}
             width={book.width}
+            preload={index < PRELOADED_COVER_COUNT}
             unoptimized
           />
         ))}
@@ -51,10 +54,20 @@ const styles = stylex.create({
     columnGap: "1.5rem",
     display: "grid",
     gridTemplateColumns: {
-      default: "repeat(2, 1fr)",
-      "@media (min-width: 640px)": "repeat(3, 1fr)",
+      default: "repeat(auto-fill, minmax(8rem, 1fr))",
+      "@media (min-width: 640px)": "repeat(auto-fill, minmax(12.5rem, 1fr))",
     },
     rowGap: "2rem",
+    marginLeft: "calc(50% - 50cqw)",
     marginTop: "2.5rem",
+    paddingLeft: {
+      default: "1.25rem",
+      "@media (min-width: 1024px)": "2.5rem",
+    },
+    paddingRight: {
+      default: "1.25rem",
+      "@media (min-width: 1024px)": "2.5rem",
+    },
+    width: "100cqw",
   },
 });

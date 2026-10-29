@@ -121,7 +121,7 @@ const styles = stylex.create({
     paddingTop: "0.25rem",
   },
   section: {
-    marginTop: "1.25rem",
+    marginTop: "2.5rem",
   },
   text: {
     overflow: "hidden",

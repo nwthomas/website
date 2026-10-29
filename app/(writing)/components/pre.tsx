@@ -40,7 +40,9 @@ const styles = stylex.create({
     wordBreak: "break-all",
   },
   pre: {
-    borderRadius: "0.125rem",
+    borderColor: "var(--border-subtle)",
+    borderStyle: "solid",
+    borderWidth: 1,
     backgroundColor: "var(--surface)",
     color: "var(--surface-foreground)",
     fontSize: "0.875rem",

@@ -2,6 +2,9 @@ import * as stylex from "@stylexjs/stylex";
 
 import Link from "next/link";
 import { Post } from "@/app/(writing)/utils/types";
+import { postToRowListItem } from "@/app/(writing)/utils/postToRowListItem";
+import { GitHubIcon } from "@/app/components/Icons/GitHubIcon";
+import { RowList, type RowListItem } from "@/app/components/RowList";
 import { SpotifyTopTracks } from "@/app/components/SpotifyTopTracks";
 import postsJson from "@/app/(writing)/posts.json";
 import { sharedStyles } from "@/app/styles";
@@ -10,18 +13,42 @@ import { sharedStyles } from "@/app/styles";
 // one during the build renders without tracks until the first regeneration after this interval.
 export const revalidate = 3600;
 
+const PROJECTS: RowListItem[] = [
+  {
+    ariaLabel: "Link to the Nathan's gitops repository on GitHub",
+    description: "Self-hosted AI models using Kubernetes with vLLM",
+    external: true,
+    icon: <GitHubIcon />,
+    href: "https://github.com/nwthomas/gitops",
+    title: "Local AI models on Kubernetes",
+  },
+  {
+    ariaLabel: "Link to Nathan's Oura Ring MPC Server repository on GitHub",
+    description: "Monitor personal health data from Oura Ring",
+    external: true,
+    icon: <GitHubIcon />,
+    href: "https://github.com/nwthomas/oura-ring-mcp-server",
+    title: "Oura Ring MCP Server",
+  },
+  {
+    ariaLabel: "Link to Nathan's Watcher in the Water repository on GitHub",
+    description: "Lightweight monitor for public IP changes due to ISP DHCP",
+    external: true,
+    icon: <GitHubIcon />,
+    href: "https://github.com/nwthomas/watcher-in-the-water",
+    title: "Watcher in the Water",
+  },
+];
+
 export default async function Page() {
   const { posts } = postsJson;
   const lastThreePosts: Post[] = posts.slice(0, 3);
 
   return (
     <section {...stylex.props(sharedStyles.pageSection)}>
-      <p>
-        I'm a software engineer, writer, and teacher from San Francisco, CA. I previously led core work at Tesla, Loom,
-        and X. I'm currently working on something new.
-      </p>
-      <p {...stylex.props(styles.mt5)}>
-        You can read my{" "}
+      <p {...stylex.props(sharedStyles.textSecondary)}>
+        I'm a full-stack software engineer from San Francisco, CA. I previously led work at Tesla, Loom, and X. Here's
+        my{" "}
         <Link aria-label="Link to Nathan's writing" href="/writing">
           writing
         </Link>
@@ -38,91 +65,24 @@ export default async function Page() {
         <Link aria-label="Link to Nathan's bookmarks" href="/bookmarks">
           bookmarks
         </Link>
-        , <Link href="/books">booklist</Link>, or{" "}
-        <a
-          href="https://nathanthomas.substack.com/"
-          aria-label="Link to Nathan's profile on Substack"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          newsletter.
-        </a>{" "}
-        I also <a href="mailto:contact@nathanthomas.dev">angel invest</a> in startups.
+        , and <Link href="/books">booklist</Link>. I also <a href="mailto:contact@nathanthomas.dev">angel invest</a> in
+        startups.
       </p>
-      <h2 {...stylex.props(styles.mt5)}>Writing</h2>
-      <ul {...stylex.props(styles.mt4)}>
-        {lastThreePosts.map((post) => (
-          <li key={post.id}>
-            <Link href={`/${post.id}`}>{post.title}</Link>
-          </li>
-        ))}
-      </ul>
-      <h2 {...stylex.props(styles.mt5)}>Teaching</h2>
-      <ul {...stylex.props(styles.mt4)}>
-        <li>
-          <a
-            href="https://www.codetenderloin.org/"
-            aria-label="Link to Code Tenderloin"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Code Tenderloin (volunteer, 10 cohorts)
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://www.youtube.com/watch?v=GNrQTbIFsG4&t=2909s"
-            aria-label="Link to Nathan's React Native Web at Twitter talk on YouTube"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            React Native Web at Twitter
-          </a>
-        </li>
-      </ul>
-      <h2 {...stylex.props(styles.mt5)}>Projects</h2>
-      <ul {...stylex.props(styles.mt4)}>
-        <li>
-          <a
-            href="https://github.com/nwthomas/gitops"
-            aria-label="Link to the Nathan's gitops repository on GitHub"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Local AI models on Kubernetes
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://github.com/nwthomas/oura-ring-mcp-server"
-            aria-label="Link to Nathan's Oura Ring MPC Server repository on GitHub"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Oura Ring MCP Server
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://github.com/nwthomas/watcher-in-the-water"
-            aria-label="Link to Nathan's Watcher in the Water repository on GitHub"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Watcher in the Water
-          </a>
-        </li>
-      </ul>
+      <h2 {...stylex.props(styles.heading)}>Writing</h2>
+      <RowList items={lastThreePosts.map(postToRowListItem)} style={styles.rowList} />
+      <h2 {...stylex.props(styles.heading)}>Projects</h2>
+      <RowList items={PROJECTS} style={styles.rowList} />
       <SpotifyTopTracks />
     </section>
   );
 }
 
 const styles = stylex.create({
-  mt4: {
-    marginTop: "1rem",
+  heading: {
+    marginTop: "2.5rem",
   },
-  mt5: {
-    marginTop: "1.25rem",
+  rowList: {
+    marginBottom: "-0.75rem",
+    marginTop: "0.25rem",
   },
 });

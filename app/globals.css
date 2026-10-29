@@ -10,21 +10,22 @@
 
 /*
  * Neutrals use the cool (blue-tinted) gray scale:
- * 100 #f3f4f6, 200 #e5e7eb, 500 #6b7280, 800 #1f2937, 900 #111827
+ * 100 #f3f4f6, 200 #e5e7eb, 400 #9ca3af, 500 #6b7280, 800 #1f2937, 900 #111827
  *
  * Code surfaces use subtle neutral (pure) grays so they don't read blue:
  * 100 #f5f5f5, 300 #d4d4d4, 700 #404040, 900 #171717
  */
 :root {
-  --background: #fcfcfc;
-  --border-image-dark: #fcfcfc;
+  --background: #ffffff;
+  --border-image-dark: #ffffff;
   --border-image-light: #e5e7eb;
   --border-subtle: #e5e7eb;
   --focus-ring: #1d1d1f;
   --foreground: #1d1d1f;
   --foreground-muted: #6b7280;
+  --foreground-secondary: #6b7280;
   --selection-background: #1d1d1f;
-  --selection-foreground: #fcfcfc;
+  --selection-foreground: #ffffff;
   --skeleton-base: #f3f4f6;
   --skeleton-highlight: #e5e7eb;
   --surface: #f5f5f5;
@@ -32,15 +33,16 @@
 }
 
 html.dark {
-  --background: #0a0a0a;
+  --background: #000000;
   --border-image-dark: #1f2937;
-  --border-image-light: #0a0a0a;
+  --border-image-light: #000000;
   --border-subtle: #1f2937;
   --focus-ring: #fafafa;
   --foreground: #fafafa;
   --foreground-muted: #6b7280;
+  --foreground-secondary: #9ca3af;
   --selection-background: #fafafa;
-  --selection-foreground: #0a0a0a;
+  --selection-foreground: #000000;
   --skeleton-base: #111827;
   --skeleton-highlight: #1f2937;
   --surface: #171717;
@@ -97,7 +99,7 @@ h1 {
     "Segoe UI",
     sans-serif;
   font-size: 1.125rem;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.75rem;
 }
 
@@ -109,7 +111,7 @@ h2 {
     "Segoe UI",
     sans-serif;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.5rem;
 }
 
@@ -124,7 +126,7 @@ h6 {
     "Segoe UI",
     sans-serif;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.5rem;
 }
 
