@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "d0a13483-c280-4388-8315-554722309747",
+    date: "2026-10-30",
+    title: "Visual Information Theory",
+    url: "https://colah.github.io/posts/2015-09-Visual-Information",
+  },
+  {
     id: "a3e70588-d547-49f9-b896-7aa25aa421e6",
     date: "2026-10-29",
     title: "Terse",

@@ -27,6 +27,7 @@ Use when the user asks to save, add, create, or record a bookmark/link in app/bo
 5. Edit `app/bookmarks/bookmarks.ts`.
 6. Insert the new bookmark into `BOOKMARKS` in newest-first date order.
 7. Run `make lint` after editing.
+8. Once finished, always print the added bookmark object in a fenced code block in chat so the user can easily validate it.
 
 ## Bookmark Shape
 
