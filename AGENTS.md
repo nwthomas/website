@@ -24,16 +24,20 @@
 
 Use conventional commits for prefixes.
 
-After the conventional commits prefix, the first letter should be capitalized and all content lower-cased thereafter unless referring to titles, names, acronyms, filenames, product names, or other identifiers that need their original cashing.
+After the conventional commits prefix, the first letter should be capitalized and all content lower-cased thereafter unless referring to titles, names, acronyms, filenames, product names, or other identifiers that need their original casing.
+
+Include the feature/component name (used for all similar PRs) inside parentheses next to the commit prefix if relevant.
 
 Format:
 
 ```
-type: summary
+type[optional feature/component]: summary
 ```
 
-Example:
+Examples:
 
 ```
+feat: Implement new build pipeline for Tesla web app
+
 fix: Correct the Redis implementation for music caching
 ```
