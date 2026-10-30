@@ -55,10 +55,10 @@ const styles = stylex.create({
     zIndex: 5,
     bottom: 0,
     // A sixth of the viewport on desktop, kept shorter on smaller screens so it doesn't bury the last lines of
-    // content, plus room for the home indicator
+    // content, plus room for the home indicator. Max height prevents covering content on very tall screens.
     height: {
       default: "calc(4rem + env(safe-area-inset-bottom, 0px))",
-      "@media (min-width: 1024px)": "calc(100svh / 6 + env(safe-area-inset-bottom, 0px))",
+      "@media (min-width: 1024px)": "calc(min(100svh / 6, 10rem) + env(safe-area-inset-bottom, 0px))",
       "@media (min-width: 768px) and (max-width: 1023.98px)": "calc(5rem + env(safe-area-inset-bottom, 0px))",
     },
     left: 0,
