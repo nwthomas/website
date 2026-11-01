@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "dfb55d1f-d70b-4cb3-a975-563ded6c9394",
+    date: "2026-11-02",
+    title: "LLMs Can Natively Read & Write Neural Network Weights",
+    url: "https://rikiyat.github.io/blog/weight-space-programming",
+  },
+  {
     id: "d0a13483-c280-4388-8315-554722309747",
     date: "2026-10-30",
     title: "Visual Information Theory",
