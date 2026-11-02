@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "7eec460a-e197-4895-9a95-9ce74f17a44b",
+    date: "2026-11-02",
+    title: "Postgres 19 Is Late, and It's AI's Fault",
+    url: "https://rhaas.blogspot.com/2026/10/postgres-19-is-late-and-its-ais-fault.html",
+  },
+  {
     id: "dfb55d1f-d70b-4cb3-a975-563ded6c9394",
     date: "2026-11-02",
     title: "LLMs Can Natively Read & Write Neural Network Weights",
