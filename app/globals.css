@@ -54,7 +54,6 @@ html.dark {
   color: var(--selection-foreground);
 }
 
-/* Hide the page scrollbar while keeping wheel, touch, and keyboard scrolling */
 html {
   scrollbar-width: none;
 }
@@ -75,6 +74,10 @@ html,
 body {
   background-color: var(--background);
   color: var(--foreground);
+}
+
+body:has([data-hide-bottom-blur]) [data-bottom-blur] {
+  display: none;
 }
 
 body {
@@ -140,7 +143,6 @@ p {
   line-height: 1.5rem;
 }
 
-/* Inline code only; code blocks are styled by the Pre component */
 code:not(pre code) {
   background-color: var(--surface);
   border-radius: 0.125rem;

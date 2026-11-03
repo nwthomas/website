@@ -1,80 +1,7 @@
 import * as stylex from "@stylexjs/stylex";
-import Link from "next/link";
-import { sharedStyles } from "@/app/styles";
-import { Metadata } from "next";
 
-const asciiArt = `
-                                                   :"::""""" ",","","""""  """"                                                                              
-                                                  I;,,:,,,,,,,":",,",:,,"," " " """,,,"""""""" " ,,"",",""" I?1_!,                                           
-                                                  [-]?-??-?-_?-_--?----__-----?-_-?___-_~~~<~~<<<~<<><i<<><!}}/[?]]-~i,                                      
-                                                  }?--]?-_--?-]-_-_?--_-_-??-?---__+__~__--____+__-___+__+_{{}[??]]]?-_?-                                    
-                                                  [-??rcYYJJUYYYYYYYYYXXXYYYYYYUJJUUJJUJUUYXvxr|1}}{}}}+___)1???]]]---?--                                    
-                                                  [?-?rvcz*B%%%%888&&&WWWWWWWWWWWWWW&W&&888%8#dpqqpqZCQ++__11?-?]]?]---??]                                   
-                                                  ]---rnz888%88888&&&&&&WWWWWWWMWMMMMMMWMMMMM######*ohZ____){{?-??]?------                                   
-                                                  [---rnc&8L ! !l" ;"I!  : ,  +~I>~++________----]fhM*0___?{}]-??]?--?--?+                                   
-                                                  ]--_ruU&8+/","I<~l:"I<~I             ;+_+lIl!llll+W#Q___[1{?-?-?]-??-?--                                   
-                                                  [?_]rnQ88~:  ,           ,"I;I             ii :!!+&hn___]{??-----------+                                   
-                                                  [-?)xxQ88+"                                i l,,l0Wh}-_-]1[??-?-?------+                                   
-                                                 ?]-?{ruO&&+"     l,   :    l                iii!!!MWh[-__]{?|-??-------_l                                   
-                                                 [-?-)xnw&a~"                ""             t!>ii!!&Wh[__+[}?]-?----?-?--                                    
-                                                 ]---)xu%&z+:     :,    "                   ;l!i!!i8Wk]___{{?-_---?-----_                                    
-                                                 [?--{xu%8Xi "         :bu               ,  Ill!ii!8Mk?__-1{----?------__                                    
-                                                 [?-?)xu%8Xi                                I!!!i!|8MU?-__1{?---?----?-__                                    
-                                                 }-??1xv%8zi           ":                   ;!i!!!u8Wz?-_-{{|__?---?----_                                    
-                                                 }]-?/xc%8z>,            :                 "-!l!iiv8Mz-_-_1{[-_----??---_                                    
-                                                 [??]rxz%8c<+!Ill;II!]zt;                 " i!ii!!v&Mz-?-]{}-__-?--?----~                                    
-                                                :[??[rxz%%cii><i!!i<iil>il>!l>li>Iil>>!i>>iiliIll!c&Wz_--}{--__---?---__>                                    
-                                                ,?]]?rrvB8c><i!,+I<Il:">!!  >l  iI  iiI,!i! ii: !!v&kr+-_{{--__------?-->                                    
-                                                :?]]]rrx%&888888&WMp(1{{111f];     " :!::;: ;:"  lO&q[---}{-]------?---_>                                    
-                                                ,]?]]f)_+z*#M#####MMMMMMMWWMMWWWWWW&&&&&&&&&&&&&WM&Wq]-?-}}-]__--------_>                                    
-                                                ,]]?]+;l!>iiii!iiii>})((||tbo****#############MMMMMoz[??-}}___----------i                                    
-                                                :[][}]?[[}{[[]]?[]]]]]]-?--??-_::lllIIIIIIlllllllll!{}[-[{{_+__-?-----?_i                                    
-                                                :[[][]}[[[]]]}[[]]]]]]--]]]?]?]][{}[{}}{]?][?]]????]?]??]1[__+--_-__---_                                     
-                                                :}[[]][]][]?]]]???]]?]]???][??][][][]]]]]?]]----??---?-?]{]-___--?-----_                                     
-                                                _[[][]?]]]]]]?]?]]]?]?]]???-?]]?][]?]]?]]]?]?-?-?--??-?-]{?x____--_-_--+                                     
-                                                }[]]])]]??]]]]]][[][]]]]?]??]??]??]]?]??]-?]?]]-??---???]}?]_+-_-_----_+                                     
-                                                [}[[YUr]cY?}{|1t)[][]]][]?|rjf(}}[[[]}[[[})xrffft)}[]-]?[{?_+___-_----_+                                     
-                                                [][-][][[]]]][][]]]]]]?[[[[~|k&%BBBB@$$$$@8q&crnvXx[?[}]{}+__-__-_____+~                                     
-                                                [[[[[]]][][[[[][]]][[]]}[][{}[[[}1}[})--!<})**%Bh%n[}[?}{}-__+__-----__<                                     
-                                                [[[[[[[[[[][[[[[[[[[]]]]]?[]}}}}[]][[}[]?]+!!i!!I,!?[[]]1}1_+_____-___+:                                     
-                                                ][}}[}}}[[}[[]]][[[[}[}[]]][[][[]]]]??]??]?[]]]{{1][}?]]}}{______--_-_+:                                     
-                                                }1{}{}}}[[[[}][[[[[[}[}[][][]]][?]?[]]]][]?]][][}][??]]]{}_++__--?_-__zi                                     
-                                                )trrxrjjjjjxjrjrjfr|1}{}}[[]}}[[[[][]]][]]]??]]]?]]]?--[{[__+_+-_-_-rXu;                                     
-                                                   lcxnuuvuxxxnnnxxxxrnxxjrrxxfrrfjfff({{[[[][]]??]]]?][{-++_---_-jXXc},                                     
-                                                   ,XJCCLQ00Q0000Q00QQYXXXccnrrxxrrxxrjrrjfjrrrrrrjfttt(1-+__+--j[f{x_l                                      
-                                                   "nzYUCLJCLLLLLQQ00000OOOZZZZZOZmmZZO0UUYYYvrxnxjrrjrt([}_--x]n_n]/x?~                                     
-                                                   "xvzzXYYYYUUUUJJJJCCLCLLQQ00O000OOOOOOOOOOOOZZOO000LCUv/__/LfU[rZf_+~                                     
-                                                    rxuczzzXzzXYUUYYUUUJJJJJJJCCCCCCCCCCCCLLLLQQLZ#@&LJYzx|?-(__{qz_+~_+                                     
-                                                  "i]n0b*8B@@Mpw0LJJYYYYYYYYYUUYUUUUUUUJJUUUUUJJJZao8UXcvr(?-|[CC]___+++n                                    
-                                                :1{{]-~]{(/jnvzUCQOwba#W&%B@@*bpwmQJJUYYYYYYYYYYUQw0LXzvuf)]?zO)_-?][}1i"f1,                                 
-                                                :1((||||///////t/|(([}))()trncUCCQOqbao#W%B@8*ahdLwQUXXvnt()Zf_]][}}}[[l  ;~/                                
-                                                :1((||//////t//tftfttfjffffftftt/|(1)))1[|frvXJLO0pdbho##oqc-][[[[[]]]}"    !r                               
-                    i--1 l                      :{))(/////t///t/ttttffffttfftf/fffffffffffjrrxXUUzr({[?_[]_]]]]]]]][}i        /)                             
-                  "~00Zbz{nq/{[vv}n{r :         ,{{)((/fftfftfttffff/tfftttfttttt/ttftjjjjjxnwQqwcj|()1)1)}[??]}]][1"          )t                            
-                "C|(({(wXvfuqCZ0mmmZdc/|wO(})Zlt1|1i+{(((jYJjjjufffftttttftff//tftftttffjjrcUhZpQn/()11{{{[???]]]]l             >|1!                         
-              ,|[}}}1fqLYOwbqvrkO){rpU){/qQXJOmOZbLunXpr){fJ~j(xi?|((}||U/||xj///ttttfjjurYUJOOYxf|1{}}}}}]??]]{]"               I: ~/-"                     
-            |)-[(xucUdw0UbpX1rQJf}vbqzpZkZXzOb({}JdvffXq0cqqqmLbmYxxqvn(tL<))[x_)]?]|xttUXUQ0b#r/|){}}}[[]???]1;                       l[(l                  
-          i?tjLLJUYzwqXccZX|(xXwmmwpLJYbC)|xqOrxjpdqpmkq0uLbc//xpqrjxLmOZh0JUQdY{)(((X:::;_U/)?-?1{/[]]]???]?~                             !t                
-        :XXzn{qd)1{}[[{(nhOZmqh0Cckq((tmZtxzmZOZkqwxnpd/t/JaxvpqdwmZpw|(|Op/))/w0tc00Lp;:zQCYm_|t/u;[|)(-!1+!I                                c+             
-        iUYvXXQ0YYXXXccZ0)1}}}}}[[}{jLCwLLJkdC0zddxjtcqQCCq00OObrrrvqYrxt0w1/CZx1(|L0f,:tjjxqLf/|ZpqQOOmqvjjju;,,,ll                            :f"          
-   ,        "" "",,>xrfLQUYXzccccuj|/|{{}{{}}{1(UYYXJhJJJYkZnvuwmrjYwZ0CObOXxxj){rQQ+,,rLC0dp0nuLpU//fpdfutfJL!::i><"                             !)         
-  ;"                      "",,i))1XLJYYXzczcvxtft1[}{{{{1ndCvvuk0QCJhZzjnnLqX/(nCLJ;:+CczQdLtffmwr|xzqbYZZQYO<::>i>|                               "/        
-  {u~~~~~~i!!:                       """,<-_?LLJUYXXzzzzXbCrjjpJ(((rdC|jr0wkwQYUQz,,_ttf0ZUCuvZdmZCCwpXtftzC<:,i>>_!                                <-       
-   ++++~~-_~|L+~<~<~<><i                        """";Il<CMUYXzkXcccbJuunwk())jJ0f,,|rrLOpO0LUmqrfrzqp/jjrYOI::ii>)I                                  ]"      
-       >r0w1)[-_+~~~~~-Qf~_-~~<<<<;                              ":vCUYUZUzczXm?,:cu()(()((fmXttfxqZ/fjfzLl,,>i><>                                   ;[      
-                >{rY0r(/{_++++++-vr~]1~~~~~<i,,"                         "   " "lrXJJYXzzccwpvcczpOcttvYL>,,><<+<;"                                  "]      
-                          ,<{fzrxu)_++++~~+(j+?j[~<<<<<l::,                          """"!)/tu0CJaYXXXYq!,,><<~?_>I,                    :,,[+~+~~~~>i<~,     
-                                     ;~[tjzU)-_+__++_]/?_rr~~~~~<<!Il,                          "",,:+]i,,ii>?+]~!:                    I,"" ":~<l1|?~?[ !i!  
-                                                :i{xLOr--_~+~~++??+/Q1~~<~~~<>ii,                        !<<<?[+l,                    l"""   ""  "     Iii;  
-                                                           ~tYZqL[-_+~~~+-+_?}CJ-+++_-?_+~i              ;>+[}+l,                    I :, """   ""   "ii>I:  
-                                                                      i)vL0f))}-----_--]fQ|])([[[?-_+>:",<_?[~;                     :        """ "" ";>iI;l  
-                                                                                l?|uJcjnj]????-?][)cn}/jf)([>,                                     ";i>!l>!  
-                                                                                          "!-)uzzUc}]?--+_]!                      :iii!I;:          ,i!!~_"  
-                                                                                                     ,I>+!                        !ii>i>i>>i>>>i!ll";>![_"   
-                                                                                                                                  <<~v?>>>>>>>>>>>i>><><     
-                                                                                                                                    "]cQ)]]~~_c[<_<>>_<      
-                                                                                                                                             ,-tv{1)[<       
-`;
+import Link from "next/link";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "404 - Not Found | Nathan Thomas",
@@ -91,42 +18,156 @@ export const metadata: Metadata = {
   },
 };
 
+const STRIP_ASPECT_RATIO = 838 / 1125;
+
+const ORBS = ["small", "medium", "large"] as const;
+
 export default function NotFound() {
   return (
-    <section {...stylex.props(sharedStyles.pageSection, styles.section)}>
-      <Link href="/" {...stylex.props(styles.link)}>
-        <pre {...stylex.props(styles.ascii)}>{asciiArt}</pre>
+    <section data-hide-bottom-blur {...stylex.props(styles.stage)}>
+      {ORBS.map((orb) => (
+        <div key={orb} aria-hidden="true" {...stylex.props(styles.orb, styles[orb])}>
+          <div {...stylex.props(styles.sky)} />
+        </div>
+      ))}
+      <Link href="/" {...stylex.props(styles.caption)}>
         <h1 {...stylex.props(styles.title)}>404 - Not Found</h1>
       </Link>
     </section>
   );
 }
 
+const drift = stylex.keyframes({
+  from: { backgroundPositionX: "calc(-1 * var(--orb-x))" },
+  to: { backgroundPositionX: "calc(-1 * var(--tile) - var(--orb-x))" },
+});
+
 const styles = stylex.create({
-  ascii: {
-    fontFamily: "var(--font-geist-mono), monospace",
-    fontSize: {
-      default: 3,
-      "@media (min-width: 640px)": 4,
-      "@media (min-width: 768px)": 5,
+  caption: {
+    position: "absolute",
+    textAlign: "center",
+    textDecorationLine: "none",
+    bottom: {
+      default: null,
+      "@media (orientation: portrait)": "3rem",
+    },
+    left: "1.25rem",
+    right: "1.25rem",
+    top: {
+      default: "calc(var(--frame-y) + var(--frame-h) * var(--u) + var(--gap))",
+      "@media (orientation: portrait)": null,
     },
   },
-  link: {
-    alignItems: "center",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    textDecorationLine: "none",
+  large: {
+    "--orb-d": "var(--large)",
+    "--orb-x-units": "calc(var(--lead) + var(--small) + var(--medium) + var(--space) * (2 + var(--optical)))",
   },
-  section: {
-    alignItems: "center",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
+  medium: {
+    "--orb-d": "var(--medium)",
+    "--orb-x-units": "calc(var(--lead) + var(--small) + var(--space))",
+  },
+  orb: {
+    "--orb-x": "calc(var(--orb-x-units) * var(--u))",
+    "--orb-y": "calc((var(--large) - var(--orb-d)) / 2 * var(--u))",
+    borderRadius: "50%",
+    overflow: "hidden",
+    aspectRatio: "1 / 1",
+    position: "absolute",
+    left: "calc(var(--frame-x) + var(--orb-x))",
+    top: "calc(var(--frame-y) + var(--orb-y))",
+    width: "calc(var(--orb-d) * var(--u))",
+  },
+  sky: {
+    inset: 0,
+    backgroundPosition: "calc(-1 * var(--orb-x)) calc(-1 * var(--orb-y))",
+    animationDuration: "30s",
+    animationIterationCount: "infinite",
+    animationName: {
+      default: drift,
+      "@media (prefers-reduced-motion: reduce)": "none",
+    },
+    animationTimingFunction: "linear",
+    backgroundImage: "url(/images/not-found/forest.webp)",
+    backgroundRepeat: "repeat-x",
+    backgroundSize: "auto var(--strip)",
+    position: "absolute",
+  },
+  small: {
+    "--orb-d": "var(--small)",
+    "--orb-x-units": "var(--lead)",
+  },
+  stage: {
+    "--below": {
+      default: "calc(var(--gap) + 2rem)",
+      "@media (orientation: portrait)": "0px",
+    },
+    "--cap": {
+      default: 1,
+      "@media (orientation: portrait)": 1.5,
+    },
+    "--frame-h": "var(--large)",
+    "--frame-w": {
+      default: "calc(var(--small) + var(--medium) + var(--large) + var(--space) * (2 + var(--optical)))",
+      "@media (orientation: portrait)": 402,
+    },
+    "--frame-x": "calc(50cqw - var(--frame-w) * var(--u) / 2)",
+    "--frame-y": "calc(50cqh - (var(--frame-h) * var(--u) + var(--below)) / 2)",
+    "--gap": {
+      default: "1.5rem",
+      "@media (min-width: 768px)": "clamp(2rem, 6cqh, 6rem)",
+    },
+    "--large": {
+      default: 940.4,
+      "@media (orientation: portrait)": 314.2,
+    },
+    "--lead": {
+      default: 0,
+      "@media (orientation: portrait)": -10.17,
+    },
+    "--medium": {
+      default: 564.6,
+      "@media (orientation: portrait)": 154.2,
+    },
+    "--optical": 0.17,
+    "--pad-x": {
+      default: "1.25rem",
+      "@media (min-width: 768px)": "3rem",
+      "@media (orientation: portrait)": "0px",
+    },
+    "--pad-y": {
+      default: "1.5rem",
+      "@media (min-width: 768px) and (orientation: landscape)": "2rem",
+      "@media (min-width: 768px) and (orientation: portrait)": "3rem",
+    },
+    "--small": {
+      default: 257,
+      "@media (orientation: portrait)": 70.2,
+    },
+    "--space": {
+      default: 144,
+      "@media (orientation: portrait)": 28.545,
+    },
+    "--strip": "calc(var(--frame-h) * var(--u) * 1.02 * 1.15)",
+    "--tile": `calc(var(--strip) * ${STRIP_ASPECT_RATIO})`,
+    "--u":
+      "min((100cqw - 2 * var(--pad-x)) / var(--frame-w), (100cqh - 2 * var(--pad-y) - var(--below)) / var(--frame-h), var(--cap) * 1px)",
+    containerType: "size",
+    position: "relative",
+    height: {
+      default: "max(20rem, calc(100svh - 5rem))",
+      "@media (min-width: 1024px)": "max(20rem, calc(100svh - 8.75rem))",
+      "@media (min-width: 768px) and (max-width: 1023.98px)": "max(20rem, calc(100svh - 7.5rem))",
+    },
+    marginBottom: {
+      default: "-5rem",
+      "@media (min-width: 1024px)": "-8.75rem",
+      "@media (min-width: 768px) and (max-width: 1023.98px)": "-7.5rem",
+    },
+    overflowX: "clip",
+    width: "100cqw",
   },
   title: {
     fontFamily: "var(--font-geist-mono), monospace",
     fontSize: "0.875rem",
-    marginTop: "2.5rem",
   },
 });
