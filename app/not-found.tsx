@@ -153,12 +153,15 @@ const styles = stylex.create({
       "min((100cqw - 2 * var(--pad-x)) / var(--frame-w), (100cqh - 2 * var(--pad-y) - var(--below)) / var(--frame-h), var(--cap) * 1px)",
     containerType: "size",
     position: "relative",
-    height: {
-      default: "max(20rem, calc(100svh - 5rem))",
-      "@media (min-width: 1024px)": "max(20rem, calc(100svh - 8.75rem))",
-      "@media (min-width: 768px) and (max-width: 1023.98px)": "max(20rem, calc(100svh - 7.5rem))",
-    },
+    // Pulls up over the layout's top and bottom padding so the stage fills the whole screen and the orbs center
+    // on it, rather than sitting below an empty band of padding
+    height: "max(20rem, 100svh)",
     marginBottom: {
+      default: "-5rem",
+      "@media (min-width: 1024px)": "-8.75rem",
+      "@media (min-width: 768px) and (max-width: 1023.98px)": "-7.5rem",
+    },
+    marginTop: {
       default: "-5rem",
       "@media (min-width: 1024px)": "-8.75rem",
       "@media (min-width: 768px) and (max-width: 1023.98px)": "-7.5rem",
