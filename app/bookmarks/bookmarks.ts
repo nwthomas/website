@@ -25,6 +25,12 @@ export const BOOKMARKS: Bookmarks = [
     url: "https://rikiyat.github.io/blog/weight-space-programming",
   },
   {
+    id: "2d73567e-00fc-42db-946f-08d244705f74",
+    date: "2026-11-02",
+    title: "Scaling Git at OpenAI",
+    url: "https://openai.com/index/scaling-git-at-openai",
+  },
+  {
     id: "d0a13483-c280-4388-8315-554722309747",
     date: "2026-10-30",
     title: "Visual Information Theory",
