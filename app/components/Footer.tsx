@@ -56,7 +56,10 @@ export function Footer() {
 
 const styles = stylex.create({
   footer: {
-    display: "flex",
+    display: {
+      default: "flex",
+      [stylex.when.ancestor(":has([data-hide-site-chrome])")]: "none",
+    },
     justifyContent: "flex-end",
   },
   inner: {

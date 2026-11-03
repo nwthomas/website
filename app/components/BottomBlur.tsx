@@ -34,7 +34,7 @@ export function BottomBlur() {
   }
 
   return (
-    <div aria-hidden="true" data-bottom-blur {...stylex.props(styles.container)}>
+    <div aria-hidden="true" {...stylex.props(styles.container)}>
       {Array.from({ length: BLUR_LAYER_COUNT }, (_, index) => (
         <div key={index} {...stylex.props(styles.layer, styles.blurLayer(getLayerBlur(index), getLayerMask(index)))} />
       ))}
@@ -50,6 +50,10 @@ const styles = stylex.create({
     maskImage: mask,
   }),
   container: {
+    display: {
+      default: null,
+      [stylex.when.ancestor(":has([data-hide-site-chrome])")]: "none",
+    },
     pointerEvents: "none",
     position: "fixed",
     zIndex: 5,

@@ -96,7 +96,10 @@ const styles = stylex.create({
   },
   header: {
     alignItems: "flex-start",
-    display: "flex",
+    display: {
+      default: "flex",
+      [stylex.when.ancestor(":has([data-hide-site-chrome])")]: "none",
+    },
   },
   navList: {
     display: "flex",

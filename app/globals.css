@@ -76,10 +76,6 @@ body {
   color: var(--foreground);
 }
 
-body:has([data-hide-bottom-blur]) [data-bottom-blur] {
-  display: none;
-}
-
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
