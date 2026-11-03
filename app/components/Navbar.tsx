@@ -18,8 +18,14 @@ type Post = {
   date: string;
 };
 
+// ISR regeneration of the root route can report its pathname as "/index" instead of "/", which
+// would otherwise render the header without the title and theme switch until hydration.
+function normalizePathname(pathname: string): string {
+  return pathname === "/index" ? "/" : pathname;
+}
+
 export function Navbar() {
-  const pathname = usePathname();
+  const pathname = normalizePathname(usePathname());
   const isHomePage = pathname === "/";
   const isBookmarksPage = pathname === "/bookmarks";
   const isBooksPage = pathname === "/books";
