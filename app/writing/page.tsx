@@ -1,12 +1,13 @@
+import * as stylex from "@stylexjs/stylex";
+
 import { getPostViewsRedisKey, redis } from "@/app/utils/redis";
 
-import * as stylex from "@stylexjs/stylex";
 import Link from "next/link";
 import { Metadata } from "next";
 import { Post } from "@/app/(writing)/utils/types";
-import { postToRowListItem } from "@/app/(writing)/utils/postToRowListItem";
 import { RowList } from "@/app/components/RowList";
 import { RssIcon } from "@/app/components/Icons/RssIcon";
+import { postToRowListItem } from "@/app/(writing)/utils/postToRowListItem";
 import postsJson from "@/app/(writing)/posts.json";
 import { sharedStyles } from "@/app/styles";
 
@@ -41,6 +42,7 @@ function formatViews(views: number | string | null | undefined): string {
 export default async function Page() {
   const { posts } = postsJson;
   const sortedPosts: Post[] = [...posts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const publishedPosts = sortedPosts.filter((post) => !post.draft);
 
   let postViews: Record<string, number | null> = {};
   if (process.env.NODE_ENV === "production") {
@@ -67,7 +69,7 @@ export default async function Page() {
         you can subscribe to.
       </p>
       <RowList
-        items={sortedPosts.map((post) => ({
+        items={publishedPosts.map((post) => ({
           ...postToRowListItem(post),
           stat: formatViews(postViews[getPostViewsRedisKey(post.id)]),
         }))}

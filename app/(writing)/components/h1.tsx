@@ -1,7 +1,8 @@
 import * as stylex from "@stylexjs/stylex";
-import { HeadingLevel, getHeading } from "../utils/heading";
 
+import { HeadingLevel } from "../utils/types";
 import type { ReactNode } from "react";
+import { getHeading } from "../utils/heading";
 import { sharedStyles } from "@/app/styles";
 
 export function H1({ children }: { children: ReactNode }) {

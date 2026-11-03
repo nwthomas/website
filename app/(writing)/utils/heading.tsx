@@ -1,14 +1,8 @@
 import * as stylex from "@stylexjs/stylex";
+
+import { HeadingLevel } from "./types";
 import Link from "next/link";
 import { ReactNode } from "react";
-
-export enum HeadingLevel {
-  H1 = 1,
-  H2 = 2,
-  H3 = 3,
-  H4 = 4,
-  H5 = 5,
-}
 
 function getHeadingAndHeadingId(heading: string) {
   // Heading ID syntax in MDX should always follow this schema: [#the-id-goes-here]

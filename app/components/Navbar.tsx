@@ -2,12 +2,12 @@
 
 import * as stylex from "@stylexjs/stylex";
 
-import { HeadingLevel, getHeading } from "@/app/(writing)/utils/heading";
-
+import { HeadingLevel } from "../(writing)/utils/types";
 import Link from "next/link";
 import { ReactNode } from "react";
 import { ThemeSwitch } from "./ThemeSwitch";
 import { formatUTCTimestampToDateString } from "../utils/dates";
+import { getHeading } from "@/app/(writing)/utils/heading";
 import postsJson from "@/app/(writing)/posts.json";
 import { sharedStyles } from "@/app/styles";
 import { usePathname } from "next/navigation";

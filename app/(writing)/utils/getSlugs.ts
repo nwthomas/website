@@ -1,12 +1,15 @@
+import { Post, Slugs } from "./types";
+
 import postsJson from "../posts.json";
 
-type Slug = { slug: string };
-export type Slugs = Slug[];
-
 export function getSlugs(): Slugs {
-  const slugs = postsJson.posts.map((post) => ({
-    slug: post.id,
-  }));
+  const posts = postsJson.posts as Post[];
+  const slugs = posts
+    .filter((post) => !post?.draft)
+    .map((post) => ({
+      slug: post.id,
+    }));
+  console.log({ slugs });
 
   return slugs;
 }

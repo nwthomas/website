@@ -28,7 +28,8 @@
       "id": "strange-faces",
       "title": "Strange Faces",
       "description": "\"All cruelty springs from weakness.\"",
-      "date": "2026-02-27"
+      "date": "2026-02-27",
+      "draft": true
     },
     {
       "id": "on-finding-confidence",
