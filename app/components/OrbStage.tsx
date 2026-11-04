@@ -27,8 +27,8 @@ export function OrbStage({ title, standalone = false }: Props) {
 }
 
 const drift = stylex.keyframes({
-  from: { backgroundPositionX: "calc(-1 * var(--orb-x))" },
-  to: { backgroundPositionX: "calc(-1 * var(--tile) - var(--orb-x))" },
+  "0%": { backgroundPositionX: "0px" },
+  "100%": { backgroundPositionX: "calc(-1 * var(--tile))" },
 });
 
 const styles = stylex.create({
@@ -68,7 +68,11 @@ const styles = stylex.create({
   },
   sky: {
     inset: 0,
-    backgroundPosition: "calc(-1 * var(--orb-x)) calc(-1 * var(--orb-y))",
+    position: "absolute",
+    backgroundImage: "url(/images/not-found/forest.webp)",
+    backgroundRepeat: "repeat-x",
+    backgroundSize: "var(--tile) var(--strip)",
+    backgroundPositionY: "calc(-1 * var(--orb-y))",
     animationDuration: "30s",
     animationIterationCount: "infinite",
     animationName: {
@@ -76,10 +80,6 @@ const styles = stylex.create({
       "@media (prefers-reduced-motion: reduce)": "none",
     },
     animationTimingFunction: "linear",
-    backgroundImage: "url(/images/not-found/forest.webp)",
-    backgroundRepeat: "repeat-x",
-    backgroundSize: "auto var(--strip)",
-    position: "absolute",
   },
   small: {
     "--orb-d": "var(--small)",
@@ -161,7 +161,7 @@ const styles = stylex.create({
     marginTop: 0,
   },
   title: {
-    fontFamily: "var(--font-geist-mono), monospace",
+    fontFamily: "var(--font-geist-sans), sans-serif",
     fontSize: "0.875rem",
   },
 });
