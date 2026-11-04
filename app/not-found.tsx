@@ -17,5 +17,10 @@ export const metadata: Metadata = {
 };
 
 export default function NotFound() {
-  return <OrbStage title="404 - Not Found" />;
+  return (
+    <>
+      <link rel="preload" as="image" href="/images/not-found/forest.webp" />
+      <OrbStage title="404 - Not Found" />
+    </>
+  );
 }

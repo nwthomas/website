@@ -18,6 +18,7 @@ export default function GlobalError({ error }: { error: Error & { digest?: strin
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="preload" as="image" href="/images/not-found/forest.webp" />
         <title>500 - Internal Server Error | Nathan Thomas</title>
         <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
       </head>
