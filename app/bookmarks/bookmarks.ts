@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "52063c85-832a-4272-8e83-e6ffa3486db0",
+    date: "2026-11-04",
+    title: "X: Rebuilding the Global Town Square from Scratch",
+    url: "https://blog.x.com/en/engineering/rebuilding-the-global-town-square-from-scratch",
+  },
+  {
     id: "7eec460a-e197-4895-9a95-9ce74f17a44b",
     date: "2026-11-02",
     title: "Postgres 19 Is Late, and It's AI's Fault",
