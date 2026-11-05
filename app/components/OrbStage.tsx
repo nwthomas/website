@@ -2,7 +2,8 @@ import * as stylex from "@stylexjs/stylex";
 
 import Link from "next/link";
 
-const STRIP_ASPECT_RATIO = 838 / 1125;
+// Intrinsic width / height of forest.webp so one tile is exactly one seamless repeat
+const STRIP_ASPECT_RATIO = 1487 / 1058;
 
 const ORBS = ["small", "medium", "large"] as const;
 
@@ -27,8 +28,8 @@ export function OrbStage({ title, standalone = false }: Props) {
 }
 
 const drift = stylex.keyframes({
-  "0%": { backgroundPositionX: "0px" },
-  "100%": { backgroundPositionX: "calc(-1 * var(--tile))" },
+  "0%": { backgroundPositionX: "calc(-1 * var(--orb-x))" },
+  "100%": { backgroundPositionX: "calc(-1 * var(--orb-x) - var(--tile))" },
 });
 
 const styles = stylex.create({
@@ -68,11 +69,6 @@ const styles = stylex.create({
   },
   sky: {
     inset: 0,
-    position: "absolute",
-    backgroundImage: "url(/images/not-found/forest.webp)",
-    backgroundRepeat: "repeat-x",
-    backgroundSize: "var(--tile) var(--strip)",
-    backgroundPositionY: "calc(-1 * var(--orb-y))",
     animationDuration: "30s",
     animationIterationCount: "infinite",
     animationName: {
@@ -80,6 +76,13 @@ const styles = stylex.create({
       "@media (prefers-reduced-motion: reduce)": "none",
     },
     animationTimingFunction: "linear",
+    backgroundImage: "url(/images/not-found/forest.webp)",
+    // Offset by the orb's position in the frame so all orbs window into one shared strip
+    backgroundPositionX: "calc(-1 * var(--orb-x))",
+    backgroundPositionY: "calc(-1 * var(--orb-y))",
+    backgroundRepeat: "repeat-x",
+    backgroundSize: "var(--tile) var(--strip)",
+    position: "absolute",
   },
   small: {
     "--orb-d": "var(--small)",

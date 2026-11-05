@@ -1,4 +1,5 @@
 import { formatUTCTimestampToDateString } from "@/app/utils/dates";
+import { escapeXml } from "@/app/utils/xml";
 import postsJson from "@/app/(writing)/posts.json";
 
 const MAX_ATOM_ITEMS = 100;
@@ -28,9 +29,9 @@ export function GET() {
       const postDate = formatUTCTimestampToDateString(post.date);
 
       const entryContent = `<entry>
-        <id>${post.id}</id>
-        <title>${post.title}</title>
-        <link href="https://nathanthomas.dev/${post.id}"/>
+        <id>${escapeXml(post.id)}</id>
+        <title>${escapeXml(post.title)}</title>
+        <link href="https://nathanthomas.dev/${escapeXml(post.id)}"/>
         <updated>${postDate}</updated>
     </entry>`;
 

@@ -1,5 +1,6 @@
 import { BOOKMARKS } from "../bookmarks";
 import { formatUTCTimestampToDateString } from "@/app/utils/dates";
+import { escapeXml } from "@/app/utils/xml";
 
 const MAX_ATOM_ITEMS = 100;
 
@@ -26,9 +27,9 @@ export function GET() {
       const bookmarkDate = formatUTCTimestampToDateString(bookmark.date);
 
       const entryContent = `<entry>
-        <id>${bookmark.id}</id>
-        <title>${bookmark.title}</title>
-        <link href="${bookmark.url}"/>
+        <id>${escapeXml(bookmark.id)}</id>
+        <title>${escapeXml(bookmark.title)}</title>
+        <link href="${escapeXml(bookmark.url)}"/>
         <updated>${bookmarkDate}</updated>
     </entry>`;
 
