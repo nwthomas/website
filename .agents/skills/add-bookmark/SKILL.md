@@ -24,10 +24,11 @@ Use when the user asks to save, add, create, or record a bookmark/link in app/bo
    - If no title is provided, fetch the page and use the HTML `<title>`.
    - If the page title cannot be fetched, ask the user for a title.
    - Normalize the final title to MLA-style title case.
-5. Edit `app/bookmarks/bookmarks.ts`.
-6. Insert the new bookmark into `BOOKMARKS` in newest-first date order.
-7. Run `make lint` after editing.
-8. Once finished, always print the added bookmark object in a fenced code block in chat so the user can easily validate it.
+5. Normalize the URL by always removing any trailing slash (e.g. `https://example.com/` becomes `https://example.com`).
+6. Edit `app/bookmarks/bookmarks.ts`.
+7. Insert the new bookmark into `BOOKMARKS` in newest-first date order.
+8. Run `make lint` after editing.
+9. Once finished, always print the added bookmark object in a fenced code block in chat so the user can easily validate it.
 
 ## Bookmark Shape
 

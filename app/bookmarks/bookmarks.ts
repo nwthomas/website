@@ -13,6 +13,18 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "965c0961-75fe-4421-89c6-24648a151788",
+    date: "2026-11-06",
+    title: "Anthropic: The Components of Agent Memory",
+    url: "https://www.anthropic.com/research/components-of-agent-memory",
+  },
+  {
+    id: "69b703f4-cabd-4a74-8d8f-f989b637bcee",
+    date: "2026-11-04",
+    title: "Hairline",
+    url: "https://hairline.lucasmarkes.com",
+  },
+  {
     id: "52063c85-832a-4272-8e83-e6ffa3486db0",
     date: "2026-11-04",
     title: "X: Rebuilding the Global Town Square from Scratch",
