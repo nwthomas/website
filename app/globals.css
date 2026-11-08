@@ -10,7 +10,7 @@
 
 /*
  * Neutrals use the cool (blue-tinted) gray scale:
- * 100 #f3f4f6, 200 #e5e7eb, 400 #9ca3af, 500 #6b7280, 800 #1f2937, 900 #111827
+ * 100 #f3f4f6, 200 #e5e7eb, 400 #9ca3af, 500 #6b7280, 600 #4b5563, 800 #1f2937, 900 #111827
  *
  * Code surfaces use subtle neutral (pure) grays so they don't read blue:
  * 100 #f5f5f5, 300 #d4d4d4, 700 #404040, 900 #171717
@@ -22,8 +22,8 @@
   --border-subtle: #e5e7eb;
   --focus-ring: #1d1d1f;
   --foreground: #1d1d1f;
-  --foreground-muted: #6b7280;
-  --foreground-secondary: #6b7280;
+  --foreground-muted: #4b5563;
+  --foreground-secondary: #4b5563;
   --selection-background: #1d1d1f;
   --selection-foreground: #ffffff;
   --skeleton-base: #f3f4f6;
@@ -39,7 +39,7 @@ html.dark {
   --border-subtle: #1f2937;
   --focus-ring: #fafafa;
   --foreground: #fafafa;
-  --foreground-muted: #6b7280;
+  --foreground-muted: #9ca3af;
   --foreground-secondary: #9ca3af;
   --selection-background: #fafafa;
   --selection-foreground: #000000;
