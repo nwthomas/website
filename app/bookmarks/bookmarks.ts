@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "83a44ccf-a72c-4d47-93aa-fc07edd6ecec",
+    date: "2026-11-08",
+    title: "Microsoft: SafeAgents",
+    url: "https://github.com/microsoft/SafeAgents",
+  },
+  {
     id: "965c0961-75fe-4421-89c6-24648a151788",
     date: "2026-11-06",
     title: "Anthropic: The Components of Agent Memory",
