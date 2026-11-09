@@ -31,7 +31,6 @@ export const metadata: Metadata = {
   },
 };
 
-// Structured data so search engines can identify the site and the person it belongs to
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
@@ -55,9 +54,6 @@ const structuredData = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    // The suppresHydrationWarning is for the script below which runs client-side to set the theme.
-    // This may eventually be upgraded to use a server-side set cookie (and is certainly what would
-    // be used in a non-personal production environment). For now, this works great for this site.
     <html lang="en" suppressHydrationWarning>
       <head>
         <script
@@ -100,7 +96,6 @@ const styles = stylex.create({
     width: "100%",
   },
   main: {
-    // Lets full-bleed children size against the page width without the scrollbar gutter that 100vw includes
     containerType: "inline-size",
     display: "flex",
     justifyContent: "center",

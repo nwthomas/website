@@ -49,3 +49,4 @@ fonts/**/*.ttf
 
 # miscellaneous
 public/images/investing/
+next-env.d.ts
