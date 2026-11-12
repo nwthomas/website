@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "4e7e4ad2-ba97-4a8e-95ed-c20be5e13b77",
+    date: "2026-11-11",
+    title: "Meta: Astryx Design System",
+    url: "https://astryx.atmeta.com",
+  },
+  {
     id: "83a44ccf-a72c-4d47-93aa-fc07edd6ecec",
     date: "2026-11-08",
     title: "Microsoft: SafeAgents",
