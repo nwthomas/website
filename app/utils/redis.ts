@@ -4,6 +4,7 @@ import { REDIS_TOKEN, REDIS_URL } from "./constants";
 import { RedisClientType, createClient } from "redis";
 
 export const SPOTIFY_TOP_TRACKS_TTL_S = 60 * 60;
+export const GITHUB_CONTRIBUTIONS_TTL_S = 60 * 60;
 
 function getPostViewsRedisKey(postId: string) {
   return `${postId}-views`;
@@ -11,6 +12,10 @@ function getPostViewsRedisKey(postId: string) {
 
 function getSpotifyTopTracksRedisKey() {
   return "spotify-top-tracks-short-term";
+}
+
+function getGitHubContributionsRedisKey() {
+  return "github-contributions-calendar";
 }
 
 class RedisSingleton {
@@ -172,4 +177,4 @@ class RedisSingleton {
 
 const redis = RedisSingleton.getInstance();
 
-export { redis, getPostViewsRedisKey, getSpotifyTopTracksRedisKey };
+export { redis, getGitHubContributionsRedisKey, getPostViewsRedisKey, getSpotifyTopTracksRedisKey };

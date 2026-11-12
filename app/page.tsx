@@ -3,6 +3,7 @@ import * as stylex from "@stylexjs/stylex";
 import Link from "next/link";
 import { Post } from "@/app/(writing)/utils/types";
 import { postToRowListItem } from "@/app/(writing)/utils/postToRowListItem";
+import { GitHubContributions } from "@/app/components/GitHubContributions";
 import { GitHubIcon } from "@/app/components/Icons/GitHubIcon";
 import { RowList, type RowListItem } from "@/app/components/RowList";
 import { SpotifyTopTracks } from "@/app/components/SpotifyTopTracks";
@@ -10,7 +11,7 @@ import postsJson from "@/app/(writing)/posts.json";
 import { sharedStyles } from "@/app/styles";
 
 // A failed fetch during regeneration keeps the last good page and retries on the next request;
-// one during the build renders without tracks until the first regeneration after this interval.
+// one during the build renders without that section until the first regeneration after this interval.
 export const revalidate = 3600;
 
 const PROJECTS: RowListItem[] = [
@@ -71,6 +72,7 @@ export default async function Page() {
         , and <Link href="/books">booklist</Link>. I also <a href="mailto:contact@nathanthomas.dev">angel invest</a> in
         startups.
       </p>
+      <GitHubContributions />
       <h2 {...stylex.props(styles.heading)}>Writing</h2>
       <RowList items={lastThreePosts.map(postToRowListItem)} style={styles.rowList} />
       <h2 {...stylex.props(styles.heading)}>Projects</h2>

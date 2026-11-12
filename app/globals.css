@@ -20,6 +20,12 @@
   --border-image-dark: #ffffff;
   --border-image-light: #e5e7eb;
   --border-subtle: #e5e7eb;
+  --contribution-0: #eff2f5;
+  --contribution-1: #aceebb;
+  --contribution-2: #4ac26b;
+  --contribution-3: #2da44e;
+  --contribution-4: #116329;
+  --contribution-border: rgba(31, 35, 40, 0.05);
   --focus-ring: #1d1d1f;
   --foreground: #1d1d1f;
   --foreground-muted: #4b5563;
@@ -37,6 +43,12 @@ html.dark {
   --border-image-dark: #1f2937;
   --border-image-light: #000000;
   --border-subtle: #1f2937;
+  --contribution-0: #151b23;
+  --contribution-1: #033a16;
+  --contribution-2: #196c2e;
+  --contribution-3: #2ea043;
+  --contribution-4: #56d364;
+  --contribution-border: rgba(255, 255, 255, 0.05);
   --focus-ring: #fafafa;
   --foreground: #fafafa;
   --foreground-muted: #9ca3af;
