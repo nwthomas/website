@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "897be43b-c1b0-4346-a79e-ee96d73b4fed",
+    date: "2026-11-13",
+    title: "ESLint Retiring Contributor Pool",
+    url: "https://eslint.org/blog/2026/11/retiring-contributor-pool",
+  },
+  {
     id: "53faf113-978a-4550-b470-0bf8153f0e63",
     date: "2026-11-13",
     title: "llama.cpp 1.0.0",
