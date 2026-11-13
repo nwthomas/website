@@ -13,6 +13,18 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "8ae44ca9-86b5-4d06-b997-70a90ac66317",
+    date: "2026-11-13",
+    title: "Vercel UI SDK",
+    url: "https://github.com/vercel-labs/ui",
+  },
+  {
+    id: "3a54acd9-a4d1-4ed6-aa05-5947f791727e",
+    date: "2026-11-13",
+    title: "Expo Exact",
+    url: "https://github.com/expo/exact",
+  },
+  {
     id: "897be43b-c1b0-4346-a79e-ee96d73b4fed",
     date: "2026-11-13",
     title: "ESLint Retiring Contributor Pool",
