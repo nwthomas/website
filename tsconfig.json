@@ -31,5 +31,5 @@
     "**/*.mts",
     "app/(writing)/(posts)/2024/test/page.mdx"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "**/*.test.ts"]
 }

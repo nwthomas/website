@@ -4,7 +4,7 @@ module.exports = {
   generateIndexSitemap: true,
   generateRobotsTxt: true,
   // Non-page routes (icons, generated images, feeds, API routes) shouldn't be indexed as pages
-  exclude: ["/icon.png", "/opengraph-image", "/*/opengraph-image", "/atom", "/bookmarks/atom", "/views"],
+  exclude: ["/icon.png", "/opengraph-image", "/*/opengraph-image", "/atom", "/bookmarks/atom", "/views", "/agent/*"],
   // Dynamically rendered pages aren't in the build manifest, so next-sitemap skips them unless listed here
   additionalPaths: async (config) => [await config.transform(config, "/writing")],
   robotsTxtOptions: {

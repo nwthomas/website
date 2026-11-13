@@ -27,7 +27,13 @@ After that, you should be able to go ahead and start up the dev environment serv
 make dev
 ```
 
-Set up a `.env` file modeled after the `.env.example` in the root of this repository. Redis variables are required for writing views; Sentry, Spotify, and GitHub variables are optional.
+Set up a `.env` file modeled after the `.env.example` in the root of this repository. Redis variables are required for writing views; Sentry, Spotify, GitHub, and WebMCP variables are optional.
+
+### WebMCP
+
+This site registers a [WebMCP](https://developer.chrome.com/docs/ai/webmcp) server for your agent to use. It primarily surfaces the ability to read the profile, writing, bookmarks, books, and music, but your agent can also use it to navigate the site.
+
+If you want to try this, you'll need to enable `chrome://flags/#enable-webmcp-testing` in your Chrome instance and then inspect the tools in the DevTools WebMCP panel.
 
 ## Project Management
 

@@ -13,7 +13,10 @@ import { Navbar } from "@/app/components/Navbar";
 import { Providers } from "@/app/components/Providers";
 import { ReactNode } from "react";
 import { THEME_SCRIPT } from "@/app/utils/themeScript";
+import { WebMCP } from "@/app/components/WebMCP";
 import { sharedStyles } from "@/app/styles";
+
+const WEBMCP_ORIGIN_TRIAL_TOKEN = process.env.WEBMCP_ORIGIN_TRIAL_TOKEN;
 
 export const metadata: Metadata = {
   title: "Nathan Thomas",
@@ -56,6 +59,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {WEBMCP_ORIGIN_TRIAL_TOKEN ? <meta httpEquiv="origin-trial" content={WEBMCP_ORIGIN_TRIAL_TOKEN} /> : null}
         <script
           dangerouslySetInnerHTML={{
             __html: THEME_SCRIPT,
@@ -79,6 +83,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </div>
             <BottomBlur />
             <Analytics />
+            <WebMCP />
           </body>
         </Providers>
       </ErrorBoundary>

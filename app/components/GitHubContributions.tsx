@@ -132,7 +132,7 @@ const styles = stylex.create({
     marginBottom: "-0.25rem",
     marginLeft: "-1.25rem",
     marginRight: "-1.25rem",
-    marginTop: "1.75rem",
+    marginTop: "2.25rem",
     overflowX: "auto",
     overflowY: "hidden",
     overscrollBehaviorX: "contain",

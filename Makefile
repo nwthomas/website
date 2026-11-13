@@ -1,4 +1,4 @@
-.PHONY: install i dev lint postbuild start export format
+.PHONY: install i dev lint postbuild start export format test
 
 build:
 	bun run build
