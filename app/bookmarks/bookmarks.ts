@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "53faf113-978a-4550-b470-0bf8153f0e63",
+    date: "2026-11-13",
+    title: "llama.cpp 1.0.0",
+    url: "https://huggingface.co/blog/ggml-org/llama-cpp-v1",
+  },
+  {
     id: "4e7e4ad2-ba97-4a8e-95ed-c20be5e13b77",
     date: "2026-11-11",
     title: "Meta: Astryx Design System",
