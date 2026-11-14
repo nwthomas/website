@@ -17,26 +17,8 @@ const DAYS_PER_WEEK = 7;
 const BORDER_WIDTH = 1;
 const BORDER_INSET = BORDER_WIDTH / 2;
 
-const MONTH_LABEL_HEIGHT = 12;
-const MONTH_LABEL_BASELINE = 7;
-const MONTH_LABEL_MIN_WEEKS = 2;
-
 function parseDate(date: string) {
   return new Date(`${date}T00:00:00Z`);
-}
-
-function getMonthLabels(weeks: ContributionWeek[]) {
-  const months = weeks.map((week) => parseDate(week.days[0].date));
-  const starts = months.flatMap((month, index) =>
-    index === 0 || month.getUTCMonth() !== months[index - 1].getUTCMonth() ? [index] : [],
-  );
-
-  return starts
-    .filter((weekIndex, index) => (starts[index + 1] ?? weeks.length) - weekIndex >= MONTH_LABEL_MIN_WEEKS)
-    .map((weekIndex) => ({
-      name: months[weekIndex].toLocaleString("en-US", { month: "short", timeZone: "UTC" }),
-      weekIndex,
-    }));
 }
 
 function formatDayTitle(day: ContributionDay) {
@@ -62,7 +44,7 @@ export async function GitHubContributions() {
   }
 
   const width = weeks.length * CELL_STEP - CELL_GAP;
-  const height = MONTH_LABEL_HEIGHT + DAYS_PER_WEEK * CELL_STEP - CELL_GAP;
+  const height = DAYS_PER_WEEK * CELL_STEP - CELL_GAP;
 
   return (
     <div {...stylex.props(styles.scroller)}>
@@ -74,22 +56,12 @@ export async function GitHubContributions() {
         {...stylex.props(styles.link)}
       >
         <svg aria-hidden="true" focusable="false" viewBox={`0 0 ${width} ${height}`} {...stylex.props(styles.graph)}>
-          {getMonthLabels(weeks).map((label) => (
-            <text
-              key={label.weekIndex}
-              x={label.weekIndex * CELL_STEP}
-              y={MONTH_LABEL_BASELINE}
-              {...stylex.props(styles.monthLabel)}
-            >
-              {label.name}
-            </text>
-          ))}
           {weeks.map((week, weekIndex) =>
             week.days.map((day) => (
               <rect
                 key={day.date}
                 x={weekIndex * CELL_STEP + BORDER_INSET}
-                y={MONTH_LABEL_HEIGHT + parseDate(day.date).getUTCDay() * CELL_STEP + BORDER_INSET}
+                y={parseDate(day.date).getUTCDay() * CELL_STEP + BORDER_INSET}
                 width={CELL_SIZE - BORDER_WIDTH}
                 height={CELL_SIZE - BORDER_WIDTH}
                 rx={CELL_RADIUS - BORDER_INSET}
@@ -114,10 +86,6 @@ const styles = stylex.create({
     display: "block",
     height: "auto",
     width: "100%",
-  },
-  monthLabel: {
-    fill: "var(--foreground-muted)",
-    fontSize: 8,
   },
   link: {
     display: "block",
