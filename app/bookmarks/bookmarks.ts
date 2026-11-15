@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "d8c1eb49-9fed-4f02-8396-0e50c696ad7a",
+    date: "2026-11-14",
+    title: "38% of Sampled arXiv Papers Read as AI-Written",
+    url: "https://unslop.run/blog/measuring-ai-writing-on-arxiv",
+  },
+  {
     id: "8ae44ca9-86b5-4d06-b997-70a90ac66317",
     date: "2026-11-13",
     title: "Vercel UI SDK",
