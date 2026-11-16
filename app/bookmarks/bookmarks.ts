@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "0dc036fe-6b52-4933-80dd-e91088d2f380",
+    date: "2026-11-16",
+    title: "worldcraft.gg",
+    url: "https://worldcraft.gg",
+  },
+  {
     id: "5bf1bdde-5ef3-49b5-ac96-e454b99adeb1",
     date: "2026-11-15",
     title: "Inspect Evaluation Framework",
