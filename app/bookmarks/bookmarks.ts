@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "1fbd6fbe-d5fb-4312-8396-75837b87c013",
+    date: "2026-11-15",
+    title: "Design Handwriting Font",
+    url: "https://ductus.sorenblank.com",
+  },
+  {
     id: "d8c1eb49-9fed-4f02-8396-0e50c696ad7a",
     date: "2026-11-14",
     title: "38% of Sampled arXiv Papers Read as AI-Written",
