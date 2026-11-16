@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "5bf1bdde-5ef3-49b5-ac96-e454b99adeb1",
+    date: "2026-11-15",
+    title: "Inspect Evaluation Framework",
+    url: "https://github.com/UKGovernmentBEIS/inspect_ai",
+  },
+  {
     id: "1fbd6fbe-d5fb-4312-8396-75837b87c013",
     date: "2026-11-15",
     title: "Design Handwriting Font",
