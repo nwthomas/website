@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "bbc328d3-44fa-452a-af1d-d790238949cf",
+    date: "2026-11-16",
+    title: "Desmos: Beautiful Free Math",
+    url: "https://www.desmos.com",
+  },
+  {
     id: "0dc036fe-6b52-4933-80dd-e91088d2f380",
     date: "2026-11-16",
     title: "worldcraft.gg",
