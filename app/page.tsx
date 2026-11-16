@@ -9,6 +9,7 @@ import { RowList, type RowListItem } from "@/app/components/RowList";
 import { SpotifyTopTracks } from "@/app/components/SpotifyTopTracks";
 import postsJson from "@/app/(writing)/posts.json";
 import { sharedStyles } from "@/app/styles";
+import { withNewTabHint } from "@/app/utils/a11y";
 
 // A failed fetch during regeneration keeps the last good page and retries on the next request;
 // one during the build renders without that section until the first regeneration after this interval.
@@ -59,7 +60,7 @@ export default async function Page() {
         ,{" "}
         <a
           href="https://github.com/nwthomas"
-          aria-label="Link to Nathan's GitHub"
+          aria-label={withNewTabHint("Link to Nathan's GitHub")}
           rel="noopener noreferrer"
           target="_blank"
         >

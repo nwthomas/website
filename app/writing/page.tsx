@@ -10,6 +10,7 @@ import { RssIcon } from "@/app/components/Icons/RssIcon";
 import { postToRowListItem } from "@/app/(writing)/utils/postToRowListItem";
 import postsJson from "@/app/(writing)/posts.json";
 import { sharedStyles } from "@/app/styles";
+import { withNewTabHint } from "@/app/utils/a11y";
 
 export const metadata: Metadata = {
   title: "Writing | Nathan Thomas",
@@ -60,7 +61,7 @@ export default async function Page() {
         you can follow and a{" "}
         <a
           href="https://nathanthomas.substack.com/"
-          aria-label="Link to Nathan's profile on Substack"
+          aria-label={withNewTabHint("Link to Nathan's profile on Substack")}
           rel="noopener noreferrer"
           target="_blank"
         >

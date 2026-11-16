@@ -9,7 +9,6 @@ export function getSlugs(): Slugs {
     .map((post) => ({
       slug: post.id,
     }));
-  console.log({ slugs });
 
   return slugs;
 }

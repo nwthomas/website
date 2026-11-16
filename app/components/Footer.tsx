@@ -4,6 +4,7 @@ import * as stylex from "@stylexjs/stylex";
 
 import { sharedStyles } from "@/app/styles";
 import { usePathname } from "next/navigation";
+import { withNewTabHint } from "@/app/utils/a11y";
 
 export function Footer() {
   const pathname = usePathname();
@@ -27,7 +28,7 @@ export function Footer() {
               Nathan Thomas (
               <a
                 href="https://x.com/nwthomas"
-                aria-label="Link to Nathan's profile on X"
+                aria-label={withNewTabHint("Link to Nathan's profile on X")}
                 rel="noopener noreferrer"
                 target="_blank"
                 {...stylex.props(styles.profileLink)}
@@ -40,7 +41,7 @@ export function Footer() {
           <li data-unstyled="true" {...stylex.props(styles.sourceItem)}>
             <a
               href="https://github.com/nwthomas/website"
-              aria-label="Link to the source repository on GitHub for this website"
+              aria-label={withNewTabHint("Link to the source repository on GitHub for this website")}
               rel="noopener noreferrer"
               target="_blank"
               {...stylex.props(styles.sourceLink)}

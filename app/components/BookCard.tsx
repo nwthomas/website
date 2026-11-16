@@ -1,5 +1,6 @@
 import Image from "next/image";
 import * as stylex from "@stylexjs/stylex";
+import { withNewTabHint } from "@/app/utils/a11y";
 
 type Props = {
   title: string;
@@ -18,7 +19,7 @@ export function BookCard({ title, author, cover, url, height, width, preload, un
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`${title} by ${author}`}
+      aria-label={withNewTabHint(`${title} by ${author}`)}
       {...stylex.props(styles.link)}
     >
       <div {...stylex.props(styles.card)}>

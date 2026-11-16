@@ -51,4 +51,15 @@ export const sharedStyles = stylex.create({
   textNoUnderline: {
     textDecorationLine: "none",
   },
+  visuallyHidden: {
+    margin: -1,
+    padding: 0,
+    borderWidth: 0,
+    overflow: "hidden",
+    clip: "rect(0 0 0 0)",
+    position: "absolute",
+    whiteSpace: "nowrap",
+    height: 1,
+    width: 1,
+  },
 });

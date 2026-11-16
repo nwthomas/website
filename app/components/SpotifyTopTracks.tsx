@@ -4,6 +4,7 @@ import { PHASE_PRODUCTION_BUILD } from "next/constants";
 import * as stylex from "@stylexjs/stylex";
 import { HorizontalScroller } from "@/app/components/HorizontalScroller";
 import { getHourlyTopTracks, type SpotifyTrack } from "@/app/utils/spotify";
+import { withNewTabHint } from "@/app/utils/a11y";
 
 // Enough album covers to fill the first screen of the row on wide displays; the rest load lazily as they scroll in
 const EAGER_IMAGE_COUNT = 8;
@@ -40,7 +41,7 @@ export async function SpotifyTopTracks() {
                 href={track.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`${track.track} by ${track.artists} on Spotify`}
+                aria-label={withNewTabHint(`${track.track} by ${track.artists} on Spotify`)}
                 {...stylex.props(styles.link)}
               >
                 {track.albumImageUrl ? (

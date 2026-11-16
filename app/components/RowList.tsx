@@ -3,6 +3,8 @@ import * as stylex from "@stylexjs/stylex";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { formatUTCTimestampToShortDateString } from "@/app/utils/dates";
+import { NEW_TAB_HINT, withNewTabHint } from "@/app/utils/a11y";
+import { sharedStyles } from "@/app/styles";
 
 export type RowListItem = {
   ariaLabel?: string;
@@ -44,13 +46,14 @@ export function RowList({ items, style }: Props) {
           <li data-unstyled="true" key={item.href}>
             {item.external ? (
               <a
-                aria-label={item.ariaLabel}
+                aria-label={item.ariaLabel ? withNewTabHint(item.ariaLabel) : undefined}
                 href={item.href}
                 rel="noopener noreferrer"
                 target="_blank"
                 {...stylex.props(styles.row)}
               >
                 {content}
+                {item.ariaLabel ? null : <span {...stylex.props(sharedStyles.visuallyHidden)}>{NEW_TAB_HINT}</span>}
               </a>
             ) : (
               <Link aria-label={item.ariaLabel} href={item.href} {...stylex.props(styles.row)}>

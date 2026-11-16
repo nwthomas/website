@@ -1,6 +1,9 @@
 import * as Sentry from "@sentry/nextjs";
 import { PHASE_PRODUCTION_BUILD } from "next/constants";
 import * as stylex from "@stylexjs/stylex";
+import { ContributionsTooltip } from "@/app/components/ContributionsTooltip";
+import { sharedStyles } from "@/app/styles";
+import { withNewTabHint } from "@/app/utils/a11y";
 import {
   GITHUB_PROFILE_URL,
   getHourlyContributions,
@@ -17,13 +20,29 @@ const DAYS_PER_WEEK = 7;
 const BORDER_WIDTH = 1;
 const BORDER_INSET = BORDER_WIDTH / 2;
 
+const KEYBOARD_HINT_ID = "github-contributions-keyboard-hint";
+
 function parseDate(date: string) {
   return new Date(`${date}T00:00:00Z`);
 }
 
-function formatDayTitle(day: ContributionDay) {
+const MONTH_FORMATTER = new Intl.DateTimeFormat("en-US", { month: "long", timeZone: "UTC" });
+const ORDINAL_RULES = new Intl.PluralRules("en-US", { type: "ordinal" });
+const ORDINAL_SUFFIXES: Record<Intl.LDMLPluralRule, string> = {
+  few: "rd",
+  many: "th",
+  one: "st",
+  other: "th",
+  two: "nd",
+  zero: "th",
+};
+
+function formatDayTooltip(day: ContributionDay) {
+  const date = parseDate(day.date);
+  const dayOfMonth = date.getUTCDate();
   const label = day.count === 1 ? "contribution" : "contributions";
-  return `${day.count === 0 ? "No" : day.count} ${label} on ${day.date}`;
+  const count = day.count === 0 ? "No" : day.count;
+  return `${count} ${label} on ${MONTH_FORMATTER.format(date)} ${dayOfMonth}${ORDINAL_SUFFIXES[ORDINAL_RULES.select(dayOfMonth)]}.`;
 }
 
 export async function GitHubContributions() {
@@ -48,32 +67,42 @@ export async function GitHubContributions() {
 
   return (
     <div {...stylex.props(styles.scroller)}>
-      <a
-        href={GITHUB_PROFILE_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Nathan's GitHub contributions over the past year"
-        {...stylex.props(styles.link)}
-      >
-        <svg aria-hidden="true" focusable="false" viewBox={`0 0 ${width} ${height}`} {...stylex.props(styles.graph)}>
-          {weeks.map((week, weekIndex) =>
-            week.days.map((day) => (
-              <rect
-                key={day.date}
-                x={weekIndex * CELL_STEP + BORDER_INSET}
-                y={parseDate(day.date).getUTCDay() * CELL_STEP + BORDER_INSET}
-                width={CELL_SIZE - BORDER_WIDTH}
-                height={CELL_SIZE - BORDER_WIDTH}
-                rx={CELL_RADIUS - BORDER_INSET}
-                strokeWidth={BORDER_WIDTH}
-                {...stylex.props(styles.cell, levelStyles[day.level])}
-              >
-                <title>{formatDayTitle(day)}</title>
-              </rect>
-            )),
-          )}
-        </svg>
-      </a>
+      <ContributionsTooltip style={styles.graphArea}>
+        <a
+          href={GITHUB_PROFILE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={withNewTabHint("Nathan's GitHub contributions over the past year")}
+          aria-describedby={KEYBOARD_HINT_ID}
+          {...stylex.props(styles.link)}
+        >
+          <svg aria-hidden="true" focusable="false" viewBox={`0 0 ${width} ${height}`} {...stylex.props(styles.graph)}>
+            {weeks.map((week, weekIndex) =>
+              week.days.map((day) => {
+                const dayOfWeek = parseDate(day.date).getUTCDay();
+                return (
+                  <rect
+                    key={day.date}
+                    x={weekIndex * CELL_STEP + BORDER_INSET}
+                    y={dayOfWeek * CELL_STEP + BORDER_INSET}
+                    width={CELL_SIZE - BORDER_WIDTH}
+                    height={CELL_SIZE - BORDER_WIDTH}
+                    rx={CELL_RADIUS - BORDER_INSET}
+                    strokeWidth={BORDER_WIDTH}
+                    data-day={dayOfWeek}
+                    data-tooltip={formatDayTooltip(day)}
+                    data-week={weekIndex}
+                    {...stylex.props(styles.cell, levelStyles[day.level])}
+                  />
+                );
+              }),
+            )}
+          </svg>
+        </a>
+        <span id={KEYBOARD_HINT_ID} {...stylex.props(sharedStyles.visuallyHidden)}>
+          Use the arrow keys to hear each day's contribution count.
+        </span>
+      </ContributionsTooltip>
     </div>
   );
 }
@@ -87,11 +116,17 @@ const styles = stylex.create({
     height: "auto",
     width: "100%",
   },
-  link: {
-    display: "block",
+  graphArea: {
     flexShrink: 0,
     minWidth: "42rem",
     width: "100%",
+  },
+  link: {
+    display: "block",
+    opacity: {
+      default: 1,
+      ":hover": 1,
+    },
   },
   scroller: {
     contain: "inline-size",

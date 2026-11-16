@@ -34,7 +34,7 @@ function ImageOverlay() {
   };
 
   return (
-    <FocusTrap {...focusTrapDefaultProps}>
+    <FocusTrap {...focusTrapDefaultProps} focusTrapOptions={{ onDeactivate: () => dispatch(hideImageOverlay()) }}>
       <div onClick={handleCloseButtonClick} {...stylex.props(styles.overlay)}>
         <div {...stylex.props(styles.inner)}>
           <button

@@ -66,21 +66,17 @@ export function Navbar() {
 
   return (
     <header {...stylex.props(styles.header, sharedStyles.pageSection)}>
-      <ul {...stylex.props(styles.navList)}>
-        <li data-unstyled="true">
-          <div {...stylex.props(styles.titleStack)}>
-            {titleText}
-            {!isHomePage ? subtitleText : null}
-          </div>
-        </li>
+      <div {...stylex.props(styles.bar)}>
+        <div {...stylex.props(styles.titleStack)}>
+          {titleText}
+          {!isHomePage ? subtitleText : null}
+        </div>
         {showThemeSwitch ? (
-          <li data-unstyled="true">
-            <div {...stylex.props(styles.controls)}>
-              <ThemeSwitch />
-            </div>
-          </li>
+          <div {...stylex.props(styles.controls)}>
+            <ThemeSwitch />
+          </div>
         ) : null}
-      </ul>
+      </div>
     </header>
   );
 }
@@ -101,7 +97,7 @@ const styles = stylex.create({
       [stylex.when.ancestor(":has([data-hide-site-chrome])")]: "none",
     },
   },
-  navList: {
+  bar: {
     display: "flex",
     justifyContent: "space-between",
     width: "100%",
