@@ -1,22 +1,28 @@
 {
   "posts": [
     {
+      "id": "prerequisites",
+      "title": "Prerequisites",
+      "description": "If you're confused, it's time to go practice the fundamentals",
+      "date": "2026-11-16"
+    },
+    {
       "id": "agent-md",
       "title": "AGENTS.md",
       "description": "Boilerplate for AGENTS.md",
       "date": "2026-10-26"
     },
     {
-      "id": "imagination",
-      "title": "Imagination",
-      "description": "Imagination is what makes us great. Don't lose it.",
-      "date": "2026-02-19"
-    },
-    {
       "id": "local-models",
       "title": "Local Models",
       "description": "Learn how to run your own AI models locally",
       "date": "2026-01-16"
+    },
+    {
+      "id": "imagination",
+      "title": "Imagination",
+      "description": "Imagination is what makes us great. Don't lose it.",
+      "date": "2026-02-19"
     },
     {
       "id": "simple-is-hard-enough",
