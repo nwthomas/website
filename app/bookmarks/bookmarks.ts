@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "f1aca488-1b33-48f5-aa42-c6e2aa926eda",
+    date: "2026-11-17",
+    title: "Introducing FrontierHarness Eval v1.1",
+    url: "https://runta.com/blog/introducing-frontierharness-eval-v1-1",
+  },
+  {
     id: "630bee31-8924-40ac-b4f4-d04a9988a172",
     date: "2026-11-17",
     title: "OpenAI: Introducing GPT-6.2 Astra and Sol",
