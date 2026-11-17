@@ -95,8 +95,6 @@ const styles = stylex.create({
   footerWrap: {
     display: "flex",
     justifyContent: "center",
-    paddingLeft: "1.25rem",
-    paddingRight: "1.25rem",
     paddingTop: "2.5rem",
     width: "100%",
   },

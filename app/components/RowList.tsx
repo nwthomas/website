@@ -79,8 +79,14 @@ const styles = stylex.create({
     marginBottom: "0.125rem",
   },
   list: {
-    marginLeft: "-0.75rem",
-    marginRight: "-0.75rem",
+    marginLeft: {
+      default: "-1.25rem",
+      "@media (min-width: 640px)": "-0.75rem",
+    },
+    marginRight: {
+      default: "-1.25rem",
+      "@media (min-width: 640px)": "-0.75rem",
+    },
   },
   meta: {
     gap: "0.125rem",
@@ -109,8 +115,14 @@ const styles = stylex.create({
     textDecorationLine: "none",
     transitionProperty: "background-color",
     paddingBottom: "0.75rem",
-    paddingLeft: "0.75rem",
-    paddingRight: "0.75rem",
+    paddingLeft: {
+      default: "1.25rem",
+      "@media (min-width: 640px)": "0.75rem",
+    },
+    paddingRight: {
+      default: "1.25rem",
+      "@media (min-width: 640px)": "0.75rem",
+    },
     paddingTop: "0.75rem",
   },
   text: {
