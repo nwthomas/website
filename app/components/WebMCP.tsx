@@ -34,7 +34,9 @@ export function WebMCP() {
       Sentry.captureException(error);
     });
 
-    return () => controller.abort();
+    return () => {
+      controller.abort();
+    };
   }, [router]);
 
   return null;

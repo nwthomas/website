@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "630bee31-8924-40ac-b4f4-d04a9988a172",
+    date: "2026-11-17",
+    title: "OpenAI: Introducing GPT-6.2 Astra and Sol",
+    url: "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+  },
+  {
     id: "bbc328d3-44fa-452a-af1d-d790238949cf",
     date: "2026-11-16",
     title: "Desmos: Beautiful Free Math",
