@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "9ad42def-14e1-40e0-b8a3-e91f83003495",
+    date: "2026-11-18",
+    title: "Paul Graham: The Right Kind of Stubborn",
+    url: "https://paulgraham.com/persistence.html",
+  },
+  {
     id: "f1aca488-1b33-48f5-aa42-c6e2aa926eda",
     date: "2026-11-17",
     title: "Introducing FrontierHarness Eval v1.1",
