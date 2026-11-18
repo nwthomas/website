@@ -1,6 +1,6 @@
 import * as Sentry from "@sentry/nextjs";
-
 import * as stylex from "@stylexjs/stylex";
+
 import { ImageOverlayContainer } from "@/app/components/ImageOverlay";
 import { Metadata } from "next";
 import { RedisIncrement } from "@/app/components/RedisIncrement";
@@ -56,10 +56,6 @@ export default async function Page({ params }: Props) {
   }
 
   return (
-    // Negative margin is here to compensate for the final blog item element
-    // with padding bottom. MDX gives no API for disovery of last index. This
-    // could move to mapping all items and passing an index on props, but
-    // that's overkill for this problem.
     <article {...stylex.props(styles.article)}>
       <Post />
       <ImageOverlayContainer />
@@ -73,6 +69,10 @@ const styles = stylex.create({
     alignItems: "center",
     display: "flex",
     flexDirection: "column",
+    // Negative margin is here to compensate for the final blog item element
+    // with padding bottom. MDX gives no API for disovery of last index. This
+    // could move to mapping all items and passing an index on props, but
+    // that's overkill for this problem.
     marginBottom: "-1.25rem",
     width: "100%",
   },

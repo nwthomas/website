@@ -12,6 +12,7 @@ export function GET() {
     <subtitle>Bookmarks</subtitle>
     <link href="https://nathanthomas.dev/bookmarks/atom" rel="self"/>
     <link href="https://nathanthomas.dev/"/>
+    <icon>https://nathanthomas.dev/icon.png</icon>
     <updated>${formatUTCTimestampToDateString(BOOKMARKS[0].date)}</updated>
     <id>https://nathanthomas.dev/</id>
     <author>

@@ -14,6 +14,7 @@ export function GET() {
     <subtitle>Writing</subtitle>
     <link href="https://nathanthomas.dev/atom" rel="self"/>
     <link href="https://nathanthomas.dev/"/>
+    <icon>https://nathanthomas.dev/icon.png</icon>
     <updated>${formatUTCTimestampToDateString(posts[0].date)}</updated>
     <id>https://nathanthomas.dev/</id>
     <author>

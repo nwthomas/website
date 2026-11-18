@@ -3,6 +3,7 @@ import * as stylex from "@stylexjs/stylex";
 import Link from "next/link";
 import { Post } from "@/app/(writing)/utils/types";
 import { postToRowListItem } from "@/app/(writing)/utils/postToRowListItem";
+import { ExternalLinkIcon } from "@/app/components/Icons/ExternalLinkIcon";
 import { GitHubContributions } from "@/app/components/GitHubContributions";
 import { GitHubIcon } from "@/app/components/Icons/GitHubIcon";
 import { RowList, type RowListItem } from "@/app/components/RowList";
@@ -16,6 +17,14 @@ import { withNewTabHint } from "@/app/utils/a11y";
 export const revalidate = 3600;
 
 const PROJECTS: RowListItem[] = [
+  {
+    ariaLabel: "Link to Nathan's AI Research Roadmap",
+    description: "Resources for humans who want to train models",
+    external: true,
+    icon: <ExternalLinkIcon />,
+    href: "https://roadmap.nathanthomas.dev",
+    title: "AI Research Roadmap",
+  },
   {
     ariaLabel: "Link to the Nathan's gitops repository on GitHub",
     description: "Self-hosted AI models using Kubernetes with vLLM",
