@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "d3842a04-2146-4817-afa7-accc5f862850",
+    date: "2026-11-19",
+    title: "Stop!",
+    url: "https://geoffralston.substack.com/p/stop",
+  },
+  {
     id: "9ad42def-14e1-40e0-b8a3-e91f83003495",
     date: "2026-11-18",
     title: "Paul Graham: The Right Kind of Stubborn",

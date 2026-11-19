@@ -55,7 +55,7 @@ export default async function Page() {
       <p {...stylex.props(sharedStyles.textSecondary)}>
         Below is a curated collection of my writing. I also have an{" "}
         <Link aria-label="Link to Nathan's Atom RSS feed" href="/atom" {...stylex.props(sharedStyles.rssFeedLink)}>
-          RSS feed{"\u00a0"}
+          RSS feed
           <RssIcon />
         </Link>{" "}
         you can follow and a{" "}

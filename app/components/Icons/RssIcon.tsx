@@ -23,6 +23,8 @@ const styles = stylex.create({
     display: "inline-block",
     verticalAlign: "-0.1em",
     height: "0.9em",
+    // Spaces the icon from preceding link text without an underlined space character
+    marginLeft: "0.25em",
     width: "0.9em",
   },
 });

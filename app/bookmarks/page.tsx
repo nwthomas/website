@@ -33,7 +33,7 @@ export default function Page() {
           href="/bookmarks/atom"
           {...stylex.props(sharedStyles.rssFeedLink)}
         >
-          RSS feed{"\u00a0"}
+          RSS feed
           <RssIcon />
         </Link>{" "}
         you can follow.
