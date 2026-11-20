@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "fd9cf53d-b574-44d6-85fd-aa21ac197aa8",
+    date: "2026-11-20",
+    title: "Notion: A New Shape for Work",
+    url: "https://www.notion.com/a-new-shape-for-work",
+  },
+  {
     id: "c13aa9fd-a55d-4f90-8649-16594ae58f62",
     date: "2026-11-20",
     title: "Riemann Hypothesis Solved",
