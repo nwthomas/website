@@ -13,6 +13,13 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "c13aa9fd-a55d-4f90-8649-16594ae58f62",
+    date: "2026-11-20",
+    title: "Riemann Hypothesis Solved",
+    url: "https://alpo.ge/remark.pdf",
+    footnotes: ["https://math216.wordpress.com/2026/11/20/hurried-announcement-alessandro-masullo-grh"],
+  },
+  {
     id: "d3842a04-2146-4817-afa7-accc5f862850",
     date: "2026-11-19",
     title: "Stop!",
