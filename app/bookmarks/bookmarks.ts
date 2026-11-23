@@ -13,6 +13,18 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "c8007eab-502f-4cd8-81f3-e7adb8f893b0",
+    date: "2026-11-23",
+    title: "OpenBot",
+    url: "https://openbot.run",
+  },
+  {
+    id: "dff125de-a5a9-4260-bcae-bbc7f796694f",
+    date: "2026-11-23",
+    title: "Free ASCII Art Generator",
+    url: "https://devault.design/ascii-art-generator",
+  },
+  {
     id: "fd9cf53d-b574-44d6-85fd-aa21ac197aa8",
     date: "2026-11-20",
     title: "Notion: A New Shape for Work",
