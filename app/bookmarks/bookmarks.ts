@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "98ff3799-1fa5-4c41-8242-182de39d527e",
+    date: "2026-11-23",
+    title: "OpenAI: Introducing Shirudo",
+    url: "https://openai.com/index/introducing-shirudo",
+  },
+  {
     id: "c8007eab-502f-4cd8-81f3-e7adb8f893b0",
     date: "2026-11-23",
     title: "OpenBot",
