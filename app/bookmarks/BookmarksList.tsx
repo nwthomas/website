@@ -75,8 +75,11 @@ const styles = stylex.create({
     overflowWrap: "break-word",
     textDecorationLine: "none",
   },
-  // A column flex container so the rows' negative vertical margins add up instead of collapsing
+  // A column flex container so the rows' negative vertical margins add up instead of collapsing.
+  // Off-screen rows remember their last rendered width, so inline-size containment keeps that stale
+  // width from propping the page open (and eating its side margins) after the viewport shrinks.
   list: {
+    contain: "inline-size",
     display: "flex",
     flexDirection: "column",
     marginBottom: "-0.125rem",
