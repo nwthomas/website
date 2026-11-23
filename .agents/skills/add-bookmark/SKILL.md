@@ -27,8 +27,11 @@ Use when the user asks to save, add, create, or record a bookmark/link in app/bo
 5. Normalize the URL by always removing any trailing slash (e.g. `https://example.com/` becomes `https://example.com`).
 6. Edit `app/bookmarks/bookmarks.ts`.
 7. Insert the new bookmark into `BOOKMARKS` in newest-first date order.
-8. Run `make lint` after editing.
-9. Once finished, always print the added bookmark object in a fenced code block in chat so the user can easily validate it.
+8. Run `make favicons` to download the new bookmark's favicon and regenerate `app/bookmarks/favicons.ts` (hostnames it cannot find an icon for show a link icon instead).
+   - Include the new `public/images/bookmarks/favicons/<hostname>.webp` file and the updated `app/bookmarks/favicons.ts` with the bookmark change.
+   - If the script lists the new bookmark's hostname under "No favicon found", tell the user it will show the link icon.
+9. Run `make lint` after editing.
+10. Once finished, always print the added bookmark object in a fenced code block in chat so the user can easily validate it.
 
 ## Bookmark Shape
 

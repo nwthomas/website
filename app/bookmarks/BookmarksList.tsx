@@ -1,5 +1,37 @@
 import * as stylex from "@stylexjs/stylex";
+import Image from "next/image";
 import { Bookmarks, Bookmark } from "./bookmarks";
+import { FAVICON_HOSTNAMES } from "./favicons";
+import { LinkIcon } from "@/app/components/Icons";
+
+// Favicons are downloaded and shrunk ahead of time by scripts/fetch-bookmark-favicons.ts
+function getFaviconSrc(url: string): string | null {
+  const { hostname } = new URL(url);
+  return FAVICON_HOSTNAMES.has(hostname) ? `/images/bookmarks/favicons/${hostname}.webp` : null;
+}
+
+function BookmarkIcon({ url }: { url: string }) {
+  const src = getFaviconSrc(url);
+  return (
+    <span {...stylex.props(styles.icon)}>
+      {src ? (
+        // Already a tiny WebP, so the image optimizer would add nothing
+        <Image
+          alt=""
+          aria-hidden="true"
+          height={32}
+          loading="lazy"
+          src={src}
+          unoptimized
+          width={32}
+          {...stylex.props(styles.favicon)}
+        />
+      ) : (
+        <LinkIcon color="currentColor" isAriaHidden style={{ height: "1em", width: "1em" }} />
+      )}
+    </span>
+  );
+}
 
 type BookmarkRowProps = {
   bookmark: Bookmark;
@@ -10,6 +42,7 @@ function BookmarkRow({ bookmark }: BookmarkRowProps) {
     <div role="listitem" {...stylex.props(styles.item)}>
       <a aria-label={`Link to ${bookmark.title}`} href={bookmark.url} {...stylex.props(styles.link)}>
         <span {...stylex.props(styles.date)}>{bookmark.date}</span>
+        <BookmarkIcon url={bookmark.url} />
         <span {...stylex.props(styles.title)}>{bookmark.title}</span>
       </a>
       {bookmark.footnotes && bookmark.footnotes.length > 0
@@ -47,6 +80,11 @@ const styles = stylex.create({
     textDecorationLine: "none",
     whiteSpace: "nowrap",
   },
+  favicon: {
+    display: "block",
+    height: "1em",
+    width: "1em",
+  },
   footnote: {
     color: "var(--foreground-muted)",
     cursor: "pointer",
@@ -54,6 +92,14 @@ const styles = stylex.create({
     fontSize: "0.75rem",
     textDecorationLine: "none",
     marginLeft: "0.25rem",
+  },
+  // Sized to one line of text so the icon stays beside the first line of a wrapped title
+  icon: {
+    alignItems: "center",
+    display: "flex",
+    flexShrink: 0,
+    height: "1.5em",
+    marginLeft: "1.25rem",
   },
   // Every row stays in the DOM so find-in-page works, but off-screen rows skip layout and paint.
   // The intrinsic size is a single-line row estimate until the browser remembers the real height.
@@ -90,6 +136,6 @@ const styles = stylex.create({
     textDecorationColor: "var(--foreground-muted)",
     textDecorationLine: "underline",
     textUnderlineOffset: "3px",
-    marginLeft: "1.25rem",
+    marginLeft: "0.5rem",
   },
 });

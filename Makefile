@@ -1,4 +1,4 @@
-.PHONY: install i dev lint postbuild start export format test
+.PHONY: install i dev lint postbuild start export favicons format test
 
 build:
 	bun run build
@@ -8,6 +8,9 @@ dev:
 
 export:
 	next export
+
+favicons:
+	bun run favicons
 
 format:
 	bun run format
