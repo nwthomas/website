@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "bbbb1d3e-58b3-4fb2-b8dd-eecbfd5884c5",
+    date: "2026-11-24",
+    title: "Vercel X",
+    url: "https://vercel.com/x",
+  },
+  {
     id: "98ff3799-1fa5-4c41-8242-182de39d527e",
     date: "2026-11-23",
     title: "OpenAI: Introducing Shirudo",
