@@ -98,6 +98,8 @@ const styles = stylex.create({
     },
   },
   bar: {
+    // Top-align so the theme switch lines up with the title rather than the title + subtitle stack
+    alignItems: "flex-start",
     display: "flex",
     justifyContent: "space-between",
     width: "100%",
