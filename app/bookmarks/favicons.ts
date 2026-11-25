@@ -37,6 +37,7 @@ export const FAVICON_HOSTNAMES: ReadonlySet<string> = new Set([
   "blog.x.com",
   "brandonstanton.com",
   "buf.build",
+  "build-a-cult.com",
   "bun.com",
   "cacm.acm.org",
   "calv.info",

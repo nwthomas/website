@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "f998519c-6e24-408d-ad4b-9029dd011b94",
+    date: "2026-11-25",
+    title: "Anthropic: Migrating Our Messages API to Rust",
+    url: "https://www.anthropic.com/research/migrating-api-to-rust",
+  },
+  {
     id: "bbbb1d3e-58b3-4fb2-b8dd-eecbfd5884c5",
     date: "2026-11-24",
     title: "Vercel X",
