@@ -18,16 +18,16 @@ export const revalidate = 3600;
 
 const PROJECTS: RowListItem[] = [
   {
-    ariaLabel: "Link to Nathan's AI Research Roadmap",
-    description: "Resources for humans who want to train models",
+    ariaLabel: "Link to Nathan's AI Training Roadmap",
+    description: "Resources for humans to train models",
     external: true,
     icon: <ExternalLinkIcon />,
     href: "https://roadmap.nathanthomas.dev",
-    title: "AI Research Roadmap",
+    title: "AI Training Roadmap",
   },
   {
     ariaLabel: "Link to the Nathan's gitops repository on GitHub",
-    description: "Self-hosted AI models using Kubernetes with vLLM",
+    description: "Self-hosted AI models on Kubernetes with vLLM",
     external: true,
     icon: <GitHubIcon />,
     href: "https://github.com/nwthomas/gitops",
@@ -35,7 +35,7 @@ const PROJECTS: RowListItem[] = [
   },
   {
     ariaLabel: "Link to Nathan's Oura Ring MPC Server repository on GitHub",
-    description: "Monitor personal health data from Oura Ring",
+    description: "Monitor health data from Oura Ring",
     external: true,
     icon: <GitHubIcon />,
     href: "https://github.com/nwthomas/oura-ring-mcp-server",
@@ -43,7 +43,7 @@ const PROJECTS: RowListItem[] = [
   },
   {
     ariaLabel: "Link to Nathan's Watcher in the Water repository on GitHub",
-    description: "Lightweight monitor for public IP changes due to ISP DHCP",
+    description: "Monitor for home IP changes from ISP DHCP",
     external: true,
     icon: <GitHubIcon />,
     href: "https://github.com/nwthomas/watcher-in-the-water",
