@@ -168,6 +168,7 @@ export const FAVICON_HOSTNAMES: ReadonlySet<string> = new Set([
   "thinkingmachines.ai",
   "tim.blog",
   "tutorial.math.lamar.edu",
+  "ui.effect.website",
   "unslop.run",
   "unsloth.ai",
   "uphack.io",

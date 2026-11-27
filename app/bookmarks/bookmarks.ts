@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "47db4f0b-4c73-478a-9c8a-b7fe454230a3",
+    date: "2026-11-26",
+    title: "Effect UI",
+    url: "https://ui.effect.website",
+  },
+  {
     id: "f998519c-6e24-408d-ad4b-9029dd011b94",
     date: "2026-11-25",
     title: "Anthropic: Migrating Our Messages API to Rust",
