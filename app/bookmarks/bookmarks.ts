@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "bf2d0609-009c-4a9f-a2a9-81a51dc01aa0",
+    date: "2026-11-27",
+    title: "AI Factory Fundamentals",
+    url: "https://www.youtube.com/watch?v=tnokpn0xs8c",
+  },
+  {
     id: "47db4f0b-4c73-478a-9c8a-b7fe454230a3",
     date: "2026-11-26",
     title: "Effect UI",
