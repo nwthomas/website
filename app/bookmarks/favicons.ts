@@ -194,6 +194,7 @@ export const FAVICON_HOSTNAMES: ReadonlySet<string> = new Set([
   "www.figma.com",
   "www.highagency.com",
   "www.jasonscheirer.com",
+  "www.julian.com",
   "www.kimi.com",
   "www.langchain.com",
   "www.mux.com",

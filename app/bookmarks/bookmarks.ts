@@ -13,6 +13,12 @@ export type Bookmarks = Array<Bookmark>;
 
 export const BOOKMARKS: Bookmarks = [
   {
+    id: "d463a864-ceba-4924-8ebc-93bee707a7ad",
+    date: "2026-11-27",
+    title: "Angel Investing",
+    url: "https://www.julian.com/guide/angel/intro",
+  },
+  {
     id: "bf2d0609-009c-4a9f-a2a9-81a51dc01aa0",
     date: "2026-11-27",
     title: "AI Factory Fundamentals",
